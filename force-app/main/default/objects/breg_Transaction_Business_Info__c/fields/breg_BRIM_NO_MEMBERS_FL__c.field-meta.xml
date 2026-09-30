@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_BRIM_NO_MEMBERS_FL__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Aalta BREG-2269</description>
+    <label>No Members Flag</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingFeeCRDHI__c</fullName>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <label>Filing Fee CRD/HI?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Paid to CRD</fullName>
+                <default>false</default>
+                <label>Paid to CRD</label>
+            </value>
+            <value>
+                <fullName>Paid to Hawaii</fullName>
+                <default>false</default>
+                <label>Paid to Hawaii</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

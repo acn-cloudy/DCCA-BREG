@@ -1,0 +1,88 @@
+<template>
+    <lightning-card>
+        <div class="slds-text-heading_large">Congratulations: You're Almost Done!</div>
+        <div class="slds-m-bottom_medium">
+            <p>Bulk data download is not available at this time. This service will be offered at a later date.</p>
+            <p>For questions, please contact the Business Registration Division at 1-844-808-3222 or HBESupport@dcca.hawaii.gov.</p>
+            <!-- BREG-4909 -->
+            <!-- <b>Attention: Cost savings!</b> 
+            <p>For a monthly flat rate of $1,000, get a weekly download of the entire DCCA BREG database:</p>
+            <ul>
+                <li>List includes data about all businesses registered in the State of Hawaii. Data cannot be refined.</li>
+                <li>Download is obtainable via a FTP (File Transfer Protocol).</li>
+                <li>eHawaii.gov Subscriber Account is required.</li>
+                <li>Must sign up for a minimum of 3 months.</li>
+                <li>Notice of termination must be provided at least 30 days in advance.</li>
+                <li>Contact Business Registration Division at 1-844-808-3222 or HBESupport@dcca.hawaii.gov for more information.</li>
+            </ul> -->
+        </div>
+
+        <div class="slds-grid slds-gutters slds-p-around_medium slds-wrap counter-wrapper">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-text-align_center">
+                <div class="custom-tile">
+                    <lightning-card>
+                        <div class="slds-p-horizontal_medium slds-text-heading_large">
+                            <h2>{recordsFound}</h2>
+                        </div>
+                        <div class="slds-p-horizontal_medium slds-p-vertical_small">Records Found</div>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-text-align_center">
+                <div class="custom-tile">
+                    <lightning-card>
+                        <div class="slds-text-heading_large">
+                            <h2><lightning-formatted-number value={pricePerRecord} format-style="currency" currency-code="USD"></lightning-formatted-number></h2>
+                        </div>
+                        <div class="slds-p-horizontal_medium slds-p-vertical_small">Price Per Record</div>
+                    </lightning-card>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 slds-text-align_center">
+                <div class="custom-tile">
+                    <lightning-card>
+                        <div class="slds-p-horizontal_medium slds-text-heading_large">
+                            <h2><lightning-formatted-number value={total} format-style="currency" currency-code="USD"></lightning-formatted-number></h2>
+                        </div>
+                        <div class="slds-p-horizontal_medium slds-p-vertical_small">Total</div>
+                    </lightning-card>
+                </div>
+            </div>
+        </div>
+        <div class="slds-text-heading_medium">Confirm Your List Criteria</div>
+        <p>You choose:</p>
+        <div class="slds-p-around_medium slds-scrollable_x">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col">Entity Types <lightning-button variant="base" label="Edit" title="Edit" onclick={handleEditEntityTypesClick} class="slds-m-left_x-small"></lightning-button></a></th>
+                        <th scope="col">Refinement <lightning-button variant="base" label="Edit" title="Edit" onclick={handleEditRefinementClick} class="slds-m-left_x-small"></lightning-button></th>
+                        <th scope="col">Contact info <lightning-button variant="base" label="Edit" title="Edit" onclick={handleEditContactInfoClick} class="slds-m-left_x-small"></lightning-button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Selected Types:<div class="text-box">{recordTypes}</div></td>
+                        <td> <div class="text-box">Zip Codes:{zipCodes}</div></td>
+                        <td>Name/Company:{nameOrCompany}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Start Date:{startDate}</td>
+                        <td>Email:{email}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>End Date:{endDate}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Status:{status}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,46 @@
+.slds-align-middle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container {
+    position: relative;
+}
+
+.checkbox {
+    margin-bottom: 0;
+}
+
+td.slds-size_1-of-4 {
+    text-align: end;
+}
+
+td:not(.slds-size_1-of-4) {
+    padding-left: 12px;
+}
+
+.service-provider-styles {
+    position: relative;
+    top: 24px;
+}
+
+.mobile-as-primary-checkbox {
+    margin-bottom: 0;
+}
+
+.terms-conditions-checkbox-label {
+    position: absolute;
+    top: 1.8vh;
+    left: 3.5vw;
+}
+
+.terms-conditions-checkbox {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+  .dxp-text-heading-large {
+    font-size: 24px;
+  }
+}

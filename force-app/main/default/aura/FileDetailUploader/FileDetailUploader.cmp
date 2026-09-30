@@ -1,0 +1,30 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="showSpinner" type="Boolean" default="true"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner/>
+    </aura:if>
+    <lightning:recordEditForm
+            onload="{!c.handleLoad}"
+            onsubmit="{!c.handleSubmit}"
+            onsuccess="{!c.handleSuccess}"
+            onerror="{!c.handleError}"
+            recordTypeId="{!v.recordTypeId}"
+            objectApiName="FileDetails__c">
+        <!-- the messages component is for error messages -->
+        <lightning:messages/>
+
+        <lightning:inputField fieldName="Category__c"/>
+        <lightning:inputField fieldName="Type__c"/>
+        <lightning:inputField fieldName="Description__c"/>
+        <lightning:inputField fieldName="DateReceived__c"/>
+
+        <div class="slds-m-top_medium">
+            <lightning:button variant="brand" type="submit" name="save" label="Next"/>
+        </div>
+    </lightning:recordEditForm>
+</aura:component>

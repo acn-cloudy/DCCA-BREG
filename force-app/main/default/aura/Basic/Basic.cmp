@@ -1,0 +1,37 @@
+<aura:component extensible="true" access="global">
+    <aura:attribute name="customMessage" type="string"  />
+    <aura:attribute name="notificationMessage" type="string"  default="test" />
+    <aura:attribute name="notificationTitle" type="string"  default="Error" />
+    <aura:attribute name="notificationType" type="string"  default="error" />
+    <aura:attribute name="showNotificationMessage" type="boolean" default="false"  />
+    <aura:attribute name="isInSalesforceClassfic" type="boolean" default="false"  />
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:if isTrue="{!v.showNotificationMessage}">
+
+        <div class="{!v.isInSalesforceClassfic ? 'toastContainer slds-notify_container' : 'withTop toastContainer slds-notify_container'}" data-aura-rendered-by="1374:0" >
+            <div class="{!v.notificationType == 'success' ? 'slds-theme--success slds-notify--toast slds-notify slds-notify--toast forceToastMessage' : 'slds-theme--error slds-notify--toast slds-notify slds-notify--toast forceToastMessage'}" data-aura-class="forceToastMessage" data-aura-rendered-by="1377:0" data-key="error" role="alert">
+                <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+                <lightning:icon iconName="{!v.notificationType == 'success' ? 'utility:success': 'utility:error'}" alternativeText="Approved" variant="inverse" size="small" />
+                </span>
+                <div class="toastContent slds-notify__content" data-aura-rendered-by="1380:0">
+                    <div class="slds-align-middle slds-hyphenate" data-aura-rendered-by="1381:0">
+                        <div class="toastTitle slds-text-heading--small" data-aura-rendered-by="1383:0">
+                            {!v.notificationTitle}
+                        </div>
+                        <span class="toastMessage forceActionsText" data-aura-class="forceActionsText" data-aura-rendered-by="1389:0">
+                            {!v.notificationMessage}
+                        </span>
+                    </div>
+                </div>
+                <button class="slds-button toastClose slds-notify__close slds-button--icon-inverse slds-button_icon-bare" onclick="{!c.hideMessage}" data-aura-rendered-by="1396:0" title="Close" type="button">
+                    <lightning:icon iconName="utility:close" alternativeText="Approved" variant="inverse" size="small" />
+                    <span class="slds-assistive-text" data-aura-rendered-by="1399:0">
+                        Close
+                    </span>
+                </button>
+            </div>
+        </div>
+    </aura:if>
+    <!--render facet: 446:0;p-->
+	{!v.body}
+</aura:component>

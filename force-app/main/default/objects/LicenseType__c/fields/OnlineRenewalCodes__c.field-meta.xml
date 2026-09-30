@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnlineRenewalCodes__c</fullName>
+    <description>PacPoint-KN082319-Created for PVL Phase 1</description>
+    <inlineHelpText>Online Renewal Codes, this determines what Licensees can and cannot do online.</inlineHelpText>
+    <label>Online Renewal Codes</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B - Business Address Change</fullName>
+                <default>false</default>
+                <label>B - Business Address Change</label>
+            </value>
+            <value>
+                <fullName>M - Mailing Address Change</fullName>
+                <default>false</default>
+                <label>M - Mailing Address Change</label>
+            </value>
+            <value>
+                <fullName>R - Residence Address Change</fullName>
+                <default>false</default>
+                <label>R - Residence Address Change</label>
+            </value>
+            <value>
+                <fullName>I - Current Insurance Required</fullName>
+                <default>false</default>
+                <label>I - Current Insurance Required</label>
+            </value>
+            <value>
+                <fullName>L - Late Renewal</fullName>
+                <default>false</default>
+                <label>L - Late Renewal</label>
+            </value>
+            <value>
+                <fullName>L012 - Late Renewal / 12 Months to Restore</fullName>
+                <default>false</default>
+                <label>L012 - Late Renewal / 12 Months to Restore</label>
+            </value>
+            <value>
+                <fullName>L021 - Late Renewal / 21 Months to Restore</fullName>
+                <default>false</default>
+                <label>L021 - Late Renewal / 21 Months to Restore</label>
+            </value>
+            <value>
+                <fullName>O - Ontime Renewal</fullName>
+                <default>false</default>
+                <label>O - Ontime Renewal</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AbleToInactivate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint KN081419 - Created for PVL</description>
+    <inlineHelpText>Is this License Type able to hold an Inactive Status?</inlineHelpText>
+    <label>Able To Inactivate?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

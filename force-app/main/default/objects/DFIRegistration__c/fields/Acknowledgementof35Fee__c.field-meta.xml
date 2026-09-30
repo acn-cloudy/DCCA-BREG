@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Acknowledgementof35Fee__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV021120 - Created for DFI phase 1.</description>
+    <inlineHelpText>I acknowledge that there is a $35 fee that must be paid upon submission of this application and it is all inclusive of the event with lunch.</inlineHelpText>
+    <label>Acknowledgement of $35 Fee</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

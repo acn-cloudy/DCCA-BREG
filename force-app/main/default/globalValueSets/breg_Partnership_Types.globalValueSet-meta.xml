@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Domestic Limited Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Limited Liability Limited Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign General Partnership</fullName>
+        <default>false</default>
+        <label>Foreign General Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Partnership</fullName>
+        <default>false</default>
+        <label>Foreign Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Liability Limited Partnership</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Limited Partnership</label>
+    </customValue>
+    <masterLabel>Partnership Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

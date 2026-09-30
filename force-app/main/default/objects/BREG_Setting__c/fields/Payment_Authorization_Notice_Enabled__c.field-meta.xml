@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Authorization_Notice_Enabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, the Payment Authorization and Reminder notice is displayed on the BREG portal cart and payment pages.</description>
+    <inlineHelpText>Show the Payment Authorization and Reminder notice on the portal cart and payment pages.</inlineHelpText>
+    <label>Payment Authorization Notice Enabled</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

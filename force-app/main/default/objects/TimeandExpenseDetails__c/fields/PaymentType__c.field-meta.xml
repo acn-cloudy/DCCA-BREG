@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PaymentType__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>Payment Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>3702 - Postage</fullName>
+                <default>false</default>
+                <label>3702 - Postage</label>
+            </value>
+            <value>
+                <fullName>4009 - Publication (service of pleading) – Bid list not available</fullName>
+                <default>false</default>
+                <label>4009 - Publication (service of pleading) – Bid list not available</label>
+            </value>
+            <value>
+                <fullName>4089 - Publication (service of pleading) – Bid list available</fullName>
+                <default>false</default>
+                <label>4089 - Publication (service of pleading) – Bid list available</label>
+            </value>
+            <value>
+                <fullName>4101 - Mileage (staff only)</fullName>
+                <default>false</default>
+                <label>4101 - Mileage (staff only)</label>
+            </value>
+            <value>
+                <fullName>4104 - Parking (staff only)</fullName>
+                <default>false</default>
+                <label>4104 - Parking (staff only)</label>
+            </value>
+            <value>
+                <fullName>4201 - Airfare (witness appearance and/or staff, intra-state)</fullName>
+                <default>false</default>
+                <label>4201 - Airfare (witness appearance and/or staff, intra-state)</label>
+            </value>
+            <value>
+                <fullName>4201 - Taxi (witness appearance and/or staff)</fullName>
+                <default>false</default>
+                <label>4201 - Taxi (witness appearance and/or staff)</label>
+            </value>
+            <value>
+                <fullName>4301 - Per Diem (staff only, inter-state only)</fullName>
+                <default>false</default>
+                <label>4301 - Per Diem (staff only, inter-state only)</label>
+            </value>
+            <value>
+                <fullName>4302 - Airport Parking (staff only)</fullName>
+                <default>false</default>
+                <label>4302 - Airport Parking (staff only)</label>
+            </value>
+            <value>
+                <fullName>4315 - Meals only (same day travel, inter-state)</fullName>
+                <default>false</default>
+                <label>4315 - Meals only (same day travel, inter-state)</label>
+            </value>
+            <value>
+                <fullName>4601 - Car Rental (staff only, inter-state)</fullName>
+                <default>false</default>
+                <label>4601 - Car Rental (staff only, inter-state)</label>
+            </value>
+            <value>
+                <fullName>7102 - Process Server</fullName>
+                <default>false</default>
+                <label>7102 - Process Server</label>
+            </value>
+            <value>
+                <fullName>7102 - Subpoena – Research Fees</fullName>
+                <default>false</default>
+                <label>7102 - Subpoena – Research Fees</label>
+            </value>
+            <value>
+                <fullName>7104 - Court Reporters</fullName>
+                <default>false</default>
+                <label>7104 - Court Reporters</label>
+            </value>
+            <value>
+                <fullName>7204 - Subpoena – Photo Copies of Documents</fullName>
+                <default>false</default>
+                <label>7204 - Subpoena – Photo Copies of Documents</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

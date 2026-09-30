@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_End_Date_on_Status_Terminated</fullName>
+    <active>true</active>
+    <description>PacPoint-FT031420 - Created for PVL phase 1</description>
+    <errorConditionFormula>ISPICKVAL(EmploymentStatus__c, &quot;Terminated&quot;) &amp;&amp;
+ISBLANK(EndDate__c)</errorConditionFormula>
+    <errorMessage>Please enter an End Date indicating when the employment ended.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>ASO_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>ASO Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>ASO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>ASO</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>BREG_SEB_SEC_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>BREG SEB/SEC Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CATV_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>CATV Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CATV</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CATV</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CSHR_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>CSHR Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CSHR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CSHR</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>DCA_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>DCA Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DCA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>DCA</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>DCCA_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CC: 8/21 Creation of the DCCA Role Travel Approval Sharing Rule</description>
+        <label>DCCA Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <role>DCCA</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>DCCA</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>DFI_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>DFI Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DFI</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>DFI</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>DO_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>DO Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>DO</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>HPEAP_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>HPEAP Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>HPEAP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>HPEAP</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>INS_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>INS Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>INS</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>INS</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>ISCO_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>ISCO Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>ISCO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>ISCO</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>OAH_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>OAH Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>OAH</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>OAH</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>OCP_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>OCP Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>OCP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>OCP</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>PUC_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>PUC Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PUC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>PUC</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>PVL_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>PVL Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVL</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>PVL</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>RICO_Travel_Approval_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>KN 6/14/21 Per Dean: Used for travel project to share records within departments</description>
+        <label>RICO Travel Approval Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RICO</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>RICO</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BalanceSheetwithin30days__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Balance Sheet as of a date within 30 calendar days of filing, verified by a duly authorized officer and notarized.</inlineHelpText>
+    <label>Balance Sheet within 30 days</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

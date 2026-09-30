@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalMailToZipCode1__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( TEXT(LicenseType__r.RenewalMailToCode__c) ,
+&quot;B - Business Mailing/Business/Residence&quot;,
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingZipCode__c,
+IF(IsBusinessPopulated__c = &quot;Y&quot;,
+BusinessZipCode__c,
+ResidenceZipCode__c)),
+
+&quot;R - Residence Mailing/Residence&quot;,
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingZipCode__c,
+IF(IsResidencePopulated__c = &quot;Y&quot;,
+ResidenceZipCode__c,
+null)),
+
+
+&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+IF(
+
+OR (
+TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+IsEmployerAddressPopulated__c = &quot;N&quot;
+),
+
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingZipCode__c,
+IF(IsResidencePopulated__c = &quot;Y&quot;,
+ResidenceZipCode__c,
+null)),
+
+EmployerZipCode__c
+
+),
+
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Mail To Zip Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

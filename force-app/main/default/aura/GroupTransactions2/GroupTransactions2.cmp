@@ -1,0 +1,427 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Group transactions 2 component - Allows the user to group multiple transactions
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="GroupTransactions2">
+	
+    <aura:attribute name="step" type="String" default="1" />
+    <aura:attribute name="recordId" type="String" />
+    
+    <aura:attribute name="showPVL" type="boolean" />
+    <aura:attribute name="showFile" type="boolean" />
+    <aura:attribute name="showOAH" type="boolean" />
+    <aura:attribute name="showPrjNo" type="boolean" />
+    <aura:attribute name="errors" type="Object[]" />
+    <aura:attribute name="filtering1" type="String" default="false" />
+    <aura:attribute name="filterAccountName1" type="String" default="" />
+    <aura:attribute name="filterFileId1" type="String" default="" />
+    <aura:attribute name="filterPVLBPId1" type="String" default="" />
+    <aura:attribute name="filterCRDNumber1" type="String" default="" />
+    <aura:attribute name="filterWorkItemId1" type="String" default="" />
+    <aura:attribute name="filterOAH1" type="String" default="" />
+    <aura:attribute name="filterPrjNo1" type="String" default="" />
+    <aura:attribute name="filterRefNum" type="String" default="" />
+    <aura:attribute name="foundAccounts1" type="List"/>
+    <aura:attribute name="disableSave" type="Boolean" default="false" />
+
+    <aura:attribute name="recordTypes" type="List"/>
+    <aura:attribute name="createType" type="String" />
+    <aura:attribute name="createName" type="String" />
+    <aura:attribute name="createFirstName" type="String" />
+    <aura:attribute name="createLastName" type="String" />
+    <aura:attribute name="createFileId" type="String" />
+    <aura:attribute name="createPVLBPId" type="String" />
+    <aura:attribute name="createOAH" type="String" />
+    <aura:attribute name="createPrjNo" type="String" />
+    <aura:attribute name="createLicense" type="String" />
+    <aura:attribute name="creating" type="String" default="false" />
+    <aura:attribute name="createError" type="String" default="" />
+    
+    <aura:attribute name="transactions" type="List"/>
+    <aura:attribute name="errorStr" type="String" default="" />
+    
+    <aura:attribute name="showPopup" type="Boolean" default="false" />
+    <aura:attribute name="filtering" type="String" default="false" />
+    <aura:attribute name="filterAccountName" type="String" default="" />
+    <aura:attribute name="filterFileId" type="String" default="" />
+    <aura:attribute name="filterPVLBPId" type="String" default="" />
+    <aura:attribute name="filterCRDNumber" type="String" default="" />
+    <aura:attribute name="filterWorkItemId" type="String" default="" />
+    <aura:attribute name="foundTransactions" type="List"/>
+    <aura:attribute name="colspanNoResults" type="Integer" default="3" />
+    <aura:attribute name="showNoResultsMessage" type="Boolean" default="false" />
+
+    <!--Pagination-->
+    <aura:attribute name="accountColumns" type="List"/>
+    <aura:attribute name="accountsPerPage" type="Integer" default="200"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="resultSize" type="Integer" default="0"/>
+
+    <aura:attribute name="totalTransactionalAmount" type="Decimal"/>
+    
+    <aura:attribute name="saved" type="String" default="false" />
+    
+    <aura:registerEvent name="BatchTransactionRedirect" type="c:BatchTransactionRedirect" />
+    <aura:registerEvent name="NewTransactionRedirect" type="c:NewTransactionRedirect" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:handler name="change" value="{!v.transactions}" action="{!c.calcTotalTransactionalAmount}" />
+    
+    <aura:html tag="style">
+        .slds-modal__container {
+        	width: 900px;
+        	max-width: 900px;
+        }
+        .slds-modal__content {
+        	width: 900px;
+        }
+    </aura:html>
+
+    <aura:if isTrue="{!v.step == '1'}">
+        <div class="slds-grid slds-gutters">
+            <div  class="slds-grid slds-gutters" onkeypress="{!c.keyCheck}">
+                <div class="slds-col">
+                    <lightning:input type="text" id="form-element-filter" value="{!v.filterAccountName1}" label="Search Account Name" />
+                </div>
+                <aura:if isTrue="{!v.showFile}">
+                    <div class="slds-col">
+                        <lightning:input type="text" id="form-element-filter" value="{!v.filterFileId1}" label="Search File Id" />
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.showPVL}">
+                    <div class="slds-col">
+                        <lightning:input type="text" id="form-element-filter" value="{!v.filterPVLBPId1}" label="Search PVL BP Id" />
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.showOAH}">
+                    <div class="slds-col">
+                        <lightning:input type="text" id="form-element-filter" value="{!v.filterOAH1}" label="Search OAH Case Number" />
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.showPrjNo}">
+                    <div class="slds-col">
+                        <lightning:input type="text" id="form-element-filter" value="{!v.filterPrjNo1}" label="Search Project Number" />
+                    </div>
+                </aura:if>
+                <div class="slds-col">
+                    <lightning:input type="text" id="form-element-filter" value="{!v.filterCRDNumber1}" label="Search CRD Number" />
+                </div>
+            </div>
+            <div class="slds-col">
+                <div>
+                    <div style="height: 23px; width:35px; display:inline-block; margin-top: 39px;">
+                        <aura:if isTrue="{!v.filtering1 == 'true'}">
+                            <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </aura:if>
+                    </div>
+                    <lightning:button aura:id="filter1Button" variant="brand" label="Search" onclick="{!c.searchAccount1}" class="filterButton" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div>
+            <lightning:datatable
+                    columns="{!v.accountColumns}"
+                    data="{!v.foundAccounts1}"
+                    keyField="Id"
+                    sortedBy="Name"
+                    onrowselection="{!c.selectAccount}"
+                    maxRowSelection="1"
+            />
+            <center>
+                <aura:if isTrue="{!and(empty(v.foundAccounts1), v.showNoResultsMessage)}" >
+                    No Results Found. <br/>
+                </aura:if>
+                <aura:if isTrue="{!not(empty(v.foundAccounts1))}" >
+                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                      onclick="{!c.onPrevAccountPage}" disabled="{! v.pageNumber == 1}"/>
+                    <span class="slds-p-horizontal_small">
+                    Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.accountsPerPage)+' to '+((v.pageNumber-1)*v.accountsPerPage+v.resultSize)}
+                </span>
+                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                      disabled="{! v.isLastPage}" onclick="{!c.onNextAccountPage}"/>
+                </aura:if>
+            </center></div>
+        <br />
+        <lightning:button aura:id="createButton" variant="brand" label="Create Account" onclick="{!c.createAccount1}" />
+    </aura:if>
+    
+    <aura:if isTrue="{!v.step == '2'}">
+    	<div class="slds-grid slds-wrap slds-gutters">
+          	<div class="slds-col slds-size_1-of-2">
+                <lightning:select value="{!v.createType}" label="Account Type">
+                    <aura:iteration items="{!v.recordTypes}" var="rt">
+                        <option value="{!rt.Id}">{!rt.Name}</option>
+                    </aura:iteration>
+                </lightning:select>
+          	</div>
+            <aura:if isTrue="{!v.createType == '012t0000000PLy1AAG'}">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:input type="text" value="{!v.createName}" label="Account Name" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.createType == '012t0000000PLyVAAW'}">
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning:input type="text" value="{!v.createFirstName}" label="First Name" />
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning:input type="text" value="{!v.createLastName}" label="Last Name" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showFile}">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:input type="text" value="{!v.createFileId}" label="File Id" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showPVL}">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:input type="text" value="{!v.createPVLBPId}" label="PVL BP Id" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showOAH}">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:input type="text" value="{!v.createOAH}" label="OAH Case Number" />
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showPrjNo}">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning:input type="text" value="{!v.createPrjNo}" label="Project Number" />
+                </div>
+            </aura:if>
+          	<div class="slds-col slds-size_1-of-2">
+            	<lightning:textArea value="{!v.createLicense}" label="Licenses" />
+          	</div>
+          	<div class="slds-col slds-size_1-of-1">
+                <aura:if isTrue="{!v.createError != ''}">
+                    <br />
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{!v.createError}</h2>
+                    </div>
+                    <br />
+                </aura:if>
+                
+                <div style="height: 23px; width:35px; display:inline-block; margin-top: 39px;">
+                    <aura:if isTrue="{!v.creating == 'true'}">
+                        <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </aura:if>
+                </div>
+                <lightning:button variant="brand" label="Back" onclick="{!c.backToFirstPage}" />
+                <lightning:button variant="brand" label="Create Account" onclick="{!c.saveAccount1}" />
+          	</div>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.step == '3'}">
+        <aura:if isTrue="{!v.saved == 'false'}">
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span class="slds-text-heading_small">
+                                    Transactions
+                                </span>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Account">Account</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Transaction">Transaction</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Amount outstanding">Amount outstanding</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Transaction total amount">Transaction total amount</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Work Item Id">Work Item Id</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!v.transactions}" var="trans">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="Account" scope="row">
+                                        {!trans.Account__r.Name}
+                                    </td>
+                                    <td data-label="Transaction" scope="row">
+                                        {!trans.Name}
+                                    </td>
+                                    <td data-label="Amount outstanding" scope="row">
+                                        {!trans.AmountOutstanding__c}
+                                    </td>
+                                    <td data-label="Transaction total amount" scope="row">
+                                        {!trans.TotalAmount__c}
+                                    </td>
+                                    <td data-label="Work Item Id" scope="row">
+                                        {!trans.WorkitemID__c}
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td></td>
+                            <td></td>
+                            <td><b><ui:outputNumber value="{!v.totalTransactionalAmount}"/></b></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <aura:if isTrue="{!v.showPopup}">
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container" style="width: 100%; max-width: 75rem;">
+                                <header class="slds-modal__header">
+                                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                                        <span class="slds-assistive-text">Close</span>
+                                    </button>
+                                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Transactions</h2>
+                                </header>
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="width: 100%; overflow-x:auto;">
+                                    <div class="slds-grid slds-gutters">
+                                    <div class="slds-grid slds-gutters" onkeypress="{!c.keyCheckTransactions}">
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterAccountName}" label="Search Account Name" />
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterFileId}" label="Search File Id" />
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterPVLBPId}" label="Search PVL BP Id" />
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterCRDNumber}" label="Search CRD Number" />
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterWorkItemId}" label="Search Work Item Id" />
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning:input type="text" id="form-element-filter" value="{!v.filterRefNum}" label="Transaction Ref #" />
+                                        </div>
+                                    </div>
+                                        <div class="slds-col" style="width: 160px;">
+                                            <div>
+                                                <div style="height: 23px; width:35px; display:inline-block; margin-top: 39px;">
+                                                    <aura:if isTrue="{!v.filtering == 'true'}">
+                                                        <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline">
+                                                            <span class="slds-assistive-text">Loading</span>
+                                                            <div class="slds-spinner__dot-a"></div>
+                                                            <div class="slds-spinner__dot-b"></div>
+                                                        </div>
+                                                    </aura:if>
+                                                </div>
+                                                <lightning:button aura:id="filterButton" variant="brand" label="Filter" onclick="{!c.searchTransaction}" class="filterButton" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div style="width: 100%; overflow-x: auto;">
+                                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                            <thead>
+                                                <tr class="slds-text-title_caps">
+                                                    <th scope="col">
+                                                        
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Account">Account</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Transaction">Transaction</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Amount outstanding">Amount outstanding</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Transaction total amount">Transaction total amount</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Work Item Id">Work Item Id</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <aura:iteration items="{!v.foundTransactions}" var="trans">
+                                                    <tr>
+                                                        <td>
+                                                            <ui:inputCheckbox value="{!trans.Selected}" />
+                                                        </td>
+                                                        <td data-label="Account" scope="row">
+                                                            {!trans.Account__r.Name}
+                                                        </td>
+                                                        <td data-label="Transaction" scope="row">
+                                                            {!trans.Name}
+                                                        </td>
+                                                        <td data-label="Amount outstanding" scope="row">
+                                                            {!trans.AmountOutstanding__c}
+                                                        </td>
+                                                        <td data-label="Transaction total amount" scope="row">
+                                                            {!trans.TotalAmount__c}
+                                                        </td>
+                                                        <td data-label="Work Item Id" scope="row">
+                                                            {!trans.WorkitemID__c}
+                                                        </td>
+                                                    </tr>
+                                                </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <footer class="slds-modal__footer">
+                                    <lightning:button variant="brand" label="Add Selected" onclick="{!c.finishAddLines}" />
+                                    <lightning:button label="Cancel" onclick="{!c.closeAddLines}" />
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.errors &amp;&amp; v.errors.length}">
+                    <div class="slds-var-p-left_small"><c:sc_ErrorDisplay errors="{!v.errors}" /></div>
+                </aura:if>
+                <footer class="slds-card__footer">
+                    <lightning:button variant="brand" label="Back" onclick="{!c.backToFirstPage}" />
+                    <lightning:button variant="brand" label="Select transactions" onclick="{!c.addLines}" />
+                    <lightning:button variant="brand" label="Save" onclick="{!c.saveForm}" disabled="{!v.disableSave}"/>
+                    <lightning:button label="Cancel" onclick="{!c.cancelForm}" />
+                </footer>
+            </article>
+        </aura:if>
+    </aura:if>
+    <aura:if isTrue="{!v.saved == 'true'}">
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_success" role="success">
+            <span class="slds-assistive-text">success</span>
+            <h2>Transactions saved successfully</h2>
+        </div>
+        <br />
+        <br />
+        <div style="text-align: center;">
+            <lightning:button label="Cancel" onclick="{!c.savedClose}" />
+        </div>
+    </aura:if>
+</aura:component>

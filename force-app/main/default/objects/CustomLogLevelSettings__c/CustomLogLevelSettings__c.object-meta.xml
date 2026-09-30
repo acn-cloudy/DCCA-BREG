@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Add a Number field for each apex class. If value = 0, log nothing. If value is between 1 and 9 (inclusive), log everything with log level &lt;= value. (e.g. if value is 4, log everything with log level 1, 2, 3, or 4)</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Custom Log Level Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

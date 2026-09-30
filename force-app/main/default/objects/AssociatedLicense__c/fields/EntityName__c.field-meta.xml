@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityName__c</fullName>
+    <description>PacPoint-FT081319- Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <formula>IF(
+
+AND(
+
+          ISBLANK(EntityLicense__r.Licensee__r.Name),
+          ISBLANK(EntityLicense__r.Licensee__r.LastName)
+
+   )
+
+, 
+EmployeeLicense__r.Licensee__r.FirstName &amp; &quot; &quot;&amp; EmployeeLicense__r.Licensee__r.LastName, 
+
+
+IF(
+
+          ISBLANK(EntityLicense__r.Licensee__r.LastName),
+          EntityLicense__r.Licensee__r.Name,
+
+          EntityLicense__r.Licensee__r.FirstName &amp; &quot; &quot;&amp; EntityLicense__r.Licensee__r.LastName
+
+)
+
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Entity Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

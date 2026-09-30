@@ -1,0 +1,115 @@
+.mds-avatar {
+    &_icon {
+        &-initial {
+            font-weight:var( --font-weight-medium);
+            text-align: center;
+            color: var(--white);
+        }
+        .mds-status-icon{
+            position:absolute;
+            bottom: 0;
+            right: 0;
+        }
+        
+    }
+    .mds-avatar_content {
+        &-role {
+            color: var(--card-body-text);
+        }
+    }
+
+    .mds-icon_size-48 {
+        .mds-avatar_icon {
+            width:var( --spacing-xx-large);
+            height: var( --spacing-xx-large);
+            &-initial{
+                font-size: var(--font-size-18);
+            }
+            &-profile{
+                width:var( --spacing-xx-large);
+                height:var( --spacing-xx-large);
+            }
+        }
+
+        .mds-avatar_content {
+            &-role {
+                color: var(--card-body-text);
+            }
+        }
+
+    }
+
+    .mds-icon_size-40 {
+        .mds-avatar_icon {
+            width: var(--spacing-xm-large);
+            height: var(--spacing-xm-large);
+            &-initial{
+                font-size: 1rem;
+            }
+        }
+
+        .mds-avatar_content {
+            &-role {
+                color: var(--card-body-text);
+                display: none;
+            }
+        }
+
+    }
+
+    
+    .mds-icon_size-32 {
+        .mds-avatar_icon {
+            width: var(--spacing-x-large);
+            height: var(--spacing-x-large);
+            &-initial{
+                font-size: var(--font-size-14);
+            }
+        }
+
+        .mds-avatar_content {
+            &-name {
+                font-size:var(--font-size-16);
+            }
+
+            &-role {
+                display: none;
+            }
+        }
+    }
+
+    .mds-icon_size-24 {
+        .mds-avatar_icon {
+            width: var(--spacing-large);
+            height: var(--spacing-large);
+            &-initial{
+                font-size:var(--font-size-12);
+            }
+        }
+
+        .mds-avatar_content {
+            &-name {
+                font-size: var(--font-size-16);
+                color: var (--text-primary);
+            }
+
+            &-role {
+                color: var( --card-body-text);
+                display: none;
+            }
+        }
+
+    }
+    .mds-avatar_initial{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var( --border-radius-circle);
+        background-color: var( --primary-main);
+        position: relative;
+
+    }
+    .mds-icon_image{
+        position:relative;
+    }
+}

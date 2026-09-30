@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrentLicenseYear__c</fullName>
+    <description>PacPoint-FT082919 - Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( DurationofLicenseInMonths__c ,
+
+36, 
+
+IF(
+AND(FirstYearStart__c &lt;= TODAY(),
+TODAY() &lt;= FirstYearEnd__c),
+&quot;Triennial 1st Year&quot;,
+IF(
+AND(SecondYearStart__c &lt;= TODAY(),
+TODAY() &lt;= SecondYearEnd__c),
+&quot;Triennial 2nd Year&quot;,
+IF(
+AND(ThirdYearStart__c &lt;= TODAY(),
+TODAY() &lt;= ThirdYearEnd__c),
+&quot;Triennial 3rd Year&quot;,
+NULL)))
+,
+24, 
+IF(
+AND(FirstYearStart__c &lt;= TODAY(),
+TODAY() &lt;= FirstYearEnd__c),
+&quot;Biennial 1st Year&quot;,
+IF(
+AND(SecondYearStart__c &lt;= TODAY(),
+TODAY() &lt;= SecondYearEnd__c),
+&quot;Biennial 2nd Year&quot;,
+IF(
+AND(ThirdYearStart__c &lt;= TODAY(),
+TODAY() &lt;= ThirdYearEnd__c),
+&quot;Biennial 3rd Year&quot;,
+NULL)))
+
+,
+
+18, &quot;Annual 1st Year&quot;,
+
+12, &quot;Annual 1st Year&quot;,
+
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates the current year of the Triennium or Biennium that we are in. The field will display &apos;Annual 1sr Year&apos; if the License has a duration of 12 months.</inlineHelpText>
+    <label>Current License Year</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

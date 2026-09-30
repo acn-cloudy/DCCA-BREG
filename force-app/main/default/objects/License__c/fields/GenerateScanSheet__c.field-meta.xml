@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateScanSheet__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN06292020-Created for PVL Phase 1 Sprint 6</description>
+    <label>Generate Scan Sheet</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

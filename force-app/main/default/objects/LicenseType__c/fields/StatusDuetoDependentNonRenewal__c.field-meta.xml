@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatusDuetoDependentNonRenewal__c</fullName>
+    <description>PacPoint-KN012720-Created for PVL Phase 1 Sprint 2</description>
+    <label>Status Due to Dependent Non Renewal</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>LicenseStatuses</valueSetName>
+    </valueSet>
+</CustomField>

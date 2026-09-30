@@ -1,0 +1,35 @@
+<aura:component>
+    <aura:attribute name="headNames" type="List" />
+    <aura:attribute name="columnNames" type="List" />
+    <aura:attribute name="records" type="List" />
+    <aura:attribute name="valueMap" type="Object" />
+    <aura:attribute name="selectOne" type="boolean" default="false" />
+    <aura:attribute name="disableCheckbox" type="boolean" default="false" />
+    <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="{!v.disableCheckbox ? 'slds-hide' : 'slds-text-align_right'}" scope="col" style="width:3.25rem">
+                    <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+                    <div class="slds-th__action slds-th__action_form">
+                        <div class="slds-checkbox">
+                        </div>
+                    </div>
+                </th>
+                <aura:iteration items="{!v.headNames}" var="headerName">
+                    <th aria-label="{!headerName}" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col">
+                        <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate slds-p-left_x-small">
+                            <span class="slds-truncate" title="{!headerName}">{!headerName}</span>
+                        </div>
+                    </th>
+                </aura:iteration> 
+            </tr> 
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.records}" var="record" indexVar="index">
+                <c:SelectListViewItem columnNames="{!v.columnNames}" record="{!record}" 
+                                    disableCheckbox="{!v.disableCheckbox}"
+                                    valueMap="{!v.valueMap}" index="{!index}"/>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

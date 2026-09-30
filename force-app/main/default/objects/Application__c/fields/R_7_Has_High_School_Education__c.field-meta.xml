@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>R_7_Has_High_School_Education__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>I certify that I possess a high school education or its equivalent</inlineHelpText>
+    <label>Has High School Education</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

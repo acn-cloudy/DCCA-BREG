@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INSAbouttoExpire__c</fullName>
+    <description>PacPoint-KN12162020</description>
+    <formula>IF(
+AND(
+NumberofDaysUntilExpiration__c &lt;  License__r.LicenseType__r.NumberOfDaysPriorToInsExpNotice__c,
+ NumberofDaysUntilExpiration__c &lt;&gt; 0),
+true,
+false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>INS/Bond About To Expire</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

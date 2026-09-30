@@ -1,0 +1,15 @@
+<design:component>
+	<design:attribute name="fieldJSON" label="Fields" />
+    <design:attribute name="listName" label="List Name" />
+	<design:attribute name="relatedSObject" label="SObject Type" />
+	<design:attribute name="parentField" label="Related Field API Name" />
+    <design:attribute name="icon" label="Icon" />
+    <design:attribute name="otherConditions" label="Other conditions" />
+    <design:attribute name="sortBy" label="Sort By" />
+    <design:attribute name="childrenSortBy" label="Children Sort By" />
+    <design:attribute name="exploreFieldJSON" label="Explore Fields" />
+    <design:attribute name="exploreListName" label="Explore List Name" />
+	<design:attribute name="exploreRelatedSObject" label="Explore SObject type" />
+	<design:attribute name="exploreParentField" label="Explore Related Field API Name"  />
+    <design:attribute name="exploreIcon" label="Explore Icon" />
+</design:component>

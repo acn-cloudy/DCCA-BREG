@@ -1,0 +1,122 @@
+<template>
+    <div class="breg-faqs-container slds-grid slds-wrap">
+        <div class="breg-faqs-main slds-size_1-of-1 slds-large-size_2-of-3 slds-p-around_medium">
+            <template lwc:if={isHomePage}>
+                <div class="slds-m-bottom_small">
+                    <a href='/' class="slds-grid slds-text-color_default slds-text-body_regular slds-text-decoration_none">
+                        <lightning-icon 
+                            icon-name="utility:chevronleft" 
+                            size="x-small" 
+                            class="slds-m-right_xx-small"
+                        ></lightning-icon>
+                        <lightning-icon 
+                            icon-name="utility:home" 
+                            size="x-small" 
+                            class="slds-m-right_xx-small"
+                        ></lightning-icon>
+                        <span class="slds-m-right_xx-small">{label.Home}</span>
+                    </a>
+                </div>
+            </template>
+        <!-- Main Content -->
+       
+            <div class="slds-grid slds-grid_align-spread slds-m-bottom_medium">
+                <h1 class="slds-text-heading_large">{label.Help}</h1>
+                <template lwc:if={isManagePage}>
+                    <lightning-combobox
+                    name="categoryFilter"
+                    value={selectedCategory}
+                    class="slds-size_2-of-3 slds-large-size_1-of-3"
+                    placeholder={label.Select_Topic}
+                    options={categoryOptions}
+                    onchange={handleCategoryChange}
+                    variant="label-hidden"
+                ></lightning-combobox>
+                </template>
+                
+            </div>
+            <template lwc:if={isNotHomePage}>
+                <lightning-input 
+                type="search"
+                placeholder={label.Search}
+                value={searchValue}
+                onchange={handleSearch}
+                class="slds-m-bottom_medium breg-faqs-search"
+            ></lightning-input>
+            </template>
+
+            <template lwc:if={isSearchAndBuyPage}>
+                <lightning-tabset active-tab-value={activeTab}>
+                    <lightning-tab label="Business Naming Rules" value="businessNamingRules" onactive={handleTabChange}>
+                        <template for:each={filteredArticles} for:item="article">
+                            <template lwc:if={article.isNotAccordion}>
+                                <div key={article.Id} class="slds-p-around_medium breg-accordion-section">
+                                    <lightning-formatted-rich-text value={article.Answer}></lightning-formatted-rich-text>
+                                </div>
+                            </template>
+                            <template lwc:else>
+                                <lightning-accordion class='slds-m-vertical_x-small breg-accordion-section' allow-multiple-sections-open key={article.Id}>
+                                    <lightning-accordion-section class="breg-accordion-section slds-page-header__title" name={article.Id} label={article.Title}>
+                                        <div class="slds-p-around_medium breg-accordion-section">
+                                            <lightning-formatted-rich-text class="breg-accordion-section" value={article.Answer}></lightning-formatted-rich-text>
+                                        </div>
+                                    </lightning-accordion-section>
+                                </lightning-accordion>
+                            </template>
+                        </template>
+                    </lightning-tab>
+                    <lightning-tab label="FAQs" value="faqs" onactive={handleTabChange}>
+                        <template for:each={filteredArticles} for:item="article">
+                            <lightning-accordion class='slds-m-vertical_x-small breg-accordion-section' allow-multiple-sections-open key={article.Id}>
+                                <lightning-accordion-section class="breg-accordion-section" name={article.Id} label={article.Title}>
+                                    <div class="slds-p-around_medium breg-accordion-section">
+                                        <lightning-formatted-rich-text class="breg-accordion-section" value={article.Answer}></lightning-formatted-rich-text>
+                                    </div>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </template>                        
+                    </lightning-tab>
+                </lightning-tabset>
+            </template>
+            <template lwc:else>
+                <template for:each={filteredArticles} for:item="article">
+                    <template lwc:if={article.isNotAccordion}>
+                        <div key={article.Id} class="slds-p-around_medium breg-accordion-section">
+                            <lightning-formatted-rich-text value={article.Answer}></lightning-formatted-rich-text>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <lightning-accordion class='slds-m-vertical_x-small breg-accordion-section' 
+                            allow-multiple-sections-open 
+                            key={article.Id}>
+                        <lightning-accordion-section class='breg-accordion-section' name={article.Id} label={article.Title}>
+                            <div class="slds-p-around_medium breg-accordion-section">
+                                <lightning-formatted-rich-text class="breg-accordion-section" value={article.Answer}></lightning-formatted-rich-text>
+                            </div>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                    </template>
+                    
+                </template>     
+            </template>
+            
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+        <!-- Sidebar -->
+        <div class="breg-faqs-sidebar slds-size_1-of-1 slds-large-size_1-of-3 slds-p-around_medium">
+            <c-breg-_-tile
+                title={label.AskTheAgencyTitle}
+                description={label.AskTheAgencyDescription}>
+                <div class="slds-m-vertical_small">
+                    <div><strong>{label.AskTheAgencyPhoneLabel}</strong> {label.AskTheAgencyPhoneValue}</div>
+                    <div><strong>{label.AskTheAgencyEmailLabel}</strong>
+                        <a href="mailto:breg@dcca.hawaii.gov"> {label.AskTheAgencyEmailValue}</a>
+                    </div>
+                </div>
+                <div>{label.AskTheAgencyFooterNote}</div>
+            </c-breg-_-tile>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,160 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large dxp-text-heading-medium-mobile slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <!-- Description text in edit mode -->
+        <template if:false={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_medium">
+                <p class="slds-text-body_regular">{config.labelOverrideLong}</p>
+            </lightning-layout-item>
+        </template>
+
+
+        <lightning-layout-item lwc:if={hasStocks} size="12" class="form-layout-item">
+            <!-- Stocks Tables: Stock Class, Number of shares, Par value, Par total, Amount -->
+            <template if:true={isModifiedStockEntity}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Stock class">Stock class</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Number of shares">Number of shares</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Par value">Par value</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Par total">Par total</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={stocks} for:item="stock">
+                            <tr key={stock.uniqueKey} class="slds-hint-parent">
+                                <td data-label="Stock class">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.stockClass}</div>
+                                </td>
+                                <td data-label="Number of shares">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.numberOfSharesFormatted}</div>
+                                </td>
+                                <td data-label="Par value">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.parValueFormatted}</div>
+                                </td>
+                                <td data-label="Par total">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.parTotalFormatted}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+
+                <h2 class="dxp-text-heading-large dxp-text-heading-medium-mobile slds-var-m-bottom_small">{config.labelOverride2}</h2>
+
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Stock class">Stock class</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Number of shares">Number of shares</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Amount">Amount</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={stocks} for:item="stock">
+                            <tr key={stock.uniqueKey} class="slds-hint-parent">
+                                <td data-label="Stock class">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.stockClass}</div>
+                                </td>
+                                <td data-label="Number of shares">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.paidSharesFormatted}</div>
+                                </td>
+                                <td data-label="Amount">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.amountFormatted}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            
+            <!-- Stocks Table: Stock Class, Authorized Shares, Issued Shares (editable) -->
+            <template if:false={isModifiedStockEntity}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Stock class">Stock class</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Authorized shares">Authorized shares</div>
+                            </th>
+                            <th class="slds-text-title_caps" scope="col">
+                                <div class="slds-truncate" title="Issued shares">Issued shares</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={stocks} for:item="stock">
+                            <tr key={stock.uniqueKey} class="slds-hint-parent">
+                                <td data-label="Stock class">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.stockClass}</div>
+                                </td>
+                                <td data-label="Authorized shares">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.authorizedSharesFormatted}</div>
+                                </td>
+                                <template if:true={readOnly}>
+                                    <td data-label="Issued shares">
+                                        <template lwc:if={stock.hasPaidShares}>
+                                            <div class="slds-truncate slds-text-body_regular">{stock.paidSharesFormatted}</div>
+                                        </template>
+                                        <template lwc:else>
+                                            <div class="slds-truncate slds-text-body_regular slds-text-color_weak">
+                                                <em>{stock.paidSharesFormatted}</em>
+                                            </div>
+                                        </template>
+                                    </td>
+                                </template>
+                                <template if:false={readOnly}>
+                                    <td data-label="Issued shares">
+                                        <template if:true={stock.isPaidSharesEditable}>
+                                            <lightning-input
+                                                type="number"
+                                                value={stock.paidShares}
+                                                data-key={stock.uniqueKey}
+                                                onblur={handlePaidSharesChange}
+                                                variant="label-hidden"
+                                                class="slds-input_inline"
+                                                min="0"
+                                                max={stock.authorizedShares}
+                                            ></lightning-input>
+                                        </template>
+                                        <template if:false={stock.isPaidSharesEditable}>
+                                            <div class="slds-truncate slds-text-body_regular slds-text-color_weak">
+                                                <em>{stock.paidSharesFormatted}</em>
+                                            </div>
+                                        </template>
+                                    </td>
+                                </template>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+        </lightning-layout-item>
+
+        <template if:true={readOnly}>
+            <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item slds-var-m-top_medium">
+                <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,52 @@
+/* Info Section Styling - matching breg_SearchAndBuy_CompanyInformation styles */
+.info-section {
+    background: #ffffff;
+    border: 1px solid #d8dde6;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-label {
+    font-weight: 725;
+    font-size: 1rem;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.025em;
+}
+
+.info-value {
+    font-size: 1rem;
+    color: #181818;
+    line-height: 1.4;
+    font-weight: 400;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+/* Equal height columns */
+.equal-height-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.equal-height-col .info-section {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.notice-box {
+    border: 1px solid #d8dde6;
+    padding: 16px;
+    background-color: #f3f3f3;
+}

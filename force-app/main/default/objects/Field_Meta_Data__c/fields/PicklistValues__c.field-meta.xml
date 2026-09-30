@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PicklistValues__c</fullName>
+    <description>This will contain the actual picklist values from Salesforce. To use the Salesforce picklist values in this field, check the Use Salesforce Picklist Values from SF. This field is auto-populated on save</description>
+    <inlineHelpText>This will contain the actual picklist values from Salesforce. To use the Salesforce picklist values in this field, check the Use Salesforce Picklist Values from SF. This field is auto-populated on save</inlineHelpText>
+    <label>PicklistValues</label>
+    <length>131072</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

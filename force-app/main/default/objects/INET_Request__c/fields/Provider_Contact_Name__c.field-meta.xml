@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Provider_Contact_Name__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Provider Contact Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Contact.Type__c</field>
+            <operation>equals</operation>
+            <value>Provider</value>
+        </filterItems>
+        <filterItems>
+            <field>Contact.AccountId</field>
+            <operation>equals</operation>
+            <valueField>$Source.Provider__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>INET_Requests (Provider Contact Name)</relationshipLabel>
+    <relationshipName>INET_Requests3</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

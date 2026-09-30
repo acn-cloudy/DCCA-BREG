@@ -1,0 +1,27 @@
+.edit-pdf-container {
+    display: flex;
+    justify-content: flex-end; /* keep aligned right */
+    padding: 0.5rem 0.75rem; /* reduced vertical space */
+}
+
+.edit-pdf-button {
+    display: inline-block;
+    background-color: #0176d3;
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 0.9rem; /* smaller button padding */
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.85rem; /* slightly smaller text */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    line-height: 1; /* tighter spacing */
+}
+
+.edit-pdf-button:hover {
+    background-color: #025eb8;
+}
+
+.edit-pdf-button:active {
+    transform: scale(0.97);
+}

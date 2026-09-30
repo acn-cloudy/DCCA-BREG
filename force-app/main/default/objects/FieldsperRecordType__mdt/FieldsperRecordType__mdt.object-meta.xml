@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-MV122818 - Created for BREG phase 1. Created to display the fields on the community flow that need to be captured by the user</description>
+    <label>Fields per Record Type</label>
+    <pluralLabel>Fields per Record Type</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

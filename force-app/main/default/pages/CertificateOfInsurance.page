@@ -1,0 +1,169 @@
+<apex:page readOnly="true"
+           applyHtmlTag="false"
+           sidebar="false"
+           standardController="InsurancePortalSubmission__c"
+           extensions="CertificateOfInsuranceController"
+           showHeader="false"
+           renderAs="PDF"
+           >
+    <html>
+        <head>
+            <style type="text/css" media="print">
+                @page {
+                    size: a4;
+                }
+    
+                * {
+                    font-family: Helvetica, sans-serif; /* Arial Unicode MS for the special characters */
+                }
+    
+                div.footer {
+                    display: block;
+                    padding: 0;
+                    width: 100%;
+                    position: running(footer);
+                }
+            </style>
+        </head>
+        <body>
+            <div style="text-align: center;">
+                <h1 style="color: #1e76e4; background-color:#fffdcc">
+                    CERTIFICATE OF INSURANCE
+                </h1>
+            </div>
+            <div style="padding-left: 20%">
+                <table>
+                    <tr style="line-height:30px">
+                        <td style="text-align:right">License Number:</td>
+                        <td style="text-align:left">{!record.LicenseNumber__c}</td>
+                        <td style="text-align:right">Entity Number:</td>
+                        <td style="text-align:left">
+                            {!record.EntityId__c}
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td style="text-align:right">Submission Date/Time:</td>
+                        <td style="text-align:left">
+                                <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                    <apex:param value="{!createdDate}"/>
+                                </apex:outputText>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <apex:outputText value="{0,date,hh:mm:ss}">
+                                    <apex:param value="{!createdDate}"/>
+                                </apex:outputText></td>
+                    </tr>
+                </table>
+            </div>
+            <h2 style="text-align: center;color: #2977cb; background-color:#fffdcc">
+                TRANSACTION INFORMATION
+            </h2>
+            <div style="padding-left: 15%">
+                <table style="text-align: right;">
+                    <tr style="line-height:30px">
+                        <td>PVL License Type and Number:</td>
+                        <td style="padding-left: 10px;text-align:left">{!record.LicenseTypePrefix__c}</td>
+                        <td style="text-align:left">{!record.PVLLicenseNumber__c}</td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Insured Name:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            <apex:Outputtext id="LicenseeName__c" value="{!record.LicenseeName__c}" escape="False"></apex:Outputtext>
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Transaction Type:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">{!record.TransactionType__c}</td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Insurance Type:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">{!record.InsuranceType__c}</td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Surety Name:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">{!record.InsurerAffordingCoverage__c}</td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Policy Number:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">{!record.PolicyNumber__c}</td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Policy Effective Date:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                <apex:param value="{!record.PolicyEffectiveDate__c}"/>
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Policy Expiration Date:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                <apex:param value="{!record.PolicyExpirationDate__c}"/>
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Policy Cancellation Date:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                <apex:param value="{!record.PolicyCancellationDate__c}"/>
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Amount for each occurrence:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            <apex:outputText value="{0, Number, Currency}" rendered="{!record.LimitEachOccurrence__c != null}">
+                                <apex:param value="{!record.LimitEachOccurrence__c}" />
+                            </apex:outputText>
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Additional Comments:</td>
+                        <td colspan="2" style="padding-left: 10px;text-align:left">
+                            {!record.AdditionalComments__c}
+                        </td>
+                    </tr>
+                    <tr style="line-height:30px">
+                        <td>Authorized Representative:</td>
+                        <td colspan="2" style="text-transform: uppercase;padding-left: 10px;text-align:left">
+                            {!record.AuthorizedRepresentativeFormula__c}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="font-size:14px;padding-bottom: 50px">
+                <p>As the authorized representative, I certify that the policy of insurance submitted has been issued to the 
+                insured named above for the policy period indicated. Notwithstanding any requirement, term or condition of 
+                any contract or other document with respect to which the submitted certificate may be issued or may pertain, 
+                the issuance afforded by the policy described herein is subject to all the terms, exclusions and conditions of 
+                such policies. Aggregate limits submitted may have been reduced by paid claims.
+                </p>
+                <p>
+                    Should any of the above described policies be cancelled before the expiration date thereof, the issuing insurer 
+                    will endeavor to submit within 30 days notice to the certificate holder, but failure to do so shall impose no 
+                    obligation or liability of any kind upon the insurer, it’s agents or representatives.
+                </p>
+            </div>
+            <div style="font-size:14px;text-align:center">
+                CERTIFICATE HOLDER
+            </div>
+            <div style="font-size:14px;text-align:center">
+                {!boardProgram}
+            </div>
+            <div style="font-size:14px;text-align:center">            
+                Professional and Vocational Licensing Division
+            </div>
+            <div style="font-size:14px;text-align:center">
+                Department of Commerce and Consumer Affairs
+            </div>
+            <div style="font-size:14px;text-align:center">
+                PO Box 3469
+            </div>
+            <div style="font-size:14px;text-align:center">
+                Honolulu, HI 96801-3469
+            </div>
+
+        </body>
+    </html>
+    </apex:page>

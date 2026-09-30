@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDFName__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(SelectRenewalPostcard__c,&quot;Renewal Notification&quot;, IF(RenewalFormTemplateBulkRenewals__c == &quot;RenewalNotificationwPrinc&quot;, &quot;Renewal Notification w Princ&quot;, IF(RenewalFormTemplateBulkRenewals__c == &quot;RenewalNotificationwPrincIns&quot;, &quot;Renewal Notification w Princ &amp; INS&quot;, IF(RenewalFormTemplateBulkRenewals__c == &quot;RenewalNotificationwClasses&quot;, &quot;Renewal Notification w Classes&quot;, IF(RenewalFormTemplateBulkRenewals__c == &quot;RenewalNotificationwIns&quot;, &quot;Renewal Notification w INS&quot;, 
+IF(RenewalFormTemplateBulkRenewals__c == &quot;RenewalNotification&quot;, &quot;Renewal Notification&quot;, &quot;&quot;))))), PostcardContent__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>PDF Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependAction__c</fullName>
+    <inlineHelpText>This specifies what is to be done to the dependend target control</inlineHelpText>
+    <label>Depent Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>show</fullName>
+                <default>false</default>
+                <label>show</label>
+            </value>
+            <value>
+                <fullName>hide</fullName>
+                <default>false</default>
+                <label>hide</label>
+            </value>
+            <value>
+                <fullName>set value</fullName>
+                <default>false</default>
+                <label>set value</label>
+            </value>
+            <value>
+                <fullName>show and set value</fullName>
+                <default>false</default>
+                <label>show and set value</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

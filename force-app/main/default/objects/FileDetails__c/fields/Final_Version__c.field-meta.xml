@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Version__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint - RA 011519 - BREG Phase 1</description>
+    <inlineHelpText>Checking this box indicates that this is the final version of the document.</inlineHelpText>
+    <label>Final Version</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_of_Allegation_Violations__c</fullName>
+    <description>Counts the # of related Allegations with a corresponding Allegation Violation record.</description>
+    <label>Total # of Allegation Violations</label>
+    <summaryFilterItems>
+        <field>Allegation__c.Total_of_Allegation_Violations__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Allegation__c.SEBCaseID__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

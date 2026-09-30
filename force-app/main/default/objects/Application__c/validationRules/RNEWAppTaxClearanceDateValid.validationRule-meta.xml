@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RNEWAppTaxClearanceDateValid</fullName>
+    <active>false</active>
+    <description>PacPoint-RdG021320 - Created for PVL Phase 1</description>
+    <errorConditionFormula>AND( CONTAINS(&quot;RNEW - Renewal:RSTRA - Restore Active&quot;, TEXT(Type__c)),
+     ISPICKVAL( Status__c, &apos;HC - Application Completed&apos;),
+     LicenseType__r.TaxIDRequired__c = TRUE,
+     CurrentLicense__r.LastTaxClearanceDate__c &lt;= (TODAY() - 365)
+)</errorConditionFormula>
+    <errorMessage>Tax Clearance date on License not Valid</errorMessage>
+</ValidationRule>

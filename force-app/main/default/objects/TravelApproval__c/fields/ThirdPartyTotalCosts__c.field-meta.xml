@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ThirdPartyTotalCosts__c</fullName>
+    <formula>Third_Party_Airfare__c + Third_Party_Baggage_Fees__c + Third_Party_Car_Rental_Gas__c + Third_Party_Excess_Lodging__c + Third_Party_Ground_Transportation__c + Third_Party_Hotel__c + 	Third_Party_Meal_Allowance__c + Third_Party_Other_Cost_1__c + Third_Party_Other_Costs_2__c + Third_Party_Other_Cost_3__c + Third_Party_Parking_Personal_Mileage__c + Third_Party_Passports_fees_photos__c + Third_Party_Per_Diem__c + Third_Party_Registration__c + Third_Party_TSA_Pre_Check_Enrollment__c + Third_Party_Vaccine_Costs__c + Third_Party_WIFI__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Third-Party Total Costs</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

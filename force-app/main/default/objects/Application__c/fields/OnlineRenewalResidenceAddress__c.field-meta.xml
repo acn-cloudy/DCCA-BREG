@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OnlineRenewalResidenceAddress__c</fullName>
+    <description>Captures the License Residence Address at the time of Renewal. This is a historical snapshot of the address.</description>
+    <label>Online Renewal Residence Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

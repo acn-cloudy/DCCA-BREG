@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentLicenseMailingAddress__c</fullName>
+    <externalId>false</externalId>
+    <formula>License__r.DependentLicense__r.MailingStreet__c + &quot;, &quot; +  
+License__r.DependentLicense__r.MailingCity__c + &quot;, &quot; + 
+TEXT(License__r.DependentLicense__r.MailingState__c)  + &quot;, &quot; + 
+ License__r.DependentLicense__r.MailingZipCode__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dependent License Mailing Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

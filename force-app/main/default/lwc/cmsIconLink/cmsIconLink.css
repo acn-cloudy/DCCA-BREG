@@ -1,0 +1,15 @@
+img {
+  width: 64px;
+  height: 64px;
+}
+
+a {
+  text-align: center;
+  text-decoration-color: #527700;
+}
+
+span {
+  color: #527700;
+  font-size: 18px;
+  font-weight: bold;
+}

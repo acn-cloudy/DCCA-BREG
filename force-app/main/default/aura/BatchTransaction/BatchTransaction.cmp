@@ -1,0 +1,386 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Batch Transaction component - Allows the user to create multiple transactions
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="BatchTransaction">
+	
+    <aura:attribute name="location" type="String"/>
+    <aura:attribute name="transactionLines" type="List"/>
+    <aura:attribute name="accounts" type="List"/>
+    <aura:attribute name="errorStr" type="String" default="" />
+    
+    <aura:attribute name="showPopup" type="Boolean" default="false" />
+    <aura:attribute name="filtering" type="String" default="false" />
+    <aura:attribute name="filterAccountName" type="String" default="" />
+    <aura:attribute name="filterFileId" type="String" default="" />
+    <aura:attribute name="filterPVLBPId" type="String" default="" />
+    <aura:attribute name="filterOAH" type="String" default="" />
+    <aura:attribute name="filterPrjNo" type="String" default="" />
+    <aura:attribute name="foundAccounts" type="List"/>
+    <aura:attribute name="selectedAccounts" type="List"/>
+    <aura:attribute name="finalSelectedAccounts" type="List"/>
+    <aura:attribute name="showPVL" type="boolean" />
+    <aura:attribute name="showFile" type="boolean" />
+    <aura:attribute name="showOAH" type="boolean" />
+    <aura:attribute name="showPrjNo" type="boolean" />
+    <aura:attribute name="searchAccountFields" type="List" />
+    <aura:attribute name="columnAccountFields" type="List" />
+    <aura:attribute name="printAccountFields" type="List" />
+    <aura:attribute name="printFields" type="String" />
+    <aura:attribute name="transactionAccounts" type="List" />
+    <aura:attribute name="disableSave" type="Boolean" default="false" />
+    <aura:attribute name="showNoResultsMessage" type="Boolean" default="false" />
+
+    <!--Pagination-->
+    <aura:attribute name="accountColumns" type="List"/>
+    <aura:attribute name="accountsPerPage" type="Integer" default="200"/>
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="resultSize" type="Integer" default="0"/>
+
+    <aura:attribute name="totalAmount" type="Decimal" />
+
+    <aura:attribute name="saved" type="String" default="false" />
+    <aura:attribute name="saveResults" type="Object" />
+    
+    <aura:registerEvent name="BatchTransactionRedirect" type="c:BatchTransactionRedirect" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:if isTrue="{!v.saved == 'false'}">
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <span class="slds-text-heading_small">
+                                Cashier Codes
+                            </span>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Cashier Code">Cashier Code</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Amount">Amount</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Amount Override">Amount Override</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Transaction Description">Transaction Description</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.transactionLines}" var="line">
+                            <tr class="slds-hint-parent">
+                                <td data-label="Cashier Code" scope="row">
+                                    <c:CashierCodeLookup value="{!line.code}" amount="{!line.oldAmount}" parentCmp="{!this}"/>
+                                </td>
+                                <td data-label="Amount" scope="row">
+                                    <aura:if isTrue="{!line.oldAmount != null}">
+                                        ${!line.oldAmount}
+                                    </aura:if>
+                                </td>
+                                <td data-label="Amount Override" scope="row">
+                                    <ui:inputNumber class="slds-input" value="{!line.amount}" updateOn="keyup" keyup="{!c.calcTotalAmount}"/>
+                                </td>
+                                <td data-label="Description / Name" scope="row">
+                                    <ui:inputText class="slds-input" value="{!line.description}" />
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    <tr>
+                        <td><b>Total Amount</b></td>
+                        <td><b><ui:outputCurrency value="{!v.totalAmount}"/></b></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="slds-card__footer">
+                <lightning:button variant="brand" label="Add more rows" onclick="{!c.addRow}" />
+            </footer>
+        </article>
+        
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <span class="slds-text-heading_small">
+                                Accounts
+                            </span>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Name">Name</div>
+                            </th>
+                            <aura:if isTrue="{!v.showPVL}">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="PVL BP Id">PVL BP Id</div>
+                                </th>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showFile}">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="File Id">File Id</div>
+                                </th>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showOAH}">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="OAH Case Number">OAH Case Number</div>
+                                </th>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showPrjNo}">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="Project Number">Project Number</div>
+                                </th>
+                            </aura:if>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Workitem Id">Workitem Id</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate" title="Description">Description</div>
+                            </th>
+                            <th class="" scope="col">
+                                <div class="slds-truncate">
+                                    
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.accounts}" var="acc">
+                            <tr class="slds-hint-parent">
+                                <td data-label="Name" scope="row">
+                                    {!acc.Name}
+                                </td>
+                                <aura:if isTrue="{!v.showPVL}">
+                                    <td data-label="PVL BP Id" scope="row">
+                                        {!acc.BPID__c}
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.showFile}">
+                                    <td data-label="PVL BP Id" scope="row">
+                                        {!acc.FileID__c}
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.showOAH}">
+                                    <td data-label="OAH Case Number" scope="row">
+                                        {!acc.OAH_Case_Number__c}
+                                    </td>
+                                </aura:if>
+                                <aura:if isTrue="{!v.showPrjNo}">
+                                    <td data-label="Project Number" scope="row">
+                                        {!acc.ProjectNumber__c}
+                                    </td>
+                                </aura:if>
+                                <td data-label="Description" scope="row">
+                                    <ui:inputText class="slds-input" value="{!acc.TR_WorkItemId}" />
+                                </td>
+                                <td data-label="Description" scope="row">
+                                    <ui:inputText class="slds-input" value="{!acc.TR_Description}" />
+                                </td>
+                                <td scope="row">
+                                    <div onclick="{!c.removeAcc}" data-accid="{!acc.Id}">
+                                        <lightning:button variant="brand" iconName="utility:delete" label="&nbsp;" class="remove-button" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:if isTrue="{!v.showPopup}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container" style="width: 100%; max-width: 50rem;">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Accounts</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="overflow-x:auto;">
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-grid slds-gutters slds-grid_vertical-align-end" onkeypress="{!c.keyCheck}">
+                                    <aura:iteration items="{!v.searchAccountFields}" var="accountField">
+                                        <div class="slds-col" style="alignment: bottom">
+                                            <lightning:input type="text" id="form-element-filter" name="{!accountField.name}" value="{!accountField.value}" label="{!'Search '+ accountField.label}" />
+                                        </div>
+                                    </aura:iteration>
+                                    </div><br/>
+                                    <div class="slds-col">
+                                        <div>
+                                            <div style="height: 23px; width:35px; display:inline-block; margin-top: 39px;">
+                                                <aura:if isTrue="{!v.filtering == 'true'}">
+                                                    <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline">
+                                                        <span class="slds-assistive-text">Loading</span>
+                                                        <div class="slds-spinner__dot-a"></div>
+                                                        <div class="slds-spinner__dot-b"></div>
+                                                    </div>
+                                                </aura:if>
+                                            </div>
+                                            <lightning:button aura:id="filterButton" variant="brand" label="Filter" onclick="{!c.searchAccount}" class="filterButton" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div>
+                                    <lightning:datatable
+                                            aura:id="accountsTable"
+                                            columns="{!v.accountColumns}"
+                                            data="{!v.foundAccounts}"
+                                            keyField="Id"
+                                            sortedBy="Name"
+                                            onrowselection="{!c.selectAccDT}"
+                                    />
+                                    <center>
+                                        <aura:if isTrue="{!and(empty(v.foundAccounts), v.showNoResultsMessage)}" >
+                                            No Results Found.
+                                        </aura:if>
+                                        <aura:if isTrue="{!and(!empty(v.foundAccounts))}" >
+                                            <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                              onclick="{!c.onPrevAccountPage}" disabled="{! v.pageNumber == 1}"/>
+                                            <span class="slds-p-horizontal_small">
+                    Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.accountsPerPage)+' to '+((v.pageNumber-1)*v.accountsPerPage+v.resultSize)}
+                </span>
+                                            <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                              disabled="{! v.isLastPage}" onclick="{!c.onNextAccountPage}"/>
+                                        </aura:if>
+                                        <br/>
+                                        <b>Selected accounts</b>
+                                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                            <thead>
+                                            <tr class="slds-text-title_caps">
+                                                <aura:iteration items="{!v.columnAccountFields}" var="accountField">
+                                                <th scope="col">
+                                                    <div class="slds-truncate" title="{!accountField.label}">{!accountField.label}</div>
+                                                </th>
+                                                </aura:iteration>
+                                                <th scope="col">
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <aura:iteration items="{!v.finalSelectedAccounts}" var="acc">
+                                                <tr>
+                                                <aura:iteration items="{!v.columnAccountFields}" var="accountField">
+                                                    <td data-label="{!accountField.label}">
+                                                        <c:MapIterationChildComponent currentAcc="{!acc}" fieldName="{!accountField.name}"/>
+                                                    </td>
+                                                </aura:iteration>
+                                                    <td>
+                                                        <div onclick="{!c.removeFinalSelAcc}" data-accid="{!acc.Id}">
+                                                            <lightning:button variant="brand" iconName="utility:delete" label="&nbsp;" class="remove-button" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </aura:iteration>
+                                            <aura:iteration items="{!v.selectedAccounts}" var="acc">
+                                                <tr>
+                                                    <aura:iteration items="{!v.columnAccountFields}" var="accountField">
+                                                        <td data-label="{!accountField.label}">
+                                                            <c:MapIterationChildComponent currentAcc="{!acc}" fieldName="{!accountField.name}"/>
+                                                        </td>
+                                                    </aura:iteration>
+                                                    <td>
+                                                        <div onclick="{!c.removeSelAcc}" data-accid="{!acc.Id}">
+                                                            <lightning:button variant="brand" iconName="utility:delete" label="&nbsp;" class="remove-button" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </aura:iteration>
+                                            </tbody>
+                                        </table>
+                                    </center></div>
+                                <br />
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand" label="Add Selected" onclick="{!c.finishAddLines}" />
+                                <lightning:button label="Cancel" onclick="{!c.closeAddLines}" />
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </aura:if>
+            </div>
+            <footer class="slds-card__footer">
+                <lightning:button variant="brand" label="Select accounts" onclick="{!c.addLines}" />
+            </footer>
+        </article>
+        
+        <article class="slds-card">
+            <footer class="slds-card__footer">
+                <aura:if isTrue="{!v.errorStr != ''}">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{!v.errorStr}</h2>
+                    </div>
+                    <br />
+                    <br />
+                </aura:if>
+                <aura:if isTrue="{!v.saved == 'true'}">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_success" role="success">
+                        <span class="slds-assistive-text">success</span>
+                        <h2>Transactions saved successfully</h2>
+                    </div>
+                    <br />
+                    <br />
+                </aura:if>
+                <lightning:button variant="brand" label="Save" onclick="{!c.saveForm}" disabled="{!v.disableSave}"/>
+                <lightning:button label="Cancel" onclick="{!c.cancelForm}" />
+            </footer>
+        </article>
+    </aura:if>
+    <aura:if isTrue="{!v.saved == 'true'}">
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <span class="slds-text-heading_small">
+                                Summary
+                            </span>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                {!v.saveResults.transactions.length} transactions were created in batch <b>{!v.saveResults.batch}</b>
+                for Cashier Codes:&nbsp;&nbsp; <b><aura:iteration items="{!v.saveResults.codes}" var="code">{!code.CashierCode__c} &nbsp;</aura:iteration></b>
+                    <br /><br />
+                    <aura:iteration items="{!v.saveResults.transactionSummaryList}" var="transactionSummary">
+                        <lightning:formattedRichText value="{!transactionSummary}"/>
+                    </aura:iteration>
+            </div>
+            <footer class="slds-card__footer">
+                <lightning:button variant="brand" label="Back" onclick="{!c.backToFirstScreen}" />
+                <a href="{!'/apex/BatchSummaryPDF?batch=' + v.saveResults.batch + '&amp;printFields='+ v.printFields}" target="_blank">
+                    <lightning:button variant="brand" label="Print" />
+                </a>
+            </footer>
+        </article>
+    </aura:if>
+    
+</aura:component>

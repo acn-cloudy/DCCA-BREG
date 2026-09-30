@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConvertToSoleOwner</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+
+ ConverttoSoleOwner__c  = TRUE,
+NOT( LicenseType__r.SoleProp__c )
+
+)</errorConditionFormula>
+    <errorDisplayField>ActiveInactive__c</errorDisplayField>
+    <errorMessage>This License is not eligible to be converted to a Sole Owner</errorMessage>
+</ValidationRule>

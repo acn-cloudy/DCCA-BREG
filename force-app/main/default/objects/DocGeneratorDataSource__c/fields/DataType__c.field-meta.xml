@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DataType__c</fullName>
+    <description>PacPoint-AZ102419 - Created for PVL phase 1</description>
+    <label>Data Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Detail</fullName>
+                <default>false</default>
+                <label>Detail</label>
+            </value>
+            <value>
+                <fullName>Table</fullName>
+                <default>false</default>
+                <label>Table</label>
+            </value>
+            <value>
+                <fullName>Barcode</fullName>
+                <default>false</default>
+                <label>Barcode</label>
+            </value>
+            <value>
+                <fullName>Image</fullName>
+                <default>false</default>
+                <label>Image</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<aura:component >
+
+	<ltng:require scripts="{!$Resource.leaflet_1_0_2 + '/leaflet.js'}" styles="{!$Resource.leaflet_1_0_2 + '/leaflet.css'}" afterScriptsLoaded="{!c.jsLoaded}" />
+	
+	<aura:attribute name="sObj" type="object" />
+	<aura:attribute name="marker" type="object" />
+	<aura:attribute name="latitudeField" type="string" />
+	<aura:attribute name="longitudeField" type="string" />
+	
+	<div id="map" style="height:300px;"></div>
+	
+</aura:component>

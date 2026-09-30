@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>TNOX: Controls trigger behavior for ticket objects. Used during data migrations to skip email notifications and automatic routing while allowing sharing rules to run.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Ticket Trigger Control</label>
+    <visibility>Public</visibility>
+</CustomObject>

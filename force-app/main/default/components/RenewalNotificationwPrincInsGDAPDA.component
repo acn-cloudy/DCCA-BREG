@@ -1,0 +1,308 @@
+<apex:component >
+  <apex:attribute name="license" type="License__c" description="License" />
+  <apex:attribute name="licenseType"
+    type="LicenseType__c"
+    description="License Type"
+  />
+  <apex:attribute name="dToday" type="Date" description="today" />
+  <apex:attribute name="sUrl" type="String" description="url for barcode" />
+
+  <apex:attribute name="associatedLicenses"
+    type="AssociatedLicense__c[]"
+    description="Associated License"
+  />
+  <table class="ql-table-blob" style="font-size: 14px">
+    <tbody>
+      <tr>
+        <td colspan="1" rowspan="1" style="width: 295pt; font-size: 14pt">
+          RENEWAL APPLICATION
+        </td>
+        <td
+          colspan="1"
+          rowspan="1"
+          style="text-align: right; width: 295pt; font-size: 8.5pt; white-space: nowrap"
+        >
+          DEPT. OF COMMERCE &amp; CONSUMER AFFAIRS STATE OF HAWAII<br />PROFESSIONAL
+          &amp; VOCATIONAL LICENSING DIVISION<br />P.O. BOX 3469. HONOLULU, HI
+          96801
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="ql-table-blob" style="font-size: 8.5pt; padding-left: 40px">
+    <tbody>
+      <tr>
+        <td style="width: 457px">
+          This form is for the renewal of your license for the next license
+          period
+          <apex:outputText value="{0, date, MMM yy}">
+            <apex:param value="{!license.RenewalFormPreviousLicensePeriod1__c}"
+            />
+          </apex:outputText>
+          -
+          <apex:outputText value="{0, date, MMM yy}">
+            <apex:param value="{!license.RenewalFormPreviousLicensePeriod2__c}"
+            />
+          </apex:outputText>
+        </td>
+        <td style="text-align: right; width: 100px">
+          <apex:outputText value="{0, date, MM/dd/yy}">
+            <apex:param value="{!dToday}" />
+          </apex:outputText>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="white-space: nowrap">
+          Instructions &amp; information are on the enclosed sheet. DO NOT USE
+          THIS FORM AFTER
+          <apex:outputText value="{0, date, MMM dd yy}">
+            <apex:param value="{!license.RenewalFormRestorationDeadline__c}"
+            /> </apex:outputText>.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="ql-table-blob">
+    <tbody>
+      <tr>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 295pt; font-size: 8.5pt"
+        >
+          {!license.BoardProgramName__c}
+        </td>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 295pt; font-size: 8.5pt"
+        >
+          {!licenseType.LicenseType__c}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="ql-table-blob">
+    <tbody>
+      <tr>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 13.95pt; font-size: 8pt; line-height: 1"
+        >
+          L<br />I<br />C<br />E<br />N<br />S<br />E<br />D<br />A<br />T<br />A
+        </td>
+        <td colspan="1" rowspan="1" valign="top" style="width: 536.55pt">
+          <table>
+            <tr>
+              <td style="vertical-align: top" rowspan="2">
+                <div
+                  style="font-size: 8.5pt; vertical-align: top; padding-top: 2px"
+                >
+                  LICENSEE’S NAME AND ADDRESS OF RECORD:<br />
+                  <apex:outputText escape="false" value="{!license.LicenseeNameFormula__c}"/><br/>
+                  {!license.DBAEntity__c} <br />
+                  <apex:outputText escape="false"
+                    value="{!license.RenewalMailToStreet__c}"
+                  ></apex:outputText><br /> {!license.RenewalMailToCity__c},
+                  {!license.RenewalMailToState__c}
+                  {!license.RenewalMailToZipCode__c}<apex:outputText rendered="{!NOT(ISBLANK(license.RenewalMailToCountry__c))}" escape="false" value="{!'<br/>' + license.RenewalMailToCountry__c}"/><br /> LICENSE NO:
+                  {!license.NotificationLicenseNumber__c}<br />
+                  FILE NO:{!license.TruncatedPVLBPID__c}
+                </div>
+              </td>
+              <td style="width: 60px"></td>
+              <td style="vertical-align: top; font-size: 0.7em">
+                <div style="padding-top: 2px">PRINCIPAL(S):</div>
+              </td>
+              <td style="vertical-align: top; font-size: 0.7em">
+                <table>
+                  <apex:repeat value="{!associatedLicenses}"
+                    var="associatedLicense"
+                    id="theRepeat"
+                  >
+                    <tr>
+                      <td style="padding-left: 20px">
+                        {!associatedLicense.EmployeeName__c}
+                      </td>
+                      <td style="padding-left: 20px">
+                        {!associatedLicense.EmployeeLicenseType__c}
+                      </td>
+                      <td style="padding-left: 20px">
+                        {!associatedLicense.EmployeeLicenseNumber__c}
+                      </td>
+                    </tr>
+                  </apex:repeat>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 60px"></td>
+              <td style="vertical-align: top; font-size: 0.7em" colspan="2">
+                <table>
+                  <apex:repeat value="{!license.Insurance_Bonds__r}"
+                    var="insuranceBond"
+                  >
+                    <tr>
+                      <td></td>
+                      <td>INSURANCE OF RECORD</td>
+                    </tr>
+                    <tr>
+                      <td>TYPE:</td>
+                      <td>{!insuranceBond.Type__c}</td>
+                    </tr>
+                    <tr>
+                      <td>SURETY:</td>
+                      <td>{!insuranceBond.Surety__c}</td>
+                    </tr>
+                    <tr>
+                      <td>POLICY NO:</td>
+                      <td>{!insuranceBond.PolicyNumber__c}</td>
+                    </tr>
+                    <tr>
+                      <td>EXPIRATION DATE:</td>
+                      <td>
+                        <apex:outputText value="{0, date, MMM dd yy}">
+                          <apex:param value="{!insuranceBond.TermDate__c}" />
+                        </apex:outputText>
+                      </td>
+                    </tr>
+                  </apex:repeat>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr style="margin: 1px 0" />
+  <table class="ql-table-blob">
+    <tbody>
+      <tr>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 13.95pt; font-size: 8pt; line-height: 1"
+        >
+          F<br />E<br />E<br />S
+        </td>
+        <td colspan="1" rowspan="1" valign="top" style="font-size: 8.5pt">
+          By LICENSE EXPIRATION DATE
+          <apex:outputText value="{0, date, MMM dd yy}">
+            <apex:param value="{!license.RenewalFormLicenseExpireDate__c}"
+            /> </apex:outputText><br /> a TOTAL OF <strong><u>${!license.ActiveInactiveRenewalFee__c}</u></strong>  is due:
+          &lt;<span style=""
+            >******************** *** <strong>ON-TIME RENEWAL FEES</strong> ***</span
+          ><br /> AFTER the LICENSE EXPIRATION DATE
+          <apex:outputText value="{0, date, MMM dd yy}">
+            <apex:param value="{!license.RenewalFormLicenseExpireDate__c}"
+            />
+          </apex:outputText>
+          AND BEFORE
+          <apex:outputText value="{0, date, MMM dd yy}">
+            <apex:param value="{!license.RenewalFormRestorationDeadline__c}"
+            /> </apex:outputText>,<br /> a TOTAL OF <strong><u>${!license.LateActiveInactiveRenewalFee__c}</u></strong>  is due:
+          &lt;<span style="">******************** *** <strong>LATE RENEWAL FEES</strong>:</span>
+          <span style="">***</span> <br /> Please make check or money
+          order payable to: COMMERCE AND CONSUMER AFFAIRS (DO NOT MAKE MULTIPLE
+          PAYMENTS)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr style="margin: 1px 0" />
+  <table class="ql-table-blob">
+    <tbody>
+      <tr>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 13.95pt; font-size: 8pt; line-height: 1"
+        >
+          O<br />T<br />H<br />E<br />R<br /><br />R<br />E<br />Q<br />U<br />I<br />R<br />E<br />M<br />E<br />N<br />T<br />S
+        </td>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 268pt; font-size: 8.5pt"
+        >
+          OTHER REQUIREMENTS DUE OR SPECIAL INSTRUCTIONS INFORMATION:
+          <div style="font-size: 8.5pt; font-family: Arial; line-height: 1.1">
+            <apex:outputText escape="false"
+              value="{!licenseType.OtherRenewalRequirements1__c}"
+            ></apex:outputText>
+          </div>
+        </td>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 268pt; font-size: 8.5pt"
+        >
+          INCOMPLETE APPLICATION WILL DELAY PROCESSING
+          <div style="font-size: 8.5pt; font-family: Arial; line-height: 1.1">
+            <apex:outputText escape="false"
+              value="{!licenseType.OtherRenewalRequirements2__c}"
+            ></apex:outputText>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr style="margin: 1px 0" />
+  <table class="ql-table-blob">
+    <tbody>
+      <tr>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 13.95pt; font-size: 6pt; line-height: 1"
+        >
+          T<br />O<br /><br />B<br />E<br /><br />C<br />O<br />M<br />P<br />L<br />E<br />T<br />E<br />D<br /><br />B<br />Y<br /><br />L<br />I<br />C<br />E<br />N<br />S<br />E<br />E
+        </td>
+        <td
+          colspan="1"
+          rowspan="1"
+          valign="top"
+          style="width: 536pt; font-size: 8.5pt; font-family: Arial; line-height: 1.1"
+        >
+           <strong>TO BE COMPLETED BY LICENSEE</strong> Circle your answers
+          and provide additional information where requested. <table style="width:490pt; border-collapse:collapse; table-layout:fixed; margin:0; font-family:Arial; font-size:8.5pt;"><tr><td style="width:456pt; vertical-align:bottom; line-height:1.1; padding:0; border-bottom:0.5pt dotted black;">1) Since you last filed an application (initial/renewal), has your license in this state or any other jurisdiction been formally disciplined by the way of fine, suspension, restriction or revocation?</td><td style="width:34pt; vertical-align:bottom; text-align:right; white-space:nowrap; padding:0 0 1pt 4pt;"><strong>Yes&nbsp;No</strong></td></tr><tr><td style="width:456pt; vertical-align:bottom; line-height:1.1; padding:0; border-bottom:0.5pt dotted black;">2) Are there any disciplinary actions pending against you in this state or any other jurisdiction?</td><td style="width:34pt; vertical-align:bottom; text-align:right; white-space:nowrap; padding:0 0 1pt 4pt;"><strong>Yes&nbsp;No</strong></td></tr><tr><td style="width:456pt; vertical-align:bottom; line-height:1.1; padding:0; border-bottom:0.5pt dotted black;">3) Since you last filed an application (initial/renewal), have you or any officers, directors, managers, partners, and/or members of the corporation been convicted of a crime in which the conviction has not been annulled or expunged?</td><td style="width:34pt; vertical-align:bottom; text-align:right; white-space:nowrap; padding:0 0 1pt 4pt;"><strong>Yes&nbsp;No</strong></td></tr></table> ATTACH SUPPORTING DOCUMENTATION FOR EACH YES ANSWERED <br />I
+          understand that my license expires on the License Expiration Date
+          shown on this form. <br />I understand that if I fail to renew my
+          license by the license expiration date, I am unlicensed and shall not
+          practice. <br />I further understand that I may resume practice only
+          after I have met all appropriate restoration requirements. <br />I
+          certify that the statements contained in this app are true and
+          correct. I understand that misrepresentation is grounds for board
+          refusal to renew or subsequent suspension or revocation of license.
+          <br /><table style="width: 100%; border-collapse: collapse; margin-top: 1pt;"><tr><td style="white-space: nowrap; font-size: 8.5pt; padding: 0;"><strong>SIGNATURE OF LICENSEE</strong></td><td style="border-bottom: 0.5pt solid black; width: 155pt; padding: 0 0 1pt;">&nbsp;</td><td style="white-space: nowrap; font-size: 8.5pt; padding: 0 0 0 8pt;"><strong>EMAIL</strong></td><td style="border-bottom: 0.5pt solid black; width: 125pt; padding: 0 0 1pt;">&nbsp;</td><td style="white-space: nowrap; font-size: 8.5pt; padding: 0 0 0 8pt;"><strong>DATE</strong></td><td style="border-bottom: 0.5pt solid black; width: 65pt; padding: 0 0 1pt;">&nbsp;</td></tr></table>
+          <table class="MsoTableGrid" style="width: 526.45pt">
+            <tbody>
+              <tr style="height: 38.2pt">
+                <td
+                  colspan="1"
+                  rowspan="2"
+                  style="width: 254.4pt; height: 38.2pt; font-size: 8.5pt"
+                >
+                  <strong>HAVE YOU REMEMBERED TO:</strong>
+                  <br />1) Attach payment. <br />2) Answer questions. <br />3)
+                  Sign and date application. <br />4) If applicable, include
+                  required documents.
+                </td><td style="text-align: center; vertical-align: middle;"><c:barcode data="{!license.Name}" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</apex:component>

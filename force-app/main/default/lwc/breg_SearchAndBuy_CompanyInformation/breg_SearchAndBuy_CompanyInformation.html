@@ -1,0 +1,185 @@
+<template>
+    <!-- General Info Section -->
+    <div>
+        <h2 class="dxp-text-heading-large slds-m-bottom_medium slds-m-top_medium">{labels.generalInfo}</h2>
+
+        <!-- Status Alert Section (Only for Account entities) -->
+        <template if:true={isAccountObject}>
+            <div class="status-section slds-m-bottom_large">
+                <div class="status-content slds-grid slds-gutters slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <div class="warning-message slds-m-bottom_small">
+                            <template lwc:if={isInGoodStanding}>
+                                <lightning-icon icon-name="utility:success" variant="success" alternative-text="Success" size="small"></lightning-icon>
+                                <span class="success-text">{labels.inGoodStanding}</span>
+                            </template>
+                            <template lwc:else>
+                                <lightning-icon icon-name="utility:warning" variant="error" alternative-text="Warning" size="small"></lightning-icon>
+                                <span class="warning-text">{goodStandingMessage}</span>
+                            </template>
+                        </div>
+                        <template if:true={showFilingButton}>
+                            <lightning-button variant="brand" onclick={handleAnnualReport} label={labels.fileAnnualReport}></lightning-button>
+                        </template>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <ul class="filing-list">
+                            <template for:each={limitedAnnualFilings} for:item="filing">
+                                <li key={filing.Id}>{filing.breg_Filing_Year__c} annual filing {filing.status}.</li>
+                            </template>
+                        </ul>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                        <div class="slds-grid slds-grid_vertical slds-gutters_small">
+                            <div class="slds-col slds-m-bottom_small">
+                                <lightning-button 
+                                    variant="neutral" 
+                                    label={labels.downloadPDF} 
+                                    icon-name="utility:download" 
+                                    class="slds-button_stretch"
+                                    disabled={isDownloading}
+                                    onclick={handleDownloadCompanyInfoPdf}>
+                                </lightning-button>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-button
+                                    variant="neutral"
+                                    label={labels.receiveReminders}
+                                    icon-name="utility:notification"
+                                    class="slds-button_stretch"
+                                    onclick={handleReceiveReminders}
+                                >
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Dynamic Fields Display -->
+        <template if:true={hasFields}>
+            <div class="slds-grid slds-gutters slds-wrap">
+                <!-- Left Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <template for:each={leftColumnFields} for:item="field">
+                            <div key={field.label} class="info-item">
+                                <div class="info-label slds-grid slds-grid_align-start">
+                                    <span class="slds-m-right_x-small">{field.label}</span>
+                                    <template if:true={field.helpText}>
+                                        <lightning-helptext content={field.helpText} icon-name="utility:info"> </lightning-helptext>
+                                    </template>
+                                </div>
+                                <div class="info-value" style="white-space: pre-line">
+                                    <template lwc:if={field.valueUrl}>
+                                        <a href={field.valueUrl} target="_blank" style="text-decoration: underline;">{field.value}</a>
+                                    </template>
+                                    <template lwc:else>
+                                        {field.value}
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <template for:each={rightColumnFields} for:item="field">
+                            <div key={field.label} class="info-item">
+                                <div class="info-label slds-grid">
+                                    <div class="slds-grid_vertical-align-end">
+                                        <span class="slds-m-right_x-small">{field.label}</span>
+                                    </div>
+                                    <div class="slds-grid_vertical-align-center">
+                                        <template if:true={field.helpText}>
+                                            <lightning-helptext content={field.helpText} icon-name="utility:info"> </lightning-helptext>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="info-value" style="white-space: pre-line">
+                                    <template lwc:if={field.valueUrl}>
+                                        <a href={field.valueUrl} target="_blank" style="text-decoration: underline;">{field.value}</a>
+                                    </template>
+                                    <template lwc:else>
+                                        {field.value}
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Related Lists - Only for Account entities -->
+        <template if:true={isAccountObject}>
+            <!-- Annual Filings Section -->
+            <div class="datatable-section slds-m-top_large">
+                <h2 class="dxp-text-heading-large slds-m-bottom_medium">{labels.annualFilings}</h2>
+                <lightning-datatable key-field="Id" data={annualFilingData} columns={annualFilingColumns} hide-checkbox-column> </lightning-datatable>
+            </div>
+
+            <!-- Other Filings Section -->
+            <div class="datatable-section slds-m-top_large">
+                <h2 class="dxp-text-heading-large slds-m-bottom_medium">{labels.otherFilings}</h2>
+                <lightning-datatable key-field="Id" data={otherFilingData} columns={otherFilingColumns} hide-checkbox-column> </lightning-datatable>
+                <!-- <div class="filing-note">
+                    <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                    <span>{labels.transactionsNote}</span>
+                </div> -->
+            </div>
+
+            <!-- Partners Section -->
+            <div class="datatable-section slds-m-top_large">
+                <div class="slds-grid slds-m-bottom_medium slds-grid_vertical-align-center slds-wrap slds-align-baseline">
+                    <h2 class="dxp-text-heading-large slds-m-right_small">{accountAffiliationTableLabel}</h2>
+                    <span><a href="javascript:void(0);" onclick={handleShowOfficeInfo}>{labels.officeMoreInfo}</a></span>
+                </div>
+                <c-breg-_-datatable-with-pagination key-field="Id" data={transformedAccountAffiliationData} columns={accountAffiliationColumns} hide-checkbox-column>
+                </c-breg-_-datatable-with-pagination>
+            </div>
+
+            <!-- Stocks Section -->
+            <template if:true={hasStocks}>
+                <div class="datatable-section slds-m-top_large">
+                    <h2 class="dxp-text-heading-large slds-m-bottom_medium">{labels.stocksTitle}</h2>
+                    <lightning-datatable class="stocks-table" key-field="Id" data={stockData} columns={stockColumns} hide-checkbox-column> </lightning-datatable>
+                </div>
+            </template>
+
+            <!-- Trade Names/Trademarks/Service Marks Section -->
+            <div class="datatable-section slds-m-top_large">
+                <h2 class="dxp-text-heading-large slds-m-bottom_medium">{labels.tradeNamesTitle}</h2>
+                <lightning-datatable class="tntmsm-table" key-field="Id" data={tnTmSmData} columns={tnTmSmColumns} hide-checkbox-column> </lightning-datatable>
+            </div>
+        </template>
+
+        <!-- Related Lists - Only for TN/TM/SM entities -->
+        <template if:true={isTnTmSmObject}>
+            <div class="datatable-section slds-m-top_large">
+                <h2 class="dxp-text-heading-large slds-m-bottom_medium">{labels.otherFilingsTitle}</h2>
+                <lightning-datatable key-field="Id" data={otherFilingData} columns={otherFilingColumns} hide-checkbox-column> </lightning-datatable>
+            </div>
+            <!-- <div class="filing-note">
+                <lightning-icon icon-name="utility:info" size="x-small"></lightning-icon>
+                <span>{labels.transactionsNote}</span>
+            </div> -->
+        </template>
+    </div>
+
+    <template if:true={showOfficeInfoModal}>
+        <c-breg-_-popup
+            visible={showOfficeInfoModal}
+            title={labels.officeInfoTitle}
+            message={officeInfoMessage}
+            cancel-button-label={labels.close}
+            oncancel={handleCloseOfficeInfo}
+            hide-next-button="true"
+        ></c-breg-_-popup>
+    </template>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DiscretionNoCustody__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Discretion, but no custody - Maintain $10k Net Worth at all times.16-39-433(c)</inlineHelpText>
+    <label>Discretion - No Custody</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

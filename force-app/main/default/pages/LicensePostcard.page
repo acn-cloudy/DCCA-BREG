@@ -1,0 +1,77 @@
+<apex:page sidebar="false" showHeader="false"  controller="LicensePostCardController"
+standardStylesheets="false" renderAs="PDF" 
+applyHtmlTag="false" applyBodyTag="false">
+<head>
+    <style>
+        /*
+            size: A4 landscape;
+            size: 5.5 * 4.25  
+            a4  210 * 297 
+        */
+        @page {
+            size: 11in 8.5in;
+            margin: 0;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+      
+    </style>
+</head>
+<apex:repeat var="records" value="{!allRecords}">
+    
+<body>
+    <div style="margin-top:1px">
+        <apex:repeat var="record" value="{!records}">
+            <div style="float: left;"> 
+                <c:licenseContent record="{!record}" />
+            </div>
+            
+        </apex:repeat>
+    </div> 
+    <div style="page-break-after:always;"></div>
+    <div style="margin-left:5px">
+        <apex:repeat var="record" value="{!records}">
+            <div style="float: left;">
+                <c:licenseContent2 record="{!record}" />
+            </div>
+        </apex:repeat>
+    </div>
+    <!-- <div style="margin-top:1px">
+        <div style="float:left;border-right:1px solid;border-bottom:1px solid">
+            <c:licenseContent record="{!records[0]}" />
+        </div>
+        <div style="float:left;border-bottom:1px solid">
+            <c:licenseContent record="{!records[1]}" />
+        </div>
+        <div style="float:left;border-right:1px solid">
+            <c:licenseContent record="{!records[2]}" />
+        </div>
+         <div style="float:left;">
+            <c:licenseContent record="{!records[3]}" />
+        </div>
+    </div>
+    <div style="page-break-after:always;"></div>
+    <div style="padding-left:5px">
+        <div style="float:left;border-right:1px solid;border-bottom:1px solid">
+            <c:licenseContent2 record="{!records[0]}" />
+        </div>
+        <div style="float:left;border-bottom:1px solid">
+            <c:licenseContent2 record="{!records[1]}" />
+        </div>
+        <div style="float:left;border-right:1px solid">
+            <c:licenseContent2 record="{!records[2]}" />
+        </div>
+        <div style="float:left;">
+            <c:licenseContent2 record="{!records[3]}" />
+        </div>
+    </div> -->
+   
+</body>
+<div style="page-break-after:always;"></div>
+</apex:repeat>
+</apex:page>

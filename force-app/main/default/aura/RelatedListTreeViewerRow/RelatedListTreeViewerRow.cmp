@@ -1,0 +1,84 @@
+<aura:component>
+    <aura:attribute name="rowData" type="Object"/>
+    <aura:attribute name="showChildTable" type="Boolean" default="false"/>
+    <aura:attribute name="childRel" type="String"/>
+    <aura:attribute name="childRelFields" type="String"/>
+    <aura:attribute name="childRelEditableFields" type="String"/>
+    <aura:attribute name="childRowData" type="Object"/>
+    <aura:attribute name="childRelApiName" type="String"/>
+
+    <aura:attribute name="isInEditMode" type="Boolean" default="true"/>
+    <aura:attribute name="childMode" type="String" default="read"/>
+    <aura:attribute name="mode" type="String" default="edit"/>
+
+    <aura:attribute name="fields" type="RelatedListTreeViewerController.GridColumn[]"/>
+    <aura:attribute name="cells" type="Object[]"/>
+
+    <aura:attribute name="childColspanSize" type="Integer"/>
+    <aura:attribute name="updatedRows" type="Map"/>
+    <aura:attribute name="updatedChildRows" type="Map"/>
+
+    <!--Check if only used for single row (no child)-->
+    <aura:attribute name="noChild" type="Boolean" default="false"/>
+
+    <!-- Pass along for mass update -->
+    <aura:attribute name="massUpdateJSONString" type="String" default="{}"/>
+    <aura:method name="handleMassAction" action="{!c.handleMassAction}" access="PUBLIC" >
+        <aura:attribute name="action" type="Object" /> 
+    </aura:method>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.rowData}" action="{!c.handleRowDataChange}"/>
+    <aura:handler name="change" value="{!v.mode}" action="{!c.handleModeChange}"/>
+
+    <tr>
+        <aura:if isTrue="{!not(v.noChild)}">
+            <td class="col-action col-fit">
+                <aura:if isTrue="{!not(empty(v.rowData._children))}">
+                    <aura:if isTrue="{!v.showChildTable}">
+                        <lightning:buttonIcon alternativeText="Show/Hide"
+                                              aura:id="btn"
+                                              variant="bare"
+                                              size="small"
+                                              iconName="utility:chevrondown"
+                                              onclick="{!c.toggleChildrenVisibility}"/>
+                        <aura:set attribute="else">
+                            <lightning:buttonIcon alternativeText="Show/Hide"
+                                                  aura:id="btn"
+                                                  variant="bare"
+                                                  size="small"
+                                                  iconName="utility:chevronright"
+                                                  onclick="{!c.toggleChildrenVisibility}"/>
+                        </aura:set>
+                    </aura:if>
+                </aura:if>
+            </td>
+        </aura:if>
+        <aura:iteration items="{!v.cells}" var="cell">
+            <c:RelatedListTreeViewerCell aura:id="cRelatedListTreeViewerCell"
+                                         rowData="{!v.rowData}"
+                                         value="{!cell.value}"
+                                         mode="{!v.mode}"
+                                         fieldDef="{!cell.fieldDef}"
+            />
+        </aura:iteration>
+    </tr>
+    <aura:if isTrue="{!and(not(empty(v.rowData._children)), v.showChildTable)}">
+        <tr class="col-child-row" aura:id="children">
+            <td></td>
+            <td colspan="{!v.childColspanSize}">
+                <c:RelatedListTreeViewer aura:id="child"
+                                         recordId="{!v.rowData.Id}"
+                                         gridColumns="{!v.fields}"
+                                         updatedChild1Rows="{!v.updatedChildRows}"
+                                         childRelationship1ApiName="{!v.childRelApiName}"
+                                         child1Columns="{!v.childRelFields}"
+                                         child1EditableColumns="{!v.childRelEditableFields}"
+                                         useCard="false"
+                                         hasActiveRowEdit="{!v.isInEditMode}"
+                                         data="{!v.childRowData}"
+                                         massUpdateJSONString="{!v.massUpdateJSONString}"/>
+            </td>
+        </tr>
+    </aura:if>
+</aura:component>

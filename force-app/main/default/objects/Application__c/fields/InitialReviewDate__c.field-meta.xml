@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InitialReviewDate__c</fullName>
+    <description>PacPoint-KN082319-Created for PVL Phase 1</description>
+    <inlineHelpText>The date when the application was moved out of A1</inlineHelpText>
+    <label>Initial Review Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

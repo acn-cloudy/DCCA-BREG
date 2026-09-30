@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEB</fullName>
+    <active>true</active>
+    <description>PacPoint-MV010819 - Created for BREG phase 1</description>
+    <label>SEB</label>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>SEB Clerical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEB Complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEB Investigation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEB Legal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Application for Registration of Securities by Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney Exhibits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney Work Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney%27s opinion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bank Records</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>By Qualification Application Attachment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified Corporate Resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified copy of Issuer%27s articles of organization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Notice Filing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complainant Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by accountant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by tax adviser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process By Issuer of or Dealer in Securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process and Acknowledgement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to service of process and corporate resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contracts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of Prospectus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of general announcement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of resolutions by directors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Correspondence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form D - Notice of Exempt Offering of Securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form U4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of escrow agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of selling agency agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of subscription agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Franchise Disclosure Document %28FDD%29 - Redline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indenture by which the securities are issued %28if any%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indenture%2Fnote%2Fcontracts containing terms of notes or other debt to be offered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investigation Exhibits</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investigation Report</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investigator Work Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer Financial Statements within 4 months prior to filing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s articles of incorporation%2Forganization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s by laws or operating agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s by-laws%2C Certified by authorized officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Memorandum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Model Accredited Investor Exemption Uniform Notice of Transaction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opinion of counsel as to the legality of the securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other - Supporting Document</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pleadings %E2%80%93 Administrative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pleadings %E2%80%93 Civil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Receipts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registrant agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Research</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Respondent Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed consent of any expert opinion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specimen copy of each certificate to be registered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specimen of ownership certificate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spreadsheets</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Statement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subpoena</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Underwriting agreement %28if any%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Witness Documents</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

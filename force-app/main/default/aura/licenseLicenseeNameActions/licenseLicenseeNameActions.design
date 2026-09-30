@@ -1,0 +1,5 @@
+<design:component label="License Name Actions">
+    <sfdc:objects>
+        <sfdc:object>License__c</sfdc:object>
+    </sfdc:objects>
+</design:component>

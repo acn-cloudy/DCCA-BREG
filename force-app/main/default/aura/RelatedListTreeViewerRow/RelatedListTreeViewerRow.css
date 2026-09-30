@@ -1,0 +1,4 @@
+.THIS td:first-child,
+.THIS td:nth-child(2) {
+    /*padding: 0;*/
+}

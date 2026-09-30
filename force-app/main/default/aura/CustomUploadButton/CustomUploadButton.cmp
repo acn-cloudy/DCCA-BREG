@@ -1,0 +1,36 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Displays a button on the filing page based on criteria, to upload documents on a filing
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* PacPoint-LC012519 - Created for BREG Phase 1
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* @author       Lucian Ciobanu - PacificPointCorp 
+* @created      2019-01-25
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component controller="CustomUploadButtonController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+	<!-- Design attributes -->
+	<aura:attribute name="uploadButtonName" type="String" default="Upload Documents" />
+	<aura:attribute name="checkboxApiName" type="String" default="ShowUploadButton__c" />
+	<aura:attribute name="uploadFilePageName" type="String" default="uploadfiles" />
+
+	<!-- Custom Attributes -->
+	<aura:attribute name="serverResponse" type="CustomUploadButtonController.Response" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+	<aura:if isTrue="{!v.serverResponse.showUploadButton == true}">
+        <button style="margin-left: 5px; margin-top: 15px; margin-bottom: 15px;" class="slds-button slds-button_neutral" onclick="{!c.goToUploadSection}" >                         
+            {!v.uploadButtonName}&nbsp;
+            <lightning:icon iconName="utility:upload" size="xx-small" alternativeText="Save"/>
+        </button> 
+        &nbsp;
+    </aura:if>
+
+</aura:component>

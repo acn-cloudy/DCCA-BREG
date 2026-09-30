@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequestingAuthorityTitle__c</fullName>
+    <description>PacPoint-JW120519 - Created for DCCA Travel Approval phase 1</description>
+    <label>Requesting Authority Title</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrator</fullName>
+                <default>false</default>
+                <label>Administrator</label>
+            </value>
+            <value>
+                <fullName>CATV Administrator</fullName>
+                <default>false</default>
+                <label>CATV Administrator</label>
+            </value>
+            <value>
+                <fullName>Commissioner</fullName>
+                <default>false</default>
+                <label>Commissioner</label>
+            </value>
+            <value>
+                <fullName>Complaints and Enforcement Officer</fullName>
+                <default>false</default>
+                <label>Complaints and Enforcement Officer</label>
+            </value>
+            <value>
+                <fullName>Deputy Commissioner</fullName>
+                <default>false</default>
+                <label>Deputy Commissioner</label>
+            </value>
+            <value>
+                <fullName>Executive Director</fullName>
+                <default>false</default>
+                <label>Executive Director</label>
+            </value>
+            <value>
+                <fullName>Executive Officer</fullName>
+                <default>false</default>
+                <label>Executive Officer</label>
+            </value>
+            <value>
+                <fullName>Insurance Commissioner</fullName>
+                <default>false</default>
+                <label>Insurance Commissioner</label>
+            </value>
+            <value>
+                <fullName>IS Manager</fullName>
+                <default>false</default>
+                <label>IS Manager</label>
+            </value>
+            <value>
+                <fullName>Licensing Administrator</fullName>
+                <default>false</default>
+                <label>Licensing Administrator</label>
+            </value>
+            <value>
+                <fullName>PUC Chair</fullName>
+                <default>false</default>
+                <label>PUC Chair</label>
+            </value>
+            <value>
+                <fullName>PUC Executive Officer</fullName>
+                <default>false</default>
+                <label>PUC Executive Officer</label>
+            </value>
+            <value>
+                <fullName>Section Head</fullName>
+                <default>false</default>
+                <label>Section Head</label>
+            </value>
+            <value>
+                <fullName>Senior Hearings Officer</fullName>
+                <default>false</default>
+                <label>Senior Hearings Officer</label>
+            </value>
+            <value>
+                <fullName>Supervisor</fullName>
+                <default>false</default>
+                <label>Supervisor</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

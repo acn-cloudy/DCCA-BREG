@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+    access="global" extends="c:sc_execute" controller="DraftApplicationDetailCont" >
+    <aura:attribute name="showApplication" type="Boolean" />
+    <aura:attribute name="applicationName" type="String" />
+    <aura:attribute name="applicationLabel" type="String" />
+    <aura:attribute name="applicationcacheid" type="String" />
+    <aura:attribute name="formData" type="String" />
+    
+    <aura:attribute name="appId" type="String" />
+    <lightning:layout >
+        <lightning:layoutItem padding="around-small">
+            <lightning:input name="appNo" label="App No." aura:id="appNo"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small">
+            <lightning:input name="verificationCode" label="Verification Code" />
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout >
+        <lightning:layoutItem padding="around-small">
+            <lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.submit }" />
+        </lightning:layoutItem>
+    </lightning:layout>
+    <aura:if isTrue="{!v.showApplication}">
+        <c:sc_ApplicationForm verticalnav="true" horizontalnav="true" 
+            applicationName="{!v.applicationName}"
+            applicationLabel="{!v.applicationLabel}" 
+            applicationcacheid="{!v.applicationcacheid}"
+            appId="{!v.appId}" formData="{!v.formData}"
+            enableload="false"
+            preValueMap="{!v.preValueMap}" />
+    </aura:if>
+</aura:component>

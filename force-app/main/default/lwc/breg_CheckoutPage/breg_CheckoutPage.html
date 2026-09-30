@@ -1,0 +1,37 @@
+<template>
+    <div lwc:if={isLoading} style="height: 50vh" class="slds-align_absolute-center">
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </div>
+    <template lwc:else>
+        <template lwc:if={isLoginRedirectionPage}>
+            <div class="slds-size_1-of-1">
+                <c-breg_-login-redirection-page></c-breg_-login-redirection-page>
+            </div>
+        </template>
+        <template lwc:if={isLoginPage}>
+            <div class="slds-size_1-of-1">
+                <c-breg-_-login-or-guest-page oncontinue={getParamsFromUrl} account-number={accountFileNumber}></c-breg-_-login-or-guest-page>
+            </div>
+        </template>
+        <template lwc:if={isDocumentsDeliveryMethod}>
+            <c-breg_-delivery-method account-number={accountFileNumber} oncontinue={handleContinueAfterDeliveryMethod}></c-breg_-delivery-method>
+        </template>
+        <template lwc:if={isPaymentMethodPage}>
+            <div class="slds-size_1-of-1">
+                <c-breg-_-select-payment-method
+                    onprevious={getParamsFromUrl}
+                    onnext={getParamsFromUrl}
+                    account-number={accountFileNumber}
+                ></c-breg-_-select-payment-method>
+            </div>
+        </template>
+        <template lwc:if={isCreateContactPage}>
+            <div class="slds-size_1-of-1">
+                <c-breg-_-create-payment-contact
+                    onprevious={getParamsFromUrl}
+                    account-number={accountFileNumber}
+                ></c-breg-_-create-payment-contact>
+            </div>
+        </template>
+    </template>
+</template>

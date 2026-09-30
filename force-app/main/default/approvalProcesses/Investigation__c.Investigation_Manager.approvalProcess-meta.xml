@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Status__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Supervising_Attorney_Approver__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>Supervising Attorney Approver</description>
+        <label>Step 2</label>
+        <name>Step_2</name>
+    </approvalStep>
+    <description>PacPoint-JB120318 - Created for BREG phase 1 - Investigation Approval Process Revised.
+
+Created for that Patricia doesn&apos;t have to approve the same record twice.</description>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <formula>AND(
+
+NOT(ISBLANK(Supervising_Attorney_Approver__r.Id)), 
+Supervising_Attorney_Approver__r.Id = $User.ManagerId ,
+
+OR(
+ISPICKVAL(Status__c, &quot;Investigation in Progress&quot;),
+ISPICKVAL(Status__c, &quot;Corrections Required&quot;)
+)
+)</formula>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>InvestigationFinalApprovalNotification</name>
+            <type>Alert</type>
+        </action>
+        <action>
+            <name>InvestigationSetStatusToReportApproved</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>Investigation_StatusCorrectionsRequired</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>InvestigationFinalRejectedNotification</name>
+            <type>Alert</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>SetStatusToReadyForSupervisorReview</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Investigation - Two Step Approval</label>
+    <nextAutomatedApprover>
+        <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
+        <userHierarchyField>Manager</userHierarchyField>
+    </nextAutomatedApprover>
+    <processOrder>1</processOrder>
+    <recordEditability>AdminOnly</recordEditability>
+    <showApprovalHistory>false</showApprovalHistory>
+</ApprovalProcess>

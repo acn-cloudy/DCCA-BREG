@@ -1,0 +1,18 @@
+<template>
+    <div class="search-buy-bar">
+        <select class="search-buy-combobox" onchange={handleTypeChange}>
+            <template for:each={searchTypeOptions} for:item="option">
+                <option key={option.value} value={option.value} selected={option.selected}>
+                    {option.label}
+                </option>
+            </template>
+        </select>
+        <input type="text" class="search-buy-input slds-size_1-of-1" placeholder={placeholder} value={searchValue} oninput={handleInputChange} onkeydown={handleKeyDown} />
+        <button class="search-buy-btn" title={searchButtonLabel} onclick={handleSearchClick}>
+            <lightning-icon icon-name="utility:search" alternative-text={searchButtonLabel} size="small"></lightning-icon>
+        </button>
+    </div>
+    <template lwc:if={showSearchButton}>
+        <lightning-button label={labels.searchButton} variant="brand" class="slds-m-top_small" onclick={handleSearchClick}></lightning-button>
+    </template>
+</template>

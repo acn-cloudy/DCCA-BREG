@@ -1,0 +1,9 @@
+<aura:component>
+    <aura:attribute name="inputs" type="array"/>
+    <aura:attribute name="flowName" type="string"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:flow aura:id="flowData" onstatuschange="{!c.statusChange}"/>
+
+    <aura:handler value="{!this}" name="init" action="{!c.doInit}"/>
+</aura:component>

@@ -1,0 +1,110 @@
+<template>
+    <div class="slds-var-m-bottom_medium">
+        <h1 class="dxp-text-heading-xlarge">Initial Business Filing</h1>
+    </div>
+    <h2 class="dxp-text-heading-medium">Forms and Fees</h2>
+    <div>
+        <!-- Table -->
+        <lightning-spinner
+            class="slds-is-relative slds-align_absolute-center"
+            lwc:if={isLoading}
+            alternative-text="Loading"
+            size="medium"
+        ></lightning-spinner>
+        <div lwc:else class="slds-table_edit_container slds-is-relative">
+            <!-- Expedited Processing Unavailable Modal -->
+            <c-breg-_-popup
+                visible={showExpeditedDisabledModal}
+                title="Expedited processing"
+                message="Expedited processing is temporarily not available."
+                oncontinue={handleExpeditedDisabledModalClose}
+                oncancel={handleExpeditedDisabledModalClose}
+                next-button-label="OK"
+                cancel-button-label="Cancel"
+            >
+            </c-breg-_-popup>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_fixed-layout">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps text-wrap column-description" scope="col">
+                            <div class="slds-truncate" title="Description">Description</div>
+                        </th>
+                        <th class="slds-text-title_caps text-wrap slds-text-align_right column-price" scope="col">
+                            <div class="slds-truncate" title="Fee/Amount">Fee/Amount</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={items} for:item="item">
+                        <tr key={item.id} class="slds-hint-parent">
+                            <td class="text-wrap">
+                                <lightning-formatted-rich-text value={item.name}></lightning-formatted-rich-text>
+                                <span lwc:if={item.hasTooltip} class="slds-is-relative"> 
+                                    <span class="item-tooltip slds-is-relative" data-item-id={item.id} onmouseenter={handleTooltipHover} onmouseleave={handleTooltipHover}>
+                                        &nbsp;[<a class="item-tooltip_text">{item.tooltipText}</a>]
+                                        <div lwc:if={item.showTooltip} class="slds-popover slds-popover_tooltip slds-nubbin_bottom-center item-tooltip_block" role="tooltip">
+                                            <div class="slds-popover__body">
+                                                <div class="slds-text-heading_small slds-m-bottom_x-small" style="color:white">{item.tooltipHeader}</div>
+                                                <div class="slds-text-body_small" style="color:white">
+                                                    {item.tooltipBody}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </span> 
+                                <span lwc:if={item.isDeletable}> - <a onclick={handleExpeditedReview} data-item-id={item.id} class="expedited-button">{item.expeditedReviewAction}</a></span>
+                            </td>
+                            <td class="slds-text-align_right">
+                                <lightning-formatted-number lwc:if={item.includePrice} value={item.price} format-style="currency" currency-code="USD">
+                                </lightning-formatted-number>
+                            </td>
+                        </tr>
+                    </template>
+
+                    <!-- Order Total Row -->
+                    <tr class="slds-text-title_bold">
+                        <th scope="row" class="slds-text-align_right" colspan="1">Total:</th>
+                        <td class="slds-text-align_right">
+                            <lightning-formatted-number value={totalPrice} format-style="currency" currency-code="USD"> </lightning-formatted-number>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Other info -->
+        <br />
+        *DCCA regular review time for documents is approximately within 6 to 8 working weeks. <br />
+        <template lwc:if={showExpeditedInfo}><b>Expedited DCCA review is approximately 1 to 3 working days</b></template>
+        <br /><br />
+
+        <!-- Reminder Section -->
+        <div lwc:if={showReminderSection} class="slds-box">
+            <h2 class="dxp-text-heading-medium">{reminderSectionTitle}</h2>
+            <br />
+            <lightning-input
+                type="checkbox"
+                onchange={handleChangeFreeEmailsCheck}
+                label={reminderSectionCheckboxLabel}
+                checked={sendFreeReminder}
+            ></lightning-input>
+        </div>
+        <br />
+        
+        <div class="slds-border_bottom">
+            <div class="slds-p-bottom_small">
+                If you need to edit any information, <a onclick={handleBack}><b>go back</b></a> now.
+            </div>
+        </div>
+        <br />
+
+        If you don't have a credit card at this time, or simply are not ready to pay, don't worry. All your information is already saved. You may
+        return & log in to pay and {actionLabel} later. Select <i><b>Pay Now</b></i> to checkout and {actionLabel}. <br /><br />
+        <lightning-button
+            class="slds-margin-top_small slds-var-m-right_small"
+            variant="brand"
+            label={buttonLabel}
+            onclick={handlePayNow}
+        ></lightning-button>
+        <lightning-button variant="neutral" label="Back" onclick={handleBack}></lightning-button>
+    </div>
+</template>

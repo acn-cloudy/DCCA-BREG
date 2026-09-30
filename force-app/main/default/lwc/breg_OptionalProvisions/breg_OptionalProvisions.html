@@ -1,0 +1,36 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={longText} size="12" class="form-layout-item">
+            <div class="slds-var-m-bottom_medium">
+                <lightning-formatted-rich-text value={config.labelOverrideLong}></lightning-formatted-rich-text>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="5">
+            <c-breg_-file-upload
+                config={config}
+                form-config={formConfig}
+                form-data={formData}
+                cmp-properties={cmpProperties}
+                upload-target="provisions"
+                files={files}
+                class="form-cmp"
+                required={required}
+                onformupdate={handleFormUpdate}
+                onfileupload={handleFileUpload}
+                onfileremove={handleFileRemove}
+                is-nested
+            ></c-breg_-file-upload>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div class="slds-var-m-top_large">
+                <p class="slds-text-body_regular">{config.labelOverrideLong2}</p>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

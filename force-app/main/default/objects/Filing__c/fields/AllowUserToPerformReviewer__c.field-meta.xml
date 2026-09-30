@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllowUserToPerformReviewer__c</fullName>
+    <description>(Reviewer__r.Email == &quot;cshimoda@dcca.hawaii.gov&quot;) &amp;&amp;  ($User.Email == &quot;byoshimura@dcca.hawaii.gov&quot; || $User.Email == &quot;yumi.hasegawa@pacificpointcorp.com&quot; )
+
+
+(Reviewer__r.Email == &quot;tokuda@dcca.hawaii.gov.invalid&quot;) &amp;&amp;  ($User.Email == &quot;byoshimura@dcca.hawaii.gov.invalid&quot; || $User.Email == &quot;yumi.hasegawa+dccadev22@pacificpointcorp.com&quot; )</description>
+    <formula>(Reviewer__r.Email == &quot;cshimoda@dcca.hawaii.gov&quot;) &amp;&amp;  ($User.Email == &quot;byoshimura@dcca.hawaii.gov&quot; || $User.Email == &quot;yumi.hasegawa@pacificpointcorp.com&quot; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Allow User To Perform Reviewer</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

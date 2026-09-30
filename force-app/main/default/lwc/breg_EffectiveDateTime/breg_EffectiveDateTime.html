@@ -1,0 +1,56 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div class="slds-var-m-bottom_small">
+                <span>{sectionDescription}</span>
+            </div>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={effectiveSelectorValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <template lwc:if={showDateTimeField}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={effectiveDateTimeValueReadOnly}
+                        label="Effective Date/Time (HST)"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+            </template>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="effectiveSelector"
+                    label={effectiveSelectorLabel}
+                    options={effectiveSelectorOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    value={effectiveSelectorValue}
+                    required={required}
+                    read-only={readOnly}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <template lwc:if={showDateTimeField}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-input
+                        name="effectiveDateTime"
+                        value={effectiveDateTimeValue}
+                    label={effectiveDateTimeLabel}
+                        type="datetime-local"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={alwaysRequired}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

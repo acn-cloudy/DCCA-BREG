@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatusHistoryType__c</fullName>
+    <description>PacPoint-IC100918 - Created for BREG phase 1</description>
+    <label>Status History Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exam</fullName>
+                <default>false</default>
+                <label>Exam</label>
+            </value>
+            <value>
+                <fullName>Filing</fullName>
+                <default>false</default>
+                <label>Filing</label>
+            </value>
+            <value>
+                <fullName>Investigation</fullName>
+                <default>false</default>
+                <label>Investigation</label>
+            </value>
+            <value>
+                <fullName>SEBCase</fullName>
+                <default>false</default>
+                <label>SEBCase</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

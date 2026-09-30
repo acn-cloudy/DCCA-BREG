@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Worksheet_A_Total__c</fullName>
+    <formula>CASE(
+  SelectedQuote__c,
+
+  &quot;Itinerary 1&quot;, BLANKVALUE(AirfareQuote1__c, 0) + BLANKVALUE(BaggageFee1__c, 0),
+  &quot;Quote 1&quot;,     BLANKVALUE(AirfareQuote1__c, 0) + BLANKVALUE(BaggageFee1__c, 0),
+
+  &quot;Itinerary 2&quot;, BLANKVALUE(AirfareQuote2__c, 0) + BLANKVALUE(BaggageFee2__c, 0),
+  &quot;Quote 2&quot;,     BLANKVALUE(AirfareQuote2__c, 0) + BLANKVALUE(BaggageFee2__c, 0),
+
+  &quot;Itinerary 3&quot;, BLANKVALUE(AirfareQuote3__c, 0) + BLANKVALUE(BaggageFee3__c, 0),
+  &quot;Quote 3&quot;,     BLANKVALUE(AirfareQuote3__c, 0) + BLANKVALUE(BaggageFee3__c, 0),
+
+  0
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Worksheet A Total</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

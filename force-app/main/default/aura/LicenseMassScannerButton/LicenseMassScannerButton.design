@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="label" label="Label"/>
+    <design:attribute name="url" label="URL" placeholder="e.g. /lightning/n/ScanRenewalsinA1"/>
+</design:component>

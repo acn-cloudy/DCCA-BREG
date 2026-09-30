@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentApplicationsCurrentLicense__c</fullName>
+    <description>PacPoint-IC112619- Created for PVL phase 1
+This retrieves the Dependent Application&apos;s Current License to be used on the Flow ApplicationClassifications:Update Dependent App/License.</description>
+    <externalId>false</externalId>
+    <formula>IF( 
+ISBLANK(  DependentApplication__c  ) , 
+&quot;&quot;, 
+CASESAFEID( DependentApplication__r.CurrentLicense__c )
+)</formula>
+    <label>Dependent Application&apos;s Current License</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

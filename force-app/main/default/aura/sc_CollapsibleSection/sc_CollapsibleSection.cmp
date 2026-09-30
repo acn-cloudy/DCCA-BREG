@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute type="String" name="title" />
+    <aura:attribute type="Boolean" name="open" default="true"/>
+    
+    <div class="{#v.open ? 'slds-section slds-is-open' : 'slds-section'}">
+        <aura:if isTrue="{#v.title}">
+            <h3 class="slds-section__title">
+                <button class="slds-button slds-section__title-action" aria-expanded="{#v.open}" onclick="{!c.toggle}" >
+                    <c:sc_svg class="slds-section__title-action-icon slds-button__icon slds-button__icon_left" 
+                           xlinkHref="/_slds/icons/utility-sprite/svg/symbols.svg#switch " 
+                           ariaHidden="true" />
+                    <span class="slds-truncate" title="{#v.title}">
+                        {#v.title}
+                    </span>
+                </button>
+            </h3>
+        </aura:if>
+        <div aria-hidden="{#!v.open}" class="slds-section__content">
+            {#v.body}
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,291 @@
+<template>
+  <div class="quick-action-container slds-p-around_medium">
+    <!-- Loading State -->
+    <template lwc:if={isLoading}>
+      <div class="slds-align_absolute-center slds-m-vertical_large">
+        <lightning-spinner
+          alternative-text="Loading..."
+          size="medium"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:elseif={accessDenied}>
+      <!-- Access Denied State -->
+      <div class="slds-align_absolute-center slds-m-vertical_large">
+        <div class="slds-text-align_center">
+          <lightning-icon
+            icon-name="utility:lock"
+            size="large"
+            class="slds-m-bottom_small"
+          ></lightning-icon>
+          <p class="slds-text-heading_small slds-m-bottom_medium">
+            Access Restricted
+          </p>
+          <p class="slds-text-body_regular slds-m-bottom_medium">
+            You don't have permission to create tickets. Please contact your
+            administrator.
+          </p>
+          <lightning-button
+            label="Close"
+            onclick={handleClose}
+          ></lightning-button>
+        </div>
+      </div>
+    </template>
+    <template lwc:elseif={showForm}>
+      <!-- Scrollable form content -->
+      <div class="form-scroll-container">
+        <!-- Submitter Info -->
+        <div
+          class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small"
+        >
+          <lightning-icon
+            icon-name="standard:user"
+            size="small"
+            class="slds-m-right_small"
+          ></lightning-icon>
+          <div>
+            <p class="slds-text-body_small slds-text-color_weak">
+              Submitting as:
+            </p>
+            <p class="slds-text-body_regular">
+              <strong>{currentUserName}</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Record Context Banner -->
+        <template lwc:if={hasRecordContext}>
+          <div
+            class="slds-box slds-box_x-small slds-theme_shade slds-m-bottom_small"
+          >
+            <div class="slds-grid slds-grid_vertical-align-center">
+              <lightning-icon
+                icon-name={recordIcon}
+                size="small"
+                class="slds-m-right_small"
+              ></lightning-icon>
+              <div>
+                <p class="slds-text-body_small slds-text-color_weak">
+                  Related to:
+                </p>
+                <p class="slds-text-body_regular slds-text-color_default">
+                  <strong>{recordName}</strong>
+                  <span
+                    class="slds-text-body_small slds-text-color_weak slds-m-left_x-small"
+                    >({recordType})</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <!-- Form Fields -->
+        <lightning-input
+          label="Subject"
+          value={subject}
+          onchange={handleSubjectChange}
+          required
+          class="slds-m-bottom_small"
+          placeholder="Brief summary of your request"
+        ></lightning-input>
+
+        <lightning-textarea
+          label="Description"
+          value={description}
+          onchange={handleDescriptionChange}
+          class="slds-m-bottom_small"
+          placeholder="Describe your issue in detail..."
+          max-length="32000"
+        ></lightning-textarea>
+
+        <div class="slds-grid slds-gutters slds-m-bottom_small">
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+              label="Priority"
+              value={priority}
+              options={priorityOptions}
+              onchange={handlePriorityChange}
+            ></lightning-combobox>
+          </div>
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+              label="Category"
+              value={category}
+              options={categoryOptions}
+              onchange={handleCategoryChange}
+            ></lightning-combobox>
+          </div>
+        </div>
+
+        <div class="slds-grid slds-gutters slds-m-bottom_small">
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+              label="Impact"
+              value={impact}
+              options={impactOptions}
+              onchange={handleImpactChange}
+            ></lightning-combobox>
+          </div>
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-combobox
+              label="Environment"
+              value={environment}
+              options={environmentOptions}
+              onchange={handleEnvironmentChange}
+            ></lightning-combobox>
+          </div>
+        </div>
+
+        <!-- Screenshot Upload Section -->
+        <div class="slds-box slds-m-bottom_small slds-theme_shade">
+          <div class="slds-text-title_bold slds-m-bottom_small">
+            <lightning-icon
+              icon-name="utility:image"
+              size="x-small"
+              class="slds-m-right_x-small"
+            ></lightning-icon>
+            Screenshots (Optional)
+          </div>
+
+          <p class="slds-text-body_small slds-m-bottom_small">
+            Attach screenshots to help explain the issue. Max 5 files, 5MB each.
+          </p>
+
+          <div class="slds-m-bottom_small">
+            <lightning-input
+              type="file"
+              label=""
+              accept="image/*"
+              multiple
+              onchange={handleFileChange}
+              disabled={isSubmitting}
+            ></lightning-input>
+          </div>
+
+          <!-- Attached Files List -->
+          <template lwc:if={hasFiles}>
+            <div class="slds-m-top_small">
+              <p class="slds-text-body_small slds-m-bottom_xx-small">
+                <strong>{fileCount} file(s) selected</strong>
+                ({totalFileSize})
+              </p>
+              <ul class="slds-list_dotted">
+                <template for:each={selectedFiles} for:item="file">
+                  <li key={file.name} class="slds-text-body_small">
+                    {file.name} ({file.sizeLabel})
+                    <lightning-button-icon
+                      icon-name="utility:close"
+                      variant="bare"
+                      size="small"
+                      alternative-text="Remove"
+                      onclick={handleRemoveFile}
+                      data-filename={file.name}
+                      class="slds-m-left_xx-small"
+                    ></lightning-button-icon>
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </template>
+
+          <!-- File Error -->
+          <template lwc:if={fileError}>
+            <div
+              class="slds-text-color_error slds-text-body_small slds-m-top_small"
+            >
+              <lightning-icon
+                icon-name="utility:warning"
+                size="x-small"
+                variant="error"
+                class="slds-m-right_xx-small"
+              ></lightning-icon>
+              {fileError}
+            </div>
+          </template>
+        </div>
+      </div>
+      <!-- End scroll container -->
+
+      <!-- Fixed Button Footer -->
+      <div class="button-footer">
+        <lightning-button
+          label="Cancel"
+          onclick={handleCancel}
+          class="slds-m-right_x-small"
+        ></lightning-button>
+        <lightning-button
+          label={submitButtonLabel}
+          variant="brand"
+          onclick={handleSubmit}
+          disabled={isSubmitting}
+        ></lightning-button>
+
+        <!-- Progress Indicator -->
+        <template lwc:if={isSubmitting}>
+          <div class="slds-m-top_small">
+            <lightning-progress-bar
+              value={uploadProgress}
+              size="small"
+            ></lightning-progress-bar>
+            <p
+              class="slds-text-body_small slds-m-top_xx-small slds-text-align_center"
+            >
+              {uploadStatus}
+            </p>
+          </div>
+        </template>
+
+        <!-- Error Message -->
+        <template lwc:if={errorMessage}>
+          <div class="slds-m-top_small slds-text-color_error">
+            <lightning-icon
+              icon-name="utility:error"
+              size="x-small"
+              variant="error"
+              class="slds-m-right_xx-small"
+            ></lightning-icon>
+            {errorMessage}
+          </div>
+        </template>
+      </div>
+    </template>
+    <template lwc:elseif={isSubmitted}>
+      <!-- Success Screen -->
+      <div class="slds-align_absolute-center slds-m-vertical_large">
+        <div class="slds-text-align_center">
+          <lightning-icon
+            icon-name="utility:success"
+            variant="success"
+            size="large"
+            class="slds-m-bottom_small"
+          ></lightning-icon>
+          <p class="slds-text-heading_small slds-m-bottom_medium">
+            Ticket created successfully!
+          </p>
+          <template lwc:if={hasFiles}>
+            <p class="slds-text-body_small slds-m-bottom_small">
+              {fileCount} screenshot(s) attached.
+            </p>
+          </template>
+          <template lwc:if={hasRecordContext}>
+            <p class="slds-text-body_small slds-m-bottom_medium">
+              Linked to: {recordName}
+            </p>
+          </template>
+          <lightning-button
+            label="View Ticket"
+            variant="brand"
+            onclick={handleViewTicket}
+          ></lightning-button>
+          <lightning-button
+            label="Close"
+            onclick={handleClose}
+            class="slds-m-left_x-small"
+          ></lightning-button>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>

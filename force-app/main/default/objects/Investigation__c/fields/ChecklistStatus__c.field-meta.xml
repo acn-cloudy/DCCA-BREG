@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChecklistStatus__c</fullName>
+    <description>PacPoint-JB102618 - Created for BREG phase 1: This field collects checklist actions into categories for the Path</description>
+    <label>Checklist Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Background Check Complete</fullName>
+                <default>false</default>
+                <label>Background Check Complete</label>
+            </value>
+            <value>
+                <fullName>Initial Interviews Complete</fullName>
+                <default>false</default>
+                <label>Initial Interviews Complete</label>
+            </value>
+            <value>
+                <fullName>Bank Records Subpoena Complete</fullName>
+                <default>false</default>
+                <label>Bank Records Subpoena Complete</label>
+            </value>
+            <value>
+                <fullName>Bank Records Investigation Complete</fullName>
+                <default>false</default>
+                <label>Bank Records Investigation Complete</label>
+            </value>
+            <value>
+                <fullName>Additional Interviews Complete</fullName>
+                <default>false</default>
+                <label>Additional Interviews Complete</label>
+            </value>
+            <value>
+                <fullName>Investigation Review Complete</fullName>
+                <default>false</default>
+                <label>Investigation Review Complete</label>
+            </value>
+            <value>
+                <fullName>Interviews Complete</fullName>
+                <default>false</default>
+                <label>Interviews Complete</label>
+            </value>
+            <value>
+                <fullName>Violation Determination Complete</fullName>
+                <default>false</default>
+                <label>Violation Determination Complete</label>
+            </value>
+            <value>
+                <fullName>Draft Settlement Complete</fullName>
+                <default>false</default>
+                <label>Draft Settlement Complete</label>
+            </value>
+            <value>
+                <fullName>Draft Actions Complete</fullName>
+                <default>false</default>
+                <label>Draft Actions Complete</label>
+            </value>
+            <value>
+                <fullName>Hearing Preparation Complete</fullName>
+                <default>false</default>
+                <label>Hearing Preparation Complete</label>
+            </value>
+            <value>
+                <fullName>Closing Actions Complete</fullName>
+                <default>false</default>
+                <label>Closing Actions Complete</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

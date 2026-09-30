@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Breakfast_Total_When_Lodging_is_Provided__c</fullName>
+    <externalId>false</externalId>
+    <formula>Breakfast_Rate_OCONUS__c *  No_of_Days_Breakfast_When_Lodging_is_Pr__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Breakfast Amount When Lodging is Provided</inlineHelpText>
+    <label>Breakfast Total When Lodging is Provided</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

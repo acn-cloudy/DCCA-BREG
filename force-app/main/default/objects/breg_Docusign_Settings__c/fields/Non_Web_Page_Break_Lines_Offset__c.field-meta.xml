@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Web_Page_Break_Lines_Offset__c</fullName>
+    <description>Aalta BREG-4501 - need to use dynamic page break</description>
+    <externalId>false</externalId>
+    <label>Non Web Page Break Lines Offset</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

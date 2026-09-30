@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Use_Organization_Wide_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This use in Following area:
+Payment Receipt Emails  -
+
+List Builder Payment – apex (from email) invoked by PB - Chris
+
+o  List Builder Docs – Scheduled Batch - Chris
+
+o  Renew Payment - apex  (from email) invoked by PB - Chris
+
+o  New Application Payment - apex
+
+Email to Print – Apex - Chris</description>
+    <label>Use Organization-Wide Email</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

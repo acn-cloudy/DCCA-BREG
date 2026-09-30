@@ -1,0 +1,394 @@
+<aura:component controller="PaymentRecwkstCmpController" implements="force:hasRecordId">
+    <aura:attribute name="recordTypeId" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:attribute name="batchDate" type="Date"/>
+    <aura:attribute name="runningUser" type="User"/>
+    <aura:attribute name="terminal3TotalCash" type="Decimal" default="0"/>
+    <aura:attribute name="terminal13TotalCash" type="Decimal" default="0"/>
+    <aura:attribute name="totalCash" type="Decimal" default="0"/>
+
+    <aura:attribute name="terminal3TotalCoins" type="Decimal" default="0"/>
+    <aura:attribute name="terminal13TotalCoins" type="Decimal" default="0"/>
+    <aura:attribute name="totalCoins" type="Decimal" default="0"/>
+
+    <aura:attribute name="terminal3TotalCheck" type="Decimal" default="0"/>
+    <aura:attribute name="terminal13TotalCheck" type="Decimal" default="0"/>
+    <aura:attribute name="terminal3TotalReceipts" type="Decimal" default="0"/>
+    <aura:attribute name="terminal13TotalReceipts" type="Decimal" default="0"/>
+
+    <aura:attribute name="tape1Check" type="Decimal" default="0"/>
+    <aura:attribute name="tape2Check" type="Decimal" default="0"/>
+    <aura:attribute name="tape3Check" type="Decimal" default="0"/>
+    <aura:attribute name="tape4Check" type="Decimal" default="0"/>
+    <aura:attribute name="tape5Check" type="Decimal" default="0"/>
+    <aura:attribute name="tape6Check" type="Decimal" default="0"/>
+
+    <aura:attribute name="gov3TotalCheck" type="Decimal" default="0"/>
+    <aura:attribute name="gov13TotalCheck" type="Decimal" default="0"/>
+
+    <aura:attribute name="totalDeposit" type="Decimal" default="0"/>
+    <aura:attribute name="totalReceipt" type="Decimal" default="0"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Loading. . ."/>
+    </aura:if>
+    <div class="slds-p-around_medium">
+        <h1 class="slds-text-heading_large">RECWKST</h1>
+        <div class="filter slds-grid slds-grid_vertical-align-end">
+            <div class="slds-size_1-of-2 slds-p-around_medium">
+                <lightning:input type="date"
+                                 name="BatchDate"
+                                 label="Cutoff Batch Date"
+                                 fieldLevelHelp="Payments made on or after the selected date."
+                                 value="{!v.batchDate}"
+                                 required="true"/>
+            </div>
+            <div class="slds-size_1-of-2 slds-p-around_medium">
+                <lightning:button label="Run" variant="brand" onclick="{!c.handleGenerateReportClicked}"/>
+                <aura:if isTrue="{!not(empty(v.runningUser))}">
+                    <lightning:button label="Save" variant="brand" onclick="{!c.handleSave}"/>
+                </aura:if>
+            </div>
+        </div>
+        <div class="result">
+            <table>
+                <tr>
+                    <td class="resultLabelBold">Name</td>
+                    <td>{!v.runningUser.FirstName+' '+v.runningUser.LastName}</td>
+                </tr>
+                <tr>
+                    <td class="resultLabelBold">Batch date</td>
+                    <td>
+                        <lightning:formattedDateTime value="{!v.batchDate}"
+                                                     timeZone="UTC"
+                                                     year="numeric"
+                                                     month="2-digit"
+                                                     day="2-digit"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="resultLabelBold">Currency</td>
+                    <td>SALESFORCE/4GOV<br/>
+                        TERMINAL #3
+                    </td>
+                    <td>SALESFORCE/4GOV<br/>
+                        TERMINAL #13
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>
+                        <lightning:input type="number"
+                                         label=""
+                                         value="{!v.terminal3TotalCash}"
+                                         name="terminal3TotalCash"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         onchange="{!c.handleValueChanged}"
+                                         formatter="currency"/>
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         label=""
+                                         value="{!v.terminal13TotalCash}"
+                                         name="terminal13TotalCash"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         onchange="{!c.handleValueChanged}"
+                                         formatter="currency"/>
+                    </td>
+                    <td class="resultLabelBold">Total Currency:</td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         aura:id="totals"
+                                         name="totalCash"
+                                         onchange="{!c.handleValueChanged}"
+                                         value="{!v.totalCash}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="resultLabelBold">Coins</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>
+                        <lightning:input type="number"
+                                         label=""
+                                         value="{!v.terminal3TotalCoins}"
+                                         name="terminal3TotalCoins"
+                                         step=".01"
+                                         onchange="{!c.handleValueChanged}"
+                                         variant="label-hidden"
+                                         formatter="currency"/>
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         label=""
+                                         value="{!v.terminal13TotalCoins}"
+                                         name="terminal13TotalCoins"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         onchange="{!c.handleValueChanged}"
+                                         formatter="currency"/>
+                    </td>
+                    <td class="resultLabelBold">Total Coins:</td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         value="{!v.totalCoins}"
+                                         aura:id="totals"
+                                         name="totalCoins"
+                                         label=""
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="resultLabelBold">
+                        Checks:
+                    </td>
+                    <td>
+                    </td>
+                    <td></td>
+                    <td>TAPE #1</td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         onchange="{!c.handleValueChanged}"
+                                         value="{!v.tape1Check}"
+                                         name="terminal3TotalCheckTape1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        TAPE #2
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         onchange="{!c.handleValueChanged}"
+                                         value="{!v.tape2Check}"
+                                         name="terminal13TotalCheckTape"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        TAPE #3
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         onchange="{!c.handleValueChanged}"
+                                         value="{!v.tape3Check}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        TAPE #4
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         onchange="{!c.handleValueChanged}"
+                                         value="{!v.tape4Check}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        TAPE #5
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         value="{!v.tape5Check}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        TAPE #6
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         value="{!v.tape6Check}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td class="resultLabelBold">
+                        TOTAL DEPOSIT
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         aura:id="totals"
+                                         name="totalDeposit"
+                                         value="{!v.totalDeposit}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="resultLabelBold">
+                        Receipts:
+                    </td>
+                    <td>
+                        Salesforce #3 Total Receipts
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         aura:id="totals"
+                                         name="totalT3Receipts"
+                                         value="{!v.terminal3TotalReceipts}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        4GOV #3 Total Receipts
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         value="{!v.gov3TotalCheck}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        Salesforce #13 Total Receipts
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         aura:id="totals"
+                                         name="totalT13Receipts"
+                                         value="{!v.terminal13TotalReceipts}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        4GOV #13 Total Receipts
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         value="{!v.gov13TotalCheck}"
+                                         onchange="{!c.handleValueChanged}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Total Receipts</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="resultLabelBold">
+                        Total Receipts
+                    </td>
+                    <td>
+                        <lightning:input type="number"
+                                         formatter="currency"
+                                         variant="label-hidden"
+                                         step=".01"
+                                         label=""
+                                         value="{!v.totalReceipt}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</aura:component>

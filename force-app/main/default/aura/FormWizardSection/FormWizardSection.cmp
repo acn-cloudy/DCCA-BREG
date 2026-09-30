@@ -1,0 +1,7 @@
+<aura:component>
+    <aura:attribute name="label" type="String"/>
+
+    <div class="form-wizard-section">
+            {!v.body}
+    </div>
+</aura:component>

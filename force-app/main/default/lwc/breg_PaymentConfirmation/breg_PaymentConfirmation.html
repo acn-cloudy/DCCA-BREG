@@ -1,0 +1,254 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Error Message -->
+    <template if:true={error}>
+        <p class="slds-text-color_error">{error}</p>
+    </template>
+
+    <!-- Payment Not Completed Message -->
+    <template if:true={showNotCompletedMessage}>
+        <div class="slds-box slds-theme_warning slds-m-around_medium">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:warning" variant="inverse" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h3 class="slds-text-heading_small">{labels.BREG_PaymentConfirmation_PaymentNotCompleted}</h3>
+                    <p>{labels.BREG_PaymentConfirmation_PaymentNotCompletedStatus} <strong>{confirmationData.paymentStatus}</strong></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Zero Amount Confirmation Info -->
+    <template if:true={showZeroAmountConfirmation}>
+        <div class="slds-m-bottom_large">
+            <h1 class="dxp-text-heading-large slds-m-bottom_medium">Thank you!</h1>
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                Mahalo for {filingActionLabel1} your <strong>{formTypeName}</strong> form.
+            </p>
+            <template lwc:if={isWithdrawalForm}>
+                <p class="slds-text-body_regular slds-m-bottom_medium">
+                    The request will be {filingActionLabel2} to the Business Registration division. You will receive an email when the request is approved. You may monitor the status of the request in <em>My Dashboard</em>.
+                </p>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-body_regular slds-m-bottom_medium">
+                    The filing will be {filingActionLabel2} to the Business Registration division. You will receive an email when the filing is approved. You may monitor the status of the filing in <em>My Dashboard</em>.
+                </p>
+            </template>
+            <p class="slds-text-body_regular slds-m-bottom_medium">
+                *DCCA regular review time for documents is approximately within 6 to 8 working weeks.<br />
+                <template lwc:if={showExpeditedInfo}><strong>Expedited DCCA review is approximately 1 to 3 working days.</strong></template>
+            </p>
+
+            <!-- Go to My Dashboard Button -->
+            <div class="slds-m-bottom_large">
+                <lightning-button 
+                    variant="brand" 
+                    label="Go to My Dashboard"
+                    onclick={handleGoToDashboard}>
+                </lightning-button>
+            </div>
+
+            <!-- Related Services Section -->
+            <div class="slds-box slds-m-top_medium">
+                <h2 class="dxp-text-heading-medium slds-m-bottom_medium">Related Services</h2>
+                <ul class="slds-list_dotted">
+                    <li class="slds-m-bottom_small">
+                        After business approval, please visit <a href="https://hitax.hawaii.gov" target="_blank" rel="noopener noreferrer"><strong>https://hitax.hawaii.gov</strong></a> if you wish to obtain <strong>a general excise tax license</strong>.
+                    </li>
+                    <li class="slds-m-bottom_small">
+                        Thinking of <strong>hiring employees</strong>? Visit <a href="https://labor.hawaii.gov/ui" target="_blank" rel="noopener noreferrer"><strong>DLIR's website</strong></a> for more info.
+                    </li>
+                    <li class="slds-m-bottom_small">
+                        Want to apply for <strong>state contracts</strong>? Manage your compliance status at <a href="https://vendors.ehawaii.gov/" target="_blank" rel="noopener noreferrer"><strong>Hawaii Compliance Express</strong></a>.
+                    </li>
+                    <li class="slds-m-bottom_small">
+                        Read <strong>important news</strong> &amp; updates at <a href="http://cca.hawaii.gov/breg/category/news-releases/" target="_blank" rel="noopener noreferrer"><strong>Business Registration Division</strong></a>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <!-- Payment Confirmation Info -->
+    <template if:true={showPaymentConfirmationInfo}>
+        <!-- Payment Confirmed Section -->
+        <div class="slds-m-bottom_large">
+            <div class="slds-media slds-m-bottom_medium">
+                <div class="slds-media__figure slds-align_absolute-center">
+                    <lightning-icon icon-name="utility:success" variant="success" size="medium"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h1 class="dxp-text-heading-large">{labels.BREG_PaymentConfirmation_PaymentConfirmed}</h1>
+                </div>
+            </div>
+            <p class="slds-text-body_regular slds-m-bottom_medium">{labels.BREG_PaymentConfirmation_ThankYouMessage}</p>
+        </div>
+
+        <!-- Receipt Section -->
+        <div class="slds-m-bottom_large">
+            <h2 class="dxp-text-heading-large slds-m-bottom_medium slds-m-top_medium">{labels.BREG_PaymentConfirmation_Receipt}</h2>
+            
+            <div class="slds-grid slds-gutters slds-wrap">
+                <!-- Left Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_ReferenceID}</span>
+                            </div>
+                            <div class="info-value">{referenceId}</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_AuthorizationCode}</span>
+                            </div>
+                            <div class="info-value">{authorizationCode}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">Transaction ID</span>
+                            </div>
+                            <div class="info-value">{transactionId}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_TransactionDate}</span>
+                            </div>
+                            <div class="info-value">{formattedTransactionDate}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchased Items Section -->
+        <div class="slds-m-bottom_large">            
+            <!-- Purchase Items -->
+            <c-breg-_-my-purchases transaction-lines={confirmationData.transactionLineWrappers} ondownloaddocument={handleDownloadDocument}></c-breg-_-my-purchases>
+            
+            <!-- Total -->
+            <div class="slds-grid slds-wrap slds-p-vertical_small slds-m-top_small">
+                <div class="slds-col slds-size_8-of-12">
+                    <span></span>
+                </div>
+                <div class="slds-col slds-size_4-of-12 slds-text-align_right">
+                    <span class="info-label slds-m-right_medium">{labels.BREG_PaymentConfirmation_Total}</span>
+                    <span class="info-value"><lightning-formatted-number value={totalAmount} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Download Error -->
+        <template if:true={documentDownloadError}>            
+            <div class="slds-align_absolute-center">
+                <p class="slds-text-color_error">{documentDownloadError}</p>
+            </div>            
+        </template>
+
+        <!-- Payment Information Section -->
+        <div>
+            <h2 class="dxp-text-heading-large slds-m-bottom_medium slds-m-top_medium">{labels.BREG_PaymentConfirmation_PaymentInformation}</h2>
+            
+            <div class="slds-grid slds-gutters slds-wrap">
+                <!-- Left Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <template if:true={confirmationData.contactName}>
+                            <div class="info-item">
+                                <div class="info-label slds-grid slds-grid_align-start">
+                                    <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_ContactName}</span>
+                                </div>
+                                <div class="info-value">{confirmationData.contactName}</div>
+                            </div>
+                        </template>
+                        
+                        <template if:true={confirmationData.contactPhone}>
+                            <div class="info-item">
+                                <div class="info-label slds-grid slds-grid_align-start">
+                                    <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_ContactPhoneNumber}</span>
+                                </div>
+                                <div class="info-value">{confirmationData.contactPhone}</div>
+                            </div>
+                        </template>
+                        
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_Email}</span>
+                            </div>
+                            <div class="info-value">{confirmationData.billingEmail}</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_NameOnCard}</span>
+                            </div>
+                            <div class="info-value">{confirmationData.billingFirstName} {confirmationData.billingLastName}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 equal-height-col">
+                    <div class="info-section">
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_Last4Digits}</span>
+                            </div>
+                            <div class="info-value">{confirmationData.last4Digits}</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_CardType}</span>
+                            </div>
+                            <div class="info-value">{confirmationData.cardType}</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label slds-grid slds-grid_align-start">
+                                <span class="slds-m-right_x-small">{labels.BREG_PaymentConfirmation_BillingAddress}</span>
+                            </div>
+                            <div class="info-value">{billingAddress}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notice -->
+            <div class="notice-box slds-m-top_medium">
+                <p>
+                    {labels.BREG_PaymentConfirmation_PrintReceiptPrefix} <a href="javascript:void(0)" onclick={printReceipt}><strong style="text-transform: uppercase;">{labels.BREG_PaymentConfirmation_PrintReceipt}</strong></a> {labels.BREG_PaymentConfirmation_PrintReceiptInstructions}
+                </p>
+                <p class="slds-m-top_x-small">
+                    {labels.BREG_PaymentConfirmation_NonRefundableNotice}
+                </p>
+            </div>
+
+            <!-- Continue Button -->
+            <div class="slds-m-top_medium">
+                <lightning-button 
+                    class="slds-m-top_medium"
+                    variant="brand" 
+                    label={labels.BREG_PaymentConfirmation_Continue}
+                    onclick={handleContinue}>
+                </lightning-button>
+            </div>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,5 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="type" type="String" />
+    <aura:attribute name="payload" type="String" />
+     <aura:attribute name="nameApp" type="String" default="Cancelled Agreements for the Sale or Transfer of Dutiable Property"/>
+</aura:event>

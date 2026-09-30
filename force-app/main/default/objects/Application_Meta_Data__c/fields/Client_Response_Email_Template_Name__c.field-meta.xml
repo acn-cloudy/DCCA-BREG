@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client_Response_Email_Template_Name__c</fullName>
+    <description>This is the template name of the email that has to to be sent to the client after successful submission. Leave this blank if no email response is to be send</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the template name of the email that has to to be sent to the client after successful submission. Leave this blank if no email response is to be send</inlineHelpText>
+    <label>Client Response Email Template Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

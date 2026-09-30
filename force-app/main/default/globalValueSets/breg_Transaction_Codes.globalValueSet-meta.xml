@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>AC</fullName>
+        <default>false</default>
+        <label>AC - Articles of Correction</label>
+    </customValue>
+    <customValue>
+        <fullName>ADD</fullName>
+        <default>false</default>
+        <label>ADD - Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>ADD-MEMBER</fullName>
+        <default>false</default>
+        <label>ADD-MEMBER - ODMMP ADDRESS CHANGE</label>
+    </customValue>
+    <customValue>
+        <fullName>ADD-TNTMSM</fullName>
+        <default>false</default>
+        <label>ADD-TNTMSM - TNTMSM ADDRESS CHANGE</label>
+    </customValue>
+    <customValue>
+        <fullName>ADMBX</fullName>
+        <default>false</default>
+        <label>ADMBX - Certificate of Administrative Termination</label>
+    </customValue>
+    <customValue>
+        <fullName>ADMIN</fullName>
+        <default>false</default>
+        <label>ADMIN</label>
+    </customValue>
+    <customValue>
+        <fullName>ADMT</fullName>
+        <default>false</default>
+        <label>ADMT - Administrative Termination</label>
+    </customValue>
+    <customValue>
+        <fullName>AFF</fullName>
+        <default>false</default>
+        <label>AFF - Affadavit</label>
+    </customValue>
+    <customValue>
+        <fullName>AGAD</fullName>
+        <default>false</default>
+        <label>AGAD - Agent Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>AGC</fullName>
+        <default>false</default>
+        <label>AGC - Change of Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>AGD</fullName>
+        <default>false</default>
+        <label>AGD - Designation of Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>AGR</fullName>
+        <default>false</default>
+        <label>AGR - Resignation of Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>AM</fullName>
+        <default>false</default>
+        <label>AM - Amendment</label>
+    </customValue>
+    <customValue>
+        <fullName>AMBX</fullName>
+        <default>false</default>
+        <label>AMBX - Amendment</label>
+    </customValue>
+    <customValue>
+        <fullName>AMCN</fullName>
+        <default>false</default>
+        <label>AMCN - Amendment / Cancellation LLP</label>
+    </customValue>
+    <customValue>
+        <fullName>AMIN</fullName>
+        <default>false</default>
+        <label>AMIN - Articles of Amendment / Increase</label>
+    </customValue>
+    <customValue>
+        <fullName>AMNC</fullName>
+        <default>false</default>
+        <label>AMNC - Articles of Amendment / Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>AMRD</fullName>
+        <default>false</default>
+        <label>AMRD - Articles of Amendment / Reduction</label>
+    </customValue>
+    <customValue>
+        <fullName>AMRS</fullName>
+        <default>false</default>
+        <label>AMRS - Amended / Restated</label>
+    </customValue>
+    <customValue>
+        <fullName>AMRSX</fullName>
+        <default>false</default>
+        <label>AMRSX - Amended / Restated</label>
+    </customValue>
+    <customValue>
+        <fullName>ANN</fullName>
+        <default>false</default>
+        <label>ANN - Annual Filing</label>
+    </customValue>
+    <customValue>
+        <fullName>ANNBX</fullName>
+        <default>false</default>
+        <label>ANNBX - Annual report/statement</label>
+    </customValue>
+    <customValue>
+        <fullName>ARSC</fullName>
+        <default>false</default>
+        <label>ARSC</label>
+    </customValue>
+    <customValue>
+        <fullName>ART</fullName>
+        <default>false</default>
+        <label>ART - Articles of Incorporation</label>
+    </customValue>
+    <customValue>
+        <fullName>ARTBX</fullName>
+        <default>false</default>
+        <label>ARTBX - Articles of Incorporation</label>
+    </customValue>
+    <customValue>
+        <fullName>AT</fullName>
+        <default>false</default>
+        <label>AT - Articles of Termination</label>
+    </customValue>
+    <customValue>
+        <fullName>ATBX</fullName>
+        <default>false</default>
+        <label>ATBX - Articles of Termination</label>
+    </customValue>
+    <customValue>
+        <fullName>BSX</fullName>
+        <default>false</default>
+        <label>BSX - Back Scanned Document</label>
+    </customValue>
+    <customValue>
+        <fullName>CC</fullName>
+        <default>false</default>
+        <label>CC - Certificate of Correction</label>
+    </customValue>
+    <customValue>
+        <fullName>CCLP</fullName>
+        <default>false</default>
+        <label>CCLP - Certificate of Correction</label>
+    </customValue>
+    <customValue>
+        <fullName>CER</fullName>
+        <default>false</default>
+        <label>CER</label>
+    </customValue>
+    <customValue>
+        <fullName>CERBX</fullName>
+        <default>false</default>
+        <label>CERBX - Certificate</label>
+    </customValue>
+    <customValue>
+        <fullName>CERT</fullName>
+        <default>false</default>
+        <label>CERT</label>
+    </customValue>
+    <customValue>
+        <fullName>CLSF</fullName>
+        <default>false</default>
+        <label>CLSF - TM/SM Classification</label>
+    </customValue>
+    <customValue>
+        <fullName>CMGBX</fullName>
+        <default>false</default>
+        <label>CMGBX - LLC Merger/Consolidation/Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>CN</fullName>
+        <default>false</default>
+        <label>CN - Application For Certificate of Cancellation</label>
+    </customValue>
+    <customValue>
+        <fullName>COA</fullName>
+        <default>false</default>
+        <label>COA - Application For Certificate of Authority For Foreign Corp.</label>
+    </customValue>
+    <customValue>
+        <fullName>COABX</fullName>
+        <default>false</default>
+        <label>COABX - Application For Certificate of Authority For Foreign Corp.</label>
+    </customValue>
+    <customValue>
+        <fullName>CONV</fullName>
+        <default>false</default>
+        <label>CONV - Articles of Organization Conversion</label>
+    </customValue>
+    <customValue>
+        <fullName>CORBX</fullName>
+        <default>false</default>
+        <label>CORBX - Correspondence Document</label>
+    </customValue>
+    <customValue>
+        <fullName>CORR</fullName>
+        <default>false</default>
+        <label>CORR - Correction</label>
+    </customValue>
+    <customValue>
+        <fullName>COTF</fullName>
+        <default>false</default>
+        <label>COTF - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>CO</fullName>
+        <default>false</default>
+        <label>CO - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>CRA</fullName>
+        <default>false</default>
+        <label>CRA - Application to List as Commercial Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>CRAD</fullName>
+        <default>false</default>
+        <label>CRAD - Statement of Change by CRA - Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>CRAL</fullName>
+        <default>false</default>
+        <label>CRAL - List of Entities represented by Commercial Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>CRC</fullName>
+        <default>false</default>
+        <label>CRC - Amendment of Commercial Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>CRCT</fullName>
+        <default>false</default>
+        <label>CRCT</label>
+    </customValue>
+    <customValue>
+        <fullName>CRCV</fullName>
+        <default>false</default>
+        <label>CRCV - Statement of Change by CRA - Conversion</label>
+    </customValue>
+    <customValue>
+        <fullName>CRE8</fullName>
+        <default>false</default>
+        <label>CRE8</label>
+    </customValue>
+    <customValue>
+        <fullName>CRMG</fullName>
+        <default>false</default>
+        <label>CRMG - Statement of Change by CRA - Merger</label>
+    </customValue>
+    <customValue>
+        <fullName>CRMT</fullName>
+        <default>false</default>
+        <label>CRMT</label>
+    </customValue>
+    <customValue>
+        <fullName>CRNA</fullName>
+        <default>false</default>
+        <label>CRNA - Statement of Change by CRA - Name and Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>CRNC</fullName>
+        <default>false</default>
+        <label>CRNC - Statement of Change by CRA - Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>CRSP</fullName>
+        <default>false</default>
+        <label>CRSP - Correspondence Only</label>
+    </customValue>
+    <customValue>
+        <fullName>CRT</fullName>
+        <default>false</default>
+        <label>CRT - Termination of a Commercial Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>CRTX</fullName>
+        <default>false</default>
+        <label>CRTX - Termination of CRA for Represented Entity</label>
+    </customValue>
+    <customValue>
+        <fullName>CV</fullName>
+        <default>false</default>
+        <label>CV - Articles of Conversion</label>
+    </customValue>
+    <customValue>
+        <fullName>CVAX</fullName>
+        <default>false</default>
+        <label>CVAX - Statement of Abandonment of Conversion</label>
+    </customValue>
+    <customValue>
+        <fullName>CVBX</fullName>
+        <default>false</default>
+        <label>CVBX - Articles of Conversion</label>
+    </customValue>
+    <customValue>
+        <fullName>CVIN</fullName>
+        <default>false</default>
+        <label>CVIN - Converted Into</label>
+    </customValue>
+    <customValue>
+        <fullName>CVNC</fullName>
+        <default>false</default>
+        <label>CVNC - Articles of Conversion / Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>CVTO</fullName>
+        <default>false</default>
+        <label>CVTO - Converted To</label>
+    </customValue>
+    <customValue>
+        <fullName>DMGBX</fullName>
+        <default>false</default>
+        <label>DMGBX - Domestic Merger/Consolidation</label>
+    </customValue>
+    <customValue>
+        <fullName>DOFF</fullName>
+        <default>false</default>
+        <label>DOFF - Designated Office Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>DS</fullName>
+        <default>false</default>
+        <label>DS - Articles of Dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>DSBX</fullName>
+        <default>false</default>
+        <label>DSBX - Articles of Dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>EXP</fullName>
+        <default>false</default>
+        <label>EXP - Expired</label>
+    </customValue>
+    <customValue>
+        <fullName>EX</fullName>
+        <default>false</default>
+        <label>EX - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>FCHG</fullName>
+        <default>false</default>
+        <label>FCHG - Foreign Certificate of Change</label>
+    </customValue>
+    <customValue>
+        <fullName>FLLC</fullName>
+        <default>false</default>
+        <label>FLLC - Application For Certificate of Authority For FLLC</label>
+    </customValue>
+    <customValue>
+        <fullName>FLLP</fullName>
+        <default>false</default>
+        <label>FLLP - Foriegn Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>FLP</fullName>
+        <default>false</default>
+        <label>FLP - Application For Certificate of Authority For Foreign LP</label>
+    </customValue>
+    <customValue>
+        <fullName>FMGBX</fullName>
+        <default>false</default>
+        <label>FMGBX - Foreign Merger/Consolidation</label>
+    </customValue>
+    <customValue>
+        <fullName>FPRS</fullName>
+        <default>false</default>
+        <label>FPRS - Foreign Partnership Registration Statement</label>
+    </customValue>
+    <customValue>
+        <fullName>FRPT</fullName>
+        <default>false</default>
+        <label>FRPT - Trustee Final Report</label>
+    </customValue>
+    <customValue>
+        <fullName>GPC</fullName>
+        <default>false</default>
+        <label>GPC - Statement of Change</label>
+    </customValue>
+    <customValue>
+        <fullName>GPSC</fullName>
+        <default>false</default>
+        <label>GPSC - Statement of Correction for Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>INCBX</fullName>
+        <default>false</default>
+        <label>INCBX - Certificate of Revocation</label>
+    </customValue>
+    <customValue>
+        <fullName>INCN</fullName>
+        <default>false</default>
+        <label>INCN - Involuntary Cancellation</label>
+    </customValue>
+    <customValue>
+        <fullName>INDBX</fullName>
+        <default>false</default>
+        <label>INDBX - Certificate of Administrative Dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>INDS</fullName>
+        <default>false</default>
+        <label>INDS - Involuntary Dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>INVR</fullName>
+        <default>false</default>
+        <label>INVR - Involuntary Revocation</label>
+    </customValue>
+    <customValue>
+        <fullName>IS</fullName>
+        <default>false</default>
+        <label>IS - Statement of Issuance of Shares</label>
+    </customValue>
+    <customValue>
+        <fullName>KAMBX</fullName>
+        <default>false</default>
+        <label>KAMBX - LLP Amendment</label>
+    </customValue>
+    <customValue>
+        <fullName>LIC</fullName>
+        <default>false</default>
+        <label>LIC - License Filing (A2)</label>
+    </customValue>
+    <customValue>
+        <fullName>LICN</fullName>
+        <default>false</default>
+        <label>LICN - License Filing (A2)</label>
+    </customValue>
+    <customValue>
+        <fullName>LLC</fullName>
+        <default>false</default>
+        <label>LLC - Articles of Organization</label>
+    </customValue>
+    <customValue>
+        <fullName>LLCBX</fullName>
+        <default>false</default>
+        <label>LLCBX - Articles of Organization</label>
+    </customValue>
+    <customValue>
+        <fullName>LLP</fullName>
+        <default>false</default>
+        <label>LLP - Statement of Qualification</label>
+    </customValue>
+    <customValue>
+        <fullName>LPAM</fullName>
+        <default>false</default>
+        <label>LPAM - Certificate of Amendment of Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>LPCN</fullName>
+        <default>false</default>
+        <label>LPCN - Statement of Termination of Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>LP</fullName>
+        <default>false</default>
+        <label>LP - Limited Partnership Certificate</label>
+    </customValue>
+    <customValue>
+        <fullName>MGAM</fullName>
+        <default>false</default>
+        <label>MGAM - Merger / Consolidation</label>
+    </customValue>
+    <customValue>
+        <fullName>MG</fullName>
+        <default>false</default>
+        <label>MG - Articles of Merger</label>
+    </customValue>
+    <customValue>
+        <fullName>MGBY</fullName>
+        <default>false</default>
+        <label>MGBY - Merged By</label>
+    </customValue>
+    <customValue>
+        <fullName>MGNC</fullName>
+        <default>false</default>
+        <label>MGNC - Merger / Consolidation name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>MGNR</fullName>
+        <default>false</default>
+        <label>MGNR - MERGER/NON-SURVIVOR NOT REGISTERED</label>
+    </customValue>
+    <customValue>
+        <fullName>MGTX</fullName>
+        <default>false</default>
+        <label>MGTX - Merger Termination</label>
+    </customValue>
+    <customValue>
+        <fullName>MULT</fullName>
+        <default>false</default>
+        <label>MULT - Multiple Transaction Types Possible for This Form</label>
+    </customValue>
+    <customValue>
+        <fullName>NC</fullName>
+        <default>false</default>
+        <label>NC - Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>ODCBX</fullName>
+        <default>false</default>
+        <label>ODCBX - Officer / Director Change</label>
+    </customValue>
+    <customValue>
+        <fullName>ODC</fullName>
+        <default>false</default>
+        <label>ODC - Officer / Director Change</label>
+    </customValue>
+    <customValue>
+        <fullName>ORDER</fullName>
+        <default>false</default>
+        <label>ORDER - Order of Reinstatement</label>
+    </customValue>
+    <customValue>
+        <fullName>PDS</fullName>
+        <default>false</default>
+        <label>PDS - Partnership Dissolution Statement</label>
+    </customValue>
+    <customValue>
+        <fullName>PNC</fullName>
+        <default>false</default>
+        <label>PNC - Partnership Change of Name Statement</label>
+    </customValue>
+    <customValue>
+        <fullName>PRSBX</fullName>
+        <default>false</default>
+        <label>PRSBX - Partnership Registration Statement Domestic/Foreign</label>
+    </customValue>
+    <customValue>
+        <fullName>PRS</fullName>
+        <default>false</default>
+        <label>PRS - Partnership Registration Statement</label>
+    </customValue>
+    <customValue>
+        <fullName>PRTR</fullName>
+        <default>false</default>
+        <label>PRTR - ASSIGMENT OF PR TO ANOTHER ENTITY</label>
+    </customValue>
+    <customValue>
+        <fullName>PURG</fullName>
+        <default>false</default>
+        <label>PURG - Administrative Purge</label>
+    </customValue>
+    <customValue>
+        <fullName>R7BX</fullName>
+        <default>false</default>
+        <label>R7BX - Reservation/Renewal of Name</label>
+    </customValue>
+    <customValue>
+        <fullName>R7EX</fullName>
+        <default>false</default>
+        <label>R7EX - Name Reservation Expiration</label>
+    </customValue>
+    <customValue>
+        <fullName>R7NR</fullName>
+        <default>false</default>
+        <label>R7NR - Name Reservation New Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>R7UX</fullName>
+        <default>false</default>
+        <label>R7UX</label>
+    </customValue>
+    <customValue>
+        <fullName>RC</fullName>
+        <default>false</default>
+        <label>RC - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>RD</fullName>
+        <default>false</default>
+        <label>RD - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>REDO</fullName>
+        <default>false</default>
+        <label>REDO - Redomestication</label>
+    </customValue>
+    <customValue>
+        <fullName>RE</fullName>
+        <default>false</default>
+        <label>RE - Reinstatement</label>
+    </customValue>
+    <customValue>
+        <fullName>RGAC</fullName>
+        <default>false</default>
+        <label>RGAC - Registrant Address Change</label>
+    </customValue>
+    <customValue>
+        <fullName>RGAT</fullName>
+        <default>false</default>
+        <label>RGAT</label>
+    </customValue>
+    <customValue>
+        <fullName>RGCN</fullName>
+        <default>false</default>
+        <label>RGCN - Registrant Cancelled</label>
+    </customValue>
+    <customValue>
+        <fullName>RGDS</fullName>
+        <default>false</default>
+        <label>RGDS - Registrant Dissolved</label>
+    </customValue>
+    <customValue>
+        <fullName>RGIC</fullName>
+        <default>false</default>
+        <label>RGIC - Registrant Involuntarily Cancelled</label>
+    </customValue>
+    <customValue>
+        <fullName>RGID</fullName>
+        <default>false</default>
+        <label>RGID - Registrant Involuntarily Dissolved</label>
+    </customValue>
+    <customValue>
+        <fullName>RGIR</fullName>
+        <default>false</default>
+        <label>RGIR</label>
+    </customValue>
+    <customValue>
+        <fullName>RGMG</fullName>
+        <default>false</default>
+        <label>RGMG - Registrant Merged</label>
+    </customValue>
+    <customValue>
+        <fullName>RGNC</fullName>
+        <default>false</default>
+        <label>RGNC - Registrant Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>RGRV</fullName>
+        <default>false</default>
+        <label>RGRV - Registrant Revoked</label>
+    </customValue>
+    <customValue>
+        <fullName>RGWD</fullName>
+        <default>false</default>
+        <label>RGWD - Registrant Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>RN</fullName>
+        <default>false</default>
+        <label>RN - Renewal of Reservation or Name</label>
+    </customValue>
+    <customValue>
+        <fullName>RSC</fullName>
+        <default>false</default>
+        <label>RSC - Restated Certificate of Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>RSNC</fullName>
+        <default>false</default>
+        <label>RSNC - Restated / Name Change</label>
+    </customValue>
+    <customValue>
+        <fullName>RS</fullName>
+        <default>false</default>
+        <label>RS - Restated Articles</label>
+    </customValue>
+    <customValue>
+        <fullName>RSS</fullName>
+        <default>false</default>
+        <label>RSS - Restated Statement of Qualification</label>
+    </customValue>
+    <customValue>
+        <fullName>RVCN</fullName>
+        <default>false</default>
+        <label>RVCN - Cancellation of Name Reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>RVDS</fullName>
+        <default>false</default>
+        <label>RVDS - Articles of Revocation of Dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>RVIN</fullName>
+        <default>false</default>
+        <label>RVIN - Transfer of Name Reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>RVKBX</fullName>
+        <default>false</default>
+        <label>RVKBX - Certificate of Revocation</label>
+    </customValue>
+    <customValue>
+        <fullName>RVKD</fullName>
+        <default>false</default>
+        <label>RVKD - Involuntary Revoked</label>
+    </customValue>
+    <customValue>
+        <fullName>RVKE</fullName>
+        <default>false</default>
+        <label>RVKE - Unknown</label>
+    </customValue>
+    <customValue>
+        <fullName>RV</fullName>
+        <default>false</default>
+        <label>RV - Reservation of Name</label>
+    </customValue>
+    <customValue>
+        <fullName>SC</fullName>
+        <default>false</default>
+        <label>SC - Statement of Cancellation of Acquired Shares</label>
+    </customValue>
+    <customValue>
+        <fullName>SDBX</fullName>
+        <default>false</default>
+        <label>SDBX - Statement of Dissociation</label>
+    </customValue>
+    <customValue>
+        <fullName>SDEN</fullName>
+        <default>false</default>
+        <label>SDEN - Statement of Denial</label>
+    </customValue>
+    <customValue>
+        <fullName>SD</fullName>
+        <default>false</default>
+        <label>SD - Statement of Dissociation</label>
+    </customValue>
+    <customValue>
+        <fullName>STD</fullName>
+        <default>false</default>
+        <label>STD - Statement of Intent to Dissolve</label>
+    </customValue>
+    <customValue>
+        <fullName>T1BX</fullName>
+        <default>false</default>
+        <label>T1BX - Trade Name</label>
+    </customValue>
+    <customValue>
+        <fullName>T2BX</fullName>
+        <default>false</default>
+        <label>T2BX - Trade Mark</label>
+    </customValue>
+    <customValue>
+        <fullName>T3BX</fullName>
+        <default>false</default>
+        <label>T3BX - Service Mark</label>
+    </customValue>
+    <customValue>
+        <fullName>TEMP</fullName>
+        <default>false</default>
+        <label>TEMP - Temporary Transaction</label>
+    </customValue>
+    <customValue>
+        <fullName>TERM</fullName>
+        <default>false</default>
+        <label>TERM - Terminated</label>
+    </customValue>
+    <customValue>
+        <fullName>TNAD</fullName>
+        <default>false</default>
+        <label>TNAD - TN/TM/SM address change</label>
+    </customValue>
+    <customValue>
+        <fullName>TNAS</fullName>
+        <default>false</default>
+        <label>TNAS - Application for TN/TM/SM Assignment</label>
+    </customValue>
+    <customValue>
+        <fullName>TNCN</fullName>
+        <default>false</default>
+        <label>TNCN - Cancellation of TN/TM/SM</label>
+    </customValue>
+    <customValue>
+        <fullName>TNEX</fullName>
+        <default>false</default>
+        <label>TNEX</label>
+    </customValue>
+    <customValue>
+        <fullName>TNNA</fullName>
+        <default>false</default>
+        <label>TNNA - Application for Registration of TN/TM/SM</label>
+    </customValue>
+    <customValue>
+        <fullName>TNNC</fullName>
+        <default>false</default>
+        <label>TNNC - Change of name for TN/TM/SM</label>
+    </customValue>
+    <customValue>
+        <fullName>TNRN</fullName>
+        <default>false</default>
+        <label>TNRN - Renewal of TN/TM/SM</label>
+    </customValue>
+    <customValue>
+        <fullName>TNRVK</fullName>
+        <default>false</default>
+        <label>TNRVK - TM/TN/SM REVOCATION</label>
+    </customValue>
+    <customValue>
+        <fullName>TNRV</fullName>
+        <default>false</default>
+        <label>TNRV - Revocation of TN/TM/SM</label>
+    </customValue>
+    <customValue>
+        <fullName>TNTR</fullName>
+        <default>false</default>
+        <label>TNTR - Assignment of TN/TM/SM to Another Entity</label>
+    </customValue>
+    <customValue>
+        <fullName>TNUX</fullName>
+        <default>false</default>
+        <label>TNUX</label>
+    </customValue>
+    <customValue>
+        <fullName>TR</fullName>
+        <default>false</default>
+        <label>TR - Transfer of Name Reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>TST</fullName>
+        <default>false</default>
+        <label>TST - Testing</label>
+    </customValue>
+    <customValue>
+        <fullName>UNKN</fullName>
+        <default>false</default>
+        <label>UNKN - Unknown Transaction Types</label>
+    </customValue>
+    <customValue>
+        <fullName>WD</fullName>
+        <default>false</default>
+        <label>WD - Application For Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>XXXX</fullName>
+        <default>false</default>
+        <label>XXXX - Unknown</label>
+    </customValue>
+    <masterLabel>Transaction Codes</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

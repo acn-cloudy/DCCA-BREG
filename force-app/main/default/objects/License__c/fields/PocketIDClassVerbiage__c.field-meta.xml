@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PocketIDClassVerbiage__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( LicenseType__r.LicensePrefix__c = &quot;CT&quot;,
+
+CASE
+(
+ LicenseABPrefix__c ,
+&quot;A&quot;, &quot;THE FOLLOWING &apos;C&apos; CLASSES ARE AUTOMATICALLY ISSUED WITH AN &quot; +  LicenseABPrefix__c + &quot; LICENSE: 3, 9, 10 17, 24, 31a, 32, 35, 37a, 37b, 38, 43, 49, 56, 57a, 57b, 61&quot;,
+&quot;B&quot;, &quot;THE FOLLOWING &apos;C&apos; CLASSES ARE AUTOMATICALLY ISSUED WITH A &quot; +  LicenseABPrefix__c + &quot; LICENSE: 5, 6, 10, 12, 24, 25, 31a, 32a, 42a, 42b&quot;,
+&quot;AB&quot;, &quot;THE FOLLOWING &apos;C&apos; CLASSES ARE AUTOMATICALLY ISSUED WITH AN &quot; +  LicenseABPrefix__c + &quot; LICENSE: 3, 5, 6, 9, 10, 12, 17, 24, 25, 31a, 32, 32a, 35, 37a, 37b, 38, 42a, 42b, 43, 49, 56, 57a, 57b, 61&quot;,
+&quot;&quot;
+),
+
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Pocket ID Class Verbiage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

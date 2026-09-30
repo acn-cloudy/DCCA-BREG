@@ -1,0 +1,3 @@
+<apex:page standardController="Application__c">
+	<SpringCMEos:SpringCM_EOSGrid objectType="Application__c" objectId="{!Id}" />
+</apex:page>

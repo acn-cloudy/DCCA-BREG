@@ -1,0 +1,31 @@
+<apex:component >
+    <apex:attribute name="license" type="License__c" description="License" />
+    <apex:attribute name="licenseType" type="LicenseType__c" description="License Type" />
+    <apex:attribute name="dToday" type="Date" description="today" />
+    <c:RefundNoticeHeader pageStr="A-18.27-15"  licenseType="" />
+    <div style="padding-left: 50px">
+        <c:RefundNoticeSubHeader license="{!license}" dToday="{!dToday}" licenseLabel="License:" subject="Non-renewal of License for" />
+        <br/>
+        <br/>
+        <div style="margin-left: 40px; text-align: left;">
+            Please be advised that we are not able to process the renewal application for the</div>
+        <div style="text-align: left;">above referenced license because the licensing records reflect that a required
+            <br/>component (dependency) to your license, such as the designated mechanic, has failed
+            <br/>to renew its license.</div>
+        <br/>
+        <br/>
+        <div style="margin-left: 40px; text-align: left;">Failure to complete the renewal process by the above date will result in the</div>
+        <div style="text-align: left;">forfeiture of your license at which time you may not do business under this license and
+            <br/>will be required to restore or re-apply as a new applicant, including submitting a new
+            <br/>application and all required documents and fees.</div>
+        <br/>
+        <br/>
+        <div style="margin-left: 40px; text-align: left;">
+            A refund of your renewal fees will be processed if there is no response by the</div>
+        <div style="text-align: left;">above date. Please note that processing time for refunds is approximately 8 – 10 <br/>weeks.</div>
+        <br/>
+        <br/>
+        <div style="margin-left: 280px; text-align: left;">Records Section
+            <br/> Licensing Branch</div>
+    </div>
+</apex:component>

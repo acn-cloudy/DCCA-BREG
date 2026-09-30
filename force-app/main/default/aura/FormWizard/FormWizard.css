@@ -1,0 +1,7 @@
+.THIS .form-wizard-progress-indicator .slds-progress {
+    max-width: inherit;
+}
+
+.THIS .form-wizard-progress-indicator .slds-progress .slds-progress__list{
+    min-height: 23px;
+}

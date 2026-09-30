@@ -1,0 +1,85 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+            body {
+                margin-top: 5px;
+                font-size: 11pt;
+                font-family: Arial Narrow, Arial;
+            }
+            li span {
+                position: relative;
+                left: 3px;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-12" licenseType="BOARD OF PRIVATE DETECTIVES AND GUARDS" />
+            <div style="padding-left: 50px">
+                <c:RefundNoticeSubHeader license="{!record}" dToday="{!dToday}" licenseLabel="License Number:" subject="Non-Renewal of Private Detective, Guard, or Agency License for"
+                />
+                <div style="text-align: left;">Please be advised that we were unable to renew your above-referenced license because of the 
+                    <br/> 
+                following reason(s):</div>
+                <br/>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1" style="width: 80px; font-size: 12pt;">[ X ]</td>
+                            <td colspan="1" rowspan="1">Your principal detective failed to renew his/her individual license. </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" style="font-size: 12pt;">[     ]</td>
+                            <td colspan="1" rowspan="1">Your principal guard failed to renew his/her individual license. </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" style="font-size: 12pt;">[     ]</td>
+                            <td colspan="1" rowspan="1">The agency with whom you are employed failed to renew its license. </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <br/>
+                <div style="text-align: left;">You have thirty (30) calendar days from the date of this letter to accomplish one of the following: </div>
+                <ol style="margin-left: 15px; padding-right: 70px">
+                    <li><span>Have the principal detective or principal guard restore his/her license;</span></li>
+                    <li><span>Have the detective or guard agency restore its license;</span></li>
+                    <li><span>Obtain employment with another detective or guard agency;</span></li>
+                    <li><span>Become a sole proprietor or apply to the Board to be a licensed firm (e.g., corporation, partnership, joint venture, LLC, LLP, etc.); or</span></li>
+                    <li><span>Place your license on inactive status (while on inactive status, you shall not engage in the practice of a detective or guard, and you must file an application with the Board to reactivate your license and meet all requirements and fees required by the Board).</span></li>
+                </ol>
+                <div>
+                    If you fail to do one of the above by the date noted, your renewal will be deemed abandoned; 
+                    <br/>
+                    your license forfeited; and a refund of your renewal fees will be processed. Please note that
+                    <br/>
+                    processing time for refunds is approximately eight (8) weeks. 
+                </div>
+                <br/>
+                <br/>
+                <!-- <div style="margin-left: 340px; text-align: left;">Sincerely,</div>
+                <br/>
+                <br/>
+                <div style="margin-left: 340px; text-align: left;">Charlene L.K. Tamanaha</div>
+
+                <div style="margin-left: 340px; text-align: left;">Executive Officer</div> -->
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

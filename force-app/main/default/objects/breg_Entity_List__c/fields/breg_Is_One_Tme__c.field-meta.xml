@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Is_One_Tme__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Defines if the Entity List is scheduled for execution on weekly basis</description>
+    <label>Is Scheduled</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

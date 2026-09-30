@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="label" type="String" default="Scan Renewals in A1"/>
+    <aura:attribute name="url" type="String"/>
+    <lightning:layout horizontalAlign="center">
+        <lightning:button label="{!v.label}" value="{!v.label}" variant="neutral" onclick="{!c.navigateToUrl}"/>
+    </lightning:layout>
+</aura:component>

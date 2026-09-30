@@ -1,0 +1,404 @@
+<template>
+    <lightning-card title="BREG Job Management Dashboard" icon-name="utility:apex">
+        <div class="slds-p-around_medium">
+            <!-- Job Cards -->
+            <template for:each={jobs} for:item="job">
+                <div key={job.id} class="slds-m-bottom_large job-card-wrapper">
+                    <article class="slds-card job-card">
+                        <div class="slds-card__header">
+                            <header class="slds-grid slds-grid_align-spread">
+                                <div class="slds-col slds-align-middle">
+                                    <h2 class="slds-text-heading_small">{job.name}</h2>
+                                </div>
+                            </header>
+                        </div>
+
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div class="slds-grid slds-wrap slds-gutters slds-grid_vertical-align-start">
+                                <!-- Status -->
+                                <div class="slds-col slds-size_1-of-12 slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label slds-text-body_small">Status</label>
+                                        <div class="slds-form-element__control slds-m-top_xx-small">
+                                            <lightning-badge label={job.status} variant={job.statusVariant}></lightning-badge>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Description -->
+                                <div class="slds-col slds-size_3-of-12 slds-medium-size_3-of-12 slds-large-size_3-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label slds-text-body_small">Description</label>
+                                        <div class="slds-form-element__control slds-m-top_xx-small">
+                                            <div class="slds-text-body_small">{job.description}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Preview Mode -->
+                                <div class="slds-col slds-size_1-of-12 slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                                    <div class="slds-form-element">
+                                        <template if:true={job.supportsPreviewMode}>
+                                            <label class="slds-form-element__label slds-text-body_small">Preview Mode</label>
+                                            <div class="slds-form-element__control slds-m-top_xx-small">
+                                                <lightning-input
+                                                    type="checkbox"
+                                                    checked={job.previewMode}
+                                                    disabled={job.previewModeDisabled}
+                                                    data-job-id={job.id}
+                                                    onchange={handlePreviewModeChange}
+                                                    variant="label-hidden"
+                                                >
+                                                </lightning-input>
+                                            </div>
+                                        </template>
+                                        <template if:false={job.supportsPreviewMode}>
+                                            <label class="slds-form-element__label slds-text-body_small preview-mode-hidden">Preview Mode</label>
+                                            <div class="slds-form-element__control slds-m-top_xx-small preview-mode-hidden"></div>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <!-- Last Run Info -->
+                                <div class="slds-col slds-size_2-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label slds-text-body_small">Last Run</label>
+                                        <div class="slds-form-element__control slds-m-top_xx-small">
+                                            <template if:true={job.lastRun}>
+                                                <div class="slds-text-body_small">{job.lastRun}</div>
+                                            </template>
+                                            <template if:false={job.lastRun}>
+                                                <div class="slds-text-body_small slds-text-color_weak">Never</div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Duration -->
+                                <div class="slds-col slds-size_1-of-12 slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label slds-text-body_small">Last Duration</label>
+                                        <div class="slds-form-element__control slds-m-top_xx-small">
+                                            <template if:true={job.duration}>
+                                                <div class="slds-text-body_small">{job.duration}</div>
+                                            </template>
+                                            <template if:false={job.duration}>
+                                                <div class="slds-text-body_small slds-text-color_weak">-</div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Batches Processed -->
+                                <div class="slds-col slds-size_1-of-12 slds-medium-size_1-of-12 slds-large-size_1-of-12">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label slds-text-body_small">Processed Batches</label>
+                                        <div class="slds-form-element__control slds-m-top_xx-small">
+                                            <template if:true={job.batchesProcessed}>
+                                                <div class="slds-text-body_small">{job.batchesProcessed}</div>
+                                            </template>
+                                            <template if:false={job.batchesProcessed}>
+                                                <div class="slds-text-body_small slds-text-color_weak">-</div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_3-of-12 slds-medium-size_3-of-12 slds-large-size_3-of-12 slds-grid slds-wrap slds-gutters">
+                                    <div
+                                        lwc:if={job.supportsQuarterSelect}
+                                        class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-grid"
+                                    >
+                                        <lightning-combobox
+                                            lwc:if={job.supportsQuarterSelect}
+                                            name="selectedQuarter"
+                                            label="Quarter"
+                                            value={job.selectedQuarter}
+                                            placeholder="Select Quarter"
+                                            options={quarterOptions}
+                                            onchange={handleReferenceChange}
+                                            data-job-id={job.id}
+                                            class="quarter-filter slds-col slds-size_1-of-2"
+                                        ></lightning-combobox>
+                                        <lightning-combobox
+                                            lwc:if={job.supportsYearSelect}
+                                            name="selectedYear"
+                                            label="Year"
+                                            value={job.selectedYear}
+                                            placeholder="Select Year"
+                                            options={yearOptions}
+                                            onchange={handleReferenceChange}
+                                            data-job-id={job.id}
+                                            class="year-filter slds-col slds-size_1-of-2"
+                                        ></lightning-combobox>
+                                    </div>
+
+                                    <div
+                                        lwc:if={job.isKillJob}
+                                        class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-grid"
+                                    >
+                                        <lightning-input
+                                            type="date"
+                                            label="Inds Notice Date"
+                                            name="indsNoticeDate"
+                                            value={job.indsNoticeDate}
+                                            onchange={handleReferenceChange}
+                                            data-job-id={job.id}
+                                            data-field-name="indsNoticeDate"
+                                            required
+                                            class="slds-col slds-size_1-of-2"
+                                        >
+                                        </lightning-input>
+                                        <lightning-input
+                                            type="date"
+                                            label="Inds Due Date"
+                                            name="indsDueDate"
+                                            value={job.indsDueDate}
+                                            onchange={handleReferenceChange}
+                                            data-job-id={job.id}
+                                            data-field-name="indsDueDate"
+                                            required
+                                            class="slds-col slds-size_1-of-2"
+                                        >
+                                        </lightning-input>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="slds-card__footer">
+                            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                                <div class="slds-col">
+                                    <!-- Start Job Button -->
+                                    <lightning-button
+                                        variant={job.actionButtonVariant}
+                                        label={job.actionButtonLabel}
+                                        title={job.actionButtonLabel}
+                                        onclick={handleJobAction}
+                                        data-job-id={job.id}
+                                        disabled={job.actionButtonDisabled}
+                                        class="slds-m-right_x-small"
+                                    >
+                                    </lightning-button>
+
+                                    <lightning-button
+                                        lwc:if={job.cleanupJobClassName}
+                                        variant={job.actionButtonVariant}
+                                        label="Run Cleanup Job"
+                                        title="Run Cleanup Job"
+                                        onclick={handleCleanupJobAction}
+                                        data-job-id={job.id}
+                                        disabled={job.actionButtonDisabled}
+                                        class="slds-m-right_x-small"
+                                    >
+                                    </lightning-button>
+
+                                    <!-- Refresh Status Button -->
+                                    <lightning-button
+                                        variant="neutral"
+                                        label="Refresh Status"
+                                        title="Refresh Job Status"
+                                        icon-name="utility:refresh"
+                                        onclick={handleRefreshStatus}
+                                        data-job-id={job.id}
+                                        class="slds-m-right_x-small"
+                                    >
+                                    </lightning-button>
+
+                                    <!-- View Last Job Details Button -->
+                                    <lightning-button
+                                        variant="neutral"
+                                        label="View Last Job Details"
+                                        title="View Last Job Details"
+                                        icon-name="utility:info"
+                                        onclick={handleViewDetails}
+                                        data-job-id={job.id}
+                                        class="slds-m-right_x-small"
+                                    >
+                                    </lightning-button>
+
+                                    <lightning-button
+                                        lwc:if={job.resultFolderUrl}
+                                        variant="brand-outline"
+                                        label="Open Results Folder"
+                                        title="Open Results Folder"
+                                        icon-name="utility:open_folder"
+                                        onclick={handleOpenResultsFolder}
+                                        data-job-id={job.id}
+                                        class="slds-m-right_x-small"
+                                    >
+                                    </lightning-button>
+                                </div>
+
+                                <div class="slds-col slds-no-flex">
+                                    <div class="slds-grid slds-grid_vertical-align-center">
+                                        <!-- Pre-Processing Report Button -->
+                                        <template if:true={job.preProcessingReport}>
+                                            <lightning-button
+                                                variant="brand-outline"
+                                                label="Pre-Processing Report"
+                                                title="View Pre-Processing Report"
+                                                icon-name="utility:record_alt"
+                                                onclick={handleViewPreProcessingReport}
+                                                data-job-id={job.id}
+                                                class="slds-m-right_x-small"
+                                            >
+                                            </lightning-button>
+                                        </template>
+
+                                        <!-- Post-Processing Report Button -->
+                                        <template if:true={job.postProcessingReport}>
+                                            <lightning-button
+                                                variant="brand-outline"
+                                                label="Post-Processing Report"
+                                                title="View Post-Processing Report"
+                                                icon-name="utility:record_alt"
+                                                onclick={handleViewPostProcessingReport}
+                                                data-job-id={job.id}
+                                            >
+                                            </lightning-button>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </article>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Job Details Modal -->
+    <template if:true={showJobDetailsModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeJobDetailsModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-modal__header-title slds-text-heading_medium">{selectedJob.name} - Last Job Details</h2>
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <!-- Timestamp -->
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Last Run</label>
+                                <div class="slds-form-element__control">
+                                    <template if:true={selectedJob.formattedTimestamp}>
+                                        <div class="slds-form-element__static">{selectedJob.formattedTimestamp}</div>
+                                    </template>
+                                    <template if:false={selectedJob.formattedTimestamp}>
+                                        <div class="slds-form-element__static slds-text-color_weak">-</div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User -->
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Run By</label>
+                                <div class="slds-form-element__control">
+                                    <template if:true={selectedJob.user}>
+                                        <div class="slds-form-element__static">{selectedJob.user}</div>
+                                    </template>
+                                    <template if:false={selectedJob.user}>
+                                        <div class="slds-form-element__static slds-text-color_weak">-</div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Processed Records -->
+                        <div class="slds-col slds-size_1-of-2">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Total Processed Records</label>
+                                <div class="slds-form-element__control">
+                                    <template if:true={selectedJob.totalCount}>
+                                        <div class="slds-form-element__static">{selectedJob.totalCount}</div>
+                                    </template>
+                                    <template if:false={selectedJob.totalCount}>
+                                        <div class="slds-form-element__static slds-text-color_weak">-</div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result (JSON) -->
+                        <div class="slds-col slds-size_12-of-12">
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label">Result</label>
+                                <div class="slds-form-element__control">
+                                    <template if:true={selectedJob.formattedResults}>
+                                        <div class="slds-box slds-theme_default">
+                                            <pre class="slds-text-body_small job-result-formatted">{selectedJob.formattedResults}</pre>
+                                        </div>
+                                    </template>
+                                    <template if:false={selectedJob.formattedResults}>
+                                        <div class="slds-form-element__static slds-text-color_weak">No results available</div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Close" title="Close" onclick={closeJobDetailsModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Run job confirmation modal -->
+    <template if:true={showConfirmModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container slds-modal_small">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={cancelConfirmModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-modal__header-title slds-text-heading_medium slds-truncate" title="Confirm Start Job">Confirm Start Job</h2>
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">
+                    <p class="slds-text-heading_small">{confirmModalMessage}</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button
+                        variant="neutral"
+                        label="Cancel"
+                        title="Cancel"
+                        onclick={cancelConfirmModal}
+                        class="slds-m-right_x-small"
+                    ></lightning-button>
+                    <lightning-button variant="brand" label="Start Job" title="Start Job" onclick={confirmRunJob}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Persistent alert modal (job started / job completed) -->
+    <template if:true={showAlertModal}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container slds-modal_small">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeAlertModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-modal__header-title slds-text-heading_medium slds-truncate" title={alertModalTitle}>{alertModalTitle}</h2>
+                </header>
+                <div class="slds-modal__content slds-var-p-around_medium">
+                    <p class="slds-text-heading_small">{alertModalMessage}</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="brand" label="OK" title="OK" onclick={closeAlertModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

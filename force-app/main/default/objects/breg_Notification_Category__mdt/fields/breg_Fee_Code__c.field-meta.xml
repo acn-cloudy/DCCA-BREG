@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Fee_Code__c</fullName>
+    <description>Aalta BREG-972</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Fee Code</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B73</fullName>
+                <default>true</default>
+                <label>B73</label>
+            </value>
+            <value>
+                <fullName>B74</fullName>
+                <default>false</default>
+                <label>B74</label>
+            </value>
+            <value>
+                <fullName>B75</fullName>
+                <default>false</default>
+                <label>B75</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

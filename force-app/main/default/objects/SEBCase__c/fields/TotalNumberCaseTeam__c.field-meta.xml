@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalNumberCaseTeam__c</fullName>
+    <description>PacPoint-JB103118 - Created for BREG phase 1: Used in Process Builder to automate Intake Status email to Case Team members</description>
+    <label>Total Number Case Team</label>
+    <summaryFilterItems>
+        <field>SEBCaseTeam__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SEBCaseTeam__c.SEBCase__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

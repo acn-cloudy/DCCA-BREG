@@ -1,0 +1,7 @@
+<aura:component implements="lightning:isUrlAddressable,lightning:availableForFlowScreens,lightning:isUrlAddressable,lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+<aura:attribute name="recordId" type="String" />
+<aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <div style="background-color: #fff;">
+        <c:jVForm recordId="{!v.recordId}"></c:jVForm>    
+    </div>    
+</aura:component>

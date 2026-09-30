@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DesiredExamIsland__c</fullName>
+    <label>Desired Exam Island</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - KONA</fullName>
+                <default>false</default>
+                <label>A - KONA</label>
+            </value>
+            <value>
+                <fullName>H - HILO</fullName>
+                <default>false</default>
+                <label>H - HILO</label>
+            </value>
+            <value>
+                <fullName>I - MOLOKAI</fullName>
+                <default>false</default>
+                <label>I - MOLOKAI</label>
+            </value>
+            <value>
+                <fullName>K - KAUAI</fullName>
+                <default>false</default>
+                <label>K - KAUAI</label>
+            </value>
+            <value>
+                <fullName>L - LANAI</fullName>
+                <default>false</default>
+                <label>L - LANAI</label>
+            </value>
+            <value>
+                <fullName>M - MAUI</fullName>
+                <default>false</default>
+                <label>M - MAUI</label>
+            </value>
+            <value>
+                <fullName>O - OAHU</fullName>
+                <default>false</default>
+                <label>O - OAHU</label>
+            </value>
+            <value>
+                <fullName>U - OUT-OF-STATE</fullName>
+                <default>false</default>
+                <label>U - OUT-OF-STATE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

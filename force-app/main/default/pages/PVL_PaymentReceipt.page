@@ -1,0 +1,267 @@
+<apex:page readOnly="true"
+           controller="PVL_PaymentReceiptController"
+           applyHtmlTag="false"
+           applyBodyTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="pdf">
+    <html>
+    <head>
+        <style>
+            @page {
+                margin-left: 1cm;
+                margin-right: 1cm;
+            }
+
+            .headerInfo {
+                padding: 0;
+                margin: 0;
+                font: bold 11px 'Arial';
+                line-height: 21px;
+                border-top: #cccccc 1px solid;
+                border-bottom: #cccccc 1px solid;
+            }
+
+            .headerData {
+                font: 12px 'Arial';
+                line-height: 24px;
+                border-bottom: #cccccc 1px dashed;
+                padding: 0;
+                margin: 0;
+            }
+
+            .headerDataTotal {
+                font: italic 17px 'Georgia';
+                line-height: 30px;
+                border-bottom: #cccccc 1px dashed;
+                margin-top: 0;
+                margin-bottom: 0;
+                padding: 0;
+            }
+
+            .receiptDescHeader {
+                font: 16px 'Arial';
+                color: #333333;
+                line-height: 18px;
+                border-bottom: #cccccc 1px dashed;
+                text-align: left;
+            }
+
+            .receiptDescData {
+                font: bold 11px 'Arial';
+                line-height: 14px;
+                height: 19px;
+            }
+
+            .receiptBodySection {
+                vertical-align: top;
+                border: #cccccc 1px solid;
+                padding: 11px;
+                font: 12px 'Arial';
+            }
+
+            .paymentInfoFieldLabel,
+            .finalStepsLabel {
+                font: bold 11px 'Arial';
+                line-height: 14px;
+            }
+
+            .paymentInfoFieldVal,
+            .finalStepsVal {
+                font: 12px 'Arial';
+                line-height: 15px;
+                word-wrap: break-word;
+            }
+
+            .paymentInfoFieldLabel,
+            .paymentInfoFieldVal {
+                height: 20px;
+            }
+
+            .fixedWidth140 {
+                width: 140px;
+            }
+        </style>
+    </head>
+    <body>
+    <table style="width: 100%; table-layout: fixed;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="font: 11px 'Arial';line-height: 14px;">
+                <apex:outputText value="{0,date,MM/dd/yyyy}">
+                    <apex:param value="{!today()}"/>
+                </apex:outputText>
+            </td>
+            <td style="font: 11px 'Arial';line-height: 14px;">
+                Payment Complete
+            </td>
+        </tr>
+    </table>
+    <apex:image id="theImage1" value="{!$Resource.PVLPaymentHeader}" height="83" style="width:100%;"/>
+    <table style="border: 1px solid #888888; width: 100%; margin-top: 23px; padding: 11px;">
+        <tr>
+            <td>
+                <table style="table-layout: fixed; width: 100%;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="font: italic 29px 'Georgia';line-height: 34px;">
+                            Payment Receipt
+                        </td>
+                        <td style="text-align: right;" colspan="2">
+                            <apex:image id="theImage2" value="{!$Resource.PVL_Lock}" height="41"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="headerInfo">
+                            ITEM
+                        </td>
+                        <td class="headerInfo">
+                            REFERENCE NUMBER
+                        </td>
+                        <td class="headerInfo" style="text-align: right;">
+                            PRICE
+                        </td>
+                    </tr>
+                    <apex:repeat value="{!transactionLine_L}" var="t">
+                        <tr>
+                            <td class="headerData">{!cashierCode_M[t.id]}</td>
+                            <td class="headerData">{!t.Name}</td>
+                            <td class="headerData" style="text-align: right;">${!t.Amount__c}</td>
+                        </tr>
+                    </apex:repeat>
+                    <tr>
+                        <td class="headerDataTotal" colspan="2">Total Price</td>
+                        <td class="headerDataTotal" style="text-align: right;">${!payment.pymt__Amount__c}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="table-layout: fixed; border-spacing: 2px; margin-top: 23px;" cellspacing="0"
+                       cellpadding="0">
+                    <tr>
+                        <td class="receiptBodySection">
+                            <table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: fixed;">
+                                <tr>
+                                    <td class="receiptDescHeader">
+                                        Receipt Description
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="receiptDescData">{!payment.Transaction__r.Application__r.ApplicantNameText__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="receiptDescData">{!payment.Transaction__r.Application__r.Name}</td>
+                                </tr>
+                                <tr>
+                                    <td class="receiptDescData">{!payment.Transaction__r.Application__r.CurrentLicense__r.Name}</td>
+                                </tr>
+                                <tr>
+                                    <td class="receiptDescData">{!payment.Transaction__r.Application__r.LicenseTypeDescription__c}</td>
+                                </tr>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                                <tr>
+                                    <td colspan="2" class="receiptDescHeader">
+                                        Payment Information
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Contact Name</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Contact__r.Name}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Phone Number</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Contact__r.Phone}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Email Address</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Billing_Email__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Card Type</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Card_Type__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Account Number (last 4)</td>
+                                    <td class="paymentInfoFieldVal">******{!payment.pymt__Last_4_Digits__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Name on Card</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Billing_First_Name__c} {!payment.pymt__Billing_Last_Name__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">Billing Address</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Billing_Street__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">&nbsp;</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Billing_City__c}
+                                        , {!payment.pymt__Billing_Postal_Code__c}</td>
+                                </tr>
+                                <tr>
+                                    <td class="paymentInfoFieldLabel fixedWidth140">&nbsp;</td>
+                                    <td class="paymentInfoFieldVal">{!payment.pymt__Billing_Country__c}</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="receiptBodySection">
+                            <table cellpadding="0" cellspacing="0" style="width: 100%; table-layout: fixed;">
+                                <tr>
+                                    <td class="receiptDescHeader" colspan="2">
+                                        Final Steps
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="line-height: 54px; font: 12px 'Arial';" colspan="2">
+                                        <p>Please print this receipt for your records.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="finalStepsLabel">Reference Id</td>
+                                    <td class="finalStepsVal">{!payment.Transaction__r.Name}</td>
+                                </tr>
+                                <tr>
+                                    <td class="finalStepsLabel">Transaction Id</td>
+                                    <td class="finalStepsVal">{!transactionId}</td>
+                                </tr>
+                                <tr>
+                                    <td class="finalStepsLabel">Transaction Date</td>
+                                    <td class="finalStepsVal">{!transactionDate}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="finalStepsVal">
+                                        <p>This receipt is for the processing and review of your professional license application and does not constitute approval or acceptance of your application 
+                                            or a permit to practice.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="finalStepsVal">
+                                        <p>Application and renewal fees are non-refundable. Any requests for refundable fees must be made in writing and are subject to approval.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="finalStepsVal">
+                                        <p>Your application may be processed before the payment you submitted for your 
+                                            required fees is honored by your bank. 
+                                            Any payment that is dishonored for <span
+                                                style="font: bold 12px 'Arial';line-height: 15px;">any reason, (ex. Invalid routing and/or account number, insufficient funds etc...) or disputed will be assessed a $25 service charge.</span> 
+                                            If your payment is dishonored, you will have failed to pay the required 
+                                            licensing fee and your license will not be valid, and you may not do 
+                                            business under that license.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="finalStepsVal">
+                                        <p>Thank you for submitting your application online.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </body>
+    </html>
+</apex:page>

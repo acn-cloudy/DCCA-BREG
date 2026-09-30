@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Privilege__c</fullName>
+    <label>Privilege</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>U - Prescriptive Authority</fullName>
+                <default>false</default>
+                <label>U - Prescriptive Authority</label>
+            </value>
+            <value>
+                <fullName>X - RX. Of Controlled Substances (Includes Non Controlled)</fullName>
+                <default>false</default>
+                <label>X - RX. Of Controlled Substances (Includes Non Controlled)</label>
+            </value>
+            <value>
+                <fullName>S - Clinical Social Worker</fullName>
+                <default>false</default>
+                <label>S - Clinical Social Worker</label>
+            </value>
+            <value>
+                <fullName>2 - Parenteral Therapy &amp; Minor Office Procedures</fullName>
+                <default>false</default>
+                <label>2 - Parenteral Therapy &amp; Minor Office Procedures</label>
+            </value>
+            <value>
+                <fullName>A - Deep Sedation or General Anesthesia</fullName>
+                <default>false</default>
+                <label>A - Deep Sedation or General Anesthesia</label>
+            </value>
+            <value>
+                <fullName>B - Moderate Sedation</fullName>
+                <default>false</default>
+                <label>B - Moderate Sedation</label>
+            </value>
+            <value>
+                <fullName>C - Charter Tour Operator</fullName>
+                <default>false</default>
+                <label>C - Charter Tour Operator</label>
+            </value>
+            <value>
+                <fullName>D - Diagnostic Pharmaceutical Agents</fullName>
+                <default>false</default>
+                <label>D - Diagnostic Pharmaceutical Agents</label>
+            </value>
+            <value>
+                <fullName>E- Approved to Use Doctoral Title</fullName>
+                <default>false</default>
+                <label>E- Approved to Use Doctoral Title</label>
+            </value>
+            <value>
+                <fullName>H - Home Study</fullName>
+                <default>false</default>
+                <label>H - Home Study</label>
+            </value>
+            <value>
+                <fullName>I - Infiltration</fullName>
+                <default>false</default>
+                <label>I - Infiltration</label>
+            </value>
+            <value>
+                <fullName>L - Infiltration &amp; Block</fullName>
+                <default>false</default>
+                <label>L - Infiltration &amp; Block</label>
+            </value>
+            <value>
+                <fullName>M - Minor office Procedures</fullName>
+                <default>false</default>
+                <label>M - Minor office Procedures</label>
+            </value>
+            <value>
+                <fullName>N - Parenteral Therapy</fullName>
+                <default>false</default>
+                <label>N - Parenteral Therapy</label>
+            </value>
+            <value>
+                <fullName>P - Permit to Practice</fullName>
+                <default>false</default>
+                <label>P - Permit to Practice</label>
+            </value>
+            <value>
+                <fullName>T - Therapeutic Pharmaceutical Agents</fullName>
+                <default>false</default>
+                <label>T - Therapeutic Pharmaceutical Agents</label>
+            </value>
+            <value>
+                <fullName>V - Vaccine Administration</fullName>
+                <default>false</default>
+                <label>V - Vaccine Administration</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

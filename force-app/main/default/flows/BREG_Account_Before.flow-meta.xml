@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Generate_Annuals_Due_Date</name>
+        <label>Generate Annuals Due Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.breg_Annuals_Due_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fAnnualsDueDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Last_Annual_Filed_Date_Changed</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_BREG_Settings</name>
+        <label>Check BREG Settings</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Registration_Date_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Global_Data_Migration_Triggers_Disabled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.BREG_Setting__c.Global_Data_Migration_Triggers_Disabled__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Global Data Migration Triggers Disabled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Last_Annual_Filed_Date_Changed</name>
+        <label>Last Annual Filed Date Changed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>yes_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.breg_Last_Annual_Filed_Date__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fIsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.breg_Last_Annual_Filed_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Annual_Due_Date</targetReference>
+            </connector>
+            <label>yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Registration_Date_Changed</name>
+        <label>Registration Date Changed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Last_Annual_Filed_Date_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>yes</name>
+            <conditionLogic>1 OR (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.breg_Incorporation_Date__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>fIsNew</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.breg_Incorporation_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Generate_Annuals_Due_Date</targetReference>
+            </connector>
+            <label>yes</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>fAddYear</name>
+        <dataType>Date</dataType>
+        <expression>ADDMONTHS({!$Record.breg_Annuals_Due_Date__c}, 12)</expression>
+    </formulas>
+    <formulas>
+        <name>fAnnualsDueDate</name>
+        <dataType>Date</dataType>
+        <expression>DATE({!fAnnualsDueYear}, {!fAnnualsDueMonth}, 1) - 1</expression>
+    </formulas>
+    <formulas>
+        <name>fAnnualsDueMonth</name>
+        <dataType>Number</dataType>
+        <expression>IF ((MONTH({!$Record.breg_Incorporation_Date__c}) + {!fMonthsToAdd}) = 12, 1, MONTH({!$Record.breg_Incorporation_Date__c}) + {!fMonthsToAdd} + 1)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fAnnualsDueYear</name>
+        <dataType>Number</dataType>
+        <expression>IF ( (MONTH({!$Record.breg_Incorporation_Date__c}) + {!fMonthsToAdd}) = 12, YEAR({!$Record.breg_Incorporation_Date__c}) + 2, YEAR({!$Record.breg_Incorporation_Date__c}) + 1)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fIsNew</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>fMonthOfTheQuarter</name>
+        <dataType>Number</dataType>
+        <expression>IF ({!fRegistrationMonthMod3} = 0, 3, {!fRegistrationMonthMod3})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fMonthsToAdd</name>
+        <dataType>Number</dataType>
+        <expression>3 - {!fMonthOfTheQuarter}</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fRegistrationMonthMod3</name>
+        <dataType>Number</dataType>
+        <expression>MOD(MONTH({!$Record.breg_Incorporation_Date__c}), 3)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>BREG Account Before {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BREG Account Before</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Annual_Due_Date</name>
+        <label>Update Annual Due Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>breg_Annuals_Due_Date__c</field>
+            <value>
+                <elementReference>fAddYear</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_BREG_Settings</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

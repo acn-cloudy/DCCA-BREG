@@ -1,0 +1,50 @@
+<aura:component
+  implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+  controller="DraftApplicationDetailCont"
+  access="global"
+  extensible="true"
+  extends="c:Basic"
+>
+  <aura:attribute name="name" type="String" />
+  <aura:attribute name="cardCaches" type="Object" default="{}" />
+  <aura:attribute name="formData" type="String" />
+  <aura:attribute name="label" type="String" />
+  <aura:attribute name="applicationcacheId" type="String" />
+  <aura:attribute name="appId" type="String" />
+  <aura:attribute name="showApplicationCreation" type="Boolean" />
+  <aura:attribute name="showApplicationUpdate" type="Boolean" />
+  <aura:attribute name="currentindex" type="Integer" access="global" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <div class="applications">
+    <div class="slds-p-bottom_small">
+      <lightning:button label="Back" onclick="{!c.back}" variant="brand" />
+    </div>
+    <aura:if isTrue="{!v.showApplicationCreation}">
+      <c:sc_ApplicationForm
+        aura:id="app"
+        verticalnav="true"
+        horizontalnav="true"
+        applicationName="{!v.name}"
+        cardCaches="{!v.cardCaches}"
+        applicationLabel="{!v.label}"
+        formData="{!v.formData}"
+      />
+    </aura:if>
+    <aura:if isTrue="{!v.showApplicationUpdate}">
+      <c:sc_ApplicationForm
+        aura:id="app"
+        verticalnav="true"
+        horizontalnav="true"
+        applicationName="{!v.name}"
+        applicationLabel="{!v.label}"
+        applicationcacheid="{!v.applicationcacheId}"
+        appId="{!v.appId}"
+        formData="{!v.formData}"
+        enableload="false"
+        currentindex="{!v.currentindex}"
+        preValueMap="{!v.preValueMap}"
+      />
+    </aura:if>
+  </div>
+</aura:component>

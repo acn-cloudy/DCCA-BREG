@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INS_Licensing_Supervisors_Work_Item</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Case__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,In-Progress</value>
+    </filters>
+    <label>INS - Licensing - Supervisors</label>
+    <queue>INS_Licensing_Supervisors</queue>
+    <sharedTo>
+        <group>INS_Licensing_Supervisor</group>
+    </sharedTo>
+</ListView>

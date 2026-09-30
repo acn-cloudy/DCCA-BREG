@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictGenerateExamLetter</fullName>
+    <active>true</active>
+    <description>PacPoint-MV091719 - Created for PVL phase 1.</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(GenerateApprovedforExamLetter__c), 
+ GenerateApprovedforExamLetter__c = true,
+ NOT(ISPICKVAL( Phase__c , &quot;A - Application Received&quot;)),
+ NOT(ISPICKVAL( Phase__c , &quot;B - Board Review&quot;)),
+ NOT(ISPICKVAL( Phase__c , &quot;E - Executive Officer Review&quot;)),
+ NOT(ISPICKVAL( Phase__c , &quot;X - Exam Phase&quot;))
+)</errorConditionFormula>
+    <errorMessage>You are not able to generate the &quot;Approved for Exam Letter&quot; if the Application is not on Phase A, B, E or X</errorMessage>
+</ValidationRule>

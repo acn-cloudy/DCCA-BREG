@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DayssinceNoticeofFeesDueSent__c</fullName>
+    <description>PacPoint-FT100719 - Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <formula>TODAY() -  NoticeofFeesSentDate__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates the number of days that have passed since the Notice of Fees due was sent.</inlineHelpText>
+    <label>Days since Notice of Fees Due Sent</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

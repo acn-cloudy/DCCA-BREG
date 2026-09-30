@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateApprovedforExamLetter__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV082519 - Created for PVL phase 1</description>
+    <inlineHelpText>Please confirm that you want to Generate an Approved for Exam Letter</inlineHelpText>
+    <label>Generate Approved for Exam Letter</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreviousStatus__c</fullName>
+    <label>Previous Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A0 - Flag Incoming Application</fullName>
+                <default>false</default>
+                <label>A0 - Flag Incoming Application</label>
+            </value>
+            <value>
+                <fullName>A1 - Application Submitted, Awaiting Review</fullName>
+                <default>false</default>
+                <label>A1 - Application Submitted, Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>A2 - Deficient, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>A2 - Deficient, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>A3 - Deficiency Notice Sent</fullName>
+                <default>false</default>
+                <label>A3 - Deficiency Notice Sent</label>
+            </value>
+            <value>
+                <fullName>A4 - Rejected, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>A4 - Rejected, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>A5 - Rejected, Notice Sent</fullName>
+                <default>false</default>
+                <label>A5 - Rejected, Notice Sent</label>
+            </value>
+            <value>
+                <fullName>A6 - Flagged by Tax; Renewal Deficiency Notice Sent.</fullName>
+                <default>false</default>
+                <label>A6 - Flagged by Tax; Renewal Deficiency Notice Sent.</label>
+            </value>
+            <value>
+                <fullName>A9 - Past Time Limit To Respond To Deficiency</fullName>
+                <default>false</default>
+                <label>A9 - Past Time Limit To Respond To Deficiency</label>
+            </value>
+            <value>
+                <fullName>AW - Application Withdrawal</fullName>
+                <default>false</default>
+                <label>AW - Application Withdrawal</label>
+            </value>
+            <value>
+                <fullName>B1 - To Board Awaiting Review</fullName>
+                <default>false</default>
+                <label>B1 - To Board Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>B6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>B6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>B7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>B7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>BH - Board Deferral</fullName>
+                <default>false</default>
+                <label>BH - Board Deferral</label>
+            </value>
+            <value>
+                <fullName>BW - Board Phase Withdrawal</fullName>
+                <default>false</default>
+                <label>BW - Board Phase Withdrawal</label>
+            </value>
+            <value>
+                <fullName>C1 - To Board, Awaiting Review</fullName>
+                <default>false</default>
+                <label>C1 - To Board, Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>C6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>C6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>C7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>C7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>C9 - Past Time Limit To Apply For License</fullName>
+                <default>false</default>
+                <label>C9 - Past Time Limit To Apply For License</label>
+            </value>
+            <value>
+                <fullName>D1 - Awaiting Dependency Review</fullName>
+                <default>false</default>
+                <label>D1 - Awaiting Dependency Review</label>
+            </value>
+            <value>
+                <fullName>D2 - Continuing Education Missing</fullName>
+                <default>false</default>
+                <label>D2 - Continuing Education Missing</label>
+            </value>
+            <value>
+                <fullName>DW - Dependency Review Phase Withdrawal</fullName>
+                <default>false</default>
+                <label>DW - Dependency Review Phase Withdrawal</label>
+            </value>
+            <value>
+                <fullName>E1 - To Executive Officer Awaiting Review</fullName>
+                <default>false</default>
+                <label>E1 - To Executive Officer Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>E2 - Flagged By Tax; Renewal Appl. Sent To Exec</fullName>
+                <default>false</default>
+                <label>E2 - Flagged By Tax; Renewal Appl. Sent To Exec</label>
+            </value>
+            <value>
+                <fullName>E3 - Executive Officer Requests Add&apos;l Information</fullName>
+                <default>false</default>
+                <label>E3 - Executive Officer Requests Add&apos;l Information</label>
+            </value>
+            <value>
+                <fullName>E6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>E6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>E7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>E7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>EW - Application Withdrawn After</fullName>
+                <default>false</default>
+                <label>EW - Application Withdrawn After</label>
+            </value>
+            <value>
+                <fullName>EY - Cease Processing</fullName>
+                <default>false</default>
+                <label>EY - Cease Processing</label>
+            </value>
+            <value>
+                <fullName>F1 - To Executive Secretary Awaiting Review</fullName>
+                <default>false</default>
+                <label>F1 - To Executive Secretary Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>F6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>F6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>F7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>F7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>F9 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>F9 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>H1 - Awaiting Licensing</fullName>
+                <default>false</default>
+                <label>H1 - Awaiting Licensing</label>
+            </value>
+            <value>
+                <fullName>H8 - Application Suspense Warning</fullName>
+                <default>false</default>
+                <label>H8 - Application Suspense Warning</label>
+            </value>
+            <value>
+                <fullName>HC - Application Completed</fullName>
+                <default>false</default>
+                <label>HC - Application Completed</label>
+            </value>
+            <value>
+                <fullName>HD - Application Terminated</fullName>
+                <default>false</default>
+                <label>HD - Application Terminated</label>
+            </value>
+            <value>
+                <fullName>HW - Application Withdrawn</fullName>
+                <default>false</default>
+                <label>HW - Application Withdrawn</label>
+            </value>
+            <value>
+                <fullName>HX - Application Invalid, Delete</fullName>
+                <default>false</default>
+                <label>HX - Application Invalid, Delete</label>
+            </value>
+            <value>
+                <fullName>I1 - Licensed Or Renewed, Awaiting Issuance</fullName>
+                <default>false</default>
+                <label>I1 - Licensed Or Renewed, Awaiting Issuance</label>
+            </value>
+            <value>
+                <fullName>L1 - Applications Submitted, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>L1 - Applications Submitted, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>L2 - Deficient, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>L2 - Deficient, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>L3 - Deficiency Notice Sent</fullName>
+                <default>false</default>
+                <label>L3 - Deficiency Notice Sent</label>
+            </value>
+            <value>
+                <fullName>L4 - Rejected Awaiting Notice</fullName>
+                <default>false</default>
+                <label>L4 - Rejected Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>L5 - Rejected, Notice Sent</fullName>
+                <default>false</default>
+                <label>L5 - Rejected, Notice Sent</label>
+            </value>
+            <value>
+                <fullName>L9 - Past Time Limit To Apply For License</fullName>
+                <default>false</default>
+                <label>L9 - Past Time Limit To Apply For License</label>
+            </value>
+            <value>
+                <fullName>LO - Eligible For License, Awaiting Further Requirements</fullName>
+                <default>false</default>
+                <label>LO - Eligible For License, Awaiting Further Requirements</label>
+            </value>
+            <value>
+                <fullName>LW - Licensing Phase Withdrawal</fullName>
+                <default>false</default>
+                <label>LW - Licensing Phase Withdrawal</label>
+            </value>
+            <value>
+                <fullName>M1 - Renewal Mailed</fullName>
+                <default>false</default>
+                <label>M1 - Renewal Mailed</label>
+            </value>
+            <value>
+                <fullName>O1 - To (Second) Board, Awaiting Review</fullName>
+                <default>false</default>
+                <label>O1 - To (Second) Board, Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>OH - (Second) Board Phase Deferral</fullName>
+                <default>false</default>
+                <label>OH - (Second) Board Phase Deferral</label>
+            </value>
+            <value>
+                <fullName>OW - (Second) Board Phase Withdrawal</fullName>
+                <default>false</default>
+                <label>OW - (Second) Board Phase Withdrawal</label>
+            </value>
+            <value>
+                <fullName>P1 - Awaiting Review</fullName>
+                <default>false</default>
+                <label>P1 - Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>P2 - Deficient, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>P2 - Deficient, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>P3 - Deficiency Notice Sent</fullName>
+                <default>false</default>
+                <label>P3 - Deficiency Notice Sent</label>
+            </value>
+            <value>
+                <fullName>P9 - Past Time Limt To Meet Exam</fullName>
+                <default>false</default>
+                <label>P9 - Past Time Limt To Meet Exam</label>
+            </value>
+            <value>
+                <fullName>PO - Approved For Exam, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>PO - Approved For Exam, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>R1 - License Issued/Transaction Completed Awaiting Board Ratifica</fullName>
+                <default>false</default>
+                <label>R1 - License Issued/Transaction Completed Awaiting Board Ratifica</label>
+            </value>
+            <value>
+                <fullName>R6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>R6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>R7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>R7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>S1 - Awaiting Review</fullName>
+                <default>false</default>
+                <label>S1 - Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>S6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>S6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>S7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>S7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>T1 - Awaiting Review</fullName>
+                <default>false</default>
+                <label>T1 - Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>T6 - Denied, Awaiting Notice</fullName>
+                <default>false</default>
+                <label>T6 - Denied, Awaiting Notice</label>
+            </value>
+            <value>
+                <fullName>T7 - Denial Letter Sent</fullName>
+                <default>false</default>
+                <label>T7 - Denial Letter Sent</label>
+            </value>
+            <value>
+                <fullName>TC - Closed</fullName>
+                <default>false</default>
+                <label>TC - Closed</label>
+            </value>
+            <value>
+                <fullName>TN - License No Longer Required Or Sunseted</fullName>
+                <default>false</default>
+                <label>TN - License No Longer Required Or Sunseted</label>
+            </value>
+            <value>
+                <fullName>U1 - Awaiting Review</fullName>
+                <default>false</default>
+                <label>U1 - Awaiting Review</label>
+            </value>
+            <value>
+                <fullName>UP - License Upgraded, This License No Longer Required</fullName>
+                <default>false</default>
+                <label>UP - License Upgraded, This License No Longer Required</label>
+            </value>
+            <value>
+                <fullName>X1 - Awaiting Exam</fullName>
+                <default>false</default>
+                <label>X1 - Awaiting Exam</label>
+            </value>
+            <value>
+                <fullName>XF - Failed Exam</fullName>
+                <default>false</default>
+                <label>XF - Failed Exam</label>
+            </value>
+            <value>
+                <fullName>X3 - Must Take Remedial Course</fullName>
+                <default>false</default>
+                <label>X3 - Must Take Remedial Course</label>
+            </value>
+            <value>
+                <fullName>XL - Score Posted Awaiting Result Letter</fullName>
+                <default>false</default>
+                <label>XL - Score Posted Awaiting Result Letter</label>
+            </value>
+            <value>
+                <fullName>XN - No Show</fullName>
+                <default>false</default>
+                <label>XN - No Show</label>
+            </value>
+            <value>
+                <fullName>XP - Postponed Exam</fullName>
+                <default>false</default>
+                <label>XP - Postponed Exam</label>
+            </value>
+            <value>
+                <fullName>XR - Took Exam, Awaiting Results</fullName>
+                <default>false</default>
+                <label>XR - Took Exam, Awaiting Results</label>
+            </value>
+            <value>
+                <fullName>XS - Scheduled For Exam</fullName>
+                <default>false</default>
+                <label>XS - Scheduled For Exam</label>
+            </value>
+            <value>
+                <fullName>XW - Withdrew From Exam</fullName>
+                <default>false</default>
+                <label>XW - Withdrew From Exam</label>
+            </value>
+            <value>
+                <fullName>ZR - Revoked</fullName>
+                <default>false</default>
+                <label>ZR - Revoked</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

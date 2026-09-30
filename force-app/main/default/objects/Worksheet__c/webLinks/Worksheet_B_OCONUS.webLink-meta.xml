@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Worksheet_B_OCONUS</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Worksheet B - OCONUS</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://na21.springcm.com/atlas/doclauncher/OneClickDocGen?aid=22722&amp;config=Worksheet B-OCONUS&amp;eos[0].Id={!Worksheet__c.Id}&amp;eos[0].System=Salesforce&amp;eos[0].Type=Worksheet__c&amp;eos[0].Name=Worksheets - {!Worksheet__c.Name}&amp;eos[0].ScmPath=/All Divisions/Travel Approval/{!Worksheet__c.TravelApprovalFolder__c}/</url>
+</WebLink>

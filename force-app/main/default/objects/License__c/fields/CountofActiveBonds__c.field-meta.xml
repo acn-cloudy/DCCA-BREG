@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CountofActiveBonds__c</fullName>
+    <label>Count of Active Bonds</label>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Active, Waived</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Type__c</field>
+        <operation>equals</operation>
+        <value>BD - Bond, BX - Bond Exemption (All Boards), LC - Line of Credit, EX - Exemption</value>
+    </summaryFilterItems>
+    <summaryForeignKey>InsuranceBond__c.License__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

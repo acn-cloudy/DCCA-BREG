@@ -1,0 +1,51 @@
+/**********************************************************************/
+/* Simple Category Posts Styles
+/**********************************************************************/
+
+.scp_posts { /* Container for all posts */
+	margin-bottom: 40px;
+}
+
+.scp_post { /* Container for individual post */
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #CCC;
+	overflow: auto;
+}
+
+.scp_posts .scp_post .scp_title { /* Post title */
+	display: block;
+	font-size: 20px;
+	font-wight: 700;
+}
+
+.scp_posts .scp_post .scp_date { /* Post date */
+	display: block;
+	margin-top: 5px;
+}
+
+.scp_posts .scp_post .scp_post_content { /* Post content */
+	margin-top: 15px;
+}
+
+.scp_posts .scp_post .scp_post_thumbnail, .scp_posts .scp_post .scp_post_thumbnail_f { /* Post thumbnail */
+	float: left;
+	margin: 20px 20px 20px 0;
+	width: 200px;
+}
+
+.scp_posts .scp_post .scp_post_read_more { /* Read more link for posts */
+	display: block;
+	margin-top: 10px;
+}
+
+.scp_posts .scp_cat_read_more { /* Read more link for category */
+	display: block;
+	margin-top: 10px;
+}
+
+.scp_posts .scp_pagination { /* Read more link for category */
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}

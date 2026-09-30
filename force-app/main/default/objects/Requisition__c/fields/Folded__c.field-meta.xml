@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Folded__c</fullName>
+    <description>PacPoint-FT120419 - Created for PVL phase 1</description>
+    <label>Folded</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fold</fullName>
+                <default>false</default>
+                <label>Fold</label>
+            </value>
+            <value>
+                <fullName>No Fold</fullName>
+                <default>false</default>
+                <label>No Fold</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

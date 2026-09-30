@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JV</fullName>
+    <active>true</active>
+    <description>PacPoint-AC081120 - Case# 10552 - Created for DCCA - Fiscal Forms CR - Creating to capture the Fiscal Form records.</description>
+    <label>JV</label>
+</RecordType>

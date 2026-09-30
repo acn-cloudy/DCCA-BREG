@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="paymentButtonName" label="Payment Button Name" />
+    <design:attribute name="checkboxApiName" label="Dependent Checkbox API Name" />
+    <design:attribute name="paymentPageURL" label="Payment Page base URL" />
+</design:component>

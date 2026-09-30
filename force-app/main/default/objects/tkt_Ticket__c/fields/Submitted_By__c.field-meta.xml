@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submitted_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>TNOX: The user who created this ticket. Auto-populated on creation. Used to send notification emails and control ticket visibility.</description>
+    <label>Submitted By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Tickets Submitted</relationshipLabel>
+    <relationshipName>tkt_TicketsSubmitted</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

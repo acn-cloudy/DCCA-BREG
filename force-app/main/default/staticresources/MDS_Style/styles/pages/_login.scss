@@ -1,0 +1,36 @@
+
+.mds-template_banner{
+    background: var(--primary-main) url(./../media/images/Background.svg) no-repeat center/cover;
+   
+}
+.mds-template_account{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  
+
+    &-card{
+        padding: var(--spacing-xx-large);
+        box-shadow: var( --box-shadow-default);
+        border-radius: var( --border-radius-medium);
+    }
+    
+   
+   &-view{
+    right: 0;
+    bottom: 5%;
+   }
+   &-outer{
+    @include responsive(phone){
+       
+            max-width: 100%;
+            padding: 2.75rem;
+        
+    }
+   }
+  
+   .mds-alert{
+    width: 26rem;
+   }
+
+}

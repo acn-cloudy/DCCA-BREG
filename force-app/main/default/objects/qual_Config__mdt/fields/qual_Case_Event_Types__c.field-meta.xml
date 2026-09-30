@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Case_Event_Types__c</fullName>
+    <description>Comma-separated list of enabled case lifecycle event types: Opened, Updated, Closed. Leave blank to default to Closed only (backward compatible).</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Enabled Event Types</label>
+    <length>32000</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

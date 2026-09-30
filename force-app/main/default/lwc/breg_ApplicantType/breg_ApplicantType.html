@@ -1,0 +1,27 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <p><lightning-formatted-text value={readOnlyApplicantTypeValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="applicantType"
+                    value={applicantTypeValue}
+                    label="Applicant Type"
+                    options={applicantTypeOptions}
+                    variant="label-hidden"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

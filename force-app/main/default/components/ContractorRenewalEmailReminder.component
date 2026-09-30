@@ -1,0 +1,186 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global"/>
+    <div style="text-align: center;">
+        <b>
+            Renew Your {!record.LicenseType__r.LicenseType__c} License <br/>
+            BEGINNING
+            <apex:outputText value="{0, date,  EEEE}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>,
+            <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </b>
+    </div>
+    <p>
+        Aloha, <br/>
+        <b>{!record.LicenseNumberwithoutBranchNumber__c}, {!record.LicenseeNameFormula__c}</b> will expire on
+        <apex:outputText value="{0, date,  MM/dd/yyyy}">
+            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+        </apex:outputText>.
+    </p>
+    <p>
+        <b>RENEW ONLINE</b> at https://mypvl.dcca.hawaii.gov/ by midnight (HST)
+        <apex:outputText value="{0, date,  MM/dd/yyyy}">
+            <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+        </apex:outputText>
+        .<br/>It's secure, fast and simple! Pay by credit card or checking account and have a receipt emailed to you.
+    </p>
+    <p>
+        <b>MyPVL Login: {!record.PVL_Portal_User__r.Email__c} is the email address associated with this
+            license</b>
+    </p>
+    <p style="text-align: center;">
+        <i>LICENSEES not renewed by license expiration date or on an inactive status shall not
+            contract or engage in the business of contractor. Doing so may subject you to disciplinary action</i>
+    </p>
+    <div style="color: red;">
+        <u>
+            <b>***POCKET ID's MUST Be Printed Online***</b>
+        </u>
+    </div>
+    <ul>
+        <li>
+            <b>You must retrieve and print your pocket ID card online</b> via your MyPVL account at <br/>
+            https://mypvl.dcca.hawaii.gov/ NO OTHER NOTICE WILL BE PROVIDED.
+        </li>
+        <li>
+            Any request to have one mailed to you will be at a charge of $10
+        </li>
+    </ul>
+    <p>
+        <b>IF YOU CANNOT RENEW ONLINE OR PREFER TO MAIL IN YOUR RENEWAL</b><br/>
+        Follow the instructions included with your hardcopy renewal application.
+    </p>
+    <p>
+        <b>IF YOUR LICENSE IS ON AN INACTIVE STATUS AND YOU WOULD LIKE TO REACTIVATE YOUR LICENSE</b><br/>
+        Renew your license on an inactive status and then submit a reactivation application to reactivate your license.  Form is available online at<br/>
+        https://cca.hawaii.gov/pvl/boards/contractor/application_publication/
+    </p>
+    <p>
+        <b>IF YOUR LICENSE IS ON AN ACTIVE STATUS AND YOU WOULD LIKE TO PUT YOUR LICENSE ON AN INACTIVE STATUS</b><br/>
+        Renew your license by hardcopy, mark the inactive status in the other requirements section of the application form and submit the inactive status fees.
+    </p>
+    <p>
+        <b>RMEs WITH C-19 ASBESTOS CLASSIFICATION (CANNOT RENEW ONLINE)</b><br/>
+        ALL C-19 RMES ON AN ACTIVE STATUS MUST RENEW BY HARDCOPY AND SUBMIT PROOF OF COMPLETION OF EPA OR BOARD APPROVED REFRESHER TRAINING COURSES.<br/>
+        <table width="90%" border="1">
+            <tr>
+                <td width="40%">If licensed BEFORE 
+                    <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                        <apex:param value="{!record.LicenseType__r.SecondYearStart__c}"/>
+                    </apex:outputText>
+                </td>
+                <td width="60%">Proof of completion of 16 hours taken within the last 2 years Submit by mail or in person by 
+                    <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                        <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td width="40%">If licensed AFTER 
+                    <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                        <apex:param value="{!record.LicenseType__r.FirstYearEnd__c}"/>
+                    </apex:outputText>
+                </td>
+                <td width="60%">Proof of completion of 8 hours taken within the last year</td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <i>Submit proof of completion hours taken with your hardcopy renewal by mail or in person by 
+                <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                    <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+                </apex:outputText>.
+            </i>
+        </div>
+    </p>
+    <p>
+        <b>RENEWAL PROCESSING TIME:</b><br/>
+        Are subject to licensee meeting all requirements and may be longer due to high volume of renewals received.  Early submittals are recommended.
+    </p>  
+    <p>
+        <b>Active Contractor Firm or Sole Proprietor:</b> All associated RMEs must also submit renewal and meet all requirements before your license will be renewed.
+    </p>  
+    <p>
+        <u><b>ADDITIONAL REQUIREMENTS MUST BE CURRENT ON LICENSE</b></u><br/>
+        <table width="90%" border="1">
+            <tr>
+                <td width="25%">General Liability Insurance</td>
+                <td width="75%">Valid thru  
+                <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                    <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}"/>
+                </apex:outputText>
+            </td>
+            </tr>
+            <tr>
+                <td width="25%">*Workers Compensation Insurance</td>
+                <td width="75%">Valid thru 
+                <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                    <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}"/>
+                </apex:outputText>
+            </td>
+            </tr>
+            <tr>
+                <td width="25%">Bond (if required to maintain)</td>
+                <td width="75%">Valid thru 
+                <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                    <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}"/>
+                </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td width="25%">Designated Principal RME</td>
+                <td width="75%"></td>
+            </tr>
+            <tr>
+                <td width="25%">Dept. of Taxation Tax Clearance (A-6 form or tax compliance letter)</td>
+                <td width="75%">Valid within 6 months of 
+                <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                    <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}"/>
+                </apex:outputText>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <i>ALL DOCUMENTS MUST MATCH YOUR CURRENT PVL LICENSE NAME EXACTLY</i>
+        </div>
+    </p>
+    <p>*If no employees; must have filed exclusion from Chapter 386, HRS form available at: https://cca.hawaii.gov/pvl/boards/contractor/application_publication/</p>
+    <p>
+        <b>Active RME:</b> Your associated employer must also submit renewal and meet all requirements before your license will be renewed.
+    </p>
+    <p>
+        <b>Renewals after 
+            <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+            </apex:outputText>
+            will not be accepted online and must be submitted by mail or in person to the DCCA/PVL. An additional fee of $50.00 MUST be paid for late renewals ( after 
+            <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+            </apex:outputText> and by 
+            <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText>
+           )
+        </b>
+    </p>
+    <p>
+        <b>Licenses not renewed/restored by 
+            <apex:outputText value="{0, date,  MM/dd/yyyy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText>
+            must reapply as a new
+            applicant and meet current requirements.</b>
+    </p>
+    <p>
+        <b>Please disregard if you have already renewed.</b>
+    </p>
+    <p>
+        <b style="color: red;">FOR MORE RENEWAL &amp; RESTORATION INFORMATION</b> Go to:
+        https://cca.hawaii.gov/pvl/boards/contractor/
+    </p>
+    <p>
+        Mahalo,
+    </p>
+    <b>DCCA-PVL Division</b>
+</apex:component>

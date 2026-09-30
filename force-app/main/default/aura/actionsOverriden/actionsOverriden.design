@@ -1,0 +1,7 @@
+<design:component >
+    <design:attribute name="objectName" label="Object API Name"/>
+    <design:attribute name="conditionField" label="Checkbox field"/>
+    <design:attribute name="actionName" label="Action Name"/>
+    <design:attribute name="buttonName" label="Button Name"/>
+    <design:attribute name="listAttributes" label="List Attributes"/>
+</design:component>

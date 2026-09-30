@@ -1,0 +1,73 @@
+:root {
+  --c-max-content-width: 1240px;
+  --c-primary-color: #353d41;
+  --breg-primary-color: #232D4B;
+  --sds-c-radio-mark-color-foreground: var(--breg-primary-color);
+  --slds-c-radio-mark-color-foreground: var(--breg-primary-color);
+  --sds-c-radio-color-border-checked: var(--breg-primary-color);
+  --slds-c-radio-color-border-checked: var(--breg-primary-color);
+  --sds-c-radio-color-border-focus: var(--breg-primary-color);
+  --slds-c-radio-color-border-focus: var(--breg-primary-color);
+  --slds-c-input-shadow-focus: 0 0 3px var(--breg-primary-color);
+  --_slds-g-shadow-outline-focus: 0 0 0 2px var(--breg-primary-color);
+}
+
+.spacer {
+  width: 5%;
+}
+
+.theme-header,
+.theme-footer {
+  background-color: white;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-regular {
+  font-weight: normal;
+}
+
+.color-grey  {
+  color: #827f7f;
+}
+
+.slds-combobox_container .slds-combobox__input.fix-slds-input_faux {
+  line-height: 1.5rem;
+}
+
+input[type="radio"]:checked + label .slds-form-element__label {
+  font-weight: 500;
+}
+
+input[type="radio"] + label .slds-form-element__label {
+  font-weight: 400;
+}
+
+lightning-tab-bar li[data-label="Help"] .slds-icon {
+  background-image: url('/sfsites/c/resource/BREG_portalResources/img/help_icon.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 24px;
+  width: 24px;
+}
+
+.slds-button-brand:hover::before,
+[kx-scope=button-brand]:hover:before {
+  background: unset;
+}
+
+.slds-listbox_vertical .slds-listbox__option:focus, .slds-listbox_vertical .slds-listbox__option:hover, .slds-listbox_vertical .slds-listbox__option.slds-has-focus, .slds-listbox--vertical .slds-listbox__option:focus, .slds-listbox--vertical .slds-listbox__option:hover, .slds-listbox--vertical .slds-listbox__option.slds-has-focus {
+    box-shadow: 0 0 0 2px var(--breg-primary-color);
+}
+.slds-accordion__summary-content {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}

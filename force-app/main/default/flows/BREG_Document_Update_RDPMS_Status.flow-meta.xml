@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Check if Document has Case and Case has WFWORKITEM_ID</description>
+        <name>Check_Case_and_WFWORKITEM_ID</name>
+        <label>Check Case and WFWORKITEM_ID</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Case_and_WFWORKITEM_ID</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.breg_Case__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.breg_Case__r.breg_ESWM_WFWORKITEM_ID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_RDPMS_Status_to_Completed</targetReference>
+            </connector>
+            <label>Has Case and WFWORKITEM_ID</label>
+        </rules>
+    </decisions>
+    <description>Update RDPMS Adhoc Request status when Documents are created or updated</description>
+    <environments>Default</environments>
+    <interviewLabel>BREG Document - Update RDPMS Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BREG Document - Update RDPMS Status</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update RDPMS Adhoc Request status to Completed</description>
+        <name>Update_RDPMS_Status_to_Completed</name>
+        <label>Update RDPMS Status to Completed</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>breg_Case__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.breg_Case__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>breg_WFWORKITEM_ID__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.breg_Case__r.breg_ESWM_WFWORKITEM_ID__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>breg_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Requested</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>breg_Completed_Date_Time__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>breg_Document__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>breg_Status__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>breg_RDPMS_Adhoc_Request__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Case_and_WFWORKITEM_ID</targetReference>
+        </connector>
+        <object>breg_Document__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

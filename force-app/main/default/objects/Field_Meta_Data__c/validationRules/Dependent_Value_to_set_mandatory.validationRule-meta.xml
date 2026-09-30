@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dependent_Value_to_set_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>if (  (ISPICKVAL(DependAction__c, &apos;show and set value&apos;)  || ISPICKVAL(DependAction__c, &apos;set value&apos;)) &amp;&amp;   ISBLANK(Dependent_Value_to_be_set__c ),true, false )</errorConditionFormula>
+    <errorDisplayField>Dependent_Value_to_be_set__c</errorDisplayField>
+    <errorMessage>When the Dependent Action = [set value] or [show and set value], this field must have a value</errorMessage>
+</ValidationRule>

@@ -1,0 +1,34 @@
+<template>
+    <div class="slds-form-element">
+        <!-- Combobox: only shows unselected options -->
+        <lightning-combobox
+            label={label}
+            options={availableOptions}
+            value=""
+            placeholder="Select to add..."
+            onchange={handleComboboxChange}
+            variant="label-hidden">
+        </lightning-combobox>
+
+        <!-- Selected pills -->
+        <template if:true={hasPills}>
+            <div class="pill-container slds-m-top_xx-small">
+                <template for:each={selectedPills} for:item="pill">
+                    <lightning-pill
+                        key={pill.value}
+                        label={pill.label}
+                        name={pill.value}
+                        onremove={handlePillRemove}>
+                    </lightning-pill>
+                </template>
+            </div>
+        </template>
+
+        <!-- Empty state -->
+        <template if:false={hasPills}>
+            <p class="slds-text-color_weak slds-text-body_small slds-m-top_xx-small">
+                No filters selected
+            </p>
+        </template>
+    </div>
+</template>

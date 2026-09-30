@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HardwareFees__c</fullName>
+    <description>PacPoint-FT063018 - Created for phase 1</description>
+    <label>Hardware Fees</label>
+    <summarizedField>HardwareFees__c.Amount__c</summarizedField>
+    <summaryForeignKey>HardwareFees__c.FeeSchedule__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

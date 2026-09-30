@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrelicenseContinuingEducation__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-KN08312020-Created for CE and INS Portal</description>
+    <label>Prelicense &amp; Continuing Education</label>
+    <referenceTo>PrelicenseCEEnrollment__c</referenceTo>
+    <relationshipLabel>Earned Prelicense</relationshipLabel>
+    <relationshipName>Earned_Prelicense</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

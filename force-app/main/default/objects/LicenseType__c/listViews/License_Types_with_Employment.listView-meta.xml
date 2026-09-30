@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_Types_with_Employment</fullName>
+    <columns>NAME</columns>
+    <columns>LicenseType__c</columns>
+    <columns>BoardProgram__c</columns>
+    <columns>DependencyRequired__c</columns>
+    <columns>DependentLicenseType__c</columns>
+    <columns>Status__c</columns>
+    <columns>AssociatedLicenseRelationship__c</columns>
+    <columns>EntityPrincipalFlagUsed__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>LicenseType__c.PVL</value>
+    </filters>
+    <filters>
+        <field>DependencyRequired__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>License Types with Employment</label>
+</ListView>

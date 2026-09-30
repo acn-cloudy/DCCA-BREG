@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Job_Start_Date__c</fullName>
+    <description>Date when job should be started</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Job Start Date</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

@@ -1,0 +1,52 @@
+.THIS.slds-spinner_container {  
+  z-index: 10000;
+  position: fixed;   
+}
+.THIS .slds-button_brand {
+    border: 1px solid rgb(221, 219, 218);
+    background-color: rgba(71, 86, 70, 1);
+    border-color: rgba(71, 86, 70, 1);
+    color: rgb(255, 255, 255);
+}
+.THIS .slds-button_neutral {
+  border: 1px solid rgb(221, 219, 218);
+  border-color: rgb(221, 219, 218);
+  background-color: rgb(255, 255, 255);
+  color: rgba(71, 86, 70, 1);
+}
+.THIS .slds-button_brand:hover {
+  border: 1px solid rgb(221, 219, 218);
+  background-color: rgba(71, 86, 70, 1);
+  border-color: rgba(71, 86, 70, 1);
+  color: rgb(255, 255, 255);
+}
+.THIS .slds-button_neutral:hover {
+border: 1px solid rgb(221, 219, 218);
+border-color: rgb(221, 219, 218);
+background-color: rgb(255, 255, 255);
+color: rgba(71, 86, 70, 1);
+}
+.THIS .slds-button_brand:active {
+  border: 1px solid rgb(221, 219, 218);
+  background-color: rgba(71, 86, 70, 1);
+  border-color: rgba(71, 86, 70, 1);
+  color: rgb(255, 255, 255);
+}
+.THIS .slds-button_neutral:active {
+border: 1px solid rgb(221, 219, 218);
+border-color: rgb(221, 219, 218);
+background-color: rgb(255, 255, 255);
+color: rgba(71, 86, 70, 1);
+}
+.THIS .slds-button_brand:focus {
+  border: 1px solid rgb(221, 219, 218);
+  background-color: rgba(71, 86, 70, 1);
+  border-color: rgba(71, 86, 70, 1);
+  color: rgb(255, 255, 255);
+}
+.THIS .slds-button_neutral:focus {
+border: 1px solid rgb(221, 219, 218);
+border-color: rgb(221, 219, 218);
+background-color: rgb(255, 255, 255);
+color: rgba(71, 86, 70, 1);
+}

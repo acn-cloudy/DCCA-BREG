@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scanner_Automatically_Assigns_Case_Owner__c</fullName>
+    <description>Queue Dev name or Username should be added</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Queue Dev name or Username should be added</inlineHelpText>
+    <label>Scanner Automatically Assigns Case Owner</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestingVendors__c</fullName>
+    <inlineHelpText>This controls the Exam Eligibility Interface. Test Vendors designated here will automatically receive test eligibility from Ho&apos;ala.</inlineHelpText>
+    <label>Testing Vendors</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PSI</fullName>
+                <default>false</default>
+                <label>PSI</label>
+            </value>
+            <value>
+                <fullName>Pearson Vue</fullName>
+                <default>false</default>
+                <label>Pearson Vue</label>
+            </value>
+            <value>
+                <fullName>Prometric</fullName>
+                <default>false</default>
+                <label>Prometric</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,82 @@
+<aura:component access="global" controller="HPEAPRequestCreate" 
+                implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes">
+    <aura:attribute name="sObjectName" type="string" default="Account" />
+    <aura:attribute name="layoutName" type="string" default="Account Layout" />
+    <aura:attribute name="saveButtonLabel" type="string" default="Save" />
+    <aura:attribute name="finishButtonLabel" type="string" default="Finish" />
+    <aura:attribute name="layout" type="object" />
+    <aura:attribute name="sObj" type="object" />
+    <aura:attribute name="requestRecord" type="Object" />
+    <aura:attribute name="recordTypeName" type="string" />
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="hideNameField" type="boolean" default="false" />
+    <aura:attribute name="displayMap" type="string" default="false" />
+    <aura:attribute name="latitudeField" type="string" default="" />
+    <aura:attribute name="longitudeField" type="string" default="" />
+    <aura:attribute name="customMessage" type="string"  />
+    <aura:attribute name="division" type="string"  default="HPEAP" />
+    
+    <aura:attribute name="cashierCodeId" type="string"  />
+    <aura:attribute name="displayUpload" type="string" default="false" />
+    <aura:attribute name="uploadLabel1" type="string" default="" />
+    <aura:attribute name="uploadLabel2" type="string" default="" />
+    <aura:attribute name="uploadLabel3" type="string" default="" />
+    <aura:attribute name="uploadLabel4" type="string" default="" />
+    <aura:attribute name="uploadLabel5" type="string" default="" />
+    
+    <aura:attribute name="paymentPageURL" type="String"  />
+    <aura:attribute name="contactId" type="string"  />
+    <aura:attribute name="paymentURL" type="String"  />
+    <aura:attribute name="showPayment" type="boolean" default="false" />
+    <aura:attribute name="cachierRecord" type="Object"  />
+    <aura:attribute name="contactRecord" type="Object"  />
+    <aura:attribute name="executeOnce" type="boolean"  default="false" />
+    <aura:attribute name="transactionType" type="string" default="Payment" />
+    <aura:attribute name="currencyCode" type="string" default="USD" />
+    <aura:attribute name="paymentId" type="string" />
+    <aura:attribute name="showThanks" type="Boolean" default="false" />
+    <aura:attribute name="showWarning" type="Boolean" default="false" />
+    <aura:handler name="message" event="c:Message" action="{!c.saveRecord}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <aura:if isTrue="{!!v.showThanks}">
+        <lightning:spinner class="{!v.executeOnce? 'hpeapspinner' : 'slds-hide'}" alternativeText="Loading" size="large"/>
+        <c:CustomRecordCreate sObjectName="{!v.sObjectName}" layoutName="{!v.layoutName}" fireMessageEvent="true"
+                              saveButtonLabel="{!v.saveButtonLabel}" finishButtonLabel="{!v.finishButtonLabel}" 
+                              layout="{!v.layout}" sObj="{!v.sObj}" recordTypeName="{!v.recordTypeName}" recordId="{!v.recordId}" 
+                              hideNameField="{!v.hideNameField}" displayMap="{!v.displayMap}" latitudeField="{!v.latitudeField}" 
+                              longitudeField="{!v.longitudeField}" customMessage="{!v.customMessage}" 
+                              displayUpload="{!v.displayUpload}" uploadLabel1="{!v.uploadLabel1}" 
+                              uploadLabel2="{!v.uploadLabel2}" uploadLabel3="{!v.uploadLabel3}"
+                              uploadLabel4="{!v.uploadLabel4}" uploadLabel5="{!v.uploadLabel5}"
+                              >
+            <aura:set attribute="header">
+                <aura:unescapedHtml value="{!$Label.c.HPEAPREquestCreateHeader}"/>
+            </aura:set>
+            
+            <aura:unescapedHtml value="{!$Label.c.HPEAPREquestCreateBodyExt}"/>	  
+        </c:CustomRecordCreate>
+        
+        <aura:if isTrue="{!v.showWarning}" >
+            <c:Popup title="Warning">
+                <div>
+                    {!$Label.c.TranscriptMismatchName }
+                </div>
+                <aura:set attribute="footer">
+                    <lightning:button label="Cancel" onclick="{!c.cancelToUpdate}" />
+                    <lightning:button variant="brand" label="Continue" onclick="{!c.proceedToCreate}" />
+                </aura:set>                
+            </c:Popup>
+        </aura:if>
+        <aura:if isTrue="{!v.showPayment}">
+            <c:Popup title="Please complete the payment first.">
+                <a id="redirectToURL" class="redirectToURL" href="{!v.paymentURL}" target="_blank">Can't open payment page, click here.</a>
+            </c:Popup>
+        </aura:if>
+        
+        <aura:set attribute="else">
+            <h3>{!$Label.c.TranscriptThankYouMessage}</h3>
+        </aura:set>
+    </aura:if>
+    
+</aura:component>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NumberofMVDRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-DN12032020 - Created for PVL Sprint 7 Phase 1</description>
+    <errorConditionFormula>AND(
+
+
+
+   OR(
+   AND (LicenseType__r.Name=&quot;DIS&quot;, ISBLANK (NumberofMVDs__c),NOT(ISPICKVAL(Phase__c, &quot;A - Application Received&quot;))),
+
+   AND (LicenseType__r.Name=&quot;DIS&quot;, NumberofMVDs__c=0,NOT(ISPICKVAL(Phase__c, &quot;A - Application Received&quot;))),
+
+   AND (LicenseType__r.Name=&quot;F&quot;, ISBLANK (NumberofMVDs__c), NOT(ISPICKVAL(Phase__c, &quot;A - Application Received&quot;))),
+
+   AND (LicenseType__r.Name=&quot;F&quot;, NumberofMVDs__c=0,NOT(ISPICKVAL(Phase__c, &quot;A - Application Received&quot;)))
+
+
+
+    ),
+
+ AND(
+TEXT(Status__c) &lt;&gt; &quot;HD - Application Terminated&quot;,
+TEXT(Type__c) &lt;&gt; &quot;RNEW - Renewal&quot;
+)
+
+
+
+
+)</errorConditionFormula>
+    <errorMessage>The Number of MVDs is Required Before Moving to the Next Phase.</errorMessage>
+</ValidationRule>

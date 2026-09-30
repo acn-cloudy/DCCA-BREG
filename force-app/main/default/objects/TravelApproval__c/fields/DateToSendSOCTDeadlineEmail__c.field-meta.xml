@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateToSendSOCTDeadlineEmail__c</fullName>
+    <formula>CASE(
+    MOD( UpdatedReturnDate__c - DATE(1900, 1, 7), 7),
+    0, UpdatedReturnDate__c + 5,  
+    1, UpdatedReturnDate__c + 7,  
+    2, UpdatedReturnDate__c + 7,  
+    3, UpdatedReturnDate__c + 7,  
+    4, UpdatedReturnDate__c + 7,  
+    5, UpdatedReturnDate__c + 7,  
+    6, UpdatedReturnDate__c + 6,  
+    UpdatedReturnDate__c 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Date To Send SOCT Deadline Email</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

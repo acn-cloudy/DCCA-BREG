@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dinner_Total_to_DEDUCT__c</fullName>
+    <externalId>false</externalId>
+    <formula>Dinner_Rate_OCONUS__c  *  No_of_Days_DEDUCT_Dinner__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Dinner Meals to deduct when meals provided at no cost</inlineHelpText>
+    <label>Dinner Total to DEDUCT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

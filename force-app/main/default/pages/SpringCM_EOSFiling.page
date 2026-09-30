@@ -1,0 +1,3 @@
+<apex:page standardController="Filing__c">
+	<SpringCMEos:SpringCM_EOSGrid objectType="Filing__c" objectId="{!Id}" />
+</apex:page>

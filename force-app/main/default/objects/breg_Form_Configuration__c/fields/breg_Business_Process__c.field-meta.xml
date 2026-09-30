@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Business_Process__c</fullName>
+    <label>Business Process</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Business</fullName>
+                <default>false</default>
+                <label>New Business</label>
+            </value>
+            <value>
+                <fullName>Name Reservation</fullName>
+                <default>false</default>
+                <label>Name Reservation</label>
+            </value>
+            <value>
+                <fullName>Name Registration</fullName>
+                <default>false</default>
+                <label>Name Registration</label>
+            </value>
+            <value>
+                <fullName>Annual Report</fullName>
+                <default>false</default>
+                <label>Annual Report</label>
+            </value>
+            <value>
+                <fullName>Business Filing</fullName>
+                <default>false</default>
+                <label>Business Filing</label>
+            </value>
+            <value>
+                <fullName>Change</fullName>
+                <default>false</default>
+                <label>Change</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

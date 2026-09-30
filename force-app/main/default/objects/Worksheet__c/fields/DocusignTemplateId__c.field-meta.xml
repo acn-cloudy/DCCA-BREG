@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DocusignTemplateId__c</fullName>
+    <description>PacPoint-JF - Case #8041- Send Statement Of Completed Travel</description>
+    <externalId>false</externalId>
+    <formula>CASE(RecordType.DeveloperName, 
+						&apos;WorksheetAIntraStateTravel&apos;, &apos;34381f7a-6518-408d-99d6-567aa9150cfd&apos;, 
+						&apos;WorksheetAOutOfState&apos;, &apos;feb19bfe-3657-45a4-abbb-4ddc2a4316e6&apos;,
+						&apos;WorksheetB&apos;, &apos;1b89d4cc-4d34-4632-8ce4-57a215a02592&apos;,
+						&apos;WorksheetC&apos;, &apos;c27c06dc-d7d1-4d2d-b209-de2f05db7b1b&apos;,
+						&apos;WorksheetDIntraState&apos;, &apos;b4e8c0b1-1416-47a5-a428-ce20c3891c54&apos;,
+						&apos;WorksheetDOutofState&apos;, &apos;2d08f97e-0989-4994-bab1-7f30980f6094&apos;,
+						null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Docusign Template Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

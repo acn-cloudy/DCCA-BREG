@@ -1,0 +1,8 @@
+<template>
+    <div lwc:if={textBody} class="slds-box">
+        <template lwc:if={title}>
+            <h2 class="dxp-text-heading-medium slds-m-bottom_medium">{title}</h2>
+        </template>        
+        <lightning-formatted-rich-text value={textBody}></lightning-formatted-rich-text>
+    </div>
+</template>

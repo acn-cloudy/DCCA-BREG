@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>A - Apprentice</fullName>
+        <default>false</default>
+        <label>A - Apprentice</label>
+    </customValue>
+    <customValue>
+        <fullName>B - Passed Combination of FLEX, national Board or USMLE.</fullName>
+        <default>false</default>
+        <label>B - Passed Combination of FLEX, national Board or USMLE.</label>
+    </customValue>
+    <customValue>
+        <fullName>C - Combination Exam/Reciprocity</fullName>
+        <default>false</default>
+        <label>C - Combination Exam/Reciprocity</label>
+    </customValue>
+    <customValue>
+        <fullName>D - Medical Council of Canada Qualifying Examination</fullName>
+        <default>false</default>
+        <label>D - Medical Council of Canada Qualifying Examination</label>
+    </customValue>
+    <customValue>
+        <fullName>E - By Exam</fullName>
+        <default>false</default>
+        <label>E - By Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>F - Passed FLEX</fullName>
+        <default>false</default>
+        <label>F - Passed FLEX</label>
+    </customValue>
+    <customValue>
+        <fullName>G - Grandfathered</fullName>
+        <default>false</default>
+        <label>G - Grandfathered</label>
+    </customValue>
+    <customValue>
+        <fullName>H - Dept of Health/APRN</fullName>
+        <default>false</default>
+        <label>H - Dept of Health/APRN</label>
+    </customValue>
+    <customValue>
+        <fullName>J - Master&apos;s Entry Program for Nursing</fullName>
+        <default>false</default>
+        <label>J - Master&apos;s Entry Program for Nursing</label>
+    </customValue>
+    <customValue>
+        <fullName>L - Law Degree (Training) or License to Practice Law</fullName>
+        <default>false</default>
+        <label>L - Law Degree (Training) or License to Practice Law</label>
+    </customValue>
+    <customValue>
+        <fullName>LC - Licensure Compact</fullName>
+        <default>false</default>
+        <label>LC - Licensure Compact</label>
+    </customValue>
+    <customValue>
+        <fullName>M - Graduate Level Degree</fullName>
+        <default>false</default>
+        <label>M - Graduate Level Degree</label>
+    </customValue>
+    <customValue>
+        <fullName>N - National Board Exam, National Certification or Regional Exam</fullName>
+        <default>false</default>
+        <label>N - National Board Exam, National Certification or Regional Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>O - National Certification/APRN</fullName>
+        <default>false</default>
+        <label>O - National Certification/APRN</label>
+    </customValue>
+    <customValue>
+        <fullName>P - GRI or Other Professional Designation</fullName>
+        <default>false</default>
+        <label>P - GRI or Other Professional Designation</label>
+    </customValue>
+    <customValue>
+        <fullName>Q - Equivalency Exam</fullName>
+        <default>false</default>
+        <label>Q - Equivalency Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>R - By Reciprocity, Endorsement or Credentials</fullName>
+        <default>false</default>
+        <label>R - By Reciprocity, Endorsement or Credentials</label>
+    </customValue>
+    <customValue>
+        <fullName>S - Passed SPEX</fullName>
+        <default>false</default>
+        <label>S - Passed SPEX</label>
+    </customValue>
+    <customValue>
+        <fullName>T - Temporary Military Spouse License</fullName>
+        <default>false</default>
+        <label>T - Temporary Military Spouse License</label>
+    </customValue>
+    <customValue>
+        <fullName>U - Passed USMLE</fullName>
+        <default>false</default>
+        <label>U - Passed USMLE</label>
+    </customValue>
+    <customValue>
+        <fullName>W - Through Waiver</fullName>
+        <default>false</default>
+        <label>W - Through Waiver</label>
+    </customValue>
+    <customValue>
+        <fullName>X - Executive/Board Approval Needed</fullName>
+        <default>false</default>
+        <label>X - Executive/Board Approval Needed</label>
+    </customValue>
+    <customValue>
+        <fullName>1 - RB Renewal - corporation or Partnership (Category 1)</fullName>
+        <default>false</default>
+        <label>1 - RB Renewal - corporation or Partnership (Category 1)</label>
+    </customValue>
+    <customValue>
+        <fullName>2 - RB Renewal - Sole-Proprietor (Category 2)</fullName>
+        <default>false</default>
+        <label>2 - RB Renewal - Sole-Proprietor (Category 2)</label>
+    </customValue>
+    <customValue>
+        <fullName>3 - CT Renewal - Other Individual; Principal Broker, Broker in Charge, or Broker Salesperson (Category 3)</fullName>
+        <default>false</default>
+        <label>3 - CT Renewal - Other Individual; Principal Broker, Broker in Charge, or Broker Salesperson (Category 3)</label>
+    </customValue>
+    <customValue>
+        <fullName>4 - CT Renewal - Inactive RME and Firm (Category 1)</fullName>
+        <default>false</default>
+        <label>4 - CT Renewal - Inactive RME and Firm (Category 1)</label>
+    </customValue>
+    <customValue>
+        <fullName>5 - CT Renewal - Active RME (Category 2)</fullName>
+        <default>false</default>
+        <label>5 - CT Renewal - Active RME (Category 2)</label>
+    </customValue>
+    <customValue>
+        <fullName>6 - CT Renewal - Active Firm; Paper Entity and Sole Proprietorship (Category 3)</fullName>
+        <default>false</default>
+        <label>6 - CT Renewal - Active Firm; Paper Entity and Sole Proprietorship (Category 3)</label>
+    </customValue>
+    <description>PacPoint-KN081619 - Created for PVL Phase 1</description>
+    <masterLabel>Method of Licensure</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

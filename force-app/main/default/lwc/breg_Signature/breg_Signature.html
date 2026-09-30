@@ -1,0 +1,342 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div class="slds-grid slds-grid_vertical-align-end slds-var-m-bottom_small">
+                <h2 class="dxp-text-heading-large">{title}</h2>
+                <template lwc:if={showSignatureHelpTextPopup}>
+                    &nbsp;
+                    <c-breg_-help-text-popup
+                        label="Tell me more"
+                        title="Signature"
+                        message={signatureHelpTextMessage}
+                        cancel-button-label="Close">
+                    </c-breg_-help-text-popup>
+                </template>
+            </div>
+        </lightning-layout-item>
+
+        <!-- Certification checkbox and label -->
+        <lightning-layout-item lwc:if={config.labelOverrideLong} size="12" class="form-layout-item">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <div class="slds-checkbox">
+                        <abbr lwc:if={required} class="slds-required" title="required" aria-hidden="true">*</abbr>
+                        <input type="checkbox" name="isCertified" id="isCertified" required={required} disabled={readOnly} class="form-cmp" />
+                        <label class="slds-checkbox__label" for="isCertified">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-form-element__label"
+                                ><lightning-formatted-rich-text value={config.labelOverrideLong}></lightning-formatted-rich-text
+                            ></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <!-- Label -->
+        <lightning-layout-item lwc:if={config.labelOverrideLong2} size="12" class="form-layout-item">
+            <lightning-formatted-rich-text value={config.labelOverrideLong2}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showEntityNameLabel} size="12" class="slds-p-vertical_small form-layout-item">
+            <div class="slds-text-heading_medium slds-text-title_bold slds-m-top_medium"><b>{entityNameLabelValue}</b></div>
+        </lightning-layout-item>
+
+        <!-- Applicant type (used for T forms)-->
+        <template lwc:if={readOnly}>
+            <!-- Applicant type -->
+            <lightning-layout-item lwc:if={showSignedByApplicantType} size="12" class="form-layout-item">
+                <fieldset class={signedByFieldsetClass}>
+                    <legend class="slds-form-element__legend slds-form-element__label">
+                        <template lwc:if={required}>
+                            <abbr class="slds-required" title="required">*</abbr>
+                        </template>
+                        {applicantTypeLabel}
+                    </legend>
+                    <div class="slds-form-element__control">
+                        <p><lightning-formatted-text value={applicantTypeReadOnlyValue}></lightning-formatted-text></p>
+                    </div>
+                </fieldset>
+            </lightning-layout-item>
+
+            <!-- Signature type -->
+            <lightning-layout-item lwc:if={showSignedByType} size="12" class="form-layout-item">
+                <p>
+                    <strong>Are you signing as an individual or an entity?</strong><br />
+                    <lightning-formatted-text value={signedByTypeValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+
+            <!-- Name of the Entity -->
+            <lightning-layout-item lwc:if={showSignedByEntityName} size="12" class="form-layout-item">
+                <p>
+                    <strong>Name of Entity</strong><br />
+                    <lightning-formatted-text value={signedByEntityNameValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+
+            <!-- Title -->
+            <lightning-layout-item lwc:if={showSignedByTitleSelector} size="12" class="form-layout-item">
+                <p>
+                    <strong>{signedByTitleSelectorLabel}</strong><br />
+                    <lightning-formatted-text value={signedByTitleSelectorValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showSignedByTitleText} size="12" class="form-layout-item">
+                <p>
+                    <strong>{signedByTitleTextLabel}</strong><br />
+                    <lightning-formatted-text value={signedByTitleTextValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+
+            <!-- Applicant type description -->
+            <lightning-layout-item lwc:if={applicantTypeDescription} size="12" class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={applicantTypeDescription}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <!-- Name selector -->
+            <lightning-layout-item lwc:if={showSignedByNameSelector} size="12" class="form-layout-item">
+                <p>
+                    <strong>{signedByNameSelectorLabel}</strong><br />
+                    <lightning-formatted-text value={signedByNameSelectorValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+
+            <!-- Name text -->
+            <lightning-layout-item lwc:if={showSignedByNameText} size="12" class="form-layout-item">
+                <p>
+                    <strong>Name</strong><br />
+                    <lightning-formatted-text value={signedByNameTextValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+
+            <!-- First and Last Name -->
+            <template lwc:if={showSignedByFullName}>
+                <lightning-layout-item size="12"></lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <p>
+                        <strong>First Name</strong><br />
+                        <lightning-formatted-text value={signedByFirstNameValue}></lightning-formatted-text>
+                    </p>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <p>
+                        <strong>Last Name</strong><br />
+                        <lightning-formatted-text value={signedByLastNameValue}></lightning-formatted-text>
+                    </p>
+                </lightning-layout-item>
+            </template>
+
+            <!-- Signature -->
+            <lightning-layout-item lwc:if={showSignature} size="12" class="form-layout-item">
+                <p>
+                    <strong>{signatureLabel}</strong><br />
+                    <lightning-formatted-text value={signatureValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item lwc:if={showSignedByApplicantType} size="12" class="form-layout-item">
+                <fieldset class={signedByFieldsetClass}>
+                    <legend class="slds-form-element__legend slds-form-element__label">
+                        <template lwc:if={required}>
+                            <abbr class="slds-required" title="required">*</abbr>
+                        </template>
+                        {applicantTypeLabel}
+                    </legend>
+
+                    <div class="slds-form-element__control">
+                        <div class="slds-grid slds-grid_vertical">
+                            <div class="slds-radio">
+                                <input
+                                    class="slds-radio__input"
+                                    type="radio"
+                                    id="signed-yes"
+                                    name="signedByApplicantType"
+                                    value="Applicant"
+                                    checked={isApplicant}
+                                    onchange={handleInputChange}
+                                    disabled={signedByApplicantTypeReadOnly}
+                                />
+                                <label class="slds-radio__label" for="signed-yes">
+                                    <span class="slds-radio_faux"></span>
+                                    <span class="slds-form-element__label">{applicantTypeYesLabel}</span>
+                                </label>
+                            </div>
+
+                            <div class="slds-radio slds-m-top_x-small inline-radio">
+                                <input
+                                    class="slds-radio__input"
+                                    type="radio"
+                                    id="signed-no"
+                                    name="signedByApplicantType"
+                                    value={officeHeldApiName}
+                                    checked={isNotApplicant}
+                                    onchange={handleInputChange}
+                                    disabled={signedByApplicantTypeReadOnly}
+                                />
+                                <label class="slds-radio__label" for="signed-no">
+                                    <span class="slds-form-element__label inline-label">
+                                        <span class="slds-radio_faux"></span>
+                                        <span>{labels.BREG_I_am_the}</span>
+                                        <lightning-input
+                                            data-name="signedByOfficeHeld"
+                                            name="signedByOfficeHeld"
+                                            value={signedByOfficeHeldValue}
+                                            variant="label-hidden"
+                                            class="inline-input slds-m-around_small"
+                                            onchange={handleInputChange}
+                                            onblur={handleInputBlur}
+                                            disabled={signedByOfficeHeldReadOnly}
+                                        ></lightning-input>
+                                        <span>{officeHeldLabel}</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <template lwc:if={showSignedByError}>
+                                <div class="slds-form-element__help">{labels.BREG_Complete_field_message}</div>
+                            </template>
+                        </div>
+                    </div>
+                </fieldset>
+            </lightning-layout-item>
+            <!-- Signature type -->
+            <lightning-layout-item lwc:if={showSignedByType} size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="signedByType"
+                    value={signedByTypeValue}
+                    label="Are you signing as an individual or an entity?"
+                    options={signedByTypeOptions}
+                    onchange={handleInputChange}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <!-- Name of the Entity -->
+            <lightning-layout-item lwc:if={showSignedByEntityName} size="12" class="form-layout-item">
+                <lightning-input
+                    name="signedByEntityName"
+                    value={signedByEntityNameValue}
+                    label="Name of Entity"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <!-- Title -->
+            <lightning-layout-item lwc:if={showSignedByTitleSelector} size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="signedByTitleSelector"
+                    value={signedByTitleSelectorValue}
+                    label={signedByTitleSelectorLabel}
+                    options={signedByTitleSelectorOptions}
+                    onchange={handleInputChange}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showSignedByTitleText} size="12" class="form-layout-item">
+                <lightning-input
+                    name="signedByTitleText"
+                    value={signedByTitleTextValue}
+                    label={signedByTitleTextLabel}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={requiredSignedByTitleText}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <!-- Applicant type description -->
+            <lightning-layout-item lwc:if={applicantTypeDescription} size="12" class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={applicantTypeDescription}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <!-- Name selector -->
+            <lightning-layout-item lwc:if={showSignedByNameSelector} size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="signedByNameSelector"
+                    value={signedByNameSelectorValue}
+                    label={signedByNameSelectorLabel}
+                    options={signedByNameSelectorOptions}
+                    onchange={handleInputChange}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <!-- Name text -->
+            <lightning-layout-item lwc:if={showSignedByNameText} size="12" class="form-layout-item">
+                <lightning-input
+                    name="signedByNameText"
+                    value={signedByNameTextValue}
+                    label="Name"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- First and Last Name -->
+            <template lwc:if={showSignedByFullName}>
+                <!-- Empty layout item to create line break -->
+                <lightning-layout-item size="12"></lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="signedByFirstName"
+                        value={signedByFirstNameValue}
+                        label="First Name"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="signedByLastName"
+                        value={signedByLastNameValue}
+                        label="Last Name"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+
+            <!-- Signature -->
+            <lightning-layout-item lwc:if={showSignature} size="12" class="form-layout-item">
+                <lightning-input
+                    name="signature"
+                    value={signatureValue}
+                    label={signatureLabel}
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Signers (multi-signature support) -->
+        <template for:each={signers} for:item="member">
+            <c-breg_-signer
+                key={member.uniqueKey}
+                member={member}
+                title-options={signedByTitleSelectorOptions}
+                form-config={formConfig}
+                form-data={formData}
+                config={config}
+                onchange={handleChangeSigner}
+                cmp-properties={cmpProperties}
+            ></c-breg_-signer>
+        </template>
+    </lightning-layout>
+</template>

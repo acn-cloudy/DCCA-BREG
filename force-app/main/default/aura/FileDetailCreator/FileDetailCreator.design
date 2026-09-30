@@ -1,0 +1,14 @@
+<design:component label="File Detail Creator">
+    <design:attribute name="parentFieldName" label="Parent Lookup Field"
+                      description="The parent Lookup field API name in the File Detail Object."/>
+    <design:attribute name="iconName" label="Icon Name"
+                      description="The Lightning Design System name of the icon. Names are written in the format 'utility:down' where 'utility' is the category, and 'down' is the specific icon to be displayed. The icon is displayed in the header to the left of the title."
+                      default="utility:display_text"/>
+    <design:attribute name="title" label="Title" default="Upload File"/>
+    <design:attribute name="continueButtonLabel" label="Continue Button Label" default="Continue"/>
+    <design:attribute name="cancelButtonLabel" label="Cancel Button Label" default="Close"/>
+    <design:attribute name="openCard" label="Default State (Open or Close)" default="true"/>
+    <design:attribute name="visibilityField" label="Visibility Field API Name"
+                      description="A boolean field in the parent object. Determines whether this component will be visible or not where TRUE is visible and FALSE is hidden. If left blank the component will be visible by default."/>
+    <design:attribute name="isDateReceivedVisible" label="Allow Date Received Input" default="true" description="If checked the user will be able to pick date manually, otherwise it will be hidden from the UI and will be populated by today's date."/>
+</design:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Stamp_Codes__c</fullName>
+    <description>Comma Separated codes from Stamp custom metadata type</description>
+    <inlineHelpText>Comma Separated codes from Stamp custom metadata type. Leave empty if no extra stamps to be available</inlineHelpText>
+    <label>Stamp Codes</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

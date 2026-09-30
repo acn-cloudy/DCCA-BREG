@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Footer_Message__c</fullName>
+    <description>TNOX: Optional custom message to include in the email footer</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>e.g., &quot;We&apos;re here to help Monday-Friday, 9am-5pm EST&quot;</inlineHelpText>
+    <label>Footer Message</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

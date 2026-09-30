@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MaintenanceType__c</fullName>
+    <label>Maintenance Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BA - FILE CHANGE OF BUSINESS ADDRESS</fullName>
+                <default>false</default>
+                <label>BA - FILE CHANGE OF BUSINESS ADDRESS</label>
+            </value>
+            <value>
+                <fullName>BCHK - BOUNCED CHECK - GENERIC</fullName>
+                <default>false</default>
+                <label>BCHK - BOUNCED CHECK - GENERIC</label>
+            </value>
+            <value>
+                <fullName>BCLF - BOUNCED CHECK - LICF</fullName>
+                <default>false</default>
+                <label>BCLF - BOUNCED CHECK - LICF</label>
+            </value>
+            <value>
+                <fullName>BCNL - BOUNCED CHECK - NEW LICENSEE</fullName>
+                <default>false</default>
+                <label>BCNL - BOUNCED CHECK - NEW LICENSEE</label>
+            </value>
+            <value>
+                <fullName>BCRN - BOUNCED CHECK - RENEWAL</fullName>
+                <default>false</default>
+                <label>BCRN - BOUNCED CHECK - RENEWAL</label>
+            </value>
+            <value>
+                <fullName>BCRS - BOUNCED CHECK - RESTORATION</fullName>
+                <default>false</default>
+                <label>BCRS - BOUNCED CHECK - RESTORATION</label>
+            </value>
+            <value>
+                <fullName>BCSF - BOUNCED CHECK SERVICE FEE</fullName>
+                <default>false</default>
+                <label>BCSF - BOUNCED CHECK SERVICE FEE</label>
+            </value>
+            <value>
+                <fullName>BPLF - BOUNCED CHECK REPAYMENT - LICF</fullName>
+                <default>false</default>
+                <label>BPLF - BOUNCED CHECK REPAYMENT - LICF</label>
+            </value>
+            <value>
+                <fullName>BPRS - BOUNCED CHECK RNEW/RSTR, REPAYMENT RESTORATION</fullName>
+                <default>false</default>
+                <label>BPRS - BOUNCED CHECK RNEW/RSTR, REPAYMENT RESTORATION</label>
+            </value>
+            <value>
+                <fullName>BRDR - BOARD REVIEW AT SUSPENSE DATE</fullName>
+                <default>false</default>
+                <label>BRDR - BOARD REVIEW AT SUSPENSE DATE</label>
+            </value>
+            <value>
+                <fullName>CONT - PRINCIPAL MISSING CONTINUING ED REQUIREMENT</fullName>
+                <default>false</default>
+                <label>CONT - PRINCIPAL MISSING CONTINUING ED REQUIREMENT</label>
+            </value>
+            <value>
+                <fullName>CRSE - COURSE DUE</fullName>
+                <default>false</default>
+                <label>CRSE - COURSE DUE</label>
+            </value>
+            <value>
+                <fullName>CS - CLOSE OR EXTEND SITE OFFICE</fullName>
+                <default>false</default>
+                <label>CS - CLOSE OR EXTEND SITE OFFICE</label>
+            </value>
+            <value>
+                <fullName>EC - EMPLOYER CLOSED</fullName>
+                <default>false</default>
+                <label>EC - EMPLOYER CLOSED</label>
+            </value>
+            <value>
+                <fullName>FM - PROVE FAMILY MEMBER STATUS</fullName>
+                <default>false</default>
+                <label>FM - PROVE FAMILY MEMBER STATUS</label>
+            </value>
+            <value>
+                <fullName>FRMR - EMPLOYER MUST RENEW</fullName>
+                <default>false</default>
+                <label>FRMR - EMPLOYER MUST RENEW</label>
+            </value>
+            <value>
+                <fullName>IE - FILE INACTIVE OR NEW EMPLOYER</fullName>
+                <default>false</default>
+                <label>IE - FILE INACTIVE OR NEW EMPLOYER</label>
+            </value>
+            <value>
+                <fullName>IWBD - BOND DUE</fullName>
+                <default>false</default>
+                <label>IWBD - BOND DUE</label>
+            </value>
+            <value>
+                <fullName>IWLI - LIABILITY DUE</fullName>
+                <default>false</default>
+                <label>IWLI - LIABILITY DUE</label>
+            </value>
+            <value>
+                <fullName>IWLP - LIABILITY/PROPERTY DAMAGE DUE</fullName>
+                <default>false</default>
+                <label>IWLP - LIABILITY/PROPERTY DAMAGE DUE</label>
+            </value>
+            <value>
+                <fullName>IWSL - SELF-INSURED FOR W/C</fullName>
+                <default>false</default>
+                <label>IWSL - SELF-INSURED FOR W/C</label>
+            </value>
+            <value>
+                <fullName>IWSW - WORKERS COMP THRU LEASING CO. DUE</fullName>
+                <default>false</default>
+                <label>IWSW - WORKERS COMP THRU LEASING CO. DUE</label>
+            </value>
+            <value>
+                <fullName>IWWC - WORKERS COMPENSATION DUE</fullName>
+                <default>false</default>
+                <label>IWWC - WORKERS COMPENSATION DUE</label>
+            </value>
+            <value>
+                <fullName>IZBD - BOND EXPIRED</fullName>
+                <default>false</default>
+                <label>IZBD - BOND EXPIRED</label>
+            </value>
+            <value>
+                <fullName>IZLI - LIABILITY EXPIRED</fullName>
+                <default>false</default>
+                <label>IZLI - LIABILITY EXPIRED</label>
+            </value>
+            <value>
+                <fullName>IZLP - LIABILITY/PROPERTY DAMAGE EXPIRED</fullName>
+                <default>false</default>
+                <label>IZLP - LIABILITY/PROPERTY DAMAGE EXPIRED</label>
+            </value>
+            <value>
+                <fullName>IZSL - SELF-INSURED FOR W/C EXPIRED</fullName>
+                <default>false</default>
+                <label>IZSL - SELF-INSURED FOR W/C EXPIRED</label>
+            </value>
+            <value>
+                <fullName>IZSW - WORKERS COMP THRU LEASING CO. EXPIRED</fullName>
+                <default>false</default>
+                <label>IZSW - WORKERS COMP THRU LEASING CO. EXPIRED</label>
+            </value>
+            <value>
+                <fullName>IZWC - WORKERS COMPENSATION EXPIRED</fullName>
+                <default>false</default>
+                <label>IZWC - WORKERS COMPENSATION EXPIRED</label>
+            </value>
+            <value>
+                <fullName>LCR1 - LICENSE CONDITIONAL REVIEW PAST DUE</fullName>
+                <default>false</default>
+                <label>LCR1 - LICENSE CONDITIONAL REVIEW PAST DUE</label>
+            </value>
+            <value>
+                <fullName>NBIC - FIND NEW BIC</fullName>
+                <default>false</default>
+                <label>NBIC - FIND NEW BIC</label>
+            </value>
+            <value>
+                <fullName>NBIC - REAL ESTATE FIRM WITHOUT BROKER-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>NBIC - REAL ESTATE FIRM WITHOUT BROKER-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>NEWR - NEW RESPONSIBLE EMPLOYEE FOUND--TRIGGER EMPLOYEE BREAK IN EMPLOYMENT IF 10 OR MORE DAYS FROM LOSS OF PRIOR RESPONSIBLE</fullName>
+                <default>false</default>
+                <label>NEWR - NEW RESPONSIBLE EMPLOYEE FOUND--TRIGGER EMPLOYEE BREAK IN EMPLOYMENT IF 10 OR MORE DAYS FROM LOSS OF PRIOR RESPONSIBLE</label>
+            </value>
+            <value>
+                <fullName>NFEM - NO FIRM DUE TO EMPLOYMENT TERMINATION</fullName>
+                <default>false</default>
+                <label>NFEM - NO FIRM DUE TO EMPLOYMENT TERMINATION</label>
+            </value>
+            <value>
+                <fullName>NFRM - RME WITHOUT EMPLOYMENT</fullName>
+                <default>false</default>
+                <label>NFRM - RME WITHOUT EMPLOYMENT</label>
+            </value>
+            <value>
+                <fullName>NOPB - REAL ESTATE FIRM WITHOUT PRINCIPAL BROKER</fullName>
+                <default>false</default>
+                <label>NOPB - REAL ESTATE FIRM WITHOUT PRINCIPAL BROKER</label>
+            </value>
+            <value>
+                <fullName>NPRD - CT FIRM WITHOUT PRINCIPAL RME DESIGNATED</fullName>
+                <default>false</default>
+                <label>NPRD - CT FIRM WITHOUT PRINCIPAL RME DESIGNATED</label>
+            </value>
+            <value>
+                <fullName>NPRM - NO PRINCIPAL RME</fullName>
+                <default>false</default>
+                <label>NPRM - NO PRINCIPAL RME</label>
+            </value>
+            <value>
+                <fullName>NRMB - CONTRACTOR FIRM WITHOUT RME</fullName>
+                <default>false</default>
+                <label>NRMB - CONTRACTOR FIRM WITHOUT RME</label>
+            </value>
+            <value>
+                <fullName>NRQC - CT FIRM WITHOUT RME TO QUALIFY CLASS</fullName>
+                <default>false</default>
+                <label>NRQC - CT FIRM WITHOUT RME TO QUALIFY CLASS</label>
+            </value>
+            <value>
+                <fullName>NSPV - REAL ESTATE SITE OFFICE WITHOUT SUPERVISOR</fullName>
+                <default>false</default>
+                <label>NSPV - REAL ESTATE SITE OFFICE WITHOUT SUPERVISOR</label>
+            </value>
+            <value>
+                <fullName>PR - FILE PERIODIC REPORT</fullName>
+                <default>false</default>
+                <label>PR - FILE PERIODIC REPORT</label>
+            </value>
+            <value>
+                <fullName>RBRG - REINSTATE WITH BUSINESS REGISTRATION</fullName>
+                <default>false</default>
+                <label>RBRG - REINSTATE WITH BUSINESS REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>RC - RESIDENCY CONTRACT DUE</fullName>
+                <default>false</default>
+                <label>RC - RESIDENCY CONTRACT DUE</label>
+            </value>
+            <value>
+                <fullName>RMER - PRINCIPAL MUST RENEW</fullName>
+                <default>false</default>
+                <label>RMER - PRINCIPAL MUST RENEW</label>
+            </value>
+            <value>
+                <fullName>RS - RESTORATION DUE</fullName>
+                <default>false</default>
+                <label>RS - RESTORATION DUE</label>
+            </value>
+            <value>
+                <fullName>SIT1 - SITE OFFICE EXPIRATION DATE PAST DUE</fullName>
+                <default>false</default>
+                <label>SIT1 - SITE OFFICE EXPIRATION DATE PAST DUE</label>
+            </value>
+            <value>
+                <fullName>SIT2 - DEADLINE TO EXTEND SITE OFFICE</fullName>
+                <default>false</default>
+                <label>SIT2 - DEADLINE TO EXTEND SITE OFFICE</label>
+            </value>
+            <value>
+                <fullName>SOEC - SOLE OWNERSHIP CLOSED, LICENSEE BECAME EMPLOYEE</fullName>
+                <default>false</default>
+                <label>SOEC - SOLE OWNERSHIP CLOSED, LICENSEE BECAME EMPLOYEE</label>
+            </value>
+            <value>
+                <fullName>SP - NEW SUPERVISOR NEEDED</fullName>
+                <default>false</default>
+                <label>SP - NEW SUPERVISOR NEEDED</label>
+            </value>
+            <value>
+                <fullName>TC - LICENSE CLOSED/CANCELLED</fullName>
+                <default>false</default>
+                <label>TC - LICENSE CLOSED/CANCELLED</label>
+            </value>
+            <value>
+                <fullName>XM - EXAM MUST BE TAKEN</fullName>
+                <default>false</default>
+                <label>XM - EXAM MUST BE TAKEN</label>
+            </value>
+            <value>
+                <fullName>Z - DISCIPLINED</fullName>
+                <default>false</default>
+                <label>Z - DISCIPLINED</label>
+            </value>
+            <value>
+                <fullName>ZCR1 - SUSPENSION CONDITIONAL REVIEW PAST DUE</fullName>
+                <default>false</default>
+                <label>ZCR1 - SUSPENSION CONDITIONAL REVIEW PAST DUE</label>
+            </value>
+            <value>
+                <fullName>ZSR1 - DEADLINE TO REINSTATE PAST DUE (SUSPENSION END)</fullName>
+                <default>false</default>
+                <label>ZSR1 - DEADLINE TO REINSTATE PAST DUE (SUSPENSION END)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

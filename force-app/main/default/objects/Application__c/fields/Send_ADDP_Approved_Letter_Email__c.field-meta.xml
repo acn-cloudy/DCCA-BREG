@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_ADDP_Approved_Letter_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>JF 9/20/23: Created for sending ADDP Approved Letter email</description>
+    <label>Send ADDP Approved Letter Email</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

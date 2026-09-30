@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplicationDateofLicensureRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-MV10319 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+ AND(
+   GenerateLicense__c = true,
+   ISBLANK(DateofLicensure__c)
+ ), 
+ true, 
+ false
+)</errorConditionFormula>
+    <errorMessage>Please populate the date of licensure before generating the license</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClosedDateTime__c</fullName>
+    <description>PacPoint-MV050919 - Created for BREG phase 1</description>
+    <inlineHelpText>Field populated automatically when the status is set to &quot;&quot;Recommend to Close&quot; &amp;&amp; &quot;Recommend Referral to Legal&quot;</inlineHelpText>
+    <label>Closed Date / Time</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

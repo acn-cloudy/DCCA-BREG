@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Filings</fullName>
+    <fields>Status__c</fields>
+    <fields>Name</fields>
+    <fields>ApplicationType__c</fields>
+    <fields>Account__c</fields>
+    <fields>FilerContact__c</fields>
+    <fields>FilingDate__c</fields>
+    <fields>Reviewer__c</fields>
+    <label>Filings</label>
+</CompactLayout>

@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="popuphelp" type="string" access="global" />
+	<aura:if isTrue="{!and(v.popuphelp != '',v.popuphelp != null, v.popuphelp != 'null')}">  
+        
+    <div class="slds-m-left_large slds-m-top_x-small slds-icon_container radius">
+		<c:sc_Popover >
+            <aura:set attribute="popoverBody">                                           
+                <ui:outputRichText value="{!v.popuphelp}"
+                                           aura:id="helpText" />
+            </aura:set>  
+            <lightning:icon iconName="utility:help" variant="inverse" size="xx-small" />
+        </c:sc_Popover>					
+    
+    </div>
+    </aura:if>
+</aura:component>

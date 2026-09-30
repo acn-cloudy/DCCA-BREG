@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-MV102419 - Created for PVL phase 1</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Status</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A3 - Deficiency Notice Sent</fullName>
+                <default>false</default>
+                <label>A3 - Deficiency Notice Sent</label>
+            </value>
+            <value>
+                <fullName>E1 - To Executive Officer Awaiting Review</fullName>
+                <default>false</default>
+                <label>E1 - Awaiting EO Review</label>
+            </value>
+            <value>
+                <fullName>HC - Application Completed</fullName>
+                <default>false</default>
+                <label>HC - Application Completed</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permissions to manage work items with a Salesforce Platform license</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Work Item Processing Support</label>
+    <permissionSets>Case_Access_for_Platform_Users</permissionSets>
+    <permissionSets>Permission_for_Lightning_Console_Access</permissionSets>
+    <permissionSets>Voice_Call_Reviewer_Platform</permissionSets>
+    <permissionSets>Work_Item_Processing</permissionSets>
+    <permissionSets>tkt_Ticket_User_Platform</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

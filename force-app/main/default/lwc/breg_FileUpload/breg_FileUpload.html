@@ -1,0 +1,75 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showMainDescription} size="12" class="form-layout-item slds-var-m-bottom_medium">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={displayUploadArea} size="12" class="form-layout-item slds-var-m-bottom_medium">
+            <template lwc:if={description2}>
+                <p class="slds-text-body_regular slds-text-color_weak">
+                    <em>{description2}</em>
+                </p>
+            </template>
+
+            <div class="slds-file-selector slds-file-selector_files">
+                <div class="slds-file-selector__dropzone" ondragover={handleDragOver} ondragleave={handleDragLeave} ondrop={handleDrop}>
+                    <input
+                        type="file"
+                        class="slds-file-selector__input slds-assistive-text"
+                        accept={acceptedFormats}
+                        onchange={handleFileUpload}
+                        id="file-upload-input"
+                        readonly={readOnly}
+                        required={required}
+                    />
+                    <label class="slds-file-selector__body" for="file-upload-input">
+                        <span class="slds-file-selector__button slds-button slds-button_neutral">
+                            <lightning-icon icon-name="utility:upload" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                            Choose a File
+                        </span>
+                        <span class="slds-file-selector__text slds-var-m-left_medium">or drag & drop</span>
+                    </label>
+                </div>
+            </div>
+
+            <template lwc:if={fileErrorMessage}>
+                <div class="slds-text-color_error slds-text-body_small slds-m-top_x-small">
+                    {fileErrorMessage}
+                </div>
+            </template>
+
+            <div class="slds-grid slds-gutters slds-var-m-top_small">
+                <div class="slds-col slds-size_1-of-2">
+                    <span class="slds-text-body_small">Format: {acceptedFormatsString}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-text-align_right">
+                    <span class="slds-text-body_small">Max: 5MB</span>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div lwc:if={fileUploaded}>
+                <div class="slds-var-m-top_small">
+                    <lightning-icon icon-name={fileIcon} size="small"></lightning-icon>
+                    <span class="slds-var-m-left_small">{fileName}</span>
+                    <lightning-button-icon
+                        lwc:if={editMode}
+                        icon-name="utility:close"
+                        alternative-text="Remove File"
+                        title="Remove File"
+                        class="slds-var-m-left_small"
+                        onclick={handleRemoveFile}
+                    ></lightning-button-icon>
+                </div>
+            </div>
+            <div lwc:else>
+                <span>No file chosen</span>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

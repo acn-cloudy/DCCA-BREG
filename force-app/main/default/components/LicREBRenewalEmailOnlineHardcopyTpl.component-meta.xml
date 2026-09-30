@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>PacPoint EA-09272024: For Case 00037951
+
+Create new renewal email template for REB renewal email</description>
+    <label>LicREBRenewalEmailOnlineHardcopyTpl</label>
+</ApexComponent>

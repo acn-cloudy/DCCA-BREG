@@ -1,0 +1,8 @@
+<template>
+    <template lwc:if={isSubscriptionsExists}>
+        <lightning-datatable key-field="recordId" onrowaction={handleAction} data={data} columns={columns} hide-checkbox-column> </lightning-datatable>
+    </template>
+    <template lwc:if={showSubscriptionCard}>
+        <c-breg-_-my-subscription onupdate={handleUpdate} chosen-subscription={chosenSubscription} onclose={handleCardClose}></c-breg-_-my-subscription>
+    </template>
+</template>

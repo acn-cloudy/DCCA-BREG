@@ -1,0 +1,94 @@
+<template>
+    <lightning-layout lwc:if={showMembers} multiple-rows="true">
+        <lightning-layout-item lwc:if={showTitle} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large dxp-text-heading-medium-mobile slds-var-m-bottom_small">
+                <lightning-formatted-rich-text value={displayTitle}></lightning-formatted-rich-text>
+            </h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" lwc:if={showDescription} class="form-layout-item slds-m-bottom--small">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12">
+            <template for:each={paginatedMembers} for:item="member">
+                <c-breg_-member
+                    key={member.uniqueKey}
+                    member={member}
+                    member-label={memberLabel}
+                    member-role={memberRole}
+                    is-single={isSingle}
+                    entity-type-options={entityTypeOptions}
+                    tntmsm-entity-type-options={entityTypeOptions}
+                    officer-director-titles-options={officerDirectorTitlesOptions}
+                    ondelete={handleDeleteMember}
+                    form-config={formConfig}
+                    form-data={formData}
+                    is-delete-member-disabled={isDeleteMemberDisabled}
+                    class="form-cmp"
+                    config={config}
+                    data-key={member.uniqueKey}
+                    onchange={handleChangeMember}
+                    cmp-properties={cmpProperties}
+                    oneditsection={handleEditSectionClick}
+                ></c-breg_-member>
+            </template>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showPagination} size="12" class="slds-var-m-top_medium">
+            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                <div class="slds-text-body_small slds-text-color_weak">Showing {pageInfo}</div>
+                <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                    <lightning-button
+                        icon-name="utility:chevronleft"
+                        title="Previous Page"
+                        variant="border-filled"
+                        onclick={handlePreviousPage}
+                        disabled={notHasPreviousPage}
+                        class="slds-m-right_small"
+                    ></lightning-button>
+                    <span class="slds-text-body_regular slds-m-horizontal_medium">Page {currentPage} of {totalPages}</span>
+                    <lightning-button
+                        icon-name="utility:chevronright"
+                        title="Next Page"
+                        variant="border-filled"
+                        onclick={handleNextPage}
+                        disabled={notHasNextPage}
+                        class="slds-m-left_small"
+                    ></lightning-button>
+                </div>
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <span class="slds-text-body_small slds-m-right_x-small">Items per page:</span>
+                    <lightning-combobox
+                        name="pageSize"
+                        value={pageSizeDisplayValue}
+                        placeholder="Select page size"
+                        options={pageSizeOptions}
+                        onchange={handlePageSizeChange}
+                        variant="label-hidden"
+                    ></lightning-combobox>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showAddButton} size="12" class="slds-var-m-top_medium form-layout-item">
+            <lightning-button
+                variant="neutral"
+                label={addButtonLabel}
+                icon-name="utility:add"
+                icon-position="left"
+                onclick={handleAddMember}
+            ></lightning-button>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showAddButtonForAnnualForms} class="form-layout-item" alignment-bump="left">
+            <lightning-button
+                variant="neutral"
+                label={addButtonLabel}
+                icon-name="utility:add"
+                icon-position="left"
+                onclick={handleAddMember}
+            ></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

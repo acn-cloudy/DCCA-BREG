@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Type_Changes</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(TravelType__c),
+
+    OR(
+        ISPICKVAL(PRIORVALUE(TravelType__c), &quot;OCONUS (Foreign or Alaska)&quot;),
+        ISPICKVAL(PRIORVALUE(TravelType__c), &quot;CONUS (Contiguous 48 States)&quot;),
+        ISPICKVAL(PRIORVALUE(TravelType__c), &quot;Intra-state Same Day&quot;),
+        ISPICKVAL(PRIORVALUE(TravelType__c), &quot;Intra-state Overnight Travel&quot;)
+    ),
+
+    NOT(
+        OR(
+            AND(
+                ISPICKVAL(PRIORVALUE(TravelType__c), &quot;Intra-state Same Day&quot;),
+                ISPICKVAL(TravelType__c, &quot;Intra-state Overnight Travel&quot;)
+            ),
+            AND(
+                ISPICKVAL(PRIORVALUE(TravelType__c), &quot;Intra-state Overnight Travel&quot;),
+                ISPICKVAL(TravelType__c, &quot;Intra-state Same Day&quot;)
+            )
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>Travel Type can only be changed between &quot;Intra-state Same Day&quot; and &quot;Intra-state Overnight Travel&quot;. Changes to or from CONUS and OCONUS values are not permitted.</errorMessage>
+</ValidationRule>

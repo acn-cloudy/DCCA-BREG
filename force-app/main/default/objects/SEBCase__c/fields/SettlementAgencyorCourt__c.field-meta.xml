@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SettlementAgencyorCourt__c</fullName>
+    <description>PacPoint-RA110118-BREG Phase 1</description>
+    <inlineHelpText>If you answered yes to 6a, what agency or Court (provide the name and address of person contacted)?</inlineHelpText>
+    <label>6b. Settlement Agency or Court?</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

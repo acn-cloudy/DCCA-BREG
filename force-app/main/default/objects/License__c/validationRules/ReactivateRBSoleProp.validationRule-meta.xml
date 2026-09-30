@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReactivateRBSoleProp</fullName>
+    <active>true</active>
+    <description>PacPoint KN12172020</description>
+    <errorConditionFormula>IF(
+AND(
+LicenseType__r.Name = &quot;RB - Sole Proprietor&quot;,
+ISCHANGED(ReactiveLicense__c),
+ReactiveLicense__c = TRUE),
+true,
+false
+)</errorConditionFormula>
+    <errorMessage>Real Estate Sole Proprietors can not Reactivate their Lienses.</errorMessage>
+</ValidationRule>

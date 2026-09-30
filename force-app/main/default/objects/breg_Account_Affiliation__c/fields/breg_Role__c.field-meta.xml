@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Role__c</fullName>
+    <description>Aalta Breg-59</description>
+    <label>Role</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agent</fullName>
+                <default>false</default>
+                <label>Agent</label>
+            </value>
+            <value>
+                <fullName>New Agent</fullName>
+                <default>false</default>
+                <label>New Agent</label>
+            </value>
+            <value>
+                <fullName>Assignee</fullName>
+                <default>false</default>
+                <label>Assignee</label>
+            </value>
+            <value>
+                <fullName>Assignor</fullName>
+                <default>false</default>
+                <label>Assignor</label>
+            </value>
+            <value>
+                <fullName>Applicant</fullName>
+                <default>false</default>
+                <label>Applicant</label>
+            </value>
+            <value>
+                <fullName>New Applicant</fullName>
+                <default>false</default>
+                <label>New Applicant</label>
+            </value>
+            <value>
+                <fullName>CRA</fullName>
+                <default>false</default>
+                <label>CRA</label>
+            </value>
+            <value>
+                <fullName>Director</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>General Partner</fullName>
+                <default>false</default>
+                <label>General Partner</label>
+            </value>
+            <value>
+                <fullName>Incorporator</fullName>
+                <default>false</default>
+                <label>Incorporator</label>
+            </value>
+            <value>
+                <fullName>Manager</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>Member</fullName>
+                <default>false</default>
+                <label>Member</label>
+            </value>
+            <value>
+                <fullName>Officer</fullName>
+                <default>false</default>
+                <label>Officer</label>
+            </value>
+            <value>
+                <fullName>Officer/Director</fullName>
+                <default>false</default>
+                <label>Officer/Director</label>
+            </value>
+            <value>
+                <fullName>Organizer</fullName>
+                <default>false</default>
+                <label>Organizer</label>
+            </value>
+            <value>
+                <fullName>Partner</fullName>
+                <default>false</default>
+                <label>Partner</label>
+            </value>
+            <value>
+                <fullName>Registrant</fullName>
+                <default>false</default>
+                <label>Registrant</label>
+            </value>
+            <value>
+                <fullName>Delivery Contact</fullName>
+                <default>false</default>
+                <label>Delivery Contact</label>
+            </value>
+            <value>
+                <fullName>Transferee</fullName>
+                <default>false</default>
+                <label>Transferee</label>
+            </value>
+            <value>
+                <fullName>Merging Entity</fullName>
+                <default>false</default>
+                <label>Merging Entity</label>
+            </value>
+            <value>
+                <fullName>Surviving Entity</fullName>
+                <default>false</default>
+                <label>Surviving Entity</label>
+            </value>
+            <value>
+                <fullName>Recipient</fullName>
+                <default>false</default>
+                <label>Recipient</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

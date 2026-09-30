@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingWithdrawnRequiredRegulationD</fullName>
+    <active>true</active>
+    <description>PacPoint: AC Case#8952 - BREG Support | Validation for Filing Withdrawn Status</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Regulation D&quot;,
+ISPICKVAL(Status__c, &quot;Filing Withdrawn&quot;),
+ISNULL( WithdrawalDate__c ),
+$Profile.Name &lt;&gt; &quot;DCCA BREG - CustomerCommunityLogin&quot;
+)</errorConditionFormula>
+    <errorDisplayField>WithdrawalDate__c</errorDisplayField>
+    <errorMessage>Error: Please populate &quot;Withdrawal Date&quot; before updating the status to Filing Withdrawn. (7)</errorMessage>
+</ValidationRule>

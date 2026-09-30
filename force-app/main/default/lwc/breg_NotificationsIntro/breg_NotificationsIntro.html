@@ -1,0 +1,38 @@
+<template>
+    <div>
+        <p class="intro">
+            <lightning-formatted-rich-text value={introText}></lightning-formatted-rich-text>
+        </p>
+
+        <div class="card-container">
+            <template for:each={cards} for:item="card">
+                <div key={card.key} class="card slds-theme_inverse slds-box slds-box_x-small slds-m-horizontal_none slds-m-vertical_small slds-medium-m-around_x-small slds-p-around_medium">
+                    <div>
+                        <h2 class="card-title">{card.title}</h2>
+                        <p class="card-price">{card.price}</p>
+                        <template if:true={card.description}>
+                            <p>{card.description}</p>
+                        </template>
+                        <template if:true={card.note}>
+                            <br />
+                            <p class="card-note">{card.note}</p>
+                        </template>
+                    </div>
+
+                    <template lwc:if={isDashboardContext}>
+                        <div class="slds-m-top_medium slds-m-bottom_none slds-text-align_center slds-m-top_auto">
+                            <lightning-button
+                                label="Sign Up"
+                                variant="inverse"
+                                data-category={card.category}
+                                class="slds-button_stretch"
+                                onclick={handleSignUp}
+                            >
+                            </lightning-button>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

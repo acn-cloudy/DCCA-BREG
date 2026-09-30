@@ -1,0 +1,63 @@
+<template>
+    <div class="slds-card" style={hostStyle}>
+        <div class="slds-card__header slds-grid slds-grid_align-spread slds-p-around_small">
+            <header class="slds-media slds-media_center">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="standard:catalog" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <span>Related {bigObjectApiName}</span>
+                    </h2>
+                    <template if:true={warning}>
+                        <div class="slds-text-color_warning slds-m-top_xxx-small">{warning}</div>
+                    </template>
+                </div>
+            </header>
+
+            <div class="slds-grid slds-grid_vertical-align-center slds-gutters_small">
+                <div class="slds-col">
+                    <lightning-combobox
+                        label="Page size"
+                        value={pageSize}
+                        options={pageSizeOptions}
+                        variant="label-hidden"
+                        onchange={handlePageSizeChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <lightning-button-group>
+                        <lightning-button label="Prev" onclick={handlePrev} disabled={isPrevDisabled}></lightning-button>
+                        <lightning-button label="Next" onclick={handleNext} disabled={isNextDisabled}></lightning-button>
+                    </lightning-button-group>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-card__body slds-p-horizontal_small slds-p-bottom_small" style={tableContainerStyle}>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <lightning-datatable
+                key-field="__rowKey"
+                data={rows}
+                columns={columns}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                onsort={handleSort}
+                hide-checkbox-column
+                show-row-number-column>
+            </lightning-datatable>
+        </div>
+
+        <div class="slds-card__footer slds-grid slds-grid_align-spread slds-p-around_small">
+            <div>{fetchedCount} record(s) loaded</div>
+            <div>
+                <template if:true={recordId}>
+                    <span class="slds-text-color_weak">Record: {recordId}</span>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

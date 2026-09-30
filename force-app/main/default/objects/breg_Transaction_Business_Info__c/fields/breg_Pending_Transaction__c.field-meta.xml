@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Pending_Transaction__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Aalta BREG-2269</description>
+    <label>Pending Transaction</label>
+    <referenceTo>Transaction__c</referenceTo>
+    <relationshipLabel>Transaction Business Info (Pending Transaction)</relationshipLabel>
+    <relationshipName>Transaction_Business_Info1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

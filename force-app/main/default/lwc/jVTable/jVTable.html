@@ -1,0 +1,265 @@
+<template>
+    <div class="jVTable">
+        <div style="text-align: center;">
+            <h3>STATE OF HAWAII</h3>
+            <h2>JOURNAL VOUCHER</h2>
+        </div>
+        <div>
+            <div style="display:inline-block;width:38%;padding-left: 5px;vertical-align: top;">
+                <div style="margin-bottom:10px">
+                    <p style="width:120px;display:inline-block;">Department No:</p>
+                    <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;" > 
+                        <input type="text" value="" name="departmentNo" 
+                            data-type="input" autocomplete="off"></input>
+                    </h4>
+                </div>
+                <div>
+                    <p style="width:120px;display:inline-block;">Department Date:</p>
+                    <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;" >
+                        <input type="text" value={dateValue} name="departmentDate" 
+                            data-type="input" autocomplete="off"></input>
+                    </h4>
+                </div>
+            </div>
+            <div style="display:inline-block;width:20%;text-align: center;">
+                <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;margin-bottom: 2px;">
+                    <input type="text" name="fundName" data-type="input"
+                            value={fundType} ></input>
+                </h4>
+                <h5 style="width:200px;margin:auto;text-align: center;font-size:0.7em"> 
+                    FUND</h5> 
+            </div>
+            <div style="display:inline-block;width:39%;text-align: right">
+                <div>
+                    <p style="width:120px;display:inline-block;text-align:left;">Comptroller No:</p>
+                    <p style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;">
+                        <input type="text" value="" name="comptrollerNo" 
+                            data-type="input" size="8" maxlength="8" autocomplete="off"></input>
+                    </p>
+                </div>
+                <h5 style="width:200px;margin-left:auto;text-align: center;"> 
+                   xxxxxx
+                </h5>
+                <div>
+                    <p style="width:120px;display:inline-block;text-align:left;">
+                        Comptroller Date:
+                    </p>
+                    <p style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;">
+                        <input type="text" name="dateStr" 
+                            data-type="input" size="8" maxlength="8" autocomplete="off"></input>
+                    </p>
+                </div>
+                <h5 style="width:200px;margin-left:auto;text-align: center;"> 
+                    MM/DD/YY
+                </h5> 
+            </div>
+        </div>
+         <table>
+            <thead>
+                <tr>
+                    <th rowspan="2"><h5>SFX</h5></th>
+                    <th rowspan="2"><h5>TC</h5></th>
+                    <th rowspan="2"><h5>F</h5></th>
+                    <th rowspan="2"><h5>YR</h5></th>
+                    <th rowspan="2"><h5>APP</h5></th>
+                    <th rowspan="2"><h5>D</h5></th>
+                    <th rowspan="2"><h5>ALLOT<br/>CAT</h5></th>
+                    <th rowspan="2"><h5>SOURCE/<br/>OBJECT</h5></th>
+                    <th rowspan="2"><h5>COST<br/>CENTER</h5></th>
+                    <th colspan="2"><h5>PROJECT</h5></th>
+                    <th rowspan="2"><h5>DEPT<br/>ACT</h5></th>
+                    <th rowspan="2"><h5>G/L<br/>ACCT</h5></th>
+                    <th rowspan="2"><h5>S/L ACCT</h5></th>
+                    <th colspan="2"><h5>  REFERENCE DOC  </h5></th>
+                    <th rowspan="2" colspan="2"><h5>AMOUNT</h5></th>
+                    <th rowspan="1"><h5>M<br/>O<br/>D</h5></th>
+                    <th rowspan="1"><h5>R<br/>E<br/>V</h5></th>
+                    <th rowspan="2"><h5>OPTIONAL<br/>DEPARTMENTAL<br/>DATE</h5></th>
+                    <th rowspan="3"><h5>REMARKS</h5></th>
+                </tr>
+                <tr>
+                    <th><h5>NUMBER</h5></th>
+                    <th><h5>PH</h5></th>
+                    <th><h5>NUMBER</h5></th>
+                    <th><h5>SFX</h5></th>
+                </tr>
+                <tr>
+                    <th><h5>xx</h5></th>
+                    <th><h5>xxx</h5></th>
+                    <th><h5>x</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th><h5>xxx</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th><h5>xxxx</h5></th>
+                    <th><h5>xxxx</h5></th>
+                    <th><h5>xxxxxx</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th><h5>xxx</h5></th>
+                    <th><h5>xxx</h5></th>
+                    <th><h5>xxxxxx</h5></th>
+                    <th ><h5>xxxxxxxx</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th style="width: 140px"><h5>xxxxxxxxxxxx</h5></th>
+                    <th><h5>xx</h5></th>
+                    <th><h5>x</h5></th>
+                    <th><h5>x</h5></th>
+                    <th><h5>x(22)</h5></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={fundsListDisplayed} for:item='fund'>
+                    <tr class="fund" key={fund.indexValue} title={fund.recordId} >
+                        <td><h4>
+                            <input type="text" value={fund.indexValue} name="indexValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.tcValue} name="tcValue" 
+                                maxlength="3" size="3" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.fValue} name="fValue" 
+                                maxlength="1" size="1" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.yrValue} name="yrValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.appValue} name="appValue" 
+                                maxlength="3" size="3" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.dValue} name="dValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.alltCatValue} name="alltCatValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.sourceObjValue} name="sourceObjValue" 
+                                maxlength="4" size="4" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.costCenterValue} name="costCenterValue" 
+                                maxlength="4" size="4" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.projectNumValue} name="projectNumValue" 
+                                maxlength="4" size="4" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.projectPhValue} name="projectPhValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.deptActValue} name="deptActValue" 
+                                maxlength="3" size="3" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.gLActValue} name="gLActValue" 
+                                maxlength="3" size="3" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.sLActValue} name="sLActValue" 
+                                maxlength="5" size="5" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.referenceNumValue} name="referenceNumValue" 
+                                maxlength="8" size="8" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.referenceSFXValue} name="referenceSFXValue" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td class="amount"><h4>
+                            <lightning-input type="number" value={fund.jVAmount1} name="jVAmount1" 
+                                formatter="currency" step="1" autocomplete="off">
+                            </lightning-input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.jVAmount2} name="jVAmount2" 
+                                maxlength="2" size="2" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.modValue} name="modValue" 
+                                maxlength="1" size="1" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.revValue} name="revValue" 
+                                maxlength="1" size="1" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.optionalDepartmentalDate} name="optionalDepartmentalDate" 
+                                maxlength="22" size="22" autocomplete="off"></input>
+                        </h4></td>
+                        <td><h4>
+                            <input type="text" value={fund.remarks} name="remarks" 
+                                maxlength="10" size="10" autocomplete="off"></input>
+                        </h4></td>
+                    </tr>
+                </template>
+
+                <tr>
+                    <td colspan="15" style="text-align:left;vertical-align: text-bottom;">
+                        <h5 style="margin: 5px">EXPLANATON</h5>
+                        <p><textarea name="explanation"  data-type="input">
+                            {defaultExplanation}
+                        </textarea></p>
+                    </td>
+                    <td colspan="7" style="text-align:left;vertical-align: top;">
+                    	<div style="margin: 5px">
+                    		<h5>DEPARTMENTAL CERTIFICATION:</h5>
+	                    	<div>
+								<p style="border-bottom: 1px solid;display:inline-block;width:43%;"> 
+                                    <input type="text" value="Commerce Consumer Affairs" name="departmentalCertification" 
+                                        data-type="input" autocomplete="off"></input>
+		                        </p>
+		                        <p style="border-bottom: 1px solid;display:inline-block;width:43%;margin-left:50px;"> 
+		                        	<input type="text" value="" name="commerceConsumerAffairs" 
+                                        data-type="input" autocomplete="off"></input>
+		                        </p>
+	                    	</div>
+	                    	<h5 style="width:40%;margin-left: auto;">
+	                    		for
+	                    		<span style="font-weight:400;margin-left:10%">
+	                    			HEAD OF DEPARTMENT
+	                    		</span> 
+	                    	</h5>
+                    	</div>
+                        <div style="border-bottom: 1px solid;border-top: 1px solid; height: 2px"></div>
+                        <div style="margin: 5px">
+                        	<h5>COMPTROLLER APPROVAL:</h5>
+                        	<div>
+								<p style="border-bottom: 1px solid;display:inline-block;width:43%;"> 
+		                        	<input type="text" value="" name="comptrollerApproval" 
+                                        data-type="input" autocomplete="off"></input>
+		                        </p>
+		                        <p style="border-bottom: 1px solid;display:inline-block;width:43%;margin-left:50px;">
+		                        	<input type="text" value="" name="comptroller" 
+                                        data-type="input" autocomplete="off"></input>
+		                        </p>
+	                    	</div>
+	                    	<h5 style="width:40%;margin-left: auto;">
+	                    		for
+	                    		<span style="font-weight:400;margin-left:10%">
+	                    			COMPTROLLER
+	                    		</span> 
+	                    	</h5>
+                    	</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      
+     
+        <div style="margin-top:3px">
+            <h5 style="display: inline-block; width:20%; margin-left: 78%;">
+                STATE ACCOUNTING FORM A-27 <br/>
+                AUGUST 1, 2011 (REVISED)
+            </h5>
+        </div>
+    </div>
+</template>

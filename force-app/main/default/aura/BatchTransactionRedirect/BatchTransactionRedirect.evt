@@ -1,0 +1,14 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Batch Transaction Redirect Event - used by the Batch Transaction component
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:event type="APPLICATION" description="Batch Transaction Redirect" />

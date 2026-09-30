@@ -1,0 +1,85 @@
+<!--
+  @description       : 
+  @author            : Deepanshu Jain
+  @group             : 
+  @last modified on  : 04-23-2025
+  @last modified by  : Deepanshu Jain
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="slds-form-element">
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container" if:false={isValueSelected}>
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                        <lightning-input
+                            class="searchField"
+                            placeholder={placeholder}
+                            onchange={handleChange}
+                            onkeydown={handleInputKeydown}
+                            type="search"
+                            autocomplete="off"
+                            label={label}
+                            required={required}
+                            aria-controls="listbox-id-4"
+                            aria-haspopup="listbox"
+                            aria-expanded={recordsList.length > 0}
+                        ></lightning-input>
+                    </div>
+                </div>
+            </div>
+
+            <template if:true={isValueSelected}>
+                <label class="slds-form-element__label">{label}</label>
+                <div class="slds-combobox_container slds-has-selection">
+                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right">
+                            <span class="slds-icon_container slds-combobox__input-entity-icon" title="Account">
+                                <lightning-icon icon-name={selectedIconName} alternative-text={selectedIconName} size="x-small"></lightning-icon>
+                            </span>
+                            <button type="button" class="slds-input_faux slds-combobox__input slds-combobox__input-value">
+                                <span class="slds-truncate">{selectedRecordName}</span>
+                            </button>
+                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" onclick={handleCommit}>
+                                <lightning-icon icon-name="utility:close" alternative-text="Remove selected option" size="x-small"></lightning-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <span class="sr-only results-found" aria-live="polite" tabindex="0" role="alert">
+                {recordsFoundMsg}
+            </span>
+
+            <div id="listbox-id-4" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid slds-m-top--none" role="listbox">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <template for:each={recordsList} for:item="rec">
+                        <li key={rec.id} role="presentation" class="slds-listbox__item searchresults">
+                            <div
+                                tabindex="0"
+                                onkeydown={onKeyDown}
+                                onclick={handleSelect}
+                                data-id={rec.id}
+                                data-mainfield={rec.mainField}
+                                data-subfield={rec.subField}
+                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                role="option"
+                                aria-selected="false"
+                            >
+                                <span class="slds-media__body">
+                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                        <mark>{rec.mainField}</mark>
+                                    </span>
+                                    <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                                        {objectLabel} • {rec.subField}
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

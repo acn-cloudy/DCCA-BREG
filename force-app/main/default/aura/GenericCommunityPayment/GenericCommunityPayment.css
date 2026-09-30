@@ -1,0 +1,12 @@
+.THIS {
+}
+.THIS.form_description {
+    border-bottom: 1px dotted #ccc;
+    clear: both;
+    display: inline-block;
+    margin: 0 0 1em;
+    color: #444;
+}
+.THIS.hpeapspinner {
+    height: 2000px;
+}

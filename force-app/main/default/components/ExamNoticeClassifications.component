@@ -1,0 +1,16 @@
+<apex:component controller="ExamNoticeController" access="global">
+    <apex:attribute access="global" name="applicationId" type="String" description="The application id" required="true" assignTo="{!recordId}"/>
+    <table>
+        <apex:repeat value="{!applicationClassifications}" var="applicationClassification">
+            <tr>
+                <td colspan="2" rowspan="2" style="width: 16.8pt;" valign="top">
+                </td>
+                <td colspan="2" rowspan="2" style="width: 450.7pt;" valign="top">
+                    <span>
+                        {!applicationClassification.ClassificationName__c}
+                    </span>
+                </td>
+            </tr>
+        </apex:repeat>
+    </table>
+</apex:component>

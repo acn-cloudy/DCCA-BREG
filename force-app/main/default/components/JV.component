@@ -1,0 +1,186 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="FiscalFormFeed" />
+    <div style="text-align: center;">
+        <h3>STATE OF HAWAII</h3>
+        <h2>JOURNAL VOUCHER</h2>
+    </div>
+    <div>
+        <div style="display:inline-block;width:38%;padding-left: 5px;vertical-align: top;">
+            <div style="margin-bottom:10px">
+                <p style="width:120px;display:inline-block;">Department No:</p>
+                <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;" > {!record.departmentNo} </h4>
+            </div>
+            <div>
+                <p style="width:120px;display:inline-block;">
+                    Department Date:
+                </p>
+                <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;" >  
+                    {!record.departmentDate}</h4>
+            </div>
+        </div>
+        <div style="display:inline-block;width:20%;text-align: center;">
+            <h4 style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;margin-bottom: 2px;">
+                {!record.fundName}
+            </h4>
+            <h5 style="width:200px;margin:auto;text-align: center;font-size:0.7em"> 
+                FUND</h5> 
+        </div>
+        <div style="display:inline-block;width:39%;text-align: right">
+            <div>
+                <p style="width:120px;display:inline-block;text-align:left;">Comptroller No:</p>
+                <p style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;">
+                </p>
+            </div>
+            <h5 style="width:200px;margin-left:auto;text-align: center;"> 
+               xxxxxx
+            </h5>
+            <div>
+                <p style="width:120px;display:inline-block;text-align:left;">
+                    Comptroller Date:
+                </p>
+                <p style="width:200px;border-bottom:1px solid;display:inline-block;text-align:center;">
+                    {!record.dateStr}
+                </p>
+            </div>
+            <h5 style="width:200px;margin-left:auto;text-align: center;"> 
+               MM/DD/YY</h5> 
+        </div>
+    </div>
+     <table>
+        <thead>
+            <tr>
+                <th rowspan="2"><h5>SFX</h5></th>
+                <th rowspan="2"><h5>TC</h5></th>
+                <th rowspan="2"><h5>F</h5></th>
+                <th rowspan="2"><h5>YR</h5></th>
+                <th rowspan="2"><h5>APP</h5></th>
+                <th rowspan="2"><h5>D</h5></th>
+                <th rowspan="2"><h5>ALLOT<br/>CAT</h5></th>
+                <th rowspan="2"><h5>SOURCE/<br/>OBJECT</h5></th>
+                <th rowspan="2"><h5>COST<br/>CENTER</h5></th>
+                <th colspan="2"><h5>PROJECT</h5></th>
+                <th rowspan="2"><h5>DEPT<br/>ACT</h5></th>
+                <th rowspan="2"><h5>G/L<br/>ACCT</h5></th>
+                <th rowspan="2"><h5>S/L ACCT</h5></th>
+                <th colspan="2"><h5>  REFERENCE DOC  </h5></th>
+                <th rowspan="2" colspan="2"><h5>AMOUNT</h5></th>
+                <th rowspan="2"><h5>M<br/>O<br/>D</h5></th>
+                <th rowspan="2"><h5>R<br/>E<br/>V</h5></th>
+                <th rowspan="2"><h5>OPTIONAL<br/>DEPARTMENTAL<br/>DATE</h5></th>
+                <th rowspan="3"><h5>REMARKS</h5></th>
+            </tr>
+            <tr>
+                <th><h5>NUMBER</h5></th>
+                <th><h5>PH</h5></th>
+                <th><h5>NUMBER</h5></th>
+                <th><h5>SFX</h5></th>
+            </tr>
+            <tr>
+                <th><h5>xx</h5></th>
+                <th><h5>xxx</h5></th>
+                <th><h5>x</h5></th>
+                <th><h5>xx</h5></th>
+                <th><h5>xxx</h5></th>
+                <th><h5>xx</h5></th>
+                <th><h5>xx</h5></th>
+                <th><h5>xxxx</h5></th>
+                <th><h5>xxxx</h5></th>
+                <th><h5>xxxxxx</h5></th>
+                <th><h5>xx</h5></th>
+                <th><h5>xxx</h5></th>
+                <th><h5>xxx</h5></th>
+                <th><h5>xxxxxx</h5></th>
+                <th ><h5>xxxxxxxx</h5></th>
+                <th><h5>xx</h5></th>
+                <th style="width: 140px"><h5>xxxxxxxxxxx</h5></th>
+                <th><h5>xx</h5></th>
+                <th><h5>x</h5></th>
+                <th><h5>x</h5></th>
+                <th><h5>x(22)</h5></th>
+            </tr>
+        </thead>
+        <tbody>
+            <apex:repeat var="fund" value="{!record.funds}">
+            <tr style="height: 23px">
+                <td><h4>{!fund.indexValue} </h4></td>
+                <td><h4>{!fund.tcValue}</h4></td>
+                <td><h4>{!fund.fValue}</h4></td>
+                <td><h4>{!fund.yrValue}</h4></td>
+                <td><h4>{!fund.appValue}</h4></td>
+                <td><h4>{!fund.dValue}</h4></td>
+                <td><h4>{!fund.alltCatValue}</h4></td>
+                <td><h4>{!fund.sourceObjValue}</h4></td>
+                <td><h4>{!fund.costCenterValue}</h4></td>
+                <td><h4>{!fund.projectNumValue}</h4></td>
+                <td><h4>{!fund.projectPhValue}</h4></td>
+                <td><h4>{!fund.deptActValue}</h4></td>
+                <td><h4>{!fund.gLActValue}</h4></td>
+                <td><h4>{!fund.sLActValue}</h4></td>
+                <td><h4>{!fund.referenceNumValue}</h4></td>
+                <td><h4>{!fund.referenceSFXValue}</h4></td>
+                <td style="text-align:right;"><h4>{!fund.jVAmount1}</h4></td>
+                <td><h4>{!fund.jVAmount2}</h4></td>
+                <td><h4>{!fund.modValue}</h4></td>
+                <td><h4>{!fund.revValue}</h4></td>
+                <td><h4>{!fund.optionalDepartmentalDate}</h4></td>
+                <td><h4>{!fund.remarks}</h4></td>
+            </tr>
+            </apex:repeat>
+            <tr>
+                <td colspan="15" style="text-align:left;vertical-align: text-bottom;">
+                    <h5 style="margin: 5px">EXPLANATON</h5>
+                    <p style="font-weight: unset;">
+                        <apex:outputText value="{!record.explanation}" escape="false"  >
+                        </apex:outputText>
+                    </p>
+                    
+                </td>
+                <td colspan="7" style="text-align:left;vertical-align: top;">
+                    <div style="margin: 5px">
+                        <h5>DEPARTMENTAL CERTIFICATION:</h5>
+                        <div>
+                            <p style="border-bottom: 1px solid;display:inline-block;width:43%;"> 
+                                {!record.departmentalCertification}
+                            </p>
+                            <p style="border-bottom: 1px solid;display:inline-block;width:43%;margin-left:50px;"> 
+                                &nbsp;
+                            </p>
+                        </div>
+                        <h5 style="width:40%;margin-left: auto;">
+                            for
+                            <span style="font-weight:400;margin-left:10%">
+                                HEAD OF DEPARTMENT
+                            </span> 
+                        </h5>
+                    </div>
+                    <div style="border-bottom: 1px solid;border-top: 1px solid; height: 2px"></div>
+                    <div style="margin: 5px">
+                        <h5>COMPTROLLER APPROVAL:</h5>
+                        <div>
+                            <p style="border-bottom: 1px solid;display:inline-block;width:43%;"> 
+                                {!record.commerceConsumerAffairs}
+                            </p>
+                            <p style="border-bottom: 1px solid;display:inline-block;width:43%;margin-left:50px;">
+                                &nbsp;
+                            </p>
+                        </div>
+                        <h5 style="width:40%;margin-left: auto;">
+                            for
+                            <span style="font-weight:400;margin-left:10%">
+                                COMPTROLLER
+                            </span> 
+                        </h5>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  
+ 
+    <div style="margin-top:3px">
+        <h5 style="display: inline-block; width:20%; margin-left: 78%;">
+            STATE ACCOUNTING FORM A-27 <br/>
+            AUGUST 1, 2011 (REVISED)
+        </h5>
+    </div>
+</apex:component>

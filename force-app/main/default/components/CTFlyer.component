@@ -1,0 +1,96 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="License__c" />
+    <div style="width: 525px;height: 407px;font-size:10px;box-sizing: border-box;position: relative;font-family: sans-serif;">
+        <div style="position: absolute;left: -10%;top: 0;width: 100%;">
+            <img src="{!$Resource.LogoBlack}" width="100%" />
+        </div>
+        <div style="position: absolute;top:0;right:0;width: 40%;">
+            <img src="{!$Resource.reserveSide}" width="100%" />
+        </div>
+        <div style="position: relative; padding: 30px 20px 0 20px;">
+            <h1 style="font-size:2.2em">Contractor License </h1>
+            <h1 style="font-size:2.2em;margin-left:10%">Renewal Cycle</h1>
+            <h5 style="text-align:center;width:70%;margin:10px 0;">
+                <b>Renew Online Beginning: </b>
+                <apex:outputText value="{0, date, EEEE MMMM d','  yyyy}">
+                    <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}" />
+                </apex:outputText>
+                <br/>
+            </h5>
+            <p><u>Active Firm/Sole Owner must be current with the below at the time of renewal, unless otherwise excluded* 
+            </u></p>
+            <p>Total cost to renew: 
+                <apex:outputText value="{0, number, $###,###.00}">
+                    <apex:param value="{!record.LicenseType__r.RenewalFee__c}" />
+                </apex:outputText>
+            </p>
+            <div style="position: relative;">
+                <div style="width:65%;display:inline-block;vertical-align:top;">
+                    <ul style="line-height: 1.5em;margin: 10px 0;">
+                        <li> General liability insurance valid past 
+                            <apex:outputText value="{0, date, EEE MMMM d','  yyyy}">
+                                <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                            </apex:outputText>
+                        </li>
+                        <li>*Workers compensation insurance valid past 
+                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                            </apex:outputText>
+                        </li>
+                        <li>Bond valid past 
+                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                            </apex:outputText>
+                            (if required to maintain bond)</li>
+                        <li>Tax clearance valid within 6 months of 
+                            <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                                <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}" />
+                            </apex:outputText>
+                        </li>
+                        <li>Designated principal Responsible Managing Employee (RME) <br/>
+                            <b>Note:</b> All RMEs must also renew for firm to be renewed</li>
+                    </ul>
+
+                    <p style="margin:10px 0;">
+                        <u>Active RME</u><br/>
+                        Total cost to renew: 
+                        <apex:outputText value="{0, number, $###,###.00}">
+                            <apex:param value="{!record.LicenseType__r.RenewalFee__c}" />
+                        </apex:outputText>
+                        <br/>
+                        <b>Note:</b> Employer must also renew for RME to be renewed.
+                    </p>
+                    <p  style="margin:10px 0;">
+                        <b>RME w/C-19 Class:</b> MUST submit Hardcopy renewal (cannot renew online) and must submit proof of completion of EPA or Board approved refresher training courses.</p>
+                    <p  style="margin:10px 0;">
+                        <u>Inactive Firm/Sole Owners/RME</u>
+                        <br/>Total cost to renew:
+                        <apex:outputText value="{0, number, $###,###.00}">
+                            <apex:param value="{!record.LicenseType__r.InactiveFirmSoleOwnerRenewalFee__c}" />
+                        </apex:outputText>
+                    </p>
+
+                </div>
+                <div style="width:34%;display:inline-block;">
+                    <h5 style="margin: 10px 0;"><b>
+                        Renewing online is faster <br/>than mailing in your renewal
+                    </b></h5>
+                    <h5 style="margin:15px 0"><b>
+                        It’s secure, fast and simple!<br/>
+                        Pay by credit card or checking account and have a receipt emailed to you.
+                    </b></h5>
+                    <div style="border:2px dashed;border-radius:5px;margin:5px 0;padding:5px 2px; text-align: center;">
+                        <b>
+                            A licensee who has not renewed by the license expiration date is 
+                            <u>unlicensed</u> and shall not contract
+                        </b>
+                    </div>
+                    <div style="text-align:right;">
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</apex:component>

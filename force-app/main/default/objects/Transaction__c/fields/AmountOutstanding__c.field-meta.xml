@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AmountOutstanding__c</fullName>
+    <description>PacPoint-CL092818 - Created for phase 1</description>
+    <formula>IF( TEXT(TransactionGroup__r.Status__c)  = &apos;Completed&apos;, 0, (TotalAmount__c - TotalRefundAmount__c)-  PaymentAmount__c +  OverPaymentAmount__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The net outstanding balance owned on this Transaction.  This is the Total Amount of the Transaction minus the Payment Amount (the amount that has already been paid) less any Refunds.</inlineHelpText>
+    <label>Amount Outstanding</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

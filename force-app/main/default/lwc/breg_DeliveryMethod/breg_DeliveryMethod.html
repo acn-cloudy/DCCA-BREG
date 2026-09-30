@@ -1,0 +1,67 @@
+<template>
+    <h1 class="dxp-text-heading-large">{labels.BREG_Cart_CheckOut}</h1>
+    </br>
+    <div class="slds-box">
+        <div lwc:if={digitalDocumentsCount} class="slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="doctype:pdf" alternative-text="PDF" title="PDF" size="x-small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span>{pdfDocumentsCountClause}</span>
+            </div>
+        </div>
+        <div lwc:if={printedDocumentsCount} class="slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="utility:print" alternative-text="Printed" title="Printed" size="x-small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span>{printedDocumentsCountClause}</span>
+            </div>
+        </div>
+
+        <h3 class="slds-p-top_x-small slds-border_bottom dxp-text-heading-medium">{labels.BREG_Cart_OrderTotal} <lightning-formatted-number value={totalPrice} format-style="currency" currency-code="USD"></lightning-formatted-number></h3>
+        </br>
+        <div class="slds-media slds-media_center">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="utility:info" alternative-text="Info" title="Info" size="xx-small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <span><lightning-formatted-rich-text value={labels.BREG_Cart_NoRefundsNotice}></lightning-formatted-rich-text></span>
+            </div>
+        </div>
+    </div>
+    </br>
+    <h2 class="dxp-text-heading-medium slds-border_bottom">{labels.BREG_Checkout_DeliveryForDigitalDocs}</h2>
+    </br>
+    <div>
+        {labels.BREG_Checkout_PDFToBeSentToEmail}
+        <c-breg_-contact-info contact-data={contactData} hide-email={hideEmail}></c-breg_-contact-info>
+    </div>
+    </br>
+    <div lwc:if={printedDocumentsCount}>
+        <h2 class="dxp-text-heading-medium slds-border_bottom">{labels.BREG_Checkout_DeliveryForPrintedDocs}</h2>
+        </br>
+        {labels.BREG_Checkout_DeliveryMethodForPrintedDocs}
+        <lightning-radio-group label={labels.BREG_Checkout_DeliveryMethodForPrintedDocs} variant="label-hidden" options={options} type="radio" value={printedDocsDeliveryOption} onchange={handleRadioGroupChange}></lightning-radio-group>
+
+        <div lwc:if={deliverPrintedDocsToAddress} class="slds-box">
+            <c-breg_-address is-nested onchange={handleDeliveryAddressChange}></c-breg_-address>
+        </div>
+        <div lwc:if={deliverPrintedDocsToDCCA} class="slds-box">
+            {labels.BREG_Checkout_EnterPhoneNumber}
+            <lightning-input class="slds-p-vertical_x-small" type="tel" label="Phone" placeholder="###-###-####" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required></lightning-input>
+
+            <div class="slds-border_bottom">{labels.BREG_Checkout_PickupLocation}</div>
+            </br>
+            <strong>
+                Department of Commerce & Consumer Affairs </br>
+                King Kalakaua Building </br>
+                335 Merchant Street, Rm. 201 </br>
+                Honolulu, Hawaii 96813
+            </strong>
+        </div>
+    </div>
+    <div class="slds-p-top_small">
+        <lightning-button variant="brand" label={labels.BREG_Continue} onclick={handleContinue} disabled={disableContinue}></lightning-button>
+    </div>
+</template>

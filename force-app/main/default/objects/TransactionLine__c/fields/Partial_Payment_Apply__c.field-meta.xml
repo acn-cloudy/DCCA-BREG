@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partial_Payment_Apply__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to be checked when allocating which transaction line should be associated with the payment</description>
+    <label>Partial Payment Apply</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Environment__c</fullName>
+    <description>Identifies which environment this org represents. Used to select the matching qual_Config__mdt record.</description>
+    <externalId>false</externalId>
+    <label>Environment</label>
+    <length>50</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

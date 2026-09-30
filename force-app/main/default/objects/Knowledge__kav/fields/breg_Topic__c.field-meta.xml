@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Topic__c</fullName>
+    <description>Aalta BREG-57</description>
+    <label>Topic</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Annual Report</fullName>
+                <default>false</default>
+                <label>Annual Report</label>
+            </value>
+            <value>
+                <fullName>Changes</fullName>
+                <default>false</default>
+                <label>Changes</label>
+            </value>
+            <value>
+                <fullName>Dashboard</fullName>
+                <default>false</default>
+                <label>Dashboard</label>
+            </value>
+            <value>
+                <fullName>Notifications</fullName>
+                <default>false</default>
+                <label>Notifications</label>
+            </value>
+            <value>
+                <fullName>Search &amp; Buy</fullName>
+                <default>false</default>
+                <label>Search &amp; Buy</label>
+            </value>
+            <value>
+                <fullName>Start</fullName>
+                <default>false</default>
+                <label>Start</label>
+            </value>
+            <value>
+                <fullName>Trade Names &amp; Marks</fullName>
+                <default>false</default>
+                <label>Trade Names &amp; Marks</label>
+            </value>
+            <value>
+                <fullName>Manage</fullName>
+                <default>false</default>
+                <label>Manage</label>
+            </value>
+            <value>
+                <fullName>Business Naming Rules</fullName>
+                <default>false</default>
+                <label>Business Naming Rules</label>
+            </value>
+            <value>
+                <fullName>Home</fullName>
+                <default>false</default>
+                <label>Home</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

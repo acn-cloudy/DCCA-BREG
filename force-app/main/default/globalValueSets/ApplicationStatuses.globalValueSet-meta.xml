@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>A0 - Flag Incoming Application</fullName>
+        <default>false</default>
+        <label>A0 - Flag Incoming Application</label>
+    </customValue>
+    <customValue>
+        <fullName>A1 - Application Submitted, Awaiting Review</fullName>
+        <default>false</default>
+        <label>A1 - Application Submitted, Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>A2 - Deficient, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>A2 - Deficient, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>A3 - Deficiency Notice Sent</fullName>
+        <default>false</default>
+        <label>A3 - Deficiency Notice Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>A4 - Rejected, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>A4 - Rejected, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>A5 - Rejected, Notice Sent</fullName>
+        <default>false</default>
+        <label>A5 - Rejected, Notice Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>A6 - Flagged by Tax; Renewal Deficiency Notice Sent.</fullName>
+        <default>false</default>
+        <label>A6 - Flagged by Tax; Renewal Deficiency Notice Sent.</label>
+    </customValue>
+    <customValue>
+        <fullName>A9 - Past Time Limit To Respond To Deficiency</fullName>
+        <default>false</default>
+        <label>A9 - Past Time Limit To Respond To Deficiency</label>
+    </customValue>
+    <customValue>
+        <fullName>AW - Application Withdrawal</fullName>
+        <default>false</default>
+        <label>AW - Application Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>B1 - To Board Awaiting Review</fullName>
+        <default>false</default>
+        <label>B1 - To Board Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>B6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>B6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>B7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>B7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>BH - Board Deferral</fullName>
+        <default>false</default>
+        <label>BH - Board Deferral</label>
+    </customValue>
+    <customValue>
+        <fullName>BW - Board Phase Withdrawal</fullName>
+        <default>false</default>
+        <label>BW - Board Phase Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>C1 - To Board, Awaiting Review</fullName>
+        <default>false</default>
+        <label>C1 - To Board, Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>C6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>C6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>C7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>C7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>C9 - Past Time Limit To Apply For License</fullName>
+        <default>false</default>
+        <label>C9 - Past Time Limit To Apply For License</label>
+    </customValue>
+    <customValue>
+        <fullName>D1 - Awaiting Dependency Review</fullName>
+        <default>false</default>
+        <label>D1 - Awaiting Dependency Review</label>
+    </customValue>
+    <customValue>
+        <fullName>D2 - Continuing Education Missing</fullName>
+        <default>false</default>
+        <label>D2 - Continuing Education Missing</label>
+    </customValue>
+    <customValue>
+        <fullName>DW - Dependency Review Phase Withdrawal</fullName>
+        <default>false</default>
+        <label>DW - Dependency Review Phase Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>E1 - To Executive Officer Awaiting Review</fullName>
+        <default>false</default>
+        <label>E1 - To Executive Officer Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>E2 - Flagged By Tax; Renewal Appl. Sent To Exec</fullName>
+        <default>false</default>
+        <label>E2 - Flagged By Tax; Renewal Appl. Sent To Exec</label>
+    </customValue>
+    <customValue>
+        <fullName>E3 - Executive Officer Requests Add&apos;l Information</fullName>
+        <default>false</default>
+        <label>E3 - Executive Officer Requests Add&apos;l Information</label>
+    </customValue>
+    <customValue>
+        <fullName>E6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>E6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>E7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>E7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>EA - EO Approved</fullName>
+        <default>false</default>
+        <label>EA - EO Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>EW - Application Withdrawn After</fullName>
+        <default>false</default>
+        <label>EW - Application Withdrawn After</label>
+    </customValue>
+    <customValue>
+        <fullName>EY - Cease Processing</fullName>
+        <default>false</default>
+        <label>EY - Cease Processing</label>
+    </customValue>
+    <customValue>
+        <fullName>F1 - To Executive Secretary Awaiting Review</fullName>
+        <default>false</default>
+        <label>F1 - To Executive Secretary Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>F6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>F6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>F7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>F7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>F9 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>F9 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>H1 - Awaiting Licensing</fullName>
+        <default>false</default>
+        <label>H1 - Awaiting Licensing</label>
+    </customValue>
+    <customValue>
+        <fullName>H8 - Application Suspense Warning</fullName>
+        <default>false</default>
+        <label>H8 - Application Suspense Warning</label>
+    </customValue>
+    <customValue>
+        <fullName>HC - Application Completed</fullName>
+        <default>false</default>
+        <label>HC - Application Completed</label>
+    </customValue>
+    <customValue>
+        <fullName>HD - Application Terminated</fullName>
+        <default>false</default>
+        <label>HD - Application Terminated</label>
+    </customValue>
+    <customValue>
+        <fullName>HW - Application Withdrawn</fullName>
+        <default>false</default>
+        <label>HW - Application Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>HX - Application Invalid, Delete</fullName>
+        <default>false</default>
+        <label>HX - Application Invalid, Delete</label>
+    </customValue>
+    <customValue>
+        <fullName>I1 - Licensed Or Renewed, Awaiting Issuance</fullName>
+        <default>false</default>
+        <label>I1 - Licensed Or Renewed, Awaiting Issuance</label>
+    </customValue>
+    <customValue>
+        <fullName>L1 - Applications Submitted, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>L1 - Applications Submitted, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>L2 - Deficient, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>L2 - Deficient, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>L3 - Deficiency Notice Sent</fullName>
+        <default>false</default>
+        <label>L3 - Deficiency Notice Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>L4 - Rejected Awaiting Notice</fullName>
+        <default>false</default>
+        <label>L4 - Rejected Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>L5 - Rejected, Notice Sent</fullName>
+        <default>false</default>
+        <label>L5 - Rejected, Notice Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>L9 - Past Time Limit To Apply For License</fullName>
+        <default>false</default>
+        <label>L9 - Past Time Limit To Apply For License</label>
+    </customValue>
+    <customValue>
+        <fullName>LO - Eligible For License, Awaiting Further Requirements</fullName>
+        <default>false</default>
+        <label>LO - Eligible For License, Awaiting Further Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>LW - Licensing Phase Withdrawal</fullName>
+        <default>false</default>
+        <label>LW - Licensing Phase Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>M1 - Renewal Mailed</fullName>
+        <default>false</default>
+        <label>M1 - Renewal Mailed</label>
+    </customValue>
+    <customValue>
+        <fullName>O1 - To (Second) Board, Awaiting Review</fullName>
+        <default>false</default>
+        <label>O1 - To (Second) Board, Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>OH - (Second) Board Phase Deferral</fullName>
+        <default>false</default>
+        <label>OH - (Second) Board Phase Deferral</label>
+    </customValue>
+    <customValue>
+        <fullName>OW - (Second) Board Phase Withdrawal</fullName>
+        <default>false</default>
+        <label>OW - (Second) Board Phase Withdrawal</label>
+    </customValue>
+    <customValue>
+        <fullName>P1 - Awaiting Review</fullName>
+        <default>false</default>
+        <label>P1 - Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>P2 - Deficient, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>P2 - Deficient, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>P3 - Deficiency Notice Sent</fullName>
+        <default>false</default>
+        <label>P3 - Deficiency Notice Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>P9 - Past Time Limt To Meet Exam</fullName>
+        <default>false</default>
+        <label>P9 - Past Time Limt To Meet Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>PO - Approved For Exam, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>PO - Approved For Exam, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>R1 - License Issued/Transaction Completed Awaiting Board Ratifica</fullName>
+        <default>false</default>
+        <label>R1 - License Issued/Transaction Completed Awaiting Board Ratifica</label>
+    </customValue>
+    <customValue>
+        <fullName>R6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>R6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>R7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>R7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>S1 - Awaiting Review</fullName>
+        <default>false</default>
+        <label>S1 - Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>S6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>S6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>S7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>S7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>T1 - Awaiting Review</fullName>
+        <default>false</default>
+        <label>T1 - Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>T6 - Denied, Awaiting Notice</fullName>
+        <default>false</default>
+        <label>T6 - Denied, Awaiting Notice</label>
+    </customValue>
+    <customValue>
+        <fullName>T7 - Denial Letter Sent</fullName>
+        <default>false</default>
+        <label>T7 - Denial Letter Sent</label>
+    </customValue>
+    <customValue>
+        <fullName>TC - Closed</fullName>
+        <default>false</default>
+        <label>TC - Closed</label>
+    </customValue>
+    <customValue>
+        <fullName>TN - License No Longer Required Or Sunseted&quot;&quot;</fullName>
+        <default>false</default>
+        <label>TN - License No Longer Required Or Sunseted&quot;&quot;</label>
+    </customValue>
+    <customValue>
+        <fullName>U1 - Awaiting Review</fullName>
+        <default>false</default>
+        <label>U1 - Awaiting Review</label>
+    </customValue>
+    <customValue>
+        <fullName>UP - License Upgraded, This License No Longer Required</fullName>
+        <default>false</default>
+        <label>UP - License Upgraded, This License No Longer Required</label>
+    </customValue>
+    <customValue>
+        <fullName>X1 - Awaiting Exam</fullName>
+        <default>false</default>
+        <label>X1 - Awaiting Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>XF - Failed Exam</fullName>
+        <default>false</default>
+        <label>XF - Failed Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>X3 - Must Take Remedial Course</fullName>
+        <default>false</default>
+        <label>X3 - Must Take Remedial Course</label>
+    </customValue>
+    <customValue>
+        <fullName>XL - Score Posted Awaiting Result Letter</fullName>
+        <default>false</default>
+        <label>XL - Score Posted Awaiting Result Letter</label>
+    </customValue>
+    <customValue>
+        <fullName>XN - No Show</fullName>
+        <default>false</default>
+        <label>XN - No Show</label>
+    </customValue>
+    <customValue>
+        <fullName>XP - Postponed Exam</fullName>
+        <default>false</default>
+        <label>XP - Postponed Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>XR - Took Exam, Awaiting Results</fullName>
+        <default>false</default>
+        <label>XR - Took Exam, Awaiting Results</label>
+    </customValue>
+    <customValue>
+        <fullName>XS - Scheduled For Exam</fullName>
+        <default>false</default>
+        <label>XS - Scheduled For Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>XW - Withdrew From Exam</fullName>
+        <default>false</default>
+        <label>XW - Withdrew From Exam</label>
+    </customValue>
+    <customValue>
+        <fullName>ZR - Revoked</fullName>
+        <default>false</default>
+        <label>ZR - Revoked</label>
+    </customValue>
+    <description>PacPoint-FT082819 - Created for PVL Phase 1</description>
+    <masterLabel>Application Statuses</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

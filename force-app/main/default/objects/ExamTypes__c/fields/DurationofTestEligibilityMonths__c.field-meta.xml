@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DurationofTestEligibilityMonths__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the number of months the candidate has to take the exam from when they are made eligible.</inlineHelpText>
+    <label>Duration of Test Eligibility (Months)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

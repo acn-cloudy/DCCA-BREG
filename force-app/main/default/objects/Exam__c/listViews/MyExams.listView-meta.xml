@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyExams</fullName>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>AssistantExaminer__c</columns>
+    <columns>InterviewDueDate__c</columns>
+    <columns>InterviewScheduledDate__c</columns>
+    <columns>CompletionDateofFirstInterview__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Exams</label>
+</ListView>

@@ -1,0 +1,144 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template if:false={readOnly}>
+            <lightning-layout-item lwc:if={config.labelOverride2} size="12" class="slds-var-m-bottom_small form-layout-item">
+                <lightning-formatted-rich-text value={config.labelOverride2}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showOutstandingSharesCountField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="outstandingSharesCount"
+                    value={outstandingSharesCountValue}
+                    label="Number of Outstanding Shares of the Subsidiary Corporation"
+                    type="number"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-input
+                    name="classSeries"
+                    value={classSeriesValue}
+                    label="Class/Series"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showSharesCountField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="sharesCount"
+                    value={sharesCountValue}
+                    label="Number of shares"
+                    type="number"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showOwnedSharesCountField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="ownedSharesCount"
+                    value={ownedSharesCountValue}
+                    label="Number of Outstanding Shares of the Subsidiary, owned by the Parent Corporation"
+                    type="number"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showParValueField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="parValue"
+                    value={parValueValue}
+                    label="Par Value"
+                    type="number"
+                    formatter="currency"
+                    step="0.01"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showParTotalField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="parTotal"
+                    value={parTotalValue}
+                    label="Par Total"
+                    type="number"
+                    formatter="currency"
+                    step="0.01"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showAmountField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="amount"
+                    value={amountValue}
+                    label="Amount"
+                    type="number"
+                    formatter="currency"
+                    step="0.01"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <template if:true={readOnly}>
+            <template lwc:if={showOutstandingSharesCountField}>
+                <lightning-layout-item size="12">
+                    <p>
+                        <b>Number of Outstanding Shares of the Subsidiary Corporation: </b
+                        ><lightning-formatted-number value={readOnlyOutstandingSharesCountValue}></lightning-formatted-number>
+                    </p>
+                </lightning-layout-item>
+            </template>
+            <lightning-layout-item size="12">
+                <p><b>Class/Series: </b><lightning-formatted-text value={readOnlyClassSeriesValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+            <template lwc:if={showSharesCountField}>
+                <lightning-layout-item size="12">
+                    <p><b>Number of shares: </b><lightning-formatted-number value={readOnlySharesCountValue}></lightning-formatted-number></p>
+                </lightning-layout-item>
+            </template>
+            <template lwc:if={showOwnedSharesCountField}>
+                <lightning-layout-item size="12">
+                    <p>
+                        <b>Number of Outstanding Shares of the Subsidiary, owned by the Parent Corporation: </b
+                        ><lightning-formatted-number value={readOnlyOwnedSharesCountValue}></lightning-formatted-number>
+                    </p>
+                </lightning-layout-item>
+            </template>
+            <template lwc:if={showParValueField}>
+                <lightning-layout-item size="12">
+                    <p><b>Par Value: </b><lightning-formatted-text value={readOnlyParValueValue}></lightning-formatted-text></p>
+                </lightning-layout-item>
+            </template>
+            <template lwc:if={showParTotalField}>
+                <lightning-layout-item size="12">
+                    <p><b>Par Total: </b><lightning-formatted-text value={readOnlyParTotalValue}></lightning-formatted-text></p>
+                </lightning-layout-item>
+            </template>
+            <template lwc:if={showAmountField}>
+                <lightning-layout-item size="12">
+                    <p><b>Amount: </b><lightning-formatted-text value={readOnlyAmountValue}></lightning-formatted-text></p>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

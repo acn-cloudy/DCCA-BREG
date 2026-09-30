@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastTaxClearanceDate__c</fullName>
+    <description>PacPoint-KN02132020-Created for PVL Phase 1 Sprint 3</description>
+    <inlineHelpText>The date of the most recent tax clearance.</inlineHelpText>
+    <label>Last Tax Clearance Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

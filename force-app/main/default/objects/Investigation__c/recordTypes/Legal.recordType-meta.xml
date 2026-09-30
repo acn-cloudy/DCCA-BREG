@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Legal</fullName>
+    <active>true</active>
+    <label>Legal</label>
+    <picklistValues>
+        <picklist>ChecklistStatus__c</picklist>
+        <values>
+            <fullName>Closing Actions Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft Actions Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft Settlement Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hearing Preparation Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interviews Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investigation Review Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Violation Determination Complete</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DraftActiontobeTaken__c</picklist>
+        <values>
+            <fullName>Cease and Desist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Injunction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Petition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspension</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Appellate Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Circuit Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commissioner%E2%80%99s Final Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent Agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corrections by Attorney Required %28L%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Currently in Hearing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ex Parte Motion for Service by Publication</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Judgement Enforcing Commissioner%E2%80%99s Final Order</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Judgement Enforcing Commissioner%E2%80%99s Final Order %28BOC%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Order Ready to Serve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Hearing Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending Request for Hearing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Preliminary Order to Cease and Desist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Supervising Attorney Review %28L%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recommend to Close</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remand to Appellate Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remand to Circuit Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remand to Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supreme Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Under Legal Review</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Warning Letter</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

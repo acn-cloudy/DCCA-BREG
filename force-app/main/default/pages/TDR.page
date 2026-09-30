@@ -1,0 +1,103 @@
+<apex:page sidebar="false"
+           showHeader="false"
+           renderAs="pdf"
+           controller="TDRFormController"
+           standardStylesheets="false"
+           applyHtmlTag="false"
+           applyBodyTag="false">
+    <html>
+    <head>
+        <style>
+            @page {
+                size: 8.25in 11in;
+                margin: 0;
+            }
+
+            body {
+                height: 100%;
+                padding: 0;
+                margin-top: 34px;
+                margin-left: 13px;
+                margin-right: 5px;
+                font-family: Arial Unicode MS, sans-serif;
+            }
+
+            .label {
+                font-size: 7pt;
+            }
+
+            .label-small {
+                font-size: 5pt;
+            }
+
+            .value-large_bold {
+                font-size: 10pt;
+                font-weight: bold;
+                font-family: SansSerif, sans-serif;
+            }
+
+            .value-small_bold {
+                font-size: 8pt;
+                font-weight: bold;
+                font-family: SansSerif, sans-serif;
+            }
+
+            .bold {
+                font-weight: bold;
+                font-family: SansSerif;
+            }
+
+            h1, h2, h3, h4, h5, p {
+                margin: 0;
+                padding: 2px;
+            }
+
+            h1 {
+                font-size: 3em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.4em;
+            }
+
+            h4 {
+                font-size: 7pt;
+                font-family: SansSerif, sans-serif;
+            }
+
+            h5 {
+                font-size: 0.7em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            table, th, td {
+                border: 1px solid;
+                border-collapse: collapse;
+                text-align: center;
+                padding: 0;
+            }
+
+            table {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <apex:variable var="cntIndex" value="{!0}"/>
+    <apex:repeat var="value" value="{!values}">
+        <apex:variable var="cntIndex" value="{!cntIndex+1}"/>
+        <body>
+        <c:TDR record="{!value}" copyStr="{!copyStr}" userName="{!userName}"/>
+        </body>
+        <apex:variable var="temp" value="0" rendered="{!cntIndex <> values.size}">
+            <div style="page-break-after:always;"></div>
+        </apex:variable>
+    </apex:repeat>
+    </html>
+</apex:page>

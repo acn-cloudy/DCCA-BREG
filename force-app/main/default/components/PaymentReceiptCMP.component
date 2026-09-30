@@ -1,0 +1,168 @@
+<apex:component access="global" controller="PaymentReceiptPdfExtController">
+    <style>
+        body {
+            font-size: 10pt;
+        }
+
+        * {
+            font-family: Arial Unicode MS, sans-serif; /* Arial Unicode MS for the special characters */
+        }
+
+
+        b {
+            font-family: Helvetica, sans-serif; /* Different font for bold since the Arial Unicode doesn't work on BOLD */
+        }
+    </style>
+    <apex:attribute name="record" description="The type of record we are viewing."
+                    type="pymt__PaymentX__c" required="true" access="global" assignTo="{!paymentRecord}" />
+    
+    <table style="width: 100%;border-collapse: collapse;">
+        <tr>
+            <td width="15%" style="text-align: right">
+                <!--Note:
+                    Please notes that currently the logo is hard coded to one of the document in Maindev called rtaImage.
+                    From the previous plan, there will be one document to be created in production called rtaImage once PVL deployment is completed.
+                    Please switch it back once the PVL deployment is completed. -->
+                <apex:image width="100px" url="https://hi-dcca--maindev--c.documentforce.com/servlet/servlet.ImageServer?id=01535000000IgQ6&oid=00D3500000016UW&lastMod=1589406117000"/>
+            </td>
+            <td width="3%"></td>
+            <td width="82%">
+                <b>STATE OF HAWAII</b><br/>
+                <b>
+                        {!IF(record.Division__c == 'PUC','Public Utilities Commission','DEPT OF COMMERCE & CONSUMER AFFAIRS')}
+                </b><br/><br/>
+                <b>OFFICIAL RECEIPT</b>
+            </td>
+        </tr>
+    </table>
+    <p style="width: 100%; text-align: right;"></p>
+    <p>
+        <b>Reference Number:</b> {!record.Transaction__r.Name}
+    </p>
+    <p>
+        <b>DATE:</b>&nbsp;
+        <apex:outputText value="{0,date,M/dd/yyyy}">
+            <apex:param value="{!record.pymt__Date__c}"/>
+        </apex:outputText>
+    </p>
+    <p>
+        <b>ACCOUNT:</b>
+        <apex:repeat value="{!tAccounts}" var="tgaccts" rendered="{!tAccounts != null}">
+        {!tgaccts.Account__r.Name},
+        </apex:repeat>
+        <apex:outputText value="{!record.pymt__Account__r.Name}"
+                         rendered="{!tAccounts != null && tAccounts.size <= 0}"/>
+
+    </p>
+    <p>
+        <apex:outputText rendered="{!record.pymt__Status__c == 'Voided'}" value="">
+            <b>STATUS:</b> Voided
+        </apex:outputText>
+    </p>
+    <p>
+        <b>TRANSACTION LINES:</b>
+    </p>
+    <!--Payment Transaction-->
+    <apex:outputPanel rendered="{!record.Transaction__r.TransactionType__c == 'Payment'}">
+        <table class="bordered widthFull" 
+        style="width: 100%;table-layout: fixed;page-break-inside: auto;-fs-table-paginate: paginate;border: 1px solid #ccc;" 
+        cellspacing="0">
+            <thead style="display: table-header-group;">
+            <tr>
+                <th style="border: 1px solid #ccc;padding: 5px;" width="15px"><b>Cashier Code</b></th>
+                <th style="border: 1px solid #ccc;padding: 5px;" width="70px"><b>Name</b></th>
+                <th style="border: 1px solid #ccc;padding: 5px;" width="15px">
+                    <b>
+                        <apex:outputText value="Amount"
+                                         rendered="{!record.Division__c != 'PUC'}"/>
+                        <apex:outputText value="Description"
+                                         rendered="{!record.Division__c == 'PUC'}"/>
+                    </b>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!tLines}" var="tl" rendered="{!tLines != null}">
+                <tr class="page-break">
+                    <td style="border: 1px solid #ccc;padding: 5px;" width="20px">
+                            {!tl.cashierCode}
+                    </td>
+                    <td style="border: 1px solid #ccc;padding: 5px;" width="60px">
+                        <apex:outputText value="{!tl.cashierCodeName}" escape="false"/>
+                    </td>
+                    <td style="border: 1px solid #ccc;padding: 5px;" width="20px">
+                        <apex:outputText value="&#36;" rendered="{!record.Division__c != 'PUC'}"
+                                         escape="false"/>
+                        <apex:outputText value="{!tl.amount}" rendered="{!record.Division__c != 'PUC'}"/>
+                        <apex:outputText value="{!tl.description}"
+                                         rendered="{!record.Division__c == 'PUC'}"/>
+                    </td>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </apex:outputPanel>
+    <!--Grouped Transaction-->
+    <apex:outputPanel rendered="{!record.Transaction__r.TransactionType__c == 'Group'}">
+        <table class="bordered widthFull" 
+            style="width: 100%;table-layout: fixed;page-break-inside: auto;-fs-table-paginate: paginate;border: 1px solid #ccc;" 
+            cellspacing="0">
+            <thead style="display: table-header-group;">
+            <tr class="page-break">
+                <th width="20px" style="border: 1px solid #ccc;padding: 5px;" >Account</th>
+                <th width="5px" style="border: 1px solid #ccc;padding: 5px;">Cashier Code</th>
+                <th width="60px" style="border: 1px solid #ccc;padding: 5px;">Name</th>
+                <th width="15px" style="border: 1px solid #ccc;padding: 5px;">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!gTransactionLines}" var="tl" rendered="{!gTransactionLines != null}">
+                <tr class="page-break">
+                    <td width="20px" style="border: 1px solid #ccc;padding: 5px;">
+                        <apex:outputText value="{!tl.accountName}" escape="false"/>
+                    </td>
+                    <td width="10px" style="border: 1px solid #ccc;padding: 5px;">
+                            {!tl.cashierCode}
+                    </td>
+                    <td width="50px" style="border: 1px solid #ccc;padding: 5px;">
+                        <apex:outputText value="{!tl.cashierCodeName}" escape="false"/>
+                    </td>
+                    <td width="20px" style="border: 1px solid #ccc;padding: 5px;">
+                        ${!tl.amount}
+                    </td>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!record.Transaction__r.Description__c == null}"><br/></apex:outputPanel>
+    <apex:outputPanel rendered="{!record.Transaction__r.Description__c != null}">
+        <p><b>DESCRIPTION:</b>&nbsp;<apex:outputField value="{!record.Transaction__r.Description__c}"/>
+        </p>
+    </apex:outputPanel>
+    <b>AMOUNT:</b>&nbsp;<apex:outputField value="{!record.pymt__Amount__c}"/>
+    <p><b>PAYMENT TYPE:</b>&nbsp;<apex:outputField value="{!record.pymt__Payment_Type__c}"/>
+    </p>
+    <apex:outputPanel rendered="{!record.pymt__Memo__c != null}">
+        <b>MEMO:</b>&nbsp;<apex:outputField value="{!record.pymt__Memo__c}"/>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!record.pymt__Check_Number__c != null}">
+        <b>CHECK NUMBER:</b>&nbsp;<apex:outputField value="{!record.pymt__Check_Number__c}"/>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!record.pymt__Last_4_Digits__c != null}">
+        <apex:outputPanel rendered="{!record.pymt__Check_Number__c != null}">
+            <p><b>LAST 4 DIGITS OF CREDIT CARD:</b>&nbsp;<apex:outputField value="{!record.pymt__Last_4_Digits__c}"/>
+            </p>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!record.pymt__Check_Number__c == null}">
+            <b>LAST 4 DIGITS OF CREDIT CARD:</b>&nbsp;<apex:outputField value="{!record.pymt__Last_4_Digits__c}"/>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    <apex:outputPanel >
+        <apex:outputPanel >
+            <p><b>CUSTOMER SIGNATURE: </b>&nbsp;_____________________________
+            </p>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+</apex:component>

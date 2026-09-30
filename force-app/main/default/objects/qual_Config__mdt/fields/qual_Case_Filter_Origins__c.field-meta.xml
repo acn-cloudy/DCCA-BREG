@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Case_Filter_Origins__c</fullName>
+    <description>Comma or newline-separated list of allowed Case Origin values. Leave blank to allow all origins.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Allowed Origins</label>
+    <length>32000</length>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

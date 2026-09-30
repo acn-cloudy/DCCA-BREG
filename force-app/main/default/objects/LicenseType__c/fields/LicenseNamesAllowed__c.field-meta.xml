@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseNamesAllowed__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>f blank, trade/professional names are not allowed for this license type. If a number is entered, it indicates the maximum number of active trade/professional names allowed. (The enforcement of this maximum number is not currently automated.)</inlineHelpText>
+    <label>License Names Allowed</label>
+    <length>10</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

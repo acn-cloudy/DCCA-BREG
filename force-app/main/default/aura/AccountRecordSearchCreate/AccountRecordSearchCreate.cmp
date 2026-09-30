@@ -1,0 +1,79 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" 
+                controller="AccountRecordsSearchCreate" extends="c:Basic">
+    <aura:attribute name="accountBPID" type="String" />
+    <aura:attribute name="accountName" type="String" />
+    <aura:attribute name="accountFEIN" type="String" />
+    <aura:attribute name="layoutName" type="String" />
+    <aura:attribute name="sObjectName" type="string"  default="Account"/>
+    <aura:attribute name="displayOptions" type="List" />
+    <aura:attribute name="accountType" type="String" />
+    <aura:attribute name="accounts" type="List" />
+    <aura:attribute name="headNames" type="List" />
+    <aura:attribute name="columnNames" type="List" />
+    <aura:attribute name="searchAccount" type="Boolean" default="false" />
+    <aura:attribute name="newAccountModal" type="Boolean" default="false" />
+    <aura:attribute name="selectedAccount" type="Object" />
+    <aura:attribute name="accountValueMap" type="Object" />
+    <aura:attribute name="next" type="Object" />
+    <aura:handler name="message" event="c:Message" action="{!c.handleCreateAccountRecords}"/>
+    
+    <aura:method name="getAccountFields" action="{!c.initiateAction}">
+        <aura:attribute name="fieldSetName" type="String" default="parameter 1"/>
+    </aura:method>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-1" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+            Search for {!v.accountType}
+        </div>
+        <aura:if isTrue="{!v.accountType == 'Person Account'}">
+            <div class="slds-col slds-size_1-of-4" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+                <ui:inputText aura:id="bpId" label="Social Security Number" required="true" class="slds-input" value="{!v.accountBPID}"/>
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-col slds-size_1-of-4" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+                    <ui:inputText aura:id="accountName" label="Business Name" class="slds-input" value="{!v.accountName}"/>
+                </div>
+                <div class="slds-col slds-size_1-of-4" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+                    <ui:inputText aura:id="accountFEIN" label="FEIN" class="slds-input" value="{!v.accountFEIN}"/>
+                </div>
+            </aura:set>
+        </aura:if>
+        <div class="slds-col slds-size_1-of-1" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+            <button style="margin-top: 15px;" class="slds-button slds-button_neutral" onclick="{!c.search}" >	          				
+                Search
+                <lightning:icon iconName="utility:search" size="xx-small" alternativeText="Search"/>
+            </button>
+            <!-- Let users to create new accounts only if the selected metadata allows it -->
+            <button style="margin-top: 15px;" class="slds-button slds-button_neutral" onclick="{!c.createNewAccount}" >	          				
+                Create Account &nbsp;
+                <lightning:icon iconName="utility:new" size="xx-small" alternativeText="Create Account"/>
+            </button>
+        </div>                            
+        
+        <!-- Else, if clicked, display additional info -->
+        <aura:if isTrue="{!v.searchAccount}">
+            <div class="slds-col slds-size_1-of-1" style="padding-right: 5px; padding-left: 5px; margin-bottom: 10px;">
+                Search Result: {!v.accounts.length} matched found
+            </div>
+            <!-- If an account was found after the search operation, display it -->
+            <c:SelectListView records="{!v.accounts}"
+                             selectOne="true"
+                              headNames="{!v.headNames}"
+                              columnNames="{!v.columnNames}"
+                              valueMap="{!v.accountValueMap}" />          
+        </aura:if>
+        <aura:if isTrue="{!v.newAccountModal}" > 
+            <c:PVLPopup title="Create New Account" hide="{!c.cancelCreateAccount}">
+                <c:AccountRecordsCreation aura:id="newAccount" 
+                                          recordTypeName="{!v.accountType}" 
+                                          sObjectName="{!v.sObjectName}"
+                                          layoutName="{!v.layoutName}" />
+                
+                <aura:set attribute="footers">
+                    <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{! c.cancelCreateAccount}" />
+                    <lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.create }" />
+                </aura:set>
+            </c:PVLPopup>
+        </aura:if>
+    </div>	
+</aura:component>

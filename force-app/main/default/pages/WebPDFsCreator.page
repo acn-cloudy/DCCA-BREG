@@ -1,0 +1,9 @@
+<apex:page standardController="DocGeneratorSettings__c" extensions="WebDocumentMutiExt" sidebar="false" showHeader="false" 
+     standardStylesheets="false" renderas="PDF"
+    applyHtmlTag="false" applyBodyTag="false"  >
+<html>
+<body style="font-family:Courier New, Courier, monospace">
+    <apex:outputText value="{!content }" escape="false"/>
+</body>
+</html>
+</apex:page>

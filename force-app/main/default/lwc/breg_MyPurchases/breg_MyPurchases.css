@@ -1,0 +1,85 @@
+.custom-link {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.column-header {
+    font-weight: 700;
+    background-color: var(--slds-g-color-neutral-base-95,#f3f3f3);
+    text-transform: uppercase;
+}
+
+.pagination-row {
+    min-height: 2.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.pagination-btn {
+    background: none;
+    border: none;
+    color: #363c3f;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    margin: 0 0.1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.15s;
+    height: 2rem;
+    min-width: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+    background: none;
+}
+
+.pagination-btn:not(:disabled):hover {
+    background: #f0f0f0;
+}
+
+.items-per-page-selector {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.items-per-page-selector .slds-select {
+    min-width: 60px;
+    max-width: 80px;
+    height: 2rem;
+    font-size: 1rem;
+    margin-right: 0.25rem;
+}
+
+.items-per-page-label {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .pagination-row {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .pagination-items {
+    justify-content: center;
+    display: flex;
+  }
+
+  .purchases-container {
+    overflow: auto;
+  }
+
+  .purchases-content {
+    min-width: 800px;
+  }
+
+  .table-header {
+    background-color: var(--slds-g-color-neutral-base-95,#f3f3f3);
+  }
+}

@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="value" type="String" />    
+    <c:Popover >
+        <aura:set attribute="popoverBody">                                           
+            <div aria-label="" class="slds-rich-text-area__content slds-grow slds-cell-wrap">
+                    <ui:outputTextArea aura:id="oTextarea" value="{!v.value}"/>
+                </div>
+        </aura:set>  
+        <span class="slds-truncate">{!v.value}</span>
+    </c:Popover>					
+      
+</aura:component>

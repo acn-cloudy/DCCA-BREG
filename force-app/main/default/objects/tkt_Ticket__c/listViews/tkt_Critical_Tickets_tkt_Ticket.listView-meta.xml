@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tkt_Critical_Tickets_tkt_Ticket</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Critical Tickets</label>
+    <queue>tkt_Critical_Tickets</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

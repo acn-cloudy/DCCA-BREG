@@ -1,0 +1,16 @@
+<apex:page standardController="License__c"
+           renderAs="pdf"
+           showHeader="false"
+           applyHtmlTag="false"
+           applyBodyTag="false">
+    <c:LicREBRenewalEmailOnlineHardcopyTpl record="{!License__c}"/>
+    <div style="display: none;">
+        <apex:outputText rendered="false" value="{!License__c.Name}"/>
+        <apex:outputText rendered="false" value="{!License__c.LicenseType__r.Name}"/>
+        <apex:outputText rendered="false" value="{!License__c.LicenseType__r.StartofRenewalPeriod__c}"/>
+        <apex:outputText rendered="false" value="{!License__c.LicenseType__r.EndofRenewalPeriod__c}"/>
+        <apex:outputText rendered="false" value="{!License__c.LicenseType__r.LicenseTypeExpireDate__c}"/>
+        <apex:outputText rendered="false" value="{!License__c.LicenseType__r.RestorationDeadline__c}"/>
+        <apex:outputText rendered="false" value="{!License__c.PVL_Portal_User__r.Email__c}"/>
+    </div>
+</apex:page>

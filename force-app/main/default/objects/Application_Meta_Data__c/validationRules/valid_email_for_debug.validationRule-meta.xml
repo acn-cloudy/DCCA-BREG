@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>valid_email_for_debug</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF ( Debug_Mode__c &amp;&amp;  ISBLANK(Debug_Email__c), true, false )</errorConditionFormula>
+    <errorDisplayField>Debug_Email__c</errorDisplayField>
+    <errorMessage>If Debug mode is on, an Email address is required</errorMessage>
+</ValidationRule>

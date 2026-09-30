@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsDefaultTeamNumber__c</fullName>
+    <description>PacPoint-JB103118 - Created for BREG phase 1: Used in Process Builder to automate Intake Status email to Case Team members. Set default minimum number of team members present to receive the initial email here.</description>
+    <formula>TotalNumberCaseTeam__c &gt;= 1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>IsDefaultTeamNumber</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

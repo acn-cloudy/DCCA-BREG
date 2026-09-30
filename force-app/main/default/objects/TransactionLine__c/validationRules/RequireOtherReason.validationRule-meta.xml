@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireOtherReason</fullName>
+    <active>true</active>
+    <description>PacPoint-IC010919- Created for Phase 1. If Other is checked, require a reason the Other text box.</description>
+    <errorConditionFormula>AND(OtherRefundReason__c, ISBLANK( OtherRefundReasonText__c ) )</errorConditionFormula>
+    <errorDisplayField>OtherRefundReasonText__c</errorDisplayField>
+    <errorMessage>Please specify your reason.</errorMessage>
+</ValidationRule>

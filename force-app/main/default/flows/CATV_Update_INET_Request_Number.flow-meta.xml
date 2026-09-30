@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Set_INET_Request_Number</name>
+        <label>Set INET Request Number</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.INET_Request_Number__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fml_calculated_INET_Number</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <formulas>
+        <name>fml_calculated_INET_Number</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISBLANK({!$Record.Request_Date__c}), 
+    &quot;&quot;, 
+    TEXT(YEAR({!$Record.Request_Date__c})) &amp; &quot; - &quot; &amp; {!$Record.Name}
+)</expression>
+    </formulas>
+    <interviewLabel>CATV - Update INET Request Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CATV - Update INET Request Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_INET_Request_Number</targetReference>
+        </connector>
+        <object>INET_Request__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

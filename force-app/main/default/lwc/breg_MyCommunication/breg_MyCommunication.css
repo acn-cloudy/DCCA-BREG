@@ -1,0 +1,16 @@
+.link-view {
+  cursor: pointer;
+}
+.slds-modal__container {
+  max-width: 95%;
+  padding-top: 10rem;
+}
+.preserve-newlines {
+  white-space: pre-wrap;
+}
+
+@media (min-width: 48em) {
+  .slds-modal__container {
+    width: 100%;
+  }
+}

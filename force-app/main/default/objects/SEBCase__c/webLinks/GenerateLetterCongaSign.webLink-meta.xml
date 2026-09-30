@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateLetterCongaSign</fullName>
+    <availability>online</availability>
+    <description>PacPoint-IC120318 - Created for BREG phase 1</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Generate and Sign Letter</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?SolMgr=1 
+&amp;serverUrl={!API.Partner_Server_URL_370} 
+&amp;Id={!SEBCase__c.Id} 
+
+&amp;QueryId=[SebCase]a19t0000000mFTmAAM,
+[SebCaseTeam]a19t0000000mFTcAAM
+
+&amp;DefaultPDF=1 
+&amp;SC0=0 
+&amp;SC1=SalesforceFile 
+&amp;DS7=0 
+&amp;pv0={!SEBCase__c.Id}
+&amp;CSEmailSubject=Please+Sign 
+&amp;CSEmailMessage=Please+sign 
+&amp;csvisible=1
+&amp;TemplateGroup=Letters+with+Signature</url>
+</WebLink>

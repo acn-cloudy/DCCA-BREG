@@ -1,0 +1,19 @@
+.THIS .slds-card {
+    background-color: inherit !important;
+}
+.THIS .slds-table {
+    background-color: inherit !important;
+}
+.THIS .fixTable tbody{
+    
+    overflow:auto;
+    height:200px;
+    width:100%;
+}
+.THIS .fixTable thead tr{
+    
+    position: sticky;
+    top: 0;
+    z-index: 2;
+      
+}

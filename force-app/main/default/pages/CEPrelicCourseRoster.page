@@ -1,0 +1,150 @@
+<apex:page readOnly="true"
+           controller="CEPrelicCourseRosterController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="PDF">
+    <html>
+    <head>
+        <style>
+            @page {
+                size: letter landscape;
+                margin-top: .25in;
+
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+
+            div.footer {
+                display: block;
+                padding: 5px;
+                width: 100%;
+                position: running(footer);
+            }
+
+            .pageNumber:before {
+                content: counter(page);
+            }
+
+            .pageCount:before {
+                content: counter(pages);
+            }
+
+            td.courseInfoVal.value,
+            .value {
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            td.courseInfoLabel {
+                width: 150px;
+                text-align: right;
+                font-weight: bold;
+            }
+
+            td.courseInfoVal {
+                padding-left: 10px;
+                border-bottom: 1px solid;
+            }
+
+            table.bordered,
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #000;
+                border-collapse: collapse;
+            }
+
+            .text-u-case {
+                text-transform: uppercase;
+            }
+
+            .align-center {
+                text-align: center;
+            }
+
+            table.courseInfoLocation td,
+            table.enrollmentData td {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            table.enrollmentData td {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+    <h2 class="value" style="text-align: center;">Hawaii Prelicense Course Roster</h2>
+    <table style="border-collapse: collapse;">
+        <tr>
+            <td class="courseInfoLabel">Provider:</td>
+            <td style="width: 250px;" class="courseInfoVal value text-u-case">
+                    {!course.Account__r.Name}
+            </td>
+            <td class="courseInfoLabel">Course Title:</td>
+            <td class="courseInfoVal value text-u-case">
+            {!course.Subject__r.Name} - {!course.Medium__c}
+            </td>
+        </tr>
+        <tr>
+            <td class="courseInfoLabel">Provider Number:</td>
+            <td class="courseInfoVal value">{!course.Account__r.ProviderSchoolID__c}</td>
+            <td class="courseInfoLabel">Course Code:</td>
+            <td class="courseInfoVal value">{!course.CourseId__c}</td>
+        </tr>
+    </table>
+
+    <table class="bordered courseInfoLocation" style="width: 100%; margin-top: 20px; table-layout: fixed;">
+        <thead>
+        <tr>
+            <th class="align-center">Date</th>
+            <th class="align-center">Instructor</th>
+        </tr>
+        </thead>
+        <tr>
+            <td class="align-center value">
+            </td>
+            <td class="align-center value" style="padding-top: 25px; padding-bottom: 25px;">
+                    {!course.Instructor__r.Name}
+            </td>
+        </tr>
+    </table>
+
+    <table class="bordered enrollmentData" style="margin-top: 20px; width: 100%; table-layout: fixed;">
+        <thead>
+        <tr>
+            <th class="align-center">Name</th>
+            <th class="align-center">Signature</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        <tr><td>BLANK</td><td></td></tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <div style="text-align: center;">Page <span class="pageNumber"/> of <span class="pageCount"/></div>
+    </div>
+    </body>
+    </html>
+</apex:page>

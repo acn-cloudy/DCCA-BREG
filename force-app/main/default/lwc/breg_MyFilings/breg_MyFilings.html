@@ -1,0 +1,100 @@
+<template>
+    <c-breg-_-popup
+        visible={showExpeditedDisabledModal}
+        title="Expedited processing"
+        message="Expedited processing is temporarily not available."
+        oncontinue={handleExpeditedDisabledModalClose}
+        oncancel={handleExpeditedDisabledModalClose}
+        next-button-label="OK"
+        cancel-button-label="Cancel"
+    >
+    </c-breg-_-popup>
+    <template lwc:if={isFilingsExists}>
+        <div class="slds-grid slds-gutters slds-m-bottom_medium">
+            <div class="slds-col">
+                <lightning-combobox
+                    name="stageFilter"
+                    label="Stage"
+                    value={selectedStage}
+                    options={stageOptions}
+                    onchange={handleFilterChange}
+                    data-field="stageFilter"
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col">
+                <label class="slds-form-element__label" for="nameFilter">Name</label>
+                <input data-field="nameFilter" onchange={handleFilterChange} class="slds-input" type="text" id="nameFilter" value={nameFilterValue} />
+            </div>
+            <div class="slds-col">
+                <label class="slds-form-element__label" for="numberFilter">Work Item ID</label>
+                <input
+                    data-field="numberFilter"
+                    onchange={handleFilterChange}
+                    class="slds-input"
+                    type="text"
+                    id="numberFilter"
+                    value={numberFilterValue}
+                />
+            </div>
+            <div class="slds-col type-filter-combobox">
+                <label class="slds-form-element__label" for="typeFilter">Form Type</label>
+                <input
+                    id="typeFilter"
+                    class="slds-input"
+                    type="text"
+                    placeholder="Select or search form type"
+                    value={typeSearchValue}
+                    oninput={handleTypeSearchInput}
+                    onfocus={handleTypeInputFocus}
+                    onblur={handleTypeInputBlur}
+                />
+                <template lwc:if={isTypeDropdownOpen}>
+                    <div class="slds-dropdown slds-dropdown_fluid slds-dropdown_length-5">
+                        <ul class="slds-listbox slds-listbox_vertical" role="listbox">
+                            <template for:each={filteredTypeOptions} for:item="option">
+                                <li key={option.value} class="slds-listbox__item" role="presentation">
+                                    <div
+                                        class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_center"
+                                        role="option"
+                                        data-value={option.value}
+                                        data-label={option.label}
+                                        onmousedown={handleTypeOptionMouseDown}
+                                    >
+                                        <span class="slds-truncate" title={option.label}>{option.label}</span>
+                                    </div>
+                                </li>
+                            </template>
+                            <template lwc:if={isFilteredTypeOptionsEmpty}>
+                                <li class="slds-listbox__item" role="presentation">
+                                    <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_center" role="option">
+                                        <span class="slds-truncate">No matching form types</span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </div>
+            <div class="slds-col filters-apply-col">
+                <span class="filters-apply-label-spacer" aria-hidden="true"></span>
+                <button class="slds-button slds-button_brand apply-button" type="button" onclick={handleApplyFilters}>Apply filters</button>
+            </div>
+        </div>
+        <template lwc:if={isFilteredEmpty}>
+            <p>{emptyListLabel}</p>
+        </template>
+        <template lwc:else>
+            <lightning-datatable 
+                key-field="workItemNumber"
+                data={data}
+                onrowaction={handleAction}
+                columns={columns}
+                hide-checkbox-column
+                wrap-text-max-lines="2"
+                sorted-by={sortedBy}
+                sorted-direction={sortDirection}
+                onsort={handleSort}
+            ></lightning-datatable>
+        </template>
+    </template>
+</template>

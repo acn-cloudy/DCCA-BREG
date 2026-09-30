@@ -1,0 +1,26 @@
+<apex:page lightningStyleSheets="true" controller="PaymentAutoCloserMonitorController">
+    <apex:slds />
+    <div class="slds-scope">
+        <apex:form >
+            <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col slds-grid slds-grid_align-center slds-m-around_medium">
+                    <div class="slds-col">
+                        <apex:commandButton styleClass="slds-button_brand"
+                                            value="Run Batch"
+                                            title="Execute Batch Job"
+                                            action="{!runBatch}"/>
+
+                        <apex:commandButton value="Goto Payments"
+                                            title="Redirect to Payment Object Page"
+                                            action="{!gotoPayments}"/>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <apex:pageMessages />
+                    <c:BatchJobsProgressComponent bComponentLabel="Payment Auto Closer Batch Jobs"
+                                                  apexClass="PaymentAutoCloserBatch"/>
+                </div>
+            </div>
+        </apex:form>
+    </div>
+</apex:page>

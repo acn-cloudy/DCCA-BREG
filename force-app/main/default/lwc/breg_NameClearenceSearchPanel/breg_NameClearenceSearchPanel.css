@@ -1,0 +1,9 @@
+.search-buy-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #888;
+  padding: 1.1rem 0.5rem;
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Entity__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN111419-Created for PVL Sprint 2 Phase 1</description>
+    <inlineHelpText>Populate this field when there is a dependency on this License Type.</inlineHelpText>
+    <label>Entity</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

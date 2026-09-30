@@ -1,0 +1,37 @@
+<apex:component >
+    <div style="display: block;width: 625px; margin: auto;">
+        <div style="font-family: Arial, Helvetica, sans-serif; display: block;">
+            <div style="text-align: center; background-color: #c0c0c0; display: block; font-size: 11pt; font-weight: 600;">
+                INSTRUCTIONS FOR "YES" ANSWERS ON RENEWAL APPLICATION
+            </div>
+            <p style="font-size: 9.3pt;">
+                The following documentation must be provided if you answered "Yes" to any of the three questions asked on the renewal application.&nbsp;&nbsp;Your renewal application will not be considered without this material. Failure to submit the documentation will significantly delay processing. Furthermore, the documentation review process may require the submission of additional documents.
+            </p>
+            <ol class="list-type-decimal-parentheses" style="font-size: 9pt;">
+                <li style="font-weight: 600;">Since you last filed an application (initial/renewal), has your license in this state or any other jurisdiction been formally disciplined by the way of fine, suspension, restriction, or revocation?</li>
+                <li style="font-weight: 600;">Are there any disciplinary actions pending against you in this state or any other jurisdiction?
+                    <p style="font-weight: normal; margin-bottom: 0; padding-bottom: 0; padding-left: 25px;">
+                        Question 1 and 2 refer to complaints or pending disciplinary actions for real estate and any profession, occupation, or license other than real estate. If you answer "yes" to question 1 and/or question 2, please submit the following:
+                    </p>
+                    <ol style="font-weight: normal; margin-left: 25px;" class="list-type-decimal-roman-align-left">
+                        <li>Your written, signed statement explaining the circumstances;</li>
+                        <li>Copies of documents from the agency, including final orders, petitions, complaints, findings of fact and conclusions of law, and any other relevant documents.</li>
+                    </ol>
+                    <br/>
+                </li>
+                <li style="font-weight: 600; font-size: 9pt;">Since you last filled an application(initial/renewal), have you been convicted of a crime in which the conviction has not been annulled or expunged?
+                    <ol style="font-weight: normal;" class="list-type-decimal-roman-align-left">
+                        <li>Your written, signed statement explaining the circumstances leading to the conviction;</li>
+                        <li>A copy of the orders from the court which explains what your conviction was based on, the verdict of the court, the terms of the sentence and proof of compliance.</li>
+                    </ol>
+                </li>
+            </ol>
+            <div style="text-align: center; background-color: #c0c0c0; display: block; font-size: 11pt; font-weight: 600;">
+                &nbsp;
+            </div>
+        </div>
+        <div>
+        {!MONTH(TODAY())}/{!YEAR(TODAY())}
+        </div>
+    </div>
+</apex:component>

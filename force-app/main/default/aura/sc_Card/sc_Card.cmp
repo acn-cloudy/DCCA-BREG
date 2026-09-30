@@ -1,0 +1,51 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+  access="global"
+  extends="c:sc_execute"
+>
+  <aura:attribute name="uploadUrl" type="string" access="global" />
+  <aura:attribute name="headerLabel" type="string" access="global" />
+  <aura:attribute name="footerLabel" type="string" access="global" />
+  <aura:attribute name="fieldjson" type="Object" access="global" />
+  <aura:attribute name="data" type="Object" access="global" />
+  <aura:attribute name="file" type="Object" access="global" />
+  <aura:attribute name="userRecord" type="Object" access="global" />
+  <aura:attribute name="cardname" type="string" access="global" />
+  <aura:attribute name="completed" type="boolean" access="global" />
+  <aura:attribute
+    name="showPaymentAuth"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="isLoadingComplete" type="boolean" default="false" />
+  <aura:attribute name="isDoneDataRetrieve" type="boolean" default="false" />
+  <aura:attribute name="applicationcacheid" type="string" access="global" />
+  <aura:attribute name="appId" type="string" access="global" />
+  <aura:attribute name="fieldFilters" type="Object" access="global" />
+  <aura:attribute name="cardCaches" type="object" access="global" />
+
+  <aura:attribute name="parentcacheid" type="string" access="global" />
+
+  <aura:registerEvent
+    name="sc_ApplicationDependFieldEvent"
+    type="c:sc_ApplicationDependFieldEvent"
+  />
+
+  <aura:method name="refreshCard" action="{!c.doInit}" />
+
+  <article class="slds-card slds-p-top--small">
+    <div class="slds-card__header">
+      <header class="slds-media slds-media--center slds-has-flexi-truncate">
+        <div class="slds-media__body">
+          <h2 class="slds-text-heading--small">{!v.headerLabel}</h2>
+          <hr />
+        </div>
+      </header>
+    </div>
+    <div class="slds-card__body">{!v.body}</div>
+    <div class="slds-card__footer">
+      <p>{!v.footerLabel}</p>
+    </div>
+  </article>
+</aura:component>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>PacPoint-JB103018 - Created for BREG phase 1</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Broker-dealer</fullName>
+                <default>false</default>
+                <label>Broker-dealer</label>
+            </value>
+            <value>
+                <fullName>By Qualification</fullName>
+                <default>false</default>
+                <label>By Qualification</label>
+            </value>
+            <value>
+                <fullName>Franchise</fullName>
+                <default>false</default>
+                <label>Franchise</label>
+            </value>
+            <value>
+                <fullName>Investment Adviser</fullName>
+                <default>false</default>
+                <label>Investment Adviser</label>
+            </value>
+            <value>
+                <fullName>Model Accredited Investor</fullName>
+                <default>false</default>
+                <label>Model Accredited Investor</label>
+            </value>
+            <value>
+                <fullName>Regulation A</fullName>
+                <default>false</default>
+                <label>Regulation A</label>
+            </value>
+            <value>
+                <fullName>Regulation D</fullName>
+                <default>false</default>
+                <label>Regulation D</label>
+            </value>
+            <value>
+                <fullName>Broker-dealer Salesperson</fullName>
+                <default>false</default>
+                <label>Broker-dealer Salesperson</label>
+            </value>
+            <value>
+                <fullName>Investment Adviser Representative</fullName>
+                <default>false</default>
+                <label>Investment Adviser Representative</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReferredToAgency__c</fullName>
+    <label>Referred To Agency</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alabama Securities</fullName>
+                <default>false</default>
+                <label>Alabama Securities</label>
+            </value>
+            <value>
+                <fullName>Alaska Securities</fullName>
+                <default>false</default>
+                <label>Alaska Securities</label>
+            </value>
+            <value>
+                <fullName>Arizona Securities</fullName>
+                <default>false</default>
+                <label>Arizona Securities</label>
+            </value>
+            <value>
+                <fullName>Arkansas Securities</fullName>
+                <default>false</default>
+                <label>Arkansas Securities</label>
+            </value>
+            <value>
+                <fullName>Attorney General - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Attorney General - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>California Securities</fullName>
+                <default>false</default>
+                <label>California Securities</label>
+            </value>
+            <value>
+                <fullName>Canada/International</fullName>
+                <default>false</default>
+                <label>Canada/International</label>
+            </value>
+            <value>
+                <fullName>Colorado Securities</fullName>
+                <default>false</default>
+                <label>Colorado Securities</label>
+            </value>
+            <value>
+                <fullName>Commodoties &amp; Futures Trading Commission</fullName>
+                <default>false</default>
+                <label>Commodoties &amp; Futures Trading Commission</label>
+            </value>
+            <value>
+                <fullName>Connecticut Securities</fullName>
+                <default>false</default>
+                <label>Connecticut Securities</label>
+            </value>
+            <value>
+                <fullName>Consumer Financial Protection Bureau</fullName>
+                <default>false</default>
+                <label>Consumer Financial Protection Bureau</label>
+            </value>
+            <value>
+                <fullName>Defense Criminal Investigative Service</fullName>
+                <default>false</default>
+                <label>Defense Criminal Investigative Service</label>
+            </value>
+            <value>
+                <fullName>Delaware Securities</fullName>
+                <default>false</default>
+                <label>Delaware Securities</label>
+            </value>
+            <value>
+                <fullName>Department of Taxation</fullName>
+                <default>false</default>
+                <label>Department of Taxation</label>
+            </value>
+            <value>
+                <fullName>District of Columbia Securities</fullName>
+                <default>false</default>
+                <label>District of Columbia Securities</label>
+            </value>
+            <value>
+                <fullName>Division of Financial Institutions - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Division of Financial Institutions - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>Federal Bureau of Investigation</fullName>
+                <default>false</default>
+                <label>Federal Bureau of Investigation</label>
+            </value>
+            <value>
+                <fullName>Federal Trade Commission</fullName>
+                <default>false</default>
+                <label>Federal Trade Commission</label>
+            </value>
+            <value>
+                <fullName>Financial Industry Regulation Authority</fullName>
+                <default>false</default>
+                <label>Financial Industry Regulation Authority</label>
+            </value>
+            <value>
+                <fullName>Florida Securities</fullName>
+                <default>false</default>
+                <label>Florida Securities</label>
+            </value>
+            <value>
+                <fullName>Georgia Securities</fullName>
+                <default>false</default>
+                <label>Georgia Securities</label>
+            </value>
+            <value>
+                <fullName>Hawaii Prosecutor&apos;s Office</fullName>
+                <default>false</default>
+                <label>Hawaii Prosecutor&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>Hilo Police Department</fullName>
+                <default>false</default>
+                <label>Hilo Police Department</label>
+            </value>
+            <value>
+                <fullName>Honolulu Police Department</fullName>
+                <default>false</default>
+                <label>Honolulu Police Department</label>
+            </value>
+            <value>
+                <fullName>Honolulu Prosecutor&apos;s Office</fullName>
+                <default>false</default>
+                <label>Honolulu Prosecutor&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>Idaho Securities</fullName>
+                <default>false</default>
+                <label>Idaho Securities</label>
+            </value>
+            <value>
+                <fullName>Illinois Securities</fullName>
+                <default>false</default>
+                <label>Illinois Securities</label>
+            </value>
+            <value>
+                <fullName>Indiana Securities</fullName>
+                <default>false</default>
+                <label>Indiana Securities</label>
+            </value>
+            <value>
+                <fullName>Insurance Division - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Insurance Division - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>Insurance Fraud - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Insurance Fraud - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>Internal Revenue Service</fullName>
+                <default>false</default>
+                <label>Internal Revenue Service</label>
+            </value>
+            <value>
+                <fullName>Iowa Securities</fullName>
+                <default>false</default>
+                <label>Iowa Securities</label>
+            </value>
+            <value>
+                <fullName>Kansas Securities</fullName>
+                <default>false</default>
+                <label>Kansas Securities</label>
+            </value>
+            <value>
+                <fullName>Kauai Police Department</fullName>
+                <default>false</default>
+                <label>Kauai Police Department</label>
+            </value>
+            <value>
+                <fullName>Kauai Prosecutor&apos;s Office</fullName>
+                <default>false</default>
+                <label>Kauai Prosecutor&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>Kentucky Securities</fullName>
+                <default>false</default>
+                <label>Kentucky Securities</label>
+            </value>
+            <value>
+                <fullName>Kona Police Department</fullName>
+                <default>false</default>
+                <label>Kona Police Department</label>
+            </value>
+            <value>
+                <fullName>Louisiana Securities</fullName>
+                <default>false</default>
+                <label>Louisiana Securities</label>
+            </value>
+            <value>
+                <fullName>Maine Securities</fullName>
+                <default>false</default>
+                <label>Maine Securities</label>
+            </value>
+            <value>
+                <fullName>Maryland Securities</fullName>
+                <default>false</default>
+                <label>Maryland Securities</label>
+            </value>
+            <value>
+                <fullName>Massachussetts Securities</fullName>
+                <default>false</default>
+                <label>Massachussetts Securities</label>
+            </value>
+            <value>
+                <fullName>Maui Police Department</fullName>
+                <default>false</default>
+                <label>Maui Police Department</label>
+            </value>
+            <value>
+                <fullName>Maui Prosecutor&apos;s Office</fullName>
+                <default>false</default>
+                <label>Maui Prosecutor&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>Michigan Securities</fullName>
+                <default>false</default>
+                <label>Michigan Securities</label>
+            </value>
+            <value>
+                <fullName>Minnesota Securities</fullName>
+                <default>false</default>
+                <label>Minnesota Securities</label>
+            </value>
+            <value>
+                <fullName>Mississippi Securities</fullName>
+                <default>false</default>
+                <label>Mississippi Securities</label>
+            </value>
+            <value>
+                <fullName>Missouri Securities</fullName>
+                <default>false</default>
+                <label>Missouri Securities</label>
+            </value>
+            <value>
+                <fullName>Montana Securities</fullName>
+                <default>false</default>
+                <label>Montana Securities</label>
+            </value>
+            <value>
+                <fullName>National Futures Association</fullName>
+                <default>false</default>
+                <label>National Futures Association</label>
+            </value>
+            <value>
+                <fullName>Nebraska Securities</fullName>
+                <default>false</default>
+                <label>Nebraska Securities</label>
+            </value>
+            <value>
+                <fullName>Nevada Securities</fullName>
+                <default>false</default>
+                <label>Nevada Securities</label>
+            </value>
+            <value>
+                <fullName>New Hampshire Securities</fullName>
+                <default>false</default>
+                <label>New Hampshire Securities</label>
+            </value>
+            <value>
+                <fullName>New Jersey Securities</fullName>
+                <default>false</default>
+                <label>New Jersey Securities</label>
+            </value>
+            <value>
+                <fullName>New Mexico Securities</fullName>
+                <default>false</default>
+                <label>New Mexico Securities</label>
+            </value>
+            <value>
+                <fullName>New York Securities</fullName>
+                <default>false</default>
+                <label>New York Securities</label>
+            </value>
+            <value>
+                <fullName>North Carolina Securities</fullName>
+                <default>false</default>
+                <label>North Carolina Securities</label>
+            </value>
+            <value>
+                <fullName>North Dakota Securities</fullName>
+                <default>false</default>
+                <label>North Dakota Securities</label>
+            </value>
+            <value>
+                <fullName>Office of Consumer Protection - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Office of Consumer Protection - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>Ohio Securities</fullName>
+                <default>false</default>
+                <label>Ohio Securities</label>
+            </value>
+            <value>
+                <fullName>Oklahoma Securities</fullName>
+                <default>false</default>
+                <label>Oklahoma Securities</label>
+            </value>
+            <value>
+                <fullName>Oregon Securities</fullName>
+                <default>false</default>
+                <label>Oregon Securities</label>
+            </value>
+            <value>
+                <fullName>Other Agency</fullName>
+                <default>false</default>
+                <label>Other Agency</label>
+            </value>
+            <value>
+                <fullName>Pennsylvania Securities</fullName>
+                <default>false</default>
+                <label>Pennsylvania Securities</label>
+            </value>
+            <value>
+                <fullName>Puerto Rico Securities</fullName>
+                <default>false</default>
+                <label>Puerto Rico Securities</label>
+            </value>
+            <value>
+                <fullName>Regulated Industries Complaints Office - State of Hawaii</fullName>
+                <default>false</default>
+                <label>Regulated Industries Complaints Office - State of Hawaii</label>
+            </value>
+            <value>
+                <fullName>Rhode Island Securities</fullName>
+                <default>false</default>
+                <label>Rhode Island Securities</label>
+            </value>
+            <value>
+                <fullName>South Carolina Securities</fullName>
+                <default>false</default>
+                <label>South Carolina Securities</label>
+            </value>
+            <value>
+                <fullName>South Dakota Securities</fullName>
+                <default>false</default>
+                <label>South Dakota Securities</label>
+            </value>
+            <value>
+                <fullName>Stock Exchange</fullName>
+                <default>false</default>
+                <label>Stock Exchange</label>
+            </value>
+            <value>
+                <fullName>Tennessee Securities</fullName>
+                <default>false</default>
+                <label>Tennessee Securities</label>
+            </value>
+            <value>
+                <fullName>Texas Securities</fullName>
+                <default>false</default>
+                <label>Texas Securities</label>
+            </value>
+            <value>
+                <fullName>U.S. Attorney Office</fullName>
+                <default>false</default>
+                <label>U.S. Attorney Office</label>
+            </value>
+            <value>
+                <fullName>U.S. Department of Homeland Security</fullName>
+                <default>false</default>
+                <label>U.S. Department of Homeland Security</label>
+            </value>
+            <value>
+                <fullName>U.S. Department of Justice</fullName>
+                <default>false</default>
+                <label>U.S. Department of Justice</label>
+            </value>
+            <value>
+                <fullName>U.S. Department of Labor</fullName>
+                <default>false</default>
+                <label>U.S. Department of Labor</label>
+            </value>
+            <value>
+                <fullName>U.S. Department of State</fullName>
+                <default>false</default>
+                <label>U.S. Department of State</label>
+            </value>
+            <value>
+                <fullName>U.s. Postal Inspection Service</fullName>
+                <default>false</default>
+                <label>U.s. Postal Inspection Service</label>
+            </value>
+            <value>
+                <fullName>U.S. Secret Service</fullName>
+                <default>false</default>
+                <label>U.S. Secret Service</label>
+            </value>
+            <value>
+                <fullName>U.S. Securities and Exchange Commission</fullName>
+                <default>false</default>
+                <label>U.S. Securities and Exchange Commission</label>
+            </value>
+            <value>
+                <fullName>Utah Securities</fullName>
+                <default>false</default>
+                <label>Utah Securities</label>
+            </value>
+            <value>
+                <fullName>Vermont Securities</fullName>
+                <default>false</default>
+                <label>Vermont Securities</label>
+            </value>
+            <value>
+                <fullName>Virginia Securities</fullName>
+                <default>false</default>
+                <label>Virginia Securities</label>
+            </value>
+            <value>
+                <fullName>Washington Securities</fullName>
+                <default>false</default>
+                <label>Washington Securities</label>
+            </value>
+            <value>
+                <fullName>West Virginia Securities</fullName>
+                <default>false</default>
+                <label>West Virginia Securities</label>
+            </value>
+            <value>
+                <fullName>Wisconsin Securities</fullName>
+                <default>false</default>
+                <label>Wisconsin Securities</label>
+            </value>
+            <value>
+                <fullName>Wyoming Securities</fullName>
+                <default>false</default>
+                <label>Wyoming Securities</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

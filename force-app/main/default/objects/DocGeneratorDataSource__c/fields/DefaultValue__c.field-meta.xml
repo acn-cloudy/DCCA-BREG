@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DefaultValue__c</fullName>
+    <description>Used to specify the default value for the data source.
+PacPoint-AZ010520 - Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <label>Default Value</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

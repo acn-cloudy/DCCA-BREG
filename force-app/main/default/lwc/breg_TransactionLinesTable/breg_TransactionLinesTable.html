@@ -1,0 +1,26 @@
+<template>
+    <div>
+        <h1 class="slds-text-heading_large slds-m-bottom_medium">{header}</h1>
+        
+        <!-- Transaction Lines -->
+        <template if:true={hasTransactionLines}>
+            <div class="slds-m-bottom_medium">
+                <lightning-datatable
+                    key-field="Id"
+                    data={formattedTransactionLines}
+                    columns={transactionColumns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+                <div class="slds-grid slds-grid_align-spread slds-m-top_medium">
+                    <div class="slds-col"></div>
+                    <div class="slds-col slds-no-flex">
+                        <div class="slds-text-align_right">
+                            <span class="slds-text-body_regular slds-text-color_weak slds-m-right_medium">Total</span>
+                            <span class="slds-text-title_bold">{formattedTotalAmount}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

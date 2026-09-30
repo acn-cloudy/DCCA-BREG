@@ -1,0 +1,32 @@
+.simple_announcer {
+	position: relative;
+	height: auto;
+	padding: 10px 40px 10px 10px;
+	line-height: 1.3em;
+	color: #FFF;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	-webkit-text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	-moz-text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	-ms-text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	-o-text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+}
+
+.simple_announcer i {
+	position: absolute;
+	display: block;
+	top: 50%;
+	margin-top: -8px;
+	right: 12px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.simple_announcer span.dismiss {
+	display: block;
+	position: absolute;
+	margin-top: 20px;
+	top: -4px;
+	right: 12px;
+	font-size: 24px;
+	cursor: pointer;
+}

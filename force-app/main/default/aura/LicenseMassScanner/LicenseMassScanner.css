@@ -1,0 +1,20 @@
+.THIS {
+    background: #fff;
+}
+
+.THIS textarea {
+    min-height: 168px;
+}
+
+.THIS .slds-card.failCard .slds-icon {
+    fill: #c23934;
+}
+
+.THIS .slds-card.successCard .slds-icon {
+    fill: #04844b;
+}
+
+.THIS .tableDataContainer {
+    overflow-y: auto;
+    max-height: 250px;
+}

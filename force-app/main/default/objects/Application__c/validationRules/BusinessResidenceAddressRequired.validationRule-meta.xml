@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BusinessResidenceAddressRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-KN01162020-Created for PVL Phase 1 Sprint 3</description>
+    <errorConditionFormula>GenerateLicense__c = TRUE &amp;&amp; (BusinessStreet__c = &quot;&quot; &amp;&amp;  Applicant__r.RecordType.DeveloperName = &quot;BusinessAccount&quot;
+||  ResidenceStreet__c = &quot;&quot; &amp;&amp;  Applicant__r.RecordType.DeveloperName = &quot;PersonAccount&quot;)</errorConditionFormula>
+    <errorMessage>You must have a Business Address on a Business Application/ Residence Address on a Person Application.</errorMessage>
+</ValidationRule>

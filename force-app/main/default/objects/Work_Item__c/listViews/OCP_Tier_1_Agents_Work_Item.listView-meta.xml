@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCP_Tier_1_Agents_Work_Item</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Status__c</columns>
+    <columns>Case__c</columns>
+    <columns>Island_of_Residence__c</columns>
+    <columns>OCP_Work_Item_Type__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <label>OCP - Tier 1 Agents</label>
+    <queue>OCP_Tier_1_Agents</queue>
+    <sharedTo>
+        <group>OCP_Supervisors</group>
+        <group>OCP_Tier_1_Agents</group>
+    </sharedTo>
+</ListView>

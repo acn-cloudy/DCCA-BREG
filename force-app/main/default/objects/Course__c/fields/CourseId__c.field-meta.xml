@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CourseId__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+NOT(ISBLANK(ExternalId__c)), 
+ExternalId__c, 
+IF(TEXT(Subject__r.Area__c) == &apos;Continuing Education&apos;, &apos;C&apos; + RIGHT(Name, 5), IF (TEXT(Subject__r.Area__c) == &apos;Prelicense&apos;, &apos;P&apos; + RIGHT(Name, 5), &apos;&apos;)))</formula>
+    <label>CourseId</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

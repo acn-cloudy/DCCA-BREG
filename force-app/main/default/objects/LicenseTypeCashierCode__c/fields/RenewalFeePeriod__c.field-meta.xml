@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalFeePeriod__c</fullName>
+    <description>PacPoint-FT082919 - Created for PVL phase 1</description>
+    <inlineHelpText>Indicates the period of the Biennium or Triennium to which the fractional renewal fees apply for New Licenses.</inlineHelpText>
+    <label>Renewal Fee Period</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Biennial 1st Year</fullName>
+                <default>false</default>
+                <label>Biennial 1st Year</label>
+            </value>
+            <value>
+                <fullName>Biennial 2nd Year</fullName>
+                <default>false</default>
+                <label>Biennial 2nd Year</label>
+            </value>
+            <value>
+                <fullName>Triennial 1st Year</fullName>
+                <default>false</default>
+                <label>Triennial 1st Year</label>
+            </value>
+            <value>
+                <fullName>Triennial 2nd Year</fullName>
+                <default>false</default>
+                <label>Triennial 2nd Year</label>
+            </value>
+            <value>
+                <fullName>Triennial 3rd Year</fullName>
+                <default>false</default>
+                <label>Triennial 3rd Year</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

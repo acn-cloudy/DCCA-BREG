@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateWorksheetDOutofState</fullName>
+    <availability>online</availability>
+    <description>PacPoint-AC083120  - Created for DCCA Travel Approval</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Generate Worksheet D (Out-of-State)</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>https://na21.springcm.com/atlas/doclauncher/OneClickDocGen?aid=22722&amp;config=Worksheet D - Out of State&amp;eos[0].Id={!Worksheet__c.Id}&amp;eos[0].System=Salesforce&amp;eos[0].Type=Worksheet__c&amp;eos[0].Name=Worksheets - {!Worksheet__c.Name}&amp;eos[0].ScmPath=/All Divisions/Travel Approval/{!Worksheet__c.TravelApprovalFolder__c}</url>
+</WebLink>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_value_field__c</fullName>
+    <description>Used for default field value prepopulate</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Used for pre populate user info to Lodging Card Info</inlineHelpText>
+    <label>Default value field</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

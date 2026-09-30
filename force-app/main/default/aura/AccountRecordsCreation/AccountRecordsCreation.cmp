@@ -1,0 +1,36 @@
+<aura:component controller="AccountRecordsSearchCreate"
+                extends="c:Basic" >
+    <aura:attribute name="layoutName" type="string" default="PVL Account Layout - Community Create" />
+    <aura:attribute name="saveButtonLabel" type="string" default="Save" />
+    <aura:attribute name="sObjectName" type="string"  default="Account"/>
+    
+    <aura:attribute name="finishButtonLabel" type="string" default="Submit" />
+    <aura:attribute name="layout" type="object" />
+    <aura:attribute name="sObj" type="object" />
+    <aura:attribute name="record" type="object" />
+    
+    <aura:attribute name="recordTypeName" type="string" default="Business Account"/>
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="hideNameField" type="boolean" default="false" />
+    <aura:attribute name="displayMap" type="string" default="false" />
+    <aura:attribute name="latitudeField" type="string" default="" />
+    <aura:attribute name="longitudeField" type="string" default="" />
+    <aura:attribute name="customMessage" type="string"  />
+    <aura:attribute name="displayUpload" type="string" default="false" />
+    
+    <aura:attribute name="executeOnce" type="Boolean" default="false" />
+    <aura:method name="submit" action="{!c.submitToSave}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="message" event="c:Message" action="{!c.saveRecord}"/>
+    <aura:registerEvent name="message" type="c:Message"/>
+    
+    <c:CustomRecordCreate aura:id="account"
+                          hideButton="true"
+                          sObjectName="{!v.sObjectName}" layoutName="{!v.layoutName}" fireMessageEvent="true"
+                          saveButtonLabel="{!v.saveButtonLabel}" finishButtonLabel="{!v.finishButtonLabel}" 
+                          layout="{!v.layout}" sObj="{!v.sObj}" recordTypeName="{!v.recordTypeName}" recordId="{!v.recordId}" 
+                          hideNameField="{!v.recordTypeName != 'Business Account'}" displayMap="{!v.displayMap}" latitudeField="{!v.latitudeField}" 
+                          longitudeField="{!v.longitudeField}" customMessage="{!v.customMessage}" 
+                          displayUpload="{!v.displayUpload}"
+                          />
+</aura:component>

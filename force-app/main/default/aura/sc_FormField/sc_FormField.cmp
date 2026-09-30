@@ -1,0 +1,390 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+  access="global"
+>
+  <aura:attribute name="errors" type="Object[]" access="global" />
+  <aura:attribute name="valid" type="Boolean" access="global" default="true" />
+  <aura:attribute name="dependField" type="string" access="global" />
+  <aura:attribute name="dependValue" type="string" access="global" />
+  <aura:attribute name="dependAction" type="string" access="global" />
+  <aura:attribute name="fieldHidden" type="string" access="global" />
+  <aura:attribute name="hideonload" type="string" access="global" />
+  <aura:attribute name="fieldminlength" type="integer" access="global" />
+  <aura:attribute name="options" type="List" access="global" />
+  <aura:attribute name="fieldInfo" type="Object" access="global" />
+  <aura:attribute name="originalHidden" type="string" access="global" />
+  <aura:attribute name="dependentValueToSet" type="string" access="global" />
+  <aura:attribute
+    name="validationRegression"
+    type="string"
+    access="global"
+    default=""
+  />
+  <aura:attribute
+    name="readOnly"
+    type="Boolean"
+    default="false"
+    access="global"
+  />
+  <aura:attribute name="carddependentvalue" type="string" access="global" />
+  <aura:attribute name="carddependentaction" type="string" access="global" />
+  <aura:attribute name="dependentcards" type="string[]" access="global" />
+  <aura:attribute name="appId" type="string" access="global" />
+  <aura:attribute name="fieldName" type="string" access="global" />
+  <aura:attribute name="fieldLabel" type="string" access="global" />
+  <aura:attribute name="fieldType" type="string" access="global" />
+  <aura:attribute name="fieldplaceholder" type="string" access="global" />
+  <aura:attribute name="cardname" type="string" access="global" />
+  <aura:attribute name="numericonly" type="boolean" access="global" />
+  <aura:attribute name="required" type="boolean" access="global" />
+  <aura:attribute name="fieldlength" type="integer" access="global" />
+  <aura:attribute name="specialcharacters" type="boolean" access="global" />
+  <aura:attribute name="Phoneonly" type="boolean" access="global" />
+  <aura:attribute name="NoSpace" type="boolean" access="global" />
+  <aura:attribute name="NonZeroNumeric" type="boolean" access="global" />
+  <aura:attribute name="emailonly" type="boolean" access="global" />
+  <aura:attribute name="value" type="string" access="global" default="" />
+  <aura:attribute name="uploadUrl" type="string" access="global" />
+
+  <aura:attribute
+    name="dateValidation"
+    type="string"
+    access="global"
+    default=""
+  />
+  <aura:attribute
+    name="inlinelabel"
+    type="boolean"
+    access="global"
+    default="true"
+  />
+  <aura:attribute
+    name="nolabel"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="cardcacheid" type="string" access="global" />
+  <aura:attribute name="fieldvalues" type="string" access="global" />
+  <aura:attribute name="popuphelp" type="string" access="global" />
+
+  <aura:registerEvent name="dependentValueChange" type="c:sc_Message" />
+  <aura:registerEvent
+    name="sc_ApplicationDependFieldEvent"
+    type="c:sc_ApplicationDependFieldEvent"
+  />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:method name="getVal" action="{!c.getVal}" />
+  <aura:method name="validate" action="{!c.checkValidity}" />
+
+  <div
+    class="{!v.fieldHidden ? 'slds-form-element hidemodal' : 'slds-form-element showmodal'}"
+    aura:id="field"
+  >
+    <div class="slds-p-horizontal--medium slds-p-vertical--xx-small">
+      <div class="slds-form-element__control">
+        <aura:if isTrue="{!v.inlinelabel}">
+          <div class="slds-grid">
+            <div class="slds-col slds-size--5-of-12">
+              <aura:if isTrue="{!v.fieldType != 'info'}">
+                <div class="customInline">
+                  <aura:if isTrue="{!v.fieldType != 'file'}">
+                    <label
+                      class="slds-form-element__label slds-p-top_small"
+                      for="{!v.fieldLabel}"
+                    >
+                      {!v.fieldLabel}
+                    </label>
+                    <aura:set attribute="else">
+                      <label class="slds-p-top_small" for="{!v.fieldLabel}">
+                        <strong>{!v.fieldLabel}</strong>
+                      </label>
+                    </aura:set>
+                  </aura:if>
+                  <aura:if
+                    isTrue="{!(v.required  &amp;&amp; v.fieldLabel != null)}"
+                  >
+                    <abbr class="slds-required" title="required">*</abbr>
+                  </aura:if>
+                  <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+                </div>
+              </aura:if>
+            </div>
+            <div class="slds-col slds-size--5-of-12">
+              <!-- resolve the inline issues-->
+              <div class="anchor ui_popoverPopover">
+                <aura:if isTrue="{!v.fieldType == 'radio'}">
+                  <c:sc_FormRadioButton
+                    aura:id="field"
+                    name="{!v.fieldName}"
+                    value="{!v.value}"
+                    required="{!v.required}"
+                    valid="{!v.valid}"
+                    options="{!v.fieldvalues}"
+                  />
+                </aura:if>
+              </div>
+              <aura:if isTrue="{!v.fieldType == 'checkbox'}">
+                <div style="margin-top: 10px">
+                  <lightning:input
+                    aura:id="field"
+                    type="checkbox"
+                    required="{!v.required}"
+                    onchange="{!c.checkboxChanged}"
+                    variant="label-hidden"
+                  />
+                  <!-- <ui:inputCheckBox
+                    change="{!c.checkboxChanged}"
+                    required="{!v.required}"
+                    value="{!v.value}"
+                    class="inputcheckbox"
+                  /> -->
+                </div>
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'multicheckbox'}">
+                <c:sc_MultiCheckbox
+                  aura:id="field"
+                  fieldInfo="{!v.fieldInfo}"
+                  name="{!v.fieldName}"
+                  value="{!v.value}"
+                  valid="{!v.valid}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'multiPicklist'}">
+                <c:sc_FieldInput
+                  aura:id="field"
+                  apiName="{!v.fieldName}"
+                  options="{!v.options}"
+                  value="{!v.value}"
+                  type="{!v.fieldType}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'text'}">
+                <ui:inputText
+                  blur="{!c.handleBlur}"
+                  label=""
+                  value="{!v.value}"
+                  aura:id="textField"
+                  class="slds-input"
+                  disabled="{!v.readOnly}"
+                  placeholder="{!v.fieldplaceholder}"
+                  required="{!v.required}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'decimal'}">
+                <ui:inputText
+                  blur="{!c.handleBlur}"
+                  label=""
+                  value="{!v.value}"
+                  aura:id="field"
+                  class="slds-input"
+                  disabled="{!v.readOnly}"
+                  placeholder="{!v.fieldplaceholder}"
+                  required="{!v.required}"
+                />
+              </aura:if>
+
+              <aura:if isTrue="{!v.fieldType == 'clm-file'}">
+                <c:clmFiles
+                  aura:id="clmFile"
+                  des="{!'PVL - ' + v.fieldLabel}"
+                  recordId="{!v.appId}"
+                  value="{!v.value}"
+                  uploadUrl="{!v.uploadUrl}"
+                  oncapturechange="{!c.captureClmFile}"
+                >
+                </c:clmFiles>
+              </aura:if>
+
+              <aura:if isTrue="{!v.fieldType == 'file'}">
+                <c:sc_Files
+                  aura:id="file"
+                  value="{!v.value}"
+                  change="{!c.captureFileData}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'rich text'}">
+                <ui:outputRichText value="{!v.fieldvalues}" aura:id="field" />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'date'}">
+                <c:sc_CustomDateField
+                  readOnly="{!v.readOnly}"
+                  aura:id="customDateField"
+                  fieldName="{!v.fieldName}"
+                  value="{!v.value}"
+                  dateValidation="{!v.dateValidation}"
+                  required="{!v.required}"
+                  fieldLabel="{!v.fieldLabel}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'datetime'}">
+                <ui:inputDateTime
+                  aura:id="field"
+                  value="{!v.value}"
+                  class="clearfix"
+                  displayDatePicker="true"
+                  blur="{!c.handleBlur}"
+                />
+              </aura:if>
+              <c:sc_ErrorDisplay errors="{!v.errors}" />
+            </div>
+          </div>
+        </aura:if>
+
+        <aura:if isTrue="{!!v.inlinelabel}">
+          <aura:if isTrue="{!v.fieldType != 'info'}">
+            <aura:if isTrue="{!!v.nolabel}">
+              <div class="customInline">
+                <aura:if isTrue="{!v.fieldType == 'checkbox'}">
+                  <div style="margin-top: 5px">
+                    <lightning:input
+                      aura:id="field"
+                      type="checkbox"
+                      required="{!v.required}"
+                      onchange="{!c.checkboxChanged}"
+                      variant="label-hidden"
+                    />
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                </aura:if>
+                <aura:if isTrue="{!v.fieldType != 'file'}">
+                  <label class="slds-form-element__label" for="{!v.fieldLabel}"
+                    >{!v.fieldLabel}</label
+                  >
+
+                  <aura:set attribute="else">
+                    <label for="{!v.fieldLabel}"
+                      ><strong>{!v.fieldLabel}</strong></label
+                    >
+                  </aura:set>
+                </aura:if>
+
+                <aura:if
+                  isTrue="{!(v.required  &amp;&amp; v.fieldLabel != null)}"
+                >
+                  <abbr class="slds-required" title="required">*</abbr>
+                </aura:if>
+                <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+              </div>
+            </aura:if>
+          </aura:if>
+          <div class="slds-grid">
+            <div class="slds-col slds-size--10-of-12">
+              <!-- resolve the inline issues-->
+              <div class="anchor ui_popoverPopover">
+                <aura:if isTrue="{!v.fieldType == 'radio'}">
+                  <c:sc_FormRadioButton
+                    aura:id="field"
+                    name="{!v.fieldName}"
+                    value="{!v.value}"
+                    required="{!v.required}"
+                    valid="{!v.valid}"
+                    options="{!v.fieldvalues}"
+                  />
+                </aura:if>
+              </div>
+              <aura:if isTrue="{!v.fieldType == 'multicheckbox'}">
+                <c:sc_MultiCheckbox
+                  aura:id="field"
+                  fieldInfo="{!v.fieldInfo}"
+                  name="{!v.fieldName}"
+                  value="{!v.value}"
+                  valid="{!v.valid}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'text'}">
+                <ui:inputText
+                  blur="{!c.handleBlur}"
+                  label=""
+                  value="{!v.value}"
+                  aura:id="textField"
+                  class="slds-input slds-p-top_small"
+                  disabled="{!v.readOnly}"
+                  placeholder="{!v.fieldplaceholder}"
+                  required="{!v.required}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'decimal'}">
+                <ui:inputText
+                  blur="{!c.handleBlur}"
+                  label=""
+                  value="{!v.value}"
+                  aura:id="field"
+                  class="slds-input"
+                  placeholder="{!v.fieldplaceholder}"
+                  required="{!v.required}"
+                  disabled="{!v.readOnly}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'clm-file'}">
+                <c:clmFiles
+                  aura:id="clmFile"
+                  des="{!'PVL - ' + v.fieldLabel}"
+                  recordId="{!v.appId}"
+                  value="{!v.value}"
+                  uploadUrl="{!v.uploadUrl}"
+                  oncapturechange="{!c.captureClmFile}"
+                >
+                </c:clmFiles>
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'file'}">
+                <c:sc_Files
+                  aura:id="file"
+                  value="{!v.value}"
+                  change="{!c.captureFileData}"
+                />
+              </aura:if>
+
+              <aura:if isTrue="{!v.fieldType == 'rich text'}">
+                <ui:outputRichText value="{!v.fieldvalues}" aura:id="field" />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'multiPicklist'}">
+                <c:sc_FieldInput
+                  aura:id="field"
+                  apiName="{!v.fieldName}"
+                  options="{!v.options}"
+                  value="{!v.value}"
+                  type="{!v.fieldType}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'date'}">
+                <c:sc_CustomDateField
+                  readOnly="{!v.readOnly}"
+                  aura:id="customDateField"
+                  fieldName="{!v.fieldName}"
+                  dateValidation="{!v.dateValidation}"
+                  value="{!v.value}"
+                  required="{!v.required}"
+                  fieldLabel="{!v.fieldLabel}"
+                />
+              </aura:if>
+              <aura:if isTrue="{!v.fieldType == 'datetime'}">
+                <ui:inputDateTime
+                  aura:id="field"
+                  value="{!v.value}"
+                  class="clearfix"
+                  displayDatePicker="true"
+                  blur="{!c.handleBlur}"
+                />
+              </aura:if>
+              <c:sc_ErrorDisplay errors="{!v.errors}" />
+            </div>
+          </div>
+        </aura:if>
+
+        <aura:if isTrue="{!v.fieldType == 'info'}">
+          <article
+            class="slds-card slds-p-horizontal--none slds-p-vertical--xx-small"
+          >
+            <div class="slds-grid">
+              <ui:outputRichText value="{!v.fieldvalues}" aura:id="field" />
+              <div class="slds-col slds-size_2-of-12">
+                <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+              </div>
+            </div>
+          </article>
+        </aura:if>
+      </div>
+    </div>
+  </div>
+</aura:component>

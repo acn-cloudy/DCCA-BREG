@@ -1,0 +1,30 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">
+                <lightning-formatted-rich-text value={title}></lightning-formatted-rich-text>
+            </h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_medium">
+            <p><strong>Re: </strong> <lightning-formatted-text value={entityName}></lightning-formatted-text></p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_medium">
+            <p><strong>Work Item or case #: </strong> <lightning-formatted-text value={workitemNumber}></lightning-formatted-text></p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_medium">
+            <p>
+                I wish to withdraw the <strong><lightning-formatted-text value={formCode}></lightning-formatted-text></strong>&nbsp;
+                <template lwc:if={formName}><lightning-formatted-text value={formName}></lightning-formatted-text></template>
+            </p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <p>
+                Submitted on <lightning-formatted-text value={formattedSubmissionDate}></lightning-formatted-text> with $ <lightning-formatted-text value={formattedAmount}></lightning-formatted-text>
+            </p>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

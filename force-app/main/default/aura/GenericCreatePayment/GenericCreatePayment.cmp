@@ -1,0 +1,928 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Wizard to create a filing, transaction and payment
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* PacPoint-LC012519 - Created for BREG Phase 1
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* @author       Lucian Ciobanu - PacificPointCorp 
+* @created      2019-01-25
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+* PacPoint-RdG240220 - Updated for Case 6778
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component
+  controller="GenericCreatePaymentCtrl"
+  implements="forceCommunity:availableForAllPageTypes,force:hasRecordId"
+  access="global"
+>
+  <!-- Design attributes -->
+  <aura:attribute name="FilingRecordType" type="String" default="Mutual Fund" />
+  <aura:attribute name="redirectUrlAfterExit" type="String" default="/" />
+  <aura:attribute name="disableButton" type="Boolean" default="false" />
+  <!-- Custom Attributes -->
+  <aura:attribute name="serverResponse" type="object" />
+  <aura:attribute
+    name="paymentPageURL"
+    type="String"
+    default="https://dev-hawaiidcca.cs33.force.com/pmtx/pymt__SiteCheckout"
+  />
+  <aura:attribute name="step" type="String" default="1" />
+  <aura:attribute name="selectedValue" type="String" default="None" />
+  <aura:attribute name="accountName" type="String" default="" />
+  <aura:attribute name="accountCRD" type="String" default="" />
+  <aura:attribute name="accountDBA" type="String" default="" />
+  <aura:attribute name="streetName" type="String" default="" />
+  <aura:attribute name="firstName" type="String" />
+  <aura:attribute name="lastName" type="String" />
+  <aura:attribute name="email" type="String" />
+  <aura:attribute name="searchAccount" type="Boolean" default="false" />
+  <aura:attribute name="isAccountSelected" type="Boolean" default="false" />
+  <aura:attribute name="isMakingServerCall" type="Boolean" default="false" />
+  <aura:attribute name="FilingRecordId" type="String" />
+  <aura:attribute name="supportingDocumentCategory" type="String" />
+  <aura:attribute name="supportingDocumentsCount" type="Integer" default="0" />
+
+  <aura:attribute name="accountColumns" type="List" />
+  <aura:attribute name="pageNumber" type="Integer" default="1" />
+  <aura:attribute name="startPage" type="Integer" />
+  <aura:attribute name="endPage" type="Integer" />
+  <aura:attribute name="totalRecords" type="Integer" />
+  <aura:attribute name="pageSize" type="Integer" default="50" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <div class="slds-form slds-form_compound">
+    <aura:if isTrue="{!v.isMakingServerCall == false}">
+      <!-- Step 1: Ask Filing Type -->
+      <aura:if isTrue="{!v.step == '1'}">
+        <div class="slds-form-element__group">
+          <div class="slds-form slds-form_compound">
+            <div class="slds-grid slds-wrap">
+              <div
+                class="slds-col slds-size_1-of-1"
+                style="
+                  font-size: 120%;
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  padding-bottom: 20px;
+                "
+              >
+                <aura:unescapedHtml value="{!$Label.c.FilingTypeCustomLabel}" />
+              </div>
+
+              <div
+                class="slds-col slds-size_1-of-2"
+                style="
+                  padding-right: 5px;
+                  padding-left: 5px;
+                  padding-bottom: 15px;
+                "
+              >
+                <lightning:select
+                  name="selectSection"
+                  label="Filing Type"
+                  required="false"
+                  value="{!v.selectedValue}"
+                >
+                  <option value="None">-- None --</option>
+                  <aura:iteration
+                    items="{!v.serverResponse.availableApplicationTypeList}"
+                    var="applicationType"
+                  >
+                    <option
+                      value="{!applicationType}"
+                      text="{!applicationType}"
+                    ></option>
+                  </aura:iteration>
+                </lightning:select>
+              </div>
+              <div
+                class="slds-col slds-size_1-of-2"
+                style="padding-right: 5px; padding-left: 5px"
+              >
+                <button
+                  style="margin-top: 28px"
+                  class="slds-button slds-button_neutral"
+                  onclick="{!c.goToNextStep}"
+                >
+                  Next Section
+                  <lightning:icon
+                    iconName="utility:forward"
+                    size="xx-small"
+                    alternativeText="Continue"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aura:if>
+
+      <!-- Step 2: Search Account Information -->
+      <aura:if isTrue="{!v.step == '2'}">
+        <div
+          class="slds-col slds-size_1-of-1"
+          style="
+            font-size: 120%;
+            padding-right: 5px;
+            padding-left: 5px;
+            padding-bottom: 20px;
+          "
+        >
+          <aura:unescapedHtml value="{!$Label.c.AccountSearchCustomLabel}" />
+        </div>
+
+        <!-- Business Account Info -->
+        <aura:if
+          isTrue="{!v.serverResponse.isBusinessAccount == true &amp;&amp; v.serverResponse.isPersonAccount == false}"
+        >
+          <div class="slds-form-element__group">
+            <div class="slds-form slds-form_compound">
+              <div class="slds-grid slds-wrap">
+                <div
+                  class="slds-col slds-size_1-of-1"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  Search for Business Account
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-4"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="{!v.serverResponse.accountNameLabel != null ? v.serverResponse.accountNameLabel : 'Account Name'}"
+                    required="true"
+                    class="slds-input"
+                    value="{!v.accountName}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-4"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="CRD#"
+                    class="slds-input"
+                    value="{!v.accountCRD}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-4"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="DBA"
+                    class="slds-input"
+                    value="{!v.accountDBA}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-4"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="Billing Street"
+                    class="slds-input"
+                    value="{!v.streetName}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-1"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <button
+                    style="margin-top: 15px"
+                    class="slds-button slds-button_neutral"
+                    onclick="{!c.searchBusinessAccounts}"
+                  >
+                    Search
+                    <lightning:icon
+                      iconName="utility:search"
+                      size="xx-small"
+                      alternativeText="Search"
+                    />
+                  </button>
+                  <!-- Display the 'Continue' button only after they searched for an account -->
+                  <aura:if
+                    isTrue="{!and(v.searchAccount == true, v.isAccountSelected == true)}"
+                  >
+                    <button
+                      style="margin-top: 15px"
+                      class="slds-button slds-button_neutral"
+                      onclick="{!c.goToNextStep}"
+                    >
+                      Continue
+                      <lightning:icon
+                        iconName="utility:forward"
+                        size="xx-small"
+                        alternativeText="Continue"
+                      />
+                    </button>
+                  </aura:if>
+                  <!-- Let users to create new accounts only if the selected metadata allows it -->
+                  <aura:if
+                    isTrue="{!v.serverResponse.createAccount == true &amp;&amp; v.searchAccount == true}"
+                  >
+                    <button
+                      style="margin-top: 15px"
+                      class="slds-button slds-button_neutral"
+                      onclick="{!c.createNewAccount}"
+                    >
+                      {!v.serverResponse.buttonNameLabel != null ?
+                      v.serverResponse.buttonNameLabel : 'Create Account'}
+                      &nbsp;
+                      <lightning:icon
+                        iconName="utility:new"
+                        size="xx-small"
+                        alternativeText="Create Account"
+                      />
+                    </button>
+                  </aura:if>
+                </div>
+
+                <!-- Else, if clicked, display additional info -->
+                <aura:if isTrue="{!v.searchAccount == true}">
+                  <div
+                    class="slds-col slds-size_1-of-1"
+                    style="
+                      padding-right: 5px;
+                      padding-left: 5px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Search Result
+                  </div>
+
+                  <!-- If an account was found after the search operation, display it -->
+                  <aura:if isTrue="{!v.serverResponse.foundAccount == true}">
+                    <!-- PacPoint-RdG240220 - Updated for Case 6778 -->
+                    <!--
+                                        <div class="slds-col slds-size_1-of-3" style="display: flex; padding-right: 5px; padding-left: 5px; margin-bottom: 15px;">
+                                            <div style="font-weight: bold;">{!v.serverResponse.accountNameLabel != null ? v.serverResponse.accountNameLabel : 'Account Name'}:</div> &nbsp;&nbsp; <ui:outputText value="{!v.serverResponse.searchedAccount.Name}"/>                                            
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-3" style="display: flex; padding-right: 5px; padding-left: 5px; margin-bottom: 15px;">
+                                            <div style="font-weight: bold;">DBA:</div> &nbsp;&nbsp; <ui:outputText value="{!v.serverResponse.searchedAccount.DBA__c}"/>                                            
+                                        </div>
+                                        <div class="slds-col slds-size_1-of-3" style="display: flex; padding-right: 5px; padding-left: 5px; margin-bottom: 15px;">
+                                            <div style="font-weight: bold;">Billing Street:</div> &nbsp;&nbsp; <ui:outputText value="{!v.serverResponse.searchedAccount.BillingStreet}"/>
+                                        </div>
+          -->
+                    <lightning:datatable
+                      columns="{!v.accountColumns}"
+                      data="{!v.serverResponse.accountList}"
+                      keyField="Id"
+                      sortedBy="Name"
+                      onrowselection="{!c.selectAccount}"
+                      maxRowSelection="1"
+                    />
+                    <br />
+                    <div style="margin-left: 25%">
+                      <lightning:button
+                        label="Prev"
+                        iconName="utility:chevronleft"
+                        iconPosition="left"
+                        disabled="{!v.startPage == 0}"
+                        onclick="{!c.previous}"
+                      />
+                      <span class="slds-p-horizontal_small">
+                        Page {!v.pageNumber} | Showing records from {!
+                        (((v.pageNumber-1)*v.pageSize) + 1)+' to
+                        '+((v.pageNumber-1)*v.pageSize+v.serverResponse.accountList.length)}
+                      </span>
+                      <lightning:button
+                        label="Next"
+                        iconName="utility:chevronright"
+                        iconPosition="right"
+                        disabled="{!v.endPage >= v.totalRecords}"
+                        onclick="{!c.next}"
+                      />
+                    </div>
+                    <!-- PacPoint-RdG240220 - Updated for Case 6778 -->
+                  </aura:if>
+
+                  <!-- If no accounts were found, display an informative message -->
+                  <aura:if isTrue="{!v.serverResponse.foundAccount == false}">
+                    <div
+                      class="slds-col slds-size_1-of-1"
+                      style="
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        margin-bottom: 15px;
+                      "
+                    >
+                      No results found.
+                    </div>
+                  </aura:if>
+                </aura:if>
+              </div>
+            </div>
+          </div>
+        </aura:if>
+
+        <!-- Person Account Info -->
+        <aura:if
+          isTrue="{!v.serverResponse.isBusinessAccount == false &amp;&amp; v.serverResponse.isPersonAccount == true}"
+        >
+          <div class="slds-form-element__group">
+            <div class="slds-form slds-form_compound">
+              <div class="slds-grid slds-wrap">
+                <div
+                  class="slds-col slds-size_1-of-1"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  Search for Person Account
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-3"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="{!v.serverResponse.firstNameLabel != null ?  v.serverResponse.firstNameLabel : 'First Name'}"
+                    class="slds-input"
+                    value="{!v.firstName}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-3"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="{!v.serverResponse.lastNameLabel != null ?  v.serverResponse.lastNameLabel : 'Last Name'}"
+                    class="slds-input"
+                    value="{!v.lastName}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-3"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <ui:inputText
+                    label="Email"
+                    class="slds-input"
+                    value="{!v.email}"
+                  />
+                </div>
+                <div
+                  class="slds-col slds-size_1-of-1"
+                  style="
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 15px;
+                  "
+                >
+                  <button
+                    style="margin-top: 15px"
+                    class="slds-button slds-button_neutral"
+                    onclick="{!c.searchPersonAccounts}"
+                  >
+                    Search
+                    <lightning:icon
+                      iconName="utility:search"
+                      size="xx-small"
+                      alternativeText="Search"
+                    />
+                  </button>
+                  <!-- Display the 'Continue' button only after they searched for an account -->
+                  <aura:if isTrue="{!v.searchAccount == true}">
+                    <button
+                      style="margin-top: 15px"
+                      class="slds-button slds-button_neutral"
+                      onclick="{!c.goToNextStep}"
+                    >
+                      Continue
+                      <lightning:icon
+                        iconName="utility:forward"
+                        size="xx-small"
+                        alternativeText="Continue"
+                      />
+                    </button>
+                  </aura:if>
+                  <!-- Let users to create new accounts only if the selected metadata allows it -->
+                  <aura:if
+                    isTrue="{!v.serverResponse.createAccount == true &amp;&amp; v.searchAccount == true}"
+                  >
+                    <button
+                      style="margin-top: 15px"
+                      class="slds-button slds-button_neutral"
+                      onclick="{!c.createNewAccount}"
+                    >
+                      {!v.serverResponse.buttonNameLabel != null ?
+                      v.serverResponse.buttonNameLabel : 'Create Account'}
+                      &nbsp;
+                      <lightning:icon
+                        iconName="utility:new"
+                        size="xx-small"
+                        alternativeText="Create Account"
+                      />
+                    </button>
+                  </aura:if>
+                </div>
+
+                <!-- Else, if clicked, display additional info -->
+                <aura:if isTrue="{!v.searchAccount == true}">
+                  <div
+                    class="slds-col slds-size_1-of-1"
+                    style="
+                      padding-right: 5px;
+                      padding-left: 5px;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Search Result
+                  </div>
+
+                  <!-- If an account was found after the search operation, display it -->
+                  <aura:if isTrue="{!v.serverResponse.foundAccount == true}">
+                    <div
+                      class="slds-col slds-size_1-of-3"
+                      style="
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        margin-bottom: 15px;
+                      "
+                    >
+                      <div class="slds-grid slds-wrap">
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="padding-right: 5px; margin-bottom: 15px"
+                        >
+                          {!v.serverResponse.firstNameLabel != null ?
+                          v.serverResponse.firstNameLabel : 'First Name'}
+                        </div>
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="
+                            padding-right: 5px;
+                            padding-left: 5px;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          <ui:outputText
+                            value="{!v.serverResponse.searchedAccount.FirstName}"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slds-col slds-size_1-of-3"
+                      style="
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        margin-bottom: 15px;
+                      "
+                    >
+                      <div class="slds-grid slds-wrap">
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="padding-right: 5px; margin-bottom: 15px"
+                        >
+                          {!v.serverResponse.lastNameLabel != null ?
+                          v.serverResponse.lastNameLabel : 'Last Name'}
+                        </div>
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="
+                            padding-right: 5px;
+                            padding-left: 5px;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          <ui:outputText
+                            value="{!v.serverResponse.searchedAccount.LastName}"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slds-col slds-size_1-of-3"
+                      style="
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        margin-bottom: 15px;
+                      "
+                    >
+                      <div class="slds-grid slds-wrap">
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="padding-right: 5px; margin-bottom: 15px"
+                        >
+                          Email
+                        </div>
+                        <div
+                          class="slds-col slds-size_1-of-2"
+                          style="
+                            padding-right: 5px;
+                            padding-left: 5px;
+                            margin-bottom: 15px;
+                          "
+                        >
+                          <ui:outputText
+                            value="{!v.serverResponse.searchedAccount.PersonEmail}"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </aura:if>
+
+                  <!-- If no accounts were found, display an informative message -->
+                  <aura:if isTrue="{!v.serverResponse.foundAccount == false}">
+                    <div
+                      class="slds-col slds-size_1-of-1"
+                      style="
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        margin-bottom: 15px;
+                      "
+                    >
+                      No results found.
+                    </div>
+                  </aura:if>
+                </aura:if>
+              </div>
+            </div>
+          </div>
+        </aura:if>
+      </aura:if>
+
+      <!-- Step 2b: Create Account Information -->
+      <aura:if isTrue="{!v.step == '2b'}">
+        <div class="slds-form-element__group">
+          <div class="slds-form slds-form_compound">
+            <aura:iteration
+              items="{!v.serverResponse.layoutWrapper.sections}"
+              var="layoutSection"
+            >
+              <fieldset class="slds-form-element">
+                <legend
+                  style="
+                    padding-bottom: 15px;
+                    padding-top: 15px;
+                    font-size: 115%;
+                  "
+                  class="slds-form-element__label slds-text-title_caps"
+                >
+                  {!layoutSection.label}
+                </legend>
+                <div class="slds-form-element__group">
+                  <aura:if isTrue="{!layoutSection.columns == 2}">
+                    <div class="slds-grid slds-wrap">
+                      <aura:iteration
+                        items="{!layoutSection.fields}"
+                        var="fieldGroup"
+                      >
+                        <aura:if
+                          isTrue="{!(fieldGroup.field1.isAccessible &amp;&amp; fieldGroup.field1.fieldLabel != 'Record Type ID') || fieldGroup.field1.fieldType == 'ADDRESS'}"
+                        >
+                          <aura:if isTrue="{!fieldGroup.field1 != null}">
+                            <c.CustomRecordCreateField2
+                              forPersonAccount="{!v.serverResponse.isPersonAccount == true ? 'true' : 'false'}"
+                              accountName="{!v.accountName}"
+                              streetName="{!v.streetName}"
+                              hasMetadataInfo="false"
+                              sObj="{!v.serverResponse.createdAccount}"
+                              field="{!fieldGroup.field1}"
+                              getDefaultValue="false"
+                            />
+                          </aura:if>
+                        </aura:if>
+                        <aura:if
+                          isTrue="{!(fieldGroup.field2.isAccessible &amp;&amp; fieldGroup.field2.fieldLabel != 'Record Type ID') || fieldGroup.field2.fieldType == 'ADDRESS'}"
+                        >
+                          <aura:if isTrue="{!fieldGroup.field2 != null}">
+                            <c.CustomRecordCreateField2
+                              forPersonAccount="{!v.serverResponse.isPersonAccount == true ? 'true' : 'false'}"
+                              accountName="{!v.accountName}"
+                              streetName="{!v.streetName}"
+                              hasMetadataInfo="false"
+                              sObj="{!v.serverResponse.createdAccount}"
+                              field="{!fieldGroup.field2}"
+                              getDefaultValue="false"
+                            />
+                          </aura:if>
+                        </aura:if>
+                      </aura:iteration>
+                    </div>
+                  </aura:if>
+                  <aura:if isTrue="{!layoutSection.columns == 1}">
+                    <div class="slds-grid slds-wrap">
+                      <aura:iteration
+                        items="{!layoutSection.fields}"
+                        var="fieldGroup"
+                      >
+                        <aura:if
+                          isTrue="{!(fieldGroup.field1.isAccessible &amp;&amp; fieldGroup.field1.fieldLabel != 'Record Type ID') || fieldGroup.field1.fieldType == 'ADDRESS'}"
+                        >
+                          <aura:if isTrue="{!fieldGroup.field1 != null}">
+                            <c.CustomRecordCreateField2
+                              forPersonAccount="{!v.serverResponse.isPersonAccount == true ? 'true' : 'false'}"
+                              accountName="{!v.accountName}"
+                              streetName="{!v.streetName}"
+                              hasMetadataInfo="false"
+                              sObj="{!v.serverResponse.createdAccount}"
+                              field="{!fieldGroup.field1}"
+                              getDefaultValue="false"
+                            />
+                          </aura:if>
+                        </aura:if>
+                      </aura:iteration>
+                    </div>
+                  </aura:if>
+                </div>
+              </fieldset>
+            </aura:iteration>
+
+            <button
+              style="margin-top: 15px"
+              class="slds-button slds-button_neutral"
+              onclick="{!c.goToNextStep}"
+            >
+              Continue
+              <lightning:icon
+                iconName="utility:forward"
+                size="xx-small"
+                alternativeText="Continue"
+              />
+            </button>
+          </div>
+        </div>
+      </aura:if>
+
+      <!-- Step 3: Ask for Filing Fields -->
+      <aura:if isTrue="{!v.step == '3'}">
+        <div class="slds-form-element__group">
+          <div class="slds-form slds-form_compound">
+            <fieldset class="slds-form-element">
+              <legend
+                style="padding-bottom: 15px; padding-top: 15px; font-size: 115%"
+                class="slds-form-element__label slds-text-title_caps"
+              >
+                Filing Details
+              </legend>
+              <div class="slds-grid slds-wrap">
+                <div
+                  class="slds-col slds-size_1-of-1"
+                  style="
+                    font-size: 120%;
+                    padding-right: 5px;
+                    padding-left: 5px;
+                    padding-bottom: 20px;
+                  "
+                >
+                  <aura:unescapedHtml
+                    value="{!$Label.c.RecordCreationFields}"
+                  />
+                </div>
+
+                <aura:iteration
+                  items="{!v.serverResponse.filingFieldsWrapperList}"
+                  var="fieldWrapper"
+                >
+                  <aura:if
+                    isTrue="{!(fieldWrapper.fieldLabel != 'Record Type ID') || fieldWrapper.fieldType == 'ADDRESS'}"
+                  >
+                    <aura:if isTrue="{!fieldWrapper != null}">
+                      <c.CustomRecordCreateField2
+                        hasMetadataInfo="true"
+                        sObj="{!v.serverResponse.newFiling}"
+                        field="{!fieldWrapper}"
+                        getDefaultValue="false"
+                      />
+                    </aura:if>
+                  </aura:if>
+                </aura:iteration>
+              </div>
+            </fieldset>
+
+            <!-- If there are some optional steps to visit, show the 'Continue' button  -->
+            <aura:if isTrue="{!v.serverResponse.displayFiles == true}">
+              <button
+                style="margin-left: 5px; margin-top: 15px"
+                class="slds-button slds-button_neutral"
+                onclick="{!c.saveRecords}"
+              >
+                Save and Continue
+                <lightning:icon
+                  iconName="utility:forward"
+                  size="xx-small"
+                  alternativeText="Continue"
+                />
+              </button>
+            </aura:if>
+
+            <!-- If there are some optional steps to visit, show the 'Save' button  -->
+            <aura:if isTrue="{!v.serverResponse.displayFiles == false}">
+              <button
+                style="margin-left: 5px; margin-top: 15px"
+                class="slds-button slds-button_neutral"
+                onclick="{!c.saveRecords}"
+              >
+                Save
+                <lightning:icon
+                  iconName="utility:save"
+                  size="xx-small"
+                  alternativeText="Save"
+                />
+              </button>
+            </aura:if>
+          </div>
+        </div>
+      </aura:if>
+
+      <!-- Step 3b: Ask for Uploading Documents -->
+      <aura:if isTrue="{!v.step == '3b'}">
+        <div class="slds-form-element__group">
+          <div class="slds-form slds-form_compound">
+            <div
+              class="slds-col slds-size_1-of-1"
+              style="
+                font-size: 130%;
+                padding-right: 5px;
+                padding-left: 5px;
+                padding-bottom: 20px;
+              "
+            >
+              <aura:unescapedHtml value="{!$Label.c.FilesCustomLabel}" />
+            </div>
+
+            <aura:iteration
+              items="{!v.serverResponse.uploadedFilesWrapperList}"
+              var="uploadedFileWrapper"
+            >
+              <fieldset class="slds-form-element">
+                <div class="slds-form-element__group">
+                  <c.CustomFileDetailUploader
+                    aura:id="fileDetailUploader"
+                    uploadedFileWrapper="{!uploadedFileWrapper}"
+                    recordId="{!v.serverResponse.filingId}"
+                  />
+                </div>
+              </fieldset>
+            </aura:iteration>
+            <aura:if
+              isTrue="{!and(and(v.FilingRecordType == 'Franchise'
+                                || v.FilingRecordType == 'By Qualification'
+                                || v.FilingRecordType == 'Issuer Dealer'
+                                || v.FilingRecordType == 'Mutual Fund'
+                                || v.FilingRecordType == 'Regulation A'
+                                || v.FilingRecordType == 'Regulation D'
+                                || v.FilingRecordType == 'Small Company Offering Registration (SCOR)'
+                                || v.FilingRecordType == 'Model Accredited Investor'
+                                || v.FilingRecordType == 'Issuer Dealer Agent',
+                                v.selectedValue == 'New'),
+                                lessthan(v.supportingDocumentsCount,5))}"
+            >
+              <button
+                style="margin-left: 5px; margin-top: 15px"
+                class="slds-button slds-button_neutral"
+                onclick="{!c.franchiseAddMoreSuppDocsUpload}"
+              >
+                Add More
+                <lightning:icon
+                  iconName="utility:add"
+                  size="xx-small"
+                  alternativeText="Add More"
+                />
+              </button>
+            </aura:if>
+
+            <aura:if
+              isTrue="{!and(and(v.FilingRecordType == 'Franchise'
+                                || v.FilingRecordType == 'By Qualification'
+                                || v.FilingRecordType == 'Mutual Fund'
+                                || v.FilingRecordType == 'Regulation A'
+                                || v.FilingRecordType == 'Regulation D',
+                                v.selectedValue == 'Amendment'),
+                                lessthan(v.supportingDocumentsCount,5))}"
+            >
+              <button
+                style="margin-left: 5px; margin-top: 15px"
+                class="slds-button slds-button_neutral"
+                onclick="{!c.franchiseAddMoreSuppDocsUpload}"
+              >
+                Add More
+                <lightning:icon
+                  iconName="utility:add"
+                  size="xx-small"
+                  alternativeText="Add More"
+                />
+              </button>
+            </aura:if>
+
+            <aura:if
+              isTrue="{!and(and(v.FilingRecordType == 'Franchise'
+                                || v.FilingRecordType == 'Issuer Dealer'
+                                || v.FilingRecordType == 'Mutual Fund'
+                                || v.FilingRecordType == 'Issuer Dealer Agent',
+                                v.selectedValue == 'Renewal'
+                                ),
+                                lessthan(v.supportingDocumentsCount,5))}"
+            >
+              <button
+                style="margin-left: 5px; margin-top: 15px"
+                class="slds-button slds-button_neutral"
+                onclick="{!c.franchiseAddMoreSuppDocsUpload}"
+              >
+                Add More
+                <lightning:icon
+                  iconName="utility:add"
+                  size="xx-small"
+                  alternativeText="Add More"
+                />
+              </button>
+            </aura:if>
+
+            <button
+              style="margin-left: 5px; margin-top: 15px"
+              disabled="{!v.disableButton}"
+              class="slds-button slds-button_neutral"
+              onclick="{!c.saveAfterUpload}"
+            >
+              Save
+              <lightning:icon
+                iconName="utility:save"
+                size="xx-small"
+                alternativeText="Save"
+              />
+            </button>
+            &nbsp;
+            <button
+              style="margin-left: 5px; margin-top: 15px; display: none"
+              class="slds-button slds-button_neutral"
+              onclick="{!c.exitFromWizard}"
+            >
+              Exit
+              <lightning:icon
+                style="margin-left: 6px"
+                iconName="utility:close"
+                size="x-small"
+                alternativeText="Save"
+              />
+            </button>
+          </div>
+        </div>
+      </aura:if>
+    </aura:if>
+
+    <aura:if isTrue="{!v.isMakingServerCall == true}">
+      <div
+        style="
+          position: fixed;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          background-color: white;
+          opacity: 0.75;
+          text-align: center;
+          padding-top: 10px;
+          z-index: 1000;
+        "
+      >
+        <img style="top: 50%; position: absolute" src="/img/loading32.gif" />
+      </div>
+    </aura:if>
+  </div>
+</aura:component>

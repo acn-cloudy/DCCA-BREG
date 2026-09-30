@@ -1,0 +1,55 @@
+.container {
+  background-image: url(/sfsites/c/resource/ComplaintsThemeLayout/imgs/background.jpg);
+}
+
+.container>.item {
+  border-top: 1px solid #fff;
+}
+
+.container>.item:first-child {
+  border-right: 1px solid #fff;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+}
+
+span {
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+}
+
+a.button {
+  background-color: #ac5704;
+  border: 0px;
+  font-size: 16px;
+  border-radius: 4px;
+  color: #fff !important;
+  display: inline-block;
+}
+
+.title {
+  font-family: Open sans;
+  font-weight: bold;
+  font-size: 27px;
+  color: #FFFFFF;
+}
+
+.sub-title {
+  font-family: Open sans;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+a {
+  text-decoration-color: #fff;
+}
+
+@media (min-width: 64em) {
+  .container>.item:last-child {
+    border-left: 1px solid #fff;
+  }
+}

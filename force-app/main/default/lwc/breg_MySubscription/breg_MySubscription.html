@@ -1,0 +1,82 @@
+<template>
+    <div class="slds-modal slds-fade-in-open" tabindex="-1" role="dialog">
+        <div class="slds-modal__container">
+            <!-- HEADER -->
+            <header class="slds-modal__header">
+                <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                    <h2 class="slds-modal__title slds-hyphenate">{chosenSubscription.subscriptionName}</h2>
+                    <lightning-button
+                        label={subscriptionLabel}
+                        variant={subscriptionButtonVariant}
+                        onclick={handleSubscriptionChange}
+                        icon-position="right"
+                        class="slds-m-left_small"
+                    >
+                    </lightning-button>
+                </div>
+                <h3>{labels.BREG_for} {chosenSubscription.associatedEntity}</h3>
+                <button class="slds-button slds-button_icon slds-modal__close" title={labels.BREG_Close} onclick={handleClose}>
+                    <lightning-icon icon-name="utility:close" size="small" alternative-text={labels.BREG_Close}></lightning-icon>
+                    <span class="slds-assistive-text">{labels.BREG_Close}</span>
+                </button>
+            </header>
+
+            <!-- BODY -->
+            <div class="slds-modal__content slds-p-around_medium slds-text-align_center">
+                <div class="slds-m-bottom_small">
+                    <span class={statusBadgeClass}>{chosenSubscription.status}:</span>
+                    <div class="slds-m-top_x-small">{chosenSubscription.startDate} – {chosenSubscription.expirationDate}</div>
+                </div>
+
+                <div>
+                    <strong>{labels.BREG_Send_to}: </strong>
+                    <template if:false={isEdit}>
+                        <span>{chosenSubscription.recipient}</span>
+                        <lightning-button-icon
+                            icon-name="utility:edit"
+                            onclick={enableEdit}
+                            size="small"
+                            class="slds-m-left_x-small"
+                        ></lightning-button-icon>
+                    </template>
+                    <template if:true={isEdit}>
+                        <lightning-input value={editedRecipient} onchange={handleRecipientChange}></lightning-input>
+                        <lightning-button-icon
+                            icon-name="utility:check"
+                            onclick={handleSaveRecipient}
+                            class="slds-m-left_x-small"
+                            size="small"
+                            title={labels.BREG_Save}
+                        ></lightning-button-icon>
+                        <lightning-button-icon
+                            icon-name="utility:close"
+                            onclick={cancelEdit}
+                            class="slds-m-left_x-small"
+                            size="small"
+                            title={labels.BBREG_Cancel}
+                        ></lightning-button-icon>
+                    </template>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="slds-modal__footer slds-text-align_center">
+                <p class="slds-m-bottom_small">{description}</p>
+
+                <lightning-button label={labels.BREG_Close} variant="neutral" onclick={handleClose}> </lightning-button>
+            </footer>
+        </div>
+    </div>
+
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    <c-breg-_-popup
+        visible={showModal}
+        title={modalLabel}
+        message={modalText}
+        oncontinue={handleModalContinue}
+        oncancel={handleModalCancel}
+        next-button-label={labels.BREG_Confirm}
+        cancel-button-label={labels.BREG_Cancel}
+    >
+    </c-breg-_-popup>
+</template>

@@ -1,0 +1,39 @@
+<aura:component access="global" extends="c:sc_execute">
+  <aura:attribute name="value" type="Object" />
+  <aura:attribute name="message" type="String" />
+  <aura:attribute name="confirmMessage" type="String" />
+  <aura:attribute name="valueMap" type="Object" />
+  <aura:attribute name="formData" type="String" />
+  <aura:attribute name="accountName" type="String" />
+  <aura:attribute name="cancelURL" type="String" />
+  <aura:attribute name="displayItem" type="Boolean" />
+  <aura:attribute name="notTheUser" type="Boolean" />
+  <aura:registerEvent name="cmpMessage" type="c:sc_Message" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:if isTrue="{!v.displayItem}">
+    <c:sc_popup title="Warning" hide="{!c.closeApp}">
+      <ui:outputRichText value="{!v.message}" />
+      <lightning:layout>
+        <lightning:layoutItem padding="around-small" size="2">
+          <lightning:button
+            variant="brand"
+            label="Confirm"
+            onclick="{!c.confirm}"
+          />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small" size="10">
+          <ui:outputRichText value="{!v.confirmMessage}" />
+        </lightning:layoutItem>
+      </lightning:layout>
+      <aura:set attribute="footers">
+        <div class="slds-grid slds-grid_align-center">
+          <lightning:button
+            variant="neutral"
+            label="Edit Application"
+            onclick="{!c.closeApp}"
+          />
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </aura:if>
+</aura:component>

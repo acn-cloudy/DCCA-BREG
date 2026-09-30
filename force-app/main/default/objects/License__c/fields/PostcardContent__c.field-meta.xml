@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PostcardContent__c</fullName>
+    <description>Formula to write the Renewal Postcard visualforce page.
+Pacificpoint 20210125AZ 00012549</description>
+    <externalId>false</externalId>
+    <formula>CASE(SelectRenewalPostcard__c,&quot;Renewal Postcard&quot;,IF(LicenseType__r.BoardProgram__r.Name ==&quot;MOTOR VEHICLE INDUSTRY LICENSING BOARD&quot;, &quot;MVIPostcard&quot;, IF(LicenseType__r.BoardProgram__r.Name ==&quot;BOARD OF NURSING&quot;, &quot;NursingPostcard&quot;, If(LicenseType__r.BoardProgram__r.Name== &quot;REAL ESTATE COMMISSION&quot;,&quot;REBPostcard&quot;, &quot;LicensePostcard&quot;))),
+&quot;Renewal Flyer&quot;,
+IF(LicenseType__r.BoardProgram__r.Name ==&quot;HAWAII MEDICAL BOARD&quot;, &quot;MedicalFlyer&quot;, IF(LicenseType__r.BoardProgram__r.Name ==&quot;CONTRACTORS LICENSE BOARD&quot;, &quot;CTFlyer&quot;, If(Name== &quot;DOS&quot;,&quot;DOSFlyer&quot;, &quot;&quot;))),
+&quot;Renewal Reminder&quot;,
+IF(LicenseType__r.BoardProgram__r.Name ==&quot;REAL ESTATE COMMISSION&quot;, &quot;REBReminder&quot;, IF(LicenseType__r.BoardProgram__r.Name ==&quot;BOARD OF NURSING&quot;, &quot;NursingReminder&quot;, If(LicenseType__r.BoardProgram__r.Name== &quot;HAWAII MEDICAL BOARD&quot;,&quot;MedicalReminder&quot;, IF(LicenseType__r.BoardProgram__r.Name ==&quot;CONTRACTORS LICENSE BOARD&quot;,&quot;CTReminder&quot;,IF(LicenseType__r.BoardProgram__r.Name ==&quot;MOTOR VEHICLE INDUSTRY BOARD&quot;,&quot;MVIReminder&quot;,&quot;LicenseReminder&quot;))))),
+&quot;&quot;)</formula>
+    <label>Postcard Content</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

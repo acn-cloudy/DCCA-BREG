@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OutsideAgencyDisposition__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>Outside Agency Disposition</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Attorney General</fullName>
+                <default>false</default>
+                <label>Attorney General</label>
+            </value>
+            <value>
+                <fullName>Prosecutor&apos;s Office</fullName>
+                <default>false</default>
+                <label>Prosecutor&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>Federal Bureau of Investigation</fullName>
+                <default>false</default>
+                <label>Federal Bureau of Investigation</label>
+            </value>
+            <value>
+                <fullName>Internal Revenue Service</fullName>
+                <default>false</default>
+                <label>Internal Revenue Service</label>
+            </value>
+            <value>
+                <fullName>US Secret Service</fullName>
+                <default>false</default>
+                <label>US Secret Service</label>
+            </value>
+            <value>
+                <fullName>US Postal Inspection Service</fullName>
+                <default>false</default>
+                <label>US Postal Inspection Service</label>
+            </value>
+            <value>
+                <fullName>US Attorney&apos;s Office</fullName>
+                <default>false</default>
+                <label>US Attorney&apos;s Office</label>
+            </value>
+            <value>
+                <fullName>US Securities and Exchange Commission</fullName>
+                <default>false</default>
+                <label>US Securities and Exchange Commission</label>
+            </value>
+            <value>
+                <fullName>US Commodity Futures Trading Commission</fullName>
+                <default>false</default>
+                <label>US Commodity Futures Trading Commission</label>
+            </value>
+            <value>
+                <fullName>Federal Trade Commission</fullName>
+                <default>false</default>
+                <label>Federal Trade Commission</label>
+            </value>
+            <value>
+                <fullName>US Department of Labor</fullName>
+                <default>false</default>
+                <label>US Department of Labor</label>
+            </value>
+            <value>
+                <fullName>US Department of Homeland Security Investigations</fullName>
+                <default>false</default>
+                <label>US Department of Homeland Security Investigations</label>
+            </value>
+            <value>
+                <fullName>US Office of Inspector General</fullName>
+                <default>false</default>
+                <label>US Office of Inspector General</label>
+            </value>
+            <value>
+                <fullName>Consumer Financial Protection Bureau</fullName>
+                <default>false</default>
+                <label>Consumer Financial Protection Bureau</label>
+            </value>
+            <value>
+                <fullName>National Futures Association</fullName>
+                <default>false</default>
+                <label>National Futures Association</label>
+            </value>
+            <value>
+                <fullName>Police Department</fullName>
+                <default>false</default>
+                <label>Police Department</label>
+            </value>
+            <value>
+                <fullName>Office of Disciplinary Counsel</fullName>
+                <default>false</default>
+                <label>Office of Disciplinary Counsel</label>
+            </value>
+            <value>
+                <fullName>North  American Securities Administrators Association</fullName>
+                <default>false</default>
+                <label>North  American Securities Administrators Association</label>
+            </value>
+            <value>
+                <fullName>Financial Industry Regulatory Authority</fullName>
+                <default>false</default>
+                <label>Financial Industry Regulatory Authority</label>
+            </value>
+            <value>
+                <fullName>Securities Division</fullName>
+                <default>false</default>
+                <label>Securities Division</label>
+            </value>
+            <value>
+                <fullName>Insurance Division</fullName>
+                <default>false</default>
+                <label>Insurance Division</label>
+            </value>
+            <value>
+                <fullName>Division of Financial Institution</fullName>
+                <default>false</default>
+                <label>Division of Financial Institution</label>
+            </value>
+            <value>
+                <fullName>Office of Consumer Protection</fullName>
+                <default>false</default>
+                <label>Office of Consumer Protection</label>
+            </value>
+            <value>
+                <fullName>Regulated Industries Complaints Office</fullName>
+                <default>false</default>
+                <label>Regulated Industries Complaints Office</label>
+            </value>
+            <value>
+                <fullName>Adult Protective Services</fullName>
+                <default>false</default>
+                <label>Adult Protective Services</label>
+            </value>
+            <value>
+                <fullName>State Department of Taxation</fullName>
+                <default>false</default>
+                <label>State Department of Taxation</label>
+            </value>
+            <value>
+                <fullName>Naval Criminal Investigations Service</fullName>
+                <default>false</default>
+                <label>Naval Criminal Investigations Service</label>
+            </value>
+            <value>
+                <fullName>US Department of Defense</fullName>
+                <default>false</default>
+                <label>US Department of Defense</label>
+            </value>
+            <value>
+                <fullName>US Army Counterintelligence</fullName>
+                <default>false</default>
+                <label>US Army Counterintelligence</label>
+            </value>
+            <value>
+                <fullName>US Air Force Office of Special Investigations</fullName>
+                <default>false</default>
+                <label>US Air Force Office of Special Investigations</label>
+            </value>
+            <value>
+                <fullName>US Marine Corps Criminal Investigation Division</fullName>
+                <default>false</default>
+                <label>US Marine Corps Criminal Investigation Division</label>
+            </value>
+            <value>
+                <fullName>Coast Guard Investigative Service</fullName>
+                <default>false</default>
+                <label>Coast Guard Investigative Service</label>
+            </value>
+            <value>
+                <fullName>Other agency</fullName>
+                <default>false</default>
+                <label>Other agency</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

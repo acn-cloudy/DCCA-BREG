@@ -1,0 +1,516 @@
+<template>
+    <section class="tDRTable">
+        <div>
+            <div style="text-align: center;">
+                <h2>STATE OF HAWAII</h2>
+                <h1>TREASURY DEPOSIT RECEIPT</h1>
+            </div>
+            <table>
+                <thead>
+                <tr style="border:0;">
+                    <th style="width: 26px; border:0;"></th>
+                    <th style="width: 32px; border:0;"></th>
+                    <th style="width: 16px; border:0;"></th>
+                    <th style="width: 11px; border:0;"></th>
+                    <th style="width: 13px; border:0;"></th>
+                    <th style="width: 12px; border:0;"></th>
+                    <th style="width: 25px; border:0;"></th>
+                    <th style="width: 13px; border:0;"></th>
+                    <th style="width: 26px; border:0;"></th>
+                    <th style="width: 45px; border:0;"></th>
+                    <th style="width: 46px; border:0;"></th>
+                    <th style="width: 74px; border:0;"></th>
+                    <th style="width: 25px; border:0;"></th>
+                    <th style="width: 35px; border:0;"></th>
+                    <th style="width: 39px; border:0;"></th>
+                    <th style="width: 62px; border:0;"></th>
+                    <th style="width: 112px; border:0;"></th>
+                    <th style="width: 26px; border:0;"></th>
+                    <th style="width: 103px; border:0;"></th>
+                    <th style="width: 25px; border:0;"></th>
+                </tr>
+                <tr style="height:2px">
+                    <th colspan="20"></th>
+                </tr>
+                <tr>
+                    <th colspan="5"><p>FUND</p></th>
+                    <th colspan="13"><p>DETAIL FUND OR APPROPRIATION</p></th>
+                    <th colspan="2"><p>DATE</p></th>
+                </tr>
+                <tr style="height:30px">
+                    <td colspan="5">
+                        <h2><b>
+                            <lightning-input
+                                    class="slds-text-align_center"
+                                    variant="label-hidden"
+                                    type="text"
+                                    name="fundName"
+                                    data-type="input"
+                                    value={fundType}>
+
+                            </lightning-input>
+                        </b></h2>
+                    </td>
+                    <td colspan="13">
+                        <h2><b>
+                            <lightning-input
+                                    class="slds-text-align_center"
+                                    variant="label-hidden"
+                                    type="text"
+                                    name="detailFund"
+                                    data-type="input"
+                                    value={detailFund}>
+                            </lightning-input>
+                        </b></h2>
+                    </td>
+                    <td colspan="2">
+                        <h2 style="width:100px;"><b>
+                            <lightning-input
+                                    class="slds-text-align_center"
+                                    variant="label-hidden"
+                                    type="text"
+                                    name="dateStr"
+                                    data-type="input"
+                                    value={dateValue}>
+
+                            </lightning-input>
+                        </b></h2>
+                    </td>
+                </tr>
+                <tr style="height:2px">
+                    <th colspan="20"></th>
+                </tr>
+                <tr style="vertical-align: bottom;">
+                    <th rowspan="2"><p>SFX</p></th>
+                    <th rowspan="2"><p>TC</p></th>
+                    <th rowspan="2"><p>F</p></th>
+                    <th rowspan="2" colspan="2"><p>YR</p></th>
+                    <th rowspan="2" colspan="3"><p>APP</p></th>
+                    <th rowspan="2"><p>D</p></th>
+                    <th rowspan="2"><p>SOURCE/<br/>OBJECT</p></th>
+                    <th rowspan="2"><p>COST<br/>CENTER</p></th>
+                    <th colspan="2"><p>PROJECT</p></th>
+                    <th rowspan="2"><p>DEPT<br/>ACT</p></th>
+                    <th rowspan="2"><p>G/L<br/>ACCT</p></th>
+                    <th rowspan="2"><p>S/L<br/>ACCT</p></th>
+                    <th colspan="2"><p>VENDOR</p></th>
+                    <th rowspan="2" colspan="2"><p>AMOUNT</p></th>
+                </tr>
+                <tr>
+                    <th><p>NUMBER</p></th>
+                    <th><p>PH</p></th>
+                    <th><p>NUMBER</p></th>
+                    <th><p>SFX</p></th>
+                </tr>
+                <tr>
+                    <th><p>xx</p></th>
+                    <th><p>xxx</p></th>
+                    <th><p>x</p></th>
+                    <th colspan="2"><p>xx</p></th>
+                    <th colspan="3"><p>xxx</p></th>
+                    <th><p>xx</p></th>
+                    <th><p>xxxx</p></th>
+                    <th><p>xxxx</p></th>
+                    <th><p>xxxxx</p></th>
+                    <th><p>xx</p></th>
+                    <th><p>xxx</p></th>
+                    <th><p>xxx</p></th>
+                    <th><p>xxxxxxx</p></th>
+                    <th><p>xxxxxxx</p></th>
+                    <th><p>xx</p></th>
+                    <th><p>xxxxxxxxxxx</p></th>
+                    <th><p>xx</p></th>
+                </tr>
+                <tr>
+                    <th colspan="6"><p>REFERENCE DOC</p></th>
+                    <th rowspan="2" style="width:15px;"><p>R<br/>E<br/>V</p></th>
+                    <th rowspan="2" colspan="8"><p>VENDOR NUMBER</p></th>
+                    <th rowspan="2" colspan="3"><p>OPTIONAL DEPARTMENTAL</p></th>
+                    <th rowspan="3" colspan="2"
+                        style="background-image: url({!$Resource.TDR_BG_dot});"
+                    ></th>
+                </tr>
+                <tr>
+                    <th colspan="4"><p>NUMBER</p></th>
+                    <th colspan="2"><p>SFX</p></th>
+                </tr>
+                <tr>
+                    <th colspan="4"><p>xxxxxxx</p></th>
+                    <th colspan="2"><p>xx</p></th>
+                    <th><p>x</p></th>
+                    <th colspan="8"><p>x (30) </p></th>
+                    <th colspan="3"><p>x (22) </p></th>
+                </tr>
+                </thead>
+                <tbody>
+                <template for:each={tableFundData} for:item='fund'>
+                    <tr class="fund" key={fund.elemKey}>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.indexValue}
+                                                 name="indexValue"
+                                                 variant="label-hidden"
+                                                 maxlength="2"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.tcValue}
+                                                 name="tcValue"
+                                                 variant="label-hidden"
+                                                 maxlength="3"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.sValue}
+                                                 name="sValue"
+                                                 variant="label-hidden"
+                                                 maxlength="1"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td colspan="2">
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.yrValue}
+                                                 name="yrValue"
+                                                 variant="label-hidden"
+                                                 maxlength="2"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td colspan="3">
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.appValue}
+                                                 name="appValue"
+                                                 variant="label-hidden"
+                                                 maxlength="3"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.dValue}
+                                                 name="dValue"
+                                                 variant="label-hidden"
+                                                 maxlength="2"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.sourceObjValue}
+                                                 name="sourceObjValue"
+                                                 variant="label-hidden"
+                                                 maxlength="4"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.costCenterValue}
+                                                 name="costCenterValue"
+                                                 variant="label-hidden"
+                                                 maxlength="4"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.projectNumValue}
+                                                 name="projectNumValue"
+                                                 variant="label-hidden"
+                                                 maxlength="5"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.projectPhValue}
+                                                 name="projectPhValue"
+                                                 variant="label-hidden"
+                                                 maxlength="2"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.deptActValue}
+                                                 name="deptActValue"
+                                                 variant="label-hidden"
+                                                 maxlength="3"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.gLActValue}
+                                                 name="gLActValue"
+                                                 variant="label-hidden"
+                                                 maxlength="3"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.sLActValue}
+                                                 name="sLActValue"
+                                                 variant="label-hidden"
+                                                 maxlength="7"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.venterNumValue}
+                                                 name="venterNumValue"
+                                                 variant="label-hidden"
+                                                 maxlength="7"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td>
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 value={fund.venterSFXValue}
+                                                 name="venterSFXValue"
+                                                 variant="label-hidden"
+                                                 maxlength="2"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td class="amount" colspan="2">
+                            <h4><b>
+                                <c-t-d-r-amount-input data-role="depositAmount"
+                                                      value={fund.amount}
+                                                      name="amount"
+                                                      onchange={handleRowAmountChange}>
+                                </c-t-d-r-amount-input>
+                            </b></h4>
+                        </td>
+                    </tr>
+                    <tr class="fund" key={fund.indexValue} style="height:20px">
+                        <td colspan="4"></td>
+                        <td colspan="2"></td>
+                        <td >
+                            <h4><b>
+                                <lightning-input type="text"
+                                                 variant="label-hidden"
+                                                 name="revValue"
+                                                 maxlength="1"
+                                                 autocomplete="off"></lightning-input>
+                            </b></h4>
+                        </td>
+                        <td colspan="8"></td>
+                        <td colspan="3"></td>
+                        <td colspan="2" style="background-image: url({!$Resource.TDR_BG_dot});"></td>
+                    </tr>
+                </template>
+                </tbody>
+            </table>
+            <div style="position: relative; margin-top: 5px;white-space: nowrap;">
+                <div style="display: inline-block; border:1px solid; width: 36% ;height: 100%; vertical-align: top;">
+                    <h5><u>REMARKS</u></h5>
+                    <p><textarea name="remarks" data-type="input">
+                    02/25.26.27
+
+                    First Hawaii
+                </textarea></p>
+                </div>
+                <div class="deposit" style="display: inline-block; vertical-align:top; width: 33%; margin: 0 1px;">
+                    <table>
+                        <tr style="height: 25px;">
+                            <td style="padding-left:5px;padding-right:5px"><h3>TOTAL DEPOSIT</h3></td>
+                            <td style="width: 50%;text-align:right;padding-right:5px;">
+                                <h3><b>
+                                    <lightning-input type="number"
+                                                     name="totalDeposit"
+                                                     variant="label-hidden"
+                                                     data-type="input"
+                                                     value={totalDeposit}
+                                                     formatter="decimal"
+                                                     step="0.01">
+                                    </lightning-input>
+                                </b></h3>
+                            </td>
+                        </tr>
+                        <tr style="height: 16px;">
+                            <td colspan="2"><p>KINDS OF DEPOSIT</p></td>
+                        </tr>
+                        <tr style="height: 20px;" class="deposit">
+                            <td style="text-align: left;"><h5>BANK DEPOSITS</h5></td>
+                            <td style="text-align: right;">
+                                <h4><b>
+                                    <template if:false={isCreditCard}>
+                                        <lightning-input type="number"
+                                                         name="bankDeposit"
+                                                         data-type="input"
+                                                         variant="label-hidden"
+                                                         value={totalDeposit}
+                                                         formatter="decimal"
+                                                         step="0.01">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:true={isCreditCard}>
+                                        <lightning-input type="number"
+                                                         name="bankDeposit"
+                                                         data-type="input"
+                                                         variant="label-hidden"
+                                                         formatter="decimal"
+                                                         step="0.01">
+                                        </lightning-input>
+                                    </template>
+                                </b></h4>
+                            </td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="text-align: left;"><h5>ELECTRONIC FUND TRANSFER</h5></td>
+                            <td>
+                                <h4><b>
+                                    <template if:false={isCreditCard}>
+                                        <lightning-input type="number"
+                                                         name="electronicFundTransfer"
+                                                         data-type="input"
+                                                         variant="label-hidden"
+                                                         formatter="decimal"
+                                                         step="0.01">
+                                        </lightning-input>
+                                    </template>
+                                    <template if:true={isCreditCard}>
+                                        <lightning-input type="number"
+                                                         name="electronicFundTransfer"
+                                                         data-type="input"
+                                                         variant="label-hidden"
+                                                         formatter="decimal"
+                                                         value={totalDeposit}
+                                                         step="0.01">
+                                        </lightning-input>
+                                    </template>
+                                </b></h4>
+                            </td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="text-align: left;"><h5>CREDIT CARD PROCESSING</h5></td>
+                            <td>
+                                <h4><b>
+                                    <lightning-input type="number"
+                                                     name="creditCardProcessing"
+                                                     data-type="input"
+                                                     variant="label-hidden"
+                                                     formatter="decimal"
+                                                     step="0.01">
+                                    </lightning-input>
+                                </b></h4>
+                            </td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td style="text-align: left;"><h5>OTHERS</h5></td>
+                            <td>
+                                <h4><b>
+                                    <lightning-input type="number"
+                                                     name="others"
+                                                     data-type="input"
+                                                     variant="label-hidden"
+                                                     formatter="decimal"
+                                                     step="0.01">
+                                    </lightning-input>
+                                </b></h4>
+                            </td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td></td>
+                            <td><h3></h3></td>
+                        </tr>
+                        <tr style="height: 20px;">
+                            <td></td>
+                            <td>
+                                <h3></h3>
+                            </td>
+                        </tr>
+                        <tr style="height: 35px;">
+                            <td style="text-align:left;"><h3>TOTAL DEPOSIT</h3></td>
+                            <td style="text-align:right;padding-right:5px;">
+                                <h3><b>
+                                    <lightning-input type="number"
+                                                     name="totalDeposit2"
+                                                     data-type="input"
+                                                     variant="label-hidden"
+                                                     value={totalDeposit}
+                                                     formatter="decimal" step="0.01">
+                                    </lightning-input>
+                                </b></h3>
+                            </td>
+                        </tr>
+
+                        <tr style="height:90px;line-height:1.2em;">
+                            <td colspan="2">
+                                <h5>DISTRIBUTION COPIES</h5>
+                                <h5 class="slds-text-align_left">COPY #1 - STATE TREASURY</h5>
+                                <h5 class="slds-text-align_left">COPY #2 - STATE COMPTROLLER</h5>
+                                <h5 class="slds-text-align_left">COPY #3 - DEPARTMENT FISCAL OFFICE</h5>
+                                <h5 class="slds-text-align_left">COPY #4 - DEPARTMENT FISCAL OFFICE (FOLLOW-UP
+                                    COPY)</h5>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="display: inline-block; vertical-align:top; width: 30.7%;">
+                    <table>
+                        <tr style="height: 35px;">
+                            <td style="padding:0 10px;"><p>COMMERCE &amp; CONSUMER AFFAIRS <br/>{userName} X6-2832</p>
+                            </td>
+                        </tr>
+                        <tr style="height: 50px;vertical-align: top;">
+                            <td><h5>DEPARTMENT</h5></td>
+                        </tr>
+                        <tr style="height: 20px;vertical-align: text-bottom;">
+                            <td><h5>SINGNATURE OF AUTHORIZED PERSON</h5></td>
+                        </tr>
+                        <tr style="height:2px"></tr>
+                        <tr style="height: 85px;vertical-align:top;">
+                            <td><h5 style="padding-top: 10px;">
+                                RECEIPT OF DEPOSIT HEREBY <br/>
+                                ACKNOWLEDGED BY FINANCE DIVISION, <br/>
+                                DEPT. OF BUDGET &amp; FINANCE
+                            </h5></td>
+                        </tr>
+                        <tr style="height:20px;vertical-align:top;">
+                            <td><h5>SIGNED</h5></td>
+                        </tr>
+                        <tr style="vertical-align:top;height:86px;">
+                            <td>
+                                <h5 style="width: 48%;display:inline-block;">DEPOSITORY</h5>
+                                <h5 style="width: 44%;display:inline-block;">DATE</h5>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="margin-top:3px; margin-bottom: 20px;">
+                <h3 style="display: inline-block;width: 60%;text-align: right;">
+                    COPY #3 - DEPARTMENT FISCAL OFFICE
+                </h3>
+                <h5 style="display: inline-block; width: 20%; margin-left: 10%;">
+                    STATE ACCOUNTING FORM B-13 <br/>
+                    April 14, 2020 (REVISED)
+                </h5>
+            </div>
+        </div>
+    </section>
+</template>

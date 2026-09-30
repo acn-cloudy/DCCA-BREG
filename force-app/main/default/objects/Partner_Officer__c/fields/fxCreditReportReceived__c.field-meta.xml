@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fxCreditReportReceived__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+CreditReportReceived__c
+,
+
+&quot;&quot;,
+
+&quot;No PR&quot;,
+
+&quot;NA&quot;,
+
+&quot;Not Required&quot;,
+
+&quot;X&quot;,
+
+&quot;None&quot;,
+
+&quot;YR&quot;,
+
+&quot;For Review&quot;,
+
+&quot;&quot;
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Credit Report Received</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INS_Case_Number__c</fullName>
+    <description>INS Case Number for Licensing branch</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the Case Number created for an issue that the INS Licensing team is working with.</inlineHelpText>
+    <label>INS Case Number</label>
+    <length>20</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

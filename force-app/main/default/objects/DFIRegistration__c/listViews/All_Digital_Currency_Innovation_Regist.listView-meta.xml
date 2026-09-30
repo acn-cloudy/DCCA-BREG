@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Digital_Currency_Innovation_Regist</fullName>
+    <columns>NAME</columns>
+    <columns>FirstName__c</columns>
+    <columns>LastName__c</columns>
+    <columns>CompanyName__c</columns>
+    <columns>Areyouattending__c</columns>
+    <columns>EmailAddress__c</columns>
+    <columns>Dietaryrestrictions__c</columns>
+    <columns>OtherDietaryRestrictions__c</columns>
+    <columns>Notificationsaboutfutureevents__c</columns>
+    <columns>Acknowledgementof35Fee__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Event__c</columns>
+    <columns>AcknowledgementNoDuties__c</columns>
+    <columns>AcknowledgementStatement__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Digital Currency Innovation Regist.</label>
+</ListView>

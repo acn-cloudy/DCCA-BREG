@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GroupTransactionsFlow</fullName>
+    <availability>online</availability>
+    <description>PacPoint-IC112218- Created for phase1. Invokes the Group Transactions Flow.</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Group TransactionsFlow</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/TransactionGroupTransactions?retURL=lightning/o/Transaction__c/list?filterName=00Bt0000000yUlMEAU</url>
+</WebLink>

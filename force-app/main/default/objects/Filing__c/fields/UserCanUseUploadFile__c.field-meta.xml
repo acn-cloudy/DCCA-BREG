@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserCanUseUploadFile__c</fullName>
+    <description>PacPoint-CL01272022 - flag for conditionally showing the file detail creator component in filing record page</description>
+    <formula>OR(
+NOT(ISBLANK( Reviewer__c )) &amp;&amp; Reviewer__c = $User.Id ,
+$Profile.Name = &quot;System Administrator&quot;,
+$Profile.Name = &quot;DCCA SEC/SEB System Administrator&quot;,
+ISBLANK( Reviewer__c ) &amp;&amp; OR ($Profile.Name = &quot;DCCA SEC Reviewer/Examiner&quot;,
+                              $Profile.Name = &quot;DCCA SEC Clerical&quot;,
+                              $Profile.Name = &quot;DCCA SEC Exam Supervisor&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>UserCanUseUploadFile</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

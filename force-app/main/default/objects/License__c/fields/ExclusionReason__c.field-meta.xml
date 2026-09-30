@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExclusionReason__c</fullName>
+    <description>PacPoint-IC071619- Created for PVL phase 1</description>
+    <label>Exclusion Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sole owner with no employees</fullName>
+                <default>false</default>
+                <label>Sole owner with no employees</label>
+            </value>
+            <value>
+                <fullName>Partnership with no employees</fullName>
+                <default>false</default>
+                <label>Partnership with no employees</label>
+            </value>
+            <value>
+                <fullName>RME w/ at  least 50% of the business and has no other employees</fullName>
+                <default>false</default>
+                <label>RME w/ at  least 50% of the business and has no other employees</label>
+            </value>
+            <value>
+                <fullName>RME w/ at least  25% of the stocks of the corporation, collect no wages  and  an officer of the corporation and have no other employees</fullName>
+                <default>false</default>
+                <label>RME w/ at least  25% of the stocks of the corporation, collect no wages  and  an officer of the corporation and have no other employees</label>
+            </value>
+            <value>
+                <fullName>Out-of-state contractor with no employees in Hawaii.</fullName>
+                <default>false</default>
+                <label>Out-of-state contractor with no employees in Hawaii.</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

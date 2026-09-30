@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEC</fullName>
+    <active>true</active>
+    <description>PacPoint-MV010819 - Created for BREG phase 1</description>
+    <label>SEC</label>
+    <picklistValues>
+        <picklist>Category__c</picklist>
+        <values>
+            <fullName>Exam Deficiencies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exam Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Broker-Dealer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Broker-Dealer Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - By Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Franchise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Investment Adviser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Investment Adviser Representative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Issuer Dealer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Issuer Dealer Agent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Model Accredited Investor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Mutual Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Regulation A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Regulation D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - SCOR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SEC - Unit Investment Trust</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Accredited investor notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Affidavit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Annual financial statements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Application for Registration of Securities by Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Attorney%27s opinion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Audited financial statements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>By Qualification Application Attachment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified Corporate Resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certified copy of Issuer%27s articles of organization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company Notice Filing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by accountant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by counsel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent by tax adviser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process By Issuer of or Dealer in Securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to Service of Process and Acknowledgement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent to service of process and corporate resolution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consent w%2Facknowledgement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of Prospectus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of advertising</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of general announcement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Copy of resolutions by directors</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Correspondence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deficiency Correction - 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Document - 5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Financials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form A - Uniform Franchise Registration Application</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form B - Franchisor%27s Costs and Sources of Funds</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form C - Uniform Franchise Consent to Service of Process and Acknowledgement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form D - Franchise Seller Disclosure Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form D - Notice of Exempt Offering of Securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form E - Guarantee of Performance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form F - Consent of Accountant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form NF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form U4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of escrow agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of selling agency agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Form of subscription agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Franchise Disclosure Document %28FDD%29 - Clean</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Franchise Disclosure Document %28FDD%29 - Redline</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI Form S1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI Form S7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI Form S9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HI Form S9 Supplemental</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indenture by which the securities are issued %28if any%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indenture%2Fnote%2Fcontracts containing terms of notes or other debt to be offered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer Financial Statements within 4 months prior to filing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s articles of incorporation%2Forganization</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s by laws or operating agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Issuer%27s by-laws%2C Certified by authorized officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Model Accredited Investor Exemption Uniform Notice of Transaction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Month-end financial statements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opinion of counsel as to the legality of the securities</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other - Supporting Document</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospectus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reg A notice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registrant agreement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SCOR Form</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signed consent of any expert opinion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specimen copy of each certificate to be registered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specimen of ownership certificate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Underwriting agreement %28if any%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

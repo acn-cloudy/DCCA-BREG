@@ -1,0 +1,138 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-layout multiple-rows="true">
+        <!-- Type -->
+        <lightning-layout-item lwc:if={showApplicantType} size="12" class="slds-grid slds-wrap">
+            <lightning-radio-group
+                name="applicantType"
+                value={applicantTypeValue}
+                label={applicantTypeLabel}
+                options={applicantTypeOptions}
+                onchange={handleInputChange} onblur={handleInputBlur}
+                required={required}
+                disabled={readOnly}
+            ></lightning-radio-group>
+        </lightning-layout-item>
+        <!-- Location Type -->
+        <lightning-layout-item lwc:if={showApplicantLocationType} size="12" class="slds-grid slds-wrap">
+            <lightning-radio-group
+                name="applicantLocationType"
+                value={applicantLocationTypeValue}
+                label={applicantLocationTypeLabel}
+                options={applicantLocationTypeOptions}
+                variant="label-hidden"
+                onchange={handleInputChange} onblur={handleInputBlur}
+                required={required}
+                disabled={readOnly}
+            ></lightning-radio-group>
+            <div>
+                <div class="slds-var-m-top_xx-small">(<a href="/">Learn More</a>)</div>
+                <div class="slds-var-m-top_x-small">(<a href="/">Learn More</a>)</div>
+            </div>
+        </lightning-layout-item>
+        <!-- Entity Fields -->
+        <template lwc:if={showApplicantEntityFields}>
+            <!-- Entity Name -->
+            <lightning-layout-item size="12">
+                <lightning-input
+                    name="applicantEntityName"
+                    value={applicantEntityNameValue}
+                    label="Entity Name"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Entity Location -->
+            <lightning-layout-item lwc:if={showApplicantEntityLocationField} size="6">
+                <lightning-input
+                    name="applicantEntityLocation"
+                    value={applicantEntityLocationValue}
+                    label="State, Province, or Country of Formation/Incorporation/Organization"
+                    type="text"
+                    class="slds-var-m-right_small"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Entity File # -->
+            <lightning-layout-item lwc:if={showApplicantEntityFileField} size="6">
+                <lightning-input
+                    name="applicantEntityFile"
+                    value={applicantEntityFileValue}
+                    label="File Number (if the entity is registered in Hawaii)"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={fileNumberRequired}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Entity Type -->
+            <lightning-layout-item lwc:if={showApplicantEntityTypeField} size="6">
+                <lightning-combobox
+                    name="applicantEntityType"
+                    value={applicantEntityTypeValue}
+                    label={applicantEntityTypeLabel}
+                    options={applicantEntityTypeOptions}
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    class="slds-var-m-right_small"
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <!-- Entity Type Description -->
+            <lightning-layout-item lwc:if={showApplicantEntityTypeDescription} size="6">
+                <lightning-input
+                    name="applicantEntityTypeDescription"
+                    value={applicantEntityTypeDescriptionValue}
+                    label="Other (explain)"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <!-- Individual Fields -->
+        <template lwc:if={showApplicantIndividualFields}>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="applicantFirstName"
+                    value={applicantFirstNameValue}
+                    label="First Name"
+                    type="text"
+                    class="slds-var-m-right_small"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="applicantLastName"
+                    value={applicantLastNameValue}
+                    label="Last Name"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <!-- Address -->
+        <!-- <lightning-layout-item size="12">
+            <c-breg_-address
+                form-config={formConfig}
+                form-data={formData}
+                is-nested="true"
+                label-hidden="true"
+                class="form-cmp"
+                config={config}
+                cmp-properties={cmpProperties}
+                onchange={handleChangeNestedComponent}
+            ></c-breg_-address>
+        </lightning-layout-item> -->
+    </lightning-layout>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <lightning-spinner if:true={showLoader}>
+    </lightning-spinner>
+    <div class="transactions-list-wrapper">
+        <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection} 
+                onsort={sortColumns}>
+        </lightning-datatable>
+    </div>
+    <br/>
+    <div style="text-align: right;">
+        <lightning-button   variant="brand" 
+                            label="Make Payment for Selected Transactions" 
+                            title="Make Payment for Selected Transactions" 
+                            onclick={paySelectedTransactions} 
+                            aria-haspopup="dialog"
+                            class="slds-m-left_x-small">
+        </lightning-button>
+    </div>
+</template>

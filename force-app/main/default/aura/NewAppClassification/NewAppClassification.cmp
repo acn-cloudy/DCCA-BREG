@@ -1,0 +1,6 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" access="global" >
+    <c:createAppClassification recordId="{!v.recordId}" onclose="{!c.handleClose}">
+        
+    </c:createAppClassification>
+
+</aura:component>

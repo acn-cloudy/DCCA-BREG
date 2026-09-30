@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEBCaseName__c</fullName>
+    <description>PacPoint-JB110118 - Created for BREG phase 1: Used in Email Template</description>
+    <externalId>false</externalId>
+    <formula>SEBCase__r.Name</formula>
+    <label>SEB Case Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

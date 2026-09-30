@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>DO_Case_Team_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DO Case Team Sharing</label>
+        <sharedTo>
+            <group>Complaints_DO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Managed_by_Division__c</field>
+            <operation>equals</operation>
+            <value>DO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

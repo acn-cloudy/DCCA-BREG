@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalReceivedDate__c</fullName>
+    <description>PacPoint-MV112119 - Created for PVL phase 1. To be populated when the users scan the renewal forms</description>
+    <label>Renewal Received Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

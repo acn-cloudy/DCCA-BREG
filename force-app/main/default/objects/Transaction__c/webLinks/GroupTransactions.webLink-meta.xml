@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GroupTransactions</fullName>
+    <availability>online</availability>
+    <description>PacPoint-MV060219 - Created for phase1</description>
+    <displayType>massActionButton</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>Group Transactions</masterLabel>
+    <openType>sidebar</openType>
+    <page>GroupTransactions2</page>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+</WebLink>

@@ -1,0 +1,33 @@
+.mds-drawer {
+        background: var(--white);
+        overflow-y: auto;
+        width: 40%;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        z-index: 9999;
+        right: 0;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        &_header {
+                background-color: var(--white);
+                color: var(--black);
+                -ms-flex-negative: 0;
+                flex-shrink: 0;
+                padding: var(--spacing-small);
+                display: flex;
+                justify-content: space-between;
+        }
+
+        &_footer {
+                box-shadow: none;
+                border-top: var(--border-width-thin) solid var(--other-divider);
+                margin: 0 1rem;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                text-align: end;
+                padding: 1rem 0;
+        }
+}

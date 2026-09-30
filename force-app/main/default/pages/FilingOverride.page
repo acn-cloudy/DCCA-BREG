@@ -1,0 +1,25 @@
+<apex:page controller="Franchise_CheckoutController">
+  <script>  
+     var franchiseName = "{!overrideDesc}";
+     var groupFiling = "{!groupFiling}";
+     var descriptionLabel = "{!$Label.pymt__Label_Description}";
+     
+     jQuery(document).ready(function(){
+         if(franchiseName){
+             jQuery('.itemDescriptionColumn').each(function(){
+                 if(jQuery(this).text().trim() != descriptionLabel.trim()){
+                     if(parseInt(groupFiling)){
+                         jQuery(this).attr('colspan', 2);  
+                         jQuery(this).css('padding-right', '0px');                      
+                         jQuery(this).parent().find('td.currency_column').remove();
+                     }
+                     
+                     jQuery(this).html(franchiseName);
+                 } else if(parseInt(groupFiling)){
+                     jQuery(this).text('Filings:');
+                 }
+             });
+         }
+     });
+  </script>
+</apex:page>

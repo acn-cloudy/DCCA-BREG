@@ -1,0 +1,97 @@
+<apex:component >
+    <apex:attribute name="app" type="Application__c" description="Application"/>
+    <div class="content-bold">
+        LICENSEE'S NAME AND ADDRESS OF RECORD
+    </div>
+    <div class="top-gap">
+            {!app.CurrentLicense__r.Licensee__r.Name}
+    </div>
+    <div>
+        <apex:outputText escape="false" value="{!app.RenewalMailToStreet__c}"></apex:outputText><br/>
+        <div style= "display: {! If(Not(ISNull(app.RenewalMailToCity__c + app.RenewalMailToStateHist__c + app.RenewalMailToZipCode__c)), '', 'none')}">
+            {!app.RenewalMailToCity__c}, {!app.RenewalMailToStateHist__c} {!app.RenewalMailToZipCode__c}
+        </div>
+        <div style="text-transform:uppercase;">
+                {!If(IsBlank(app.RenewalMailToCountry__c) || app.RenewalMailToCountry__c == 'United States', "", app.RenewalMailToCountry__c)}
+        </div>
+    </div>
+    <div class="top-gap" style="display: {! if(Not(IsNUll(app.OnlineRenewalResidenceAddress__c)) || Not(IsNUll(app.ResidenceStreetOnlineRenewal__c)), '','none')}" >
+        <div class="content-bold">
+            RESIDENTIAL ADDRESS
+        </div>
+        <table border="0">
+            <tr>
+                <td style="width: 220px">
+                    <div style="display: {!If(IsNUll(app.ResidenceStreetOnlineRenewal__c), '', 'none') }">
+                        <apex:outputText escape="false" value="{!app.OnlineRenewalResidenceAddress__c}"></apex:outputText>
+                    </div>
+                    <div style="display: {!If(Not(IsNUll(app.ResidenceStreetOnlineRenewal__c)), '', 'none') }">
+                        <apex:outputText escape="false" value="{!app.ResidenceStreetOnlineRenewal__c}"></apex:outputText><br/>
+                        {!app.ResidenceCityOnlineRenewal__c}, {!app.ResidenceStateOnlineRenewal1__c} {!app.ResidenceZipCodeOnlineRenewal__c}
+                        <div style="text-transform:uppercase;">
+                            {!If(IsBlank(app.ResidenceCountryOnlineRenewal__c) || app.ResidenceCountryOnlineRenewal__c == 'United States', "", app.ResidenceCountryOnlineRenewal__c)}
+                          </div>
+            
+                    </div>
+                </td>
+                <td style="width:180px"></td>
+                <td>
+                    CHANGED: {!If(IsNUll(app.ResidenceStreetOnlineRenewal__c), 'NO', 'YES') }
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="top-gap" style="display: {!If(Not(ISNull(app.OnlineRenewalBusinessAddress__c)) || Not(IsNull(app.BusinessStreet__c)), '', 'none')}">
+        <div class="content-bold">
+            BUSINESS ADDRESS 
+        </div>
+        <table border="0">
+            <tr>
+                <td style="width: 220px">
+                    <div style="display: {!If(IsNUll(app.BusinessStreet__c), '', 'none')}">
+                        <apex:outputText escape="false" value="{!app.OnlineRenewalBusinessAddress__c}"></apex:outputText>
+                    </div>
+                    <div style="display: {!If(Not(IsNUll(app.BusinessStreet__c)), '', 'none')}">
+                        <apex:outputText escape="false" value="{!app.BusinessStreet__c}"></apex:outputText><br/>
+                        {!app.BusinessCity__c}, {!app.BusinessState__c} {!app.BusinessZipCode__c}
+                        <div style="text-transform:uppercase;">
+                            {!If(IsBlank(app.BusinessCountry__c) || app.BusinessCountry__c == 'United States', "", app.BusinessCountry__c)}
+                        </div>
+                    </div>
+                </td>
+                <td style="width:180px"></td>
+                <td>
+                    CHANGED: {!If(IsNUll(app.BusinessStreet__c), 'NO', 'YES') }
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+
+    <div class="top-gap" style= "display: {!If(Not(ISNull(app.OnlineRenewalMailingAddress__c)) || Not(ISNull(app.MailingStreet__c)), '', 'none')}">
+        <div class="content-bold">
+            MAILING ADDRESS
+        </div>
+        <table border="0">
+            <tr>
+                <td style="width: 220px">
+                    <div style="display: {!If(IsNUll(app.MailingStreet__c), '', 'none')}">
+                        <apex:outputText escape="false" value="{!app.OnlineRenewalMailingAddress__c}"></apex:outputText>
+                    </div>
+                    <div style="display: {!If(Not(IsNUll(app.MailingStreet__c)), '', 'none')}">
+                        <apex:outputText escape="false" value="{!app.MailingStreet__c}"></apex:outputText><br/>
+                        {!app.MailingCity__c}, {!app.MailingState__c} {!app.MailingZipCode__c}
+                        <div style="text-transform:uppercase;">
+                            {!If(IsBlank(app.MailingCountry__c) || app.MailingCountry__c == 'United States', "", app.MailingCountry__c)}
+                        </div>
+                    </div>
+                </td>
+                <td style="width:180px"></td>
+                <td>
+                    CHANGED: {!If(IsNUll(app.MailingStreet__c), 'NO', 'YES') }
+                </td>
+            </tr>
+        </table>
+    </div>
+</apex:component>

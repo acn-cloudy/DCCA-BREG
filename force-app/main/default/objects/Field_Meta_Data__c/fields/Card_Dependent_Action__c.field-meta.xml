@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Card_Dependent_Action__c</fullName>
+    <label>Card Dependent Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>hide</fullName>
+                <default>false</default>
+                <label>hide</label>
+            </value>
+            <value>
+                <fullName>show</fullName>
+                <default>false</default>
+                <label>show</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

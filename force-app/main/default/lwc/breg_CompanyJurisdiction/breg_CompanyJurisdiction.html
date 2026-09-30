@@ -1,0 +1,84 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                <lightning-input
+                    name="hasChanged"
+                    value={hasChangedValue}
+                    type="checkbox"
+                    label={hasChangedCheckboxLabel}
+                    onchange={handleInputChange}
+                    checked={hasChangedValue}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <template lwc:if={showFields}>
+            <lightning-layout-item size="12" lwc:if={showDescription} class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <!-- Read-Only mode -->
+            <template lwc:if={readOnly}>
+                <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={hasChangedCheckboxLabel}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-formatted-text value={countryValueReadOnly}></lightning-formatted-text>
+                </lightning-layout-item>
+                <lightning-layout-item lwc:if={showStatesReadOnly} size="12" class="form-layout-item">
+                    <template lwc:if={showStateDropdown}>
+                        <lightning-formatted-text value={stateValueReadOnly}></lightning-formatted-text>
+                    </template>
+                    <template lwc:if={showStateInput}>
+                        <lightning-formatted-text value={stateTextValueReadOnly}></lightning-formatted-text>
+                    </template>
+                </lightning-layout-item>
+            </template>
+            <!-- Edit mode -->
+            <template lwc:else>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-combobox
+                        name="country"
+                        value={countryValue}
+                        label="Country"
+                        options={countryOptions}
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        disabled={readOnly}
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <template lwc:if={showStateDropdown}>
+                        <lightning-combobox
+                            name="state"
+                            value={stateValue}
+                            label="State"
+                            options={stateOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            disabled={stateDisabled}
+                        ></lightning-combobox>
+                    </template>
+                    <template lwc:if={showStateInput}>
+                        <lightning-input
+                            name="stateText"
+                            value={stateTextValue}
+                            label="State"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            disabled={stateDisabled}
+                        ></lightning-input>
+                    </template>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseConditionsRemarks__c</fullName>
+    <inlineHelpText>Internal PVL Remarks on the License Conditions. Note: this is not viewable to the public.</inlineHelpText>
+    <label>License Conditions Remarks</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

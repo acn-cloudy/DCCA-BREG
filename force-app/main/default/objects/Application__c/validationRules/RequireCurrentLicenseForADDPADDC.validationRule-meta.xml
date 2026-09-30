@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireCurrentLicenseForADDPADDC</fullName>
+    <active>true</active>
+    <description>PacPoint-KN11032020-Created for PVL Phase 1</description>
+    <errorConditionFormula>AND(
+OR(
+ISPICKVAL(Type__c, &apos;ADDP - Additional Special Privilege&apos;),
+ISPICKVAL(Type__c, &apos;ADDC - Additional Class&apos;)),
+ISPICKVAL(Status__c, &apos;HC - Application Completed&apos;),
+ISBLANK(CurrentLicense__c)
+)</errorConditionFormula>
+    <errorMessage>Please populate the Current License before moving the Application to HC.</errorMessage>
+</ValidationRule>

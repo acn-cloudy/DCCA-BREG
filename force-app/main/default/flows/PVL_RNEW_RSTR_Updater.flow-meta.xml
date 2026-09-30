@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Process_Potential_1_Way_Dependencies</name>
+        <label>Process Potential 1-Way Dependencies</label>
+        <locationX>534</locationX>
+        <locationY>1682</locationY>
+        <actionName>PVL_RenewalDependency1wayFlowHelper</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>licenses</name>
+            <value>
+                <elementReference>InputLicense</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>PVL_RenewalDependency1wayFlowHelper</nameSegment>
+    </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Previous_License_Effective_Expire_Date</name>
+        <label>Assign Previous License Effective Expire Date</label>
+        <locationX>358</locationX>
+        <locationY>134</locationY>
+        <assignmentItems>
+            <assignToReference>PreviousLicenseEffectiveExpireDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>InputLicense.EffectiveExpireDate__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Renewing_Inactive</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Found_License_History_for_this_License_Period</name>
+        <label>Found License History for this License Period?</label>
+        <locationX>666</locationX>
+        <locationY>1274</locationY>
+        <defaultConnector>
+            <targetReference>Launch_License_History_Flow</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No License History</defaultConnectorLabel>
+        <rules>
+            <name>Found_License_History_for_this_License_Period1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License_History1</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_1_Way_Dependent</targetReference>
+            </connector>
+            <label>Found License History for this License Period?</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_1_Way_Dependent</name>
+        <label>Is 1-Way Dependent?</label>
+        <locationX>666</locationX>
+        <locationY>1574</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Is_1_Way_Dependent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>InputApplication.LicenseType__r.OneWayDependency__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Process_Potential_1_Way_Dependencies</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>License_Classifications_Found</name>
+        <label>License Classifications Found?</label>
+        <locationX>710</locationX>
+        <locationY>566</locationY>
+        <defaultConnector>
+            <targetReference>Restore_License</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License_Classifications</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_License_Classifications</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Renewing_Inactive</name>
+        <label>Renewing Inactive?</label>
+        <locationX>358</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>RNEW_or_RSTR</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>InputApplication.ApplicationRenewingInactive__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>InputLicense.ActiveInactive__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lauch_Renew_Inactive_Flow</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>RNEW_or_RSTR</name>
+        <label>RNEW or RSTR?</label>
+        <locationX>666</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>RNEW</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>InputApplication.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>RNEW - Renewal</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Renew_License1</targetReference>
+            </connector>
+            <label>RNEW</label>
+        </rules>
+        <rules>
+            <name>RSTR1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>InputApplication.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>RSTR - Restore - No A/I Status</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_License_Classifications</targetReference>
+            </connector>
+            <label>RSTR</label>
+        </rules>
+    </decisions>
+    <description>JF - 11/1/23 Cloned with updates for license renewing with permit to practice</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>DELQEffectiveDate</name>
+        <dataType>Date</dataType>
+        <expression>{!PreviousLicenseEffectiveExpireDate} + 1</expression>
+    </formulas>
+    <formulas>
+        <name>LicenseHistoryTransType</name>
+        <dataType>String</dataType>
+        <expression>IF(
+TEXT({!InputApplication.Type__c}) = &quot;RNEW - Renewal&quot;,
+&quot;RNEW - RENEWED&quot;,
+&quot;RSTR - RESTORED (LICENSE WAS DELINQUENT/FORFEITED)&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>LicensePeriod</name>
+        <dataType>String</dataType>
+        <expression>IF(
+TEXT({!InputApplication.Type__c}) = &quot;RNEW - Renewal&quot;,
+
+TEXT(MONTH({!InputLicense.LicenseType__r.NextLicensePeriodEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!InputLicense.LicenseType__r.NextLicensePeriodEffectiveDate__c} ))
++ &quot;/&quot; 
++ TEXT(YEAR({!InputLicense.LicenseType__r.NextLicensePeriodEffectiveDate__c} ))
++ &quot; - &quot; 
++ TEXT(MONTH({!InputLicense.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!InputLicense.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!InputLicense.LicenseType__r.NextLicensePeriodExpireDate__c})), 
+
+TEXT(MONTH({!InputLicense.LicenseType__r.PreviousLicensePeriodEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!InputLicense.LicenseType__r.PreviousLicensePeriodEffectiveDate__c} ))
++ &quot;/&quot; 
++ TEXT(YEAR({!InputLicense.LicenseType__r.PreviousLicensePeriodEffectiveDate__c} ))
++ &quot; - &quot; 
++ TEXT(MONTH({!InputLicense.LicenseType__r.PreviousLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!InputLicense.LicenseType__r.PreviousLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!InputLicense.LicenseType__r.PreviousLicensePeriodExpireDate__c}))
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>LicenseRenewalStatus</name>
+        <dataType>String</dataType>
+        <expression>IF(
+TEXT({!InputLicense.Status__c}) = &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;, 
+&quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot;, 
+&quot;C - Current, Valid &amp; In Good Standing&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>LicenseStatusFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+OR(
+TEXT({!InputLicense.Status__c}) = &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;, 
+TEXT({!InputLicense.Status__c}) = &quot;DM - Forfeited/Maintenance Requirement Due&quot;),
+&quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot;, 
+&quot;C - Current, Valid &amp; In Good Standing&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>OnlineApplicationTypeFlow</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE(TEXT({!InputApplication.OnlineApplicationType__c}) , &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Privilege</name>
+        <dataType>String</dataType>
+        <expression>IF(
+(TEXT({!InputApplication.RenewingPermittoPractice__c}) = &apos;No&apos;),
+&apos;&apos;,
+TEXT({!InputApplication.CurrentLicense__r.Privilege__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Remarks</name>
+        <dataType>String</dataType>
+        <expression>TRIM(
+    IF( 
+        NOT(
+            ISBLANK({!Privilege})
+        )
+        , &quot;RENEWED WITH &quot; + {!Privilege}
+        , IF( 
+            {!RenewingPermittoPractice} = &apos;No&apos;
+            , &quot;RENEWED WITHOUT PERMIT TO PRACTICE&quot;
+            , &quot;&quot;)) 
+    + &quot; &quot;
+    + IF( 
+        NOT(
+            ISBLANK({!OnlineApplicationTypeFlow}))
+    ,&quot;ELECTRONIC RENEWAL&quot;
+    ,&quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RenewingPermittoPractice</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE(TEXT({!InputApplication.RenewingPermittoPractice__c}),&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>RSTRDate</name>
+        <dataType>Date</dataType>
+        <expression>{!InputLicense.EffectiveExpireDate__c} + 1</expression>
+    </formulas>
+    <formulas>
+        <name>TransactionType</name>
+        <dataType>String</dataType>
+        <expression>CASE({!InputApplication.Type__c}
+    , &quot;RNEW - Renewal&quot;
+    , &quot;RNEW - RENEWED&quot;
+    , &quot;RSTR - Restore - No A/I Status&quot;
+    , &quot;RSTR - RESTORED (LICENSE WAS DELINQUENT/FORFEITED)&quot;
+    , &quot;&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>PVL RNEW/RSTR Updater {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application: Renew Current License</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_License_Classifications</name>
+        <label>Get License Classifications</label>
+        <locationX>710</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>License_Classifications_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>License__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>D - Class No Longer Active (License Delinquent)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.NonRenewalDate__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>LicenseClassification__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_License_History1</name>
+        <label>Get License History</label>
+        <locationX>666</locationX>
+        <locationY>1166</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_License_History_for_this_License_Period</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>TransactionType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>LicenseHistoryTransType</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LicensePeriod__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputApplication.LicensePeriodRNEW__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>License__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Renew_Application1</name>
+        <label>Renew Application</label>
+        <locationX>666</locationX>
+        <locationY>1058</locationY>
+        <connector>
+            <targetReference>Get_License_History1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputApplication.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Phase__c</field>
+            <value>
+                <stringValue>H - License Generation</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RenewedOnDate__c</field>
+            <value>
+                <elementReference>InputApplication.ApplicationReceivedDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>HC - Application Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Application__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Renew_License1</name>
+        <label>Renew License</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <connector>
+            <targetReference>Renew_Application1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EffectiveExpireDate__c</field>
+            <value>
+                <elementReference>InputApplication.RNEWRSTRDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreviousEffectiveExpiryDate__c</field>
+            <value>
+                <elementReference>PreviousLicenseEffectiveExpireDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>LicenseStatusFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ThisLicenseRenewed__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>License__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Restore_License</name>
+        <label>Restore License</label>
+        <locationX>710</locationX>
+        <locationY>866</locationY>
+        <connector>
+            <targetReference>Renew_Application1</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CancelDate__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EffectiveExpireDate__c</field>
+            <value>
+                <elementReference>InputApplication.RNEWRSTRDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ForfeitureDate__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>NonRenewalDate__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreviousEffectiveExpiryDate__c</field>
+            <value>
+                <elementReference>PreviousLicenseEffectiveExpireDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Privilege__c</field>
+            <value>
+                <elementReference>Privilege</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RestorationDeadline__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>LicenseStatusFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ThisLicenseRenewed__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <object>License__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_License_Classifications</name>
+        <label>Update License Classifications</label>
+        <locationX>578</locationX>
+        <locationY>674</locationY>
+        <connector>
+            <targetReference>Restore_License</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>License__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>D - Class No Longer Active (License Delinquent)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.NonRenewalDate__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>EndDate__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>C - Current, Valid &amp; In Good Standing</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LicenseClassification__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>232</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Previous_License_Effective_Expire_Date</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Lauch_Renew_Inactive_Flow</name>
+        <label>Lauch Renew Inactive Flow</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <flowName>Application_Renewing_Inactive_Flow</flowName>
+        <inputAssignments>
+            <name>InputApplication</name>
+            <value>
+                <elementReference>InputApplication</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <subflows>
+        <name>Launch_License_History_Flow</name>
+        <label>Launch License History Flow</label>
+        <locationX>754</locationX>
+        <locationY>1382</locationY>
+        <connector>
+            <targetReference>Is_1_Way_Dependent</targetReference>
+        </connector>
+        <flowName>Create_License_History</flowName>
+        <inputAssignments>
+            <name>InputApplication</name>
+            <value>
+                <elementReference>InputApplication</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>InputLicense</name>
+            <value>
+                <elementReference>InputLicense</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+    <variables>
+        <name>InputApplication</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Application__c</objectType>
+    </variables>
+    <variables>
+        <name>InputLicense</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>License__c</objectType>
+    </variables>
+    <variables>
+        <name>PreviousLicenseEffectiveExpireDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

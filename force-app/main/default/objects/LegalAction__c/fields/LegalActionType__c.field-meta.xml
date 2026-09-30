@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LegalActionType__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>Legal Action Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Consent Agreement</fullName>
+                <default>false</default>
+                <label>Consent Agreement</label>
+            </value>
+            <value>
+                <fullName>Consent Order</fullName>
+                <default>false</default>
+                <label>Consent Order</label>
+            </value>
+            <value>
+                <fullName>Preliminary Order to Cease and Desist</fullName>
+                <default>false</default>
+                <label>Preliminary Order to Cease and Desist</label>
+            </value>
+            <value>
+                <fullName>Final Order</fullName>
+                <default>false</default>
+                <label>Final Order</label>
+            </value>
+            <value>
+                <fullName>Petition for Disciplinary Action</fullName>
+                <default>false</default>
+                <label>Petition for Disciplinary Action</label>
+            </value>
+            <value>
+                <fullName>Special Proceedings</fullName>
+                <default>false</default>
+                <label>Special Proceedings</label>
+            </value>
+            <value>
+                <fullName>DCCA Order to Show Cause</fullName>
+                <default>false</default>
+                <label>DCCA Order to Show Cause</label>
+            </value>
+            <value>
+                <fullName>Circuit Court Pleadings</fullName>
+                <default>false</default>
+                <label>Circuit Court Pleadings</label>
+            </value>
+            <value>
+                <fullName>Supreme Court Pleadings</fullName>
+                <default>false</default>
+                <label>Supreme Court Pleadings</label>
+            </value>
+            <value>
+                <fullName>Warning/Advisory Letter</fullName>
+                <default>false</default>
+                <label>Warning/Advisory Letter</label>
+            </value>
+            <value>
+                <fullName>Intermediate Court of Appeal Pleadings</fullName>
+                <default>false</default>
+                <label>Intermediate Court of Appeal Pleadings</label>
+            </value>
+            <value>
+                <fullName>Warning Letter</fullName>
+                <default>false</default>
+                <label>Warning Letter</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Judgement</fullName>
+                <default>false</default>
+                <label>Judgement</label>
+            </value>
+            <value>
+                <fullName>Judgement - RBC</fullName>
+                <default>false</default>
+                <label>Judgement - RBC</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

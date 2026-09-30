@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcludefromOnlineRenewal__c</fullName>
+    <formula>IF(
+OR(
+AND(
+LicenseType__r.Name = &quot;APRN&quot;,
+TEXT(MethodofLicensure__c) &lt;&gt; &quot;M - Graduate Level Degree&quot;
+),
+AND(
+LicenseType__r.Name = &quot;DT&quot;,
+TEXT( Privilege__c ) = &quot;A - Deep Sedation or General Anesthesia&quot;
+),
+AND(
+LicenseType__r.Name = &quot;DT&quot;,
+TEXT( Privilege__c ) = &quot;B - Moderate Sedation&quot;
+),
+AND(
+FlaggedforAudit__c = true
+),
+AND(
+NOT(Text(Status__c) = &quot;R - Valid Thru Expiration Date, Subject To Renewal&quot;
+)),
+AND(
+ClassNotEligibleforOnlineRenewal__c = true
+)
+),
+true,
+false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Exclude from Online Renewal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

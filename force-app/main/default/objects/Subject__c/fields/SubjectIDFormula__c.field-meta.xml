@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubjectIDFormula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+
+ISBLANK(  ExternalId__c  ) ,
+ SubjectIDAutonum__c  ,
+
+
+
+
+IF(
+
+CONTAINS(ExternalId__c,&quot;-&quot;) , 
+
+LEFT(ExternalId__c,Find(&quot;-&quot;, ExternalId__c)-1), 
+
+ExternalId__c
+
+) 
+
+
+  
+
+
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subject ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

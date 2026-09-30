@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notificationsaboutfutureevents__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV021320 - Created for DFI phase 1.</description>
+    <inlineHelpText>Notifications will be sent out for any future events that are related to the Digital Currency Innovation Lab.</inlineHelpText>
+    <label>Notifications about future events?</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

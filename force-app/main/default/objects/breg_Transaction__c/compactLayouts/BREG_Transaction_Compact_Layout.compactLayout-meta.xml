@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BREG_Transaction_Compact_Layout</fullName>
+    <fields>breg_Transaction_Code__c</fields>
+    <fields>breg_File_Number_Formula__c</fields>
+    <fields>breg_Case__c</fields>
+    <label>BREG Transaction Compact Layout</label>
+</CompactLayout>

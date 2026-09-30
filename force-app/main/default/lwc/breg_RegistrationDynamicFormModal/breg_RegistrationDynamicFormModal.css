@@ -1,0 +1,24 @@
+.slds-modal__container {
+  min-width: 60rem;
+  top: 5rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.modal-body {
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .modal-section {
+    z-index: 9999999;
+  }
+
+  .modal-bg {
+    z-index: 999999;
+  }
+
+  .slds-modal__container {
+    min-width: auto;
+  }
+}

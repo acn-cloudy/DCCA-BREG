@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CommunityFilingStatus__c</fullName>
+    <description>PacPoint-MV022620 - Created for BREG phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( Status__c , 
+&quot;In Progress&quot;, &quot;In Progress&quot;, 
+&quot;Filing Received&quot;, &quot;Filing Received&quot;,
+&quot;Assigned for Review&quot;, &quot;Review in Progress&quot;,
+&quot;Review in Progress&quot;, &quot;Review in Progress&quot;,
+&quot;Deficiency Letter Sent&quot;, &quot;Deficiency Letter Sent&quot;,
+&quot;Deficiency Response Received&quot;, &quot;Review in Progress&quot;,
+&quot;Reviewing Deficiency Response&quot;, &quot;Review in Progress&quot;,
+&quot;Filing Completed&quot;, &quot;Filing Completed&quot;,
+&quot;Filing Withdrawn&quot;, &quot;Filing Withdrawn&quot;,
+&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Community Filing Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

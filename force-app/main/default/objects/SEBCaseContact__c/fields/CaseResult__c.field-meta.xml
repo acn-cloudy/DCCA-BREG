@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CaseResult__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(Role__c) = &quot;Respondent&quot; , 
+
+   IF( TEXT(SEBCase__r.Status__c) = &quot;Closed&quot;, 
+
+      CASE( TEXT(ClosingCode__c) , 
+
+      &quot;Legal action&quot;, &quot;Legal Action Taken&quot;, 
+
+      &quot;Warning Letter&quot;, &quot;Warning Letter Issued&quot;,
+
+
+
+      &quot;Closed&quot;) 
+   , 
+
+   &quot;Pending&quot;)
+, 
+
+NULL)</formula>
+    <label>Disposition - Public</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

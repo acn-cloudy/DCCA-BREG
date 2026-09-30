@@ -1,0 +1,33 @@
+.THIS {
+}
+.THIS .slds-modal__content {
+    margin: 0;
+}
+.THIS .slds-modal__dev {
+    transform: inherit;
+    transition: transform .1s linear,opacity .1s linear;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    border-radius: .25rem;
+}
+.THIS .slds-modal__header{
+    min-height: 50px;
+}
+.THIS .slds-modal__content {
+    min-height: 300px;
+    flex: 1;
+}
+.THIS .slds-modal__footer {
+    min-height: 40px;
+    box-shadow: none;
+    background-color: transparent;
+}
+.THIS .rev-modal {
+    margin: 0 auto;    
+    max-width: 55rem;
+    min-width: 20rem;
+    width: 65%;
+}

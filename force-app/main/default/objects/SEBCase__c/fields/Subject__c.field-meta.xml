@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subject__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>Subject</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>S001 - Advance Fee Loan Program</fullName>
+                <default>false</default>
+                <label>Advance Fee Loan Program</label>
+            </value>
+            <value>
+                <fullName>V038 - Affinity Fraud</fullName>
+                <default>false</default>
+                <label>Affinity Fraud</label>
+            </value>
+            <value>
+                <fullName>Artificial Intelligence</fullName>
+                <default>false</default>
+                <label>Artificial Intelligence</label>
+            </value>
+            <value>
+                <fullName>V025 - Auction Rate Securities</fullName>
+                <default>false</default>
+                <label>Auction Rate Securities</label>
+            </value>
+            <value>
+                <fullName>V048 - Binary Options</fullName>
+                <default>false</default>
+                <label>Binary Options</label>
+            </value>
+            <value>
+                <fullName>V001 - Bond</fullName>
+                <default>false</default>
+                <label>Bond</label>
+            </value>
+            <value>
+                <fullName>S020 - Book &amp; Records</fullName>
+                <default>false</default>
+                <label>Book &amp; Records</label>
+            </value>
+            <value>
+                <fullName>A002 - Broker - Dealer Agent</fullName>
+                <default>false</default>
+                <label>Broker - Dealer Agent</label>
+            </value>
+            <value>
+                <fullName>A001 - Broker - Dealer Firm</fullName>
+                <default>false</default>
+                <label>Broker - Dealer Firm</label>
+            </value>
+            <value>
+                <fullName>V002-Certificate of Dep. for a Security</fullName>
+                <default>false</default>
+                <label>Certificate of Dep. for a Security</label>
+            </value>
+            <value>
+                <fullName>V003-Certificate of Int./Participation</fullName>
+                <default>false</default>
+                <label>Certificate of Int./Participation</label>
+            </value>
+            <value>
+                <fullName>Charging unreasonable commissions/compensation</fullName>
+                <default>false</default>
+                <label>Charging unreasonable commissions/compensation</label>
+            </value>
+            <value>
+                <fullName>S018 - Charitable Gifting Program</fullName>
+                <default>false</default>
+                <label>Charitable Gifting Program</label>
+            </value>
+            <value>
+                <fullName>V004 - Collateral Trust Certificate</fullName>
+                <default>false</default>
+                <label>Collateral Trust Certificate</label>
+            </value>
+            <value>
+                <fullName>S002 - Commodity (Coins, Foreign Currency, Gemstones, Livestock, PR)</fullName>
+                <default>false</default>
+                <label>Commodity</label>
+            </value>
+            <value>
+                <fullName>Convicted of any felony/misdemeanors</fullName>
+                <default>false</default>
+                <label>Convicted of any felony/misdemeanors</label>
+            </value>
+            <value>
+                <fullName>V056 - Crowd Funding</fullName>
+                <default>false</default>
+                <label>Crowd Funding</label>
+            </value>
+            <value>
+                <fullName>V036-Cryptocurrency/Intial Coin Offering</fullName>
+                <default>false</default>
+                <label>Cryptocurrency/Intial Coin Offering</label>
+            </value>
+            <value>
+                <fullName>Crypto Staking</fullName>
+                <default>false</default>
+                <label>Crypto Staking</label>
+            </value>
+            <value>
+                <fullName>Cybersecurity/Information Security</fullName>
+                <default>false</default>
+                <label>Cybersecurity/Information Security</label>
+            </value>
+            <value>
+                <fullName>Dealing with unregistered persons</fullName>
+                <default>false</default>
+                <label>Dealing with unregistered persons</label>
+            </value>
+            <value>
+                <fullName>V005 - Debenture</fullName>
+                <default>false</default>
+                <label>Debenture</label>
+            </value>
+            <value>
+                <fullName>Deceptive or misleading advertising</fullName>
+                <default>false</default>
+                <label>Deceptive or misleading advertising</label>
+            </value>
+            <value>
+                <fullName>Digital Assets</fullName>
+                <default>false</default>
+                <label>Digital Assets</label>
+            </value>
+            <value>
+                <fullName>V039 - E2 Visa Fraud</fullName>
+                <default>false</default>
+                <label>E2 Visa Fraud</label>
+            </value>
+            <value>
+                <fullName>V040 - EB-5 Visa Fraud</fullName>
+                <default>false</default>
+                <label>EB-5 Visa Fraud</label>
+            </value>
+            <value>
+                <fullName>Elder Exploitation-Account Restricted</fullName>
+                <default>false</default>
+                <label>Elder Exploitation-Account Restricted</label>
+            </value>
+            <value>
+                <fullName>Elder Exploitation-Disbursement Hold</fullName>
+                <default>false</default>
+                <label>Elder Exploitation-Disbursement Hold</label>
+            </value>
+            <value>
+                <fullName>S019 - Elder Issues</fullName>
+                <default>false</default>
+                <label>Elder Issues</label>
+            </value>
+            <value>
+                <fullName>Energy Scam</fullName>
+                <default>false</default>
+                <label>Energy Scam</label>
+            </value>
+            <value>
+                <fullName>V026 - Equity Index Annuity</fullName>
+                <default>false</default>
+                <label>Equity Index Annuity</label>
+            </value>
+            <value>
+                <fullName>V006 - Evidence of Indebtedness</fullName>
+                <default>false</default>
+                <label>Evidence of Indebtedness</label>
+            </value>
+            <value>
+                <fullName>Excessive trading or churning</fullName>
+                <default>false</default>
+                <label>Excessive trading or churning</label>
+            </value>
+            <value>
+                <fullName>V041-Exchange Traded Funds/Notes</fullName>
+                <default>false</default>
+                <label>Exchange Traded Funds/Notes</label>
+            </value>
+            <value>
+                <fullName>S003 - Exotic/ Unusual Animal Program</fullName>
+                <default>false</default>
+                <label>Exotic/ Unusual Animal Program</label>
+            </value>
+            <value>
+                <fullName>Failure/delay to file financial statements/reports</fullName>
+                <default>false</default>
+                <label>Failure/delay to file financial statements/reports</label>
+            </value>
+            <value>
+                <fullName>Failure to cooperate with investigation</fullName>
+                <default>false</default>
+                <label>Failure to cooperate with investigation</label>
+            </value>
+            <value>
+                <fullName>Failure to Meet Net Capital Requirements</fullName>
+                <default>false</default>
+                <label>Failure to Meet Net Capital Requirements</label>
+            </value>
+            <value>
+                <fullName>Failure to obtain insuance or bond</fullName>
+                <default>false</default>
+                <label>Failure to obtain insuance or bond</label>
+            </value>
+            <value>
+                <fullName>Failure to provide Disclosure Statement (IA)</fullName>
+                <default>false</default>
+                <label>Failure to provide Disclosure Statement (IA)</label>
+            </value>
+            <value>
+                <fullName>Failure to provide invoices</fullName>
+                <default>false</default>
+                <label>Failure to provide invoices</label>
+            </value>
+            <value>
+                <fullName>Failure to Supervise</fullName>
+                <default>false</default>
+                <label>Failure to Supervise</label>
+            </value>
+            <value>
+                <fullName>A007 - Financial Planner</fullName>
+                <default>false</default>
+                <label>Financial Planner</label>
+            </value>
+            <value>
+                <fullName>A005 - Finder or Solicitor</fullName>
+                <default>false</default>
+                <label>Finder or Solicitor</label>
+            </value>
+            <value>
+                <fullName>Fixed Annuity</fullName>
+                <default>false</default>
+                <label>Fixed Annuity</label>
+            </value>
+            <value>
+                <fullName>V042 - Forex</fullName>
+                <default>false</default>
+                <label>Forex</label>
+            </value>
+            <value>
+                <fullName>V046 - Form D</fullName>
+                <default>false</default>
+                <label>Form D</label>
+            </value>
+            <value>
+                <fullName>V029 - Franchise</fullName>
+                <default>false</default>
+                <label>Franchise</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>V054 - Free Lunch Seminar</fullName>
+                <default>false</default>
+                <label>Free Lunch Seminar</label>
+            </value>
+            <value>
+                <fullName>S021 - HB 940</fullName>
+                <default>false</default>
+                <label>HB 940</label>
+            </value>
+            <value>
+                <fullName>V024 - Hedge Fund</fullName>
+                <default>false</default>
+                <label>Hedge Fund</label>
+            </value>
+            <value>
+                <fullName>V043 - Hedge Funds or Private Equity</fullName>
+                <default>false</default>
+                <label>Hedge Funds or Private Equity</label>
+            </value>
+            <value>
+                <fullName>S004 - High Technology</fullName>
+                <default>false</default>
+                <label>High Technology</label>
+            </value>
+            <value>
+                <fullName>S015-High Yld Invest/Prm Bank Note Prog</fullName>
+                <default>false</default>
+                <label>High Yld Invest/Prm Bank Note Prog</label>
+            </value>
+            <value>
+                <fullName>Impersonation Scheme</fullName>
+                <default>false</default>
+                <label>Impersonation Scheme</label>
+            </value>
+            <value>
+                <fullName>V032 - Inspection</fullName>
+                <default>false</default>
+                <label>Inspection</label>
+            </value>
+            <value>
+                <fullName>A006 - Insurance Firm or  Agent</fullName>
+                <default>false</default>
+                <label>Insurance Firm or  Agent</label>
+            </value>
+            <value>
+                <fullName>S005 -  Insurance Products</fullName>
+                <default>false</default>
+                <label>Insurance Products</label>
+            </value>
+            <value>
+                <fullName>V044 - Internet or Social Media Fraud</fullName>
+                <default>false</default>
+                <label>Internet or Social Media Fraud</label>
+            </value>
+            <value>
+                <fullName>A003 - Investment Adviser Firm</fullName>
+                <default>false</default>
+                <label>Investment Adviser Firm</label>
+            </value>
+            <value>
+                <fullName>A004 - Investment Adviser Representative</fullName>
+                <default>false</default>
+                <label>Investment Adviser Representative</label>
+            </value>
+            <value>
+                <fullName>V007 - Investment Contract</fullName>
+                <default>false</default>
+                <label>Investment Contract</label>
+            </value>
+            <value>
+                <fullName>S006 - Lease/Buy-Back Programs</fullName>
+                <default>false</default>
+                <label>Lease/Buy-Back Programs</label>
+            </value>
+            <value>
+                <fullName>V021 - Limited Liability Company</fullName>
+                <default>false</default>
+                <label>Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>Loan to/from customers</fullName>
+                <default>false</default>
+                <label>Loan to/from customers</label>
+            </value>
+            <value>
+                <fullName>V045 - Marijuana Industry Investments</fullName>
+                <default>false</default>
+                <label>Marijuana Industry Investments</label>
+            </value>
+            <value>
+                <fullName>Metaverse Schemes</fullName>
+                <default>false</default>
+                <label>Metaverse Schemes</label>
+            </value>
+            <value>
+                <fullName>Money Mule</fullName>
+                <default>false</default>
+                <label>Money Mule</label>
+            </value>
+            <value>
+                <fullName>V008 - Mutual Fund</fullName>
+                <default>false</default>
+                <label>Mutual Fund</label>
+            </value>
+            <value>
+                <fullName>Non-fungible Token (NFT)</fullName>
+                <default>false</default>
+                <label>Non-fungible Token (NFT)</label>
+            </value>
+            <value>
+                <fullName>V009 - Note/Promissory Note</fullName>
+                <default>false</default>
+                <label>Note/Promissory Note</label>
+            </value>
+            <value>
+                <fullName>S007 - Oil and Gas Program/Mining</fullName>
+                <default>false</default>
+                <label>Oil and Gas Program/Mining</label>
+            </value>
+            <value>
+                <fullName>V010 - Option</fullName>
+                <default>false</default>
+                <label>Option</label>
+            </value>
+            <value>
+                <fullName>V011 - Option on Comm. Futures Contracts</fullName>
+                <default>false</default>
+                <label>Option on Comm. Futures Contracts</label>
+            </value>
+            <value>
+                <fullName>A010 - Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>S014 - Other Programs</fullName>
+                <default>false</default>
+                <label>Other Programs</label>
+            </value>
+            <value>
+                <fullName>V023 - Other Vehicle</fullName>
+                <default>false</default>
+                <label>Other Vehicle</label>
+            </value>
+            <value>
+                <fullName>V022 - Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>S008 - Penny Stock/Microcap</fullName>
+                <default>false</default>
+                <label>Penny Stock/Microcap</label>
+            </value>
+            <value>
+                <fullName>Pig Butchering</fullName>
+                <default>false</default>
+                <label>Pig Butchering</label>
+            </value>
+            <value>
+                <fullName>S009 - Ponzi Programs</fullName>
+                <default>false</default>
+                <label>Ponzi Programs</label>
+            </value>
+            <value>
+                <fullName>Precious Metals Schemes</fullName>
+                <default>false</default>
+                <label>Precious Metals Schemes</label>
+            </value>
+            <value>
+                <fullName>V012 - Pre- organization Certificate</fullName>
+                <default>false</default>
+                <label>Pre-organization Certificate</label>
+            </value>
+            <value>
+                <fullName>V013-Profit Sharing/Beneficial Interest</fullName>
+                <default>false</default>
+                <label>Profit Sharing/Beneficial Interest</label>
+            </value>
+            <value>
+                <fullName>S010-Pyramid/Multilevel Marketing Prog.</fullName>
+                <default>false</default>
+                <label>Pyramid/Multilevel Marketing Prog.</label>
+            </value>
+            <value>
+                <fullName>S011 - Real Estate</fullName>
+                <default>false</default>
+                <label>Real Estate</label>
+            </value>
+            <value>
+                <fullName>S016 - Receivables Program</fullName>
+                <default>false</default>
+                <label>Receivables Program</label>
+            </value>
+            <value>
+                <fullName>Refusal/impedes audit/inspection</fullName>
+                <default>false</default>
+                <label>Refusal/impedes audit/inspection</label>
+            </value>
+            <value>
+                <fullName>Regulation A/A+ Offerings</fullName>
+                <default>false</default>
+                <label>Regulation A/A+ Offerings</label>
+            </value>
+            <value>
+                <fullName>Regulation Best Interest</fullName>
+                <default>false</default>
+                <label>Regulation Best Interest</label>
+            </value>
+            <value>
+                <fullName>V035 - REIT</fullName>
+                <default>false</default>
+                <label>REIT</label>
+            </value>
+            <value>
+                <fullName>Robo-adviser</fullName>
+                <default>false</default>
+                <label>Robo-adviser</label>
+            </value>
+            <value>
+                <fullName>Romance Scam</fullName>
+                <default>false</default>
+                <label>Romance Scam</label>
+            </value>
+            <value>
+                <fullName>V052-Rule 506(b)Offerings</fullName>
+                <default>false</default>
+                <label>Rule 506(b)Offerings</label>
+            </value>
+            <value>
+                <fullName>V053-Rule 506(c)Offerings</fullName>
+                <default>false</default>
+                <label>Rule 506(c)Offerings</label>
+            </value>
+            <value>
+                <fullName>V047-Self Dir. IRA&apos;s/3rd Pty Custodians</fullName>
+                <default>false</default>
+                <label>Self Dir. IRA&apos;s/3rd Pty Custodians</label>
+            </value>
+            <value>
+                <fullName>Selling Away</fullName>
+                <default>false</default>
+                <label>Selling Away</label>
+            </value>
+            <value>
+                <fullName>V055 - Senior Designations</fullName>
+                <default>false</default>
+                <label>Senior Designations</label>
+            </value>
+            <value>
+                <fullName>Stablecoins</fullName>
+                <default>false</default>
+                <label>Stablecoins</label>
+            </value>
+            <value>
+                <fullName>V014 - Stock</fullName>
+                <default>false</default>
+                <label>Stock</label>
+            </value>
+            <value>
+                <fullName>V049 - Stock/Equity Options</fullName>
+                <default>false</default>
+                <label>Stock/Equity Options</label>
+            </value>
+            <value>
+                <fullName>V050-Strm of Income Invest.(Pension)</fullName>
+                <default>false</default>
+                <label>Strm of Income Invest.(Pension)</label>
+            </value>
+            <value>
+                <fullName>V051 - Structured Products</fullName>
+                <default>false</default>
+                <label>Structured Products</label>
+            </value>
+            <value>
+                <fullName>Suitability</fullName>
+                <default>false</default>
+                <label>Suitability</label>
+            </value>
+            <value>
+                <fullName>S017 - Tax Certificate Program</fullName>
+                <default>false</default>
+                <label>Tax Certificate Program</label>
+            </value>
+            <value>
+                <fullName>S012 - Telecommunications</fullName>
+                <default>false</default>
+                <label>Telecommunications</label>
+            </value>
+            <value>
+                <fullName>V028 - Tenancy in Common</fullName>
+                <default>false</default>
+                <label>Tenancy in Common</label>
+            </value>
+            <value>
+                <fullName>V016 - Transferable Share</fullName>
+                <default>false</default>
+                <label>Transferable Share</label>
+            </value>
+            <value>
+                <fullName>V015 - Treasury Stock</fullName>
+                <default>false</default>
+                <label>Treasury Stock</label>
+            </value>
+            <value>
+                <fullName>Unauthorized Trading</fullName>
+                <default>false</default>
+                <label>Unauthorized Trading</label>
+            </value>
+            <value>
+                <fullName>U001 - Undercover Craigslist</fullName>
+                <default>false</default>
+                <label>Undercover Craigslist</label>
+            </value>
+            <value>
+                <fullName>V017 - Unit Investment Trust</fullName>
+                <default>false</default>
+                <label>Unit Investment Trust</label>
+            </value>
+            <value>
+                <fullName>Unreasonable Delay or Failure to Liquidate Accounts</fullName>
+                <default>false</default>
+                <label>Unreasonable Delay or Failure to Liquidate Accounts</label>
+            </value>
+            <value>
+                <fullName>V034 - Unregistered Agent</fullName>
+                <default>false</default>
+                <label>Unregistered Agent</label>
+            </value>
+            <value>
+                <fullName>V030 - Unregistered Broker - Dealer</fullName>
+                <default>false</default>
+                <label>Unregistered Broker - Dealer</label>
+            </value>
+            <value>
+                <fullName>A008 - Unregistered Firm</fullName>
+                <default>false</default>
+                <label>Unregistered Firm</label>
+            </value>
+            <value>
+                <fullName>V027 - Unregistered Franchise</fullName>
+                <default>false</default>
+                <label>Unregistered Franchise</label>
+            </value>
+            <value>
+                <fullName>A009 - Unregistered Individual</fullName>
+                <default>false</default>
+                <label>Unregistered Individual</label>
+            </value>
+            <value>
+                <fullName>V037-Unregistered Investment Adv. Rep.</fullName>
+                <default>false</default>
+                <label>Unregistered Investment Adv. Rep.</label>
+            </value>
+            <value>
+                <fullName>V031 - Unregistered Investment Adviser</fullName>
+                <default>false</default>
+                <label>Unregistered Investment Adviser</label>
+            </value>
+            <value>
+                <fullName>V033 - Unregistered Securities</fullName>
+                <default>false</default>
+                <label>Unregistered Securities</label>
+            </value>
+            <value>
+                <fullName>Unregistered Securities sold through Smartphone apps</fullName>
+                <default>false</default>
+                <label>Unregistered Securities sold through Smartphone apps</label>
+            </value>
+            <value>
+                <fullName>Unworthiness</fullName>
+                <default>false</default>
+                <label>Unworthiness</label>
+            </value>
+            <value>
+                <fullName>V018 - Variable Annuity Contract</fullName>
+                <default>false</default>
+                <label>Variable Annuity Contract</label>
+            </value>
+            <value>
+                <fullName>S013 - Viatical Settlement Contracts</fullName>
+                <default>false</default>
+                <label>Viatical Settlement Contracts</label>
+            </value>
+            <value>
+                <fullName>Violations of previous Orders</fullName>
+                <default>false</default>
+                <label>Violations of previous Orders</label>
+            </value>
+            <value>
+                <fullName>V019 - Voting Trust Certificate</fullName>
+                <default>false</default>
+                <label>Voting Trust Certificate</label>
+            </value>
+            <value>
+                <fullName>V020 - Warrant</fullName>
+                <default>false</default>
+                <label>Warrant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

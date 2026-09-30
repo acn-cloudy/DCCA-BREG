@@ -1,0 +1,42 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-formatted-text value={registrationTypeValue}></lightning-formatted-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showCertificateNumberField} size="6" class="form-layout-item">
+                <lightning-formatted-text value={certificateNumberValue}></lightning-formatted-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-combobox
+                    name="registrationType"
+                    label="Registration Type"
+                    options={registrationTypeOptions}
+                    value={registrationTypeValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showCertificateNumberField} size="6" class="form-layout-item">
+                <lightning-input
+                    name="certificateNumber"
+                    value={certificateNumberValue}
+                    label="Certificate No."
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

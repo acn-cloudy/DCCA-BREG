@@ -1,0 +1,2992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>email_agent_awaiting_hire</name>
+        <label>Email › Awaiting Hire</label>
+        <locationX>3922</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_resend_confirm_hire</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Still Awaiting Response from New Hiring Broker</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_awaiting_hire_slow</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_agent_awaiting_release</name>
+        <label>Email › Awaiting Release</label>
+        <locationX>3218</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_resend_confirm_release</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Still Awaiting Response from Releasing Broker</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_awaiting_release</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_agent_email_bounced</name>
+        <label>Email › Email Bounced</label>
+        <locationX>842</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Request Canceled</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_email_bounced</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_agent_release</name>
+        <label>Email › Notify Agent of Release</label>
+        <locationX>3614</locationX>
+        <locationY>1008</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Release Complete</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_release_complete</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_agent_verification</name>
+        <label>Email › Agent Verification</label>
+        <locationX>2162</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Email Verification Request</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_agent_email_verification</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_broker_confirm_release</name>
+        <label>Email › Confirm Release</label>
+        <locationX>2954</locationX>
+        <locationY>600</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Confirm Release Request</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_confirm_release</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_nb_confirm_hire</name>
+        <label>Email › Confirm Hire</label>
+        <locationX>3614</locationX>
+        <locationY>900</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_agent_release</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.New_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Confirm Hire</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_confirm_hire</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_nb_failed</name>
+        <label>Email › NB Failed</label>
+        <locationX>1370</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_nb_forced_receipt</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Hiring Broker Failed to Respond</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_new_broker_did_not_respond</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_nb_forced_receipt</name>
+        <label>Email › NB Forced Receipt</label>
+        <locationX>1370</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>update_nb_canceled</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.New_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Hiring Broker Failed to Respond</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_new_broker_forced_receipt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_notify_agent_nb_confirmed</name>
+        <label>Email › Notify Agent</label>
+        <locationX>4450</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_notify_hiring_broker_receipt</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Request Complete</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_request_complete</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_notify_agent_nb_denied</name>
+        <label>Email › Notify Agent</label>
+        <locationX>4186</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>email_notify_hiring_broker_nb_denied</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Request Failed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_new_broker_failed</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_notify_hiring_broker_nb_denied</name>
+        <label>Email › Notify Hiring Broker</label>
+        <locationX>4186</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>update_cancel_request_nb_denied</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.New_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Hiring Request Denied</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_new_broker_denied_receipt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_notify_hiring_broker_receipt</name>
+        <label>Email › Notify Hiring Broker</label>
+        <locationX>4450</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.New_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Hire Confirmed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_new_broker_receipt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_rb_forced_release</name>
+        <label>Email › Force Release</label>
+        <locationX>1106</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ecb_log_rb_failed</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Agent Released</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_forced_release</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_rb_release_receipt</name>
+        <label>Email › Release Receipt</label>
+        <locationX>3482</locationX>
+        <locationY>600</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ecb_log_rb_receipt</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Release Complete</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_releasing_broker_receipt</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_resend_agent_verification</name>
+        <label>Email › Resend</label>
+        <locationX>2426</locationX>
+        <locationY>384</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>update_verification_sent</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Agent_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Email Verification Request</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_agent_email_verification</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_resend_confirm_hire</name>
+        <label>Email › Resend Confirm Hire</label>
+        <locationX>3922</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.New_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Confirm Hire Follow-Up</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_confirm_hire_slow</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>email_resend_confirm_release</name>
+        <label>Email › Resend Confirm Release</label>
+        <locationX>3218</locationX>
+        <locationY>492</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>email_from_address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>{!email_prefix} Confirm Release Follow-Up</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>email_confirm_release_slow</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>inactivate_license_2</name>
+        <label>Inactivate License</label>
+        <locationX>1370</locationX>
+        <locationY>816</locationY>
+        <actionName>License__c.Inactivate_License</actionName>
+        <actionType>quickAction</actionType>
+        <connector>
+            <targetReference>log_license_terminated_on_nb_cancel</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>contextId</name>
+            <value>
+                <elementReference>$Record.Agent_License__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ActiveInactive__c</name>
+            <value>
+                <stringValue>Inactive</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Status__c</name>
+            <value>
+                <stringValue>C - Current, Valid &amp; In Good Standing</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>CreateInactiveTransaction__c</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>InactivationDate__c</name>
+            <value>
+                <elementReference>$Record.Release_Date_HST__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>License__c.Inactivate_License</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>inactive_license_nb_denied</name>
+        <label>Inactivate License</label>
+        <locationX>4186</locationX>
+        <locationY>924</locationY>
+        <actionName>License__c.Inactivate_License</actionName>
+        <actionType>quickAction</actionType>
+        <connector>
+            <targetReference>ecb_agemt_license_inactivated</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>contextId</name>
+            <value>
+                <elementReference>$Record.Agent_License__r.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ActiveInactive__c</name>
+            <value>
+                <stringValue>Inactive</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>Status__c</name>
+            <value>
+                <stringValue>C - Current, Valid &amp; In Good Standing</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>CreateInactiveTransaction__c</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>InactivationDate__c</name>
+            <value>
+                <elementReference>$Record.Release_Date_HST__c</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>License__c.Inactivate_License</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <constants>
+        <name>email_prefix</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>Express Change Broker -</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>did_rb_respond</name>
+        <label>Did RB Respond?</label>
+        <locationX>3614</locationX>
+        <locationY>492</locationY>
+        <defaultConnector>
+            <targetReference>email_nb_confirm_hire</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>rb_confirmed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>10.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_rb_release_receipt</targetReference>
+            </connector>
+            <label>RB Confirmed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Change</name>
+        <label>Status Change</label>
+        <locationX>3306</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>agent_confirmed_info</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agent Information Confirmed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>move_to_step_2</targetReference>
+            </connector>
+            <label>Agent Confirmed Info</label>
+        </rules>
+        <rules>
+            <name>verify_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agent Verification E-mail Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_agent_verification</targetReference>
+            </connector>
+            <label>Verify Email</label>
+        </rules>
+        <rules>
+            <name>reverify_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agent Verification E-mail Resend Request</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_resend_agent_verification</targetReference>
+            </connector>
+            <label>Reverify Email</label>
+        </rules>
+        <rules>
+            <name>email_verified</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agent E-mail Verified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_step_3</targetReference>
+            </connector>
+            <label>Email Verified</label>
+        </rules>
+        <rules>
+            <name>rb_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Releasing Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 3</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_step_4</targetReference>
+            </connector>
+            <label>RB Email</label>
+        </rules>
+        <rules>
+            <name>rb_slow</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Releasing Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>9.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 4</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_agent_awaiting_release</targetReference>
+            </connector>
+            <label>RB Slow</label>
+        </rules>
+        <rules>
+            <name>nb_email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_on_Hiring_Broker__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 4</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_step_5</targetReference>
+            </connector>
+            <label>NB Email</label>
+        </rules>
+        <rules>
+            <name>nb_slow</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_on_Hiring_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_on_Hiring_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>5.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_on_Hiring_Broker__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>9.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 5</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_agent_awaiting_hire</targetReference>
+            </connector>
+            <label>NB Slow</label>
+        </rules>
+        <rules>
+            <name>NB_Denied</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Request Canceled - Hiring Broker Canceled</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_notify_agent_nb_denied</targetReference>
+            </connector>
+            <label>NB Denied</label>
+        </rules>
+        <rules>
+            <name>nb_confirmed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Request Complete</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_notify_agent_nb_confirmed</targetReference>
+            </connector>
+            <label>NB Confirmed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Status_Change_Sync</name>
+        <label>Status Change</label>
+        <locationX>842</locationX>
+        <locationY>276</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Email_Valid</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Agent E-mail is Valid</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedDate</leftValueReference>
+                <operator>WasSet</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>move_to_step_1</targetReference>
+            </connector>
+            <label>Email Valid</label>
+        </rules>
+        <rules>
+            <name>nb_confirmed_sync</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Broker Verified</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>c_Terminate_Associated_License</targetReference>
+            </connector>
+            <label>NB Confirmed</label>
+        </rules>
+        <rules>
+            <name>agent_canceled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Request Canceled - Agent Canceled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_agent_canceled</targetReference>
+            </connector>
+            <label>Agent Canceled</label>
+        </rules>
+        <rules>
+            <name>email_bounced</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Request Canceled - E-mail Bounced</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_agent_email_bounced</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Email Bounced</label>
+        </rules>
+        <rules>
+            <name>sync_rb_canceled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 4</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Releasing Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_On_Releasing_Broker__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>10.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_rb_forced_release</targetReference>
+            </connector>
+            <label>RB Canceled</label>
+        </rules>
+        <rules>
+            <name>NB_Canceled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Step__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Step 5</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Days_Waiting_on_Hiring_Broker__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>10.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_nb_failed</targetReference>
+            </connector>
+            <label>NB Canceled</label>
+        </rules>
+    </decisions>
+    <description>This flow is responsible for managing all e-mailing and status updates for the Express Change Broker form on MyPVL.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>url_agent_clicks_to_verify_email</name>
+        <dataType>String</dataType>
+        <expression>{!url_changebroker} &amp; &quot;/verify/agent-email-return?token=&quot; &amp; {!$Record.Agent_Token__c} &amp; &quot;&amp;request_id=&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>url_confirm_hire</name>
+        <dataType>String</dataType>
+        <expression>{!url_changebroker} &amp; &quot;/verify/new-broker?token=&quot; &amp; {!$Record.New_Broker_Token__c} &amp; &quot;&amp;request_id=&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>url_confirm_release</name>
+        <dataType>String</dataType>
+        <expression>{!url_changebroker} &amp; &quot;/verify/releasing-broker?token=&quot; &amp; {!$Record.Releasing_Broker_Token__c} &amp; &quot;&amp;request_id=&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>url_deny_hire</name>
+        <dataType>String</dataType>
+        <expression>{!url_changebroker} &amp; &quot;/verify/new-broker-deny?token=&quot; &amp; {!$Record.New_Broker_Token__c} &amp; &quot;&amp;request_id=&quot; &amp; {!$Record.Id}</expression>
+    </formulas>
+    <interviewLabel>Express Change Broker {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Express Change Broker</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>c_of_Log_Associated_License_Terminated</name>
+        <label>Log › Associated License Terminated</label>
+        <locationX>314</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>update_complete_request</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Associated_License__c</field>
+            <value>
+                <elementReference>$Record.Agent_Associated_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Copy_1_of_Log_Email_Verified</name>
+        <label>Log › NB Selected</label>
+        <locationX>2954</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>email_broker_confirm_release</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.New_Broker_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_new_broker_selected</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_new_broker_selected</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>create_associated_license</name>
+        <label>Create Associated License</label>
+        <locationX>314</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>ecb_log_nb_confirmed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EmployeeLicense__c</field>
+            <value>
+                <elementReference>$Record.Agent_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EmploymentStatus__c</field>
+            <value>
+                <stringValue>Employed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EntityLicense__c</field>
+            <value>
+                <elementReference>$Record.New_Brokerage_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Position__c</field>
+            <value>
+                <elementReference>$Record.Agent_Associated_License__r.Position__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>AssociatedLicense__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_agemt_license_inactivated</name>
+        <label>Log › Agent License Inactivated</label>
+        <locationX>4186</locationX>
+        <locationY>1032</locationY>
+        <connector>
+            <targetReference>ecb_log_nb_denied</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_license_inactivated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>$Record.Agent_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_license_inactivated</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_agent_canceled</name>
+        <label>Log › Agent Canceled</label>
+        <locationX>578</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_agent_canceled_request</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_agent_canceled_request</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_al_created</name>
+        <label>Log › AL Created</label>
+        <locationX>314</locationX>
+        <locationY>924</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Associated_License__c</field>
+            <value>
+                <elementReference>create_associated_license</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_associated_license_created</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_associated_license_created</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_al_terminated</name>
+        <label>Log › Associated License Terminated</label>
+        <locationX>4186</locationX>
+        <locationY>816</locationY>
+        <connector>
+            <targetReference>inactive_license_nb_denied</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Associated_License__c</field>
+            <value>
+                <elementReference>$Record.Agent_Associated_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_email_verified</name>
+        <label>Log › Email Verified</label>
+        <locationX>2690</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_email_verified</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_email_verified</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_info_confirmed</name>
+        <label>Log › Info Confirmed</label>
+        <locationX>1898</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Associated_License__c</field>
+            <value>
+                <elementReference>$Record.Agent_Associated_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_information_confirmed</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>$Record.Agent_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_information_confirmed</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_nb_confirmed</name>
+        <label>Log › NB Confirmed</label>
+        <locationX>314</locationX>
+        <locationY>816</locationY>
+        <connector>
+            <targetReference>ecb_log_al_created</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_new_broker_conifrmed</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_new_broker_confirmed</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_nb_denied</name>
+        <label>Log › NB Denied</label>
+        <locationX>4186</locationX>
+        <locationY>1140</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.New_Broker_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_new_broker_denied</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_new_broker_denied</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_rb_failed</name>
+        <label>Log › RB Failed</label>
+        <locationX>1106</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>sync_update_rb_force</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_releasing_broker_failed</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_releasing_broker_failed</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_rb_receipt</name>
+        <label>Log › RB Receipt</label>
+        <locationX>3482</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>email_nb_confirm_hire</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Releasing_Broker_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_releasing_broker_confirmed</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_releasing_broker_confirmed</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>ecb_log_request_initiated</name>
+        <label>Log › Request Initiated</label>
+        <locationX>50</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_request_initiated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_request_initiated</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>log_license_terminated_on_nb_cancel</name>
+        <label>Log › Associated License Terminated</label>
+        <locationX>1370</locationX>
+        <locationY>924</locationY>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>$Record.Agent_Account__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Associated_License__c</field>
+            <value>
+                <elementReference>$Record.Agent_Associated_License__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Details__c</field>
+            <value>
+                <elementReference>describe_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Request__c</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Summary__c</field>
+            <value>
+                <elementReference>title_associated_license_terminated</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Express_Change_Broker_History__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordUpdates>
+        <name>c_Terminate_Associated_License</name>
+        <label>Terminate Associated License</label>
+        <locationX>314</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>c_of_Log_Associated_License_Terminated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EmploymentStatus__c</field>
+            <value>
+                <stringValue>Terminated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EndDate__c</field>
+            <value>
+                <elementReference>$Record.Release_Date_HST__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Agent_Associated_License__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>When an e-mail is valid in the corresponding Agent&apos;s account, move the status of the record from &quot;E-mail Valid&quot; to &quot;Change Request Initiated&quot;.</description>
+        <name>move_to_step_1</name>
+        <label>Move › STEP 1</label>
+        <locationX>50</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>ecb_log_request_initiated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Step 1</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>Change Request Initiated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>The agent has confirmed the PB and brokerage on file. Move to step 2.</description>
+        <name>move_to_step_2</name>
+        <label>Move › STEP 2</label>
+        <locationX>1898</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>ecb_log_info_confirmed</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Step 2</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>nb_cancel_terminate_license</name>
+        <label>Terminate Associated License</label>
+        <locationX>1370</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>inactivate_license_2</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EmploymentStatus__c</field>
+            <value>
+                <stringValue>Terminated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EndDate__c</field>
+            <value>
+                <elementReference>$Record.Release_Date_HST__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Agent_Associated_License__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>sync_update_rb_force</name>
+        <label>Update › Force</label>
+        <locationX>1106</locationX>
+        <locationY>600</locationY>
+        <inputAssignments>
+            <field>Release_Date_HST__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Releasing_Broker_Verified_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>New Broker Verification Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>terminate_ac</name>
+        <label>Terminate Associated License</label>
+        <locationX>4186</locationX>
+        <locationY>708</locationY>
+        <connector>
+            <targetReference>ecb_log_al_terminated</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EmploymentStatus__c</field>
+            <value>
+                <stringValue>Terminated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EndDate__c</field>
+            <value>
+                <elementReference>$Record.Release_Date_HST__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.Agent_Associated_License__r</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_agent_canceled</name>
+        <label>Update › Agent Canceled</label>
+        <locationX>578</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>ecb_log_agent_canceled</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Canceled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>Request Canceled - Agent Canceled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_cancel_request_nb_denied</name>
+        <label>Update › Cancel Request</label>
+        <locationX>4186</locationX>
+        <locationY>600</locationY>
+        <connector>
+            <targetReference>terminate_ac</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Canceled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_complete_request</name>
+        <label>Update › Complete Request</label>
+        <locationX>314</locationX>
+        <locationY>600</locationY>
+        <connector>
+            <targetReference>create_associated_license</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Completed</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>Request Complete</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_nb_canceled</name>
+        <label>Update › NB Canceled</label>
+        <locationX>1370</locationX>
+        <locationY>600</locationY>
+        <connector>
+            <targetReference>nb_cancel_terminate_license</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Canceled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>Request Canceled - Hiring Broker Unresponsive</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_step_3</name>
+        <label>Move › STEP 3</label>
+        <locationX>2690</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>ecb_log_email_verified</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Step 3</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_step_4</name>
+        <label>Move › STEP 4</label>
+        <locationX>2954</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>Copy_1_of_Log_Email_Verified</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Step 4</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_step_5</name>
+        <label>Move › STEP 5</label>
+        <locationX>3614</locationX>
+        <locationY>384</locationY>
+        <connector>
+            <targetReference>did_rb_respond</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Step__c</field>
+            <value>
+                <stringValue>Step 5</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>update_verification_sent</name>
+        <label>Update › Verification Sent</label>
+        <locationX>2426</locationX>
+        <locationY>492</locationY>
+        <inputAssignments>
+            <field>New_Broker_Verification_Sent_Date__c</field>
+            <value>
+                <elementReference>$System.OriginDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WP_Status__c</field>
+            <value>
+                <stringValue>Releasing Broker Verification Sent</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1948</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Status_Change_Sync</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>WP_Status__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Days_Waiting_on_Hiring_Broker__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Days_Waiting_On_Releasing_Broker__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>PVL_Express_Change_Broker_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Status_Change</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>describe_agent_canceled_request</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🔴 Agent {!$Record.Agent_Name__c} CANCELED the request on {!$Flow.CurrentDateTime}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_associated_license_created</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>At {!$Flow.CurrentDateTime}, a new associated license was created to reflect the employment of  {!$Record.Agent_Name__c} at {!$Record.New_Brokerage_Name__c}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_associated_license_terminated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The associated license {!$Record.Agent_Associated_License__r.Name}  set to &quot;Terminated&quot; with an End Date of {!$Record.Releasing_Broker_Verified_Date__c}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_email_verified</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Agent {!$Record.Agent_Name__c} clicked link in e-mail and verified his or her email address ({!$Record.Agent_Email__c}). Agent is at Step 3.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_information_confirmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Agent {!$Record.Agent_Name__c} confirmed Releasing Brokerage ({!$Record.Releasing_Brokerage_Name__c}) and Releasing Broker ({!$Record.Releasing_Broker_Name__c}) on file at {!$Record.Agent_Confirmed_Info_Date__c}. Agent is at Step 2.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_license_inactivated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>The Agent&apos;s license {!$Record.Agent_License__r.Name} has been set to Inactive with an inactivation date of {!$Flow.CurrentDate}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_new_broker_conifrmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>New broker {!$Record.New_Broker_Name__c} confirmed the hire of {!$Record.Agent_Name__c} at {!$Flow.CurrentDateTime}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_new_broker_denied</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hiring broker {!$Record.New_Broker_Name__c} denied the request of {!$Record.Agent_Name__c} on {!$Flow.CurrentDateTime}. The request has been CANCELED. Agent must file a hard copy form to reactivate his or her license.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_new_broker_failed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hiring broker {!$Record.New_Broker_Name__c} did not respond within ten days as of {!$Flow.CurrentDateTime}. The request has been CANCELED. Agent must file a hard copy form to reactivate his or her license.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_new_broker_selected</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Agent {!$Record.Agent_Name__c} selected {!$Record.New_Broker_Name__c} at {!$Record.New_Brokerage_Name__c} as their new broker on {!$Record.Releasing_Broker_Verification_Sent_Date__c}. Agent is at Step 4.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_releasing_broker_confirmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Releasing broker {!$Record.Releasing_Broker_Name__c} confirmed release of {!$Record.Agent_Name__c} at {!$Record.Releasing_Broker_Verified_Date__c}. Agent is now at Step 5.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_releasing_broker_failed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Releasing broker {!$Record.Releasing_Broker_Name__c} did not respond within ten days. The request has been updated to allow the Hiring Broker to response. Agent is automatically moved to Step 5.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_request_complete</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>✅ Request completed at {!$Flow.CurrentDateTime}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>describe_request_initiated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Agent {!$Record.Agent_Name__c} ({!$Record.Agent_Email__c}) initiated release from {!$Record.Releasing_Broker_Name__c} ({!$Record.Releasing_Broker_Email__c}) at {!$Record.CreatedDate}. Agent is at Step 1.</text>
+    </textTemplates>
+    <textTemplates>
+        <description>This e-mail is sent to the agent to ensure they have access to the e-mail address on file.</description>
+        <name>email_agent_email_verification</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;You are receiving this email because you have initiated a request using the Express Change Broker Request through your MyPVL account. If you initiated this request, please verify your email address by clicking the link below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;{!url_agent_clicks_to_verify_email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; style=&quot;{!css_button}&quot;&gt;Verify Email Address&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you did &lt;u&gt;not&lt;/u&gt; request this change, please contact the Real Estate Branch at &lt;a href=&quot;tel:808-586-2643&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;808-586-2643&lt;/a&gt; for assistance.&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_awaiting_hire</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Thank you! Your new broker has received your request.&lt;/p&gt;
+
+&lt;p&gt;We are now awaiting their response. Your new hiring broker must approve your request within 10 days; otherwise, your license will be automatically placed on inactive status. We recommend contacting your selected broker to inform them that you have initiated a request using the &apos;Express Change Broker Form.’&lt;/p&gt;
+
+&lt;p style=&quot;{!css_warning}&quot;&gt;IMPORTANT! Should you need to reactivate your license, you must submit a hardcopy change form. Use the link below to download the form.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;{!url_download_form}&quot; style=&quot;{!css_button}&quot;&gt;Download Change Form - Real Estate&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We appreciate your patience as we continue to process your request!&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_awaiting_hire_slow</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+
+&lt;p&gt;Your hiring broker was sent an email on &lt;strong&gt;{!$Record.Agent_Submitted_Request_Date__c}&lt;/strong&gt;, however your new hiring broker has not yet responded to your request to be hired.&lt;/p&gt;
+ 
+&lt;p&gt;You may wish to contact your hiring broker to remind them of your request. If they fail to respond, your license will be inactivated, and you must complete a hard copy Change Form- Real Estate and pay a $25 fee to reactivate your license.&lt;/p&gt; 
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_awaiting_release</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{{!css_email_body}&quot;&gt;
+
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+
+&lt;p&gt;You initiated a request to be released on &lt;strong&gt;{!$Record.Agent_Submitted_Request_Date__c}&lt;/strong&gt;, however your releasing broker has not yet responded.&lt;/p&gt;
+
+&lt;p&gt;You may wish to contact your releasing broker to remind them of your request OR after 10 days you will be automatically released, and an email can then be forwarded to your Hiring Broker. &lt;/p&gt;
+
+{!email_footer}</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_confirm_hire</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;You are receiving this email because {!$Record.Agent_Name__c} has requested to join your brokerage. To complete this request, please click the appropriate button below to confirm your decision.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions regarding this request, please contact the licensee.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href=&quot;{!url_confirm_hire}&quot; style=&quot;{!css_button}&quot;&gt;Confirm&lt;/a&gt;&amp;nbsp;
+&lt;a href=&quot;{!url_deny_hire}&quot; style=&quot;{!css_button_gray}&quot;&gt;Deny&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;{!css_warning}&quot;&gt;WARNING: You must comply with this request within 10 days, as required by HAR &amp;sect; 16-99-5. Failure to do so may result in disciplinary action.&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_confirm_hire_slow</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;You are receiving this email because &lt;strong&gt;{!$Record.Agent_Name__c}&lt;/strong&gt; has sent you a request to be hired on &lt;strong&gt;{!$Record.Agent_Submitted_Request_Date__c}&lt;/strong&gt;, however, you have not yet confirmed their hiring. You may use the link below to confirm the hire.&lt;/p&gt;
+ 
+&lt;p&gt;As a reminder, you must respond to this request within 10 days as required by HAR § 16-99-5. Failure to comply may result in disciplinary action.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;a href=&quot;{!url_confirm_hire}&quot; style=&quot;{!css_button}&quot;&gt;Confirm&lt;/a&gt;&amp;nbsp;
+&lt;a href=&quot;{!url_deny_hire}&quot; style=&quot;{!css_button_gray}&quot;&gt;Deny&lt;/a&gt;
+&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_confirm_release</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;You are receiving this email because {!$Record.Agent_Name__c} has initiated a Change Broker request, as you are the broker on file with the Professional and Vocational Licensing Division. To complete this request, you will need to click the link below to confirm the release of {!$Record.Agent_Name__c}.&lt;/p&gt;
+
+&lt;p&gt;If you have any questions, please contact the Licensee initiating this request.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;{!url_confirm_release}&quot; style=&quot;{!css_button}&quot;&gt;Confirm Release&lt;/a&gt;&lt;/p&gt;
+
+&lt;p style=&quot;{!css_warning}&quot;&gt;&lt;strong&gt;WARNING&lt;/strong&gt;: You must comply with this request within 10 days as required by HAR § 16-99-5. Failure to comply may result in disciplinary action.&lt;/p&gt;
+
+{!email_footer}
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_confirm_release_slow</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;You are receiving this email because &lt;strong&gt;{!$Record.Agent_Name__c}&lt;/strong&gt; has initiated Change Broker request to be released from your employment on &lt;strong&gt;{!$Record.Agent_Submitted_Request_Date__c}&lt;/strong&gt;, however, you have not yet confirmed the release. You may use the link below to confirm release.&lt;/p&gt;
+
+&lt;p&gt;As a reminder, you must respond to this request within 10 days as required by HAR § 16-99-5. Failure to comply may result in disciplinary action.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;{!url_confirm_release}&quot; style=&quot;{!css_button}&quot;&gt;Confirm Release&lt;/a&gt;&lt;/p&gt;
+
+{!email_footer}
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_email_bounced</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+&lt;p&gt;This email is to inform you that an e-mail to one of the brokers on file could not be sent. As a result, your request has been automatically canceled. To update your license, you must submit a hard copy &lt;a href=&quot;{!url_download_form}&quot;&gt;Change Form – Real Estate&lt;/a&gt;.
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_footer</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;hr/&gt;
+&lt;p&gt;
+Mahalo,&lt;br/&gt;
+Real Estate Branch&lt;br/&gt;
+Department of Commerce and Consumer Affairs&lt;br/&gt;
+&lt;a href=&quot;tel:8085862643&quot;&gt;808-586-2643&lt;/a&gt;
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_forced_release</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p style=&quot;{!css_warning}&quot;&gt;This email is to inform you that {!$Record.Agent_Name__c} has been administratively released from your brokerage since you did not respond within the 10 days as required by HAR § 16-99-5.&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_new_broker_denied_receipt</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div class=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha,&lt;/p&gt;
+&lt;p&gt;This email is to inform you that you have denied {!$Record.Agent_Name__c}&apos;s request to join your brokerage. Therefore, {!$Record.Agent_Name__c} has been placed on an inactive status and is not associated with your brokerage. The Licensee is now required to submit a hard copy &lt;a href=&quot;{!url_download_form}&quot;&gt;Change Form – Real Estate&lt;/a&gt;.&lt;/p&gt;
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_new_broker_did_not_respond</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+
+&lt;p&gt;This email is to inform you that the hiring broker you selected has not responded to your request to join their brokerage within the 10 days as required by HAR §16-99-5. Therefore, your license has been placed on an inactive status, and you are NOT associated with any brokerage.&lt;/p&gt;
+
+&lt;p&gt;To reactivate your license, you must submit a hard copy &lt;a href=&quot;{!url_download_form}&quot;&gt;Change Form – Real Estate&lt;/a&gt;.
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_new_broker_failed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+
+&lt;p&gt;This email is to inform you that the hiring broker &lt;strong&gt;{!$Record.New_Broker_Name__c}&lt;/strong&gt; denied your request to join their brokerage. Therefore, your license has been placed on an inactive status, and you are NOT associated with any brokerage.&lt;/p&gt;
+
+&lt;p&gt;To reactivate your license, you must submit a hard copy &lt;a href=&quot;{!url_download_form}&quot;&gt;Change Form – Real Estate&lt;/a&gt;.
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_new_broker_forced_receipt</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha,&lt;/p&gt;
+
+&lt;p&gt;This email is to inform you that you have not responded to {!$Record.Agent_Name__c}’s request to join your brokerage within the 10 days as required by HAR §16-99-5. Therefore, {!$Record.Agent_Name__c} has been placed on an inactive status and is not associated with your brokerage. The Licensee is now required to submit a hard copy &lt;a href=&quot;{!url_download_form}&quot;&gt;Change Form – Real Estate.&lt;/a&gt;&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_new_broker_receipt</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div class=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha,&lt;/p&gt;
+&lt;p&gt;This email confirms the hiring of {!$Record.Agent_Name__c}. This Licensee is now associated with your brokerage.&lt;/p&gt;
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_release_complete</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;You’ve officially been released from &lt;strong&gt;{!$Record.Releasing_Brokerage_Name__c}&lt;/strong&gt; by &lt;strong&gt;{!$Record.Releasing_Broker_Name__c}&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We will now proceed with obtaining confirmation from the new hiring broker to finalize the hiring process.&lt;/p&gt;
+&lt;p&gt;In the meantime, you shall not engage in any Real Estate activities with your new hiring broker until you receive official confirmation that this change request has been completed.&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_releasing_broker_receipt</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;This email confirms your release of {!$Record.Agent_Name__c}. This Licensee is no longer associated with your brokerage.&lt;/p&gt;
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>email_request_complete</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;div style=&quot;{!css_email_body}&quot;&gt;
+&lt;p&gt;Aloha {!$Record.Agent_Name__c},&lt;/p&gt;
+
+&lt;p&gt;Your Express Change Broker request has been successfully completed. You are now officially affiliated with &lt;strong&gt;{!$Record.New_Brokerage_Name__c}&lt;/strong&gt;. This email serves as your official notification of the change.&lt;/p&gt;
+
+&lt;p&gt;You may &lt;a href=&quot;{!url_pvl_home}&quot;&gt;log into your MyPVL account&lt;/a&gt; to review your updated license details and change history.&lt;/p&gt;
+
+&lt;p&gt;Wishing you continued success!&lt;/p&gt;
+
+{!email_footer}
+&lt;/div&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_agent_canceled_request</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🔴 Agent {!$Record.Agent_Name__c} has CANCELED the request.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_associated_license_created</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>📃 A new associated license ({!create_associated_license}) was created to reflect the employment of  {!$Record.Agent_Name__c} at {!$Record.New_Brokerage_Name__c}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_associated_license_terminated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>📃 The associated license {!$Record.Agent_Associated_License__r.Name} was terminated.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_email_verified</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 3️⃣ Agent {!$Record.Agent_Name__c} verified email ({!$Record.Agent_Email__c}). Agent is at Step 3.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_information_confirmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 2️⃣ Agent {!$Record.Agent_Name__c} confirmed PB and Brokerage on file. Agent is at Step 2.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_license_inactivated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>📃 The Agent&apos;s license ({!$Record.Agent_License__r.Name}) has been set to Inactive with an inactivation date of {!$Flow.CurrentDate}.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_new_broker_confirmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 ✅ New broker {!$Record.New_Broker_Name__c} confirmed the hire of {!$Record.Agent_Name__c}. Agent has completed all steps.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_new_broker_denied</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🔴 Hiring broker {!$Record.New_Broker_Name__c} denied {!$Record.Agent_Name__c}&apos;s request. The request has been CANCELED.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_new_broker_failed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🔴 Hiring broker {!$Record.New_Broker_Name__c} did not respond within ten days.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_new_broker_selected</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 4️⃣ Agent {!$Record.Agent_Name__c} selected a new broker: {!$Record.New_Broker_Name__c} at {!$Record.New_Brokerage_Name__c}. Agent is at Step 4.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_releasing_broker_confirmed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 5️⃣ Releasing broker {!$Record.Releasing_Broker_Name__c} confirmed release. Agent is at Step 5.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_releasing_broker_failed</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟡 5️⃣ Releasing broker {!$Record.Releasing_Broker_Name__c} did not respond within ten days.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_request_complete</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 ✅ Request is complete. Agent has completed all steps.</text>
+    </textTemplates>
+    <textTemplates>
+        <name>title_request_initiated</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>🟢 1️⃣ Agent {!$Record.Agent_Name__c} clicked to create a new request. Agent is at Step 1.</text>
+    </textTemplates>
+    <variables>
+        <name>css_button</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>color:white;background-color:#004080;display:inline-block;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>css_button_gray</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>color:black;background-color:#eeeeee;display:inline-block;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:bold</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>css_email_body</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>font-family:Arial, sans-serif;font-size:16px;line-height:1.5;color:#333;margin:0 0 10px;padding:0</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>css_warning</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>color:#721c24;background-color:#f8d7da;display:block;margin:20px 0;padding:10px 20px;text-decoration:none;font-size:16px;font-weight:bold</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>email_from_address</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>noreply@dcca.hawaii.gov</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>url_changebroker</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>https://mypvl.dcca.hawaii.gov/change-broker</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>url_download_form</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>https://cca.hawaii.gov/reb/files/2023/06/CF_Updated_2023.pdf</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>url_pvl_home</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>https://mypvl.dcca.hawaii.gov/</stringValue>
+        </value>
+    </variables>
+</Flow>

@@ -1,0 +1,103 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="License__c" />
+    <div style="width: 525px;height: 407px;font-size:10px;box-sizing: border-box;position: relative;font-family: sans-serif;">
+        <div style="position: absolute;left: 5%;bottom: 5%;width: 90%;">
+            <img src="{!$Resource.LogoBlack}" width="100%" />
+        </div>
+        <div style="position: relative; padding: 30px;">
+            <div>
+                <div style="display:inline-block;width:14%;">
+                    <img src="{!$Resource.DCCALogoBlack}" width="100%" />
+                </div>
+                <div style="display:inline-block;width:70%;text-align:center">
+                    <h1>
+                        <b>REMINDER</b>
+                    </h1>
+                    <h1>LICENSE RENEWAL NOTICE</h1>
+                </div>
+                <div style="display:inline-block;width:14%;">
+                    <img src="{!$Resource.ContinuingCompetency}" width="100%" />
+                </div>
+            </div>
+
+            <div style="text-align:center">
+                <h4 style="margin:3px 0;">
+                    <b>Renewal Period:
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}" />
+                        </apex:outputText>
+                        - Midnight (HST)
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                        </apex:outputText>
+                    </b>
+                </h4>
+                <h5 style="margin:2px 0;">
+                    <b>Renew Online at
+                        <u><apex:outputText value="{!$Label.MyPVLLink}" /></u>
+                    </b>
+                </h5>
+                <p style="margin:2px 0;">
+                    You must retrieve and print your pocket ID card online via your MyPVL account. No other notice will be provided.
+                    <br/> APRN licensees will not be issued a pocket card until they have also successfully renewed their RN license.
+                </p>
+                <h3 style="margin:2px 0">NEW RENEWAL REQUIREMENTS</h3>
+                <p style="margin:2px 0;">For more information go to the Board of Nursing website at:https//cca.hawaii.gov/boards/nursing</p>
+            </div>
+            <div style="position: relative;">
+                <div style="width:47%;display:inline-block;margin:0 3% 3px 0;vertical-align: top">
+                    <p>
+                        <b>
+                            <u>
+                                Continuing Competency Requirement (CC)
+                            </u>
+                        </b>
+                    </p>
+                    <ul>
+                        <li>Pursuant to HRS §457-9-2 all LPN &amp; RN, unless exempt, shall complete a learning activity in order
+                            to satisfy the CC requirement to renew their license;
+                        </li>
+                        <li>Pursuant to HAR §16-89-123, APRN’s w/pre- scriptive authority shall maintain current national certification
+                            &amp; comply w/CE requirements prior to renewing their license;
+                        </li>
+                        <li>After the renewal period the Board will conduct a random audit; if selected you will receive a written
+                            notice from the Board.
+                        </li>
+                    </ul>
+                </div>
+                <div style="width:49%;display:inline-block;margin-top:5px;">
+                    <p>
+                        <b>
+                            <u>
+                                Criminal History Record Check (CBC)
+                            </u>
+                        </b>
+                    </p>
+                    <ul>
+                        <li>If you were licensed prior to July 1, 2017, you may be required to be fingerprinted in order to renew your license;</li>
+                        <li>A listing of these nurses is also posted on the Board of Nursing website under "Renewal and Restoration, Criminal History Record Check Requirement."</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <img src="{!$Resource.NursingTree}" width="2%" />
+                    <p style="display: inline-block;width: 96%;">
+                        All Nurses are encouraged to complete the Hawaii State Center for Nursing survey by clicking on the “Survey” link on the
+                        online renewal page or by clicking the “Continue” button at the end of the payment process.</p>
+                </div>
+                <h5 style="text-align: center;margin:2px 0;">
+                    <b>
+                        A licensee who has not renewed by the license
+                        <br/> expiration date is
+                        <u>unlicensed</u> and shall not practice
+                    </b>
+                </h5>
+                <p>
+                    <b> If you cannot renew online or prefer to mail in your renewal: </b>
+                </p>
+                <p>Contact the licensing branch at (808) 586-3000 to request a renewal application. </p>
+            </div>
+        </div>
+    </div>
+</apex:component>

@@ -1,0 +1,64 @@
+.slds-form-element__label {
+    display: flex;       
+    align-items: center; 
+}
+
+.slds-form-element__label lightning-helptext {
+    margin-left: 0.25rem; 
+    position: relative; 
+    top: -1px;
+}
+
+/* Rejection Area Styling */
+.rejection-box {
+    background-color: #f3f3f3;
+    border: 1px solid #dddbda;
+    border-radius: 4px;
+    padding: 1.5rem;
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Ensure the combobox labels look consistent with output fields */
+.rejection-box lightning-combobox {
+    --slds-c-input-spacing-vertical-start: 0.5rem;
+    font-weight: bold;
+}
+
+/* Simple animation for when the picklist appears */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Scroll handling for long reason lists */
+.mds-modal-content-scroll {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Override for standard destructive button to match MDS heights */
+.mds-button.slds-button_destructive {
+    line-height: 1.8;
+}
+
+/* Layout the footer with Preview on left and actions on right */
+.footer-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Style for the rejection box inside content */
+.rejection-card {
+    background-color: #f8f9fb;
+    border-left: 4px solid #c23934; /* Red stripe for rejection */
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* Ensure buttons don't touch on mobile */
+.footer-right {
+    display: flex;
+    gap: 0.5rem;
+}

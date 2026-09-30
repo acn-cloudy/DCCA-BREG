@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employment_Insurance_Related_Suspense__c</fullName>
+    <formula>OR(
+    ISPICKVAL(MaintenanceType__c, &quot;CONT - PRINCIPAL MISSING CONTINUING ED REQUIREMENT&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;EC - EMPLOYER CLOSED&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;FRMR - EMPLOYER MUST RENEW&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;IE - FILE INACTIVE OR NEW EMPLOYER&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NBIC - FIND NEW BIC&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NEWR - NEW RESPONSIBLE EMPLOYEE FOUND--TRIGGER EMPLOYEE BREAK IN EMPLOYMENT IF 10 OR MORE DAYS FROM LOSS OF PRIOR RESPONSIBLE&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NFEM - NO FIRM DUE TO EMPLOYMENT TERMINATION&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NFRM - RME WITHOUT EMPLOYMENT&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NOPB - REAL ESTATE FIRM WITHOUT PRINCIPAL BROKER&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NPRD - CT FIRM WITHOUT PRINCIPAL RME DESIGNATED&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NPRM - NO PRINCIPAL RME&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NRMB - CONTRACTOR FIRM WITHOUT RME&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NRQC - CT FIRM WITHOUT RME TO QUALIFY CLASS&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;NSPV - REAL ESTATE SITE OFFICE WITHOUT SUPERVISOR&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;RMER - PRINCIPAL MUST RENEW&quot;),
+    ISPICKVAL(MaintenanceType__c, &quot;SP - NEW SUPERVISOR NEEDED&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Employment/Insurance Related Suspense</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

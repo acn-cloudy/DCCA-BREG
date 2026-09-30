@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SkipAppRenewFlow__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to skip the Application Renew flow.</description>
+    <label>Skip App Renew Flow</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

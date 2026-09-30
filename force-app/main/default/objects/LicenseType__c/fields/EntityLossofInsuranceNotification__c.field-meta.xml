@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityLossofInsuranceNotification__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-KN05142020 - Case 5171 - Created for PVL Phase 1 Sprint 3</description>
+    <label>Entity Loss of Insurance Notification</label>
+    <referenceTo>DocGeneratorSettings__c</referenceTo>
+    <relationshipLabel>License Types (Entity Loss of Insurance Notification)</relationshipLabel>
+    <relationshipName>License_TypesrC1W</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

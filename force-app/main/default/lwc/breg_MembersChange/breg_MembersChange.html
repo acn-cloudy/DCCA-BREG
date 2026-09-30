@@ -1,0 +1,275 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <!-- Title -->
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <!-- Description shown above checkbox for configured sections -->
+        <lightning-layout-item size="12" lwc:if={showDescriptionBeforeCheckbox} class="form-layout-item slds-m-bottom--small">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <!-- Has changed checkbox in edit mode -->
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                <lightning-input
+                    name="hasChanged"
+                    value={hasChangedValue}
+                    type="checkbox"
+                    label={hasChangedCheckboxLabel}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    disabled={hasChangedReadOnly}
+                    checked={hasChangedValue}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Has changed text in read-only mode -->
+        <template lwc:elseif={showHasChangedCheckbox}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <p><lightning-formatted-text value={hasChangedCheckboxLabel}></lightning-formatted-text></p>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Description shown below checkbox for configured sections -->
+        <lightning-layout-item size="12" lwc:if={showDescriptionAfterCheckbox} class="form-layout-item slds-m-bottom--small">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <!-- Main fields area -->
+        <template lwc:if={showFields}>
+            <!-- Name change mode -->
+            <template lwc:if={isNameMode}>
+                <!-- Edit mode for name fields -->
+                <template lwc:if={editMode}>
+                    <lightning-layout-item lwc:if={showMemberTypeSelector} size="12" class="form-layout-item">
+                        <lightning-radio-group
+                            data-name="memberType"
+                            name="memberType"
+                            label={memberTypeSelectorLabel}
+                            options={memberTypeOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            value={memberTypeValue}
+                            required={required}
+                            disabled={readOnly}
+                        ></lightning-radio-group>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showEntityNameField} size="12" class="form-layout-item">
+                        <lightning-input
+                            data-name="entityName"
+                            name="entityName"
+                            value={entityNameValue}
+                            label="Entity Name"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+
+                    <template lwc:if={isIndividual}>
+                        <lightning-layout-item lwc:if={showFirstNameField} size="12" large-device-size="6" class="form-layout-item">
+                            <lightning-input
+                                data-name="firstName"
+                                name="firstName"
+                                value={firstNameValue}
+                                label="First Name"
+                                type="text"
+                                onchange={handleInputChange}
+                                onblur={handleInputBlur}
+                                required={required}
+                                read-only={readOnly}
+                            ></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item lwc:if={showLastNameField} size="12" large-device-size="6" class="form-layout-item">
+                            <lightning-input
+                                data-name="lastName"
+                                name="lastName"
+                                value={lastNameValue}
+                                label="Last Name"
+                                type="text"
+                                onchange={handleInputChange}
+                                onblur={handleInputBlur}
+                                required={required}
+                                read-only={readOnly}
+                            ></lightning-input>
+                        </lightning-layout-item>
+                    </template>
+
+                    <template lwc:if={showMemberType}>
+                        <lightning-layout-item size="12" lwc:if={showMemberTypeDescription} class="form-layout-item slds-m-bottom--small">
+                            <lightning-formatted-rich-text value={memberTypeDescription}></lightning-formatted-rich-text>
+                        </lightning-layout-item>
+
+                        <lightning-input
+                            data-name="memberType"
+                            name="memberType"
+                            value={memberTypeValue}
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </template>
+                </template>
+
+                <!-- Read-only mode for name fields -->
+                <template lwc:else>
+                    <lightning-layout-item size="12" class="form-layout-item slds-m-bottom--small">
+                        <lightning-formatted-text value={compactReadOnlyNameValue}></lightning-formatted-text>
+                    </lightning-layout-item>
+
+                    <template lwc:if={showCompactReadOnlyMemberType}>
+                        <lightning-layout-item size="12" lwc:if={showMemberTypeDescription} class="form-layout-item slds-m-bottom--small">
+                            <lightning-formatted-rich-text value={memberTypeDescription}></lightning-formatted-rich-text>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" class="form-layout-item">
+                            <lightning-formatted-text value={compactReadOnlyMemberTypeValue}></lightning-formatted-text>
+                        </lightning-layout-item>
+                    </template>
+                </template>
+            </template>
+
+            <!-- Address change mode -->
+            <template lwc:elseif={isAddressMode}>
+                <!-- Read-only mode for address fields -->
+                <template lwc:if={readOnly}>
+                    <lightning-layout-item lwc:if={showReadOnlyStreetLine} size="12" class="form-layout-item">
+                        <lightning-formatted-text value={readOnlyStreetLine}></lightning-formatted-text>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showReadOnlyStreet2Line} size="12" class="form-layout-item">
+                        <lightning-formatted-text value={readOnlyStreet2Line}></lightning-formatted-text>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showReadOnlyCityStatePostalLine} size="12" class="form-layout-item">
+                        <lightning-formatted-text value={readOnlyCityStatePostalLine}></lightning-formatted-text>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showReadOnlyCountryLine} size="12" class="form-layout-item">
+                        <lightning-formatted-text value={readOnlyCountryLabel}></lightning-formatted-text>
+                    </lightning-layout-item>
+                </template>
+
+                <!-- Edit mode for address fields -->
+                <template lwc:else>
+                    <lightning-layout-item lwc:if={showStreetField} size="12" class="form-layout-item">
+                        <lightning-input
+                            data-name="street"
+                            name="street"
+                            value={streetValue}
+                            label="Number and Street"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+
+                    <!-- Street abbreviation guidance -->
+                    <lightning-layout-item lwc:if={showStreetAbbreviationHelp} size="12" class="form-layout-item">
+                        <div class="slds-text-body_small slds-text-color_weak">
+                            Please abbreviate the following:
+                            <ul class="slds-list_dotted slds-m-left_medium">
+                                <li>directions ("N", "S", "E", "W")</li>
+                                <li>road types ("Hwy", "Rd", "St")</li>
+                                <li>apartments ("Apt")</li>
+                            </ul>
+                            For example: "123 E. Kamehameha Hwy, Apt 4"
+                        </div>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showStreet2Field} size="12" class="form-layout-item">
+                        <lightning-input
+                            data-name="street2"
+                            name="street2"
+                            value={street2Value}
+                            label="Address Line 2 (Optional)"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showCityField} size="12" large-device-size="6" class="form-layout-item">
+                        <lightning-input
+                            data-name="city"
+                            name="city"
+                            value={cityValue}
+                            label="City"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showCountryField} size="12" large-device-size="6" class="form-layout-item">
+                        <lightning-combobox
+                            data-name="country"
+                            name="country"
+                            value={countryValue}
+                            label="Country"
+                            options={countryOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            disabled={countryDisabled}
+                        ></lightning-combobox>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showPostalCodeField} size="12" large-device-size="6" class="form-layout-item">
+                        <lightning-input
+                            data-name="postalCode"
+                            name="postalCode"
+                            value={postalCodeValue}
+                            label="Postal Code"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item lwc:if={showStateField} size="12" large-device-size="6" class="form-layout-item">
+                        <lightning-combobox
+                            lwc:if={showStatesPicklist}
+                            data-name="state"
+                            name="state"
+                            value={stateValue}
+                            label="State"
+                            options={stateOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            disabled={stateDisabled}
+                        ></lightning-combobox>
+                        <lightning-input
+                            lwc:else
+                            data-name="stateText"
+                            name="stateText"
+                            value={stateTextValue}
+                            label="State"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

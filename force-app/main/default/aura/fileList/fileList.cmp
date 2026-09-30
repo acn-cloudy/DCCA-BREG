@@ -1,0 +1,59 @@
+<aura:component controller="FileListController" extends="c:Basic">
+    <aura:attribute name="files" type="List" />
+    <aura:attribute name="selectedFileId" type="String" />
+    <aura:attribute name="selectedFileName" type="String" /> 
+    <aura:attribute name="selectedComment" type="String" />    
+    <lightning:spinner alternativeText="Loading" size="medium" aura:id="mySpinner" class="slds-hide" />
+    <aura:if isTrue="{!v.files != null &amp;&amp; v.files.length > 0}">
+        <lightning:layout multipleRows="true" >
+            <!-- header --> 
+            <lightning:layoutItem size="3" padding="around-small" class="tableHeader" >
+                Actions
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3" padding="around-small" class="tableHeader">
+                Name
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3" padding="around-small" class="tableHeader">
+                Description
+            </lightning:layoutItem>
+            <lightning:layoutItem size="3" padding="around-small" class="tableHeader">
+                Created Date
+            </lightning:layoutItem>
+            
+            <!-- body -->
+            <aura:iteration items="{!v.files}" var="file" indexVar="index" >
+                <lightning:layoutItem size="3" padding="around-small"  >
+                    <lightning:buttonGroup  >
+                        <lightning:button variant="neutral" iconName="utility:edit" 
+                                          accesskey="{!file.documentId}" onclick="{!c.openCommentBox}" />
+                        <lightning:button variant="destructive" iconName="utility:delete" 
+                                          accesskey="{!file.documentId}" onclick="{!c.deleteDoc}" />
+                    </lightning:buttonGroup>
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem size="3" padding="around-small" class="contentRow">
+                    <a role="button" data-row-index="{!file.documentId}" onclick="{!c.reviewFiles}" >
+                        {!file.name}
+                    </a>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="3" padding="around-small" class="contentRow">
+                    {!file.comment}
+                </lightning:layoutItem>
+                <lightning:layoutItem size="3" padding="around-small" class="contentRow">
+                    {!file.createdDate}
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+        <aura:if isTrue="{!v.selectedFileId != null}">
+            <div class="slds-p-around_large" >
+                <div class="slds-form-element ">
+                    <label class="slds-form-element__label">Description for file <b>{!v.selectedFileName}</b></label>
+                    <ui:inputTextArea value="{!v.selectedComment}" aura:id="comment"  />	
+                </div>
+                <lightning:button label="Cancel" iconName="utility:close" onclick="{!c.closeComment}" />        
+                <lightning:button label="Save" iconName="utility:save" onclick="{!c.saveComment}" 
+                                  variant="brand"/>
+            </div>
+        </aura:if>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssignedReviewerEditsFiling</fullName>
+    <active>false</active>
+    <description>PacPoint-DL-092721 Case #2411 BREG Support
+Can edit: Assigned Filing Reviewer
+Other SEC Examiner/Reviewer profile Users cannot edit if != Reviewer
+Can Edit: DCCA Clerical, DCCA SEC Exam supervisor, System Administrator
+Customer Community Users (own)</description>
+    <errorConditionFormula>AND(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;DCCA SEC/SEB System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;DCCA BREG - CustomerCommunityLogin&quot;,
+
+OR(
+
+AND(
+    NOT(ISNEW()),
+    NOT(ISBLANK(Reviewer__c)),
+    Reviewer__r.Username &lt;&gt; $User.Username),
+
+AND(
+     NOT(ISNEW()),
+     ISCHANGED(Reviewer__c),
+     NOT(ISBLANK(Reviewer__c)),
+     NOT(ISBLANK(PRIORVALUE(Reviewer__c))),
+     (PRIORVALUE(Reviewer__c)) &lt;&gt; $User.Id),
+
+
+AND(
+     ISCHANGED(Reviewer__c),
+     $User.Username &lt;&gt; Reviewer__r.Username,
+     ISBLANK(Reviewer__c),
+     NOT(ISBLANK(PRIORVALUE(Reviewer__c))),
+     (PRIORVALUE(Reviewer__c)) &lt;&gt; $User.Id)
+
+)
+)</errorConditionFormula>
+    <errorMessage>Error: The Assigned Reviewer and select users have permission to edit this Filing</errorMessage>
+</ValidationRule>

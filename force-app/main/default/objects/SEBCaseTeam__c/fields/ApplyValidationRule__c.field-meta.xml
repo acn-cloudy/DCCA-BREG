@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplyValidationRule__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV081919 - Created for BREG phase 1. Created to be able to have validation rules on the Name field after it has been populated by the PB</description>
+    <label>Apply Validation Rule</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalRefundAmount__c</fullName>
+    <description>PacPoint-FT082818 - Created for phase 1</description>
+    <inlineHelpText>The total amount that has already been refunded on this Transaction.  This is a summary of all Transaction Lines that have a status of &quot;Refunded&quot;</inlineHelpText>
+    <label>Total Refund Amount</label>
+    <summarizedField>TransactionLine__c.RefundAmount__c</summarizedField>
+    <summaryFilterItems>
+        <field>TransactionLine__c.PaidStatus__c</field>
+        <operation>equals</operation>
+        <value>Refunded</value>
+    </summaryFilterItems>
+    <summaryForeignKey>TransactionLine__c.Transaction__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

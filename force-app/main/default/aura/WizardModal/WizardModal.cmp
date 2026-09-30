@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="footer" type="Aura.Component[]" />
+		
+        <section style="height:100%">
+            <div class="slds-modal__dev">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.title}</h2>
+                    <p class="slds-m-top_x-small"></p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    {!v.body}
+                </div>
+                <footer class="slds-modal__footer">
+                    {!v.footer}
+                </footer>
+            </div>
+        </section>   
+
+</aura:component>

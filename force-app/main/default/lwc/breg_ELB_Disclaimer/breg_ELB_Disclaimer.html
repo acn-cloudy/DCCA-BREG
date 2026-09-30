@@ -1,0 +1,17 @@
+<template>
+    <div class="disclaimer-wrapper">
+        <lightning-modal-header label="Disclaimer"></lightning-modal-header>
+        <lightning-modal-body class="disclaimer-body">
+            {contentMain}
+            <p>
+                <b>
+                    {contentBold}
+                </b>
+            </p>
+        </lightning-modal-body>
+        <lightning-modal-footer>
+            <lightning-button label="Continue" variant="success" onclick={handleContinue} class="slds-m-left_small"></lightning-button>
+            <lightning-button label="Close" onclick={handleClose} class="slds-m-left_small"></lightning-button>
+        </lightning-modal-footer>
+    </div>
+</template>

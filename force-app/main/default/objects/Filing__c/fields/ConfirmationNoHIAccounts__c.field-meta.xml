@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConfirmationNoHIAccounts__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <inlineHelpText>Confirmation of no HI accounts by clearing firm</inlineHelpText>
+    <label>Confirmation No HI Accounts?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

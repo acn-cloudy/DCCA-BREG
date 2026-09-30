@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalMailToCity1__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( TEXT(LicenseType__r.RenewalMailToCode__c) ,
+&quot;B - Business Mailing/Business/Residence&quot;,
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingCity__c,
+IF(IsBusinessPopulated__c = &quot;Y&quot;,
+BusinessCity__c,
+ResidenceCity__c)),
+
+
+&quot;R - Residence Mailing/Residence&quot;,
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingCity__c,
+IF(IsResidencePopulated__c = &quot;Y&quot;,
+ResidenceCity__c,
+null)),
+
+
+&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+IF(
+
+
+
+OR (
+TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+IsEmployerAddressPopulated__c = &quot;N&quot;
+),
+
+
+
+
+IF( IsMailingPopulated__c = &quot;Y&quot;,
+MailingCity__c,
+IF(IsResidencePopulated__c = &quot;Y&quot;,
+ResidenceCity__c,
+null)),
+
+
+EmployerCity__c
+
+),
+
+
+
+NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Mail To City</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

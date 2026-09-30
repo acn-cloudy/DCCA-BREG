@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CERequirement__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+NOT(ISBLANK(TEXT(LicenseType__r.AuditType__c))),
+IF(
+OR(
+AND(
+TEXT(LicenseType__r.AuditType__c) = &quot;Pre-Audit&quot;,
+TEXT(LicenseType__r.PartialCERequirement__c) = &quot;Licensed in 1st half of Biennium Requires Partial CE (1SB)&quot;,
+OriginalDateofLicensure__c &gt;= LicenseType__r.FirstYearStart__c,
+OriginalDateofLicensure__c &lt; LicenseType__r.SecondYearStart__c
+),
+AND(
+TEXT(LicenseType__r.AuditType__c) = &quot;Pre-Audit&quot;,
+TEXT(LicenseType__r.PartialCERequirement__c) = &quot;Licensed in the Current License Period Requires Partial CE (CUR)&quot;,
+OriginalDateofLicensure__c &gt;= LicenseType__r.LicenseTypeEffectiveDate__c,
+OriginalDateofLicensure__c &lt; LicenseType__r.LicenseTypeExpireDate__c
+),
+AND(
+TEXT(LicenseType__r.AuditType__c) = &quot;Post-Audit&quot;,
+TEXT(LicenseType__r.PartialCERequirement__c) = &quot;Licensed in 1st half of Biennium Requires Partial CE (1SB)&quot;,
+OriginalDateofLicensure__c &gt;= LicenseType__r.PreviousFirstYearStart__c,
+OriginalDateofLicensure__c &lt; LicenseType__r.PreviousSecondYearStart__c
+),
+AND(
+TEXT(LicenseType__r.AuditType__c) = &quot;Post-Audit&quot;,
+TEXT(LicenseType__r.PartialCERequirement__c) = &quot;Licensed in the Current License Period Requires Partial CE (CUR)&quot;,
+OriginalDateofLicensure__c &gt;= LicenseType__r.PreviousLicensePeriodEffectiveDate__c,
+OriginalDateofLicensure__c &lt;= LicenseType__r.PreviousLicensePeriodExpireDate__c
+)
+)
+,
+&quot;Partial&quot;,
+&quot;Full (Proof of All CE is Required)&quot;
+),
+null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CE Requirement</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,18 @@
+<design:component label="Custom Community Component">
+    <design:attribute
+            name="Title"
+            label="Title"
+            description="Title to display in the component"/>
+    <design:attribute
+            name="profileName"
+            label="Profile Name"
+            description="Name of the User Profile"/>
+    <design:attribute
+            name="businessAccRecordTypeDeveloperName"
+            label="Business Account Record Type Developer Name"
+            description="Business Account Record Type Developer Name"/>
+    <design:attribute
+            name="personAccRecordTypeDeveloperName"
+            label="Person Account Record Type Developer Name"
+            description="Person Account Record Type Developer Name"/>
+</design:component>

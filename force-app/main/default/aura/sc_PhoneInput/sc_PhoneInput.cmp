@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="placeholder" type="string" access="global" />
+    <aura:attribute name="required" type="Boolean" access="global" />
+    <aura:attribute name="change" type="Object" access="global" />
+    <aura:attribute name="checkRequried" type="Object" access="global" />
+	<aura:attribute name="errors" type="Object[]" access="global" />
+    <ui:inputText value="{!v.value}" errors="{!v.errors}"
+                  aura:id="field" class="slds-input" 
+                  placeholder="{!v.placeholder}" 
+                  required="{!v.required}" 
+                  change="{!c.validateAndUpdate}" />
+    
+</aura:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Link_to_Authenticate__c</fullName>
+    <description>Aalta BREG-134</description>
+    <externalId>false</externalId>
+    <formula>$Setup.BREG_Setting__c.Link_to_Portal__c &amp; &apos;/authenticate&apos;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Link to Authenticate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

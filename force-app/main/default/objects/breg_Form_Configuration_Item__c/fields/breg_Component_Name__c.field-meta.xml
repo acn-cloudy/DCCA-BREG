@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Component_Name__c</fullName>
+    <label>Component Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Address</fullName>
+                <default>false</default>
+                <label>Address</label>
+            </value>
+            <value>
+                <fullName>Applicant</fullName>
+                <default>false</default>
+                <label>Applicant</label>
+            </value>
+            <value>
+                <fullName>Applicant Type</fullName>
+                <default>false</default>
+                <label>Applicant Type</label>
+            </value>
+            <value>
+                <fullName>Certificate of Good Standing</fullName>
+                <default>false</default>
+                <label>Certificate of Good Standing</label>
+            </value>
+            <value>
+                <fullName>Classification</fullName>
+                <default>false</default>
+                <label>Classification</label>
+            </value>
+            <value>
+                <fullName>Company Name</fullName>
+                <default>false</default>
+                <label>Company Name</label>
+            </value>
+            <value>
+                <fullName>Date Incorporated</fullName>
+                <default>false</default>
+                <label>Date Incorporated</label>
+            </value>
+            <value>
+                <fullName>Dropdown</fullName>
+                <default>false</default>
+                <label>Dropdown</label>
+            </value>
+            <value>
+                <fullName>Entity Type</fullName>
+                <default>false</default>
+                <label>Entity Type</label>
+            </value>
+            <value>
+                <fullName>Formed On</fullName>
+                <default>false</default>
+                <label>Formed On</label>
+            </value>
+            <value>
+                <fullName>Goods Or Services</fullName>
+                <default>false</default>
+                <label>Goods Or Services</label>
+            </value>
+            <value>
+                <fullName>Input Date</fullName>
+                <default>false</default>
+                <label>Input Date</label>
+            </value>
+            <value>
+                <fullName>Input Text</fullName>
+                <default>false</default>
+                <label>Input Text</label>
+            </value>
+            <value>
+                <fullName>Input Textarea</fullName>
+                <default>false</default>
+                <label>Input Textarea</label>
+            </value>
+            <value>
+                <fullName>Input Number</fullName>
+                <default>false</default>
+                <label>Input Number</label>
+            </value>
+            <value>
+                <fullName>Liability Of Members</fullName>
+                <default>false</default>
+                <label>Liability Of Members</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>Members</fullName>
+                <default>false</default>
+                <label>Members</label>
+            </value>
+            <value>
+                <fullName>Members Radio</fullName>
+                <default>false</default>
+                <label>Members Radio</label>
+            </value>
+            <value>
+                <fullName>Member Type</fullName>
+                <default>false</default>
+                <label>Member Type</label>
+            </value>
+            <value>
+                <fullName>Members Change</fullName>
+                <default>false</default>
+                <label>Members Change</label>
+            </value>
+            <value>
+                <fullName>Nature Of Business</fullName>
+                <default>false</default>
+                <label>Nature Of Business</label>
+            </value>
+            <value>
+                <fullName>Optional Provisions</fullName>
+                <default>false</default>
+                <label>Optional Provisions</label>
+            </value>
+            <value>
+                <fullName>Output Text</fullName>
+                <default>false</default>
+                <label>Output Text</label>
+            </value>
+            <value>
+                <fullName>Partnership Name</fullName>
+                <default>false</default>
+                <label>Partnership Name</label>
+            </value>
+            <value>
+                <fullName>Period Of Duration</fullName>
+                <default>false</default>
+                <label>Period Of Duration</label>
+            </value>
+            <value>
+                <fullName>Profit</fullName>
+                <default>false</default>
+                <label>Profit</label>
+            </value>
+            <value>
+                <fullName>Registered Agent</fullName>
+                <default>false</default>
+                <label>Registered Agent</label>
+            </value>
+            <value>
+                <fullName>Registration Type</fullName>
+                <default>false</default>
+                <label>Registration Type</label>
+            </value>
+            <value>
+                <fullName>Signature</fullName>
+                <default>false</default>
+                <label>Signature</label>
+            </value>
+            <value>
+                <fullName>Single Person</fullName>
+                <default>false</default>
+                <label>Single Person</label>
+            </value>
+            <value>
+                <fullName>State Or Country</fullName>
+                <default>false</default>
+                <label>State Or Country</label>
+            </value>
+            <value>
+                <fullName>Status Of Applicant</fullName>
+                <default>false</default>
+                <label>Status Of Applicant</label>
+            </value>
+            <value>
+                <fullName>Stocks</fullName>
+                <default>false</default>
+                <label>Stocks</label>
+            </value>
+            <value>
+                <fullName>Publication</fullName>
+                <default>false</default>
+                <label>Publication</label>
+            </value>
+            <value>
+                <fullName>Effective Date Time</fullName>
+                <default>false</default>
+                <label>Effective Date Time</label>
+            </value>
+            <value>
+                <fullName>Radio Group</fullName>
+                <default>false</default>
+                <label>Radio Group</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Assignment</fullName>
+                <default>false</default>
+                <label>TNTMSM Assignment</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Description</fullName>
+                <default>false</default>
+                <label>TNTMSM Description</label>
+            </value>
+            <value>
+                <fullName>TNTMSM First Used</fullName>
+                <default>false</default>
+                <label>TNTMSM First Used</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Mode Or Manner</fullName>
+                <default>false</default>
+                <label>TNTMSM Mode Or Manner</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Name</fullName>
+                <default>false</default>
+                <label>TNTMSM Name</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Info</fullName>
+                <default>false</default>
+                <label>TNTMSM Info</label>
+            </value>
+            <value>
+                <fullName>Type</fullName>
+                <default>false</default>
+                <label>Type</label>
+            </value>
+            <value>
+                <fullName>Conversion Approval</fullName>
+                <default>false</default>
+                <label>Conversion Approval</label>
+            </value>
+            <value>
+                <fullName>Amendment Adoption DNP</fullName>
+                <default>false</default>
+                <label>Amendment Adoption DNP</label>
+            </value>
+            <value>
+                <fullName>Amendment Adoption DC</fullName>
+                <default>false</default>
+                <label>Amendment Adoption DC</label>
+            </value>
+            <value>
+                <fullName>Written Approval Type</fullName>
+                <default>false</default>
+                <label>Written Approval Type</label>
+            </value>
+            <value>
+                <fullName>Certification</fullName>
+                <default>false</default>
+                <label>Certification</label>
+            </value>
+            <value>
+                <fullName>Location Type</fullName>
+                <default>false</default>
+                <label>Location Type</label>
+            </value>
+            <value>
+                <fullName>Applicant Location Type</fullName>
+                <default>false</default>
+                <label>Applicant Location Type</label>
+            </value>
+            <value>
+                <fullName>Qualification Amendment</fullName>
+                <default>false</default>
+                <label>Qualification Amendment</label>
+            </value>
+            <value>
+                <fullName>Dissolution Reason</fullName>
+                <default>false</default>
+                <label>Dissolution Reason</label>
+            </value>
+            <value>
+                <fullName>Share Entries</fullName>
+                <default>false</default>
+                <label>Share Entries</label>
+            </value>
+            <value>
+                <fullName>Mailing Status</fullName>
+                <default>false</default>
+                <label>Mailing Status</label>
+            </value>
+            <value>
+                <fullName>File Upload</fullName>
+                <default>false</default>
+                <label>File Upload</label>
+            </value>
+            <value>
+                <fullName>Is Amended</fullName>
+                <default>false</default>
+                <label>Is Amended</label>
+            </value>
+            <value>
+                <fullName>Stocks Annuals</fullName>
+                <default>false</default>
+                <label>Stocks Annuals</label>
+            </value>
+            <value>
+                <fullName>Stocks Authorized</fullName>
+                <default>false</default>
+                <label>Stocks Authorized</label>
+            </value>
+            <value>
+                <fullName>Stocks Paid In</fullName>
+                <default>false</default>
+                <label>Stocks Paid In</label>
+            </value>
+            <value>
+                <fullName>Withdrawal Info</fullName>
+                <default>false</default>
+                <label>Withdrawal Info</label>
+            </value>
+            <value>
+                <fullName>Company Jurisdiction</fullName>
+                <default>false</default>
+                <label>Company Jurisdiction</label>
+            </value>
+            <value>
+                <fullName>Certificate</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Certificate</label>
+            </value>
+            <value>
+                <fullName>Goods</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Goods</label>
+            </value>
+            <value>
+                <fullName>Incorporators</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Incorporators</label>
+            </value>
+            <value>
+                <fullName>Member</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Member</label>
+            </value>
+            <value>
+                <fullName>Organizers</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Organizers</label>
+            </value>
+            <value>
+                <fullName>Trade Name</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trade Name</label>
+            </value>
+            <value>
+                <fullName>Trademark Description</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trademark Description</label>
+            </value>
+            <value>
+                <fullName>Trademark First Used</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trademark First Used</label>
+            </value>
+            <value>
+                <fullName>Trademark Mode Or Manner</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trademark Mode Or Manner</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

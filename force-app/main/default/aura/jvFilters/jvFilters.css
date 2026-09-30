@@ -1,0 +1,16 @@
+.THIS {
+}
+
+.THIS .jVTable .amount lightning-input span,
+.THIS .jVTable .amount lightning-input label {
+    display:none;
+}
+
+.THIS .jVTable .amount lightning-input input {
+    text-align: right;
+    padding: 0;
+    background: #fefcae;
+    border: 0;
+    height:22px;
+    min-height: unset;
+}

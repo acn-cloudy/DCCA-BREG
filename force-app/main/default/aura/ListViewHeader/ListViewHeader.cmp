@@ -1,0 +1,35 @@
+<aura:component>
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="size" type="Integer" default="1" />
+    
+    <aura:attribute name="disable" type="boolean" default="false" />
+    <aura:registerEvent name="clearArrows" type="c:Message"/>
+    <th class="slds-is-sortable slds-is-resizable" scope="col" colspan="{!v.size}" >
+        <aura:if isTrue="{!!v.disable}">
+            <a href="javascript:void(0);" 
+           class="slds-th__action slds-text-link--reset"
+           onclick="{!c.setOrderBy}"
+           >
+            <div class="slds-truncate" title="{!v.title}">{!v.label}</div>
+            <div class="slds-icon_container"
+                 aura:id="iconContainer" >
+                <lightning:icon aura:id="arrowDown"
+                                class="hiddenIcon"
+                                iconName="utility:arrowdown"
+                                size="x-small"/>
+                <lightning:icon aura:id="arrowUp"
+                                class="hiddenIcon" 
+                                iconName="utility:arrowup"
+                                size="x-small"/> 
+
+            </div>
+            <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true"></span>
+        </a>
+            <aura:set attribute="else">
+            	<div class="slds-truncate" title="{!v.title}">{!v.label}</div>
+            </aura:set>
+        </aura:if>
+        
+    </th>   
+</aura:component>

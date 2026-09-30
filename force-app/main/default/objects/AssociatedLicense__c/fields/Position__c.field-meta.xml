@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Position__c</fullName>
+    <label>Position</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ACR - AUCTIONEER (MOTOR VEHICLE INDUSTRY)</fullName>
+                <default>false</default>
+                <label>ACR - AUCTIONEER (MOTOR VEHICLE INDUSTRY)</label>
+            </value>
+            <value>
+                <fullName>AMD - PHYSICIAN&apos;S ASSISTANT (MEDICAL)</fullName>
+                <default>false</default>
+                <label>AMD - PHYSICIAN&apos;S ASSISTANT (MEDICAL)</label>
+            </value>
+            <value>
+                <fullName>AP - APPRENTICE (COSMETOLOGY BEAUTY APPRENTICE)</fullName>
+                <default>false</default>
+                <label>AP - APPRENTICE (COSMETOLOGY BEAUTY APPRENTICE)</label>
+            </value>
+            <value>
+                <fullName>BAR - BARBER</fullName>
+                <default>false</default>
+                <label>BAR - BARBER</label>
+            </value>
+            <value>
+                <fullName>BEO - BEAUTY OPERATOR</fullName>
+                <default>false</default>
+                <label>BEO - BEAUTY OPERATOR</label>
+            </value>
+            <value>
+                <fullName>BIC - BROKER-IN-CHARGE (REAL ESTATE COMMISSION)</fullName>
+                <default>false</default>
+                <label>BIC - BROKER-IN-CHARGE (REAL ESTATE COMMISSION)</label>
+            </value>
+            <value>
+                <fullName>BO - BRANCH OFFICE</fullName>
+                <default>false</default>
+                <label>BO - BRANCH OFFICE</label>
+            </value>
+            <value>
+                <fullName>CBA - MOTOR VEHICLE BROKER AGENT</fullName>
+                <default>false</default>
+                <label>CBA - MOTOR VEHICLE BROKER AGENT</label>
+            </value>
+            <value>
+                <fullName>CDH - COMMUNITY SERVICE DENTAL HYGIENIST</fullName>
+                <default>false</default>
+                <label>CDH - COMMUNITY SERVICE DENTAL HYGIENIST</label>
+            </value>
+            <value>
+                <fullName>CDT - COMMUNITY SERVICE DENTIST</fullName>
+                <default>false</default>
+                <label>CDT - COMMUNITY SERVICE DENTIST</label>
+            </value>
+            <value>
+                <fullName>CPA - CERTIFIED PUBLIC ACCOUNTANT</fullName>
+                <default>false</default>
+                <label>CPA - CERTIFIED PUBLIC ACCOUNTANT</label>
+            </value>
+            <value>
+                <fullName>CS - MOTOR VEHICLE SALESPERSON (MOTOR VEHICLE INDUSTRY BOARD)</fullName>
+                <default>false</default>
+                <label>CS - MOTOR VEHICLE SALESPERSON (MOTOR VEHICLE INDUSTRY BOARD)</label>
+            </value>
+            <value>
+                <fullName>DHT - TEMPORARY DENTAL HYGIENIST</fullName>
+                <default>false</default>
+                <label>DHT - TEMPORARY DENTAL HYGIENIST</label>
+            </value>
+            <value>
+                <fullName>DRP - DISTRIBUTOR REPRESENTATIVE (MOTOR VEHICLE INDUSTRY)</fullName>
+                <default>false</default>
+                <label>DRP - DISTRIBUTOR REPRESENTATIVE (MOTOR VEHICLE INDUSTRY)</label>
+            </value>
+            <value>
+                <fullName>DTT - TEMPORARY DENTIST</fullName>
+                <default>false</default>
+                <label>DTT - TEMPORARY DENTIST</label>
+            </value>
+            <value>
+                <fullName>EIC - SALES AGENT EMPLOYEE/INDEPENDENT CONTRACTOR (TIME SHARE)</fullName>
+                <default>false</default>
+                <label>EIC - SALES AGENT EMPLOYEE/INDEPENDENT CONTRACTOR (TIME SHARE)</label>
+            </value>
+            <value>
+                <fullName>EMP - EMPLOYMENT AGENCY PRINCIPAL</fullName>
+                <default>false</default>
+                <label>EMP - EMPLOYMENT AGENCY PRINCIPAL</label>
+            </value>
+            <value>
+                <fullName>FR - FIELD REPRESENTATIVE (PEST CONTROL)</fullName>
+                <default>false</default>
+                <label>FR - FIELD REPRESENTATIVE (PEST CONTROL)</label>
+            </value>
+            <value>
+                <fullName>FRP - FACTORY REPRESENTATIVE (MOTOR VEHICLE INDUSTRY)</fullName>
+                <default>false</default>
+                <label>FRP - FACTORY REPRESENTATIVE (MOTOR VEHICLE INDUSTRY)</label>
+            </value>
+            <value>
+                <fullName>GVT - PHYSICIAN % GOVERNMENT (MEDICAL)</fullName>
+                <default>false</default>
+                <label>GVT - PHYSICIAN % GOVERNMENT (MEDICAL)</label>
+            </value>
+            <value>
+                <fullName>I - INACTIVE</fullName>
+                <default>false</default>
+                <label>I - INACTIVE</label>
+            </value>
+            <value>
+                <fullName>ITR - INSTRUCTORS</fullName>
+                <default>false</default>
+                <label>ITR - INSTRUCTORS</label>
+            </value>
+            <value>
+                <fullName>MAT - MASSAGE THERAPIST</fullName>
+                <default>false</default>
+                <label>MAT - MASSAGE THERAPIST</label>
+            </value>
+            <value>
+                <fullName>MC - CERTIFIED MECHANIC</fullName>
+                <default>false</default>
+                <label>MC - CERTIFIED MECHANIC</label>
+            </value>
+            <value>
+                <fullName>MOP - MANAGING OPERATOR (COSMETOLOGY)</fullName>
+                <default>false</default>
+                <label>MOP - MANAGING OPERATOR (COSMETOLOGY)</label>
+            </value>
+            <value>
+                <fullName>MRC - REGISTERED CERTIFIED MECHANIC</fullName>
+                <default>false</default>
+                <label>MRC - REGISTERED CERTIFIED MECHANIC</label>
+            </value>
+            <value>
+                <fullName>MR - REGISTERED MECHANIC</fullName>
+                <default>false</default>
+                <label>MR - REGISTERED MECHANIC</label>
+            </value>
+            <value>
+                <fullName>MS - SOLICITOR (MORTGAGE BROKERS)</fullName>
+                <default>false</default>
+                <label>MS - SOLICITOR (MORTGAGE BROKERS)</label>
+            </value>
+            <value>
+                <fullName>OPC - OUTSIDE PUBLIC CONTACT (TIME SHARE)</fullName>
+                <default>false</default>
+                <label>OPC - OUTSIDE PUBLIC CONTACT (TIME SHARE)</label>
+            </value>
+            <value>
+                <fullName>PA - PUBLIC ACCOUNTANT (CHANGED &quot;PA&quot; FROM &quot;PRINCIPAL AGENT&quot; FOR EMP TO &quot;PUBLIC ACCOUNTANT&quot; FOR ACCOUNTANCY BOARD PER 12/9/10 ICSD MTG)</fullName>
+                <default>false</default>
+                <label>PA - PUBLIC ACCOUNTANT (CHANGED &quot;PA&quot; FROM &quot;PRINCIPAL AGENT&quot; FOR EMP TO &quot;PUBLIC ACCOUNTANT&quot; FOR ACCOUNTANCY BOARD PER 12/9/10 ICSD MTG)</label>
+            </value>
+            <value>
+                <fullName>PB - PRINCIPAL BROKER (REAL ESTATE COMMISSION)</fullName>
+                <default>false</default>
+                <label>PB - PRINCIPAL BROKER (REAL ESTATE COMMISSION)</label>
+            </value>
+            <value>
+                <fullName>PH - PHARMACIST-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>PH - PHARMACIST-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>PR - PRINCIPAL (MASSAGE, PD&amp;G)</fullName>
+                <default>false</default>
+                <label>PR - PRINCIPAL (MASSAGE, PD&amp;G)</label>
+            </value>
+            <value>
+                <fullName>RBS - REAL ESTATE BROKER SALESPERSON (REAL ESTATE COMMISSION)</fullName>
+                <default>false</default>
+                <label>RBS - REAL ESTATE BROKER SALESPERSON (REAL ESTATE COMMISSION)</label>
+            </value>
+            <value>
+                <fullName>RES - RESIDENT (MEDICAL)</fullName>
+                <default>false</default>
+                <label>RES - RESIDENT (MEDICAL)</label>
+            </value>
+            <value>
+                <fullName>RME - RESPONSIBLE MANAGING EMPLOYEE</fullName>
+                <default>false</default>
+                <label>RME - RESPONSIBLE MANAGING EMPLOYEE</label>
+            </value>
+            <value>
+                <fullName>RS - REAL ESTATE SALESPERSON (REAL ESTATE COMMISSION)</fullName>
+                <default>false</default>
+                <label>RS - REAL ESTATE SALESPERSON (REAL ESTATE COMMISSION)</label>
+            </value>
+            <value>
+                <fullName>RX - APRN WITH PRESCRIPTIVE RIGHTS</fullName>
+                <default>false</default>
+                <label>RX - APRN WITH PRESCRIPTIVE RIGHTS</label>
+            </value>
+            <value>
+                <fullName>SO - INDIVIDUAL (SOLE OWNER) (ALL BOARDS)</fullName>
+                <default>false</default>
+                <label>SO - INDIVIDUAL (SOLE OWNER) (ALL BOARDS)</label>
+            </value>
+            <value>
+                <fullName>VT - VETERINARY TECHNICIAN</fullName>
+                <default>false</default>
+                <label>VT - VETERINARY TECHNICIAN</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

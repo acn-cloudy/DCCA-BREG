@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_State_required_if_Credit_is_set</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Credit__c,
+(ISPICKVAL(ExamState__c, &quot;&quot;))
+)</errorConditionFormula>
+    <errorMessage>Please select the state in which the applicant satisfied the exam requirement.</errorMessage>
+</ValidationRule>

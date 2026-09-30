@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplicationCode__c</fullName>
+    <description>PacPoint-KN06042020-Created for PVL Phase 1 Sprint 4</description>
+    <label>Application Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BE - BROKER EXPERIENCE CERTIFICATE</fullName>
+                <default>false</default>
+                <label>BE - BROKER EXPERIENCE CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>BR - BROKER - INDIVIDUAL</fullName>
+                <default>false</default>
+                <label>BR - BROKER - INDIVIDUAL</label>
+            </value>
+            <value>
+                <fullName>CEC - CONTINUING EDUCATION COURSE</fullName>
+                <default>false</default>
+                <label>CEC - CONTINUING EDUCATION COURSE</label>
+            </value>
+            <value>
+                <fullName>CEE - CONTINUING EDUCATION EQUIVALENCY</fullName>
+                <default>false</default>
+                <label>CEE - CONTINUING EDUCATION EQUIVALENCY</label>
+            </value>
+            <value>
+                <fullName>CEP - CONTINUING EDUCATION PROVIDER</fullName>
+                <default>false</default>
+                <label>CEP - CONTINUING EDUCATION PROVIDER</label>
+            </value>
+            <value>
+                <fullName>CF - CHANGE FORM</fullName>
+                <default>false</default>
+                <label>CF - CHANGE FORM</label>
+            </value>
+            <value>
+                <fullName>CHO - CONDOMINIUM HOTEL OPERATOR</fullName>
+                <default>false</default>
+                <label>CHO - CONDOMINIUM HOTEL OPERATOR</label>
+            </value>
+            <value>
+                <fullName>CHR -CONDOMINIUM HOTEL OPERATOR REREGISTRATION</fullName>
+                <default>false</default>
+                <label>CHR -CONDOMINIUM HOTEL OPERATOR REREGISTRATION</label>
+            </value>
+            <value>
+                <fullName>CMA - CONDOMINIUM MANAGING AGENT</fullName>
+                <default>false</default>
+                <label>CMA - CONDOMINIUM MANAGING AGENT</label>
+            </value>
+            <value>
+                <fullName>CMR - CONDOMINIUM MANAGING AGENT REREGISTRATION</fullName>
+                <default>false</default>
+                <label>CMR - CONDOMINIUM MANAGING AGENT REREGISTRATION</label>
+            </value>
+            <value>
+                <fullName>CORP - CORPORATION</fullName>
+                <default>false</default>
+                <label>CORP - CORPORATION</label>
+            </value>
+            <value>
+                <fullName>EW - PRELICENSE EDUCATION EQUIVALENCY</fullName>
+                <default>false</default>
+                <label>EW - PRELICENSE EDUCATION EQUIVALENCY</label>
+            </value>
+            <value>
+                <fullName>LH - LICENSE VERIFICATION</fullName>
+                <default>false</default>
+                <label>LH - LICENSE VERIFICATION</label>
+            </value>
+            <value>
+                <fullName>LLC - LIMITED LIABILITY COMPANY</fullName>
+                <default>false</default>
+                <label>LLC - LIMITED LIABILITY COMPANY</label>
+            </value>
+            <value>
+                <fullName>LLP - LIMITED LIABILITY PARTNERSHIP</fullName>
+                <default>false</default>
+                <label>LLP - LIMITED LIABILITY PARTNERSHIP</label>
+            </value>
+            <value>
+                <fullName>OO - OWNER OCCUPANT</fullName>
+                <default>false</default>
+                <label>OO - OWNER OCCUPANT</label>
+            </value>
+            <value>
+                <fullName>PAR - PARTNERSHIP</fullName>
+                <default>false</default>
+                <label>PAR - PARTNERSHIP</label>
+            </value>
+            <value>
+                <fullName>PI - PRELICENSE INSTRUCTOR</fullName>
+                <default>false</default>
+                <label>PI - PRELICENSE INSTRUCTOR</label>
+            </value>
+            <value>
+                <fullName>PIC - PRELICENSE INDEPENDENT COURSE</fullName>
+                <default>false</default>
+                <label>PIC - PRELICENSE INDEPENDENT COURSE</label>
+            </value>
+            <value>
+                <fullName>PII - PRELICENSE INDEPENDENT INSTRUCTOR</fullName>
+                <default>false</default>
+                <label>PII - PRELICENSE INDEPENDENT INSTRUCTOR</label>
+            </value>
+            <value>
+                <fullName>PRE - PRELIMINARY DECISION</fullName>
+                <default>false</default>
+                <label>PRE - PRELIMINARY DECISION</label>
+            </value>
+            <value>
+                <fullName>PS - PRELICENSE SCHOOL</fullName>
+                <default>false</default>
+                <label>PS - PRELICENSE SCHOOL</label>
+            </value>
+            <value>
+                <fullName>RBO - BRANCH OFFICE</fullName>
+                <default>false</default>
+                <label>RBO - BRANCH OFFICE</label>
+            </value>
+            <value>
+                <fullName>RBR - BROKER RENEWAL</fullName>
+                <default>false</default>
+                <label>RBR - BROKER RENEWAL</label>
+            </value>
+            <value>
+                <fullName>REI - REINSTATEMENT</fullName>
+                <default>false</default>
+                <label>REI - REINSTATEMENT</label>
+            </value>
+            <value>
+                <fullName>RES - RESTORATION</fullName>
+                <default>false</default>
+                <label>RES - RESTORATION</label>
+            </value>
+            <value>
+                <fullName>SO - SOLE PROPRIETOR</fullName>
+                <default>false</default>
+                <label>SO - SOLE PROPRIETOR</label>
+            </value>
+            <value>
+                <fullName>SP - SALESPERSON</fullName>
+                <default>false</default>
+                <label>SP - SALESPERSON</label>
+            </value>
+            <value>
+                <fullName>SPR - SALESPERSON RENEWAL</fullName>
+                <default>false</default>
+                <label>SPR - SALESPERSON RENEWAL</label>
+            </value>
+            <value>
+                <fullName>TN - TRADE NAME</fullName>
+                <default>false</default>
+                <label>TN - TRADE NAME</label>
+            </value>
+            <value>
+                <fullName>TPB - TEMPORARY PB</fullName>
+                <default>false</default>
+                <label>TPB - TEMPORARY PB</label>
+            </value>
+            <value>
+                <fullName>UEE - UNIFORM SECTION EQUIVALENCY</fullName>
+                <default>false</default>
+                <label>UEE - UNIFORM SECTION EQUIVALENCY</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

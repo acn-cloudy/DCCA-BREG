@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateNoticeofRejection__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV110519 - Created for PVL phase 1</description>
+    <label>Generate Notice of Rejection</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

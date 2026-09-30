@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompletebyDuration__c</fullName>
+    <description>PacPoint-IC071619- Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of months the applicant has to complete the application from the time the application is received</inlineHelpText>
+    <label>Complete by Duration (Months)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

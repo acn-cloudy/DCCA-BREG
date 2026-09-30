@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-CZ101919 - Created for 4GOV phase 1</description>
+    <label>Send to 4Gov Email Setting</label>
+    <pluralLabel>Send to 4Gov Email Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

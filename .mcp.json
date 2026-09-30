@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "salesforce-dx": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@salesforce/mcp",
+        "--orgs", "iscodfull",
+        "--toolsets", "metadata,data,code-analysis,lwc-experts,testing,scale-products",
+        "--allow-non-ga-tools"
+      ]
+    },
+    "salesforce-hosted": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.salesforce.com/platform/mcp/v1/sandbox/sobject-all",
+        "8080",
+        "--static-oauth-client-info",
+        "{\"client_id\":\"3MVG92_06mG9Ar.XPLtTHPm_YeMbIskUT0jLpnLl_X3pcpKhaIl7y6YLpTjl9r8PQBv..vw86WQrBPRnQ23bW\",\"client_secret\":\"F41F117A32A5BCE52EAA45F31C357F9AF9A1D04A9BE1B8FF6908762D0ED26957\"}",
+        "--header",
+        "x-sfdc-instance-url:https://hi-dcca--iscodfull.sandbox.my.salesforce.com"
+      ]
+    }
+  }
+}

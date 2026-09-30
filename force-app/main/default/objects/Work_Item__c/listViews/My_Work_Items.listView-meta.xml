@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Work_Items</fullName>
+    <columns>NAME</columns>
+    <columns>Case__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,In-Progress</value>
+    </filters>
+    <label>My Open Work Items</label>
+</ListView>

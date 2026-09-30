@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContentVersionHandler__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>ContentVersionHandler apex class</description>
+    <inlineHelpText>ContentVersionHandler apex class</inlineHelpText>
+    <label>ContentVersionHandler</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

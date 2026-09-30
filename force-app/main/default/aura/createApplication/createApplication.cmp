@@ -1,0 +1,17 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" extensible="true">
+    <aura:attribute name="showModalApplication" type="Boolean" default="false" />     
+    <aura:attribute name="applicationcacheid" type="String"  />         
+    <aura:handler event="c:APP_MESSAGE" action="{!c.handleAppMessage}"/>
+	<div class="applications">
+       <!-- <aura:if isTrue="{!!v.showModalApplication}" >
+            <lightning:button label="Lodge Refund Application"  onclick="{!c.handleCreateApplication}" />
+        </aura:if>-->
+        <aura:if isTrue="{!v.showModalApplication}" >
+           
+         
+         <aura:set attribute="else">
+             
+           </aura:set>
+        </aura:if>
+     </div>
+</aura:component>

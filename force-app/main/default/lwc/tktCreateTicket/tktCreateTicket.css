@@ -1,0 +1,53 @@
+/* Component fills its Quick Action container */
+:host {
+  display: block;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/* Remove card chrome for Quick Action context */
+.quick-action-container {
+  height: 100%;
+  max-height: 500px; /* Fallback max for global actions */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Scrollable form area */
+.form-scroll-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0.5rem 0 0;
+  min-height: 0; /* Critical for flex scroll */
+}
+
+/* Button section - always visible at bottom */
+.button-footer {
+  flex: 0 0 auto;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+/* Custom scrollbar styling */
+.form-scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.form-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.form-scroll-container::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-radius: 3px;
+}
+
+.form-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SkipCustomEditValidation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-CL02032022 - Created for case 00018526 Bypass Assistant Examiner/Owner edit validation</description>
+    <label>SkipCustomEditValidation</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

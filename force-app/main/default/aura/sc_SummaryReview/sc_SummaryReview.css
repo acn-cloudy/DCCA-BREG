@@ -1,0 +1,25 @@
+.THIS .sectionInfo {
+    width:100%;
+    display:table;
+}
+.THIS .sectionInfo li.slds-form-element{
+    display:table-row;
+}
+
+.THIS .sectionInfo li.slds-form-element span,
+.THIS .sectionInfo li.slds-form-element div{
+    display:table-cell;
+    width:50%;
+    padding:10px 5px;
+}
+.THIS .slds-text-heading_small{
+    padding:10px;
+}
+.THIS ul.slds-tile{
+    border: 1px solid rgb(208, 234, 245);
+    padding: 5px 10px;
+    margin:10px 0;
+}
+.THIS ul.slds-tile .tile_label{
+    font-weight:bold;
+}

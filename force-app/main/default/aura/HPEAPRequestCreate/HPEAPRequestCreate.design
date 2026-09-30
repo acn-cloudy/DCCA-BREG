@@ -1,0 +1,27 @@
+<design:component label="HPEAP Request Create">
+	<design:attribute name="sObjectName" label="sObject API Name" />
+    <design:attribute name="layoutName" label="Layout Name" />
+    <design:attribute name="recordTypeName" label="Record Type Label" />
+    <design:attribute name="saveButtonLabel" label="Save Button Label" />
+    <design:attribute name="finishButtonLabel" label="Finish Button Label" />
+    
+    <design:attribute name="displayMap" label="Display map (true or false)" />
+	<design:attribute name="latitudeField" label="Latitude Field API Name" />
+	<design:attribute name="longitudeField" label="Longitude Field API Name" />
+	
+	<design:attribute name="displayUpload" label="Display Upload Page" />
+	<design:attribute name="uploadLabel1" label="Upload File 1 Label" />
+	<design:attribute name="uploadLabel2" label="Upload File 2 Label" />
+	<design:attribute name="uploadLabel3" label="Upload File 3 Label" />
+	<design:attribute name="uploadLabel4" label="Upload File 4 Label" />
+	<design:attribute name="uploadLabel5" label="Upload File 5 Label" />
+	
+	<design:attribute name="paymentPageURL" label="Payment Page URL" />
+
+	<design:attribute name="hideNameField" label="Hide Name Field" description="Used to specify if need to hide the name field" />
+	<design:attribute name="contactId" label="Generic Person Contact Id" description="Used to specify which contact to be used." />
+	<design:attribute name="division" label="Division" description="Used to specify which division to be used in the payment" />
+	<design:attribute name="cashierCodeId" label="Cashier Code ID" description="Used to specify which cachier code Id to be used in the payment" />
+	<design:attribute name="currencyCode" label="Currency Code" description="Used to specify currency code for the payment" />
+	
+</design:component>

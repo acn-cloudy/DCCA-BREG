@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-SS091219 - Created for PVL phase 1. Used in the Lightning Component to kick-off batch jobs</description>
+    <label>BatchJob Settings</label>
+    <pluralLabel>BatchJobs Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

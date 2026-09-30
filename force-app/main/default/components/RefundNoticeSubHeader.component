@@ -1,0 +1,36 @@
+<apex:component >
+    <apex:attribute name="license" type="License__c" description="License" />
+    <apex:attribute name="licenseLabel" type="String" default="" description="license label"/>
+    <apex:attribute name="subject" type="String" default="" description="subject"/>
+    
+    <apex:attribute name="dToday" type="Date" description="today" />
+    <div style="text-align: left;">
+        <apex:outputText value="{0, date, MM/dd/yyyy}">
+            <apex:param value="{!dToday}" />
+        </apex:outputText>
+    </div>    
+    <apex:variable var="lName" value="{!license.LicenseeNameRBA__c}" />
+    <apex:outputText value="{!license.LicenseeNameRBA__c}" escape="false" />
+    <!-- <apex:outputText value="{!license.LicenseeNameRBA__c}" escape="false" /> -->
+    <br/> <apex:outputText value="{!license.RenewalMailToStreet__c}" escape="false" />
+    <br/> {!license.RenewalMailToCity__c} {!license.RenewalMailToState__c} {!license.RenewalMailToZipCode__c}
+    <br/>
+    <br/>
+    <br/>
+    <table>
+        <tr style="height: 30px">
+            <td colspan="1" rowspan="1" style="width: 120px">{!licenseLabel}</td>
+            <td colspan="1" rowspan="1">{!license.Name}</td>
+        </tr>
+        <tr style="height: 30px">
+            <td colspan="1" rowspan="1">Respond By:</td>
+            <td colspan="1" rowspan="1"><apex:outputText value="{0, date, MM/dd/yyyy}">
+                <apex:param value="{!license.RespondByDate__c}" />
+            </apex:outputText></td>
+        </tr>
+        <tr style="height: 30px">
+            <td colspan="1" rowspan="1">Subject:</td>
+            <td colspan="1" rowspan="1">{!subject} {!license.LicenseTypeEffectiveDateYear__c}-{!license.LicenseTypeExpireDateYear__c}</td>
+        </tr>
+    </table>
+</apex:component>

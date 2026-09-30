@@ -1,0 +1,74 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" class="form-layout-item">
+            <lightning-input
+                name="formedOn"
+                label="Date the partnership was formed on"
+                type="date"
+                placeholder={placeholder}
+                value={formedOnValue}
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+                required={required}
+                read-only={readOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <template lwc:if={showDetailedForm}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="country"
+                    value={countryValue}
+                    label="Country"
+                    options={countryOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <template lwc:if={showStateDropdown}>
+                    <lightning-combobox
+                        name="state"
+                        value={stateValue}
+                        label="State"
+                        options={stateOptions}
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        disabled={stateDisabled}
+                    ></lightning-combobox>
+                </template>
+                <template lwc:if={showStateInput}>
+                    <lightning-input
+                        name="stateText"
+                        value={stateTextValue}
+                        label="State"
+                        placeholder="Type State"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        disabled={stateDisabled}
+                    ></lightning-input>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item size="12"></lightning-layout-item>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-input
+                    name="commencedOn"
+                    label="Date the partnership commenced business in Hawaii"
+                    type="date"
+                    placeholder={placeholder}
+                    value={commencedOnValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

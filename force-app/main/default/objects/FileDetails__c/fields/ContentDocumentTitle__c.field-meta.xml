@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContentDocumentTitle__c</fullName>
+    <description>PacPoint-JB110718 - Created for BREG phase 1 - Created for BREG phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is the actual title of the loaded file in Salesforce.</inlineHelpText>
+    <label>Content Document Title</label>
+    <length>150</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>R_4_Is_Suspended__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Has any license or registration ever been suspended, revoked or otherwise subject to disciplinary action?</inlineHelpText>
+    <label>Is Suspended</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

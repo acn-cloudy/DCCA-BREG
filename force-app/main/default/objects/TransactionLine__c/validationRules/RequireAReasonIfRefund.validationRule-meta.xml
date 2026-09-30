@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequireAReasonIfRefund</fullName>
+    <active>true</active>
+    <description>PacPoint-IC010919- Created for Phase 1</description>
+    <errorConditionFormula>AND(RequestRefund__c  ,NOT(OR( Overpayment__c , NoFeeRequired__c , Withdrawal__c ,  IneligibleorRejected__c ,  OtherRefundReason__c )))</errorConditionFormula>
+    <errorMessage>Please check at least one Reason for Refund.</errorMessage>
+</ValidationRule>

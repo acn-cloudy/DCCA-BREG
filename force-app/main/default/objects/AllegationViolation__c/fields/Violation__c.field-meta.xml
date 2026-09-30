@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Violation__c</fullName>
+    <description>PacPoint-JB102418 - Created for BREG phase 1</description>
+    <label>Violation</label>
+    <referenceTo>Violation__c</referenceTo>
+    <relationshipLabel>AllegationViolation</relationshipLabel>
+    <relationshipName>AllegationViolation</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

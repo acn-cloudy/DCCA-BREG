@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityId__c</fullName>
+    <description>Pacific-AZ20210226-12262</description>
+    <externalId>false</externalId>
+    <formula>Text(PVLPortalUser__r.EntityId__c)</formula>
+    <label>Entity Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

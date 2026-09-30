@@ -1,0 +1,22 @@
+<apex:page standardController="Transaction__c" title="New Transaction" recordSetVar="transactions">
+    <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:NewTransactionNoAccountPage", function() {
+          $Lightning.createComponent("c:NewTransactionNoAccount",
+              { },
+              "lightning",
+              function(cmp) {
+                  $A.eventService.addHandler({ "event": "c:NewTransactionRedirect", "handler" : redirectToList });
+              }
+          );
+        });
+        var redirectToList = function(event) {
+            var tId = event.getParam('transactionId');
+            window.location = '/lightning/r/Transaction__c/' + tId + '/view';
+        };
+ 
+    </script>
+</apex:page>

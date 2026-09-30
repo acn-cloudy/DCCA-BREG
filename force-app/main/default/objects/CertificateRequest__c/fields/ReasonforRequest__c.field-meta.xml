@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonforRequest__c</fullName>
+    <description>PacPoint-FT041820- Created for PVL phase 1</description>
+    <label>Reason for Request</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - ADDITIONAL CLASS PRIVILEGE</fullName>
+                <default>false</default>
+                <label>A - ADDITIONAL CLASS PRIVILEGE</label>
+            </value>
+            <value>
+                <fullName>B - SALES CERT RET&apos;D-NOW A BROKER</fullName>
+                <default>false</default>
+                <label>B - SALES CERT RET&apos;D-NOW A BROKER</label>
+            </value>
+            <value>
+                <fullName>C - NAME CHANGE/RELOCATION</fullName>
+                <default>false</default>
+                <label>C - NAME CHANGE/RELOCATION</label>
+            </value>
+            <value>
+                <fullName>D - DAMAGED ORIGINAL (OBSOLETE - SEE CODE &quot;L&quot;)</fullName>
+                <default>false</default>
+                <label>D - DAMAGED ORIGINAL (OBSOLETE - SEE CODE &quot;L&quot;)</label>
+            </value>
+            <value>
+                <fullName>E - WALL CERT RET&apos;D BY EMPLOYER</fullName>
+                <default>false</default>
+                <label>E - WALL CERT RET&apos;D BY EMPLOYER</label>
+            </value>
+            <value>
+                <fullName>F - RELICENSED AFTER FORFEITURE/TERMINATION OF LICENSE</fullName>
+                <default>false</default>
+                <label>F - RELICENSED AFTER FORFEITURE/TERMINATION OF LICENSE</label>
+            </value>
+            <value>
+                <fullName>G - EMPLOYMENT CHANGE; NEW POCKET ID CARD ISSUED</fullName>
+                <default>false</default>
+                <label>G - EMPLOYMENT CHANGE; NEW POCKET ID CARD ISSUED</label>
+            </value>
+            <value>
+                <fullName>H - BOUNCED CHECK WALL CERT AND/OR POCKET ID RETURNED</fullName>
+                <default>false</default>
+                <label>H - BOUNCED CHECK WALL CERT AND/OR POCKET ID RETURNED</label>
+            </value>
+            <value>
+                <fullName>I - INACTIVE - WALL CERT RET&apos;D</fullName>
+                <default>false</default>
+                <label>I - INACTIVE - WALL CERT RET&apos;D</label>
+            </value>
+            <value>
+                <fullName>K - LICENSEE INACTIVATED; NEW POCKET ID CARD ISSUED</fullName>
+                <default>false</default>
+                <label>K - LICENSEE INACTIVATED; NEW POCKET ID CARD ISSUED</label>
+            </value>
+            <value>
+                <fullName>L - ORIGINAL WAS LOST/DAMAGED/STOLEN</fullName>
+                <default>false</default>
+                <label>L - ORIGINAL WAS LOST/DAMAGED/STOLEN</label>
+            </value>
+            <value>
+                <fullName>M - RE-MAILED WALL CERT PREVIOUSLY RET&apos;D BY EMPLR/POST OFFICE</fullName>
+                <default>false</default>
+                <label>M - RE-MAILED WALL CERT PREVIOUSLY RET&apos;D BY EMPLR/POST OFFICE</label>
+            </value>
+            <value>
+                <fullName>N - NEW</fullName>
+                <default>false</default>
+                <label>N - NEW</label>
+            </value>
+            <value>
+                <fullName>O - NO LONGER NEEDED-SOLE TO RME</fullName>
+                <default>false</default>
+                <label>O - NO LONGER NEEDED-SOLE TO RME</label>
+            </value>
+            <value>
+                <fullName>P - RET&apos;D BY POST OFFICE</fullName>
+                <default>false</default>
+                <label>P - RET&apos;D BY POST OFFICE</label>
+            </value>
+            <value>
+                <fullName>R - REACTIVATED - WALL CERT MAILED/REINSTATEMENT</fullName>
+                <default>false</default>
+                <label>R - REACTIVATED - WALL CERT MAILED/REINSTATEMENT</label>
+            </value>
+            <value>
+                <fullName>S - STOLEN (OBSOLETE - SEE CODE &quot;L&quot;)</fullName>
+                <default>false</default>
+                <label>S - STOLEN (OBSOLETE - SEE CODE &quot;L&quot;)</label>
+            </value>
+            <value>
+                <fullName>T - TERMINATED</fullName>
+                <default>false</default>
+                <label>T - TERMINATED</label>
+            </value>
+            <value>
+                <fullName>W - ID CARD ISSUED AT RENEWAL</fullName>
+                <default>false</default>
+                <label>W - ID CARD ISSUED AT RENEWAL</label>
+            </value>
+            <value>
+                <fullName>Z - DISCIPLINED</fullName>
+                <default>false</default>
+                <label>Z - DISCIPLINED</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

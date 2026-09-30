@@ -1,0 +1,191 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <lightning-tabset active-tab-value={activeTab} onactive={handleTabChange}>
+        <lightning-tab label={labels.BREG_Dashboard} value="main" icon-name="utility:case">
+            <div class="slds-p-around_medium tab-container">
+                <h1 class="slds-text-heading_medium slds-m-bottom_medium">{labels.BREG_My_Dashboard}</h1>
+
+                <!-- Alerts -->
+                <!-- Removed by BREG-3960-->
+                <!-- <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error slds-m-bottom_large" role="alert">
+                    <span class="slds-assistive-text">Error</span>
+                    <strong class="slds-p-right_xx-small">{labels.BREG_Resubmissions} </strong>
+                    {labels.BREG_Resubmission_Notice}
+                </div> -->
+
+                <!-- Counters -->
+                <div class="slds-grid slds-wrap slds-m-bottom_large">
+                    <template for:each={statusItems} for:item="item">
+                        <div onclick={handleCardClick} data-id={item.id} key={item.label} class="item-container slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-5 slds-p-around_small">
+                            <div class={item.boxClass}>
+                                <p class="slds-text-heading_large">{item.value}</p>
+                                <p class="slds-text-body_regular">{item.label}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Inner Tabs -->
+                <lightning-tabset>
+                    <lightning-tab label={overdueTabLabel} value="overdue" icon-name="utility:all" onactive={handleInnerTabChange}>
+                        <template lwc:if={isOverduesExists}>
+                            <!--TODO-->
+                        </template>
+                        <template lwc:else>
+                            <p class="slds-m-vertical_medium">{labels.BREG_No_Overdues}</p>
+                        </template>
+                    </lightning-tab>
+
+                    <lightning-tab label={myBusinessesTabLabel} value="businesses" icon-name="utility:company" onactive={handleInnerTabChange}>
+                        <template lwc:if={isBusinessesExists}>
+                            <c-breg-_-my-businesses data={myBusinesses}></c-breg-_-my-businesses>
+                        </template>
+                        <template lwc:else>
+                            <p class="slds-m-vertical_medium">{labels.BREG_No_Businesses}</p>
+                            <div class="card-container slds-grid_align-center">
+                                <template for:each={actionButtons} for:item="btn">
+                                    <div key={btn.label} class="action-button slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-5 slds-p-around_small">
+                                        <div class="slds-p-around_medium">
+                                            <lightning-icon
+                                                icon-name={btn.iconName}
+                                                alternative-text={btn.label}
+                                                size="medium"
+                                                class="slds-m-bottom_small slds-align_absolute-center"
+                                            ></lightning-icon>
+                                            <div class="slds-text-title_bold slds-text-align_center">{btn.label}</div>
+                                            <div class="slds-text-body_small slds-medium-text-body_regular slds-m-vertical_x-small slds-text-align_center">{btn.description}</div>
+                                        </div>
+                                        <div class="slds-m-top_auto slds-text-align_center">
+                                            <lightning-button
+                                                label={labels.BREG_Get_Started}
+                                                variant="brand"
+                                                data-action={btn.action}
+                                                onclick={handleClick}
+                                            >
+                                            </lightning-button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </lightning-tab>
+
+                    <lightning-tab label={myPurchasesTabLabel} value="transactions" icon-name="utility:currency" onactive={handleInnerTabChange}>
+                        <template lwc:if={isMyPurchasesExists}>
+                            <!--TODO-->
+                            <c-breg-_-my-purchases
+                                transaction-lines={transactionLineWrappers}
+                                ondownloaddocument={handleDownloadDocument}
+                                is-my-dashboard-page="true"
+                            ></c-breg-_-my-purchases>
+
+                            <!-- Document Download Error -->
+                            <template if:true={documentDownloadError}>
+                                <div class="slds-align_absolute-center">
+                                    <p class="slds-text-color_error">{documentDownloadError}</p>
+                                </div>
+                            </template>
+                        </template>
+                        <template lwc:else>
+                            <p class="slds-m-vertical_medium">{labels.BREG_No_Purchases}</p>
+                            <div class="slds-grid slds-wrap slds-grid_align-center">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-5 slds-p-around_small">
+                                    <div class="slds-card slds-p-around_medium slds-grid slds-grid_vertical slds-h-full">
+                                        <lightning-icon icon-name="utility:search" size="medium" class="slds-m-bottom_small slds-align_absolute-center">
+                                        </lightning-icon>
+                                        <div class="slds-text-title_bold slds-text-align_center">{labels.BREG_Search_And_Buy}</div>
+                                        <div class="slds-text-body_regular slds-medium-text-body_small slds-m-vertical_x-small slds-text-align_center">
+                                            {labels.BREG_Search_And_Buy_Description}
+                                        </div>
+                                        <div class="slds-m-top_auto slds-text-align_center">
+                                            <lightning-button
+                                                label={labels.BREG_Search_Now}
+                                                variant="brand"
+                                                data-action="search-and-buy"
+                                                onclick={handleClick}
+                                            ></lightning-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </lightning-tab>
+
+                    <lightning-tab
+                        label={labels.BREG_Subscriptions}
+                        value="subscriptions"
+                        icon-name="utility:notification"
+                        onactive={handleInnerTabChange}
+                    >
+                        <template if:false={isSubscriptionsExists}>
+                            <p class="slds-m-vertical_medium">{labels.BREG_No_Subscriptions}</p>
+                            <c-breg-_-business-notifications
+                                empty-notifications={emptyNotifications}
+                                is-dashboard-context="true"
+                            ></c-breg-_-business-notifications>
+                        </template>
+                        <c-breg-_-my-subscriptions onupdatenotification={handleNotificationsUpdate} data={subscriptions}></c-breg-_-my-subscriptions>
+                    </lightning-tab>
+                    
+                    <lightning-tab label={labels.BREG_My_Communications} value="communications" icon-name="utility:email" onactive={handleInnerTabChange}>
+                        <c-breg-_-my-communications ondownloaddocument={handleDownloadDocument}></c-breg-_-my-communications>
+                    </lightning-tab>
+                    
+                    <!-- <lightning-tab label={myFilingsTabLabel} value="filings" icon-name="utility:approval" onactive={handleInnerTabChange}> -->
+                    <lightning-tab value="filings" onactive={handleMyFilingsTabClick}>
+                        <template if:false={isFilingsExists}>
+                            <p class="slds-m-vertical_medium">{labels.BREG_No_Incomplete_Forms}</p>
+                            <div class="card-container slds-grid_align-center">
+                                <template for:each={actionButtons} for:item="btn">
+                                    <div key={btn.label} class="action-button slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-5 slds-p-around_small">
+                                        <div class="slds-p-around_medium">
+                                            <lightning-icon
+                                                icon-name={btn.iconName}
+                                                alternative-text={btn.label}
+                                                size="medium"
+                                                class="slds-m-bottom_small slds-align_absolute-center"
+                                            ></lightning-icon>
+                                            <div class="slds-text-title_bold slds-text-align_center">{btn.label}</div>
+                                            <div class="slds-text-body_regular slds-medium-text-body_small slds-m-vertical_x-small slds-text-align_center">{btn.description}</div>
+                                        </div>
+                                        <div class="slds-m-top_auto slds-text-align_center">
+                                            <lightning-button
+                                                label={labels.BREG_Get_Started}
+                                                variant="brand"
+                                                data-action={btn.action}
+                                                onclick={handleClick}
+                                            >
+                                            </lightning-button>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                        <c-breg-_-my-filings
+                            onchange={handleFilingsReload}
+                            onfiltersapplied={handleFilingsFiltersApplied}
+                            onremovefilingrequested={handleRemoveFilingRequested}
+                            all-filings-count={filingsCount}
+                            data={myFilings}
+                            selected-stage={chosenStatus}
+                        ></c-breg-_-my-filings>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </lightning-tab>
+
+        <lightning-tab label={labels.BREG_Help} value="help" icon-name="utility:help_custom">
+            <c-breg-_-f-a-qs topic-name="Dashboard"></c-breg-_-f-a-qs>
+        </lightning-tab>
+
+        <lightning-tab label={cartTabLabel} icon-name="utility:cart" value="cart">
+            <c-breg-_-shopping-_-cart oncontinueshopping={handleContinueShopping} oncartupdated={handleCartUpdated}></c-breg-_-shopping-_-cart>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

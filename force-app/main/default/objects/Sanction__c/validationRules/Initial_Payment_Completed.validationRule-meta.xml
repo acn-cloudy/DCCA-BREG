@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Payment_Completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NumberofPayments__c = 0,
+GeneratePaymentSchedule__c = true)</errorConditionFormula>
+    <errorMessage>You must first complete initial payment in order to generate payment schedule.  Please click &quot;Cancel&quot; and create at least one initial payment.</errorMessage>
+</ValidationRule>

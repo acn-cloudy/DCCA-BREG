@@ -1,0 +1,175 @@
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    margin: 0;
+}
+h1 {
+    font-size: toRem(32);
+}
+h2 {
+    font-size: toRem(24); 
+}
+h3 {
+    font-size: toRem(20);
+}
+h4 {
+    font-size: toRem(16);
+}
+h5 {
+    font-size: toRem(14);   
+}
+h6 {  
+    font-size: toRem(12);
+}
+
+.mds-text{
+    &-link {
+        color: var(--primary-main);
+        text-decoration: none;
+        transition: color .1s linear;
+    }
+    &-link_faux {
+        border-bottom: var(--border-width-thin) solid transparent;
+        border-radius: 0;
+        // Need to discss on this currentColor
+        // color: currentColor;
+        cursor: pointer;
+    }
+    // Need to discss about the font size
+    // &-body_regular {
+    //     font-size: var(--lwc-fontSize3, 0.8125rem);
+    // }
+    &-body_small {
+        font-size: var(--spacing-small);
+    }
+    &-heading_large{
+        // Need to discss on the font size in slds it's 28px
+        // font-size: var(--lwc-fontSize9, 1.75rem);
+        line-height: 1.25;
+    }
+    &-heading_medium {
+        font-size: var(--font-size-20);
+        line-height: 1.25;
+    }
+    &-heading_small {
+        font-size: var(--font-size-16);
+        line-height: 1.25;
+    }
+    &-title {
+        font-size: var(--font-size-12);
+        line-height: 1.25;
+        color: var(--primary-main);
+    }
+    // Text in uppercase
+    &_uppercase{
+            text-transform: uppercase;
+    }
+    // Text first letter in capitalize
+    &__capitalize{
+            text-transform: capitalize;
+    }
+}
+
+// Font weights (bold)
+.mds-font-weight{
+    &_medium{
+        font-weight: var(--font-weight-medium);
+    }
+    &_semi-bold{
+        font-weight: var(--font-weight-semi-bold);
+    }
+    &_bold{
+        font-weight: var(--font-weight-bold);
+    }
+}
+
+// Text colours
+.mds-text-color{
+    &_brand{
+        color: var(--primary-main);
+    }
+    &_primary-dark{
+        color: var(--primary-dark);
+    }
+    &_default{
+        color: var(--text-primary);
+    }
+    &_secondary{
+        color: var(--text-secondary);
+    }
+    &_disabled{
+        color: var(--text-disabled);
+    }
+    &_white{
+        color: var(--white);
+    }
+    &_black{
+        color: var(--black);
+    }
+    &_warning{
+        color: var(--warning-main);
+    }
+    &_error{
+        color: var(--error-main);
+    }
+    &_error-dark{
+        color: var(--error-dark);
+    }
+    &_success{
+        color: var(--success-main);
+    }
+    &_success-dark{
+        color: var(--success-dark);
+    }
+    &_inverse{
+        color: var(--text-disabled);
+    }
+}
+
+// Font sizes
+.mds-font_size{
+    &-10{
+        font-size: var(--font-size-10);
+    }
+    &-12{
+        font-size: var(--font-size-12);
+    }
+    &-14{
+        font-size: var(--font-size-14);
+    }
+    &-16{
+        font-size: var(--font-size-16);
+    }
+    &-18{
+        font-size: var(--font-size-18);
+    }
+    &-20{
+        font-size: var(--font-size-20); 
+    }
+    &-22{
+        font-size: var(--font-size-22); 
+    }
+    &-24{
+        font-size: var(--font-size-24); 
+    }
+    &-32{
+        font-size: var(--font-size-32); 
+    }
+    &-40{
+        font-size: var(--font-size-40); 
+    }
+    &-40{
+        font-size: var(--font-size-48); 
+    }
+}
+// Text align
+.mds-text-align{
+    &_center{
+        text-align: center;
+    }
+}

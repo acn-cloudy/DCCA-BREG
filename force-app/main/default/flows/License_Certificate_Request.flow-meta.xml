@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Create_Transaction</name>
+        <label>Create Transaction?</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Copy_1_of_Success_Screen</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Generate_Transaction</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Transaction_Record</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>PacPoint KN 11/14/2023 - Converted from an Action and Process Builder into a screenflow. Used to create Certificate Requests for Licenses, also creates Transactions and Transaction Lines</description>
+    <dynamicChoiceSets>
+        <name>CertificateTypes</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>CertificateType__c</picklistField>
+        <picklistObject>CertificateRequest__c</picklistObject>
+    </dynamicChoiceSets>
+    <environments>Default</environments>
+    <formulas>
+        <name>Amount</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+{!Certificate_Type} = &quot;B - POCKET ID &amp; WALL CERTIFICATE&quot;, 
+20, 
+10
+)</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>CashierCode</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!recordId.LicenseType__r.BoardProgram__r.Name} = &quot;REAL ESTATE COMMISSION&quot;, 
+{!$Label.REB_Wall_Cert_Pocket_ID_Fee}, 
+{!$Label.Duplicate_ID_Fee_Cashier_Code}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Description</name>
+        <dataType>String</dataType>
+        <expression>Case( 
+{!Certificate_Type},
+&quot;VR - VERIFICATION REQUEST&quot;, &quot;License Verification Request&quot;,
+&quot;P - POCKET IDENTIFICATION CARD&quot;, &quot;Pocket ID Request&quot;, 
+&quot;C - WALL CERTIFICATE&quot;, &quot;Wall Certificate Request&quot;, 
+&quot;B - POCKET ID &amp; WALL CERTIFICATE&quot;, &quot;Pocket ID AND Wall Certificate Request&quot;,
+&quot;&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>License: Certificate Request {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>License: Certificate Request</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Certificate_Request</name>
+        <label>Create Certificate Request</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Create_Transaction</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>CertificateType__c</field>
+            <value>
+                <elementReference>Certificate_Type</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DateIssued__c</field>
+            <value>
+                <elementReference>Date_Issued</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CertificateRequest__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Transaction_Lines</name>
+        <label>Create Transaction Lines</label>
+        <locationX>50</locationX>
+        <locationY>566</locationY>
+        <connector>
+            <targetReference>Success_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Amount__c</field>
+            <value>
+                <elementReference>Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CashierCode__c</field>
+            <value>
+                <elementReference>CashierCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Transaction__c</field>
+            <value>
+                <elementReference>TransactionNewRecord.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TransactionLine__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_Transaction_Record</name>
+        <label>Create Transaction Record</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignRecordIdToReference>TransactionNewRecord.Id</assignRecordIdToReference>
+        <connector>
+            <targetReference>Create_Transaction_Lines</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>recordId.Licensee__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description__c</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>recordId.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <stringValue>Payment</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Transaction__c</object>
+    </recordCreates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Copy_1_of_Success_Screen</name>
+        <label>Copy 1 of Success Screen</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Copy_1_of_SuccessText</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Your Pocket ID/Wall Cert has been generated and attached to Docusign CLM.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Pocket_ID_Wall_Cert_Request</name>
+        <label>Pocket ID/Wall Cert Request</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Create_Certificate_Request</targetReference>
+        </connector>
+        <fields>
+            <name>Pocket_ID_Wall_Cert_Request_Section1</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Pocket_ID_Wall_Cert_Request_Section1_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Certificate_Type</name>
+                    <choiceReferences>CertificateTypes</choiceReferences>
+                    <dataType>String</dataType>
+                    <fieldText>Certificate Type</fieldText>
+                    <fieldType>DropdownBox</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <fields>
+                    <name>Generate_Transaction</name>
+                    <dataType>Boolean</dataType>
+                    <defaultValue>
+                        <booleanValue>true</booleanValue>
+                    </defaultValue>
+                    <fieldText>Generate Transaction?</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;Check this checkbox to generate a Transaction for this Pocket ID/Wall Cert Request. Uncheck this checkbox if a Transaction is not needed. &lt;/p&gt;</helpText>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Pocket_ID_Wall_Cert_Request_Section1_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>Date_Issued</name>
+                    <dataType>Date</dataType>
+                    <fieldText>Date Issued</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <styleProperties>
+                        <verticalAlignment>
+                            <stringValue>top</stringValue>
+                        </verticalAlignment>
+                        <width>
+                            <stringValue>12</stringValue>
+                        </width>
+                    </styleProperties>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <nextOrFinishButtonLabel>Save</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <name>Success_Screen</name>
+        <label>Success Screen</label>
+        <locationX>50</locationX>
+        <locationY>674</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>SuccessText</name>
+            <fieldText>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 20px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Your Pocket ID/Wall Cert has been generated and attached to Docusign CLM.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Pocket_ID_Wall_Cert_Request</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>recordId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>License__c</objectType>
+    </variables>
+    <variables>
+        <name>TransactionNewRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Transaction__c</objectType>
+    </variables>
+</Flow>

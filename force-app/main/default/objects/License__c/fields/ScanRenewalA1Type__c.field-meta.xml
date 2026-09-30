@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ScanRenewalA1Type__c</fullName>
+    <description>PacPoint-CL052120 - Created for PVL - Phase 1 Sprint 3</description>
+    <label>ScanRenewalA1Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>RNEW</fullName>
+                <default>false</default>
+                <label>RNEW</label>
+            </value>
+            <value>
+                <fullName>RSTR</fullName>
+                <default>false</default>
+                <label>RSTR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

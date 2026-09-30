@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X3rdPartyReleaseName__c</fullName>
+    <description>PacPoint-FT070119 - Created for PVL phase 1
+PacPoint-KN102319-Created for PVL Sprint 2 Phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>TPR Name for business accounts</inlineHelpText>
+    <label>3rd Party Release Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

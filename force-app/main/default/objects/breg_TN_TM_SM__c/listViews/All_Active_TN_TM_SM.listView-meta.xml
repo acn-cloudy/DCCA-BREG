@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Active_TN_TM_SM</fullName>
+    <columns>breg_Trade_Name__c</columns>
+    <columns>NAME</columns>
+    <columns>breg_Expiration_Date__c</columns>
+    <columns>breg_Status__c</columns>
+    <columns>breg_Cert_Number__c</columns>
+    <columns>breg_TM_SM_Category__c</columns>
+    <columns>breg_Trade_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>breg_Expiration_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All Active TN/TM/SM</label>
+</ListView>

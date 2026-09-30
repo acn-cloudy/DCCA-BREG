@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InstructionsByExam__c</fullName>
+    <description>https://hi-dcca--dccadev22.sandbox.my.salesforce.com/sfc/p/Hv0000008gAD/a/Hv0000003OaW/CjONZamVgnuLQVwC1W1Q1ft6SmBo.SKJ4L4UbRTv2fM</description>
+    <externalId>false</externalId>
+    <label>Instructions - By Exam</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

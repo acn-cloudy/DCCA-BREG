@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentLicenseAppStatusPrefix__c</fullName>
+    <description>PacPoint-MV121119 - Created for PVL phase 1. To be used in the Doc Generator Settings.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  NOT(ISBLANK(DependentApplication__c)), 
+  DependentApplication__r.StatusCodeTemplate__c,
+  IF(
+  NOT(ISBLANK(DependentLicense__c)), 
+  LEFT(TEXT(DependentLicense__r.Status__c), FIND(&quot; &quot;, TEXT(DependentLicense__r.Status__c)) - 1),
+  &quot;&quot;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dependent License/App Status Prefix</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,64 @@
+<template>
+    <div class="mds-card_content">
+        <div class="mds-align-items_center mds-border_bottom mds-m-bottom_medium mds-p-bottom_small slds-grid slds-grid_align-spread">
+            <h2>{item.IROC_Id__c}</h2>
+            <div class="mds-card_icon">
+                <div if:true={showQuoteSubType}>
+                    <span class="mds-badge mds-badge_large mds-theme_warning">{item.Quote_Subtype__c}</span>
+                </div>
+                <div if:false={showQuoteSubType}>
+                    <span class="mds-badge mds-badge_large mds-theme_warning">{item.Status__c}</span>
+                </div>
+            </div>
+        </div>
+        <div class="mds-card__body">
+            <div class="slds-grid mds-gap_large mds-m-bottom_small">
+                <div>
+                    <div>Requester</div>
+                    <div class="mds-font-weight_semi-bold">{requestor}</div>
+                </div>
+                <div>
+                    <div>Site Name</div>
+                    <div class="mds-font-weight_semi-bold">{item.Site_Name__c}</div>
+                </div>
+                <div if:true={showRequestDate}>
+                    <div>Requested Date</div>
+                    <div class="mds-font-weight_semi-bold">{item.Request_Date__c}</div>
+                </div>
+                <template if:true={showRequestorDetails}>
+                    <div>
+                        <div>Requestor Name</div>
+                        <div class="mds-font-weight_semi-bold">{requestorName}</div>
+                    </div>
+                    <div>
+                        <div>Requestor Email</div>
+                        <div class="mds-font-weight_semi-bold">{requestorEmail}</div>
+                    </div>
+                    <div>
+                        <div>Requestor Phone</div>
+                        <div class="mds-font-weight_semi-bold">{requestorPhone}</div>
+                    </div>
+                </template>
+                <template if:true={showProviderDetails}>
+                    <div>
+                        <div>Provider Name</div>
+                        <div class="mds-font-weight_semi-bold">{providerName}</div>
+                    </div>
+                    <div>
+                        <div>Provider Email</div>
+                        <div class="mds-font-weight_semi-bold">{providerEmail}</div>
+                    </div>
+                    <div>
+                        <div>Provider Phone</div>
+                        <div class="mds-font-weight_semi-bold">{providerPhone}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <div>
+        <lightning-button variant="brand-outline" label="Communication History" title="Communication History"  aria-label={communicationHistoryButtonAriaLabel}
+            class="mds-button mds-icon-left-chat communication-btn" stretch onclick={handleClick}>
+        </lightning-button>
+    </div>
+</template>

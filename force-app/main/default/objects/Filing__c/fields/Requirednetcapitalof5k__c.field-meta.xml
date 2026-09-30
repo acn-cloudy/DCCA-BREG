@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requirednetcapitalof5k__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-RA111318-BREG Phase 1</description>
+    <inlineHelpText>Required net capital of $5000</inlineHelpText>
+    <label>Required net capital of $5k</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

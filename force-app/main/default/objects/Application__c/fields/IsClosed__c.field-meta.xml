@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsClosed__c</fullName>
+    <description>PacPoint-MV100219 - Created for PVL phase 1. To be used on PB and Validation rules.</description>
+    <formula>CASE( 
+TEXT(Status__c) , 
+&quot;AW - Application Withdrawal&quot;, 1, 
+&quot;C9 - Past Time Limit To Apply For License&quot;, 1,
+&quot;DW - Dependency Review Phase Withdrawa&quot;, 1, 
+&quot;EW - Application Withdrawn After&quot;,1,
+&quot;EY - Cease Processing&quot;,1,
+&quot;HD - Application Terminated&quot;,1,
+&quot;HW - Application Withdrawn&quot;,1,
+&quot;HX - Application Invalid, Delete&quot;,1,
+&quot;TC - Closed&quot;,1,
+0)=1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Closed</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

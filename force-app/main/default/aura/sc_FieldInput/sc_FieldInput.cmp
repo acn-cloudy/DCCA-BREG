@@ -1,0 +1,155 @@
+<aura:component > 
+    <aura:attribute name="type" type="string" access="global" />
+    <aura:attribute name="placeholder" type="string" access="global" />
+    <aura:attribute name="value" type="string" access="global" />
+    
+    <aura:attribute name="dateValidation" type="string" access="global" />    
+    <aura:attribute name="apiName" type="string" access="global" />
+    <aura:attribute name="validator" type="string" access="global" />
+    <aura:attribute name="errorMessage" type="string" access="global" />
+    
+    <aura:attribute name="field" type="Object" access="global" />
+    <aura:attribute name="parentId" type="String" access="global" />
+    <aura:attribute name="options" type="Object[]" access="global" default="[]" />
+    <aura:attribute name="required" type="Boolean" access="global" default="false" />
+    <aura:attribute name="displayDatePicker" type="Boolean" access="global" default="true" />
+    <aura:attribute name="onchange" type="Object" access="global" />
+    <aura:attribute name="errors" type="Object[]" access="global" />
+    <aura:attribute name="dependentField" type="String" />
+    <aura:attribute name="hidden" type="Boolean" access="global" default="false" />
+    <aura:attribute name="dependentOptions" type="Object" />
+    <aura:attribute name="readOnly" type="Boolean"  default="false" />
+    <aura:registerEvent name="fieldInfo" type="c:sc_Message"/>
+    
+    <aura:method name="setError" action="{!c.addErrors}" >
+        <aura:attribute name="message" type="String" />
+    </aura:method>
+    <aura:if isTrue="{!v.readOnly}">
+        <aura:if isTrue="{!v.type == 'checkbox'}">
+            <ui:inputCheckBox required="{!v.required}" value="{!v.value}" 
+                              errors="{!v.errors}" aura:id="field" 
+                              change="{!c.updateValueMap}" disabled="true" />
+
+        </aura:if>
+        <aura:if isTrue="{!v.type == 'textarea'}">
+            <ui:inputTextArea required="{!v.required}" 
+                              aura:id="field" value="{!v.value}"  disabled="true" />
+
+        </aura:if>
+        <aura:if isTrue="{!v.type != 'datetime' &amp;&amp; v.type != 'checkbox' &amp;&amp; v.type != 'textarea'}">
+         <ui:inputText value="{!v.value}" disabled="true"
+                          aura:id="field" class="slds-input" 
+                          placeholder="{!v.placeholder}"  />
+        </aura:if>
+        <aura:if isTrue="{!v.type == 'datetime'}">
+            
+           <ui:inputDateTime  aura:id="field" value="{!v.value}" disabled="true"  />
+        </aura:if>
+        
+        <aura:set attribute="else">
+            <aura:if isTrue="{!v.type == 'lookup'}">
+                <c:sc_Lookup field_API_text="{!v.field.field_API_text}"
+                             field_API_val="{!v.field.field_API_val}"
+                             limit="{!v.field.limit}"
+                             objectName="{!v.field.objectName}"
+                             lookupIcon="{!v.field.lookupIcon}"
+                             display="{!v.field.display}"
+                             change="{!c.updateValueMap}" 
+                             value="{!v.value}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'file'}">
+                <c:sc_FileUpload parentId="{!v.parentId}" 
+                                 change="{!c.updateValueMap}" 
+                                 successMessage="{!v.field.successMessage}"
+                                 value="{!v.value}"
+                                 errors="{!v.errors}"
+                                 />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'files'}">
+                <c:sc_ErrorDisplay errors="{!v.errors}" />
+                <!-- <c:fileUploader value="{!v.value}" onchange="{!c.captureFileData}" /> -->
+                <!-- <c:sc_Files parentId="{!v.parentId}" 
+                            change="{!c.updateValueMap}" 
+                            value="{!v.value}"
+                            errors="{!v.errors}"
+                            /> -->
+            </aura:if>
+            
+            <aura:if isTrue="{!v.type == 'phone'}">
+                <c:sc_PhoneInput required="{!v.required}" value="{!v.value}" checkRequried="{!c.checkIsRequired}"
+                                 aura:id="field" change="{!c.updateValueMap}" 
+                                 placeholder="{!v.placeholder}" errors="{!v.errors}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'abn'}">
+                <!-- <c:sc_ABNInput required="{!v.required}" value="{!v.value}" 
+                               aura:id="field" change="{!c.updateValueMap}" 
+                               placeholder="{!v.placeholder}" errors="{!v.errors}" /> -->
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'checkbox'}">
+                <ui:inputCheckBox required="{!v.required}" value="{!v.value}" 
+                                  errors="{!v.errors}" aura:id="field" 
+                                  change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'text'}">
+                <ui:inputText value="{!v.value}" errors="{!v.errors}"
+                              aura:id="field" class="slds-input" 
+                              placeholder="{!v.placeholder}" 
+                              required="{!v.required}" change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'datetime'}">
+                <ui:inputDateTime aura:id="field" value="{!v.value}"  errors="{!v.errors}"                                 
+                                  displayDatePicker="true" change="{!c.updateValueMap}" />
+            </aura:if>
+            
+            <aura:if isTrue="{!v.type == 'picklist'}">                
+                <c:sc_Picklist aura:id="field" 
+                               value="{!v.value}" 
+                               options="{!v.options}" errors="{!v.errors}"
+                               dependentField="{!v.dependentField}"
+                               dependentOptions="{!v.dependentOptions}"
+                               updateValueMapForSelect="{!c.updateValueMapForSelect}" />
+            </aura:if>        
+            <aura:if isTrue="{!v.type == 'multiPicklist'}">        
+                <c:sc_MultiPicklist aura:id="field" 
+                                    options="{!v.options}" 
+                                    value="{!v.value}" errors="{!v.errors}"
+                                    change="{!c.updateValueMap}" />
+            </aura:if> 
+            <aura:if isTrue="{!v.type == 'date'}">
+                <c:sc_DateField value="{!v.value}" aura:id="field" dateValidation="{!v.dateValidation}"
+                                change="{!c.updateValueMap}" errors="{!v.errors}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'textarea'}">
+                <ui:inputTextArea required="{!v.required}" errors="{!v.errors}"
+                                  value="{!v.value}" aura:id="field" 
+                                  change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'richTextarea'}">
+                <ui:inputTextArea required="{!v.required}" errors="{!v.errors}"
+                                  value="{!v.value}" aura:id="field" 
+                                  change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!(v.type == 'hierarchyCheckbox') &amp;&amp; (v.options.length > 0) }">
+                <!-- <c:sc_HierarchyCheckbox aura:id="field" options="{!v.options}" 
+                                        value="{!v.value}" change="{!c.updateValueMap}" /> -->
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'currency'}">
+                <ui:inputCurrency required="{!v.required}" 
+                                  value="{!v.value}" 
+                                  format="$ #,##0.00" errors="{!v.errors}"
+                                  aura:id="field" change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'email'}">
+                <ui:inputEmail required="{!v.required}" errors="{!v.errors}"
+                               value="{!v.value}" aura:id="field" 
+                               change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'number'}">
+                <ui:inputNumber required="{!v.required}" value="{!v.value}" 
+                                aura:id="field"  errors="{!v.errors}"
+                                change="{!c.updateValueMap}" />
+            </aura:if>
+        </aura:set>
+    </aura:if>   
+    
+</aura:component>

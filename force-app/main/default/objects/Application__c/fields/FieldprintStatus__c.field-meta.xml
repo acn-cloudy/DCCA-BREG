@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FieldprintStatus__c</fullName>
+    <label>Fieldprint Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Fingerprint Check Confirmed</fullName>
+                <default>false</default>
+                <label>Fingerprint Check Confirmed</label>
+            </value>
+            <value>
+                <fullName>Fingerprint has NOT been submitted to Fieldprint</fullName>
+                <default>false</default>
+                <label>Fingerprint has NOT been submitted to Fieldprint</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,889 @@
+<!--
+  @description       : 
+  @last modified on  : 07-07-2025
+  @last modified by  : 
+-->
+<template>
+    <template lwc:if={showSpinner}>
+        <lightning-spinner alternative-text="Saving" size="large"></lightning-spinner>
+    </template>
+    <template lwc:if={showFormTitle}>
+        <h1 class="title slds-text-heading_large slds-m-top_large">{formTitle}</h1>
+    </template>
+    <lightning-layout horizontal-align="spread" pull-to-boundary="small" vertical-align="start" multiple-rows="true" class="form-container">
+        <template for:each={formElementsToRender} for:item="element">
+            <template lwc:if={element.Type}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Profit}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-profit
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-profit>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Applicant}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-applicant
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-applicant>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.CompanyName}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-company-name
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-company-name>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Address}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-address
+                        form-config={targetFullFormConfig}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-address>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.EntityType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-entity-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-entity-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.RegisteredAgent}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-registered-agent
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-registered-agent>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Stocks}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-stocks
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-stocks>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.StocksAnnuals}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-stocks-annuals
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-stocks-annuals>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.StocksPaidIn}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-stocks-paid-in
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-stocks-paid-in>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.StocksAuthorized}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-stocks-authorized
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-stocks-authorized>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.CompanyJurisdiction}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-company-jurisdiction
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-company-jurisdiction>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Members}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-members
+                        form-config={targetFullFormConfig}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onaddmember={handleAddMember}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-members>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.SinglePerson}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-single-person
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-single-person>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.PeriodOfDuration}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-period-of-duration
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-period-of-duration>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Management}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-management
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-management>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.MembersRadio}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-members-radio
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-members-radio>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.OptionalProvisions}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-optional-provisions
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        files={files}
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-optional-provisions>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.CertificateofGoodStanding}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-certificate-of-good-standing
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        files={files}
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-certificate-of-good-standing>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.LiabilityOfMembers}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-liability-of-members
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-liability-of-members>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.ApplicantType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-applicant-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-applicant-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.FormedOn}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-formed-on
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-formed-on>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.NatureOfBusiness}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-nature-of-business
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-nature-of-business>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.StateOrCountry}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-state-or-country
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-state-or-country>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.DateIncorporated}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-date-incorporated
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-date-incorporated>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.StatusOfApplicant}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-status-of-applicant
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-status-of-applicant>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMName}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_--t-n-t-m-s-m-name
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_--t-n-t-m-s-m-name>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Classification}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-classification
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-classification>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.GoodsOrServices}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-goods
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-goods>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.RegistrationType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-registration-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-registration-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMAssignment}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-t-n-t-m-s-m-assignment
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        files={files}
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                    ></c-breg_-t-n-t-m-s-m-assignment>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMInfo}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-t-n-t-m-s-m-info
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        files={files}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                    ></c-breg_-t-n-t-m-s-m-info>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMDescription}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-t-n-t-m-s-m-description
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        files={files}
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                    ></c-breg_-t-n-t-m-s-m-description>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMFirstUsed}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-t-n-t-m-s-m-first-used
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-t-n-t-m-s-m-first-used>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.TNTMSMModeOrManner}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-t-n-t-m-s-m-mode-or-manner
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-t-n-t-m-s-m-mode-or-manner>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.FileUpload}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-file-upload
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        files={files}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                        onfileupload={handleFileUpload}
+                        onfileremove={handleFileRemove}
+                    ></c-breg_-file-upload>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Signature}>
+                <!-- <template lwc:if={isInternal}></template>
+                <template lwc:else> -->
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-signature
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                        onchange={handleInputChange}
+                    ></c-breg_-signature>
+                </lightning-layout-item>
+                <!-- </template> -->
+            </template>
+            <template lwc:elseif={element.OutputText}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-output-text
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                    ></c-breg_-output-text>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.InputDate}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-input-date
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-input-date>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.InputText}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-input-text
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-input-text>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.InputTextarea}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-input-textarea
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-input-textarea>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.InputNumber}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-input-number
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-input-number>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Dropdown}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-dropdown
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-dropdown>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Publication}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-publication
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-publication>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.RadioGroup}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-radio-group
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-radio-group>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.EffectiveDateTime}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-effective-date-time
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-effective-date-time>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.MembersChange}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-members-change
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-members-change>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.MemberType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-member-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-member-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.ConversionApproval}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-conversion-approval
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-conversion-approval>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.AmendmentAdoptionDNP}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-amendment-adoption-d-n-p
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-amendment-adoption-d-n-p>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.AmendmentAdoptionDC}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-amendment-adoption-d-c
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-amendment-adoption-d-c>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.WrittenApprovalType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-written-approval-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-written-approval-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.Certification}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-certification
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-certification>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.LocationType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-location-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-location-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.ApplicantLocationType}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-applicant-location-type
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-applicant-location-type>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.QualificationAmendment}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-qualification-amendment
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-qualification-amendment>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.DissolutionReason}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-dissolution-reason
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-dissolution-reason>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.ShareEntries}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-share-entries
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-share-entries>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.MailingStatus}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-mailing-status
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-mailing-status>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.IsAmended}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-is-amended
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-is-amended>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={element.WithdrawalInfo}>
+                <lightning-layout-item key={element.id} size="12" class="form-cmp-layout-item">
+                    <c-breg_-withdrawal-info
+                        form-config={formConfiguration}
+                        form-data={formData}
+                        config={element}
+                        class="form-cmp"
+                        cmp-properties={cmpProperties}
+                        onchange={handleInputChange}
+                        onformupdate={handleFormUpdate}
+                        oneditsection={handleEditSectionClick}
+                    ></c-breg_-withdrawal-info>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

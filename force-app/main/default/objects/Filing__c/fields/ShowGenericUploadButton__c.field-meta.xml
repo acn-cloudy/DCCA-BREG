@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShowGenericUploadButton__c</fullName>
+    <description>PacPoint-MV012819 - Created for BREG phase 1 to display the button on the community</description>
+    <formula>IF(
+   ISPICKVAL(Status__c,&quot;Deficiency Letter Sent&quot;) , 
+   true, 
+   false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Show Generic Upload Button</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

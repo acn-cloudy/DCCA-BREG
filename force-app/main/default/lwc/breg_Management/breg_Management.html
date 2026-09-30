@@ -1,0 +1,62 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={editMode}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div class="slds-form-element slds-var-m-bottom_medium">
+                    <div class="slds-form-element__control">
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <span class="slds-text-body_regular slds-var-m-right_x-small"> Will the company be member-managed or manager-managed? </span>
+                            <lightning-helptext
+                                content="Member-managed means all members participate in management decisions. Manager-managed means designated managers handle day-to-day operations while members have limited management roles."
+                            ></lightning-helptext>
+                        </div>
+                    </div>
+                </div>
+
+                <lightning-radio-group
+                    name="managementType"
+                    value={managementTypeValue}
+                    label="Management Type"
+                    options={managementTypeOptions}
+                    variant="label-hidden"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnlyManagementType}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <lightning-layout-item if:true={showNumberOfInitialMembers} size="6" class="form-layout-item">
+                <lightning-input
+                    name="numberOfInitialMembers"
+                    value={numberOfInitialMembersValue}
+                    label="The number of members"
+                    type="number"
+                    step="1"
+                    min="1"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <p><lightning-formatted-text value={readOnlyManagementTypeValue}></lightning-formatted-text></p
+            ></lightning-layout-item>
+            <lightning-layout-item if:true={showNumberOfInitialMembers} size="6" class="form-layout-item">
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={readOnlyNumberValue}></lightning-formatted-text></p
+                ></lightning-layout-item>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item">
+                <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

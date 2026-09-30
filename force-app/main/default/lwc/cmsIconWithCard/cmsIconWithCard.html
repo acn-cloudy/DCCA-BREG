@@ -1,0 +1,16 @@
+<template>
+  <div class="container slds-grid slds-wrap" style="align-items: stretch;">
+    <a for:each={contents} for:item="content" key={content.id} class={itemClassName} href={content.link}>
+      <img src={content.url} />
+      <span class="slds-m-around--medium slds-p-horizontal--large">
+        <span>{content.title}</span>
+      </span>
+    </a>
+    <div class="item slds-p-horizontal--large slds-p-top--large slds-col">
+      <div class="title">{title}</div>
+      <div class="sub-title slds-m-vertical--x-small">Do you have a complaint you would like to file?</div>
+      <div class="sub-title">Click on the button below to learn more.</div>
+      <a href={buttonLink} class="button slds-p-around--x-small slds-m-vertical--x-small">Learn More</a>
+    </div>
+  </div>
+</template>

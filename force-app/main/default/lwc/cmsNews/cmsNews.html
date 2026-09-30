@@ -1,0 +1,19 @@
+<template>
+  <div class="header slds-grid slds-grid--align-spread slds-grid--vertical-align-center slds-p-around--large">
+    <span class="title">DCCA News</span>
+    <a href="#" onclick={handleNavAll}>
+      <span class="nav">See all News from the DCCA ></span>
+    </a>
+  </div>
+  <div class="card slds-grid slds-large-nowrap slds-p-vertical--large slds-wrap">
+    <div for:each={contents} for:item="content" key={content.id} class={itemClassName}>
+      <div>
+        <a href={content.link} class="title" data-content-key={content.id}>{content.title}</a>
+      </div>
+      <div class="published-date">
+        Posted on&nbsp;
+        <lightning-formatted-date-time value={content.date1}></lightning-formatted-date-time>
+      </div>
+    </div>
+  </div>
+</template>

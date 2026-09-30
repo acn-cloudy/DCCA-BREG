@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalReminderEmailTemplate__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(EligibleforOnlineRenewal__c = true,AbleToInactivate__c = true, BoardProgram__r.Name &lt;&gt; &quot;CONTRACTORS LICENSE BOARD&quot;, BoardProgram__r.Name &lt;&gt; &quot;REAL ESTATE COMMISSION&quot;),
+    &quot;Renewal_Email_Reminder_with_Inactive&quot;,
+    IF(EligibleforOnlineRenewal__c = true,
+    IF(
+        BoardProgram__r.Name = &quot;CONTRACTORS LICENSE BOARD&quot;, 
+        &quot;ContractorRenewalReminderEmail&quot;,
+        IF(
+            BoardProgram__r.Name = &quot;REAL ESTATE COMMISSION&quot;, 
+            &quot;LicREBRenewalEmailReminderOnlineandHard&quot;,
+            &quot;LicRenewalEmailReminderOnlineandHardcopy&quot;
+        )
+    ), 
+    &quot;LicRenewalEmailReminderHardcopyOnly&quot;
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Reminder Email Template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

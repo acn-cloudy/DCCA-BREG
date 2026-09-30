@@ -1,0 +1,29 @@
+<template>
+    <template if:true={showMessage}>
+        <div class="slds-grid slds-gutters slds-align_absolute-center mds_banner-background">
+            <div class="slds-col slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                <div class="login-container-content slds-theme_shade slds-p-around_medium">
+                    <div class="alert" role="alert" aria-atomic="true">
+                        <div class="slds-scoped-notification slds-media slds-media_center slds-theme_warning m-b-medium"
+                            role="status">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-utility-warning" title="warning">
+                                    <lightning-icon icon-name="utility:clock" alternative-text="Clock" class="custom-clock-icon"></lightning-icon>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h2 class="alert-heading">Access Pending!</h2>
+                                <p aria-live="assertive" aria-atomic="true" aria-label="Account Access request is pending.">Account Access request is pending.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-clearfix">
+                        <div class="slds-p-vertical_medium slds-float_right">
+                            <lightning-button variant="brand" label="Back to Login" title="Back to Login" aria-label="Back to Login"  onclick={handleRefresh} class="mds-button btn-width-40"></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

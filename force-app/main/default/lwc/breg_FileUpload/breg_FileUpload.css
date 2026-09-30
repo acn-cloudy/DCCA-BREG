@@ -1,0 +1,44 @@
+.slds-file-selector__dropzone {
+  border: 2px dashed #d8dde6;
+  border-radius: 4px;
+  padding: 2rem;
+  text-align: center;
+  transition: border-color 0.2s ease-in-out;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slds-file-selector__dropzone:hover,
+.slds-file-selector__dropzone.slds-has-drag-over {
+  border-color: #0176d3;
+  background-color: #f3f9ff;
+}
+
+.slds-file-selector__body {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.slds-file-selector__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.slds-text-link {
+  color: #0176d3;
+  text-decoration: none;
+}
+
+.slds-text-link:hover {
+  text-decoration: underline;
+}

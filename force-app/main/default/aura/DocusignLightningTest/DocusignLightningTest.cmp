@@ -1,0 +1,3 @@
+<aura:component implements="force:appHostable,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes" access="global">
+    <ui:button label="navigateToURL" press="{!c.gotoURL}" />
+</aura:component>

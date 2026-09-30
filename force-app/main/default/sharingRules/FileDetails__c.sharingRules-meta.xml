@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>FileDetailBregSecManagerReadWrite</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-CL11152021 Case 00018525</description>
+        <label>FileDetailBregSecManagerReadWrite</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Locked__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Grant_Access_to_Kim_Umetsu_s_Records</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Grant Access to Kim Umetsu&apos;s Records</label>
+        <sharedTo>
+            <group>SEC_Roles</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>005t00000021c3TAAQ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>SEC</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_File_Detail_Records_with_SEC_Manager</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share File Detail Records with SEC Manager</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Share_with_SEC_Manager__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Category__c</field>
+            <operation>equals</operation>
+            <value>SEB Clerical,SEB Investigation,SEB Legal,SEB Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_File_Details_with_all_SEC</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Per Kim U</description>
+        <label>Share File Details with all SEC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>SEC</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>SEB_File_Details</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV101519 - Created for PVL phase 1</description>
+        <label>SEB File Details</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SEC_File_Details</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV101519 - Created for PVL phase 1</description>
+        <label>SEC File Details</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

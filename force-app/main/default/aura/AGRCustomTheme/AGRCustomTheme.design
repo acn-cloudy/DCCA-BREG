@@ -1,0 +1,58 @@
+<design:component label="AGR Custom Theme">
+  <design:attribute name="BackgroundImage" label="Background Image" />
+  <design:attribute name="TopLeftLogo" label="Top Left Logo" />
+  <design:attribute name="TopLeftText" label="Top Left Text" />
+  <design:attribute name="TopLeftLink" label="Top Left Link" />
+  <design:attribute name="TopRightLogo" label="Top Right Logo" />
+  <design:attribute name="TopRightText" label="Top Right Text" />
+  <design:attribute name="TopRightLink" label="Top Right Link" />
+  <design:attribute name="HeaderLogo" label="Header Logo" />
+  <design:attribute name="HeaderLogoLink" label="Header Logo Link" />
+  <design:attribute name="HeaderTitle" label="Header Title" />
+  <design:attribute name="HeaderSubtitle" label="Header Subtitle" />
+  <design:attribute name="HeaderSubtitleColor" label="Header Subtitle Color" />
+  <design:attribute name="HomePage" label="Header Subtitle Link" />
+  <design:attribute name="TwitterLink" label="Twitter Link" />
+  <design:attribute name="RSSLink" label="RSS Link" />
+  <design:attribute name="FacebookLink" label="Facebook Link" />
+  <design:attribute name="UStreamLink" label="UStream Link" />
+  <design:attribute name="YoutubeLink" label="Youtube Link" />
+  <design:attribute name="InstagramLink" label="Instagram Link" />
+  <design:attribute
+    name="NavigationBackgroundColor"
+    label="Navigation Menu Background Color"
+  />
+  <design:attribute
+    name="NavigationHoverColor"
+    label="Navigation Menu Selected / Hover Color"
+  />
+  <design:attribute name="PhoneNumber" label="Phone Number" />
+  <design:attribute name="EmailAddress" label="Email Address" />
+  <design:attribute name="Website" label="Website" />
+  <design:attribute name="CopyrightText" label="Copyright Text" />
+  <design:attribute name="AboutUsTitle" label="About Us Title" />
+  <design:attribute name="AboutUsLink1" label="About Us Link #1" />
+  <design:attribute name="AboutUsText1" label="About Us Text #1" />
+  <design:attribute name="AboutUsLink2" label="About Us Link #2" />
+  <design:attribute name="AboutUsText2" label="About Us Text #2" />
+  <design:attribute name="AboutUsLink3" label="About Us Link #3" />
+  <design:attribute name="AboutUsText3" label="About Us Text #3" />
+  <design:attribute name="AboutUsLink4" label="About Us Link #4" />
+  <design:attribute name="AboutUsText4" label="About Us Text #4" />
+  <design:attribute name="AboutUsLink5" label="About Us Link #5" />
+  <design:attribute name="AboutUsText5" label="About Us Text #5" />
+  <design:attribute name="PoliciesTitle" label="Policies Title" />
+  <design:attribute name="PoliciesLink1" label="Policies Link #1" />
+  <design:attribute name="PoliciesText1" label="Policies Text #1" />
+  <design:attribute name="PoliciesLink2" label="Policies Link #2" />
+  <design:attribute name="PoliciesText2" label="Policies Text #2" />
+  <design:attribute name="PoliciesLink3" label="Policies Link #3" />
+  <design:attribute name="PoliciesText3" label="Policies Text #3" />
+  <design:attribute name="PoliciesLink4" label="Policies Link #4" />
+  <design:attribute name="PoliciesText4" label="Policies Text #4" />
+  <design:attribute name="PoliciesLink5" label="Policies Link #5" />
+  <design:attribute name="PoliciesText5" label="Policies Text #5" />
+
+  <design:attribute name="BodyPMargin" label="Body paragraph Margin" />
+  <design:attribute name="BodyPLineHeight" label="Body paragraph Line Height" />
+</design:component>

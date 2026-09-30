@@ -1,0 +1,45 @@
+<template>
+    <template if:false={selectedRecord}>
+        <div class="searchContainer slds-form-element slds-lookup slds-is-open">
+            <!-- Search Box -->
+            <div class="slds-form-element">
+                <template if:true={label}>
+                    <label class="slds-form-element__label" for="text-input-id-1">{label}</label>
+                </template>
+                <div class="slds-input search-box" onclick={focusOnSearchInput}>
+                    <lightning-icon class="slds-p-right_x-small search-icon" icon-name="utility:search" onclick={focusOnSearchInput} size="x-small"></lightning-icon>
+                    <input class="search-input-box" value={searchTerm} placeholder={placeholder} type="search" onkeyup={search}
+                        onfocus={handleSearchResultSelect} onblur={closeSearchResultsList}>
+                    <template if:true={searchTerm}>
+                        <lightning-button-icon class="search-icon" icon-name="utility:clear" size="small" variant="bare" onclick={clearSearchTerm}>
+                        </lightning-button-icon>
+                    </template>
+                </div>
+            </div>
+            <!-- Search Results -->
+            <template if:true={shouldShowDropDown}>
+                <div class="slds-lookup__menu slds">
+                    <template if:true={isLoading}>
+                        <div class="slds-p-horizontal_large slds-text-body_small">searching...</div>
+                    </template>
+                    <ul class="slds-lookup__list" role="listbox">
+                        <template for:each={searchResults} for:item="result">
+                            <c-lookup-search-result key={result.Id} record={result} icon-name={iconName} search-term={searchTerm}
+                                onselected={handleSearchResultSelect}>
+                            </c-lookup-search-result>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:true={selectedRecord}>
+        <template if:true={label}>
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1">{label}</label>
+            </div>
+        </template>
+        <lightning-pill-container is-expanded items={pillItem} onitemremove={handleItemRemove}>
+        </lightning-pill-container>
+    </template>
+</template>

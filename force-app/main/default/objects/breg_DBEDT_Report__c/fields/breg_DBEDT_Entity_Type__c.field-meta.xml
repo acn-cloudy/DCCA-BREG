@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_DBEDT_Entity_Type__c</fullName>
+    <label>DBEDT Entity Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Domestic LLC</fullName>
+                <default>false</default>
+                <label>Domestic LLC</label>
+            </value>
+            <value>
+                <fullName>Domestic LLP</fullName>
+                <default>false</default>
+                <label>Domestic LLP</label>
+            </value>
+            <value>
+                <fullName>Domestic Corporation</fullName>
+                <default>false</default>
+                <label>Domestic Corporation</label>
+            </value>
+            <value>
+                <fullName>Non-Domestic LLC</fullName>
+                <default>false</default>
+                <label>Non-Domestic LLC</label>
+            </value>
+            <value>
+                <fullName>Non-Domestic LLP</fullName>
+                <default>false</default>
+                <label>Non-Domestic LLP</label>
+            </value>
+            <value>
+                <fullName>Non-Domestic Corporation</fullName>
+                <default>false</default>
+                <label>Non-Domestic Corporation</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

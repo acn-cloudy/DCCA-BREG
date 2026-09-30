@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseNameType__c</fullName>
+    <description>PacPoint-FT020420- Created for PVL phase 1</description>
+    <label>Trade/Professional Name Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - Aliases</fullName>
+                <default>false</default>
+                <label>A - Aliases</label>
+            </value>
+            <value>
+                <fullName>B - Branch Office Name</fullName>
+                <default>false</default>
+                <label>B - Branch Office Name</label>
+            </value>
+            <value>
+                <fullName>C - Classroom Location Name</fullName>
+                <default>false</default>
+                <label>C - Classroom Location Name</label>
+            </value>
+            <value>
+                <fullName>J - Joint Venture</fullName>
+                <default>false</default>
+                <label>J - Joint Venture</label>
+            </value>
+            <value>
+                <fullName>L - Legal Name (Married/Maiden)</fullName>
+                <default>false</default>
+                <label>L - Legal Name (Married/Maiden)</label>
+            </value>
+            <value>
+                <fullName>M - Main Office Name</fullName>
+                <default>false</default>
+                <label>M - Main Office Name</label>
+            </value>
+            <value>
+                <fullName>N - Name at Birth</fullName>
+                <default>false</default>
+                <label>N - Name at Birth</label>
+            </value>
+            <value>
+                <fullName>O - General Office Name</fullName>
+                <default>false</default>
+                <label>O - General Office Name</label>
+            </value>
+            <value>
+                <fullName>P - Professional Name</fullName>
+                <default>false</default>
+                <label>P - Professional Name</label>
+            </value>
+            <value>
+                <fullName>S - Site Office Name</fullName>
+                <default>false</default>
+                <label>S - Site Office Name</label>
+            </value>
+            <value>
+                <fullName>T - Trade Name</fullName>
+                <default>false</default>
+                <label>T - Trade Name</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

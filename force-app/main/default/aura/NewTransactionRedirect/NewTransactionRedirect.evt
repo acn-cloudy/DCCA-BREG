@@ -1,0 +1,16 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Redirect event used by the New Transaction component
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:event type="APPLICATION" description="New Transaction Redirect">
+    <aura:attribute name="transactionId" type="string" />
+</aura:event>

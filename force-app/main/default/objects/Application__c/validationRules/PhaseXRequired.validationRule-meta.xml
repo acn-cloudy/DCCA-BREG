@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PhaseXRequired</fullName>
+    <active>false</active>
+    <errorConditionFormula>PhaseXValidation__c</errorConditionFormula>
+    <errorMessage>You need to go through Phase X  first before changing it to phase after X.</errorMessage>
+</ValidationRule>

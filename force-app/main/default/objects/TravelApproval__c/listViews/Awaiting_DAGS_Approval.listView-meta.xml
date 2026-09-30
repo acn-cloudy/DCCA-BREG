@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Awaiting_DAGS_Approval</fullName>
+    <columns>NAME</columns>
+    <columns>TravelType__c</columns>
+    <columns>TravelerName__c</columns>
+    <columns>DepartmentDivisionOffice__c</columns>
+    <columns>BusinessOnlyDepartureDate__c</columns>
+    <columns>BusinessOnlyReturnDate__c</columns>
+    <columns>PersonalDeviationFromDate__c</columns>
+    <columns>PersonalDeviationToDate__c</columns>
+    <columns>BeginCity__c</columns>
+    <columns>EndCity__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>StatementOfCompletedTravelStatus__c</field>
+        <operation>equals</operation>
+        <value>Sent to Dags</value>
+    </filters>
+    <label>Awaiting DAGS Approval</label>
+</ListView>

@@ -1,0 +1,139 @@
+<template>
+    <!-- WARNING BANNER -->
+    <template if:true={showWarningBanner}>
+        <div class="warning-banner">
+            <div class="warning-banner-title">
+                <lightning-icon icon-name="utility:warning" size="small" variant="warning" class="warning-icon"></lightning-icon>
+                <strong>{warningBannerTitle}</strong>
+            </div>
+            <div class="warning-banner-body">
+                <lightning-formatted-rich-text value={warningBannerMessage}></lightning-formatted-rich-text>
+            </div>
+        </div>
+    </template>
+
+    <!-- HERO / HEADER -->
+    <div class="hero slds-grid slds-grid_align-center">
+        <div class="content-box">
+            <div class="hero-text">
+                <h1 class="hero-title">Start, Manage, and Search about Hawaii Businesses</h1>
+                <p class="hero-subtitle">Business Registration Division, Department of Commerce & Consumer Affairs</p>
+            </div>
+            <div class="search-info-container">
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Enter a Business Name" onkeydown={handleKeyDown} />
+                    <button class="search-button" aria-label="Search" onclick={handleSearch}>
+                        <lightning-icon icon-name="utility:search" size="small"></lightning-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-maps"></div>
+    </div>
+
+    <!-- CARDS GRID -->
+    <div class="cards-container">
+        <div class="card-grid">
+            <!-- START CARD -->
+            <div class="card start">
+                <div class="card-icon"><lightning-icon icon-name="utility:company" size="large"></lightning-icon></div>
+                <h3>Start</h3>
+                <ul class="card-list">
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Register a new business</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Reserve a business name</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Register a new trade name or mark</span>
+                    </li>
+                </ul>
+                <div class="slds-col_bump-top slds-text-align_center">
+                    <a class="slds-button slds-button_brand slds-var-p-horizontal_large" href="/start">Get Started</a>
+                </div>
+            </div>
+
+            <!-- MANAGE CARD -->
+            <div class="card manage">
+                <div class="card-icon">
+                    <lightning-icon icon-name="utility:case" size="large"></lightning-icon>
+                </div>
+                <h3>Manage</h3>
+                <ul class="card-list">
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">File your Annual Report</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Change an existing business</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Renew trade names/marks</span>
+                    </li>
+                </ul>
+                <div class="slds-col_bump-top slds-text-align_center">
+                    <a class="slds-button slds-button_brand slds-var-p-horizontal_large" href="/manage">Learn More</a>
+                </div>
+            </div>
+
+            <!-- SEARCH & BUY CARD -->
+            <div class="card search">
+                <div class="card-icon">
+                    <lightning-icon icon-name="utility:search" size="large"></lightning-icon>
+                </div>
+                <h3>Search &amp; Buy</h3>
+                <ul class="card-list">
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Search businesses, trade names & marks</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Buy documents</span>
+                    </li>
+                </ul>
+                <div class="slds-col_bump-top slds-text-align_center">
+                    <a class="slds-button slds-button_brand slds-var-p-horizontal_large" href="/search-and-buy">Search Now</a>
+                </div>
+            </div>
+
+            <!-- DASHBOARD CARD -->
+            <div class="card dashboard">
+                <div class="card-icon">
+                    <lightning-icon icon-name="utility:all" size="large"></lightning-icon>
+                </div>
+                <h3>My Dashboard</h3>
+                <ul class="card-list">
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">Track all of your filings</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">See what’s due</span>
+                    </li>
+                    <li class="cardin">
+                        <lightning-icon icon-name="utility:check" size="small" variant="bare" class="check-icon"></lightning-icon>
+                        <span class="list-text">View purchased & approved documents</span>
+                    </li>
+                </ul>
+                <div class="slds-col_bump-top slds-text-align_center">
+                    <a class="slds-button slds-button_brand slds-var-p-horizontal_large" href="/my-dashboard">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <p>
+            Do you have questions about these business services? Please read our &nbsp;
+            <a href="/help">Help page</a>&nbsp; for more information.
+        </p>
+    </div>
+</template>

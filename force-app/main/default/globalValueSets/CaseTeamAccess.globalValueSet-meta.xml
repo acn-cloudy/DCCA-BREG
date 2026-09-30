@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Read</fullName>
+        <default>false</default>
+        <label>Read</label>
+    </customValue>
+    <customValue>
+        <fullName>Edit</fullName>
+        <default>false</default>
+        <label>Edit</label>
+    </customValue>
+    <description>Access levels for Case Team Members and Case Team Assignments</description>
+    <masterLabel>Case Team Access</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

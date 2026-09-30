@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcknowledgementStatement__c</fullName>
+    <defaultValue>&quot;Acknowledge payment of $5,000 for 2022-2023 Participation Fee.&amp;nbsp;&quot;</defaultValue>
+    <label>No Name</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

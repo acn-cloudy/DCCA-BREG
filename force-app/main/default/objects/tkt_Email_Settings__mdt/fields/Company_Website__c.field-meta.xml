@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Website__c</fullName>
+    <description>TNOX: Company or support portal website URL</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>e.g., https://support.yourcompany.com</inlineHelpText>
+    <label>Company Website</label>
+    <required>false</required>
+    <type>Url</type>
+</CustomField>

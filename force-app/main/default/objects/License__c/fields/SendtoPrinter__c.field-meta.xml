@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SendtoPrinter__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-FT032420 - Created for PVL Phase 1</description>
+    <label>Send to Printer</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

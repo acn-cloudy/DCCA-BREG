@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unique_Key__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Used for mass upload fees. [&quot;Entity Type (if Applicable)&quot;]&quot;-&quot;[&quot;Form #/Suffix&quot;]&quot;-&quot;[&quot;Purchase Type/Fee type&quot;]</description>
+    <externalId>true</externalId>
+    <label>Unique Key</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

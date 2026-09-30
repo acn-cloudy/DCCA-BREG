@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-MV122818 - Created for BREG phase 1. Used to identify what is the flow for each filing record type and type in communities</description>
+    <label>Flow per Record Type</label>
+    <pluralLabel>Flow per Record Type</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Flow to create RDPMS Adhoc Request record when Reload RDPMS documents button is clicked</description>
+    <environments>Default</environments>
+    <interviewLabel>BREG Case - Reload RDPMS documents {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BREG Case - Reload RDPMS documents</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordCreates>
+        <description>Create a new RDPMS Adhoc Request record</description>
+        <name>Create_RDPMS_Adhoc_Request</name>
+        <label>Create RDPMS Adhoc Request</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Success_Screen</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>breg_Case__c</field>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>breg_Status__c</field>
+            <value>
+                <stringValue>Requested</stringValue>
+            </value>
+        </inputAssignments>
+        <object>breg_RDPMS_Adhoc_Request__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <screens>
+        <description>Display success message to user</description>
+        <name>Success_Screen</name>
+        <label>Success Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Success_Message</name>
+            <fieldText>&lt;p&gt;&lt;strong&gt;Success!&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;RDPMS Adhoc Request has been created successfully with status &quot;Requested&quot;.&lt;/p&gt;&lt;p&gt;The system will process your request shortly.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_RDPMS_Adhoc_Request</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Record ID passed automatically from quick action</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

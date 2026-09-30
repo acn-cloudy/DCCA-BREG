@@ -1,0 +1,21 @@
+<aura:component controller="FiscalFormsController" extends="c:Basic"
+    implements="lightning:hasPageReference,lightning:isUrlAddressable,lightning:availableForFlowScreens,lightning:isUrlAddressable,lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="recordType" type="String"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="pageReference" type="Object" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.clearData}" />
+
+    <aura:if isTrue="{!v.recordType == 'TDR'}">
+        <c:tDRForm aura:id="form" recordId="{!v.recordId}" recordTypeId="{!v.recordTypeId}"></c:tDRForm>    
+    </aura:if>
+    <aura:if isTrue="{!v.recordType == 'JV'}">
+        <c:jVForm aura:id="form" recordId="{!v.recordId}" recordTypeId="{!v.recordTypeId}"></c:jVForm>
+    </aura:if>
+    <aura:if isTrue="{!v.recordType == 'RECWKST'}">
+        <c:PaymentRecwkst aura:id="form" recordId="{!v.recordId}" recordTypeId="{!v.recordTypeId}"/>
+    </aura:if>
+    
+</aura:component>

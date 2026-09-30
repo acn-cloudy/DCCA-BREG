@@ -1,0 +1,32 @@
+<template>
+    <span
+        class="help-text-tooltip"
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
+        onfocusin={handleFocusIn}
+        onfocusout={handleFocusOut}
+    >
+        <button type="button" class="help-text-tooltip__trigger">
+            {label}
+        </button>
+
+        <template lwc:if={isOpen}>
+            <div
+                class="slds-popover slds-popover_tooltip slds-nubbin_bottom-center help-text-tooltip__popover"
+                role="tooltip"
+            >
+                <div class="slds-popover__body">
+                    <template lwc:if={hasTitle}>
+                        <div class="slds-text-heading_small slds-m-bottom_x-small">
+                            {title}
+                        </div>
+                    </template>
+
+                    <div class="slds-text-body_small">
+                        {message}
+                    </div>
+                </div>
+            </div>
+        </template>
+    </span>
+</template>

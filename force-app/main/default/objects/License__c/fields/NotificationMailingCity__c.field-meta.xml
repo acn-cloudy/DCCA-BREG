@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotificationMailingCity__c</fullName>
+    <description>PacPoint-DN102919-Created for PVL Sprint 2 Phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( PreferredAddress__c,
+&quot;Renewal Mail To&quot;, RenewalMailToCity__c,
+&quot;Mailing&quot;,MailingCity__c,
+&quot;Business&quot;,BusinessCity__c,
+&quot;Residence&quot;, Licensee__r.PersonContact.MailingCity ,
+&quot;Employer&quot;,EmployerCity__c,
+&quot;Dependent Mailing&quot;, DependentLicense__r.MailingCity__c ,
+&quot;Dependent Business&quot;, DependentLicense__r.BusinessCity__c  ,
+&quot;Dependent Employer&quot;, DependentLicense__r.EmployerCity__c ,
+&quot;Dependent 2 Mailing&quot;, DependentLicense2__r.MailingCity__c,
+&quot;N/A&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notification Mailing City</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

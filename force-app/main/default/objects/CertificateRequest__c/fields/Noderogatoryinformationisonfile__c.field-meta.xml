@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Noderogatoryinformationisonfile__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-DN11232020 - Created for PVL Sprint 7 Phase 1</description>
+    <label>No derogatory information is on file</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Case_Custom_Soql_Filter__c</fullName>
+    <description>Optional custom SOQL WHERE predicate to filter Cases. Example: RecordType.DeveloperName = &apos;Support&apos; AND ContactId != null. Applied as AND condition after standard filters.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Custom SOQL Filter</label>
+    <length>32000</length>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

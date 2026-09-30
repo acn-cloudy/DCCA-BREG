@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Subtype__c</fullName>
+    <label>Quote Subtype</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quote Requested</fullName>
+                <default>false</default>
+                <label>Quote Requested</label>
+            </value>
+            <value>
+                <fullName>Quote Sent</fullName>
+                <default>false</default>
+                <label>Quote Sent</label>
+            </value>
+            <value>
+                <fullName>Quote Review</fullName>
+                <default>false</default>
+                <label>Quote Review</label>
+            </value>
+            <value>
+                <fullName>Quote Rejected</fullName>
+                <default>false</default>
+                <label>Quote Rejected</label>
+            </value>
+            <value>
+                <fullName>Quote Accepted</fullName>
+                <default>false</default>
+                <label>Quote Accepted</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Requested</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Sent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Review</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Rejected</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Quote</controllingFieldValue>
+            <valueName>Quote Accepted</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

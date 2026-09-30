@@ -1,0 +1,108 @@
+.mds-stepper_list{
+    @include responsive(tab-port){
+            display: flex;
+            flex-direction: row;   
+        
+        &-item{
+            min-width: 8rem;
+            width: auto;
+    
+            &-content{
+                display: none;
+            }
+            &-circle::after{
+                transform: rotate(90deg);
+                top: -2rem !important;
+                left: 4.9rem !important;
+                height: 5.813rem !important;
+            }
+        }
+     
+      
+    }
+    &-item{
+    height: var(--spacing-xxxx-large);
+    &:last-child{
+        .mds-stepper_list-item-circle:after{
+            display: none;
+        }
+    }
+   &.mds-is-completed{
+    .mds-stepper_list-item-circle{
+        background: var(--success-light);
+        cursor: pointer;
+    
+       &:before{
+        content: "\eaaa";
+        font-family: "material-icon";
+        position: absolute;
+        top: 57%;
+        left: 53%;
+        transform: translate(-50%, -58%);
+        color: var(--white);
+       }
+       &::after{
+        border-color: var(--success-light);
+       }
+    }
+   
+    }
+    &-circle{
+        width: var(--spacing-x-large);
+        height: var(--spacing-x-large);
+        background-color: var(--white);
+        border: 0.125rem solid  #EEF5EF;
+        border-radius:var(--border-radius-circle);
+        position: relative;
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.125rem solid #808080;
+            width: 100%;
+            border-radius: var( --border-radius-circle); 
+            height: 100%; 
+        }
+         &:after{
+            position: absolute;
+            content: '';
+            border: 0.063rem solid #474B50;
+            height: var(--spacing-xx-large);
+            left: 44%;
+            top:115%;
+        }
+        &.mds-border_brand{
+            &:after, div{
+                border-color: var(--primary-main) !important;
+               
+            }
+        }
+
+
+    }
+    }
+
+}
+
+// @include responsive(tab-port){
+//     .mds-stepper_list{
+//         display: flex;
+//         flex-direction: row;   
+    
+//     &-item{
+//         min-width: 8rem;
+//         width: auto;
+
+//         &-content{
+//             display: none;
+//         }
+//         &-circle::after{
+//             transform: rotate(90deg);
+//             top: -34px;
+//             left: 73px;
+//             height: 93px;
+//         }
+//     }
+ 
+//   }
+// }

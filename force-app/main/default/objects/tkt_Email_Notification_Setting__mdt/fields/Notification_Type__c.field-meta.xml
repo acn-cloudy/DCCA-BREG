@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Notification_Type__c</fullName>
+    <description>TNOX: Type of notification event that triggers the email</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Notification Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ticket Created - Owner Confirmation</fullName>
+                <default>false</default>
+                <label>Ticket Created - Owner Confirmation</label>
+            </value>
+            <value>
+                <fullName>Ticket Created - Queue Assignment</fullName>
+                <default>false</default>
+                <label>Ticket Created - Queue Assignment</label>
+            </value>
+            <value>
+                <fullName>Ticket Status Changed</fullName>
+                <default>false</default>
+                <label>Ticket Status Changed</label>
+            </value>
+            <value>
+                <fullName>Ticket Ownership Changed</fullName>
+                <default>false</default>
+                <label>Ticket Ownership Changed</label>
+            </value>
+            <value>
+                <fullName>Comment Added - Notify Owner</fullName>
+                <default>false</default>
+                <label>Comment Added - Notify Owner</label>
+            </value>
+            <value>
+                <fullName>Comment Added - Notify Assignee</fullName>
+                <default>false</default>
+                <label>Comment Added - Notify Assignee</label>
+            </value>
+            <value>
+                <fullName>Ticket Closed - Notify Assignee</fullName>
+                <default>false</default>
+                <label>Ticket Closed - Notify Assignee</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

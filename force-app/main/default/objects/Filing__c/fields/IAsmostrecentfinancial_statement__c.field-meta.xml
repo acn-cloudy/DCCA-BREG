@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IAsmostrecentfinancial_statement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-RA111318-BREG Phase 1</description>
+    <inlineHelpText>Provide a copy of the advisor&apos;s most recent financial statement filed with the state where the adviser maintains its principal place of business. 16-39-435(b)(3)(B).</inlineHelpText>
+    <label>IA&apos;s most recent financial statement</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

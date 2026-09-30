@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Allowed_Dependent_License_Types</name>
+        <label>Assign Allowed Dependent License Types</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>AllowedDependentLicenseTypes</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.LicenseType__r.MultiSelectDependentLicenseType1__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Valid_Dependent_License</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Invalid_Dependent_Error</name>
+        <label>Invalid Dependent Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <customErrorMessages>
+            <errorMessage>Please Enter a Valid Dependent License</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Is_Valid_Dependent_License</name>
+        <label>Is Valid Dependent License</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Invalid_Dependent_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Invalid</defaultConnectorLabel>
+        <rules>
+            <name>Valid</name>
+            <conditionLogic>(1 OR 2) AND 3 AND (4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.LicenseType__r.DependentLicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.DependentLicense__r.LicenseType__r.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Is_Dependent_License_Type_In_Allow_List</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DependentLicense__r.ActiveInactive__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Active</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DependentLicense__r.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>C - Current, Valid &amp; In Good Standing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.DependentLicense__r.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Valid</label>
+        </rules>
+    </decisions>
+    <description>Currently Applicable for MFTP, MHCP, and PSYP</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Exact token match against MultiSelectDependentLicenseType1__c; avoids substring false positives (e.g. RN matching APRN) and blank Contains returning true.</description>
+        <name>Is_Dependent_License_Type_In_Allow_List</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+NOT(ISBLANK({!$Record.DependentLicense__r.LicenseType__r.Name})),
+CONTAINS(
+&quot;;&quot; &amp; {!AllowedDependentLicenseTypes} &amp; &quot;;&quot;,
+&quot;;&quot; &amp; {!$Record.DependentLicense__r.LicenseType__r.Name} &amp; &quot;;&quot;
+)
+)</expression>
+    </formulas>
+    <interviewLabel>Application Validate Dependent License Change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application Validate Dependent License Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Allowed_Dependent_License_Types</targetReference>
+        </connector>
+        <filterLogic>1 AND 2 AND 3 AND (4 OR 5 OR 6)</filterLogic>
+        <filters>
+            <field>DependentLicense__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DependencyRequired__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DependentLicense__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>MFTP</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>MHCP</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeCode__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PSYP</stringValue>
+            </value>
+        </filters>
+        <object>Application__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AllowedDependentLicenseTypes</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

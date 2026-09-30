@@ -1,0 +1,49 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 lwc:if={title} class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+            <lightning-input
+                name="hasChanged"
+                value={hasChangedValue}
+                type="checkbox"
+                label={hasChangedCheckboxLabel}
+                onchange={handleInputChange}
+                checked={hasChangedValue}
+                disabled={readOnly}
+                read-only={readOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <template if:false={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-input
+                    name="inputNumber"
+                    value={inputNumberValue}
+                    label={config.labelOverride2}
+                    type="number"
+                    class="slds-var-m-bottom_small"
+                    step={step}
+                    formatter={formatter}
+                    placeholder={config.labelOverrideLong}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    variant={variant}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <template if:true={readOnly}>
+            <lightning-layout-item size="12">
+                <p><lightning-formatted-number value={inputNumberValue}></lightning-formatted-number></p>
+            </lightning-layout-item>
+        </template>
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div lwc:if={config.labelOverrideLong2} class="slds-var-m-bottom_small">
+                <span>{config.labelOverrideLong2}</span>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

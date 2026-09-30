@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReasonForEmployment__c</fullName>
+    <label>Reason For Employment</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AEMP - ADD ANOTHER EMPLOYER (FOR CLB LICENSEE WHO IS GOING TO BE A &quot;DUAL&quot; OR, IS ALREADY DUAL &amp; ADDING ANOTHER EMPLOYER)</fullName>
+                <default>false</default>
+                <label>AEMP - ADD ANOTHER EMPLOYER (FOR CLB LICENSEE WHO IS GOING TO BE A &quot;DUAL&quot; OR, IS ALREADY DUAL &amp; ADDING ANOTHER EMPLOYER)</label>
+            </value>
+            <value>
+                <fullName>BLANK - FOR RICO INACTIVES</fullName>
+                <default>false</default>
+                <label>BLANK - FOR RICO INACTIVES</label>
+            </value>
+            <value>
+                <fullName>BOUT - REAL ESTATE BROKER OUT OF TOWN</fullName>
+                <default>false</default>
+                <label>BOUT - REAL ESTATE BROKER OUT OF TOWN</label>
+            </value>
+            <value>
+                <fullName>CANL - VOLUNTARILY CANCELLED LICENSE--INDIVIDUAL ONLY</fullName>
+                <default>false</default>
+                <label>CANL - VOLUNTARILY CANCELLED LICENSE--INDIVIDUAL ONLY</label>
+            </value>
+            <value>
+                <fullName>CLOS - CLOSED/CANCELLED (TERM DT TRANS) (DIRECT - SOLE OWNER CLOSES OR INDIVIDUAL CANCELS LICENSE)</fullName>
+                <default>false</default>
+                <label>CLOS - CLOSED/CANCELLED (TERM DT TRANS) (DIRECT - SOLE OWNER CLOSES OR INDIVIDUAL CANCELS LICENSE)</label>
+            </value>
+            <value>
+                <fullName>CONTE - CONTINUING EDUCATION</fullName>
+                <default>false</default>
+                <label>CONTE - CONTINUING EDUCATION</label>
+            </value>
+            <value>
+                <fullName>CP - CHANGE POSITION WITH SAME EMPLOYER &amp; OFFICE (DIRECT - EMPLOYEE WORKING FOR SAME OFFICE/EMPLOYER BUT CHANGES POSITION WITHIN ORGANIZATION (I.E. RBS TO PB)</fullName>
+                <default>false</default>
+                <label>CP - CHANGE POSITION WITH SAME EMPLOYER &amp; OFFICE (DIRECT - EMPLOYEE WORKING FOR SAME OFFICE/EMPLOYER BUT CHANGES POSITION WITHIN ORGANIZATION (I.E. RBS TO PB)</label>
+            </value>
+            <value>
+                <fullName>DECE - DECEASED (TERM DT TRANS) (FOR INDIVIDUALS ONLY) (DIRECT)</fullName>
+                <default>false</default>
+                <label>DECE - DECEASED (TERM DT TRANS) (FOR INDIVIDUALS ONLY) (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>DELQ - DELINQUENT (TERM DT TRANS) (DIRECT - LICENSEE DID NOT RENEW LICENSE)</fullName>
+                <default>false</default>
+                <label>DELQ - DELINQUENT (TERM DT TRANS) (DIRECT - LICENSEE DID NOT RENEW LICENSE)</label>
+            </value>
+            <value>
+                <fullName>EC - EMPLOYER CLOSED/CANCELLED/INACTIVE (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLR VOLUNTARILY REPORTED CHANGE WHICH AFFECTS EMPLOYEE WITH INVOLUNTARY CHANGE OF STATUS)</fullName>
+                <default>false</default>
+                <label>EC - EMPLOYER CLOSED/CANCELLED/INACTIVE (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLR VOLUNTARILY REPORTED CHANGE WHICH AFFECTS EMPLOYEE WITH INVOLUNTARY CHANGE OF STATUS)</label>
+            </value>
+            <value>
+                <fullName>ECIL - EMPLOYER CHANGED ISLAND (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLOYEE&apos;S EMPMT TERMINATED WHEN EMPLR (SOLE OWNER) MOVES TO ANOTHER ISLAND)</fullName>
+                <default>false</default>
+                <label>ECIL - EMPLOYER CHANGED ISLAND (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLOYEE&apos;S EMPMT TERMINATED WHEN EMPLR (SOLE OWNER) MOVES TO ANOTHER ISLAND)</label>
+            </value>
+            <value>
+                <fullName>EDEL - EMPLOYER DELINQUENT/FORFEITED (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - WHEN EMPLOYEE RENEWS LICENSE &amp; EMPLR DOES NOT RENEW, EMPLOYEE&apos;S EMPLMT TERMINATED)</fullName>
+                <default>false</default>
+                <label>EDEL - EMPLOYER DELINQUENT/FORFEITED (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - WHEN EMPLOYEE RENEWS LICENSE &amp; EMPLR DOES NOT RENEW, EMPLOYEE&apos;S EMPLMT TERMINATED)</label>
+            </value>
+            <value>
+                <fullName>ELNR - EMPLOYER LICENSE NO LONGER REQUIRED</fullName>
+                <default>false</default>
+                <label>ELNR - EMPLOYER LICENSE NO LONGER REQUIRED</label>
+            </value>
+            <value>
+                <fullName>ELOS - EMPLOYER DISSOLVED/DECEASED/NO PRINCIPAL (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLR IS INVOLUNTARILY AFFECTED BY SITUATION &amp; EMPLOYEES ARE TERMINATED)</fullName>
+                <default>false</default>
+                <label>ELOS - EMPLOYER DISSOLVED/DECEASED/NO PRINCIPAL (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLR IS INVOLUNTARILY AFFECTED BY SITUATION &amp; EMPLOYEES ARE TERMINATED)</label>
+            </value>
+            <value>
+                <fullName>ENEW - EMPLOYER HIRED NEW PRINCIPAL (PB, BIC, RME) (FOR DISPLACED PRINCIPAL) (INDIRECT)</fullName>
+                <default>false</default>
+                <label>ENEW - EMPLOYER HIRED NEW PRINCIPAL (PB, BIC, RME) (FOR DISPLACED PRINCIPAL) (INDIRECT)</label>
+            </value>
+            <value>
+                <fullName>ENIS - EMPLOYER LOSS OF INSURANCE (FOR EMPLOYEES &amp; NOT SOLE OWNERS) (INDIRECT - WHEN AN EMPLOYER LOSES HIS INSURANCE EMPLOYEE&apos;S EMPLOYMENT IS TERMINATED)</fullName>
+                <default>false</default>
+                <label>ENIS - EMPLOYER LOSS OF INSURANCE (FOR EMPLOYEES &amp; NOT SOLE OWNERS) (INDIRECT - WHEN AN EMPLOYER LOSES HIS INSURANCE EMPLOYEE&apos;S EMPLOYMENT IS TERMINATED)</label>
+            </value>
+            <value>
+                <fullName>ENSF - EMPLOYER DELINQUENT DUE TO BOUNCED CHECK (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLMT OF EMPLOYEES TERMINATED WHEN EMPLR&apos;S RENEWAL CHECK BOUNCES (EMPLMT RESUMES WHEN PAYMENT MADE?)</fullName>
+                <default>false</default>
+                <label>ENSF - EMPLOYER DELINQUENT DUE TO BOUNCED CHECK (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLMT OF EMPLOYEES TERMINATED WHEN EMPLR&apos;S RENEWAL CHECK BOUNCES (EMPLMT RESUMES WHEN PAYMENT MADE?)</label>
+            </value>
+            <value>
+                <fullName>ERBA - EMPLOYER MOVED TO A RESTRICTED BUSINESS ADDRESS (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - BROKER WITH &quot;RESTRICTED&quot; ADDRESS NOT ALLOWED TO HAVE EMPLOYEES OTHER THAN PEOPLE RESIDING WITH BROKER)</fullName>
+                <default>false</default>
+                <label>ERBA - EMPLOYER MOVED TO A RESTRICTED BUSINESS ADDRESS (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - BROKER WITH &quot;RESTRICTED&quot; ADDRESS NOT ALLOWED TO HAVE EMPLOYEES OTHER THAN PEOPLE RESIDING WITH BROKER)</label>
+            </value>
+            <value>
+                <fullName>ESUP - LOSS OF SUPERVISOR (INDIRECT)</fullName>
+                <default>false</default>
+                <label>ESUP - LOSS OF SUPERVISOR (INDIRECT)</label>
+            </value>
+            <value>
+                <fullName>EZ - DISCIPLINARY ACTION TAKEN AGAINST EMPLOYER (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLMT OF EMPLOYEES TERMINATED WHEN DISCIPLINARY ACTION (EMPLR NOT ALLOWED TO OPERATE) TAKEN AGAINST EMPLR)</fullName>
+                <default>false</default>
+                <label>EZ - DISCIPLINARY ACTION TAKEN AGAINST EMPLOYER (FOR &quot;EMPLOYEES&quot; &amp; NOT SOLE OWNERS) (INDIRECT - EMPLMT OF EMPLOYEES TERMINATED WHEN DISCIPLINARY ACTION (EMPLR NOT ALLOWED TO OPERATE) TAKEN AGAINST EMPLR)</label>
+            </value>
+            <value>
+                <fullName>FORF - FORFEITED (DIRECT - LICENSE CONSIDERED &quot;FORFEITED&quot; AFTER THE TIME LIMIT TO RESTORE A &quot;DELINQUENT&quot; LICENSE IS PAST)</fullName>
+                <default>false</default>
+                <label>FORF - FORFEITED (DIRECT - LICENSE CONSIDERED &quot;FORFEITED&quot; AFTER THE TIME LIMIT TO RESTORE A &quot;DELINQUENT&quot; LICENSE IS PAST)</label>
+            </value>
+            <value>
+                <fullName>I - INACTIVE LICENSE (EFF DT TRANS) OR INACTIVATED (TERM DT TRANS) (DIRECT)</fullName>
+                <default>false</default>
+                <label>I - INACTIVE LICENSE (EFF DT TRANS) OR INACTIVATED (TERM DT TRANS) (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>LP - LAW REPEALED</fullName>
+                <default>false</default>
+                <label>LP - LAW REPEALED</label>
+            </value>
+            <value>
+                <fullName>MAIN - TERMINATION DUE TO MAIN OFFICE</fullName>
+                <default>false</default>
+                <label>MAIN - TERMINATION DUE TO MAIN OFFICE</label>
+            </value>
+            <value>
+                <fullName>MLOS - ASSC. MAIN OFFICE LOST REPONSIBLE EMPLOYEE</fullName>
+                <default>false</default>
+                <label>MLOS - ASSC. MAIN OFFICE LOST REPONSIBLE EMPLOYEE</label>
+            </value>
+            <value>
+                <fullName>MOST - MOVED OUT-OF-STATE OR TO ANOTHER ISLAND (DIRECT - EMPLMT TERMINATED WHEN LICENSEE LEAVES HAWAII OR MOVES TO ANOTHER ISLAND FROM BROKER&apos;S OFFICE)</fullName>
+                <default>false</default>
+                <label>MOST - MOVED OUT-OF-STATE OR TO ANOTHER ISLAND (DIRECT - EMPLMT TERMINATED WHEN LICENSEE LEAVES HAWAII OR MOVES TO ANOTHER ISLAND FROM BROKER&apos;S OFFICE)</label>
+            </value>
+            <value>
+                <fullName>NBIC - TERMINATION DUE TO BROKER-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>NBIC - TERMINATION DUE TO BROKER-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>NB - NEW BROKER LICENSEE (REAL ESTATE COMMISSION)</fullName>
+                <default>false</default>
+                <label>NB - NEW BROKER LICENSEE (REAL ESTATE COMMISSION)</label>
+            </value>
+            <value>
+                <fullName>NEMP - TRANSFERRED FROM ONE EMPLOYER TO ANOTHER EMPLOYER, SAME POSITION CODE (DIRECT)</fullName>
+                <default>false</default>
+                <label>NEMP - TRANSFERRED FROM ONE EMPLOYER TO ANOTHER EMPLOYER, SAME POSITION CODE (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>N - NEW LICENSEE</fullName>
+                <default>false</default>
+                <label>N - NEW LICENSEE</label>
+            </value>
+            <value>
+                <fullName>NSF - DELINQUENT/FORFEITED DUE TO BOUNCED CHECK (DIRECT)</fullName>
+                <default>false</default>
+                <label>NSF - DELINQUENT/FORFEITED DUE TO BOUNCED CHECK (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>PLOS - TERMINATION DUE TO PRINCIPAL</fullName>
+                <default>false</default>
+                <label>PLOS - TERMINATION DUE TO PRINCIPAL</label>
+            </value>
+            <value>
+                <fullName>RDEL - RELATED LICENSE DELINQUENT</fullName>
+                <default>false</default>
+                <label>RDEL - RELATED LICENSE DELINQUENT</label>
+            </value>
+            <value>
+                <fullName>REAC - REACTIVATED (DIRECT)</fullName>
+                <default>false</default>
+                <label>REAC - REACTIVATED (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>REIN - REINSTATED (REINSTATED SUSPENDED/TERMINATED/REVOKED LICENSE)</fullName>
+                <default>false</default>
+                <label>REIN - REINSTATED (REINSTATED SUSPENDED/TERMINATED/REVOKED LICENSE)</label>
+            </value>
+            <value>
+                <fullName>REL - RELEASED/TERMINATED BY EMPLOYER (DIRECT)</fullName>
+                <default>false</default>
+                <label>REL - RELEASED/TERMINATED BY EMPLOYER (DIRECT)</label>
+            </value>
+            <value>
+                <fullName>REOA - REOPENED (RE-ESTABLISHED AN ACTIVE LICENSE) (DIRECT (REASON FOR &quot;INACTIVE&quot; EMPLOYMENT TERMINATION)</fullName>
+                <default>false</default>
+                <label>REOA - REOPENED (RE-ESTABLISHED AN ACTIVE LICENSE) (DIRECT (REASON FOR &quot;INACTIVE&quot; EMPLOYMENT TERMINATION)</label>
+            </value>
+            <value>
+                <fullName>RSTR - RESTORED (EFF DT TRANS) (DELINQUENT LICENSE RESTORED)</fullName>
+                <default>false</default>
+                <label>RSTR - RESTORED (EFF DT TRANS) (DELINQUENT LICENSE RESTORED)</label>
+            </value>
+            <value>
+                <fullName>SPEC - NONPAYMENT CONTRACTOR SPECIAL ASSESSMENT</fullName>
+                <default>false</default>
+                <label>SPEC - NONPAYMENT CONTRACTOR SPECIAL ASSESSMENT</label>
+            </value>
+            <value>
+                <fullName>TERM - TERMINATE CONTRACT/TEMPORARY (RESIDENT PHYSICIANS &amp; TEMPORARY PB/BIC FOR REAL ESTATE)</fullName>
+                <default>false</default>
+                <label>TERM - TERMINATE CONTRACT/TEMPORARY (RESIDENT PHYSICIANS &amp; TEMPORARY PB/BIC FOR REAL ESTATE)</label>
+            </value>
+            <value>
+                <fullName>UP - UPGRADED LICENSE</fullName>
+                <default>false</default>
+                <label>UP - UPGRADED LICENSE</label>
+            </value>
+            <value>
+                <fullName>Z - DISCIPLINARY ACTION TAKEN (DIRECT - EMPLMT OF LICENSEE TERMINATED WHEN DISCIPLINARY ACTION (LICENSEE NOT ALLOWED TO OPERATE) TAKEN)</fullName>
+                <default>false</default>
+                <label>Z - DISCIPLINARY ACTION TAKEN (DIRECT - EMPLMT OF LICENSEE TERMINATED WHEN DISCIPLINARY ACTION (LICENSEE NOT ALLOWED TO OPERATE) TAKEN)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

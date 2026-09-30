@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalApplicationStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+
+OutstandingAmount__c &gt; 0, 
+
+CASE(
+ TEXT(Status__c), 
+
+&quot;AP - Application Pending Submittal by Applicant/Licensee&quot;, &quot;We have received your renewal application.  Your renewal fees of $&quot; +  TEXT(OutstandingAmount__c)  + &quot; are owed to PVL.  Please click Renew to continue your application and make payment.&quot;, 
+
+
+&quot;A3 - Deficiency Notice Sent&quot;, &quot;We have received your renewal application and payment, however there is a deficiency with your application that requires further action.  Please contact PVL at 808-586-3000.&quot;, 
+
+
+
+&quot;The status of your renewal application is: &quot; + TEXT(Status__c) +&quot;. For more information please contact PVL at 808-586-3000.&quot;)
+, 
+
+
+CASE(
+ TEXT(Status__c) + &quot;-&quot; + TEXT(OutstandingAmount__c), 
+
+&quot;D2 - Continuing Education Missing-0&quot;, 
+
+CASE(  LicenseType__r.BoardProgram__r.Name  , 
+
+&quot;REAL ESTATE COMMISSION&quot;, &quot;ADDITIONAL CONTINUING EDUCATION REQUIRED: We have received your renewal application, however our records show that you have not yet completed the required continuing education credits in order to renew your license. &quot;  +  CurrentLicense__r.LicenseType__r.LicenseType__c  + &quot; licenses must complete &quot; +  TEXT(CurrentLicense__r.CoreCreditsRequiredThisPeriod__c) + &quot; core credits and &quot; +  Text(CurrentLicense__r.ElectiveCreditsRequiredThisPeriod__c) + &quot; elective credits by &quot; + TEXT( MONTH(CurrentLicense__r.EffectiveExpireDate__c) ) + &quot;/&quot; + TEXT( DAY(CurrentLicense__r.EffectiveExpireDate__c) ) + &quot;/&quot; + TEXT( YEAR(CurrentLicense__r.EffectiveExpireDate__c) ) + &quot; in order to renew.  PVL records show that you have completed &quot; +  TEXT(CurrentLicense__r.CoreCreditsThisLicensePeriod__c)  + &quot; core credits and &quot; + TEXT( CurrentLicense__r.ElectiveCreditsThisLicensePeriod__c ) + &quot; elective credits during this Biennium.  For questions, please contact your Education Provider and ensure they have submitted your credit, or contact PVL at 808-586-3000.&quot;, 
+
+&quot;We have received your renewal application and payment, however PVL does not yet have proof of your Continuing Education on file.  Please submit proof of your CE to PVL or ask your CE provider to submit proof online.&quot;) 
+, 
+
+&quot;D1 - Awaiting Dependency Review-0&quot;, 
+
+ CASE( LicenseType__r.Name , 
+
+&quot;RB - Broker&quot;, &quot;We have received your renewal application and payment, however your Real Estate Broker Firm has not yet renewed. Your license will be renewed when your Broker Firm completes its renewal.&quot;,
+&quot;RS&quot;, &quot;We have received your renewal application and payment, however your Real Estate Broker Firm has not yet renewed. Your license will be renewed when your Broker Firm completes its renewal.&quot;,
+&quot;RB - Entity&quot;, &quot;We have received your renewal application and payment, however your Principal Broker has not yet renewed. Your license will be renewed when your Principal Broker completes their renewal.&quot;,
+&quot;RBO&quot;, &quot;We have received your renewal application and payment, however either your Real Estate Broker Firm or your Broker in Charge has not yet renewed. Your license will be renewed when both your Broker Firm and your Broker in Charge completes their renewal.&quot;,
+
+&quot;We have received your application and payment, however we are awaiting your dependent license requirements.  Your license will be renewed when your dependent license(s) have renewed.&quot;) 
+
+,
+
+
+&quot;A3 - Deficiency Notice Sent-0&quot;, &quot;We have received your renewal application and payment, however there is a deficiency with your application that requires further action.  Please contact PVL at 808-586-3000.&quot;, 
+
+
+&quot;The status of your renewal application is: &quot; + TEXT(Status__c) + &quot;. For more information please contact PVL at 808-586-3000.&quot;)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Application Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

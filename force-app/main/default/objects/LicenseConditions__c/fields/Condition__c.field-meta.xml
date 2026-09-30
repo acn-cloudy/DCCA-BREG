@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Condition__c</fullName>
+    <description>PacPoint-IC080519- Created for PVL phase 1
+PacPoint-KN102219-Modified for PVL Sprint 2 Phase 1
+MTX 02/12/26 - Modified to make Text Area Long</description>
+    <label>Condition</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

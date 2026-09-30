@@ -1,0 +1,22 @@
+<aura:component >
+    <aura:attribute name="fieldName" type="string" access="global" />
+    <aura:attribute name="value" type="string" access="global" />
+	<aura:attribute name="fieldLabel" type="string" access="global" />
+    <aura:attribute name="maxDate"  type="string" access="global" />
+    <aura:attribute name="required" type="boolean" access="global" />
+    <aura:attribute name="readOnly" type="boolean" access="global" default="false" />
+    <aura:attribute name="dateValidation" type="string" access="global" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:method name="validate" action="{!c.doValidate}" />
+
+	<aura:method name="printError" action="{!c.excutePrintError}">
+        <aura:attribute name="message" type="String"/>
+    </aura:method>
+    
+
+    <lightning:input aura:id="input" type="date" label="" variant="label-hidden" value="{!v.value}"
+        disabled="{!v.readOnly}" onchange="{!c.handleBlur}" max="{!v.maxDate}" 
+    />
+	
+</aura:component>

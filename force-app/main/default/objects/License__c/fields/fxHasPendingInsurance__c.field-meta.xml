@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fxHasPendingInsurance__c</fullName>
+    <description>PacPoint:&lt;Initials + Case #&gt;-&lt;Project + Phase&gt; - Displays the number Insurance that are in Pending Status for this license.</description>
+    <label>Has Pending Insurance</label>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </summaryFilterItems>
+    <summaryForeignKey>InsuranceBond__c.License__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

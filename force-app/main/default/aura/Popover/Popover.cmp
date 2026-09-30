@@ -1,0 +1,13 @@
+<aura:component access="global">
+    <aura:attribute access="global" name="popoverBody" type="Aura.Component[]" required="true" description="Holds the content of the popover. Any kind of markup is supported."/>
+    
+    <div class="anchor">
+        <div class="hideValue">
+        {!v.body}
+        </div>
+        <div class="anchor slds-popover">
+            {!v.popoverBody}
+        </div>
+        
+    </div>
+</aura:component>

@@ -1,0 +1,141 @@
+.skip-link {
+    z-index: 100;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: toRem(1);
+    width: toRem(1);
+    margin: toRem(-1);
+    border: 0;
+
+    &:focus {
+        clip: initial;
+        height: auto;
+        width: auto;
+        margin: 0;
+        padding: toRem(10);
+        font-size: toRem(12);
+        left: 50%;
+        top: toRem(24);
+        transform: translateX(-50%);
+        color: var(--white);
+        @include focus-outline-white;
+
+        @include responsive(tab-port) {
+            left: 35%;
+        }
+
+        @include responsive(phone) {
+            left: 50%;
+            top: toRem(16);
+        }
+    }
+}
+
+.main-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.mds-header {
+    // background: var(--white);
+    background: #40842F;
+    color: var(--white);
+    padding: toRem(16) toRem(24);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: toRem(1) solid var(--other-divider);
+
+    &.mds-sub_header{
+        background: var(--white);
+    }
+
+    &_left {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: 1rem;
+
+        @include responsive(tab-port) {
+            gap: var(--spacing-large);
+        }
+
+        .mds-font-weight_semi-bold{
+            @include responsive(tab-port) {
+                display: none;
+            }
+        }
+    }
+    &_right {
+        margin-right: 1rem;
+
+        @include responsive(tab-port) {
+            width: 40%;
+        }
+    }
+
+    &-logo {
+        > div{
+            @include responsive(tab-port) {
+                display: none;
+            }
+        }
+    }
+
+    .primary_nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .profile-dropdown {
+            .slds-button {
+                // padding-left: 9.8rem;
+                color: var(--white);
+            }
+    
+            .slds-dropdown__list {
+                .slds-dropdown__item {
+                    a {
+                        &:focus {
+                            outline-offset: toRem(-2) !important;
+                        }
+    
+                        &:hover {
+                            &:before {
+                                color: var(--primary-main);
+                            }
+                        }
+                    }
+                }
+            }
+    
+            button {
+                &:focus {
+                    @include focus-outline-white();
+                }
+            }
+        }
+
+        .profile-avatar {
+            color: var(--white);
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.1rem;
+            border-radius: 50%;
+            // margin: 0 auto;
+            // position: absolute;
+            // left: 0;
+            // right: 0;
+            // border: 2px solid var(--black);
+            width: 3.25rem;
+                img {
+                    border-radius: 50%;
+                }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sort_Application_ID__c</fullName>
+    <description>Created so list views can be sorted by Application ID number.</description>
+    <externalId>false</externalId>
+    <formula>VALUE(
+IF (
+LEN( ApplicationAutoNumber__c ) = 7,
+RIGHT( ApplicationAutoNumber__c , 4),
+
+IF(
+LEN(ApplicationAutoNumber__c) = 8,
+RIGHT( ApplicationAutoNumber__c , 5),&quot;None&quot;))
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sort Application ID</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

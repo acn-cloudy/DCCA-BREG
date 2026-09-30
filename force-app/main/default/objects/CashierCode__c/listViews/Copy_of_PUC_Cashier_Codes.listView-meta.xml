@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_PUC_Cashier_Codes</fullName>
+    <columns>CashierCode__c</columns>
+    <columns>FundAccount__c</columns>
+    <columns>FAMISSrcCode__c</columns>
+    <columns>Amount__c</columns>
+    <columns>NAME</columns>
+    <columns>Division__c</columns>
+    <columns>Category__c</columns>
+    <columns>FeeCode__c</columns>
+    <columns>CostCenter__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Division__c</field>
+        <operation>equals</operation>
+        <value>Insurance</value>
+    </filters>
+    <label>Insurance Cashier Codes</label>
+</ListView>

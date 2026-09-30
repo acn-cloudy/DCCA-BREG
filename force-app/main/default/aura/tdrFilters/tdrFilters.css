@@ -1,0 +1,19 @@
+.THIS {
+}
+
+.THIS .tDRTable .amount lightning-input span,
+.THIS .tDRTable .amount lightning-input label,
+.THIS .tDRTable .deposit lightning-input span,
+.THIS .tDRTable .deposit lightning-input label {
+    display:none;
+}
+
+.THIS .tDRTable .amount lightning-input input,
+.THIS .tDRTable .deposit lightning-input input {
+    text-align: right;
+    padding: 0;
+    background: #fefcae;
+    border: 0;
+    height:22px;
+    min-height: unset;
+}

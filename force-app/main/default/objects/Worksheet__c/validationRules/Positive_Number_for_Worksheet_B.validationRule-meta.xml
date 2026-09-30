@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Positive_Number_for_Worksheet_B</fullName>
+    <active>true</active>
+    <description>&quot;PacPoint:AC201217 - Case 12182 - Travel Approval - Created for Section D - Deduct Computation of Meal Allowance should only have positive numbers entered in Breakfast, Lunch, Dinner.</description>
+    <errorConditionFormula>OR(
+BreakfastD__c &lt; 0,
+LunchD__c &lt; 0,
+DinnerD__c &lt; 0
+)</errorConditionFormula>
+    <errorMessage>Please enter a positive number in Breakfast, Lunch, Dinner under Section D - Deduct Computation of Meal Allowance</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BusinessOnlyDepartureDate__c</fullName>
+    <description>PacPoint-AC120919 - Created for DCCA Travel Approval phase 1</description>
+    <inlineHelpText>Authorized date of departure from home island.</inlineHelpText>
+    <label>Business Only Departure Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

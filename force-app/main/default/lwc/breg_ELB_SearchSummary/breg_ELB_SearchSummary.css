@@ -1,0 +1,21 @@
+.custom-tile {
+  border: 2px solid #037d54;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.text-box {
+    max-width: 30ch;              /* Limit width to 30 characters */
+    white-space: normal;          /* Allow wrapping */
+    word-break: break-word;       /* Break long words if needed */
+    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .slds-text-heading_large {
+    font-size: 24px;
+  }
+
+  .counter-wrapper {
+    gap: 0.5rem;
+  }
+}

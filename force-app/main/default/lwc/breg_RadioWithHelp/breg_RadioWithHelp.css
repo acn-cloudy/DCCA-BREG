@@ -1,0 +1,15 @@
+.action-link {
+    display: inline;
+    position: relative;
+    color: var(--lwc-brandTextLink, #0176d3);
+    text-decoration: underline;
+    font-weight: 500;
+    line-height: inherit;
+    vertical-align: baseline;
+}
+
+.action-text {
+    display: inline;
+    line-height: inherit;
+    vertical-align: baseline;
+}

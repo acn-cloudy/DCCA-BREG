@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Generate_Worksheet</fullName>
+    <availability>online</availability>
+    <description>PacPoint-JF - Case #8041- Send Statement Of Completed Travel</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Generate Worksheet</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&quot;/apex/dsfs__DocuSign_CreateEnvelope&quot;, null, [SourceID =
+Worksheet__c.Id,DST=Worksheet__c.DocusignTemplateId__c])}</url>
+</WebLink>

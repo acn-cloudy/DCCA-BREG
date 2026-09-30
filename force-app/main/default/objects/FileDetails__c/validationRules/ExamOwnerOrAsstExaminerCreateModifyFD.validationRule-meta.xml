@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExamOwnerOrAsstExaminerCreateModifyFD</fullName>
+    <active>false</active>
+    <description>PacPoint-DL-092721 Case #2411 BREG Support</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(Exam__r.AssistantExaminer__r.Username)),
+NOT(ISBLANK(Exam__r.Owner:User.Username)),
+NOT($Profile.Name = &quot;System Administrator&quot;),
+NOT($Profile.Name = &quot;DCCA SEC/SEB System Administrator&quot;),
+
+OR(
+
+AND(
+NOT(ISBLANK(Exam__c)),
+$User.Username != Exam__r.AssistantExaminer__r.Username,
+$User.Username != Exam__r.Owner:User.Username),
+
+
+AND(
+NOT(ISNEW()),
+NOT(ISBLANK(PRIORVALUE(Exam__c))),
+ISCHANGED(Exam__c),
+ISBLANK(Exam__c),
+NOT($User.Username = Exam__r.Owner:User.Username),
+NOT($User.Username = Exam__r.AssistantExaminer__r.Username)),
+
+AND(
+NOT(ISNEW()),
+NOT(ISBLANK(PRIORVALUE(Exam__c))),
+ISCHANGED(Exam__c),
+NOT(ISBLANK(Exam__c)),
+NOT($User.Username = Exam__r.Owner:User.Username),
+NOT($User.Username = Exam__r.AssistantExaminer__r.Username))
+)
+)</errorConditionFormula>
+    <errorMessage>Error: Only the Exam Owner and Assistant Examiner can create/edit File Details</errorMessage>
+</ValidationRule>

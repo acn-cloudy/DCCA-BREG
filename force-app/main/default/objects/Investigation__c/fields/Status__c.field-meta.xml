@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-IC101818 - Created for BREG phase 1</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Appellate Court</fullName>
+                <default>false</default>
+                <label>Appellate Court</label>
+            </value>
+            <value>
+                <fullName>Circuit Court</fullName>
+                <default>false</default>
+                <label>Circuit Court</label>
+            </value>
+            <value>
+                <fullName>Commissioner’s Final Order</fullName>
+                <default>false</default>
+                <label>Commissioner’s Final Order</label>
+            </value>
+            <value>
+                <fullName>Consent Agreement</fullName>
+                <default>false</default>
+                <label>Consent Agreement</label>
+            </value>
+            <value>
+                <fullName>Consent Order</fullName>
+                <default>false</default>
+                <label>Consent Order</label>
+            </value>
+            <value>
+                <fullName>Corrections by Attorney Required (L)</fullName>
+                <default>false</default>
+                <label>Corrections by Attorney Required (L)</label>
+            </value>
+            <value>
+                <fullName>Corrections Required</fullName>
+                <default>false</default>
+                <label>Corrections Required</label>
+            </value>
+            <value>
+                <fullName>Currently in Hearing</fullName>
+                <default>false</default>
+                <label>Currently in Hearing</label>
+            </value>
+            <value>
+                <fullName>Ex Parte Motion for Service by Publication</fullName>
+                <default>false</default>
+                <label>Ex Parte Motion for Service by Publication</label>
+            </value>
+            <value>
+                <fullName>Investigation in Progress</fullName>
+                <default>false</default>
+                <label>Investigation in Progress</label>
+            </value>
+            <value>
+                <fullName>Judgement Enforcing Commissioner’s Final Order</fullName>
+                <default>false</default>
+                <label>Judgement Enforcing Commissioner’s Final Order</label>
+            </value>
+            <value>
+                <fullName>Judgement Enforcing Commissioner’s Final Order (BOC)</fullName>
+                <default>false</default>
+                <label>Judgement Enforcing Commissioner’s Final Order (BOC)</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Order Ready to Serve</fullName>
+                <default>false</default>
+                <label>Order Ready to Serve</label>
+            </value>
+            <value>
+                <fullName>Pending Hearing Date</fullName>
+                <default>false</default>
+                <label>Pending Hearing Date</label>
+            </value>
+            <value>
+                <fullName>Pending Request for Hearing</fullName>
+                <default>false</default>
+                <label>Pending Request for Hearing</label>
+            </value>
+            <value>
+                <fullName>Preliminary Order to Cease and Desist</fullName>
+                <default>false</default>
+                <label>Preliminary Order to Cease and Desist</label>
+            </value>
+            <value>
+                <fullName>Ready for Supervising Attorney Review</fullName>
+                <default>false</default>
+                <label>Ready for Supervising Attorney Review</label>
+            </value>
+            <value>
+                <fullName>Ready for Supervising Attorney Review (L)</fullName>
+                <default>false</default>
+                <label>Ready for Supervising Attorney Review (L)</label>
+            </value>
+            <value>
+                <fullName>Ready for Supervisor Review</fullName>
+                <default>false</default>
+                <label>Ready for Supervisor Review</label>
+            </value>
+            <value>
+                <fullName>Recommend Final Order</fullName>
+                <default>false</default>
+                <label>Recommend Final Order</label>
+            </value>
+            <value>
+                <fullName>Recommend Judgement</fullName>
+                <default>false</default>
+                <label>Recommend Judgement</label>
+            </value>
+            <value>
+                <fullName>Recommend Referral to Legal</fullName>
+                <default>false</default>
+                <label>Recommend Referral to Legal</label>
+            </value>
+            <value>
+                <fullName>Recommend to Close</fullName>
+                <default>false</default>
+                <label>Recommend to Close</label>
+            </value>
+            <value>
+                <fullName>Remand to Appellate Court</fullName>
+                <default>false</default>
+                <label>Remand to Appellate Court</label>
+            </value>
+            <value>
+                <fullName>Remand to Circuit Court</fullName>
+                <default>false</default>
+                <label>Remand to Circuit Court</label>
+            </value>
+            <value>
+                <fullName>Remand to Commissioner</fullName>
+                <default>false</default>
+                <label>Remand to Commissioner</label>
+            </value>
+            <value>
+                <fullName>Report Approved</fullName>
+                <default>false</default>
+                <label>Report Approved</label>
+            </value>
+            <value>
+                <fullName>Supreme Court</fullName>
+                <default>false</default>
+                <label>Supreme Court</label>
+            </value>
+            <value>
+                <fullName>Under Legal Review</fullName>
+                <default>false</default>
+                <label>Under Legal Review</label>
+            </value>
+            <value>
+                <fullName>Warning Letter</fullName>
+                <default>false</default>
+                <label>Warning Letter</label>
+            </value>
+            <value>
+                <fullName>Corrections by SEB Supervisor Required</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corrections by SEB Supervisor Required</label>
+            </value>
+            <value>
+                <fullName>Printed for Final Signatures</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Printed for Final Signatures</label>
+            </value>
+            <value>
+                <fullName>Ready for Commissioner Review</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ready for Commissioner Review</label>
+            </value>
+            <value>
+                <fullName>Ready for Commissioner Review (L)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ready for Commissioner Review (L)</label>
+            </value>
+            <value>
+                <fullName>Recommend Hearing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Recommend Hearing</label>
+            </value>
+            <value>
+                <fullName>Recommend Settlement</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Recommend Settlement</label>
+            </value>
+            <value>
+                <fullName>Recommend Warning Letter</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Recommend Warning Letter</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

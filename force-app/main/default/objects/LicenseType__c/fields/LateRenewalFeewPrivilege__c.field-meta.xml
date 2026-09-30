@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LateRenewalFeewPrivilege__c</fullName>
+    <inlineHelpText>If renewing late with a privilege has a different fee, then enter the total amount to renew late with a privilege. If renewing late with the privilege does not have a different fee, then leave this field blank.</inlineHelpText>
+    <label>Late Renewal Fee w/ Privilege</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

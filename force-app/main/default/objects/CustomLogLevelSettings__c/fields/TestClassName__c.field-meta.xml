@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestClassName__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>This is a TEST value, used only in CustomLoggerTest. Do not name a real apex class this name.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is a TEST value, used only in CustomLoggerTest. Do not name a real apex class this name.</inlineHelpText>
+    <label>TestClassName</label>
+    <precision>1</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

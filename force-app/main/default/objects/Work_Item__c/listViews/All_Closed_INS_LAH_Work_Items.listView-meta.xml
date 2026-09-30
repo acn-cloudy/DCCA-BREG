@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Closed_INS_LAH_Work_Items</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Case__c</columns>
+    <columns>INS_Branch__c</columns>
+    <columns>Status__c</columns>
+    <columns>Owner_calc__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Work_Item_Closed_Date__c</columns>
+    <columns>Days_Open__c</columns>
+    <columns>Transfer_to_Division__c</columns>
+    <columns>Transfer_to_Branch__c</columns>
+    <columns>Transferred_to_Work_Item_calc__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Transferred,Closed</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Work_Item__c.INS</value>
+    </filters>
+    <filters>
+        <field>INS_Branch__c</field>
+        <operation>equals</operation>
+        <value>LAH</value>
+    </filters>
+    <label>All Closed INS LAH Work Items</label>
+    <sharedTo>
+        <group>INS_LAH_Supervisors</group>
+        <group>INS_LAH_Tier_1</group>
+    </sharedTo>
+</ListView>

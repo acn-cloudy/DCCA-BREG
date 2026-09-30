@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Blake_Edit_Cara_s_Filings</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Blake Edit Cara&apos;s Filings</label>
+        <sharedTo>
+            <group>Blake_Yoshimura</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Reviewer__c</field>
+            <operation>equals</operation>
+            <value>005t0000003TYkxAAG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>FilingBregSecManagerReadWrite</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-CL11152021  - Case 00018525</description>
+        <label>FilingBregSecManagerReadWrite</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Reviewer__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>SiteGuestUser</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>SiteGuestUser</label>
+        <sharedTo>
+            <guestUser>PaymentConnect</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

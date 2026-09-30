@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sanction__c</fullName>
+    <description>PacPoint-IC102918 - Created for BREG phase 1</description>
+    <label>Sanction</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Barred/Prohibited from Registering</fullName>
+                <default>false</default>
+                <label>Barred/Prohibited from Registering</label>
+            </value>
+            <value>
+                <fullName>Registration Conditional</fullName>
+                <default>false</default>
+                <label>Registration Conditional</label>
+            </value>
+            <value>
+                <fullName>Registration Denied</fullName>
+                <default>false</default>
+                <label>Registration Denied</label>
+            </value>
+            <value>
+                <fullName>Restitution/Rescission</fullName>
+                <default>false</default>
+                <label>Restitution/Rescission</label>
+            </value>
+            <value>
+                <fullName>Injunction</fullName>
+                <default>false</default>
+                <label>Injunction</label>
+            </value>
+            <value>
+                <fullName>Penalty</fullName>
+                <default>false</default>
+                <label>Penalty</label>
+            </value>
+            <value>
+                <fullName>Registration Revocation</fullName>
+                <default>false</default>
+                <label>Registration Revocation</label>
+            </value>
+            <value>
+                <fullName>Registration Suspension</fullName>
+                <default>false</default>
+                <label>Registration Suspension</label>
+            </value>
+            <value>
+                <fullName>Registration Withdrawal (Formal/Informal)</fullName>
+                <default>false</default>
+                <label>Registration Withdrawal (Formal/Informal)</label>
+            </value>
+            <value>
+                <fullName>Heightened Supervision</fullName>
+                <default>false</default>
+                <label>Heightened Supervision</label>
+            </value>
+            <value>
+                <fullName>Investigative Costs</fullName>
+                <default>false</default>
+                <label>Investigative Costs</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

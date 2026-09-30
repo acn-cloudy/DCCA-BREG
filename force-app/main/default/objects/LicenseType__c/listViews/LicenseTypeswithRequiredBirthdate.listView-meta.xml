@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseTypeswithRequiredBirthdate</fullName>
+    <columns>NAME</columns>
+    <columns>LicenseNumberAssignmentCode__c</columns>
+    <columns>LicenseType__c</columns>
+    <columns>BoardProgram__c</columns>
+    <columns>DateofBirthRequiredonApplication__c</columns>
+    <columns>LicensePrefix__c</columns>
+    <columns>ApplicationRecordType__c</columns>
+    <columns>ApplicationPageLayout__c</columns>
+    <columns>ActiveInactive__c</columns>
+    <columns>LicenseRecordTypeId__c</columns>
+    <columns>AccountPageLayout__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>DateofBirthRequiredonApplication__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>License Types with Required Birthdate</label>
+</ListView>

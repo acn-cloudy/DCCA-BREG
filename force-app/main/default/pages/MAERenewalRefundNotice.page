@@ -1,0 +1,70 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+
+            body {
+                margin-top: 5px;
+                font-size: 11pt;
+                font-family: Arial Narrow, Arial;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-3" licenseType="BOARD OF MASSAGE THERAPY" />
+            <div style="padding-left: 50px">
+                <c:RefundNoticeSubHeader license="{!record}" dToday="{!dToday}" licenseLabel="MAE License No.:" subject="Non-Renewal of Massage Establishment License for"
+                />
+                <br/>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">
+                    Please be advised that we are not able to process the license renewal application for the above</div>
+                <div style="text-align: left;">
+                    referenced massage establishment because the licensing records reflect that the principal massage 
+                    <br/>therapist has failed to renew his/her license. 
+                </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">Hawaii Administrative Rules, section 16-84-15 requires a massage establishment to be under the</div>
+                <div style="text-align: left;">direct management of a principal massage therapist. </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">
+                    Failure to designate a principal massage therapist with a current license by the above date will</div>
+                <div style="text-align: left;">result in the forfeiture of the massage establishment license at which time you may not do business under
+                    <br/>
+                    this license and will be required to restore or re-apply as a new applicant, including submitting a new 
+                    <br/>
+                    application form and all required documents and fees. 
+                </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">A refund of your renewal fees will be processed if there is no response. Please note that</div>
+                <div style="text-align: left;">processing time for refunds is approximately 8 weeks. </div>
+                <br/>
+                <br/>
+                <!-- <div style="margin-left: 300px; text-align: left;">
+                    Very truly yours,</div>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Christine Rutkowski</div>
+                <div style="margin-left: 300px; text-align: left;">Executive Officer</div>
+                <div style="margin-left: 300px; text-align: left;">Board of Massage Therapy</div> -->
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

@@ -1,0 +1,26 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="slds-grid slds-grid_align-center slds-p-around_large">
+            <lightning-spinner size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <template if:false={isLoading}>
+        <template if:true={isBlocked}>
+            <!-- Warning layout matching BREG_Account_Create_Not_Allowed page -->
+            <div class="slds-grid slds-grid_align-center slds-p-around_large">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3 slds-large-size_1-of-2">
+                    <div class="slds-notify slds-notify_alert slds-theme_error slds-theme_alert-texture slds-m-bottom_medium" role="alert">
+                        <span class="slds-assistive-text">{labels.error}</span>
+                        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title={labels.error}>
+                            <lightning-icon icon-name="utility:error" alternative-text={labels.error} size="small" variant="inverse"> </lightning-icon>
+                        </span>
+                        <h2 class="slds-text-heading_small">{labels.message}</h2>
+                    </div>
+
+                    <lightning-button label={labels.returnToAccounts} onclick={handleReturnToAccounts}> </lightning-button>
+                </div>
+            </div>
+        </template>
+    </template>
+</template>

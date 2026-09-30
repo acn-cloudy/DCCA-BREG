@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CompletionDateofFirstInterview__c</fullName>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1
+PacPoint-RA110718 - Updated for BREG phase 1</description>
+    <label>Completion Date of Phone/OnSiteInterview</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

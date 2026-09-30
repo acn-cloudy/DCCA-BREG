@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Target_Object_Record_Type__c</fullName>
+    <description>The DeveloperName of the record type of the object that this field will submit to.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The DeveloperName of the record type of the object that this field will submit to.</inlineHelpText>
+    <label>Target Object Record Type</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

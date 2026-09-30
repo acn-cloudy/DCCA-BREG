@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License__c</fullName>
+    <description>PacPoint-FT070119 - Created for PVL phase 1</description>
+    <label>License</label>
+    <referenceTo>License__c</referenceTo>
+    <relationshipLabel>Insurance &amp; Bonds</relationshipLabel>
+    <relationshipName>Insurance_Bonds</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,17 @@
+.THIS.anchor {
+    position: relative;
+    display: inline-block;
+}
+
+.THIS .slds-popover {
+  
+    display: none;
+    
+
+}
+.THIS.anchor:hover .slds-popover {
+    display: block;
+}
+.THIS.anchor:hover .hideValue {
+    display: none;
+}

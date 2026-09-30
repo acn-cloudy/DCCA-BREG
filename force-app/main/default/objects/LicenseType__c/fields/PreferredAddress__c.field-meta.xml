@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreferredAddress__c</fullName>
+    <description>PacPoint-KN101719-Created for PVL Sprint 1 Phase 1</description>
+    <label>Preferred Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+                <label>Mailing</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Residence</fullName>
+                <default>false</default>
+                <label>Residence</label>
+            </value>
+            <value>
+                <fullName>Employer</fullName>
+                <default>false</default>
+                <label>Employer</label>
+            </value>
+            <value>
+                <fullName>Dependent Mailing</fullName>
+                <default>false</default>
+                <label>Dependent Mailing</label>
+            </value>
+            <value>
+                <fullName>Dependent Business</fullName>
+                <default>false</default>
+                <label>Dependent Business</label>
+            </value>
+            <value>
+                <fullName>Dependent Employer</fullName>
+                <default>false</default>
+                <label>Dependent Employer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

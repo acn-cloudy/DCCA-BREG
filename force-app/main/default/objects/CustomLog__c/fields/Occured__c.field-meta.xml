@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Occured__c</fullName>
+    <description>Exact Date/Time that this log event occured. Useful since some logs will be created in @future method.</description>
+    <inlineHelpText>Exact Date/Time that this log event occured</inlineHelpText>
+    <label>Occured</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

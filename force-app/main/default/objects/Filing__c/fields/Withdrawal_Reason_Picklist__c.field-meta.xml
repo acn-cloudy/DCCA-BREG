@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Withdrawal_Reason_Picklist__c</fullName>
+    <label>Withdrawal Reason</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Expired - Idle for more than 5 days.</fullName>
+                <default>false</default>
+                <label>Expired - Idle for more than 5 days.</label>
+            </value>
+            <value>
+                <fullName>Failure to Complete</fullName>
+                <default>false</default>
+                <label>Failure to Complete</label>
+            </value>
+            <value>
+                <fullName>Applicants Request</fullName>
+                <default>false</default>
+                <label>Applicants Request</label>
+            </value>
+            <value>
+                <fullName>Refiled</fullName>
+                <default>false</default>
+                <label>Refiled</label>
+            </value>
+            <value>
+                <fullName>Duplicate Filing</fullName>
+                <default>false</default>
+                <label>Duplicate Filing</label>
+            </value>
+            <value>
+                <fullName>Abandoned Pending Application</fullName>
+                <default>false</default>
+                <label>Abandoned Pending Application</label>
+            </value>
+            <value>
+                <fullName>Missing Supporting Documents</fullName>
+                <default>false</default>
+                <label>Missing Supporting Documents</label>
+            </value>
+            <value>
+                <fullName>Mistake Document Upload</fullName>
+                <default>false</default>
+                <label>Mistake Document Upload</label>
+            </value>
+            <value>
+                <fullName>Completed by Another Filing</fullName>
+                <default>false</default>
+                <label>Completed by Another Filing</label>
+            </value>
+            <value>
+                <fullName>FINRA/SEC/SRO/State</fullName>
+                <default>false</default>
+                <label>FINRA/SEC/SRO/State</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Completed by Previous Filing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Completed by Previous Filing</label>
+            </value>
+            <value>
+                <fullName>Failed to Complete Deficiency Letter</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Failed to Complete Deficiency Letter</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

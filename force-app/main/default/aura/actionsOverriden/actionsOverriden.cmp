@@ -1,0 +1,79 @@
+<aura:component
+        implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId"
+        controller="FilingController"
+        description="">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="hide" type="Boolean" default="true"/>
+    <aura:attribute name="showAll" type="Boolean" default="false"/>
+    <aura:attribute name="buttonName" type="String"/>
+    <aura:attribute name="conditionField" type="String"/>
+    <aura:attribute name="actionName" type="String"/>
+    <aura:attribute name="listAttributes" type="String"/>
+    <aura:attribute name="bodyInputFields" type="List"/>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:if isTrue="{!!v.hide}">
+        <c:Popup title="{!v.actionName}" hide="{!v.hideButton}">
+            <lightning:layout multipleRows="true">
+                <aura:iteration items="{!v.bodyInputFields}" var="item">
+                    <lightning:layoutItem size="6" padding="around-small">
+                        <aura:if isTrue="{!!item.readonly}">
+                            <aura:if isTrue="{!item.type == 'textarea'}">
+                                <lightning:textarea aura:id="field"
+                                                    label="{!item.label}"
+                                                    value="{!item.value}"
+                                                    required="{!item.required}"
+                                                    readonly="{!item.readonly}"/>
+                            </aura:if>
+                            <aura:if isTrue="{!item.type == 'picklist'}">
+                                <c:customSelectInput aura:id="field"
+                                                     required="{!item.required}"
+                                                     label="{!item.label}"
+                                                     options="{!item.options}"
+                                                     onchangedata="{!c.updateData}"
+                                                     fieldName="{!item.apiName}"
+                                                     objectName="{!item.objectName}"
+                                                     value="{!item.selectedValue}">
+                                </c:customSelectInput>
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!not(item.type == 'textarea')}">
+                                        <lightning:input aura:id="field"
+                                                         type="{!item.type}"
+                                                         label="{!item.label}"
+                                                         checked="{!item.value}"
+                                                         required="{!item.required}"
+                                                         readonly="{!item.readonly}"/>
+                                    </aura:if>
+                                </aura:set>
+                            </aura:if>
+
+                            <aura:set attribute="else">
+                                <label class="label inputLabel uiLabel-left form-element__label uiLabel">
+                                        {!item.label}
+                                </label>
+                                <div>
+                                        {!item.value}
+                                </div>
+                            </aura:set>
+                        </aura:if>
+
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+
+
+            <aura:set attribute="footer">
+                <lightning:button variant="Neutral" label="Cancel" onclick="{!c.hideButton}"/>
+                <lightning:button variant="Brand" label="Save" onclick="{!c.saveAction}"/>
+            </aura:set>
+        </c:Popup>
+    </aura:if>
+    <aura:if isTrue="{!v.showAll}">
+
+        <lightning:button label="{!v.buttonName}" onclick="{!c.buttonAction}"/>
+    </aura:if>
+</aura:component>

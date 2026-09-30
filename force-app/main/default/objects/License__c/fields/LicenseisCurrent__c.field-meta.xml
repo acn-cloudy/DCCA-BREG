@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseisCurrent__c</fullName>
+    <formula>IF(
+      OR( 
+      ISPICKVAL(Status__c, &apos;C - Current, Valid &amp; In Good Standing&apos;),
+      ISPICKVAL(Status__c, &apos;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&apos;),
+      ISPICKVAL(Status__c, &apos;R - Valid Thru Expiration Date, Subject To Renewal&apos;),
+      ISPICKVAL(Status__c, &apos;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&apos;),
+      ISPICKVAL(Status__c, &apos;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&apos;),
+      ISPICKVAL(Status__c, &apos;ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement&apos;)
+         ),
+true,
+false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License is Current</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

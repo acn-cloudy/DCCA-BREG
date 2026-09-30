@@ -1,0 +1,42 @@
+<aura:component access="global">
+	
+	<!-- Custom Attributes -->
+	<aura:attribute name="uploadedFileWrapper" type="object" />
+	<aura:attribute name="uploading" type="Boolean" default="false"/>
+	<aura:attribute name="recordId" type="String"/>
+	<aura:attribute name="uploadInProgress" type="Boolean" />
+
+	<aura:method name="checkValid" action="{!c.checkIfValid}">
+    </aura:method>
+
+	<aura:if isTrue="{!v.uploading == false}" >
+		<div class="slds-grid slds-wrap" style="margin-bottom: 7px;">
+			<div class="slds-col slds-size_1-of-1" style="font-weight: bold; padding-right: 5px; padding-left: 5px; ">
+				<aura:if isTrue="{!v.uploadedFileWrapper.isRequired == true &amp;&amp; empty(v.uploadedFileWrapper.uploadGroup)}">*</aura:if>
+				File Detail: &nbsp;&nbsp; {!v.uploadedFileWrapper.fileDetails}
+			</div>
+			<div class="slds-col slds-size_1-of-2" style="padding-right: 5px; padding-left: 5px;">
+				<c:springFiles recordId="{!v.recordId}" label="Add attachment" 
+					onuploadstarted="{!c.handleCaptureFileUploadInfo}" onuploadterminated="{!c.handleTerminateFileUpload}"
+					onuploadfinished="{!c.handleUploadFinished}" ></c:springFiles>
+				<!-- <lightning:fileUpload label="Add attachment" multiple="false" recordId="{!v.recordId}" onuploadfinished="{!c.handleUploadFinished}" /> -->
+			</div>			
+			<div class="slds-col slds-size_1-of-2" style="padding-right: 5px; padding-left: 5px;">
+				<ui:inputText label="File Description" class="slds-input" value="{!v.uploadedFileWrapper.fileDescription}"/>
+			</div>
+		</div>
+	</aura:if>
+
+	<aura:if isTrue="{!v.uploading == true}" >
+		<div style="position: fixed; top: 0px; bottom: 0px; left: 0px; right: 0px; background-color: white; opacity: 0.6; text-align: center; padding-top: 10px; z-index: 1000;">
+			<img src="/img/loading32.gif" />
+		</div>
+	</aura:if>
+
+	<!-- <div class="slds-grid slds-wrap" >
+		<div class="slds-col slds-size_1-of-1" style="margin-left: 5px; padding-left: 5px; margin-bottom: 30px;">
+			Uploaded File Name: &nbsp;&nbsp; {!v.uploadedFileWrapper.uploadedFileName}
+		</div>
+	</div> -->
+
+</aura:component>

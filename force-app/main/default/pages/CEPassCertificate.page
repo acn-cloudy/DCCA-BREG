@@ -1,0 +1,168 @@
+<apex:page readOnly="true"
+           controller="CEPassCertificateController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="PDF">
+    <html>
+    <head>
+        <style type="text/css" media="print">
+            @page {
+                size: 11in 8.5in;
+                margin: 0;
+            }
+
+            * {
+                font-family: Helvetica, sans-serif; /* Arial Unicode MS for the special characters */
+            }
+
+            div.bgLogoElective {
+                background-image: url("{!$Resource.CECertElective}");
+            }
+
+            div.bgLogoCore {
+                background-image: url("{!$Resource.CECertCore}");
+            }
+
+            div.bgLogo {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+        </style>
+    </head>
+    <body>
+    <apex:variable var="cnt" value="{!1}"/>
+    <apex:outputLabel rendered="{!(enrollments.size <=0)}">
+        <div style="width: 100%; text-align: center;">
+            No data.
+        </div>
+    </apex:outputLabel>
+    <apex:repeat value="{!enrollments}" var="e">
+        <div class="{!IF(e.Subject__r.Type__c == 'Core', 'bgLogo bgLogoCore', 'bgLogo bgLogoElective')}"
+             style="{!IF(cnt==enrollments.size,'','page-break-after:always; height: 100%;')}">
+            <div style="position: relative; padding: 50px 20px 0 20px;">
+                <div style="text-align:right;padding-right:80px">
+                    Certificate No. {!e.CertificateNumberFormula__c}
+                </div>
+                <div style="text-align:center">
+                    <div style="margin-top: 50px;font-size:20px;font-weight:bold">CONTINUING EDUCATION</div>
+                    <div style="font-size:20px;font-weight:bold">COURSE COMPLETION CERTIFICATE</div>
+                    <div style="font-size:12px;font-weight:bold">FOR HAWAII REAL ESTATE LICENSEES</div>
+                    <div style="border: 1px solid;margin-left: 15%;margin-right: 15%;margin-top:20px">
+                        <div style="margin: 1px 1px 1px 1px;border: 1px solid;">
+                            <div>{!e.Course__r.Account__r.Name}</div>
+                            <div>Provider Name</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px">
+                        Hereby Awards This Certificate to
+                    </div>
+                    <div style="border-bottom: 1px solid;margin-left: 25%;margin-right: 25%">
+                            {!e.EnrolleeName__c}
+                    </div>
+                    <div>
+                        Broker/Salesperson
+                    </div>
+                </div>
+                <div style="padding-left: 15%;padding-top:20px">
+                    <table>
+                        <tr>
+                            <td style="width:300px">
+                                <div style="border-bottom: 1px solid;text-align:center">
+                                        {!e.License__r.Name}
+                                </div>
+                                <div style="text-align:center">
+                                    License Number
+                                </div>
+                            </td>
+                            <td style="padding-left:90px;width:300px">
+                                <div style="border-bottom: 1px solid;text-align:center">
+                                    <apex:outputText value="{0, number, ######.00}">
+                                        <apex:param value="{!e.Course__r.Credits__c}"/>
+                                    </apex:outputText>
+
+                                </div>
+                                <div style="text-align:center">
+                                    Hours of Credit
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height:20px"></tr>
+                        <tr>
+                            <td colspan="2">
+                                <div style="text-align:center;font-weight:bold">
+                                    In Recognition of Attendance and Completion of
+                                </div>
+                                <div style="border-bottom: 1px solid;text-align:center">
+                                        {!e.Course__r.Subject__r.Name}
+                                </div>
+                                <div style="text-align: center">
+                                    Course Name
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table style="margin-top: 20px">
+                        <tr>
+                            <td style="width:200px">
+                                <div style="border-bottom: 1px solid;text-align:center">
+                                    <apex:outputText value="{0,date,MMM dd, yyyy}">
+                                        <apex:param value="{!e.CompletionDate__c}"/>
+                                    </apex:outputText>
+                                </div>
+                                <div style="text-align:center">
+                                    Course Completion Date
+                                </div>
+                            </td>
+                            <td style="padding-left:90px;width:400px">
+                                <div style="border-bottom: 1px solid;text-align:center">
+                                        {!e.Course__r.Account__r.Name}
+                                </div>
+                                <div style="text-align:center">
+                                    Administrator, Continuing Education Provider
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="margin-left: 2.5%;margin-right: 2.5%;margin-top:30px">
+                    <div style="border: 1px solid;">
+                        <div>This certificate is only valid for the <apex:outputText value="{0, date, yyyy}">
+                            <apex:param value="{!e.License__r.LicenseType__r.StartofRenewalPeriod__c}"/>
+                        </apex:outputText> - <apex:outputText value="{0, date, yyyy}">
+                            <apex:param value="{!e.License__r.LicenseType__r.EndofRenewalPeriod__c}"/>
+                        </apex:outputText> renewal periods. Do not turn in this
+                            certificate - please RETAIN this certificate as your
+                        </div>
+                        <div>records. However, licensee may be required to present this certificate, upon request, to
+                            the Real Estate Commission.
+                        </div>
+                        <div style="padding-top: 10px">Submit this certificate only if restoring or reactivating your
+                            license after <apex:outputText value="{0, date, MM/d/yyyy}">
+                                <apex:param value="{!e.License__r.LicenseType__r.StartofRenewalPeriod__c}"/>
+                            </apex:outputText>. For more information, contact the Licensing
+                        </div>
+                        <div>Branch at (808) 586-3000. Continuing education information on this certificate reflects
+                            information from the PVL Real Estate Branch
+                        </div>
+                        <div>records database, as provided by the continuing education provider. As of <apex:outputText value="{0, date, MM/d/yyyy}">
+                            <apex:param value="{!TODAY()}"/>
+                        </apex:outputText>, the
+                            information provided on this certificate is
+                        </div>
+                        <div>true and correct to the best of our knowledge.</div>
+                    </div>
+                    <div style="margin-top:10px">
+                        Attendee Code: {!e.AttendeeCodeFormula__c}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <apex:variable var="cnt" value="{!cnt+1}"/>
+    </apex:repeat>
+    </body>
+    </html>
+
+</apex:page>

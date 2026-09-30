@@ -1,0 +1,234 @@
+<apex:page docType="html-5.0" 
+            showHeader="false" 
+            id="SiteTemplate"                     
+            standardStylesheets="false" 
+            language="{!$CurrentPage.Parameters.lang}">
+<script src="{!URLFOR($Resource.pymt__JQuery, 'jquery-3.2.1.min.js')}"></script>
+
+<!-- Linvio PaymentConnect CSS includes -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/sites_basic.css')}" />
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/sites_basic_responsive.css')}" />
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/trust_logos.css')}" />
+<!-- Optional button styling -->
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/css_buttons/blue.css')}" />
+<!-- link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/css_buttons/gray.css')}" /-->
+
+<!-- Linvio Events add-on styling -->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'styles/sites_basic.css')}" />
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'styles/sites_basic_responsive.css')}" />
+-->
+<!-- Linvio Events submenu style options -->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/default/style_grey.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/default/style_blue.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/pro/style_blue.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/pro/style_navy.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/pro/style_brown.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/pro/style_green.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/pro/style_orange.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/simple/style_green.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/classics/style_orange.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/matte/style_black.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/matte/style_blue.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/matte/style_orange.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/matte/style_red.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/garden/style.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/slate/style_blue.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/slate/style_green.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/slate/style_red.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/slate/style_purple.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/dolphin/style.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/prime/style_blue.css')}" />-->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.evt__EventManagement,'nav/prime/style_brown.css')}" />-->
+<!-- End subnav style options for Linvio Events     -->
+
+<!-- eStore Lite add-on styling -->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.eslt__eStoreLiteResources,'styles/sites_basic.css')}" /> -->
+
+<!-- Linvio Donations add-on styling -->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.dn8n__LinvioDonations,'styles/sites_basic.css')}" /> -->
+
+<!-- Quotes & Invoices add-on styling -->
+<!-- <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.quot__QuotesAndInvoices,'styles/sites_basic.css')}" /> -->
+
+<!-- template specific styling -->
+<script src="{!URLFOR($Resource.pymt__PaymentConnect, 'includes/stellarnav/js/stellarnav.min.js')}"></script>
+<apex:stylesheet html-media="all" value="{!URLFOR($Resource.pymt__PaymentConnect, 'includes/stellarnav/css/stellarnav.min.css')}"/>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/core.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/mediaquery.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/checkbox.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js/dropdown.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/scrollbar.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/touch.js')}"></script>
+<script src="{!URLFOR($Resource.pymt__Formstone, 'js-min/tooltip.js')}"></script>    
+<!-- end template specific styling -->
+    
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+<style>
+/* CSS variables used to override default style values in site_basic.css */
+:root {
+    --apex-pagemessage-background-color: #fff5cc;
+    --apex-pagemessage-border-color: #e8e8e8;
+    --apex-pagemessage-border-width: 1px;
+    --field-label-color: black;
+    --field-label-font-size: .92em;
+    --field-border-width: 1px;
+    --field-border-color: #a9a9a9;
+    --field-border-radius: 2px;
+    //--field-border-color-on-focus: #9ecaed;   
+    //--field-box-shadow-color: red;//#9ecaed;
+    --field-box-shadow-blur: 0px;
+    --placeholder-color:  #b9b9b9; // 'transparent' hides placeholder text
+}
+    
+</style>
+  
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.pymt__PaymentConnect,'styles/sample_templates/sitetemplate_default.css')}" />
+    <link href="//fonts.googleapis.com/css?family=Exo+2:300,400" rel="stylesheet"/>
+<style>
+.pc_logo {
+   background: url('{!URLFOR($Resource.pymt__PaymentConnect,'images/LoremIpsum/LoremIpsumLogos.png')}');
+   background-repeat: no-repeat;
+   background-size:310%;
+   background-position: -280px -520px;
+   background-position: 0px -520px;
+   height: 80px;
+   width:260px;
+}    
+body {
+    font-family: 'Open Sans', sans-serif; 
+/*     font-family: 'Exo 2', sans-serif;  */
+    margin:0px;
+    padding:0px;   
+    }
+.pc_frame_top {
+    max-width:900px;
+    margin: 0px auto 0px auto;
+}
+.pc_page_content {
+    max-width:900px;
+    margin: 0px auto 20px auto;
+    }
+.pc_page_content_inner {
+    padding:0px 20px;
+}
+
+.pc_formstone_container {
+    max-width:800px; 
+    margin-left:auto;
+    margin-right:auto;
+}
+.pc_record_listing_table td, .pc_record_listing_table th,
+.pc_opp_line_item_table td, .pc_opp_line_item_table th,
+.pc_cart_item_table td, .pc_cart_item_table th {
+   padding:7px;
+}
+/* Nav bar styling overrides */   
+/* Menu bar background and text color */
+.stellarnav.dark {
+  background: #595959;
+}
+/* submenu background color and border */
+.stellarnav.dark ul ul {
+  background: white;
+  border: 1px solid #808080; /* optional */
+  }
+/* submenu item text color */
+.stellarnav.dark ul ul li a {
+  color: black;
+  
+}
+/* submenu item hover */
+.stellarnav.dark ul ul li :hover {
+  color: white;
+  background: #808080;
+  
+}
+.stellarnav.mobile ul ul li a {
+  color:white;
+}
+@media all and (max-width: 500px) {
+.pc_page_content_inner {
+   padding-left: 5px;
+   padding-right: 5px;
+}
+
+}
+</style>
+<script>
+  function pcRefreshPageStyling() {
+      // (optional) function used to apply styling to page.  Maybe be called again after during page updates and refreshes
+
+      // This example uses the formstone library to apply styling to tool tips and dropdowns.      
+      jQuery(".show-tooltip").tooltip({
+        direction: "top"
+      });      
+      jQuery(".pc_formstone_container select").dropdown();
+
+
+    }
+</script>
+<body id="htmlBody" >
+<div id="topbar" style="width:100%;" >
+</div>
+
+    <!--  Edit custom banner and navigation here -->
+        <div class="pc_frame_top" >
+           <div class="inner">
+            <img src="/s.gif" />
+            <table width="100%" cellpadding="5">
+                <tr>
+                    <td><apex:image url="{!URLFOR($Resource.DCCALogo)}" height="70"/></td>
+                    <td><span style="color:#4f5050;font-size:2em;">{!$Organization.Name}</span></td>
+                </tr>
+            </table>
+            </div><!-- inner -->
+        </div>
+<div class="nav_bar_shadow"></div>
+
+    <div class="pc_frame">
+    <div class="pc_frame_inner">
+
+    <apex:insert name="body"/>
+
+<p>&nbsp;</p>
+
+    <apex:insert name="footer">
+    <!--  Add custom footer here -->
+    <div style="text-align:center;width:100%;font-size:.5em;font-weight:bold;font:Verdana;color:#A4A4A4;">Copyright © 2020, State of Hawaii. All rights reserved.</div>
+    </apex:insert>
+
+    </div><!--  end pc_frame_inner -->
+    </div><!--  end pc_frame -->
+<script>
+    jQuery( document ).ready( function() {
+        // apply page styling scripts
+        //jQuery('.stellarnav').stellarNav();        
+        jQuery('.stellarnav').stellarNav({
+            theme: 'dark',  // plain, light, dark
+            breakpoint: 775,
+            menuLabel: 'Menu',
+            sticky: false,
+            position: 'static', // static, top, left, right
+            openingSpeed: 250,
+            closingDelay: 250,
+            showArrows: true,
+            phoneBtn: '7605551212',
+            locationBtn: 'https://www.linvio.com',
+            closeBtn: false,
+            scrollbarFix: false
+        }); 
+                        
+        pcRefreshPageStyling(); // run refresh script
+        
+        // Add Disclaimer
+        // jQuery('.pc_checkout_totals').after('<p style="margin-top: 40px">We are unable to accept credit cards, e-checks or fund transfers from foreign financial institutions. If your foreign financial institution has affiliations with U.S. banks, please contact them see if they can forward payments on your behalf. We apologize for any inconvenience.</p>');
+        
+  });
+</script>
+<apex:include pageName="FilingOverride"></apex:include>
+</body>
+</apex:page>

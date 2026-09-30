@@ -1,0 +1,41 @@
+<template>
+  <nav class="slds-nav-vertical" aria-label="Sub page">
+    <div class="slds-nav-vertical__section">
+      <ul class="navmenuitem">
+        <template for:each={displayCards} for:item="card">
+          <li
+            class="slds-nav-vertical__item slds-is-active"
+            key={card.Label__c}
+            if:true={card.isCurrent}
+          >
+            <a
+              href="javascript:void(0);"
+              class="slds-nav-vertical__action"
+              aria-describedby="entity-header"
+              style="cursor: default"
+            >
+              <b> {card.Label__c} </b>
+            </a>
+          </li>
+          <li
+            class="slds-nav-vertical__item"
+            key={card.Label__c}
+            if:false={card.isCurrent}
+            data-id={card.Name}
+            onclick={handleClick}
+          >
+            <a
+              href="javascript:void(0);"
+              id={card.Label__c}
+              data-id={card.Name}
+              class="slds-nav-vertical__action"
+              aria-describedby="entity-header"
+            >
+              {card.Label__c}
+            </a>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </nav>
+</template>

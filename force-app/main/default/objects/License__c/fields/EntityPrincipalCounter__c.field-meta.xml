@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityPrincipalCounter__c</fullName>
+    <description>PacPoint-MV100519 - Created for PVL phase 1.Created  to be used in PB when creating associated Licenses.</description>
+    <label>Entity/Principal Counter</label>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.PositionStatus__c</field>
+        <operation>equals</operation>
+        <value>D - DESIGNATED, P - PRINCIPAL</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.EmploymentStatus__c</field>
+        <operation>equals</operation>
+        <value>Employed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>AssociatedLicense__c.EntityLicense__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

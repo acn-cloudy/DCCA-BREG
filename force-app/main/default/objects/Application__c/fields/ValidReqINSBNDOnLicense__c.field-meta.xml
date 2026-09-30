@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidReqINSBNDOnLicense__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint: RdG Case 7791 - For PVL Phase 1 | Tick if the INS/BND records on the Current License are valid.</description>
+    <label>Req. INS/BND on License is Valid</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

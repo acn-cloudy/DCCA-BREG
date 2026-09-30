@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RecordType__c</fullName>
+    <description>PacPoint-MV010319 - Created for BREG phase 1</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Record Type</label>
+    <referenceTo>FlowperRecordType__mdt</referenceTo>
+    <relationshipName>Editable_Fields_per_Record_Type</relationshipName>
+    <required>false</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>

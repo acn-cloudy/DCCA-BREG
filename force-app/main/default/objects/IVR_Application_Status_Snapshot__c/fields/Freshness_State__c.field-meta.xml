@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Freshness_State__c</fullName>
+    <description>Freshness state evaluated by the PVL Application Status snapshot refresh process.</description>
+    <label>Freshness State</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>fresh_enough</fullName>
+                <default>true</default>
+                <label>fresh_enough</label>
+            </value>
+            <value>
+                <fullName>stored_only</fullName>
+                <default>false</default>
+                <label>stored_only</label>
+            </value>
+            <value>
+                <fullName>batch_window</fullName>
+                <default>false</default>
+                <label>batch_window</label>
+            </value>
+            <value>
+                <fullName>dependency_stale_risk</fullName>
+                <default>false</default>
+                <label>dependency_stale_risk</label>
+            </value>
+            <value>
+                <fullName>cleanup_risk</fullName>
+                <default>false</default>
+                <label>cleanup_risk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

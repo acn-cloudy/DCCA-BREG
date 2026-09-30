@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IneligibleOnlineRenewalMessage__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+      /* MASTER CHECK: Do any of the error conditions exist? */
+      OR(
+            FlaggedforAudit__c = true,
+            ClassNotEligibleforOnlineRenewal__c = true,
+            AND( LicenseType__r.Name = &quot;DT&quot;,  OR( TEXT(Privilege__c) = &quot;A - Deep Sedation or General Anesthesia&quot; , TEXT(Privilege__c) = &quot;B - Moderate Sedation&quot;)),
+            AND( LicenseType__r.Name = &quot;APRN&quot;, TEXT(MethodofLicensure__c) &lt;&gt; &quot;M - Graduate Level Degree&quot;),
+            TEXT(Status__c) = &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;
+      ),
+    
+            IF( FlaggedforAudit__c = true, &quot;Your license was previously randomly selected to provide additional proof of compliance for this renewal cycle.  A notice of audit was mailed to you. As a result, you cannot renew online and you will need to renew by hardcopy. &quot; ,
+                  IF( ClassNotEligibleforOnlineRenewal__c = true, &quot;Your license holds a classification that does not allow for online renewal. &quot;, 
+                        IF( AND( LicenseType__r.Name = &quot;DT&quot;,  OR( TEXT(Privilege__c) = &quot;A - Deep Sedation or General Anesthesia&quot; , TEXT(Privilege__c) = &quot;B - Moderate Sedation&quot;)),&quot;Your license holds privilege &quot; +  TEXT(Privilege__c) + &quot;, which does not allow for online renewal. As a result, you will need to renew by hardcopy. &quot;,
+                              IF(AND( LicenseType__r.Name = &quot;APRN&quot;, TEXT(MethodofLicensure__c) &lt;&gt; &quot;M - Graduate Level Degree&quot;), &quot;Because your Method of Licensure is &quot; +  TEXT(MethodofLicensure__c) + &quot;, you can not renew online and will need to renew by hardcopy. &quot;, 
+                                    IF( TEXT(Status__c) = &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;, 
+                                          IF( ISBLANK(Licensee__r.MostRecentBouncedCheck__c), 
+                                                &quot;Your license had an overdue maintenance requirement prior to the start of renewals.  As a result, you cannot renew online and you will need to renew by hardcopy. &quot;,
+                                                &quot;Records show you had a previous bounced check with DCCA.  As a result, you can not renew online and you can not pay by Personal Check, eCheck or Credit Card. You will need to renew by hardcopy, and your renewal payment will need to be in the form of Cash, Cashiers Check or Money Order. Please do not send Cash in the mail. &quot;
+                                          ),
+                                    &quot;Your license is not eligible to renew online, and you will need to renew by hardcopy. &quot;)
+                              )
+                        )
+                  )
+            )
+
+            + &quot;Download a hardcopy here: &quot; +
+
+            HYPERLINK($Setup.OrgConfiguration__c.CommunityURL__c + &quot;/&quot; +  LicenseType__r.RenewalFormTemplateBulkRenewals__c + &quot;?id=&quot; +  Id , &quot;download renewal form.&quot;) 
+
+            + BR() 
+            + BR() + 
+
+            &quot;To Submit Renewal Form By Mail, Address To:&quot; + BR() + 
+            &quot;DCCA-PVL -Renewal&quot; + BR() + 
+            &quot;P.O. Box 3469&quot; + BR() + 
+            &quot;Honolulu HI 96801&quot; + BR() 
+
+            + BR() + 
+
+            &quot; If you need to request a hardcopy renewal application or if you need further assistance please contact the DCCA/PVL at 1-844-808-DCCA (3222).&quot;
+
+            + BR() + 
+            &quot;If you are unable to submit your renewal online it is your responsibility to submit your renewal via hardcopy (paper) by mail or in person to the DCCA/PVL by the renewal deadline. If you fail to do so you will be unlicensed and shall not practice.&quot;
+
+            + BR() + 
+
+            &quot;Renewals submitted or postmarked after the renewal deadline, will be subject to an additional late renewal fee. Failure to renew will result in the forfeiture of a license.&quot;,
+        
+            /* IF NO (Master Check Failed): Return Blank */
+            &quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Ineligible Online Renewal Message</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

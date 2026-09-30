@@ -1,0 +1,24 @@
+<template>
+    <lightning-layout horizontal-align="spread" pull-to-boundary="small" vertical-align="start" multiple-rows="true">
+        <lightning-layout-item size="12" padding="around-small">
+            <div class="slds-var-m-bottom_medium">
+                <h1 class="dxp-text-heading-xlarge">Log In</h1>
+            </div>
+            <div class="slds-var-m-bottom_medium">
+                <p class="dxp-text-heading-medium">Benefits of logging in</p>
+                <p class="slds-var-p-bottom_large">With an myHawaii account, you can</p>
+                <div>
+                    <ul class="slds-m-left_xx-large">
+                        <li>Create a business and save during the process</li>
+                        <li>Update business(es)</li>
+                        <li>Check the status of submissions</li>
+                        <li>Manage notifications</li>
+                    </ul>
+                </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button variant="brand" label="Login" onclick={handleLoginClick}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,91 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="License__c" />
+    <div style="width: 525px;height: 407px;font-size:10px;box-sizing: border-box;position: relative;font-family: sans-serif;">
+        <div style="position: absolute;left: 5%;bottom: 5%;width: 90%;">
+            <img src="{!$Resource.LogoBlack}" width="100%" />
+        </div>
+        <div style="position: relative; padding: 30px;">
+            <div style="width:70%;margin:0 auto;padding:0 5px;text-align:center;border: 1px solid;">
+                Due to Covid-19 and the health and safety of everyone please check our website at: https://cca.hawaii.gov/pvl for any updates
+            </div>
+            <h1 style="text-align:center;margin: 5px 0">LICENSE RENEWAL REMINDER NOTICE</h1>
+            <div style="width:68%;margin:10px auto;padding:5px;text-align:center;border: 1px solid;">
+                <h4>Please disregard this notice if you have already renewed.</h4>
+            </div>
+
+            <h3 style="text-align: center;font-weight:bold">
+                Renew Online at:
+                <u><apex:outputText value="{!$Label.MyPVLLink}" /></u>
+                <br/> by Midnight (HST) 
+                <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                    <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                </apex:outputText>
+            </h3>
+            <div style="position: relative;">
+                <div style="width:49%;display:inline-block;margin:0 3% 3px 0;vertical-align:top;">
+                    <div style="white-space: nowrap;">
+                        <b>For more information go to:</b>
+                        <u>https://cca.hawaii.gov/pvl</u>
+                    </div>
+                    <ul>
+                        <li>Go to your licensing area’s web page</li>
+                        <li>Select “Renewal &amp; Restoration</li>
+                    </ul>
+                    <div style="border:2px dotted;padding: 5px;margin:5px 15px 0 0;">
+                        <b>***
+                            <u>Pocket IDs MUST Be Printed Online</u>***</b>
+                        <ul>
+                            <li><b><u>You must retrieve and print</u></b> 
+                                your pocket ID card online via your MyPVL account.<br/> 
+                                <u>No other notice will be provided.</u>
+                            </li>
+                            <li>Any requests to have one mailed to you will be at a charge of $10</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="width:47%;display:inline-block;margin-top:15px;">
+                    <div>
+                        <b><u>Check the status of your renewal at:</u></b>
+                        <ul>
+                            <li>
+                                <u>{!$Label.PVLSearch}</u>
+                            </li>
+                            <li>Select "ending Application"</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top:5px">
+                        <b>*<u>Processing time for renewals:</u> </b>
+                        <ul>
+                            <li>Online: 3-5 business days</li>
+                            <li>Hardcopy: 14-21 business days</li>
+                        </ul>
+                    </div>
+                    <div>*Subject to licensee meeting all requirements and may be longer due to high volume of renewals received
+                        and the reopening of the office (Early submittals are recommended).</div>
+                </div>
+            </div>
+
+            <div>
+                <div style="width:15%;display: inline-block;margin-top:20px">
+                    <img src="{!$Resource.DCCALogoBlack}" width="60px"  />
+                </div>
+                <div style="width: 84%;display:inline-block;">
+                    <h4 style="text-align:center"><u><b>
+                        A license that is not renewed by the <br/>
+                        license expiration date is unlicensed and shall not practice
+                    </b></u></h4>
+                    <div style="margin-top:5px;">
+                        <div style="width:79%;display: inline-block;">
+                            <p style="font-size: 0.8em;font-weight:bold;"> If you cannot renew online or prefer to mail in your renewal: </p>
+                            <div style="font-size: 0.8em;">Contact the licensing branch at (808) 586-3000 to request a renewal application. </div>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+              
+            </div>
+
+        </div>
+    </div>
+</apex:component>

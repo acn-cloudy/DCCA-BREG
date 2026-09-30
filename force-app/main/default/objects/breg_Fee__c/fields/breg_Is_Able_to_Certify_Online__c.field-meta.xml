@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Is_Able_to_Certify_Online__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Aalta BREG-933</description>
+    <label>Is Able to Certify Online</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

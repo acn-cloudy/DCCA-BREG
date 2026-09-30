@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Change_Type__c</fullName>
+    <label>Change Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TN/TM/SM Assignment</fullName>
+                <default>false</default>
+                <label>TN/TM/SM Assignment</label>
+            </value>
+            <value>
+                <fullName>Officer Director Change</fullName>
+                <default>false</default>
+                <label>Officer Director Change</label>
+            </value>
+            <value>
+                <fullName>Address Change for Entity</fullName>
+                <default>false</default>
+                <label>Address Change for Entity</label>
+            </value>
+            <value>
+                <fullName>Address Change for TN/TM/SM/PR</fullName>
+                <default>false</default>
+                <label>Address Change for TN/TM/SM/PR</label>
+            </value>
+            <value>
+                <fullName>Address Change for O/D/M/M/P</fullName>
+                <default>false</default>
+                <label>Address Change for O/D/M/M/P</label>
+            </value>
+            <value>
+                <fullName>Name Change for Entity</fullName>
+                <default>false</default>
+                <label>Name Change for Entity</label>
+            </value>
+            <value>
+                <fullName>Registrant Name Change for TN</fullName>
+                <default>false</default>
+                <label>Registrant Name Change for TN</label>
+            </value>
+            <value>
+                <fullName>Registrant Name Change for TM/SM</fullName>
+                <default>false</default>
+                <label>Registrant Name Change for TM/SM</label>
+            </value>
+            <value>
+                <fullName>Amendment/Changes</fullName>
+                <default>false</default>
+                <label>Amendment/Changes</label>
+            </value>
+            <value>
+                <fullName>Restated Articles</fullName>
+                <default>false</default>
+                <label>Restated Articles</label>
+            </value>
+            <value>
+                <fullName>Amended and Restated</fullName>
+                <default>false</default>
+                <label>Amended and Restated</label>
+            </value>
+            <value>
+                <fullName>Annuals</fullName>
+                <default>false</default>
+                <label>Annuals</label>
+            </value>
+            <value>
+                <fullName>TN/TM/SM Renewal</fullName>
+                <default>false</default>
+                <label>TN/TM/SM Renewal</label>
+            </value>
+            <value>
+                <fullName>Correction of a Filing</fullName>
+                <default>false</default>
+                <label>Correction of a Filing</label>
+            </value>
+            <value>
+                <fullName>Dissolve/Terminate/Cancel/Withdraw</fullName>
+                <default>false</default>
+                <label>Dissolve/Terminate/Cancel/Withdraw</label>
+            </value>
+            <value>
+                <fullName>Dissociation</fullName>
+                <default>false</default>
+                <label>Dissociation</label>
+            </value>
+            <value>
+                <fullName>Issuance</fullName>
+                <default>false</default>
+                <label>Issuance</label>
+            </value>
+            <value>
+                <fullName>TN/TM/SM Cancellation</fullName>
+                <default>false</default>
+                <label>TN/TM/SM Cancellation</label>
+            </value>
+            <value>
+                <fullName>Name Reservation Transfer</fullName>
+                <default>false</default>
+                <label>Name Reservation Transfer</label>
+            </value>
+            <value>
+                <fullName>Name Reservation Cancellation</fullName>
+                <default>false</default>
+                <label>Name Reservation Cancellation</label>
+            </value>
+            <value>
+                <fullName>Name Reservation Renewal</fullName>
+                <default>false</default>
+                <label>Name Reservation Renewal</label>
+            </value>
+            <value>
+                <fullName>Reinstatement</fullName>
+                <default>false</default>
+                <label>Reinstatement</label>
+            </value>
+            <value>
+                <fullName>Revocation</fullName>
+                <default>false</default>
+                <label>Revocation</label>
+            </value>
+            <value>
+                <fullName>Mergers (Subsidiary into Parent)</fullName>
+                <default>false</default>
+                <label>Mergers (Subsidiary into Parent)</label>
+            </value>
+            <value>
+                <fullName>Mergers</fullName>
+                <default>false</default>
+                <label>Mergers</label>
+            </value>
+            <value>
+                <fullName>Foreign Merger</fullName>
+                <default>false</default>
+                <label>Foreign Merger</label>
+            </value>
+            <value>
+                <fullName>Conversions</fullName>
+                <default>false</default>
+                <label>Conversions</label>
+            </value>
+            <value>
+                <fullName>Publicity Rights Renewal</fullName>
+                <default>false</default>
+                <label>Publicity Rights Renewal</label>
+            </value>
+            <value>
+                <fullName>Publicity Rights Cancellation</fullName>
+                <default>false</default>
+                <label>Publicity Rights Cancellation</label>
+            </value>
+            <value>
+                <fullName>Change of RA by Entity</fullName>
+                <default>false</default>
+                <label>Change of RA by Entity</label>
+            </value>
+            <value>
+                <fullName>Change of NRA&apos;s Name or Business Address</fullName>
+                <default>false</default>
+                <label>Change of NRA&apos;s Name or Business Address</label>
+            </value>
+            <value>
+                <fullName>Statement of Resignation of RA</fullName>
+                <default>false</default>
+                <label>Statement of Resignation of RA</label>
+            </value>
+            <value>
+                <fullName>CRA Termination Statement</fullName>
+                <default>false</default>
+                <label>CRA Termination Statement</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA</label>
+            </value>
+            <value>
+                <fullName>Address Change for O/D/M/M</fullName>
+                <default>false</default>
+                <label>Address Change for O/D/M/M</label>
+            </value>
+            <value>
+                <fullName>Commercial Registered Agent Termination Statement (X13)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Commercial Registered Agent Termination Statement (X13)</label>
+            </value>
+            <value>
+                <fullName>Correction of a Filing (X3)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Correction of a Filing (X3)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by Commercial Registered Agent (X14)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Statement of Change by Commercial Registered Agent (X14)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change of Noncommercial Registered Agent&apos;s Name or Business Address (X8)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Statement of Change of Noncommercial Registered Agent&apos;s Name or Business Address (X8)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change of Registered Agent by Entity (X7)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Statement of Change of Registered Agent by Entity (X7)</label>
+            </value>
+            <value>
+                <fullName>Statement of Resignation of Registered Agent (X9)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Statement of Resignation of Registered Agent (X9)</label>
+            </value>
+            <value>
+                <fullName>Trade Name Trademark Service Mark Assignment (T4)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Trade Name Trademark Service Mark Assignment (T4)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

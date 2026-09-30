@@ -1,0 +1,394 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="fieldName" type="string" access="global" />
+  <aura:attribute name="fieldLabel" type="string" access="global" />
+  <aura:attribute name="fieldType" type="string" access="global" />
+
+  <aura:attribute name="cardname" type="string" access="global" />
+  <aura:attribute name="value" type="string" access="global" default="" />
+  <aura:attribute name="cardcacheid" type="string" access="global" />
+  <aura:attribute name="fieldvalues" type="string" access="global" />
+
+  <aura:attribute name="dependField" type="string" access="global" />
+  <aura:attribute name="dependValue" type="string" access="global" />
+  <aura:attribute name="dependAction" type="string" access="global" />
+
+  <aura:attribute name="columns" type="String" access="global" />
+  <aura:attribute name="fieldtypes" type="String" access="global" />
+
+  <aura:attribute name="columnheadings" type="String[]" access="global" />
+  <aura:attribute name="inputfieldtypes" type="String[]" access="global" />
+
+  <aura:attribute name="rows" type="List" access="global" />
+  <aura:attribute name="fieldopts" type="List" access="global" />
+
+  <aura:attribute name="modalHidden" type="boolean" default="true" />
+
+  <aura:attribute name="valuerows" type="List" access="global" />
+  <aura:attribute name="rowtoedit" type="List" access="global" />
+  <aura:attribute name="indextoedit" type="String" access="global" />
+
+  <aura:attribute
+    name="currentrow"
+    type="Integer"
+    access="global"
+    default="0"
+  />
+  <aura:attribute name="filecontrolname" type="String" access="global" />
+  <aura:attribute name="controlid" type="Integer" access="global" default="0" />
+
+  <aura:attribute
+    name="editmode"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:registerEvent
+    name="sc_ApplicationDependFieldEvent"
+    type="c:sc_ApplicationDependFieldEvent"
+  />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <div aura:id="multiinputcontrol" class="slds-p-around_small">
+    <table
+      class="slds-table slds-table--bordered slds-table--cell-buffer slds-table_fixed-layout"
+    >
+      <thead>
+        <tr class="slds-text-heading--label">
+          <aura:iteration
+            items="{!v.columnheadings}"
+            var="card"
+            indexVar="indx"
+          >
+            <aura:if isTrue="{!lessthan(indx,4)}">
+              <th scope="col" class="slds-cell-wrap">{!card}</th>
+            </aura:if>
+          </aura:iteration>
+        </tr>
+      </thead>
+      <tbody>
+        <aura:iteration items="{!v.rows}" var="row" indexVar="rindx">
+          <tr>
+            <aura:iteration items="{!row}" var="card" indexVar="indx">
+              <aura:if isTrue="{!lessthan(indx,4)}">
+                <aura:if isTrue="{!indx!=0}">
+                  <td title="{!rindx}">
+                    <div class="slds-cell-wrap">
+                      <ui:outputText
+                        value="{!card != null ? card : '' }"
+                        class="slds-text-body"
+                        title="{!rindx}"
+                        aura:id="outputtext"
+                      />
+                    </div>
+                  </td>
+                  <aura:set attribute="else">
+                    <th scope="row">
+                      <div class="slds-cell-wrap">
+                        <ui:outputText
+                          value="{!card != null ? card : ''}"
+                          class="slds-text-body"
+                          title="{!rindx}"
+                          click="{!c.editrow}"
+                          aura:id="outputtext"
+                        />
+                      </div>
+                    </th>
+                  </aura:set>
+                </aura:if>
+              </aura:if>
+            </aura:iteration>
+          </tr>
+        </aura:iteration>
+      </tbody>
+    </table>
+  </div>
+  <!--   Modal -->
+
+  <div
+    class="{!v.modalHidden ? 'hidemodal' : 'showmodal'}"
+    aura:id="duplicatemodal"
+  >
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <div class="tborder dupemodalsize" style="overflow: auto">
+          <header class="slds-modal__header">
+            <aura:if isTrue="{!!v.editmode}">
+              <h3
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                Add New Row
+              </h3>
+            </aura:if>
+            <aura:if isTrue="{!v.editmode}">
+              <h3
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                Edit Row
+              </h3>
+            </aura:if>
+          </header>
+          <div
+            class="slds-modal__content slds-p-around_medium dupemodalsize"
+            id="modal-content-id-1"
+          >
+            <!--  content -->
+
+            <aura:iteration
+              items="{!v.columnheadings}"
+              var="card"
+              indexVar="indx"
+            >
+              <div class="slds-grid slds-grid_align-spread">
+                <div class="slds-size_1-of-3">{!card}</div>
+
+                <div class="slds-size_2-of-3">
+                  <aura:iteration
+                    items="{!v.inputfieldtypes}"
+                    var="types"
+                    indexVar="rindx"
+                  >
+                    <aura:if isTrue="{!and(indx == rindx,types=='text')}">
+                      <aura:if isTrue="{!v.editmode}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <ui:inputText
+                              label=""
+                              value="{!toedit}"
+                              aura:id="inputtablecontrol"
+                              class="slds-input"
+                              placeholder=""
+                            />
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+
+                      <aura:if isTrue="{!!v.editmode}">
+                        <ui:inputText
+                          label=""
+                          value=""
+                          aura:id="inputtablecontrol"
+                          class="slds-input"
+                          placeholder=""
+                        />
+                      </aura:if>
+                    </aura:if>
+
+                    <aura:if isTrue="{!and(indx == rindx,types=='textarea')}">
+                      <aura:if isTrue="{!v.editmode}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <!--   <ui:inputText label="" value="{!toedit}" aura:id="inputtablecontrol" class="slds-input" placeholder="" /> -->
+                            <ui:inputTextArea
+                              aura:id="inputtablecontrol"
+                              class="slds-input"
+                              label=""
+                              value="{!toedit}"
+                              rows="3"
+                            />
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+
+                      <aura:if isTrue="{!!v.editmode}">
+                        <!--    <ui:inputText label="" value="" aura:id="inputtablecontrol" class="slds-input" placeholder="" /> -->
+                        <ui:inputTextArea
+                          aura:id="inputtablecontrol"
+                          class="slds-input"
+                          label=""
+                          rows="1"
+                        />
+                      </aura:if>
+                    </aura:if>
+
+                    <aura:if isTrue="{!and(indx == rindx,types=='checkbox')}">
+                      <aura:if isTrue="{!v.editmode}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <!--  <ui:inputText label="" value="{!toedit}" aura:id="inputtablecontrol" class="slds-input" placeholder="" /> -->
+
+                            <ui:inputCheckBox
+                              aura:id="inputtablecontrol"
+                              value="{!toedit}"
+                            />
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+
+                      <aura:if isTrue="{!!v.editmode}">
+                        <!--   <ui:inputText label="" value="" aura:id="inputtablecontrol" class="slds-input" placeholder="" /> -->
+                        <ui:inputCheckBox
+                          aura:id="inputtablecontrol"
+                          value=""
+                        />
+                      </aura:if>
+                    </aura:if>
+                    <aura:if isTrue="{!v.editmode}">
+                      <aura:if isTrue="{!and(indx == rindx,types=='picklist')}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <lightning:select
+                              name="{!rindx}"
+                              label=""
+                              aura:id="inputtablecontrol"
+                              value="{!toedit}"
+                              class="combobox"
+                            >
+                              <aura:iteration
+                                items="{!v.fieldopts}"
+                                var="fopts"
+                                indexVar="findx"
+                              >
+                                <aura:if isTrue="{!findx == indx}">
+                                  <aura:iteration
+                                    items="{!fopts}"
+                                    var="opt"
+                                    indexVar="optindx"
+                                  >
+                                    <option
+                                      value="{!opt}"
+                                      text="{!opt}"
+                                    ></option>
+                                  </aura:iteration>
+                                </aura:if>
+                              </aura:iteration>
+                            </lightning:select>
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+                      <aura:if isTrue="{!and(indx == rindx,types=='date')}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <ui:inputDate
+                              aura:id="inputtablecontrol"
+                              value="{!toedit}"
+                              displayDatePicker="true"
+                            />
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+                    </aura:if>
+
+                    <aura:if isTrue="{!and(indx == rindx,types=='fileupload')}">
+                      <aura:if isTrue="{!v.editmode}">
+                        <aura:iteration
+                          items="{!v.rowtoedit}"
+                          var="toedit"
+                          indexVar="edindx"
+                        >
+                          <aura:if isTrue="{!rindx == edindx}">
+                            <!-- <c:REVENUE_UploadFileContainer Type="Popup" aura:id="inputtablecontrol" parentId="{!v.cardcacheid}" fieldName="{!v.filecontrolname}"> </c:REVENUE_UploadFileContainer> -->
+
+                            <!--	<ui:inputCheckBox aura:id="inputtablecontrol" value="{!toedit}" /> -->
+                          </aura:if>
+                        </aura:iteration>
+                      </aura:if>
+
+                      <aura:if isTrue="{!!v.editmode}">
+                        <!--   <ui:inputText label="" value="" aura:id="inputtablecontrol" class="slds-input" placeholder="" /> -->
+                        <!--    <ui:inputCheckBox aura:id="inputtablecontrol" value="" /> -->
+
+                        <!-- <c:REVENUE_UploadFileContainer Type="Popup" aura:id="inputtablecontrol" parentId="{!v.cardcacheid}" fieldName="{!'popupfu'+v.controlid}"> </c:REVENUE_UploadFileContainer> -->
+                      </aura:if>
+                    </aura:if>
+
+                    <aura:if isTrue="{!!v.editmode}">
+                      <aura:if isTrue="{!and(indx == rindx,types=='picklist')}">
+                        <lightning:select
+                          name="{!rindx}"
+                          label=""
+                          aura:id="inputtablecontrol"
+                          value=""
+                          class="combobox"
+                        >
+                          <aura:iteration
+                            items="{!v.fieldopts}"
+                            var="fopts"
+                            indexVar="findx"
+                          >
+                            <aura:if isTrue="{!findx == indx}">
+                              <aura:iteration
+                                items="{!fopts}"
+                                var="opt"
+                                indexVar="optindx"
+                              >
+                                <option value="{!opt}" text="{!opt}"></option>
+                              </aura:iteration>
+                            </aura:if>
+                          </aura:iteration>
+                        </lightning:select>
+                      </aura:if>
+                      <aura:if isTrue="{!and(indx == rindx,types=='date')}">
+                        <ui:inputDate
+                          aura:id="inputtablecontrol"
+                          value=""
+                          displayDatePicker="true"
+                        />
+                      </aura:if>
+                    </aura:if>
+                  </aura:iteration>
+                </div>
+              </div>
+              <br />
+            </aura:iteration>
+
+            <!--  end content -->
+          </div>
+
+          <footer class="slds-modal__footer">
+            <div class="slds-grid">
+              <div>
+                <lightning:button label="Cancel" onclick="{!c.cancelmodal}" />
+              </div>
+
+              <aura:if isTrue="{!!v.editmode}">
+                <div class="slds-col_bump-left">
+                  <lightning:button label="Add" onclick="{!c.addrow}" />
+                </div>
+              </aura:if>
+              <aura:if isTrue="{!v.editmode}">
+                <div class="slds-col_bump-left">
+                  <lightning:button label="Save" onclick="{!c.saverow}" />
+                </div>
+              </aura:if>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </div>
+
+  <!-- END Modal -->
+</aura:component>

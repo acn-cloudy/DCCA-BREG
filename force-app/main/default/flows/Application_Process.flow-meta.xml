@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>RecordTypePlaceholderCheck</name>
+        <label>Record Type Placeholder Check</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>UpdateApplicationWithRecordTypePlaceholder</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>EmptyRecordTypePlaceholder</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordTypePlaceholder__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateApplicationWithEmptyRecordTypePlaceholder</targetReference>
+            </connector>
+            <label>Empty Record Type Placeholder</label>
+        </rules>
+    </decisions>
+    <description>JF 5/8/24: Updated to launch application record type handler</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AccountInfomation</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ISNULL({!$Record.Applicant__r.FirstName}) , 
+{!$Record.Applicant__r.Name} &amp; &quot;-&quot; &amp; {!$Record.Applicant__r.BPID__c}, 
+{!$Record.Applicant__r.FirstName} &amp; &quot; &quot;&amp;{!$Record.Applicant__r.MiddleName} &amp;&quot; &quot;&amp;{!$Record.Applicant__r.LastName} &amp;&quot;-&quot;&amp;{!$Record.Applicant__r.BPID__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ApplicantName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  NOT(ISBLANK( {!$Record.Applicant__r.FirstName} )),
+  {!$Record.Applicant__r.FirstName} &amp; &quot; &quot;&amp;{!$Record.Applicant__r.LastName},
+  {!$Record.Applicant__r.Name}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ApplicationName</name>
+        <dataType>String</dataType>
+        <expression>LEFT(TEXT({!$Record.Type__c}) , FIND(&quot;-&quot;,TEXT({!$Record.Type__c}), 0) -2) &amp; &quot;-&quot; &amp; {!$Record.Autonumber__c}</expression>
+    </formulas>
+    <formulas>
+        <name>ApplicationRespondByDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Record.ApplicationReceivedDate__c} + {!$Record.LicenseType__r.ApplicationRespondByInDays__c}</expression>
+    </formulas>
+    <formulas>
+        <name>CompleteApplicationBy</name>
+        <dataType>Date</dataType>
+        <expression>IF(NOT(ISPICKVAL({!$Record.Type__c}, &apos;RNEW - Renewal&apos;)) &amp;&amp; NOT(ISPICKVAL({!$Record.Type__c}, &apos;RSTR - Restore - No A/I Status&apos;)) , ADDMONTHS({!$Record.ApplicationReceivedDate__c} , {!$Record.LicenseType__r.CompletebyDuration__c} ) , {!$Record.CompleteApplicationBy__c} )</expression>
+    </formulas>
+    <formulas>
+        <name>DateOfLicensure</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+TEXT({!$Record.LicensePeriod__c})= &quot;This License Period&quot;, 
+TODAY(), 
+IF(
+TEXT({!$Record.LicensePeriod__c})= &apos;Next License Period&apos;,
+ {!$Record.LicenseType__r.NextLicensePeriodEffectiveDate__c } , 
+null
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>FEIN</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Applicant__r.FEIN__c}</expression>
+    </formulas>
+    <formulas>
+        <name>NotificationEmail</name>
+        <dataType>String</dataType>
+        <expression>IF(
+ ISPICKVAL({!$Record.LicenseType__r.PreferredEmail__c}, &quot;Applicant&quot;), 
+  IF(
+  NOT( ISBLANK({!$Record.Applicant__r.BusinessEmail__c})),
+   {!$Record.Applicant__r.BusinessEmail__c} ,
+   IF(
+     AND(
+      {!$Record.Applicant__r.IsPersonAccount}=true,
+      NOT( ISBLANK({!$Record.Applicant__r.PersonContact.Email}))
+      ),
+     {!$Record.Applicant__r.PersonContact.Email} ,
+      &quot;&quot;
+  )
+),
+&quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>PVLBPID</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Applicant__r.BPID__c}</expression>
+    </formulas>
+    <interviewLabel>Application: Process {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application: Process</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>UpdateApplicationWithEmptyRecordTypePlaceholder</name>
+        <label>Update Application With Empty Record Type Placeholder</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>AccountInformation__c</field>
+            <value>
+                <elementReference>AccountInfomation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ApplicantName__c</field>
+            <value>
+                <elementReference>ApplicantName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ApplicationRespondbyDate__c</field>
+            <value>
+                <elementReference>ApplicationRespondByDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CompleteApplicationBy__c</field>
+            <value>
+                <elementReference>CompleteApplicationBy</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DateofLicensure__c</field>
+            <value>
+                <elementReference>DateOfLicensure</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FEIN__c</field>
+            <value>
+                <elementReference>$Record.Applicant__r.FEIN__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>ApplicationName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>NotificationEmail__c</field>
+            <value>
+                <elementReference>NotificationEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PVLBPID__c</field>
+            <value>
+                <elementReference>PVLBPID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreferredAddress__c</field>
+            <value>
+                <elementReference>$Record.LicenseType__r.PreferredAddress__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreferredEmail__c</field>
+            <value>
+                <elementReference>$Record.LicenseType__r.PreferredEmail__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UpdateApplicationWithRecordTypePlaceholder</name>
+        <label>Update Application With Record Type Placeholder</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Application_Record_Type_Id_Handler</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountInformation__c</field>
+            <value>
+                <elementReference>AccountInfomation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ApplicantName__c</field>
+            <value>
+                <elementReference>ApplicantName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ApplicationRespondbyDate__c</field>
+            <value>
+                <elementReference>ApplicationRespondByDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CompleteApplicationBy__c</field>
+            <value>
+                <elementReference>CompleteApplicationBy</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DateofLicensure__c</field>
+            <value>
+                <elementReference>DateOfLicensure</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FEIN__c</field>
+            <value>
+                <elementReference>$Record.Applicant__r.FEIN__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>ApplicationName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>NotificationEmail__c</field>
+            <value>
+                <elementReference>NotificationEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PVLBPID__c</field>
+            <value>
+                <elementReference>$Record.Applicant__r.BPID__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreferredAddress__c</field>
+            <value>
+                <elementReference>$Record.LicenseType__r.PreferredAddress__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PreferredEmail__c</field>
+            <value>
+                <elementReference>$Record.LicenseType__r.PreferredEmail__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>RecordTypePlaceholderCheck</targetReference>
+        </connector>
+        <object>Application__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Application_Record_Type_Id_Handler</name>
+        <label>Application Record Type Id Handler</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <flowName>Application_Record_Type_Id_Handler</flowName>
+        <inputAssignments>
+            <name>InputApplicationId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>InputRecordTypePlaceholder</name>
+            <value>
+                <elementReference>$Record.RecordTypePlaceholder__c</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

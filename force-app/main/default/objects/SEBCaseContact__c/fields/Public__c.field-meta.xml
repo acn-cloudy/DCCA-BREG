@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Public__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint JF 1/26/26: Created to indicate when a legal document is set to public for a SEB Case Contact</description>
+    <label>Public</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

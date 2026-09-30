@@ -1,0 +1,15 @@
+.THIS .filter {
+    max-width: 800px;
+}
+
+.THIS table {
+    text-transform: uppercase;
+}
+
+.THIS table td{
+    padding: .25rem;
+}
+
+.THIS .resultLabelBold {
+    font-weight: bold;
+}

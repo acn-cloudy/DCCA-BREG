@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingFeeComments__c</fullName>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Was the filing fee submitted on IARD system? Note the application filing date, date received, fiscal year end, state of formation.</inlineHelpText>
+    <label>Filing Fee Comments</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

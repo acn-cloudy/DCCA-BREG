@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotificationMailingCountry__c</fullName>
+    <description>PacPoint-DN102919-Created for PVL Sprint 2 Phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( PreferredAddress__c,
+&quot;Renewal Mail To&quot;, RenewalMailToCountry__c, 
+&quot;Mailing&quot;,TEXT(MailingCountry__c),
+&quot;Business&quot;,TEXT(BusinessCountry__c),
+&quot;Residence&quot;, Licensee__r.PersonContact.MailingCountry ,
+&quot;Employer&quot;,TEXT(EmployerCountry__c),
+&quot;Dependent Mailing&quot;, TEXT(DependentLicense__r.MailingCountry__c),
+&quot;Dependent Business&quot;, TEXT(DependentLicense__r.BusinessCountry__c),
+&quot;Dependent Employer&quot;, TEXT(DependentLicense__r.EmployerCountry__c),
+&quot;Dependent 2 Mailing&quot;, TEXT(DependentLicense2__r.MailingCountry__c),
+&quot;N/A&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notification Mailing Country</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

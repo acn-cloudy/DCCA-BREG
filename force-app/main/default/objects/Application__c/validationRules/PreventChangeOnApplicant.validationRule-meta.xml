@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventChangeOnApplicant</fullName>
+    <active>true</active>
+    <description>stop users to change the Applicant on an Application if:
+
+
+
+Type = LICN, LICF, ADDC
+
+AND
+
+Phase = X, D, L, or H
+
+AND
+
+Profile &lt;&gt; System Admin</description>
+    <errorConditionFormula>IF(
+AND(
+ ISCHANGED( Applicant__c), 
+ OR(ISPICKVAL(Type__c, &apos;LICN - New License&apos;), ISPICKVAL(Type__c, &apos;LICF - New License after Forfeiture&apos;), ISPICKVAL(Type__c, &apos;ADDC - Additional Class&apos;)),
+ OR(ISPICKVAL(Phase__c, &apos;X - Exam Phase&apos;),ISPICKVAL(Phase__c, &apos;L - License Review&apos;),ISPICKVAL(Phase__c, &apos;H - License Generation&apos;), ISPICKVAL(Phase__c, &apos;D - Dependency Review&apos;)), $Profile.Name &lt;&gt; &apos;System Administrator&apos;),true, false)</errorConditionFormula>
+    <errorMessage>Applicant can not be changed when application type of LICN, LICF, ADDC has Phase = X, D, L or H</errorMessage>
+</ValidationRule>

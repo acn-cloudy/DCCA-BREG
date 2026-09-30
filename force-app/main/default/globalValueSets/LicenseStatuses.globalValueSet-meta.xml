@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CP - Current Pending</fullName>
+        <default>false</default>
+        <label>CP - Current Pending</label>
+    </customValue>
+    <customValue>
+        <fullName>C - Current, Valid &amp; In Good Standing</fullName>
+        <default>false</default>
+        <label>C - Current, Valid &amp; In Good Standing</label>
+    </customValue>
+    <customValue>
+        <fullName>CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due</fullName>
+        <default>false</default>
+        <label>CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due</label>
+    </customValue>
+    <customValue>
+        <fullName>CR - Current/Next Renewal Paid</fullName>
+        <default>false</default>
+        <label>CR - Current/Next Renewal Paid</label>
+    </customValue>
+    <customValue>
+        <fullName>D - Forfeited; Needs to Restore</fullName>
+        <default>false</default>
+        <label>D - Forfeited; Needs to Restore</label>
+    </customValue>
+    <customValue>
+        <fullName>DA - Delinquent Restoration Subject To Approval/Maint. May Be Due</fullName>
+        <default>false</default>
+        <label>DA - Delinquent Restoration Subject To Approval/Maint. May Be Due</label>
+    </customValue>
+    <customValue>
+        <fullName>DM - Forfeited/Maintenance Requirement Due</fullName>
+        <default>false</default>
+        <label>DM - Forfeited/Maintenance Requirement Due</label>
+    </customValue>
+    <customValue>
+        <fullName>DN - Downgraded License Type</fullName>
+        <default>false</default>
+        <label>DN - Downgraded License Type</label>
+    </customValue>
+    <customValue>
+        <fullName>EX - Exempt From CMA Registration</fullName>
+        <default>false</default>
+        <label>EX - Exempt From CMA Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>F - Terminated; Needs to Reapply</fullName>
+        <default>false</default>
+        <label>F - Terminated; Needs to Reapply</label>
+    </customValue>
+    <customValue>
+        <fullName>FA - Forfeited, Restoration Subject To Approval and Maybe Maintenance/Disciplinary/Conditional Regent Due</fullName>
+        <default>false</default>
+        <label>FA - Forfeited, Restoration Subject To Approval and Maybe Maintenance/Disciplinary/Conditional Regent Due</label>
+    </customValue>
+    <customValue>
+        <fullName>FM - Terminated/Maintenance Requirement Due; Needs To Reapply</fullName>
+        <default>false</default>
+        <label>FM - Terminated/Maintenance Requirement Due; Needs To Reapply</label>
+    </customValue>
+    <customValue>
+        <fullName>H - History</fullName>
+        <default>false</default>
+        <label>H - History</label>
+    </customValue>
+    <customValue>
+        <fullName>LP - Law Repealed/Changed</fullName>
+        <default>false</default>
+        <label>LP - Law Repealed/Changed</label>
+    </customValue>
+    <customValue>
+        <fullName>NL - No License</fullName>
+        <default>false</default>
+        <label>NL - No License</label>
+    </customValue>
+    <customValue>
+        <fullName>NS - No Status Or Status Not Applicable</fullName>
+        <default>false</default>
+        <label>NS - No Status Or Status Not Applicable</label>
+    </customValue>
+    <customValue>
+        <fullName>R - Valid Thru Expiration Date, Subject To Renewal</fullName>
+        <default>false</default>
+        <label>R - Valid Thru Expiration Date, Subject To Renewal</label>
+    </customValue>
+    <customValue>
+        <fullName>RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due</fullName>
+        <default>false</default>
+        <label>RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due</label>
+    </customValue>
+    <customValue>
+        <fullName>SC - Sole Owner License Cancelled, Corporation/Partnership License Issued</fullName>
+        <default>false</default>
+        <label>SC - Sole Owner License Cancelled, Corporation/Partnership License Issued</label>
+    </customValue>
+    <customValue>
+        <fullName>TC - Voluntary Request To Cancel/Terminate</fullName>
+        <default>false</default>
+        <label>TC - Voluntary Request To Cancel/Terminate</label>
+    </customValue>
+    <customValue>
+        <fullName>TD - Deceased</fullName>
+        <default>false</default>
+        <label>TD - Deceased</label>
+    </customValue>
+    <customValue>
+        <fullName>TE - &quot;Employer Releases An Employee&quot; Or &quot;Temporary/Limited Status Has Expired&quot;</fullName>
+        <default>false</default>
+        <label>TE - &quot;Employer Releases An Employee&quot; Or &quot;Temporary/Limited Status Has Expired&quot;</label>
+    </customValue>
+    <customValue>
+        <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+        <default>false</default>
+        <label>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</label>
+    </customValue>
+    <customValue>
+        <fullName>TI - Inactive</fullName>
+        <default>false</default>
+        <label>TI - Inactive</label>
+    </customValue>
+    <customValue>
+        <fullName>TN - Licensing No Longer Required</fullName>
+        <default>false</default>
+        <label>TN - Licensing No Longer Required</label>
+    </customValue>
+    <customValue>
+        <fullName>TR - Rescinded License</fullName>
+        <default>false</default>
+        <label>TR - Rescinded License</label>
+    </customValue>
+    <customValue>
+        <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+        <default>false</default>
+        <label>TS - Forfeited Due To Nonpayment Of CT Special Assessment</label>
+    </customValue>
+    <customValue>
+        <fullName>TX - Terminated And Refunded</fullName>
+        <default>false</default>
+        <label>TX - Terminated And Refunded</label>
+    </customValue>
+    <customValue>
+        <fullName>TZ - Revocation Vacated</fullName>
+        <default>false</default>
+        <label>TZ - Revocation Vacated</label>
+    </customValue>
+    <customValue>
+        <fullName>UP - Upgraded</fullName>
+        <default>false</default>
+        <label>UP - Upgraded</label>
+    </customValue>
+    <customValue>
+        <fullName>Y - Approved By Board</fullName>
+        <default>false</default>
+        <label>Y - Approved By Board</label>
+    </customValue>
+    <customValue>
+        <fullName>Z - Current &amp; Valid, But Subject To Disciplinary Requirement</fullName>
+        <default>false</default>
+        <label>Z - Current &amp; Valid, But Subject To Disciplinary Requirement</label>
+    </customValue>
+    <customValue>
+        <fullName>Z1 - Susp Due To 1)Loss Of Bond By Licensee And/Or Dependent Or 2)Loss of RME, If Def Not Cured by Renewal, Must Re-Apply</fullName>
+        <default>false</default>
+        <label>Z1 - Susp Due To 1)Loss Of Bond By Licensee And/Or Dependent Or 2)Loss of RME, If Def Not Cured by Renewal, Must Re-Apply</label>
+    </customValue>
+    <customValue>
+        <fullName>Z2 - Suspended License; Eligible For Restoration</fullName>
+        <default>false</default>
+        <label>Z2 - Suspended License; Eligible For Restoration</label>
+    </customValue>
+    <customValue>
+        <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+        <default>false</default>
+        <label>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</label>
+    </customValue>
+    <customValue>
+        <fullName>ZD - Forfeited Disciplined License; Needs To Restore</fullName>
+        <default>false</default>
+        <label>ZD - Forfeited Disciplined License; Needs To Restore</label>
+    </customValue>
+    <customValue>
+        <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+        <default>false</default>
+        <label>ZF - Terminated Due To Recovery Fund Payout</label>
+    </customValue>
+    <customValue>
+        <fullName>ZI - Automatically Forfeited Due To Insurance Loss (60 Days to Restore)</fullName>
+        <default>false</default>
+        <label>ZI - Automatically Forfeited Due To Insurance Loss (60 Days to Restore)</label>
+    </customValue>
+    <customValue>
+        <fullName>ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement</fullName>
+        <default>false</default>
+        <label>ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement</label>
+    </customValue>
+    <customValue>
+        <fullName>ZO - Out Of State Disciplinary Action</fullName>
+        <default>false</default>
+        <label>ZO - Out Of State Disciplinary Action</label>
+    </customValue>
+    <customValue>
+        <fullName>ZP - Voluntary Suspension</fullName>
+        <default>false</default>
+        <label>ZP - Voluntary Suspension</label>
+    </customValue>
+    <customValue>
+        <fullName>ZR - Revoked</fullName>
+        <default>false</default>
+        <label>ZR - Revoked</label>
+    </customValue>
+    <customValue>
+        <fullName>ZS - Suspended</fullName>
+        <default>false</default>
+        <label>ZS - Suspended</label>
+    </customValue>
+    <customValue>
+        <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+        <default>false</default>
+        <label>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</label>
+    </customValue>
+    <customValue>
+        <fullName>ZV - Voluntary Revocation</fullName>
+        <default>false</default>
+        <label>ZV - Voluntary Revocation</label>
+    </customValue>
+    <customValue>
+        <fullName>ZW - Conditional License Withdrawn</fullName>
+        <default>false</default>
+        <label>ZW - Conditional License Withdrawn</label>
+    </customValue>
+    <customValue>
+        <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+        <default>false</default>
+        <label>ZZ - Prohibited From Practice Pending Hearing</label>
+    </customValue>
+    <customValue>
+        <fullName>FA - Forfeited, Restoration Subject To Approval and Maybe</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>FA - Forfeited, Restoration Subject To Approval and Maybe</label>
+    </customValue>
+    <customValue>
+        <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ZT - Remain Forfeited Due To Failure To Provide Proof Of</label>
+    </customValue>
+    <customValue>
+        <fullName>ZI - Automatically Forfeited Due To Insurance Loss</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ZI - Automatically Forfeited Due To Insurance Loss</label>
+    </customValue>
+    <customValue>
+        <fullName>ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance</label>
+    </customValue>
+    <customValue>
+        <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>ZC - Voluntarily Surrender Or Forfeit License Due To</label>
+    </customValue>
+    <customValue>
+        <fullName>Z1 - Susp Due To 1)Loss Of Bond By Licensee And/Or Dependent Or</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Z1 - Susp Due To 1)Loss Of Bond By Licensee And/Or Dependent Or</label>
+    </customValue>
+    <customValue>
+        <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain</label>
+    </customValue>
+    <customValue>
+        <fullName>TE - Employer Releases An Employee&quot; Or &quot;Temporary/Limited Status&quot;</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>TE - Employer Releases An Employee&quot; Or &quot;Temporary/Limited Status&quot;</label>
+    </customValue>
+    <customValue>
+        <fullName>SC - Sole Owner License Cancelled, Corporation/Partnership</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>SC - Sole Owner License Cancelled, Corporation/Partnership</label>
+    </customValue>
+    <description>PacPoint-KN081619 - Created for PVL Phase 1</description>
+    <masterLabel>License Statuses</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

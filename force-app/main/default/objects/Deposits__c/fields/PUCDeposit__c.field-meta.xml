@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PUCDeposit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC071819- Created for Phase 2</description>
+    <label>PUC Deposit</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

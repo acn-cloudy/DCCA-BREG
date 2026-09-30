@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_License_Type</name>
+        <label>Check License Type</label>
+        <locationX>1898</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>License_Types_for_TF</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CT - Sole Proprietor</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CT - RME</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PCO - Sole Proprietor</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PCO - RME</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PCFR</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Associated_License</targetReference>
+            </connector>
+            <label>License Types for TF</label>
+        </rules>
+        <rules>
+            <name>License_Types_for_PLOS</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CT - Entity</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.LicenseType__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PCO - Entity</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_License_History_PLOS</targetReference>
+            </connector>
+            <label>License Types for PLOS</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Found_ZI_License_History</name>
+        <label>Found ZI License History?</label>
+        <locationX>974</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Create_License_History</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_ZI_License_History</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>LicenseStatus</name>
+        <label>License Status</label>
+        <locationX>1238</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>DDMDelinquent</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>D - Forfeited; Needs to Restore</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>DM - Forfeited/Maintenance Requirement Due</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_License_History_0</targetReference>
+            </connector>
+            <label>D/DM - Delinquent</label>
+        </rules>
+        <rules>
+            <name>FFMForfeited</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>F - Terminated; Needs to Reapply</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>FM - Terminated/Maintenance Requirement Due; Needs To Reapply</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_License_History_0_0_0</targetReference>
+            </connector>
+            <label>F/FM - Forfeited</label>
+        </rules>
+        <rules>
+            <name>LicenseCancelledUpdated</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Z - Current &amp; Valid, But Subject To Disciplinary Requirement</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZD - Forfeited Disciplined License; Needs To Restore</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZF - Terminated Due To Recovery Fund Payout</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZO - Out Of State Disciplinary Action</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZP - Voluntary Suspension</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZR - Revoked</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZS - Suspended</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZV - Voluntary Revocation</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZZ - Prohibited From Practice Pending Hearing</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZW - Conditional License Withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TC - Voluntary Request To Cancel/Terminate</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TD - Deceased</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_License_History_0_0_0_0</targetReference>
+            </connector>
+            <label>License Cancelled/Updated</label>
+        </rules>
+        <rules>
+            <name>ZI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZI - Automatically Forfeited Due To Insurance Loss (60 Days to Restore)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_ZI_License_History</targetReference>
+            </connector>
+            <label>ZI</label>
+        </rules>
+        <rules>
+            <name>ZT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_License_HistoryZT</targetReference>
+            </connector>
+            <label>ZT</label>
+        </rules>
+        <rules>
+            <name>License_Status_to_TF</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_License.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Check_License_Type</targetReference>
+            </connector>
+            <label>License Status to TF</label>
+        </rules>
+    </decisions>
+    <description>JF 6/12/23: Used to create License History records on the License. - Update license history effective date for DELQ</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CurrentLicensePeriod</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot; - &quot; 
++ TEXT(MONTH({!Get_License.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseTypeExpireDate__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>DELQEffectiveDate</name>
+        <dataType>Date</dataType>
+        <expression>{!Get_License.EffectiveExpireDate__c} + 1</expression>
+    </formulas>
+    <formulas>
+        <name>EffectiveDate</name>
+        <dataType>Date</dataType>
+        <expression>{!InputLicense.CancelDate__c} + 1</expression>
+    </formulas>
+    <formulas>
+        <name>EffectiveDateforTF</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISBLANK({!Get_Associated_License.EntityLicense__r.Ins_Expire_Cancel_Date__c}), TODAY(), {!Get_Associated_License.EntityLicense__r.Ins_Expire_Cancel_Date__c})</expression>
+    </formulas>
+    <formulas>
+        <name>EffectiveDateForZT</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISBLANK({!Get_License.Ins_Expire_Cancel_Date__c}), TODAY(), {!Get_License.Ins_Expire_Cancel_Date__c})</expression>
+    </formulas>
+    <formulas>
+        <name>EntityInsuranceTermDate</name>
+        <dataType>Date</dataType>
+        <expression>
+If(ISNULL({!Get_Associated_License.EntityLicense__r.InsuranceBondTermDate__c}),
+{!Get_Associated_License.EntityLicense__r.Insurance_Bond_Cancel_Date__c} + 1,{!Get_Associated_License.EntityLicense__r.InsuranceBondTermDate__c} + 1)</expression>
+    </formulas>
+    <formulas>
+        <name>InsuranceEffectiveDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(ISNULL({!Get_License.InsuranceBondTermDate__c}),
+{!Get_License.Insurance_Bond_Cancel_Date__c} + 1,
+{!Get_License.InsuranceBondTermDate__c}+ 1)</expression>
+    </formulas>
+    <formulas>
+        <name>NextLicensePeriod</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH({!Get_License.LicenseType__r.NextLicensePeriodEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseType__r.NextLicensePeriodEffectiveDate__c} ))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseType__r.NextLicensePeriodEffectiveDate__c} ))
++ &quot; - &quot; 
++ TEXT(MONTH({!Get_License.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseType__r.NextLicensePeriodExpireDate__c}))</expression>
+    </formulas>
+    <formulas>
+        <name>OnlineApplicationTypeFlow</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE(TEXT({!InputApplication.OnlineApplicationType__c}) , &quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>Privilege</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  {!RenewingPermittoPractice} = &apos;No&apos;
+    ,&apos;&apos;
+    ,BLANKVALUE(TEXT({!InputLicense.Privilege__c}),&apos;&apos;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Remarks</name>
+        <dataType>String</dataType>
+        <expression>TRIM(
+    IF( 
+        NOT(
+            ISBLANK({!Privilege})
+        )
+        , &quot;RENEWED WITH &quot; + {!Privilege}
+        , IF( 
+            {!RenewingPermittoPractice} = &apos;No&apos;
+            , &quot;RENEWED WITHOUT PERMIT TO PRACTICE&quot;
+            , &quot;&quot;)) 
+    + &quot; &quot;
+    + IF( 
+        NOT(
+            ISBLANK({!OnlineApplicationTypeFlow}))
+    ,&quot;ELECTRONIC RENEWAL&quot;
+    ,&quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RenewingPermittoPractice</name>
+        <dataType>String</dataType>
+        <expression>BLANKVALUE(TEXT({!InputApplication.RenewingPermittoPractice__c}),&apos;&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>SuspenseDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} + 22</expression>
+    </formulas>
+    <formulas>
+        <name>SuspenseDateforZI</name>
+        <dataType>Date</dataType>
+        <expression>{!Get_License.Ins_Expire_Cancel_Date__c}+ 59</expression>
+    </formulas>
+    <formulas>
+        <name>TransactionType</name>
+        <dataType>String</dataType>
+        <expression>CASE({!InputApplication.Type__c}
+    , &quot;RNEW - Renewal&quot;
+    , &quot;RNEW - RENEWED&quot;
+    , &quot;RSTR - Restore - No A/I Status&quot;
+    , &quot;RSTR - RESTORED (LICENSE WAS DELINQUENT/FORFEITED)&quot;
+    , &quot;LICF - New License after Forfeiture&quot;
+    , &quot;LICF - NEW LICENSE AFTER FORFEITURE&quot;
+    , &quot;REAC - Reactivation&quot;
+    , &quot;REAC - REACTIVATED&quot;
+   , &quot;ADDP - Additional Special Privilege&quot;
+    , &quot;ADDP - ADD SPECIAL PRIVILEGE&quot;
+    , &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TransactionTypeBouncedCheck</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!InputApplication.Type__c} , 
+
+&quot;RNEW - Renewal&quot;, &quot;BCRN - BOUNCED CHECK - RENEWAL&quot;, 
+
+&quot;RSTR - Restore - No A/I Status&quot;, &quot;BCRS - BOUNCED CHECK - RESTORATION&quot;,
+
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>TransactionTypeBouncedCheckPaidLICNLICF</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!InputApplication.Type__c}, 
+&quot;LICN - New License&quot;, &quot;BPNL - BOUNCED CHECK REPAYMENT, NEW LICENSE&quot;, 
+&quot;LICF - New License after Forfeiture&quot;, &quot;BPLF - BOUNCED CHECK REPAYMENT, LICF&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>TransactionTypeBouncedCheckPaidRNEWRSTR</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!InputApplication.Type__c}, 
+&quot;RNEW - Renewal&quot;, &quot;BPRN - BOUNCED CHECK RENEWALS, REPAYMENT RENEWALS&quot;, 
+&quot;RSTR - Restore - No A/I Status&quot;, &quot;BPRS - BOUNCED CHECK RENEWALS, REPAYMENT RESTORATION&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>License: Create License History {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>License: Create License History</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_License_Hisotr</name>
+        <label>Create License History</label>
+        <locationX>1634</locationX>
+        <locationY>566</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>EffectiveDateforTF</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>CurrentLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <stringValue>TF - RME FORFEITED DUE TO LOSS OF EMPLOYER &amp; FAILURE TO NOTIFY OF NEW STATUS WITHIN SPECIFIED TIME</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_History</name>
+        <label>Create License History</label>
+        <locationX>1106</locationX>
+        <locationY>566</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>InsuranceEffectiveDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>CurrentLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>SuspenseDate__c</field>
+            <value>
+                <elementReference>SuspenseDateforZI</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TermDate__c</field>
+            <value>
+                <elementReference>SuspenseDateforZI</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <elementReference>Get_License.HistoryTransactionType__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_History_0</name>
+        <label>Create License History</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>DELQEffectiveDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>NextLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Remarks__c</field>
+            <value>
+                <stringValue>License was Forfeited</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <stringValue>DELQ - DELINQUENT</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_History_0_0_0</name>
+        <label>Create License History</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>Get_License.RestorationDeadline__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Remarks__c</field>
+            <value>
+                <stringValue>License was Terminated</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <stringValue>FORF - FORFEITED</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_History_0_0_0_0</name>
+        <label>Create License History</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>Get_License.CancelDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>CurrentLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <elementReference>Get_License.HistoryTransactionType__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_History_PLOS</name>
+        <label>Create License History</label>
+        <locationX>1898</locationX>
+        <locationY>458</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>Get_License.LossofPrincipalRMEDate__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>CurrentLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <stringValue>PLOS - FIRM LOST PRINCIPAL (PRIN TERM, I, D OR Z)</stringValue>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <name>Create_License_HistoryZT</name>
+        <label>Create License History</label>
+        <locationX>1370</locationX>
+        <locationY>350</locationY>
+        <inputAssignments>
+            <field>EffectiveDate__c</field>
+            <value>
+                <elementReference>EffectiveDateForZT</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriod__c</field>
+            <value>
+                <elementReference>CurrentLicensePeriod</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>License__c</field>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TransactionType__c</field>
+            <value>
+                <elementReference>Get_License.HistoryTransactionType__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Associated_License</name>
+        <label>Get Associated License</label>
+        <locationX>1634</locationX>
+        <locationY>458</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_License_Hisotr</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>EmployeeLicense__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>EmploymentStatus__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Terminated</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>AssociatedLicense__c</object>
+        <sortField>EndDate__c</sortField>
+        <sortOrder>Desc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_License</name>
+        <label>Get License</label>
+        <locationX>1238</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>LicenseStatus</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InputLicense.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>License__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_ZI_License_History</name>
+        <label>Get ZI License History</label>
+        <locationX>974</locationX>
+        <locationY>350</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Found_ZI_License_History</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>TransactionType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>ZI - FORFEITED AUTOMATICALLY DUE TO LOSS OF INSURANCE (60 DAYS TO RESTORE)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>License__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>EffectiveDate__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>InsuranceEffectiveDate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>LicenseHistory__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>1112</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_License</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>EntityInsuranceEffectiveDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>InputApplication</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Application__c</objectType>
+    </variables>
+    <variables>
+        <name>InputLicense</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>License__c</objectType>
+    </variables>
+</Flow>

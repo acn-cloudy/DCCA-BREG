@@ -1,0 +1,22 @@
+<template>
+    <lightning-layout if:true={showAmendedSection} multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <lightning-layout-item size="12">
+                <lightning-input
+                    name="isAmended"
+                    value={isAmendedValue}
+                    checked={isAmendedValue}
+                    type="checkbox"
+                    label={isAmendedCheckboxLabel}
+                    onchange={handleInputChange}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

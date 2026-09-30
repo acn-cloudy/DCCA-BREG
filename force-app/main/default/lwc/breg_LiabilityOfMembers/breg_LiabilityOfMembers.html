@@ -1,0 +1,55 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={liabilityOfMembersValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item if:true={showLiabilityDetailsField} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={liabilityDetailsValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div class="slds-form-element slds-var-m-bottom_medium">
+                    <div class="slds-form-element__control">
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <span class="slds-text-body_regular slds-var-m-right_x-small"> The members of the company... </span>
+                            <lightning-helptext
+                                content="Select the level of liability that company members will have for company debts and obligations."
+                            ></lightning-helptext>
+                        </div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="liabilityOfMembers"
+                    value={liabilityOfMembersValue}
+                    label="Liability of Members Options"
+                    options={liabilityOptions}
+                    variant="label-hidden"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <lightning-layout-item if:true={showLiabilityDetailsField} size="12" class="form-layout-item">
+                <lightning-textarea
+                    name="liabilityDetails"
+                    value={liabilityDetailsValue}
+                    label="Write the specific debts, obligations, and liabilities that all members are liable for."
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-textarea>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

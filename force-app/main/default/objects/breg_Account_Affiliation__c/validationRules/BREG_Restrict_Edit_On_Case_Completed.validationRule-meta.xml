@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BREG_Restrict_Edit_On_Case_Completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    ISPICKVAL(breg_Case__r.Status, &quot;Completed&quot;),
+  NOT($Permission.BREG_Supervisor),
+  NOT($Permission.BREG_Edit_Completed_Affiliation),
+  NOT(ISCHANGED(breg_Bypass_Validation_Token__c))
+)</errorConditionFormula>
+    <errorMessage>You can’t update Account Affiliation when the related Case is Completed unless you have the BREG_Supervisor or BREG DOC-R permission.</errorMessage>
+</ValidationRule>

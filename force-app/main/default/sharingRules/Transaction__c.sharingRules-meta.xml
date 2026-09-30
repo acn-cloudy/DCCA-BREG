@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BREG_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>BREG Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREGManagers</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CAP_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>CAP Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>INS</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>CAP</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CATV_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>CATV Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CATVManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>CATV</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DFI_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>DFI Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DFIManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>DFI</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DOC_I_Transaction_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DOC I Transaction Sharing Rule</label>
+        <sharedTo>
+            <group>DOC_I</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DOC_Office_Service_Transaction_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DOC Office Service Transaction Sharing Rule</label>
+        <sharedTo>
+            <group>breg_Office_Service</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DOC_P_BAC_Transaction_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DOC P BAC Transaction Sharing Rule</label>
+        <sharedTo>
+            <group>DOC_P_BAC</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DOC_P_Transaction_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DOC P Transaction Sharing Rule</label>
+        <sharedTo>
+            <group>DOC_P</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DOC_R_Transaction_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DOC R Transaction Sharing Rule</label>
+        <sharedTo>
+            <group>DOC_R</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HPEAP_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>HPEAP Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>HPEAPManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>HPEAP</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Insurance_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>Insurance Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>INS</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>Insurance</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>OAH_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>OAH Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>OAHManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>OAH</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>OCP_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>OCP Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>OCPManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>OCP</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PUC_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>PUC Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PUCManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PUC</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PVL_RICO_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>PVL/RICO Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVLManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>RICO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PVL_Real_Estate_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>PVL Real Estate Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVLManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PVL Real Estate</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PVL_Real_State_PVL_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>PVL Real State/PVL Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVLRealEstateManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PVL</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PVL_Real_State_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>PVL Real State Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVLRealEstateManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PVL Real Estate</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>PVL_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-DN06072021 - Added For MyPVL Portal created Transactions</description>
+        <label>PVL Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVLManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PVL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>equals</operation>
+            <value>005t0000006Z5QTAA0</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>RICO_PVL_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>RICO/PVL Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RICOManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>PVL</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>RICO_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>RICO Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>RICOManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>RICO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>SEB_SEC_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV072418 - Created for phase 2</description>
+        <label>SEB/SEC Sharing Rule</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_SEC_Transactions_with_all_SEC</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Per Kim U</description>
+        <label>Share SEC Transactions with  all SEC</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>Site_Guest_User</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Site Guest User</label>
+        <sharedTo>
+            <guestUser>PaymentConnect</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingOwnerRules>
+        <fullName>AngelaRodriguezTransactionSharingRule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV062019 - Created for phase 1. Case 00002970</description>
+        <label>Angela Rodriguez Transaction Sharing Rule</label>
+        <sharedTo>
+            <role>CSHRManager</role>
+        </sharedTo>
+        <sharedFrom>
+            <group>AngelaRodriguez</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CashierPaymentManager</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV060619 - Created for phase 2</description>
+        <label>Cashier Payment Manager</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CSHRManager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>DCCA</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

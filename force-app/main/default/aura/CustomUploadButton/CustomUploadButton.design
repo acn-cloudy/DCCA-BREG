@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="uploadButtonName" label="Upload Button Name" />
+    <design:attribute name="checkboxApiName" label="Dependent Checkbox API Name" />
+    <design:attribute name="uploadFilePageName" label="Upload File Page Name" />
+</design:component>

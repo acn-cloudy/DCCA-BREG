@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>BCFandDisputedChargeButtonsCustomPermission</name>
+    </customPermissions>
+    <description>Allow access to the BCF and Disputed Charge buttons on Payment__c</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TransactionLine__c.PaidStatus__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Transaction__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>pymt__PaymentX__c.pymt__Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>BCF and Disputed Charge Buttons</label>
+</PermissionSet>

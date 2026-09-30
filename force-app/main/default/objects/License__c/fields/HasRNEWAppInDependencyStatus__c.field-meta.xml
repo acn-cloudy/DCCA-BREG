@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HasRNEWAppInDependencyStatus__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN06252020- Case 8810 - Created for PVL Phase 1 Sprint 6</description>
+    <inlineHelpText>Used to indicate when a Current License has a RNEW App in a D Phase, if they have this checkbox populated, when/if the License goes into a D - Forfeited Status, Salesforce will generate a Non Renewal Letter.</inlineHelpText>
+    <label>Has RNEW App In Dependency Status</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PhaseLRequiredBeforeMovingtoPhaseH</fullName>
+    <active>true</active>
+    <description>PacPoint-MV112119 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+AND(
+ISCHANGED(Phase__c),
+ISPICKVAL(Phase__c,&quot;H - License Generation&quot;),
+TEXT(PRIORVALUE(Phase__c)) &lt;&gt; &quot;L - License Review&quot;,
+ISPICKVAL(Type__c,&quot;LICN - New License&quot;),
+CompleteApplicationBy__c &gt;= TODAY(),
+TEXT(MethodofLicensure__c) &lt;&gt; &quot;LC - Licensure Compact&quot;
+),
+true,
+false
+)</errorConditionFormula>
+    <errorMessage>You need to go through Phase L  first before changing it to H</errorMessage>
+</ValidationRule>

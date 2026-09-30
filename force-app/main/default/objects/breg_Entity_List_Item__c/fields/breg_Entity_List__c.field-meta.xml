@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Entity_List__c</fullName>
+    <description>Aalta BREG-58</description>
+    <label>Entity List</label>
+    <referenceTo>breg_Entity_List__c</referenceTo>
+    <relationshipLabel>Entity List Items</relationshipLabel>
+    <relationshipName>Entity_List_Items</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

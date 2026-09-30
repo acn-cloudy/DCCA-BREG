@@ -1,0 +1,123 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global" />
+    <p><b>STATE OF HAWAII</b><br/>
+    <b>DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS</b><br/>
+    <b>PROFESSIONAL AND VOCATIONAL LICENSING DIVISION</b><br/>
+    </p>
+
+    <div style="text-align: center;">
+        <b>
+            NOTICE OF LICENSE RENEWAL<br/>
+            {!record.LicenseType__r.LicenseType__c} - {!record.Name}
+        </b>
+    </div>
+
+    <ul>
+        <li><b>Renewal Opens:</b> Monday, <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+        <li><b>License Expiration Date:</b> <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+    </ul>
+
+    <p>
+        <b>RENEWAL INSTRUCTIONS</b>
+    </p>
+
+    <ol>
+        <li>
+            <b>Renew online (recommended)</b><br/>
+            <ul>
+                <li>Visit <u style="color:blue">https://mypvl.dcca.hawaii.gov/</u></li>
+                <li>Log in using your MyPVL account (Email on record: {!record.PVL_Portal_User__r.Email__c})</li>
+                <li>Complete renewal and payment (credit card or checking account) no later than   
+                    <b>midnight (HST) on</b> <apex:outputText value="{0, date,  MM/dd/yy}">
+                        <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>.
+                    </apex:outputText>
+                </li>
+                <li>A receipt will be emailed after payment.</li>
+            </ul>
+        </li>
+        <li>
+            <b>If you want to change to inactive status (currently active)</b><br/>
+            <ul>
+                <li>Call the Licensing Branch at <b>1-844-808-DCCA (3222)</b> to request a <b>hardcopy renewal   
+                application.</b></li>
+
+                <li>On the hardcopy form mark <b>“inactive status”</b> in the Other Requirements section   
+                and include the inactive status fee.</li>
+
+                <li>Mail the form per instructions.</li>
+            </ul>
+        </li>
+        <li>
+            <b>If your license is inactive and you want to reactivate</b><br/>
+            <ul>
+                <li>Renew your license while keeping it on <b>inactive</b> status.</li>
+
+                <li>Then submit a <b>reactivation application</b> (form is on the DCCA site).</li>
+
+                <li>Form is available online at <u style="color:blue">http://cca.hawaii.gov/pvl/</u> under the “Application   
+                Forms &amp; Publications” section for your licensing area.</li>
+            </ul>
+        </li>
+        <li>
+            <b>If you cannot renew online or prefer mail</b><br/>
+            <ul>
+                <li>Call <b>1-844-808-DCCA (3222)</b> to request a hardcopy renewal application and instructions.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>
+        <b>IMPORTANT INFORMATION</b>
+    </p>
+
+    <ul>
+        <li>A license <b>not renewed</b> by the expiration date, or placed on <b>inactive   
+        status</b>, shall not practice.</li>
+
+        <li>Practicing without a current license may subject the licensee to   
+        <b>disciplinary action.</b></li>
+
+        <li><b>Pocket ID cards must be retrieved and printed online via your MyPVL   
+        account.</b><br/>
+            <ul>
+                <li>No other notice will be provided.</li>
+                <li>Requests for mailed cards require a <b>$10 fee.</b></li>
+            </ul>
+        </li>
+
+        <li>Processing time may vary depending on renewal volume. <b>Early renewal   
+        is strongly recommended.</b></li>
+
+        <li>
+            Licenses not renewed or restored by <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText> will require submission of a <b>new   
+            application</b> under current requirements.  
+        </li>
+
+    </ul>
+
+    <p>
+        <b>ADDITIONAL INFORMATION</b>
+    </p>
+
+    <p>
+        If you have already renewed, please disregard this notice.
+    </p>
+
+    <p>
+        For more details on renewal and restoration, visit: <u style="color:blue">https://cca.hawaii.gov/pvl/</u> and   
+        review the “Renewal and Restoration” section under your licensing area.  
+    </p>
+
+    <p>
+        <b>DCCA – Professional and Vocational Licensing Division</b>
+    </p>
+
+</apex:component>

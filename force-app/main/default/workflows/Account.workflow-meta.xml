@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>AccounSetSEBSECFlag</fullName>
+        <description>PacPoint-MV051419 - Created for BREG phase 1</description>
+        <field>SEBSEC__c</field>
+        <literalValue>1</literalValue>
+        <name>Account:SetSEBSECFlag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Account%3ASetSEBSECFlag</fullName>
+        <actions>
+            <name>AccounSetSEBSECFlag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>SEB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>SEC</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>DCCA BREG - CustomerCommunityLogin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>contains</operation>
+            <value>securities Profile</value>
+        </criteriaItems>
+        <description>PacPoint-MV051419 - Created for BREG phase 1. Used WF instead of PB to avoid hardcoding Profile Ids.</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

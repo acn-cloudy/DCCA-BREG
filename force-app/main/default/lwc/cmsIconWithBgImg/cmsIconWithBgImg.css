@@ -1,0 +1,33 @@
+.container {
+  background-image: url(/sfsites/c/resource/ComplaintsThemeLayout/imgs/background.jpg);
+  align-items: stretch;
+}
+
+.container>.item {
+  border-top: 1px solid #fff;
+}
+.container>.item~.item {
+  border-left: 1px solid #fff;
+}
+
+img {
+  width: 64px;
+  height: 64px;
+}
+
+a {
+  text-decoration-color: #fff;
+}
+
+span {
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .container>.item:nth-child(3) {
+    border-left: unset;
+  }
+}

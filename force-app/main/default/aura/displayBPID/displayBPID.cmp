@@ -1,0 +1,69 @@
+<aura:component
+  controller="DisplayBPIDController"
+  access="global"
+  extends="c:sc_execute"
+>
+  <aura:attribute name="cardCaches" type="Object" />
+  <aura:attribute name="valueMap" type="Object" />
+  <aura:attribute name="formData" type="String" />
+  <aura:attribute name="accountName" type="String" />
+  <aura:attribute name="appId" type="String" />
+  <aura:attribute name="cancelURL" type="String" />
+  <aura:attribute name="displayItem" type="Boolean" />
+  <aura:attribute name="notTheUser" type="Boolean" />
+  <aura:attribute name="value" type="Object" />
+  <aura:attribute name="title" type="String" />
+
+  <aura:registerEvent name="cmpMessage" type="c:sc_Message" />
+  <!-- <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> -->
+  <c:checkTerminateApp
+    aura:id="terminateApp"
+    valueMap="{!v.valueMap}"
+    formData="{!v.formData}"
+    value="{!v.value}"
+    nextActions="{!c.doInit}"
+    cancelActions="{!c.destroyAction}"
+  />
+  <aura:if isTrue="{!v.displayItem}">
+    <c:sc_popup title="{!v.notTheUser ? 'Info' : 'Confirm'}" hide="{!c.cancel}">
+      <aura:if isTrue="{!!v.notTheUser}">
+        <div>
+          A record of you was Found with PVL. Please confirm if this is you or
+          click "This is not me".
+        </div>
+        <div>
+          <h3>Account Name: {!v.accountName}</h3>
+        </div>
+      </aura:if>
+      <aura:if isTrue="{!v.notTheUser}"> 
+        <div>
+          SSN is already in used by other account. Please contact
+          pvl@dcca.hawaii.gov if you think this is incorrect.
+        </div>
+      </aura:if>
+      <aura:set attribute="footers">
+        <div class="slds-grid slds-grid_align-center">
+          <aura:if isTrue="{!!v.notTheUser}">
+            <lightning:button
+              variant="brand"
+              label="YES, this is me"
+              onclick="{!c.confirm}"
+            />
+            <lightning:button
+              variant="Neutral"
+              label="No, this is not me"
+              onclick="{!c.cancel}"
+            />
+          </aura:if>
+          <aura:if isTrue="{!v.notTheUser}">
+            <lightning:button
+              variant="brand"
+              label="OK"
+              onclick="{!c.closeApp}"
+            />
+          </aura:if>
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </aura:if>
+</aura:component>

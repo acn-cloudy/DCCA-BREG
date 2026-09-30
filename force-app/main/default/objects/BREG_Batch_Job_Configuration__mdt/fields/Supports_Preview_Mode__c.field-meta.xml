@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supports_Preview_Mode__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether the batch job supports running in preview mode</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Supports Preview Mode</label>
+    <type>Checkbox</type>
+</CustomField>

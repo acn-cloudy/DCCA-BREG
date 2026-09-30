@@ -1,0 +1,40 @@
+<aura:component>
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="columnNames" type="List" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="columnObjList" type="List" />
+    <aura:attribute name="valueMap" type="Object" />
+    <aura:attribute name="handleSelect" type="Object" />
+    
+    <aura:attribute name="checked" type="Boolean" />
+    <aura:attribute name="selectOne" type="boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <tr aria-selected="false" class="slds-hint-parent">
+        <td class="slds-text-align_right" role="gridcell">
+            <aura:if isTrue="{!v.handleSelect != null}">
+                <lightning:buttonMenu aura:id="menu" onselect="{! v.handleSelect }" alternativeText="Show menu">
+                    <lightning:menuItem value="{!v.index + ':Remove'}" label="Remove" />
+                    <lightning:menuItem value="{!v.index + ':Edit'}" label="Edit" />
+                </lightning:buttonMenu>
+                
+                <aura:set attribute="else" >
+                    <div class="slds-checkbox">
+                        <input aura:id="checkbox" type="checkbox" checked="{!v.checked}" name="{!'options-' + v.index}" onclick="{!c.onCheck}" data-value="{!v.record.Id}"
+                               id="{!'checkbox-' + v.index}" tabindex="0" aria-labelledby="{!'check-button-label-' + v.index + ' column-group-header'}" />
+                        <label class="slds-checkbox__label" for="{!'checkbox-' + v.index}" id="{!'check-button-label-' + v.index}">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-form-element__label slds-assistive-text">Select item {!v.index}</span>
+                        </label>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </td>
+        <aura:iteration items="{!v.columnObjList}" var="columnObj">
+            <td role="gridcell">
+                <div class="slds-truncate" title="{!columnObj.fieldValue}">{!columnObj.fieldValue}</div>
+            </td>
+        </aura:iteration>
+    </tr>
+</aura:component>

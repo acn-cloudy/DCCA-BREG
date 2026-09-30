@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Draft_App_No__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(contains(Application_Id__c,&quot;DT18&quot;),Application_Id__c,(&quot;DT&quot; + RIGHT(TEXT(YEAR(TODAY())), 2)  + Application_Id__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Draft App No</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

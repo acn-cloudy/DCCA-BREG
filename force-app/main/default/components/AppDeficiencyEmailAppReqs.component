@@ -1,0 +1,40 @@
+<apex:component controller="AppDeficiencyEmailAppReqsController" access="global">
+    <apex:attribute name="parentApplicationId"
+                    description="Application ID"
+                    type="String"
+                    assignTo="{!applicationId}"/>
+
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+        <apex:repeat var="requirement" value="{!applicationRequirements}">
+            <tr>
+                <td valign="top" style="font-family: Courier New; max-width: 10px;">
+                    <apex:outputLabel value="{!IF(requirement.IsDeficient__c, '&#9746;','&#9744;')}" escape="false"/>
+                </td>
+                <td valign="top" style="font-family: Courier New; padding-left: 10px;">
+                        {!requirement.Requirement__r.RequirementLongDescription__c }
+                        <apex:outputText value="{!requirement.RemarksTag__c }" escape="false" />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10px;">&nbsp;</td>
+                <td>
+                    <table style="width: 100%;">
+                        <apex:repeat var="subRequirement" value="{!requirement.ApplicationRequirements__r}">
+                            <tr>
+                                <td valign="top" style="font-family: Courier New; max-width: 10px; padding-left: 25px;">
+                                    <apex:outputLabel value="{!IF(subRequirement.IsDeficient__c, '&#9746;','&#9744;')}"
+                                                      escape="false"/>
+                                </td>
+                                <td valign="top"
+                                    style="font-family: Courier New; padding-left: 10px;">
+                                        {!subRequirement.Requirement__r.RequirementLongDescription__c }
+                                        <apex:outputText value="{!subRequirement.RemarksTag__c }" escape="false" />
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </td>
+            </tr>
+        </apex:repeat>
+    </table>
+</apex:component>

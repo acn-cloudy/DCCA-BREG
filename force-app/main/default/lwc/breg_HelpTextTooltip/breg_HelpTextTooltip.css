@@ -1,0 +1,45 @@
+:host {
+    display: inline;
+    vertical-align: baseline;
+    line-height: inherit;
+}
+
+.help-text-tooltip {
+    display: inline;
+    position: relative;
+}
+
+.help-text-tooltip__trigger {
+    display: inline;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--lwc-brandTextLink, #005FB2);
+    cursor: help;
+    text-decoration: underline;
+    font: inherit;
+    line-height: inherit;
+    vertical-align: baseline;
+    font-weight: 500;
+}
+
+.help-text-tooltip__trigger:hover,
+.help-text-tooltip__trigger:focus {
+    color: var(--lwc-brandTextLinkActive, #014486);
+}
+
+.help-text-tooltip__popover {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 250px;
+    max-width: 250px;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+}
+
+.help-text-tooltip__popover .slds-text-heading_small,
+.help-text-tooltip__popover .slds-text-body_small {
+    color: white;
+}

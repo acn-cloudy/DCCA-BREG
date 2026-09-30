@@ -1,0 +1,203 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+    <!-- Expedited Processing Unavailable Modal -->
+    <c-breg-_-popup
+        visible={showExpeditedDisabledModal}
+        title="Expedited processing"
+        message="Expedited processing is temporarily not available."
+        oncontinue={handleExpeditedDisabledModalClose}
+        oncancel={handleExpeditedDisabledModalClose}
+        next-button-label="OK"
+        cancel-button-label="Cancel"
+    >
+    </c-breg-_-popup>
+
+    <div class="slds-grid slds-m-bottom_medium slds-align_absolute-center slds-align-middle">
+        <div class="slds-col slds-grid slds-align-middle">
+            <h1 class="dxp-text-heading-xlarge title slds-m-bottom_none">{labels.documentsCart}</h1>
+            <div class="slds-grid slds-grid_vertical-align-center">
+                <button onclick={handleContinueShopping} class="new-search-btn">
+                    <lightning-icon
+                        icon-name="utility:back"
+                        alternative-text={labels.continueShopping}
+                        size="x-small"
+                        class="new-search-icon"
+                    ></lightning-icon>
+                    <p>{labels.continueShopping}</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Text -->
+    <div class="slds-m-bottom_medium">
+        <lightning-formatted-text value={labels.verificationText}> </lightning-formatted-text>
+    </div>
+
+    <!-- Documents Table -->
+    <div class="table-container slds-table_edit_container slds-is-relative">
+        <table class="table-layout slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_fixed-layout">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-text-title_caps column-document" scope="col">
+                        <div class="slds-truncate" title={labels.documentColumnHeader}>{labels.documentColumnHeader}</div>
+                    </th>
+                    <th class="slds-text-title_caps column-certify" scope="col">
+                        <div class="slds-truncate" title=""></div>
+                    </th>
+                    <th class="slds-text-title_caps column-quantity" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title={labels.quantityColumnHeader}>{labels.quantityColumnHeader}</div>
+                    </th>
+                    <th class="slds-text-title_caps slds-text-align_right column-price" scope="col">
+                        <div class="slds-truncate" title={labels.priceColumnHeader}>{labels.priceColumnHeader}</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={cartItems} for:item="item">
+                    <tr key={item.id} class="slds-hint-parent">
+                        <th scope="row" class="text-wrap">
+                            <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                                <div>
+                                    <div class="slds-text-body_regular custom-tab">
+                                        <lightning-formatted-url value={item.companyUrl} label={item.companyName} target="_blank">
+                                        </lightning-formatted-url>
+                                    </div>
+                                    <div class="slds-text-color_weak slds-text-body_small">
+                                        {item.documentType}<span lwc:if={item.documentFormatDate}> - {item.documentFormatDate}</span>
+                                    </div>
+                                    <div class="slds-text-color_weak slds-text-body_small slds-grid slds-grid_align-start">
+                                        <lightning-icon
+                                            icon-name={item.formatIcon}
+                                            alternative-text={item.format}
+                                            size="x-small"
+                                            class="slds-m-right_x-small"
+                                        >
+                                        </lightning-icon>
+                                        {item.format}
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                        <td class="text-wrap">
+                            <template if:true={item.isAvailableToCertify}>
+                                <div
+                                    class="slds-badge slds-theme_info slds-align_absolute-center clickable-badge text-wrap slds-wrap"
+                                    onclick={handleCertifyClick}
+                                    data-item-id={item.id}
+                                    title="Click to certify this document"
+                                >
+                                    <lightning-icon
+                                        icon-name="utility:topic"
+                                        alternative-text={labels.certifyPrefix}
+                                        size="x-small"
+                                    >
+                                    </lightning-icon>
+                                    <span class="slds-p-horizontal_x-small">{labels.certifyPrefix}</span>
+                                    <lightning-formatted-number 
+                                        format-style="currency"
+                                        currency-code="USD"
+                                        value={item.certifyPrice}
+                                        minimum-fraction-digits="2"
+                                        maximum-fraction-digits="2"
+                                    ></lightning-formatted-number>
+                                </div>
+                            </template>
+                            <template if:true={item.isExpediteFee}>
+                                <div class="badge-tooltip-wrapper">
+                                    <div
+                                        class="slds-badge slds-theme_info slds-align_absolute-center clickable-badge text-wrap slds-wrap"
+                                        onclick={handleExpeditedReview}
+                                        data-item-id={item.id}
+                                    >
+                                        {item.expeditedReviewAction}
+                                    </div>
+                                    <span
+                                        class="item-tooltip"
+                                        data-item-id={item.id}
+                                        onmouseenter={handleTooltipHover}
+                                        onmouseleave={handleTooltipHover}
+                                    >
+                                        <lightning-icon
+                                            icon-name="utility:info"
+                                            alternative-text={item.tooltipText}
+                                            size="x-small"
+                                        ></lightning-icon>
+                                        <div lwc:if={item.showTooltip} class="slds-popover slds-popover_tooltip slds-nubbin_bottom-center item-tooltip_block" role="tooltip">
+                                            <div class="slds-popover__body">
+                                                <div class="slds-text-heading_small slds-m-bottom_x-small" style="color:white">{item.tooltipHeader}</div>
+                                                <div class="slds-text-body_small" style="color:white">
+                                                    {item.tooltipBody}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </template>
+                        </td>
+                        <td class="text-wrap">
+                            <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+                                <div class="slds-m-top_x-small">
+                                    <input
+                                        type="number"
+                                        value={item.quantity}
+                                        min="1"
+                                        data-item-id={item.id}
+                                        onchange={handleQuantityChange}
+                                        class="quantity-input-custom"
+                                        disabled={item.isQuantityDisabled}
+                                    />
+                                </div>
+                                <div>
+                                    <template if:false={item.isDeleteDisabled}>
+                                        <lightning-button
+                                            variant="base"
+                                            label={labels.remove}
+                                            onclick={handleRemoveItem}
+                                            data-item-id={item.id}
+                                            class="slds-text-link"
+                                        ></lightning-button>
+                                    </template>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="slds-text-align_right text-wrap">
+                            <template if:true={item.displayPrice}>
+                                <lightning-formatted-number value={item.price} format-style="currency" currency-code="USD"> </lightning-formatted-number>
+                            </template>
+                        </td>
+                    </tr>
+                </template>
+
+                <!-- Order Total Row -->
+                <tr class="slds-text-title_bold">
+                    <th scope="row" class="slds-text-align_right order-total text-wrap" colspan="2">{labels.orderTotal}</th>
+                    <td class="text-wrap">
+                        <lightning-formatted-number value={totalQuantity}></lightning-formatted-number>
+                    </td>
+                    <td class="slds-text-align_right text-wrap">
+                        <lightning-formatted-number value={totalPrice} format-style="currency" currency-code="USD"> </lightning-formatted-number>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- No Refunds Notice -->
+    <div class="slds-m-top_medium slds-m-bottom_medium">
+        <lightning-formatted-rich-text value={labels.noRefundsNotice} class="slds-text-body_regular"> </lightning-formatted-rich-text>
+    </div>
+
+    <!-- Check Out Button -->
+    <template if:true={hasItems}>
+        <!-- Payment Authorization and Reminder -->
+        <c-breg_-payment-authorization-notice></c-breg_-payment-authorization-notice>
+        <div class="slds-m-top_medium">
+            <lightning-button variant="brand" label={labels.checkOut} onclick={handleCheckOut} disabled={isLoading}> </lightning-button>
+        </div>
+    </template>
+</template>

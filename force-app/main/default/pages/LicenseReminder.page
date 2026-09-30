@@ -1,0 +1,85 @@
+<apex:page sidebar="false" showHeader="false" controller="LicensePostCardController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            /*
+                size: A4 landscape;
+                size: 5.5 * 4.25  
+                a4  210 * 297 
+            */
+
+            @page {
+                size: 11in 8.5in;
+                margin: 0;
+            }
+
+            html,
+            body {
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            p {
+                margin: 0;
+                font-weight: 400;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.4em;
+            }
+
+            h4 {
+                font-size: 1.2em;
+            }
+
+            h5 {
+                font-size: 1.1em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            ul {
+                margin: 0;
+                padding-left: 10px;
+            }
+        </style>
+    </head>
+    <apex:repeat var="records" value="{!allRecords}">
+
+        <body>
+            <div style="margin-top:1px">
+                <apex:repeat var="record" value="{!records}">
+                    <div style="float: left;">
+                        <c:REBPostcard record="{!record}" />
+                    </div>
+                </apex:repeat>
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div style="margin-left:5px">
+                <apex:repeat var="record" value="{!records}">
+                    <div style="float: left;">
+                        <c:LicenseReminder record="{!record}" />
+                    </div>
+                </apex:repeat>
+            </div>
+        </body>
+        <div style="page-break-after:always;"></div>
+    </apex:repeat>
+</apex:page>

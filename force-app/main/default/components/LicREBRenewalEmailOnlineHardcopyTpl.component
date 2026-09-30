@@ -1,0 +1,184 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global"/>
+    <div style="text-align: center;">
+        <b>
+            Renew Your {!record.LicenseType__r.LicenseType__c} License <br/>
+            BEGINNING
+            <apex:outputText value="{0, date,  EEEE}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>,
+            <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </b>
+    </div>
+    <p>
+        Aloha: <br/>
+        <b>{!record.Name} - {!record.Licensee__r.Name}</b> will expire on
+        <apex:outputText value="{0, date,  MM/dd/yy}">
+            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}"/>
+        </apex:outputText>.
+    </p>
+    <p>
+        <b>RENEW ONLINE</b> at <a href="https://mypvl.dcca.hawaii.gov/" target="_blank">https://mypvl.dcca.hawaii.gov/</a> by midnight (HST)
+        <apex:outputText value="{0, date,  MM/dd/yy}">
+            <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+        </apex:outputText>
+        .<br/>It's secure, fast and simple! Pay by credit card or checking account and have a receipt emailed to you.
+    </p>
+    <p>
+        <b>MyPVL Login: {!record.PVL_Portal_User__r.Email__c} is the email address associated with this
+            license.</b>
+    </p>
+    <p>
+        <i>LICENSEES who have not renewed by the license expiration date or on an inactive status shall not
+            engage in real estate activity and cannot receive any compensation for real estate brokerage activity.</i>
+    </p>
+    <div style="color: red;">
+        <u>
+            <b>***POCKET ID's MUST Be Printed Online***</b>
+        </u>
+    </div>
+    <ul>
+        <li>
+            <b>You must retrieve and print your pocket ID card online</b> via your MyPVL account at <a href="https://mypvl.dcca.hawaii.gov/" target="_blank">https://mypvl.dcca.hawaii.gov/</a> NO OTHER NOTICE WILL BE PROVIDED. Any request to have one mailed to you will be at a charge of $10.
+        </li>
+        <li>
+            <b>Need to update your MyPVL emaill address?</b> Log in and edit your eHawaii.gov account info under<br/>
+            your “My Account” link.
+        </li>
+    </ul>
+    <p>
+        <b>Contact the Licensing Branch at (808) 586-3000 to request a hardcopy renewal application if any of the<br/>
+        below applies to you:</b>
+    </p>
+    <ul>
+        <li>
+            IF YOUR LICENSE IS ON AN INACTIVE STATUS AND YOU WOULD LIKE TO REACTIVATE<br/>
+            YOUR LICENSE
+        </li>
+        <li>
+            IF YOUR LICENSE IS ON AN ACTIVE STATUS AND YOU WOULD LIKE TO PUT YOUR<br/>
+            LICENSE ON AN INACTIVE STATUS
+        </li>
+    </ul>
+    <p style="text-align: center"><b><i>Licenses on an inactive status shall not engage in real estate activity</i></b></p>
+    <p>
+        <b>RENEWAL PROCESSING TIME:</b><br/>
+        Are subject to licensee meeting all requirements and may be longer due to high volume of renewals received.<br/>
+        Early submittals are recommended.
+    </p>
+    <p><u>ADDITIONAL RENEWAL REQUIREMENTS:</u></p>
+    <p>
+        <table width="100%" border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>ALL INDIVIDUAL<br/>
+                    Brokers and Salespersons<br/>
+                    RENEWING ON AN<br/>
+                    ACTIVE STATUS</b>
+                </td>
+                <td valign="top" style="vertical-align: text-top;">
+                    Must have completed 20<br/>
+                    hours of approved continuing<br/>
+                    education courses taken<br/>
+                    within the last 2 years<br/>
+                    which includes the<br/>
+                    mandatory core courses Part<br/>
+                    A and Part B
+                </td>
+                <td valign="top" style="vertical-align: text-top;" rowspan="2">
+                    DO NOT submit CE<br/>
+                    certificates; retain them for<br/>
+                    your records. CE providers<br/>
+                    submit the course completion<br/>
+                    information directly to the<br/>
+                    Real Estate Commission<br/>
+                    (REC). By law they have 10<br/>
+                    days to report your completion<br/>
+                    to the REC.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>ALL INDIVIDUAL<br/>
+                    Brokers and Salespersons<br/>
+                    RENEWING ON<br/>
+                    INACTIVE STATUS</b>
+                </td>
+                <td valign="top" style="vertical-align: text-top;">
+                    No continuing education<br/>
+                    required for this license<br/>
+                    renewal.
+                </td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        If you renew your license without satisfying the 20 hour CE requirement, your license will be automatically<br/>
+        renewed on an inactive status, without further notice. When you change to active status, you will be<br/>
+        required to submit a completed “Change Form” and pay a $25.00 reactivation fee.
+    </p>
+    <p><b>OTHER DEPENDENCY REQUIREMENTS:</b></p>
+    <p>
+        <table width="100%" border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>Real Estate Broker (Entity – Corporation,<br/>
+                    Partnership, LLC and LLP - active status)</b>
+                </td>                
+                <td valign="top" style="vertical-align: text-top;">
+                    Your Principal Broker (PB) must successfully renew<br/>
+                    their license and meet all requirements before<br/>
+                    dependent licenses can be renewed. 
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>Real Estate Broker (PB, BIC, RBS – active<br/>
+                    status)<br/>
+                    Real Estate Salesperson (RS)</b>
+                </td>                
+                <td valign="top" style="vertical-align: text-top;">
+                    Your RB Entity (employer) must successfully renew<br/>
+                    the entity license and meet all requirements before<br/>
+                    dependent licenses can be renewed.
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>Real Estate Branch Office (RBO – active status)</b>
+                </td>                
+                <td valign="top" style="vertical-align: text-top;">
+                    Your RBO’s main RB Entity and Broker in Charge<br/>
+                    (BIC) must successfully renew their licenses and meet<br/>
+                    all requirements before dependent license can be<br/>
+                    renewed. 
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="vertical-align: text-top;">
+                    <b>Sole Proprietor (RB-Sole)</b>
+                </td>                
+                <td valign="top" style="vertical-align: text-top;">
+                    If your principal broker operates as a Sole<br/>
+                    Proprietorship, they must successfully renew, before<br/>
+                    dependent licenses can be renewed.
+                </td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        <b>Renewals after <apex:outputText value="{0, date,  MM/dd/yy}"><apex:param value="{!record.EffectiveExpireDate__c}"/></apex:outputText> <u>will not be accepted online</u> and must be submitted by mail or 
+        in person to the DCCA/PVL and will be subject to an additional late fee and/ or additional requirements.</b>
+    </p>
+    <p>
+        <b style="color: red;">FOR MORE RENEWAL &amp; RESTORATION INFORMATION</b> Go to:
+        <a href="http://cca.hawaii.gov/reb/re_renew-faq/" target="_blank">http://cca.hawaii.gov/reb/re_renew-faq/</a><br/>
+        View the "Renewal and Restoration" information under licensing area's web page.
+    </p>
+    <p>
+        Mahalo,
+    </p>
+    <b>DCCA-PVL Division</b>
+</apex:component>

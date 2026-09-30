@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityLosesRMENotification__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-KN03162020-Created for PVL Phase 1 Sprint 3</description>
+    <label>Entity Loses RME Notification</label>
+    <referenceTo>DocGeneratorSettings__c</referenceTo>
+    <relationshipLabel>License Types (Entity Loses RME Notification)</relationshipLabel>
+    <relationshipName>License_TypeskdLc</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

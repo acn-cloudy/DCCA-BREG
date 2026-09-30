@@ -1,0 +1,9 @@
+<aura:event type="APPLICATION" description="Fired when a dependend control is to be acted upon" access="global">
+    <aura:attribute name="dependfield" type="String" />
+    <aura:attribute name="dependaction" type="String" />
+     <aura:attribute name="dvalue" type="String" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="valuetoset" type="String" />
+    
+  
+</aura:event>

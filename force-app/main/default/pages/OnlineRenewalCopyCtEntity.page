@@ -1,0 +1,60 @@
+<apex:page sidebar="false" showHeader="false"
+           controller="OnlineRenewalController"
+           standardStylesheets="false"
+           renderAs="PDF"
+           applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            body {
+                font-size: 12pt;
+                font-family: sans-serif;
+            }
+
+            .content-bold {
+                font-weight: bold;
+            }
+
+            .header-font {
+                font-size: 14pt;
+                font-weight: bold
+            }
+
+            header-font-thin {
+                font-size: 14pt;
+            }
+
+            .header-align {
+                text-align: center;
+            }
+
+            .sub-header {
+                text-transform: uppercase;
+                background-color: #FFFFBB
+            }
+
+            .horizon-gap {
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+            }
+
+            .top-gap {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum"/>
+    <body>
+    <apex:repeat value="{!feeds}" var="record">
+        <c:OnlineRenewalCopyCtEntity app="{!record.app}"
+                                     associatedLicenses="{!record.associatedEmployeeLicenses}"
+                                     licenseClassifications="{!record.licenseClassifications}"
+                                     insuranceBonds="{!record.insuranceBonds}"
+                                     trans="{!record.trans}"
+                                     payments="{!record.payments}"
+                                     dToday="{!dToday}"/>
+
+        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+    </apex:repeat>
+    </body>
+</apex:page>

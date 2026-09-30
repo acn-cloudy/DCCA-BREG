@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateLICFApp__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint: CL - Case# 00008491 - New checkbox field on License - Generate LICF App</description>
+    <label>Generate LICF App</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

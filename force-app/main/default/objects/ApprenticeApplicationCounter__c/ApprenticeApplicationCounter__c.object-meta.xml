@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>PacPoint-MV112719 - Created for PVL phase 1</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Apprentice Application Counter</label>
+    <visibility>Public</visibility>
+</CustomObject>

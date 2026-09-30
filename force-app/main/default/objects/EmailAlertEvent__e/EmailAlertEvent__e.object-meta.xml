@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>to get around &apos;invalid cross-reference id&apos; error with community guest user</description>
+    <eventType>HighVolume</eventType>
+    <label>Email Alert Event</label>
+    <pluralLabel>Email Alert Events</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>3</activeVersionNumber>
+    <description>PacPoint - JB112118 - Created for BREG Phase 1 
+Record Specific Upload File to FileDetails__c record. (1 file for 1 FileDetails__c record). 
+Flow interacts with Custom Metadata: ObjectPrefix__mdt. The user can enter a new desired object for the flow here. (A lookup must be made from FileDetails__c to the desired new object for the flow. The flow currently (Phase 1) must have the decision element and outcome updated to accommodate the new object as there is currently a limit to accessing metadata in flow. 
+Flow does following: 
+1) Create a shell FileDetails__c record 
+2) Allow for upload of 1 file (to preserve the desired one to one relationship) and to describe the file with metadata fields of choice from the FileDetails__c object. 
+3) Updates the FileDetails__c record with information so that file information can be seen from the Parent object via the FileDetails__c related list. 
+4) Offers a choice to load another file (and repeat process) or to continue.</description>
+    <masterLabel>File_Upload_RecordAction</masterLabel>
+</FlowDefinition>

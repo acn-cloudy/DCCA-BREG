@@ -1,0 +1,206 @@
+<apex:page standardController="Transaction__c" renderAs="pdf"
+           showHeader="false" extensions="TransactionRefundAuthFormController"
+           sidebar="false"
+           applyHtmlTag="false">
+    <html>
+    <head>
+        <style>
+            * {
+                font-family: Arial Unicode MS, sans-serif; /* Arial Unicode MS for the special characters */
+            }
+            body{
+                font-size: 9pt;
+            }
+            b {
+                font-family: Helvetica, sans-serif; /* Different font for bold since the Arial Unicode doesn't work on BOLD */
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table.fixed {
+                table-layout: fixed;
+            }
+
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            div.hrContainer {
+                width: 50%;
+            }
+
+            div.hrContainerTable {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+    <p style="width: 100%; text-align: center;"><b>REFUND AUTHORIZATION FORM</b></p>
+    <p>
+        <b>ACCOUNT:</b> {!Transaction__c.Account__r.Name}
+    </p>
+    <p>
+        <b>TRANSACTION REF#:</b> {!Transaction__c.Name}
+    </p>
+    <p>
+        <b>TRANSACTION GROUP:</b> {!Transaction__c.TransactionGroup__r.Name}
+    </p>
+    <p>
+        <b>TRANSACTION LINES TO BE REFUNDED:</b>
+    </p>
+
+    <table class="fixed bordered">
+        <thead>
+        <tr>
+            <th><b>Code</b></th>
+            <th><b>Cashier Code Name</b></th>
+            <th><b>Refund Reason</b></th>
+            <th><b>Refund Amount</b></th>
+            <th><b>Refund Req Date</b></th>
+        </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!lines}" var="tl">
+            <apex:outputText rendered="{!tl.RequestRefund__c}">
+                <tr>
+                    <td>
+                            {!tl.CashierCodeCode__c}
+                    </td>
+                    <td style=" word-wrap: break-word;word-break: break-all;white-space: normal;">
+                            {!tl.CashierCodeNameText__c}
+                    </td>
+                    <td>
+                        <apex:outputPanel rendered="{!tl.IneligibleorRejected__c}">Ineligible or Rejected.<br/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!tl.NoFeeRequired__c}">No Fee Required.<br/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!tl.Overpayment__c}">Overpayment.<br/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!tl.Withdrawal__c}">Withdrawal.<br/></apex:outputPanel>
+                        <apex:outputPanel rendered="{!tl.OtherRefundReason__c}">{!tl.OtherRefundReasonText__c}</apex:outputPanel>
+
+                    </td>
+                    <td>
+                        <apex:outputField value="{!tl.RefundAmount__c}"/>
+                    </td>
+                    <td>
+                        <apex:outputField value="{!tl.RefundReqDate__c}"/>
+                    </td>
+                </tr>
+            </apex:outputText>
+        </apex:repeat>
+        </tbody>
+    </table>
+    <p>
+        <b>REFUND AMOUNT:</b>&nbsp;<apex:outputField value="{!Transaction__c.TotalRefundReqAmount__c}"/>
+        <br/>
+        <b>PAYOR NAME:</b>&nbsp;<apex:outputText value="{!payorNameRefund}"/>
+        <br/>
+    </p>
+    <apex:outputPanel rendered="{!NOT(ISBLANK(Transaction__c.Contact__c)) && (
+            NOT(ISBLANK(Transaction__c.Contact__r.MailingStreet)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingCity)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingState)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingPostalCode)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingCountry)))}">
+        <p><b>CONTACT ADDRESS:</b></p>
+            {!Transaction__c.Contact__r.FirstName} {!Transaction__c.Contact__r.LastName} <br/>
+            <apex:outputField value="{!Transaction__c.AccountAddress__c}" label=""/>
+
+    </apex:outputPanel>
+
+    <apex:outputPanel rendered="{!NOT(NOT(ISBLANK(Transaction__c.Contact__c)) && (
+            NOT(ISBLANK(Transaction__c.Contact__r.MailingStreet)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingCity)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingState)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingPostalCode)) ||
+                    NOT(ISBLANK(Transaction__c.Contact__r.MailingCountry)))) &&
+            (NOT(ISBLANK(Transaction__c.Account__r.BillingStreet)) ||
+                    NOT(ISBLANK(Transaction__c.Account__r.BillingCity)) ||
+                    NOT(ISBLANK(Transaction__c.Account__r.BillingState)) ||
+                    NOT(ISBLANK(Transaction__c.Account__r.BillingPostalCode)) ||
+                    NOT(ISBLANK(Transaction__c.Account__r.BillingCountry)))}">
+        <p><b>ACCOUNT ADDRESS:</b></p>
+            {!Transaction__c.Account__r.Name} <br/>
+            <apex:outputField value="{!Transaction__c.AccountAddress__c}" label=""/>
+    </apex:outputPanel>
+
+    <apex:outputPanel rendered="{!ISBLANK(Transaction__c.Account__r.BillingStreet) &&
+            ISBLANK(Transaction__c.Account__r.BillingCity) &&
+            ISBLANK(Transaction__c.Account__r.BillingState) &&
+            ISBLANK(Transaction__c.Account__r.BillingPostalCode) &&
+            ISBLANK(Transaction__c.Account__r.BillingCountry) &&
+            ISBLANK(Transaction__c.Contact__r.MailingStreet) &&
+            ISBLANK(Transaction__c.Contact__r.MailingCity) &&
+            ISBLANK(Transaction__c.Contact__r.MailingState) &&
+            ISBLANK(Transaction__c.Contact__r.MailingPostalCode) &&
+            ISBLANK(Transaction__c.Contact__r.MailingCountry)}">
+        <p><b>ACCOUNT ADDRESS:</b></p>
+        <p>
+        <div class="hrContainer">
+            <hr/>
+            <br/>
+            <hr/>
+            <br/>
+            <hr/>
+            <br/>
+        </div>
+        </p>
+    </apex:outputPanel>
+    <p>
+        <b>AUTHORIZATION (Original Signature):</b><br/><br/>
+    <div class="hrContainer">
+        <hr/>
+    </div>
+    </p>
+    <br/>
+    <table border="0"  width="100%">
+        <tr>
+            <td width="49%"><b>Refund Made on Warrant Voucher No:</b></td>
+            <td width="2%"></td>
+            <td width="49%"><b>Date:</b></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <p><div class="hrContainerTable"><hr/></div></p>
+            </td>
+            <td></td>
+            <td>
+                <p><div class="hrContainerTable"><hr/></div></p>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><b>Reduce Source Symbol: </b></td>
+            <td></td>
+            <td><b>Amount: </b></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <p><div class="hrContainerTable"><hr/></div></p>
+            </td>
+            <td></td>
+            <td>
+                <p><div class="hrContainerTable"><hr/></div></p>
+            </td>
+        </tr>
+    </table>
+
+    </body>
+    </html>
+</apex:page>

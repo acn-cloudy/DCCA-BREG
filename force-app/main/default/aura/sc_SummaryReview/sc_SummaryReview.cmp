@@ -1,0 +1,89 @@
+<aura:component
+  controller="sc_FormBuilderController"
+  implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="summary" type="List" default="[]" />
+  <aura:attribute name="subTitleName" type="String" default="Application" />
+  <aura:attribute name="hideSubmit" type="Boolean" default="false" />
+  <aura:registerEvent name="cmpMessage" type="c:sc_Message" />
+  <aura:method name="initSummary" action="{!c.generateSummary}">
+    <aura:attribute name="applicationcacheid" type="String" />
+  </aura:method>
+  <div style="height: 640px">
+    <c:sc_popup
+      title="{!v.subTitleName + ' Summary'}"
+      hide="{!c.cancelsummary}"
+    >
+      <aura:iteration items="{!v.summary}" var="card" indexVar="indx">
+        <div class="slds-p-top_small">
+          <div
+            class="slds-text-body_small"
+            style="padding: 0.1rem; background: #16325c"
+          >
+            <div class="slds-text-color_inverse">
+              <h3 class="slds-text-heading_small">{!card.sectionLabel}</h3>
+            </div>
+          </div>
+          <div class="slds-p-around_small">
+            <ul class="sectionInfo">
+              <aura:iteration items="{!card.feeds}" var="feed">
+                <aura:if isTrue="{!feed.rows}">
+                  <li class="slds-form-element slds-hint-parent">
+                    <span class="slds-form-element__label slds-border_bottom"
+                      >{!feed.label}</span
+                    >
+                    <div
+                      class="slds-form-element__control slds-form-element__static slds-border_bottom"
+                    >
+                      <aura:iteration items="{!feed.rows}" var="row">
+                        <ul class="slds-tile">
+                          <aura:iteration items="{!row.columns}" var="column">
+                            <li class="tile_label">{!column.label}</li>
+                            <li>{!column.value}</li>
+                          </aura:iteration>
+                        </ul>
+                      </aura:iteration>
+                    </div>
+                  </li>
+                  <aura:set attribute="else">
+                    <li class="slds-form-element slds-hint-parent">
+                      <span class="slds-form-element__label slds-border_bottom"
+                        >{!feed.label}</span
+                      >
+                      <div
+                        class="slds-form-element__control slds-form-element__static slds-border_bottom"
+                      >
+                        {!feed.value}
+                      </div>
+                    </li>
+                  </aura:set>
+                </aura:if>
+              </aura:iteration>
+            </ul>
+          </div>
+        </div>
+      </aura:iteration>
+      <aura:set attribute="footers">
+        <div class="slds-grid slds-grid_align-spread">
+          <div>
+            <lightning:button
+              label="Edit Application"
+              onclick="{!c.cancelsummary}"
+            />
+          </div>
+          <div>
+            <aura:if isTrue="{!!v.hideSubmit}">
+              <lightning:button
+                variant="brand"
+                label="{!v.subTitleName == 'Investigation' ? 'Create case' 
+                                         : 'Submit '+ v.subTitleName}"
+                onclick="{!c.finalsubmit}"
+              />
+            </aura:if>
+          </div>
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </div>
+</aura:component>

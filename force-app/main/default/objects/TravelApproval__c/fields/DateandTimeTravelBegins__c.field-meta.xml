@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateandTimeTravelBegins__c</fullName>
+    <description>PacPoint-JW120519 - Created for DCCA Travel Approval phase 1</description>
+    <inlineHelpText>Indicate time employee needs to be at the destintation, including any preconference meetings, etc.</inlineHelpText>
+    <label>Date &amp; Time Event Begins</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

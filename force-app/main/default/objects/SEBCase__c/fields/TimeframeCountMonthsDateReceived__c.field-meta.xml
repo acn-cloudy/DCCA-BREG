@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TimeframeCountMonthsDateReceived__c</fullName>
+    <description>PacPoint-AC102720 - Case# 11590 - Created for DCCA BREG SEC/SEB Support Year 2</description>
+    <externalId>false</externalId>
+    <formula>IF(
+TODAY() &gt;=   DateReceived__c  ,
+
+(
+FLOOR(((TODAY() -  DateReceived__c ) / 365 * 12))
+),
+
+-1)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Timeframe Count Months (Date Received)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

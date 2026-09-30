@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplicationRecordType__c</fullName>
+    <description>PacPoint-FN111419-Created for Sprint 2 Phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This is a mapping of the License Type to the Application Record Type that will get created.</inlineHelpText>
+    <label>Application Record Type</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

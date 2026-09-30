@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingCompletedRequiredUnitInvestTrust</fullName>
+    <active>true</active>
+    <description>PacPoint: DLCase#12663 - BREG Support | Add new community page for Unit Invest Trust Filing Type</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Unit Investment Trust&quot;,
+ISPICKVAL(Status__c, &quot;Filing Completed&quot;),
+ISNULL( FilingDate__c )
+)</errorConditionFormula>
+    <errorDisplayField>FilingDate__c</errorDisplayField>
+    <errorMessage>Error: Please populate &quot;Filing Date&quot; before updating the status to Filing Completed.</errorMessage>
+</ValidationRule>

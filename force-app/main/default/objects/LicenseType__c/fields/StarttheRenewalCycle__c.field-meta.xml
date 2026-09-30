@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StarttheRenewalCycle__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN07132020-Created for PVL Phase 1 Sprint 6</description>
+    <inlineHelpText>By checking this checkbox and clicking &apos;Save&apos; you are starting the Renewal Cycle in Salesforce for this License Type. All Licenses that meet the Renewal Criteria will be updated to a Renewal Status.</inlineHelpText>
+    <label>Start the Renewal Cycle?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

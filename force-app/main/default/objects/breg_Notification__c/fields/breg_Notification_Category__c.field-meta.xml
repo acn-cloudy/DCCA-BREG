@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Notification_Category__c</fullName>
+    <description>Aalta BREG-972</description>
+    <label>Notification Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trade Name, Trademark, Service Mark Reminder</fullName>
+                <default>false</default>
+                <label>Trade Name, Trademark, Service Mark Reminder</label>
+            </value>
+            <value>
+                <fullName>Publicity Rights Name Renewal Reminder</fullName>
+                <default>false</default>
+                <label>Publicity Rights Name Renewal Reminder</label>
+            </value>
+            <value>
+                <fullName>Annual Report Reminder</fullName>
+                <default>false</default>
+                <label>Annual Report Reminder</label>
+            </value>
+            <value>
+                <fullName>My Business Alerts</fullName>
+                <default>false</default>
+                <label>My Business Alerts</label>
+            </value>
+            <value>
+                <fullName>Entity List Builder Email</fullName>
+                <default>false</default>
+                <label>Entity List Builder Email</label>
+            </value>
+            <value>
+                <fullName>Subscriber Account</fullName>
+                <default>false</default>
+                <label>Subscriber Account</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

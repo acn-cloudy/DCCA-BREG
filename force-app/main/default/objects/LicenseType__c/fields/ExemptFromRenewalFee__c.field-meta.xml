@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExemptFromRenewalFee__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint KN081419 - Created for PVL</description>
+    <inlineHelpText>If checkbox is checked, License Type is exempt from renewal fees.</inlineHelpText>
+    <label>Exempt From Renewal Fee</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

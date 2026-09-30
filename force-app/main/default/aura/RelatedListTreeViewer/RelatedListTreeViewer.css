@@ -1,0 +1,46 @@
+.THIS td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.THIS .slds-table th.col-fit,
+.THIS .slds-table td.col-fit {
+    white-space: nowrap;
+    width: 1px;
+    max-width: 200px;
+}
+
+.THIS .slds-table td.col-fit.col-textarea {
+    min-width: 200px;
+}
+
+.THIS .slds-table td.col-fit.col-date {
+    min-width: 170px;
+}
+
+.THIS .slds-card .slds-card__header .slds-media__body {
+    overflow: visible;
+}
+
+.THIS .slds-card .slds-card__header .slds-media__body h2 span {
+    position: relative;
+}
+
+.THIS .slds-card .slds-card__header .slds-media__body h2 span .spinnerContainer {
+    display: inline-block;
+    position: relative;
+    margin-left: 5px;
+    width: 15px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.THIS .slds-card .slds-card__header .slds-media__body h2 span .spinnerContainer .slds-spinner_small {
+    width: .9rem;
+}
+
+.THIS div.slds-datepicker th,
+.THIS div.slds-datepicker td {
+    border-top: none;
+    padding: 0;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseHistoryLicensePeriod__c</fullName>
+    <description>Used for the Real Estate Inactivation Batch Job  - KN PacPoint 10/6/22</description>
+    <externalId>false</externalId>
+    <formula>TEXT(MONTH(LicenseType__r.LicenseTypeEffectiveDate__c))+&quot;/&quot; +TEXT(DAY(LicenseType__r.LicenseTypeEffectiveDate__c ))+&quot;/&quot; +TEXT(YEAR(LicenseType__r.LicenseTypeEffectiveDate__c))
+
++ &quot; - &quot; + 
+
+TEXT(MONTH(LicenseType__r.LicenseTypeExpireDate__c))+&quot;/&quot; +TEXT(DAY(LicenseType__r.LicenseTypeExpireDate__c))+&quot;/&quot; +TEXT(YEAR(LicenseType__r.LicenseTypeExpireDate__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License History License Period</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrentLicenseYear__c</fullName>
+    <description>PacPoint-FT082919 - Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <formula>IF(
+   AND(
+      LicenseType__r.DurationofLicenseInMonths__c = 36, 
+      ISPICKVAL(LicensePeriod__c, &apos;Next License Period&apos;)),
+         &quot;Triennial 1st Year&quot;,
+
+IF(
+   AND(
+      LicenseType__r.DurationofLicenseInMonths__c = 24, 
+      ISPICKVAL(LicensePeriod__c, &apos;Next License Period&apos;)),
+         &quot;Biennial 1st Year&quot;,
+
+
+IF(
+   AND(
+      LicenseType__r.DurationofLicenseInMonths__c = 12, 
+      ISPICKVAL(LicensePeriod__c, &apos;Next License Period&apos;)),
+         &quot;Annual 1st Year&quot;,
+
+            LicenseType__r.CurrentLicenseYear__c)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Indicates the current license year we are in, if this Application is Approved today.</inlineHelpText>
+    <label>Current License Year</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

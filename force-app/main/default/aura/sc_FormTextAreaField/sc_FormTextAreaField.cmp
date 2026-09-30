@@ -1,0 +1,66 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+  access="global"
+>
+  <aura:attribute name="dependField" type="string" access="global" />
+  <aura:attribute name="dependValue" type="string" access="global" />
+  <aura:attribute name="dependAction" type="string" access="global" />
+  <aura:attribute name="fieldHidden" type="string" access="global" />
+
+  <aura:attribute name="originalHidden" type="string" access="global" />
+  <aura:attribute name="valid" type="Boolean" access="global" default="true" />
+  <aura:attribute name="fieldName" type="string" access="global" />
+  <aura:attribute name="fieldLabel" type="string" access="global" />
+  <aura:attribute name="fieldType" type="string" access="global" />
+  <aura:attribute name="fieldplaceholder" type="string" access="global" />
+  <aura:attribute name="fieldrequired" type="string" access="global" />
+  <aura:attribute name="required" type="string" access="global" />
+  <aura:attribute name="cardname" type="string" access="global" />
+  <aura:attribute name="value" type="string" access="global" default="" />
+  <aura:attribute
+    name="validationRegression"
+    type="string"
+    access="global"
+    default=""
+  />
+  <aura:attribute
+    name="readOnly"
+    type="Boolean"
+    default="false"
+    access="global"
+  />
+
+  <aura:attribute name="popuphelp" type="string" access="global" />
+
+  <aura:method name="validate" action="{!c.checkValidity}" />
+
+  <div
+    class="{!v.fieldHidden ? 'slds-form-element hidemodal' : 'slds-form-element showmodal'}"
+    aura:id="{!v.fieldName}"
+  >
+    <div class="slds-p-horizontal--medium slds-p-vertical--xx-small">
+      <div class="customInline">
+        <label class="slds-form-element__label" for="text-input-01"
+          >{!v.fieldLabel}</label
+        >
+        <aura:if isTrue="{!v.required}">
+          <abbr class="slds-required" title="required">*</abbr>
+        </aura:if>
+        <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+      </div>
+
+      <div class="slds-form-element__control">
+        <ui:inputTextArea
+          aura:id="textarea"
+          class="slds-input"
+          label=""
+          placeholder="{!v.fieldplaceholder}"
+          blur="{!c.handleBlur}"
+          value="{!v.value}"
+          rows="3"
+          disabled="{!v.readOnly}"
+        />
+      </div>
+    </div>
+  </div>
+</aura:component>

@@ -1,0 +1,86 @@
+<aura:component controller="ListViewController"
+                 implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="exploreFields" type="List" />
+    <aura:attribute name="exploreListName" type="String" />
+	<aura:attribute name="exploreRelatedSObject" type="String" />
+	<aura:attribute name="exploreParentField" type="String"  />
+    <aura:attribute name="exploreIcon" type="String"  />
+    <aura:attribute name="totalSize" type="Integer" />
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="columnNames" type="List" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="originalRecord" type="Object" />
+    <aura:attribute name="fields" type="List" />
+    <aura:attribute name="currentFields" type="List" />
+    <aura:attribute name="handleSelect" type="Object" />
+    
+    <aura:attribute name="checked" type="Boolean" />
+    <aura:attribute name="showChildren" type="Boolean" default="false" />
+    <aura:attribute name="showViewMore" type="Boolean" default="false" />
+    <aura:attribute name="IsEnabled"  type="Boolean" default="false" />
+    <aura:attribute name="childrenMap" type="Object" />
+    
+    <aura:attribute name="recordUpdated" type="Boolean" default="false" />
+    <aura:attribute name="selectOne" type="boolean" default="false" />
+    <aura:attribute name="listviewrecord" type="List" />
+    <aura:attribute name="childrenSortBy" type="String" />
+
+    <aura:registerEvent name="activateEditMode" type="c:Message"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="activateEditMode" event="c:Message" value="{!this}" action="{!c.updateRecord}" includeFacets="true"/>
+    <aura:handler name="fieldInfo" event="c:Message"  action="{!c.updateRecord}" />
+    <aura:handler name="turnOffChildrenList" event="c:Message"  action="{!c.updateRecord}" />
+    <aura:method name="initiateRecord" action="{!c.doInit}"> 
+    </aura:method>
+    
+    <aura:method name="convertToRecord" action="{!c.getRecord}">
+    </aura:method>
+    <aura:method name="revertRecord" action="{!c.cancelRecord}">
+    </aura:method>
+    
+    <tr aria-selected="false" class="slds-hint-parent">
+        <td class="slds-text-align_right" role="gridcell">
+            <aura:if isTrue="{!v.showViewMore}">
+                <lightning:buttonIcon iconName="utility:down" onclick="{!c.openDrawer}"
+                                      size="x-small" alternativeText="View More" /></aura:if>
+        </td>
+                  
+        <aura:iteration items="{!v.fields}" var="field">
+            <td role="gridcell" colspan="{#field.size}">
+                <div class="slds-truncate colHeight"  title="{!field.value}" onclick="{!c.enableEdit}">
+                             <c:FieldInput type="{#field.type}" 
+                                  placeholder="{#field.placeholder}"
+                                  aura:id="fieldInput"
+                                  field="{#field}"
+                                  value="{#field.value}"
+                                  dependentOptions="{#field.dependentOptions}"
+                                  dependentField="{#field.dependentField}"
+                                  apiName="{#field.apiName}"
+                                  options="{#field.options}"
+                                  required="{#field.required}"
+                                  readOnly="{#field.readOnly}"
+                                  parentId="{!field.parentId}" 
+                                  displayDatePicker="{#field.displayDatePicker}"
+                                  IsEnabled="{!v.IsEnabled}"          />
+                   </div>
+            </td>
+        </aura:iteration>
+    </tr>
+    <aura:if isTrue="{!v.showChildren}">
+        {!v.showChildren}
+        <!-- <tr aria-selected="false" class="slds-hint-parent childrenBcg">
+            <td role="gridcell" colspan="{!v.totalSize}"> -->
+        <c:multiComp_popup hide="{!c.hideDrawer}">
+            <div class="slds-p-vertical_medium childTableShadow"  >
+                <c:RelatedList  recordId="{!v.record.Id}" aura:id="relatedList" fields="{!v.exploreFields}" 
+                                listName="{!v.exploreListName}" defaultOpen="false" icon="{!v.exploreIcon}"
+                                relatedSObject="{!v.exploreRelatedSObject}" sortBy="{!v.childrenSortBy}" isChildren="{!v.showChildren}"
+                                parentField="{!v.exploreParentField}" />  
+            </div> 
+        </c:multiComp_popup>        
+                
+            <!-- </td>
+        </tr>      -->
+    </aura:if>
+</aura:component>

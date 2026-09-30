@@ -1,0 +1,65 @@
+<template>
+    <lightning-layout lwc:if={showSection} multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                <lightning-input
+                    name="hasChanged"
+                    value={hasChangedValue}
+                    type="checkbox"
+                    label={hasChangedCheckboxLabel}
+                    onchange={handleInputChange}
+                    checked={hasChangedValue}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <template lwc:if={showFields}>
+
+            <lightning-layout-item lwc:if={showDescription} size="12" class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <template lwc:if={readOnly}>
+                <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={hasChangedCheckboxLabel}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text value={readOnlyEntityType}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+            </template>
+            <template lwc:else>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-combobox
+                        name="entityType"
+                        value={entityTypeValue}
+                        label={entityTypeLabel}
+                        options={entityTypeOptions}
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        disabled={readOnly}
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <!-- Entity Type Description -->
+                <lightning-layout-item lwc:if={showEntityTypeDescription} size="6" class="form-layout-item">
+                    <lightning-input
+                        name="entityTypeDescription"
+                        value={entityTypeDescriptionValue}
+                        label="Other (explain)"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,60 @@
+<apex:component controller="ExamNoticeController" access="global">
+    <apex:attribute access="global" name="applicationId" type="String" description="The application id" required="true" assignTo="{!recordId}"
+    />
+    <table>
+        <apex:repeat value="{!applicationRequirements}" var="applicationRequirement">
+            <tr>
+                <td colspan="1" rowspan="1" style="width: 16.8pt;" valign="top">
+                    <span>
+                        <u>
+                            x
+                        </u>
+                    </span>
+                </td>
+                <td colspan="1" rowspan="1" style="width: 450.7pt;" valign="top">
+                    <span>
+                        {!applicationRequirement.RequirementLongDescription__c}
+
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <apex:outputText value="{!applicationRequirement.RemarksTag__c}" escape="false" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1" rowspan="1" style="width: 16.8pt;" valign="top">
+                </td>
+                <td colspan="1" rowspan="1" style="width: 450.7pt;" valign="top">
+                    <table>
+
+
+                        <apex:repeat value="{!applicationRequirement.ApplicationRequirements__r}" var="childrenAppRequiremenent">
+                            <tr>
+                                <td colspan="1" rowspan="1" style="width: 16.8pt;" valign="top">
+                                    <span>
+                                        <u>
+                                            x
+                                        </u>
+                                    </span>
+                                </td>
+                                <td colspan="1" rowspan="1" style="width: 350.7pt;" valign="top">
+                                    <span>
+                                        {!childrenAppRequiremenent.RequirementLongDescription__c}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <apex:outputText value="{!childrenAppRequiremenent.RemarksTag__c}" escape="false" />
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </table>
+                </td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+</apex:component>

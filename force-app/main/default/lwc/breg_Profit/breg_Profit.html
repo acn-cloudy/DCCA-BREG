@@ -1,0 +1,14 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    
+    <lightning-radio-group
+        name="profit"
+        label="Profit Type"
+        options={profitOptions}
+        value={profitValue}
+        variant="label-hidden"
+        onchange={handleInputChange} onblur={handleInputBlur}
+        required={required}
+        disabled={readOnly}
+    ></lightning-radio-group>
+</template>

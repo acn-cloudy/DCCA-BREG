@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CertificateType__c</fullName>
+    <description>PacPoint-FT041820- Created for PVL phase 1</description>
+    <label>Certificate Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B - POCKET ID &amp; WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>B - POCKET ID &amp; WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>C - WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>C - WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>M - SUSPENSE TYPE</fullName>
+                <default>false</default>
+                <label>M - SUSPENSE TYPE</label>
+            </value>
+            <value>
+                <fullName>P - POCKET IDENTIFICATION CARD</fullName>
+                <default>false</default>
+                <label>P - POCKET IDENTIFICATION CARD</label>
+            </value>
+            <value>
+                <fullName>R - REJECTION (AND RETURN)</fullName>
+                <default>false</default>
+                <label>R - REJECTION (AND RETURN)</label>
+            </value>
+            <value>
+                <fullName>VR - VERIFICATION REQUEST</fullName>
+                <default>false</default>
+                <label>VR - VERIFICATION REQUEST</label>
+            </value>
+            <value>
+                <fullName>W - RENEWAL NOTICE</fullName>
+                <default>false</default>
+                <label>W - RENEWAL NOTICE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

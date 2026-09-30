@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Web_Filing</fullName>
+    <fields>Name</fields>
+    <fields>breg_WEB_WORK_ITEM_ID__c</fields>
+    <label>Web Filing</label>
+</CompactLayout>

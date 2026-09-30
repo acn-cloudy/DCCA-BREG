@@ -1,0 +1,13 @@
+<apex:page extensions="PaymentAllocateBatchProgress" standardController="pymt__PaymentX__c" recordSetVar="payments" tabStyle="pymt__PaymentX__c">
+    <apex:form >
+        <center>
+            <br />
+            <apex:commandButton value="Start Payment Allocation Batch" action="{!StartPaymentAllocationBatch}" />
+            <apex:commandButton value="Back To List View" action="{!BacktolistView}" />
+            <br /><br />
+        </center>
+        <apex:pageMessages />
+        <c:BatchJobsProgressComponent bComponentLabel="Payment Batch" apexClass="PaymentAllocateTransactionLinesBatch" noOfJobs="5" />
+
+    </apex:form>
+</apex:page>

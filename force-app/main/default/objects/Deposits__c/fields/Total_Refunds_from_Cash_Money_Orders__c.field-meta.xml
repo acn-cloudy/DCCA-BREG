@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Refunds_from_Cash_Money_Orders__c</fullName>
+    <description>PacPoint-FT102818 - Created for DCCA Payment Phase 1</description>
+    <label>Total Refunds Cash, Check &amp; Money Orders</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Space_Available__c</fullName>
+    <description>This calculates the spaces available in a given course</description>
+    <externalId>false</externalId>
+    <formula>IF(TEXT(Subject__r.Medium__c) = &quot;Classroom&quot;, Capacity__c - Total_Course_Enrolments__c, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Space Available</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

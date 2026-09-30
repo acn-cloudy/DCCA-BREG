@@ -1,0 +1,107 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="License__c" />
+    <div style="width: 525px;height: 407px;font-size:10px;box-sizing: border-box;position: relative;font-family: sans-serif;">
+        <div style="position: absolute;left: 5%;bottom: 5%;width: 90%;">
+            <img src="{!$Resource.LogoBlack}" width="100%" />
+        </div>
+        <div style="position: relative; padding: 30px;">
+            <div>
+                <div style="display:inline-block;width:35%;vertical-align:top">
+                    <h2>REMINDER</h2>
+                    <h1>License Renewal</h1>
+                </div>
+                <div style="display:inline-block;width:64%;text-align:center">
+                    <p>State of Hawaii Department of Commerce and Consumer Affairs</p>
+                    <p>Professional &amp; Vocational Licensing Division</p>
+                </div>
+            </div>
+
+            <div style="text-align:center">
+                <p>
+                    <b>REAL ESTATE BROKER</b> (ENtity) - Corporation, Partnership, LLC, LLP,
+                    <br/>
+                    <b>REAL ESTATE BROKER</b> (Sole Proprietor),
+                    <b>REAL ESTATE BRANCH OFFICE</b> (RBO),
+                    <br/>
+                    <b>REAL ESTATE BROKER</b> (PB, BIC, RBS) &amp;
+                    <b>REAL ESTATE SALESPERSON</b> (RS),
+                </p>
+            </div>
+
+            <div style="position: relative;">
+                <div style="width:47%;display:inline-block;margin:0 5% 3px 0;vertical-align:bottom;">
+                    <h4>
+                        All online renewals will need to be submitted through the "MyPVL" online service at:
+                    </h4>
+                    <h4 style="font-weight:bold;text-decoration:underline;">
+                        <apex:outputText value="{!$Label.MyPVLLink}" />
+                    </h4>
+                    <h4 style="font-weight: bold;margin-top:5px">
+                        Online renewals begin:
+                    </h4>
+                    <h4 style="white-space: nowrap;">Monday, <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                        <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}" /> 
+                    </apex:outputText> through</h4>
+                    <h4>Midnight (HST) <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                        <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" /> 
+                    </apex:outputText></h4>
+                    <p style="font-weight: bold;margin-top:5px">
+                        All real estate licenses (active &amp; inactive)
+                    </p>
+                    <p>expire on <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                        <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" /> 
+                    </apex:outputText> Licenses that have not successfully renewed
+                        will be automatically forfeited as of {!record.LicenseType__r.RestorationDeadline__c}. A forfeited
+                        license is unlicensed and shall not engage in real estate activity, and cannot receive any comensation
+                        for real estate brokeage activity</p>
+
+                </div>
+                <div style="width:47%;display:inline-block;margin-top:5px;">
+                    <h5 style="font-weight:bold">
+                        What is MyPVL ?
+                    </h5>
+                    <p>MyPVL is the home for all PVL licenses;
+                        <br/> 24/7 access to information and services from a single dashboard.</p>
+                    <h5 style="font-weight:bold">How do I login to MyPVL?</h5>
+                    <p>"Sign up" for a free eHawaii.gov account at
+                        <u><apex:outputText value="{!$Label.MyPVLLinkStr}" /></u>
+                        or "login" with your existing eHawaii.gov account.
+                    </p>
+                    <h5 style="font-weight:bold">How do I renew my license?</h5>
+                    <p>
+                        <ul>
+                            <li>"Login" to MyPVL.</li>
+                            <li>Select your already linked license or
+                            </li>
+                            <li>Find your license by entering your license type, license number and SSN (last 4 digits) or file
+                                number.
+                            </li>
+                            <li>Select "Renew" to proceed to online renewal.
+                            </li>
+                        </ul>
+                    </p>
+                    <p style="margin-left: 40px; font-size:0.8em">
+                        It's secure, fast and simple!
+                        <br/> Pay by credit card or checking account and have receipt email to you.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p style="text-decoration:underline;font-weight:bold">Active Licenses Dependent on the Renewal of an Associated License:</p>
+                <ul style="font-size: 0.8em;">
+                    <li>RB (RE Broker-Entity) - Renewal of the RB entity is dependent on the renewal of the entity's principle
+                        broker.</li>
+                    <li>RB (RE Broker-PB, BIC, RBS) - Renewal of the PB BIC &amp; RBS is dependent on the renewal of the RB entity.</li>
+                    <li>RB (RE Broker-Entity) - Renewal of the RB entity is dependent on the renewal of the entity's principle
+                        broker.</li>
+                    <li>RB (RE Broker-Entity) - Renewal of the RB entity is dependent on the renewal of the entity's principle
+                        broker.</li>
+                </ul>
+            </div>
+            <div style="margin-left:10%;margin-top:5px;">
+                <p style="font-size: 0.8em;font-weight:bold;"> If you cannot renew online or prefer to mail in your renewal: </p>
+                <div style="font-size: 0.8em;">Contact the licensing branch at (808) 586-3000 to request a renewal application. </div>
+            </div>
+        </div>
+    </div>
+</apex:component>

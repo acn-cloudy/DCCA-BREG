@@ -1,0 +1,26 @@
+/*************** Paginations ***************/
+.mds-border-radius_none{
+    .slds-button_outline-brand {
+        border-color: var(--action-focus-12-p);
+        border-radius: 0 !important;
+    }
+}
+.mds-paginations {
+    &_simple{
+        .slds-button{
+            &:focus{
+                @include focus-outline-minus();
+            }
+        }
+    }
+    .slds-button_outline-brand[disabled]{
+        border-color: var(--action-focus-12-p);
+        background-color: var(--white);
+    }
+    .active {
+        .slds-button_outline-brand{
+            background-color: var(--primary-main);
+            color: var(--white);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+<template>
+  <div class="container slds-grid slds-wrap">
+    <a for:each={contents} for:item="content" key={content.id} class={itemClassName} href={content.link}>
+      <img src={content.url} />
+      <span class="slds-m-top--medium">
+        <span>{content.title}</span>
+      </span>
+    </a>
+  </div>
+</template>

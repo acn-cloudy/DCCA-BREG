@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Annual Filings" icon-name="standard:channel_programs">
+        <template if:true={isLoading}>
+            <div class="slds-text-align_center slds-m-around_medium">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-m-around_medium">Error loading annual records: {error.body.message}</div>
+        </template>
+
+        <template if:true={hasRecords}>
+            <div class="slds-m-around_medium">
+                <template for:each={annualRecords} for:item="annual">
+                    <div key={annual.Id} class="slds-box slds-m-bottom_small">
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <div class="slds-col slds-size_3-of-4">
+                                <div class="slds-text-heading_small">
+                                    Filing Year:&nbsp;
+                                    <a data-id={annual.Id} onclick={navigateToAnnualRecord} class="slds-text-link" style="cursor: pointer">
+                                        {annual.breg_Filing_Year__c}
+                                    </a>
+                                </div>
+                                <div class="slds-text-body_small slds-text-color_weak">Due Date: {annual.breg_Filing_Due_Date__c}</div>
+                                <div class="slds-text-body_small slds-text-color_weak">Status: {annual.breg_Status__c}</div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-4 slds-text-align_right">
+                                <lightning-button
+                                    variant="brand"
+                                    label={annual.buttonLabel}
+                                    data-is-not-filed={annual.isNotFiled}
+                                    data-id={annual.Id}
+                                    data-filing-year={annual.breg_Filing_Year__c}
+                                    onclick={handleFileAnnual}
+                                    disabled={annual.disabled}
+                                ></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:false={hasRecords}>
+            <template if:false={isLoading}>
+                <div class="slds-m-around_medium slds-text-align_center slds-text-color_weak">No annual filings found</div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

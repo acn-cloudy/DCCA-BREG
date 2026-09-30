@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Print_Calls</fullName>
+    <availability>online</availability>
+    <description>PacPoint EA02202024 - For Case 00034153</description>
+    <displayType>button</displayType>
+    <linkType>page</linkType>
+    <masterLabel>Print Calls</masterLabel>
+    <openType>replace</openType>
+    <page>InvestigationCallsAction</page>
+    <protected>false</protected>
+</WebLink>

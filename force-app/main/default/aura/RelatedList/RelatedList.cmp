@@ -1,0 +1,43 @@
+<aura:component controller="RelatedListController"
+                implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,lightning:actionOverride,force:hasRecordId,force:hasSObjectName"  
+                extends="c:Execute" access="global" >
+    
+    <aura:attribute name="exploreFieldJSON" type="String"  />
+    <aura:attribute name="exploreFields" type="List" />
+                                 <!-- default='[{"label":"REQUIREMENT NAME","type":"formula","readOnly":true,"apiName":"RequirementName__c"},{"label":"IS DEFICIENT?",""readOnly":true,"type":"checkbox","apiName":"IsDeficient__c"},{"label":"DEFICIENCY REMARKS","readOnly": true, "type":"textarea","apiName":"DeficiencyRemarks__c"}]' />-->
+    <aura:attribute name="exploreListName" type="String" default="Application Requirement"/>
+	<aura:attribute name="exploreRelatedSObject" type="String" default="ApplicationRequirement__c"/>
+	<aura:attribute name="exploreParentField" type="String" default="ParentApplicationRequirement__c" /> 
+	<aura:attribute name="exploreIcon" type="String"  />
+    
+	<aura:attribute name="fieldJSON" type="String"  />
+    <aura:attribute name="fields" type="List" />
+                     <!-- default='[{"label":"REQUIREMENT NAME","type":"formula","readOnly":true,"apiName":"RequirementName__c"},{"label":"IS DEFICIENT?",""readOnly":true,"type":"checkbox","apiName":"IsDeficient__c"},{"label":"DEFICIENCY REMARKS","readOnly": true, "type":"textarea","apiName":"DeficiencyRemarks__c"}]' -->
+    <aura:attribute name="listName" type="String" default="Application Requirement"/>
+	<aura:attribute name="relatedSObject" type="String" default="ApplicationRequirement__c"/> 
+	<aura:attribute name="parentField" type="String" default="Application__c" />
+    <aura:attribute name="relatedRecords" type="List" /> 
+	<aura:attribute name="otherConditions" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="sortBy" type="String" />
+    <aura:attribute name="childrenSortBy" type="String" />
+    <aura:attribute name="isChildren" type="Boolean" default="false" />
+    <aura:attribute name="childrenMap" type="Object" />
+    <aura:attribute name="defaultOpen" type="Boolean" default="true" />
+    <aura:attribute name="enableEditMode" type="Boolean" default="false" />
+    <aura:attribute name="icon" type="String"  />
+    <aura:attribute name="record" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <aura:method name="expand" action="{!c.openResults}" />
+    <aura:if isTrue="{!or(v.defaultOpen, v.relatedRecords.length > 0)}"> 
+        <c:ListView aura:id="relatedListView"  fields="{!v.fields}" records="{!v.relatedRecords}" listName="{!v.listName}"
+                    exploreFields="{!v.exploreFields}" exploreIcon="{!v.exploreIcon}" icon="{!v.icon}"
+                    exploreListName="{!v.exploreListName}" childrenMap="{!v.childrenMap}" childrenSortBy="{!v.childrenSortBy}"
+                    exploreRelatedSObject="{!v.exploreRelatedSObject}" relatedSObject="{!v.relatedSObject}" 
+                    isChildren="{!v.isChildren}"
+                    exploreParentField="{!v.exploreParentField}"/>  
+        
+    </aura:if>
+     
+</aura:component>

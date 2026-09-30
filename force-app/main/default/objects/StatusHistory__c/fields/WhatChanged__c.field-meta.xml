@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WhatChanged__c</fullName>
+    <description>PacPoint-IC100918 - Created for BREG phase 1</description>
+    <externalId>false</externalId>
+    <formula>&quot;Status Changed from &quot;+  PriorStatusValue__c    + &quot; to &quot; +   NewStatusValue__c</formula>
+    <label>What Changed?</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

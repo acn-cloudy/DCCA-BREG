@@ -1,0 +1,64 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+
+            body {
+                margin-top: 5px;
+                font-size: 11pt;
+                font-family: Arial Narrow, Arial;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-17" licenseType="" />
+            <div style="padding-left: 50px">
+                <c:RefundNoticeSubHeader license="{!record}" dToday="{!dToday}" licenseLabel="License:" subject="Non-renewal of License for"
+                />
+                <br/>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">
+                    Please be advised that we are not able to process the renewal application for the</div>
+                <div style="text-align: left;">
+                    above referenced license because the licensing records reflect that a required
+                    <br/>
+                    component (dependency) to your license, such as the motor vehicle dealer and/or
+                    <br/>
+                    salesperson, has failed to renew its license.
+                </div>
+                <br/>
+               
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">
+                    Failure to complete the renewal process results in the forfeiture of your license at</div>
+                <div style="text-align: left;">
+                    which time you may not do business under this license and will be required to re-apply
+                    <br/>
+                    as a new applicant, including submitting a new application and all required documents
+                    <br/>
+                    and fees.
+                </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">A refund of your renewal fees will be processed. Please note that processing</div>
+                <div style="text-align: left;">time for refunds is approximately 8 – 10 weeks. </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

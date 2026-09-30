@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuditStatuses__c</fullName>
+    <description>PacPoint-FT080919 - Created for PVL phase 1</description>
+    <inlineHelpText>The statuses selected here will be subjected to the random audit.</inlineHelpText>
+    <label>Audit Statuses</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>LicenseStatuses</valueSetName>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,30 @@
+.slds-progress{
+    &-bar{
+        background: var(--primary-shades-12-p);
+
+        &__value{
+            background: var(--primary-main);
+        }
+    }
+    &-ring{
+        &__path{
+            fill: var(--primary-main);
+        }
+        &__progress-head{
+            .slds-progress-ring__path{
+                display: none;
+            }
+        }
+    }
+}
+
+//Percentage Inidicator above the Progress Bar
+.mds-progress-bar_indicator{
+    display: flex;
+    justify-content: space-between;
+    div{
+        color:var(--text-primary);
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-medium);
+    }
+}

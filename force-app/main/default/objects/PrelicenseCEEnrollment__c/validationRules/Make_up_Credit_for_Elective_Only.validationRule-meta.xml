@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Make_up_Credit_for_Elective_Only</fullName>
+    <active>true</active>
+    <description>Make up credits can only be added to Elective Courses</description>
+    <errorConditionFormula>IF(
+AND(
+  TEXT(Course__r.Subject__r.Type__c) = &quot;Core&quot;, 
+ MakeUpCredit__c = true),
+
+true
+,
+false
+
+)</errorConditionFormula>
+    <errorMessage>Only Elective Credits can be added as Make ups</errorMessage>
+</ValidationRule>

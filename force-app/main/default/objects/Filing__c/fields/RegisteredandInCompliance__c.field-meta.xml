@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RegisteredandInCompliance__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Adviser is registered in the other state and is in compliance with the other state&apos;s financial reporting requirements, IF ANY, then must provide a copy of adviser&apos;s most recent financial statement filed with the state where the adviser maintains its princ</inlineHelpText>
+    <label>Registered and In Compliance</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

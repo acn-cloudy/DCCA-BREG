@@ -1,0 +1,102 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <!-- TNTMSM Type -->
+            <lightning-layout-item lwc:if={showTNTMSMType} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={TNTMSMTypeReadOnlyText}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <!-- TNTMSM Name -->
+            <lightning-layout-item lwc:if={showTNTMSMName} size="12" class="form-layout-item">
+                <lightning-formatted-text value={TNTMSMNameValue}></lightning-formatted-text>
+            </lightning-layout-item>
+            <!-- File Number -->
+            <lightning-layout-item lwc:if={showFileNumber} size="12" class="form-layout-item">
+                <p><b>File Number: </b> <lightning-formatted-text value={fileNumberValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+            <!-- Certificate Number -->
+            <lightning-layout-item lwc:if={showCertificateNumber} size="12" class="form-layout-item">
+                <p><b>Certificate Number: </b> <lightning-formatted-text value={certificateNumberValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+            <!-- Classification Number -->
+            <lightning-layout-item lwc:if={showClassificationType} size="12" class="form-layout-item">
+                <p>
+                    <b>Classification number of trademark or service mark: </b>
+                    <lightning-formatted-text value={classificationTypeValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <!-- TNTMSM Type -->
+            <lightning-layout-item lwc:if={showTNTMSMType} size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="TNTMSMType"
+                    value={TNTMSMTypeValue}
+                    label="Type"
+                    options={TNTMSMTypeOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                    disabled={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <!-- TNTMSM Name -->
+            <lightning-layout-item lwc:if={showTNTMSMName} size="12" class="form-layout-item">
+                <lightning-textarea
+                    name="TNTMSMName"
+                    value={TNTMSMNameValue}
+                    label={TNTMSMNameLabel}
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                    disabled={readOnly}
+                ></lightning-textarea>
+            </lightning-layout-item>
+            <!-- File Number -->
+            <lightning-layout-item lwc:if={showFileNumber} size="12" class="form-layout-item">
+                <lightning-input
+                    name="fileNumber"
+                    value={fileNumberValue}
+                    label="File Number"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Certificate Number -->
+            <lightning-layout-item lwc:if={showCertificateNumber} size="12" class="form-layout-item">
+                <lightning-input
+                    name="certificateNumber"
+                    value={certificateNumberValue}
+                    label="Certificate Number"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Classification Number -->
+            <lightning-layout-item lwc:if={showClassificationType} size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="classificationType"
+                    label="Classification Number"
+                    options={classificationTypeOptions}
+                    value={classificationTypeValue}
+                    placeholder="Select One"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exam_Supervisor</fullName>
+    <columns>NAME</columns>
+    <columns>InterviewDueDate__c</columns>
+    <columns>Account__c</columns>
+    <columns>ExamStatus__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>AssistantExaminer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>InterviewDueDate__c</field>
+        <operation>equals</operation>
+        <value>THIS_YEAR</value>
+    </filters>
+    <label>Exams Scheduled for This Year</label>
+</ListView>

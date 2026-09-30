@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SocialSecurityTemplate__c</fullName>
+    <description>PacPoint-MV111419 - Created for PVL phase 1.Created to be used on the documents generated on Applications.</description>
+    <externalId>false</externalId>
+    <formula>&quot;XXXXX&quot; &amp;  RIGHT(Applicant__r.BPID__c, 4)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Social Security Template</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

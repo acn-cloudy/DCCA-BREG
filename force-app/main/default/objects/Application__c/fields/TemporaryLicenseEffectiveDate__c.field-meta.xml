@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TemporaryLicenseEffectiveDate__c</fullName>
+    <description>PacPoint-KN05282020-Case 8413 - Created for PVL Phase 1 Sprint 4</description>
+    <inlineHelpText>Populate the Effective Date of the Temporary License - This will be merged into the Temporary License Letter</inlineHelpText>
+    <label>Temporary License Effective Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

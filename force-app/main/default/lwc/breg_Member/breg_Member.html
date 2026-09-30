@@ -1,0 +1,425 @@
+<template>
+    <lightning-layout lwc:if={editMode} key={member.uniqueKey} multiple-rows="true" class="slds-var-m-bottom_small">
+        <lightning-layout-item lwc:if={showActions} size="12" class="form-layout-item member-label-layout">
+            <!-- Label -->
+            <div class="slds-text-heading_medium slds-text-title_bold">{member.label}</div>
+            <!-- Delete button -->
+            <lightning-button-icon
+                lwc:if={showDeleteButton}
+                icon-name="utility:delete"
+                alternative-text="Delete"
+                title="Delete"
+                data-key={member.uniqueKey}
+                class="btn-delete"
+                onclick={handleDelete}
+                disabled={isButtonDisabled}
+            ></lightning-button-icon>
+        </lightning-layout-item>
+
+        <!-- Officer Director Titles -->
+        <lightning-layout-item lwc:if={showOfficerDirectorTitlesField} size="12" class="form-layout-item">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">
+                    <abbr class="slds-required" title="required">*</abbr>
+                    {officerDirectorTitlesLabel}
+                </label>
+                <lightning-checkbox-group
+                    data-key={member.uniqueKey}
+                    data-name="officerDirectorTitles"
+                    label={officerDirectorTitlesLabel}
+                    options={officerDirectorTitlesOptionsFiltered}
+                    onchange={handleInputChange}
+                    value={officerDirectorTitlesValueArray}
+                    required={required}
+                    disabled={localNonAddressReadOnly}
+                    class="checkbox-group-style"
+                    variant="label-hidden"
+                ></lightning-checkbox-group>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item lwc:if={showTitlesAreVacantField} size="12" class="form-layout-item">
+            <lightning-input
+                data-key={member.uniqueKey}
+                name="titlesAreVacant"
+                value={titlesAreVacantValue}
+                type="checkbox"
+                label={titlesAreVacantLabel}
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+                read-only={localNonAddressReadOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item lwc:if={showOfficerDirectorOtherTitleField} size="12" class="form-layout-item">
+            <lightning-input
+                data-key={member.uniqueKey}
+                name="officerDirectorOtherTitle"
+                value={officerDirectorOtherTitleValue}
+                label="Other Title"
+                type="text"
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+                required={required}
+                read-only={localNonAddressReadOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+
+        <!-- Member Type -->
+        <lightning-layout-item lwc:if={showMemberTypeSelector} size="12" class="form-layout-item">
+            <lightning-radio-group
+                data-key={member.uniqueKey}
+                data-name="memberType"
+                label={memberTypeSelectorLabel}
+                options={memberTypeOptions}
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+                value={memberTypeValue}
+                required={required}
+                disabled={localNonAddressReadOnly}
+            ></lightning-radio-group>
+        </lightning-layout-item>
+
+        <!-- Entity Fields -->
+
+        <!-- Entity Name -->
+        <template lwc:if={showEntityName}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <template lwc:if={required}>
+                            <abbr class="slds-required" title="required">*</abbr>
+                        </template>
+                        {entityNameLabel}
+                        <template lwc:if={showEntityNameHelpLink}>
+                            &nbsp;[<a href="/search-and-buy" target="_blank" rel="noopener noreferrer">Find an agent's official business name</a>]
+                        </template>
+                    </label>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            data-key={member.uniqueKey}
+                            data-name="entityName"
+                            name="entityName"
+                            value={entityNameValue}
+                            label={entityNameLabel}
+                            variant="label-hidden"
+                            type="text"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                            read-only={localNonAddressReadOnly}
+                        ></lightning-input>
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </template>
+        <template lwc:if={isEntity}>
+            <!-- Entity Location -->
+            <template lwc:if={showEntityLocationField}>
+                <lightning-layout-item size="6" small-device-size="12" class="form-layout-item">
+                    <lightning-combobox
+                        name="entityLocationCountry"
+                        value={entityLocationCountryValue}
+                        label="Country of Formation/Incorporation/Organization"
+                        options={countryOptions}
+                        onchange={handleEntityLocationCountryChange}
+                        required
+                        disabled={localNonAddressReadOnly}
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" small-device-size="12" class="form-layout-item">
+                    <lightning-combobox
+                        lwc:if={showEntityLocationStatesPicklist}
+                        name="entityLocationState"
+                        value={entityLocationStateValue}
+                        label="State/Province of Formation/Incorporation/Organization"
+                        options={stateOptions}
+                        onchange={handleEntityLocationStateChange}
+                        required={entityLocationRequired}
+                        disabled={localNonAddressReadOnly}
+                    ></lightning-combobox>
+                    <lightning-input
+                        lwc:else
+                        name="entityLocationStateText"
+                        value={entityLocationStateTextValue}
+                        label="State/Province of Formation/Incorporation/Organization"
+                        type="text"
+                        onchange={handleEntityLocationStateTextChange}
+                        onblur={handleEntityLocationStateTextBlur}
+                        required={entityLocationRequired}
+                        read-only={localNonAddressReadOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+            <!-- Entity File # -->
+            <template lwc:if={showEntityFileNumberField}>
+                <lightning-layout-item size="6" small-device-size="12" class="form-layout-item">
+                    <lightning-input
+                        name="entityFileNumber"
+                        value={entityFileNumberValue}
+                        label="File Number (if the entity is registered in Hawaii)"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={entityFileNumberRequired}
+                        read-only={localNonAddressReadOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+
+            <!-- Description 2 -->
+            <lightning-layout-item size="12" lwc:if={showDescription2} class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description2}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <!-- TNTMSM Entity Type -->
+            <template lwc:if={showTNTMSMEntityTypeField}>
+                <lightning-layout-item size="12"></lightning-layout-item>
+                <lightning-layout-item lwc:if={showTNTMSMEntityTypeField} size="6" small-device-size="12" class="form-layout-item">
+                    <lightning-combobox
+                        name="TNTMSMEntityType"
+                        value={TNTMSMEntityTypeValue}
+                        label={entityTypeLabel}
+                        options={tntmsmEntityTypeOptions}
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={localNonAddressReadOnly}
+                        disabled={localNonAddressReadOnly}
+                    ></lightning-combobox>
+                </lightning-layout-item>
+                <!-- Entity Type Description -->
+                <lightning-layout-item lwc:if={showTNTMSMEntityTypeDescriptionField} size="6" small-device-size="12" class="form-layout-item">
+                    <lightning-input
+                        name="entityTypeDescription"
+                        value={entityTypeDescriptionValue}
+                        label="Other (explain)"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={localNonAddressReadOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+
+        <!-- Individual Fields -->
+        <template lwc:if={isIndividual}>
+            <lightning-layout-item size="12"></lightning-layout-item>
+            <!-- First Name -->
+            <lightning-layout-item size="12" large-device-size="6" class="form-layout-item">
+                <lightning-input
+                    name="firstName"
+                    value={firstNameValue}
+                    label="First Name"
+                    type="text"
+                    placeholder="James"
+                    data-key={member.uniqueKey}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={localNonAddressReadOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Last Name -->
+            <lightning-layout-item size="12" large-device-size="6" class="form-layout-item">
+                <lightning-input
+                    name="lastName"
+                    value={lastNameValue}
+                    label="Last Name"
+                    type="text"
+                    placeholder="Carter"
+                    data-key={member.uniqueKey}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={localNonAddressReadOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Number Of Shares -->
+        <lightning-layout-item lwc:if={showNumberOfSharesField} size="12" class="form-layout-item">
+            <lightning-input
+                name="numberOfShares"
+                value={numberOfSharesValue}
+                label="Number of shares subscribed"
+                type="number"
+                data-key={member.uniqueKey}
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+                required={required}
+                read-only={localNonAddressReadOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+
+        <!-- Entity Type -->
+        <template lwc:if={showEntityTypeField}>
+            <lightning-layout-item size="12"></lightning-layout-item>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-combobox
+                    name="entityType"
+                    value={entityTypeValue}
+                    label={entityTypeLabel}
+                    options={entityTypeOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={localNonAddressReadOnly}
+                    disabled={localNonAddressReadOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <!-- Entity Type Description -->
+            <lightning-layout-item lwc:if={showEntityTypeDescriptionField} size="6" class="form-layout-item">
+                <lightning-input
+                    name="entityTypeDescription"
+                    value={entityTypeDescriptionValue}
+                    label="Explanation"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={localNonAddressReadOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Address -->
+        <lightning-layout-item lwc:if={showAddressFields} size="12">
+            <c-breg_-address
+                form-config={formConfig}
+                form-data={member}
+                is-nested="true"
+                label-hidden="true"
+                class="form-cmp"
+                config={config}
+                data-key={member.uniqueKey}
+                onchange={handleChangeNestedComponent}
+                onformupdate={handleAddressFormUpdate}
+                cmp-properties={cmpProperties}
+                is-cra={isCRA}
+                is-agent={isAgentRole}
+                oncopymailingaddress={handleCopyMailingAddress}
+                oncopybusinessaddress={handleCopyBusinessAddress}
+            ></c-breg_-address>
+        </lightning-layout-item>
+    </lightning-layout>
+    <!-- Read-only mode -->
+    <lightning-layout lwc:if={readOnly} key={member.uniqueKey} class="slds-var-m-bottom_medium">
+        <lightning-layout-item flexibility="auto">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item lwc:if={showOfficerDirectorTitlesField} size="12" class="form-layout-item">
+                    <p>{officerDirectorTitlesValueText}</p>
+                </lightning-layout-item>
+                <lightning-layout-item lwc:if={showTitlesAreVacantField} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={titlesAreVacantValue}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <lightning-layout-item lwc:if={showOfficerDirectorOtherTitleField} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={officerDirectorOtherTitleValue}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <template lwc:if={showEntityName}>
+                    <lightning-layout-item size="12" class="form-layout-item slds-m-bottom_medium">
+                        <p>
+                            <b><lightning-formatted-text value={entityNameValue}></lightning-formatted-text></b>
+                            <lightning-formatted-text value={readOnlyMemberType}></lightning-formatted-text>
+                        </p>
+                    </lightning-layout-item>
+                </template>
+                <template lwc:if={isEntity}>
+                    <template lwc:if={showEntityLocationField}>
+                        <lightning-layout-item size="6" small-device-size="12" class="form-layout-item slds-m-bottom--small">
+                            <lightning-formatted-text value={entityLocationCountryReadOnly}></lightning-formatted-text>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" small-device-size="12" class="form-layout-item slds-m-bottom--small">
+                            <lightning-formatted-text value={entityLocationStateReadOnly}></lightning-formatted-text>
+                        </lightning-layout-item>
+                    </template>
+                    <!-- Entity File # -->
+                    <template lwc:if={showEntityFileNumberField}>
+                        <lightning-layout-item size="6" small-device-size="12" class="form-layout-item slds-m-bottom--small">
+                            <lightning-formatted-text value={entityFileNumberValue}></lightning-formatted-text>
+                        </lightning-layout-item>
+                    </template>
+                    <!-- Description 2 -->
+                    <lightning-layout-item size="12" lwc:if={showDescription2} class="form-layout-item slds-m-bottom--small">
+                        <lightning-formatted-rich-text value={description2}></lightning-formatted-rich-text>
+                    </lightning-layout-item>
+                    <!-- TNTMSM Entity Type -->
+                    <template lwc:if={showTNTMSMEntityTypeField}>
+                        <lightning-layout-item size="12"></lightning-layout-item>
+                        <lightning-layout-item lwc:if={showTNTMSMEntityTypeField} size="6" small-device-size="12" class="form-layout-item">
+                            <lightning-formatted-text value={TNTMSMEntityTypeValue}></lightning-formatted-text>
+                        </lightning-layout-item>
+                        <!-- Entity Type Description -->
+                        <lightning-layout-item lwc:if={showTNTMSMEntityTypeDescriptionField} size="6" small-device-size="12" class="form-layout-item">
+                            <lightning-formatted-text value={entityTypeDescriptionValue}></lightning-formatted-text>
+                        </lightning-layout-item>
+                    </template>
+                </template>
+
+                <!-- Individual Fields -->
+                <template lwc:if={isIndividual}>
+                    <lightning-layout-item size="12"></lightning-layout-item>
+                    <!-- Last Name , First Name -->
+                    <lightning-layout-item size="6" small-device-size="12" class="form-layout-item">
+                        <p>
+                            <b><lightning-formatted-text value={readOnlyFullName}></lightning-formatted-text></b>
+                            <lightning-formatted-text value={readOnlyMemberType}></lightning-formatted-text>
+                        </p>
+                    </lightning-layout-item>
+                </template>
+
+                <!-- Number Of Shares -->
+                <lightning-layout-item lwc:if={showNumberOfSharesField} size="12" class="form-layout-item">
+                    <lightning-formatted-number value={numberOfSharesValue}></lightning-formatted-number>
+                </lightning-layout-item>
+
+                <!-- Entity Type -->
+                <template lwc:if={showEntityTypeField}>
+                    <lightning-layout-item size="12"></lightning-layout-item>
+                    <lightning-layout-item size="12" class="form-layout-item">
+                        <lightning-formatted-rich-text value={readOnlyEntityType}></lightning-formatted-rich-text>
+                    </lightning-layout-item>
+                    <!-- Entity Type Description -->
+                    <lightning-layout-item lwc:if={showEntityTypeDescriptionField} size="6" class="form-layout-item">
+                        <lightning-formatted-text value={entityTypeDescriptionValue}></lightning-formatted-text>
+                    </lightning-layout-item>
+                </template>
+
+                <!-- Address -->
+                <lightning-layout-item lwc:if={showAddressFields} size="12">
+                    <c-breg_-address
+                        form-config={formConfig}
+                        form-data={member}
+                        is-nested="true"
+                        label-hidden="true"
+                        class="form-cmp"
+                        config={config}
+                        data-key={member.uniqueKey}
+                        cmp-properties={cmpProperties}
+                        is-cra={isCRA}
+                        is-agent={isAgentRole}
+                        onchange={handleChangeNestedComponent}
+                    ></c-breg_-address>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+
+        <!-- Remove/Edit Buttons -->
+        <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item">
+            <lightning-layout>
+                <lightning-button
+                    lwc:if={showRemoveButton}
+                    variant="destructive-text"
+                    label="Remove"
+                    icon-name="utility:delete"
+                    icon-position="left"
+                    onclick={handleDelete}
+                    data-key={member.uniqueKey}
+                    class="slds-var-m-right_small"
+                ></lightning-button>
+                <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+            </lightning-layout>
+        </lightning-layout-item>
+        <!-- <lightning-layout-item size="12" class="form-layout-item"> <br /></lightning-layout-item> -->
+    </lightning-layout>
+</template>

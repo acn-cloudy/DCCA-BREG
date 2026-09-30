@@ -1,0 +1,120 @@
+.THIS .slds-card{
+	
+	border : none !important;
+}
+
+.THIS {
+    background-color: #eeeeee
+}
+
+.THIS.bg-white{
+    background-color: #fff
+}
+
+.THIS .scrollerSize {
+    max-height: 1000px;
+}
+.THIS .appnumber {
+    text-align: left;
+    font-weight: bold !important;
+}
+.THIS .REVENUE_Background {
+    background-color: white;
+}
+.THIS .vfFrame{
+    border: 1px dotted #000;
+}
+
+@media all and (max-width: 980px) {
+    
+    .THIS .hidenav {
+    display:none;
+    }
+}
+
+.THIS.navmenuitem{
+    background-color:rgb(242, 242, 242);
+}
+
+
+.THIS.hideprintmodal{
+    display:none;
+}
+
+.THIS.showmodal{
+    display:block;
+}
+
+.THIS.hidemodal{
+    display:none;
+}
+
+.THIS.cancelhidemodal{
+    display:none;
+}
+
+.THIS.modalheight{
+    height:800px;    
+}
+
+
+.THIS .uiButton.nextbutton {
+    /*float: right;*/
+    margin-top:-2%;
+ 
+}
+.THIS .uiButton.prevbutton {
+    /*float: left;*/
+    margin-top:-2%;
+ 
+}
+
+.THIS .keep {
+    
+    background-color:rgb(121, 121, 121);
+   color: rgb(255, 255, 255);
+}
+
+.THIS .hideCard {
+    display: none;
+    
+}
+
+.THIS .appname {
+    float: left;
+    font-size: 2em;
+    
+}
+
+.THIS .clearfloat {
+    
+    clear:both;
+}
+
+.THIS .tborder {
+    
+   border: 1px solid black;
+}
+
+.THIS .buttonFloat {
+    
+    float : left;
+}
+
+.THIS .slds-nav-vertical__item.slds-is-active::before {
+
+    display: none;
+}
+.THIS ul.navmenuitem {
+    background: #EEEEEE !important;
+}
+
+.THIS .slds-nav-vertical__item {
+    border-bottom: 1px solid #fff;
+}
+.THIS .slds-card.hidenav {
+    border: none;
+}
+.THIS .coverAll {
+    min-height: 1000px;
+}

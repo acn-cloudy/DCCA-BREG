@@ -1,0 +1,246 @@
+<apex:component >
+    <apex:attribute name="app" type="Application__c" description="Application"/>
+    <apex:attribute name="associatedLicenses" type="AssociatedLicense__c[]"  description="AssociatedLicenses"/>
+    <apex:attribute name="licenseClassifications" type="LicenseClassification__c[]"  description="LicenseClassifications"/>
+    <apex:attribute name="trans" type="Transaction__c[]"  description="Trancations"/>
+    <apex:attribute name="payments" type="pymt__PaymentX__c[]"  description="Payments"/>
+    <apex:attribute name="dToday" type="Date"  description="today"/>
+    <apex:attribute name="sUrl" type="String"  description="url for barcode"/>
+    <table class="ql-table-blob">
+        <tbody>
+        <tr>
+            <td colspan="1" rowspan="1">
+                <div class="top-gap">
+                    <apex:image url="{!$Resource.rendition}"/>
+                </div>
+            </td>
+            <td colspan="1" rowspan="1" style="margin-left: 20px; " class="header-font">
+                <div style="color: #A38B4D">
+                    Department of Commerce and Consumer Affairs
+                </div>
+                <div style="color: #2F5497" class="header-font">
+                    <u>
+                        Professional &amp; Vocational Licensing Division
+                    </u>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="header-font" style="padding-left: 91px;">
+                Renewal Application
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="header-font header-align horizon-gap sub-header" >
+        License Data
+    </div>
+    <table >
+        <tbody>
+        <tr>
+            <td style="width: 430px;" class="content-bold">
+                    {!app.LicenseType__r.BoardProgram__r.Name}
+            </td>
+            <td class="content-bold">
+                    {!app.LicenseType__r.LicenseType__c}
+            </td>
+        </tr>
+        <tr class="top-bold">
+            <td >
+                    <span class="content-bold">
+                        License Number:
+                    </span>
+                    {!app.CurrentLicense__r.PocketIDLicenseNumber__c}
+            </td>               
+            <td  class="content-bold">
+                <apex:outputpanel rendered="{!IF(OR(app.ActiveInactive__c == 'Inactive', app.ApplicationRenewingInactive__c == true), true, false)}">
+                    INACTIVE STATUS
+                </apex:outputpanel>
+            </td>
+        </tr>
+        <tr class="top-bold">
+            <td >
+                    <span class="content-bold">
+                        File Number:
+                    </span>
+                    {! Right(app.CurrentLicense__r.Licensee__r.BPID__c, 4)}
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="header-font header-align horizon-gap sub-header" >
+        Licensee Information
+    </div>
+    <c:OnlineRenewalAddress app="{!app}" />
+    <div class="top-gap" >
+        <apex:repeat value="{!trans}" var="tran">
+            <span class="content-bold">TOTAL (ON TIME) FEE OF: </span>
+            <apex:outputText value="{0, number, $###,###.00}">
+                <apex:param value="{!tran.TotalAmount__c}" />
+            </apex:outputText>
+            <div style="padding-top: 5px">
+                <span class="content-bold">By License Expiration Date: </span>
+                <apex:outputText value="{0, date, M/d/yyyy}">
+                    <apex:param value="{!app.CompleteApplicationBy__c}" />
+                </apex:outputText>
+            </div>
+        </apex:repeat>
+    </div>
+    <div class="header-font header-align horizon-gap sub-header" >
+        Employer On File
+    </div>
+    <table style="table-layout: fixed; width: 100%;">
+        <thead>
+            <tr>
+                <th>Employer Name</th>
+                <th>Employer License No.</th>
+            </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!associatedLicenses}" var="assoc">
+            <tr>
+                <td>
+                        {!assoc.EntityName__c}
+                </td>
+                <td>
+                        {!assoc.EntityLicenseNumber__c}
+                </td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+
+    <div class="header-font header-align horizon-gap sub-header" >
+       License Classes
+    </div>
+    <table style="table-layout: fixed; width: 100%;">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Effective Date</th>
+                <th>Restricted</th>
+            </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!licenseClassifications}" var="classification">
+            <tr>
+                <td>
+                        {!classification.ClassificationName__c}
+                </td>
+                <td>
+                        {!classification.ClassificationDescription__c}
+                </td>
+                <td>
+                    <apex:outputText value="{0, date, M/d/yyyy}">
+                        <apex:param value="{!classification.EffectiveStartDate__c}"/>
+                    </apex:outputText>
+                </td>
+                <td>
+                        {!classification.RestrictedClassRenewalForm__c}
+                </td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+
+    <div class="header-font header-align horizon-gap sub-header" >
+        Payment Information
+    </div>
+
+    <table >
+        <tbody>
+        <tr>
+            <td style="width: 430px;" class="content-bold">
+                RENEWAL RECEIVED ON:
+            </td>
+            <td class="content-bold">
+                TRANSACTION REFERENCE ID
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <apex:outputText value="{0, date, M/d/yyyy}">
+                    <apex:param value="{!app.ApplicationReceivedDate__c}"/>
+                </apex:outputText>
+            </td>
+            <td >
+                <apex:repeat value="{!trans}" var="tran">
+                        {!tran.Name}
+                </apex:repeat>
+            </td>
+        </tr>
+        <tr style="height: 20px">
+
+        </tr>
+
+        <tr>
+            <td style="width: 430px;" class="content-bold">
+                TOTAL AMOUNT PAID
+            </td>
+            <td class="content-bold">
+                PAYMENT METHOD
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <apex:repeat value="{!trans}" var="tran">
+                    <apex:outputText value="{0, number, $###,###.00}">
+                        <apex:param value="{!tran.PaymentAmount__c}" />
+                    </apex:outputText>
+                </apex:repeat>
+            </td>
+            <td >
+                <apex:repeat value="{!payments}" var="payment">
+                        {!payment.pymt__Payment_Type__c}
+                </apex:repeat>
+            </td>
+        </tr>
+        <tr style="height: 20px">
+
+        </tr>
+
+        <tr>
+            <td style="width: 430px;" class="content-bold">
+                TOTAL FEES PAID BY
+            </td>
+            <td class="content-bold">
+
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <apex:repeat value="{!payments}" var="payment">
+                {!payment.pymt__Billing_First_Name__c} {!payment.pymt__Billing_Last_Name__c}
+                </apex:repeat>
+            </td>
+            <td >
+
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="top-gap content-bold">
+        BILLING ADDRESS
+    </div>
+    <div>
+        <apex:repeat value="{!payments}" var="payment">
+        {!payment.pymt__Billing_Street__c} {!payment.pymt__Billing_City__c},  {!payment.pymt__Billing_State__c} {!payment.pymt__Billing_Postal_Code__c}
+        </apex:repeat>
+    </div>
+    <div class="top-gap content-bold">
+        LICENSEE HAS ANSWERED THE FOLLOWING QUESTIONS
+    </div>
+    <div style="margin-top: 7px">
+        <apex:outputText escape="false" value="{!app.OnlineRenewalAnswers__c}" />
+    </div>
+    <div style="padding-top: 30px">
+        <span class="content-bold">Signature: </span>{!app.RenewalApplicationSignature__c}
+    </div>
+
+</apex:component>

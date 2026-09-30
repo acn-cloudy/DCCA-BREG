@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PVL_EO</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Board_Program__c</columns>
+    <columns>License_Type_PVL__c</columns>
+    <columns>License_Stage__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Status__c</columns>
+    <columns>Application_Number__c</columns>
+    <columns>License_Number_lu__c</columns>
+    <columns>PVL_Call_Category__c</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed,Transferred</value>
+    </filters>
+    <filters>
+        <field>License_Stage__c</field>
+        <operation>equals</operation>
+        <value>Board</value>
+    </filters>
+    <label>PVL - EO</label>
+    <queue>PVL_Tier_1_Agents</queue>
+    <sharedTo>
+        <group>PVL_Supervisors</group>
+        <group>PVL_Tier_1_Agents</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PhasePreventFromUpdating</fullName>
+    <active>true</active>
+    <description>PacPoint-IC071719- Created for PVL phase 1
+Do not allow the user to move the phase if the Number of Deficiencies is greater than 0</description>
+    <errorConditionFormula>AND(
+ISCHANGED( Phase__c ),
+ISPICKVAL( Phase__c , &quot;H - License Generation&quot;),
+NOT(ISPICKVAL( Status__c , &quot;HD - Application Terminated&quot;)),
+NumberofDeficiencies__c &gt; 0,
+Bypass_Validation__c = false
+)</errorConditionFormula>
+    <errorDisplayField>Phase__c</errorDisplayField>
+    <errorMessage>Cannot change the Phase if the Number of Deficiencies is greater than 0.</errorMessage>
+</ValidationRule>

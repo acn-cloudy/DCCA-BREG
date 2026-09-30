@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_License_Type_Cashier_Codes</fullName>
+    <columns>NAME</columns>
+    <columns>LicenseType__c</columns>
+    <columns>CashierCode__c</columns>
+    <columns>CashierCodeAmount__c</columns>
+    <columns>FeeAmount__c</columns>
+    <columns>Phase__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>RenewalFeePeriod__c</columns>
+    <columns>RenewalFeePercentage__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LicenseType__c</field>
+        <operation>equals</operation>
+        <value>DT</value>
+    </filters>
+    <label>All License Type Cashier Codes</label>
+</ListView>

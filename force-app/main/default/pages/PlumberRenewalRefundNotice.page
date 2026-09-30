@@ -1,0 +1,101 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+            body {
+                margin-top: 5px;
+                font-size: 10pt;
+                font-family: Arial Narrow, Arial;
+            }
+            ol {
+                counter-reset: list;
+                list-style-position: outside;
+            }
+            ol > li {
+            list-style: none;
+            position: relative;
+            
+            }
+            ol > li:before {
+            content: counter(list) ") ";
+            counter-increment: list;
+            position: absolute;
+            left: -1.4em;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-14" licenseType="BOARD OF ELECTRICIANS AND PLUMBERS" />
+            <div style="padding-left: 50px">
+                <c:RefundNoticeSubHeader license="{!record}" dToday="{!dToday}" licenseLabel="License Number:" subject="Non-Renewal of Plumber License for"
+                />
+                <div style="text-align: left;">Please be advised that we were unable to renew your above referenced license because of the following reason</div>
+                <div style="text-align: left;">indicated below:</div>
+                <br/>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colspan="1" rowspan="1" style="width: 80px; font-size: 12pt;">[     ]</td>
+                            <td colspan="1" rowspan="1">The continued competency requirements for your electrician license have not been met:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1"> </td>
+                            <td colspan="1" rowspan="1">
+                                <ol>
+                                    <li>Submit a copy of a certificate from the Honolulu Community College evidencing attendance
+                                        at an educational course on the update to the National Electrical Code (NEC); OR</li>
+                                    <li>Submit a copy of a score report from PROMETRIC verifying the successful completion of
+                                        an exam prescribed by the Board on the updates to the NEC.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr>
+                            <td colspan="1" rowspan="1" style="font-size: 12pt;">[ X ]</td>
+                            <td colspan="1" rowspan="1">The continued competency requirements for your plumber license have not been met:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" rowspan="1"> </td>
+                            <td colspan="1" rowspan="1">
+                                <ol>
+                                    <li>Submit a copy of a certificate from the Honolulu Community College evidencing attendance
+                                        at an educational course on the updates to the <apex:outputText value=" {!validYear}" /> Uniform Plumbing Code (UPC);
+                                        OR</li>
+                                    <li>Submit a copy of a score report from PROMETRIC verifying the successful completion of
+                                        an exam prescribed by the Board on the updates to the <apex:outputText value=" {!validYear}" /> UPC.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="text-align: left;">If you fail to respond by the date above, your renewal will be abandoned and a refund of your renewal
+                    fees will be processed. Please note that processing time for refunds is approximately 8 weeks.</div>
+                <br/>
+                <br/>
+                <!-- <div style="margin-left: 340px; text-align: left;">Sincerely,</div>
+                <br/>
+                <br/>
+                <div style="margin-left: 340px; text-align: left;">Charlene Tamanaha</div>
+
+                <div style="margin-left: 340px; text-align: left;">Executive Officer</div> -->
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

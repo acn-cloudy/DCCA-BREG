@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FiscalYear__c</fullName>
+    <description>PacPoint-KN02252020-Created for Travel Approval</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISNULL(BusinessOnlyReturnDate__c),
+    (
+        IF(
+            MONTH(FiscalYearCreatedDate__c)&gt;=7,
+            TEXT(Year(FiscalYearCreatedDate__c)+1),
+            TEXT(Year(FiscalYearCreatedDate__c))
+        )
+    ),
+    (
+        IF(
+            MONTH(DATEVALUE(BusinessOnlyReturnDate__c))&gt;=7,
+            TEXT(Year(DATEVALUE(BusinessOnlyReturnDate__c))+1),
+            TEXT(Year(DATEVALUE(BusinessOnlyReturnDate__c)))
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Fiscal Year</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

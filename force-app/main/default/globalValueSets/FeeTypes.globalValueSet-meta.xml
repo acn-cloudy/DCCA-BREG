@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>1 - FILING</fullName>
+        <default>false</default>
+        <label>1 - FILING</label>
+    </customValue>
+    <customValue>
+        <fullName>2 - EDUCATION</fullName>
+        <default>false</default>
+        <label>2 - EDUCATION</label>
+    </customValue>
+    <customValue>
+        <fullName>3 - EXPERIENCE (RESIDENCY INCLUDED HERE)</fullName>
+        <default>false</default>
+        <label>3 - EXPERIENCE (RESIDENCY INCLUDED HERE)</label>
+    </customValue>
+    <customValue>
+        <fullName>4 - FINANCIAL</fullName>
+        <default>false</default>
+        <label>4 - FINANCIAL</label>
+    </customValue>
+    <customValue>
+        <fullName>5 - INSURANCE</fullName>
+        <default>false</default>
+        <label>5 - INSURANCE</label>
+    </customValue>
+    <customValue>
+        <fullName>6 - CHARACTER OR COMPETENCE</fullName>
+        <default>false</default>
+        <label>6 - CHARACTER OR COMPETENCE</label>
+    </customValue>
+    <customValue>
+        <fullName>7 - NATIONAL DESIGNATION (NB, ECFMG, ETC)</fullName>
+        <default>false</default>
+        <label>7 - NATIONAL DESIGNATION (NB, ECFMG, ETC)</label>
+    </customValue>
+    <customValue>
+        <fullName>8 - OUT-OF-STATE LICENSE</fullName>
+        <default>false</default>
+        <label>8 - OUT-OF-STATE LICENSE</label>
+    </customValue>
+    <customValue>
+        <fullName>9 - AFFIDAVITS OR LETTERS</fullName>
+        <default>false</default>
+        <label>9 - AFFIDAVITS OR LETTERS</label>
+    </customValue>
+    <customValue>
+        <fullName>10 - BUSINESS LOCATION APPROVED BY ANOTHER AGENCY (SANITATION, CLEARANCE, ZONING)</fullName>
+        <default>false</default>
+        <label>10 - BUSINESS LOCATION APPROVED BY ANOTHER AGENCY (SANITATION, CLEARANCE, ZONING)</label>
+    </customValue>
+    <customValue>
+        <fullName>11 - BUSINESS REGISTRATION PAPERS</fullName>
+        <default>false</default>
+        <label>11 - BUSINESS REGISTRATION PAPERS</label>
+    </customValue>
+    <customValue>
+        <fullName>12 - SPECIAL EXAM</fullName>
+        <default>false</default>
+        <label>12 - SPECIAL EXAM</label>
+    </customValue>
+    <customValue>
+        <fullName>13 - OTHER</fullName>
+        <default>false</default>
+        <label>13 - OTHER</label>
+    </customValue>
+    <customValue>
+        <fullName>14 - MEDICAL</fullName>
+        <default>false</default>
+        <label>14 - MEDICAL</label>
+    </customValue>
+    <customValue>
+        <fullName>15 - EMPLOYMENT</fullName>
+        <default>false</default>
+        <label>15 - EMPLOYMENT</label>
+    </customValue>
+    <customValue>
+        <fullName>16 - EXAM RESULTS</fullName>
+        <default>false</default>
+        <label>16 - EXAM RESULTS</label>
+    </customValue>
+    <customValue>
+        <fullName>31 - APPLICATION FEE</fullName>
+        <default>false</default>
+        <label>31 - APPLICATION FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>32 - EXAM FEE #1</fullName>
+        <default>false</default>
+        <label>32 - EXAM FEE #1</label>
+    </customValue>
+    <customValue>
+        <fullName>33 - EXAM FEE #2 (DDS FOREIGN-RESTORATIVE; EIT)</fullName>
+        <default>false</default>
+        <label>33 - EXAM FEE #2 (DDS FOREIGN-RESTORATIVE; EIT)</label>
+    </customValue>
+    <customValue>
+        <fullName>35 - RE-EXAM FEE #2 (OPTO-AFTER 3 TIMES)</fullName>
+        <default>false</default>
+        <label>35 - RE-EXAM FEE #2 (OPTO-AFTER 3 TIMES)</label>
+    </customValue>
+    <customValue>
+        <fullName>36 - PROCTOR EXAM FEE</fullName>
+        <default>false</default>
+        <label>36 - PROCTOR EXAM FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>37 - LICENSE (CERFIFICATE, REGISTRATION) FEE</fullName>
+        <default>false</default>
+        <label>37 - LICENSE (CERFIFICATE, REGISTRATION) FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>38 - APPLICATION AND LICENSE FEE</fullName>
+        <default>false</default>
+        <label>38 - APPLICATION AND LICENSE FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>39 - APPLICATION AND EXAM FEE</fullName>
+        <default>false</default>
+        <label>39 - APPLICATION AND EXAM FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>40 - APPLICATION, EXAM AND LICENSE FEE</fullName>
+        <default>false</default>
+        <label>40 - APPLICATION, EXAM AND LICENSE FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>41 - ADDITIONAL CLASS</fullName>
+        <default>false</default>
+        <label>41 - ADDITIONAL CLASS</label>
+    </customValue>
+    <customValue>
+        <fullName>42 - TEMPORARY PERMIT (TEMPORARY LICENSE) FEE</fullName>
+        <default>false</default>
+        <label>42 - TEMPORARY PERMIT (TEMPORARY LICENSE) FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>43 - APPRENTICE (STUDENT) REGISTRATION FEE</fullName>
+        <default>false</default>
+        <label>43 - APPRENTICE (STUDENT) REGISTRATION FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>44 - 1/2 RENEWAL FEE</fullName>
+        <default>false</default>
+        <label>44 - 1/2 RENEWAL FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>45 - SPECIAL FUND - CLB RF</fullName>
+        <default>false</default>
+        <label>45 - SPECIAL FUND - CLB RF</label>
+    </customValue>
+    <customValue>
+        <fullName>71 - REISSUANCE (TRANSFER,RELOCATION) FEE</fullName>
+        <default>false</default>
+        <label>71 - REISSUANCE (TRANSFER,RELOCATION) FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>72 - DUPLICATE LICENSE FEE #1 (TO DEPT)</fullName>
+        <default>false</default>
+        <label>72 - DUPLICATE LICENSE FEE #1 (TO DEPT)</label>
+    </customValue>
+    <customValue>
+        <fullName>73 - DUPLICATE LICENSE FEE #2 (TO INSCRIBER)</fullName>
+        <default>false</default>
+        <label>73 - DUPLICATE LICENSE FEE #2 (TO INSCRIBER)</label>
+    </customValue>
+    <customValue>
+        <fullName>74 - ANNUAL RENEWAL FEE</fullName>
+        <default>false</default>
+        <label>74 - ANNUAL RENEWAL FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>75 - BIENNIAL RENEWAL FEE</fullName>
+        <default>false</default>
+        <label>75 - BIENNIAL RENEWAL FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>76 - PENALTY FEE FOR LATE RENEWAL</fullName>
+        <default>false</default>
+        <label>76 - PENALTY FEE FOR LATE RENEWAL</label>
+    </customValue>
+    <customValue>
+        <fullName>77 - RESTORATION (REINSTATEMENT) FOR LATE RENEWAL</fullName>
+        <default>false</default>
+        <label>77 - RESTORATION (REINSTATEMENT) FOR LATE RENEWAL</label>
+    </customValue>
+    <customValue>
+        <fullName>78 - REINSTATEMENT FEE FOR REVOKED/SUSPENDED LICENSE</fullName>
+        <default>false</default>
+        <label>78 - REINSTATEMENT FEE FOR REVOKED/SUSPENDED LICENSE</label>
+    </customValue>
+    <customValue>
+        <fullName>79 - VERIFICATION FEE</fullName>
+        <default>false</default>
+        <label>79 - VERIFICATION FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>80 - SPECIAL PRIVILEGE FEE (PERMIT TO PRACTICE, ANESTHESIA)</fullName>
+        <default>false</default>
+        <label>80 - SPECIAL PRIVILEGE FEE (PERMIT TO PRACTICE, ANESTHESIA)</label>
+    </customValue>
+    <customValue>
+        <fullName>82 - SPECIAL FUND ASSESSMENT</fullName>
+        <default>false</default>
+        <label>82 - SPECIAL FUND ASSESSMENT</label>
+    </customValue>
+    <customValue>
+        <fullName>83 - EDUCATION FUND</fullName>
+        <default>false</default>
+        <label>83 - EDUCATION FUND</label>
+    </customValue>
+    <customValue>
+        <fullName>84 - COMPLIANCE RESOLUTION FUND</fullName>
+        <default>false</default>
+        <label>84 - COMPLIANCE RESOLUTION FUND</label>
+    </customValue>
+    <customValue>
+        <fullName>85 - REACTIVATION FEE</fullName>
+        <default>false</default>
+        <label>85 - REACTIVATION FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>86 - BOARD RESULTS</fullName>
+        <default>false</default>
+        <label>86 - BOARD RESULTS</label>
+    </customValue>
+    <customValue>
+        <fullName>98 - TIME LIMIT</fullName>
+        <default>false</default>
+        <label>98 - TIME LIMIT</label>
+    </customValue>
+    <customValue>
+        <fullName>99 - BOUNCED CHECK SERVICE FEE</fullName>
+        <default>false</default>
+        <label>99 - BOUNCED CHECK SERVICE FEE</label>
+    </customValue>
+    <customValue>
+        <fullName>0 - UNKNOWN</fullName>
+        <default>false</default>
+        <label>0 - UNKNOWN</label>
+    </customValue>
+    <description>PacPoint-FT041820- Created for PVL phase 1</description>
+    <masterLabel>Fee Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

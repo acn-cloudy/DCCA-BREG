@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Trade_Type__c</fullName>
+    <description>Aalta BREG-61</description>
+    <label>Trade Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Application to List as Commercial Registered Agent (CRA)</fullName>
+                <default>false</default>
+                <label>Application to List as Commercial Registered Agent (CRA)</label>
+            </value>
+            <value>
+                <fullName>List of Entities represented by Commercial Registered Agent (CRAL)</fullName>
+                <default>false</default>
+                <label>List of Entities represented by Commercial Registered Agent (CRAL)</label>
+            </value>
+            <value>
+                <fullName>Termination of a Commercial Registered Agent (CRT)</fullName>
+                <default>false</default>
+                <label>Termination of a Commercial Registered Agent (CRT)</label>
+            </value>
+            <value>
+                <fullName>Amendment of Commercial Registered Agent (CRC)</fullName>
+                <default>false</default>
+                <label>Amendment of Commercial Registered Agent (CRC)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA - Name Change (CRNC)</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA - Name Change (CRNC)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA - Address Change (CRAD)</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA - Address Change (CRAD)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA - Name and Address Change (CRNA)</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA - Name and Address Change (CRNA)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA - Conversion (CRCV)</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA - Conversion (CRCV)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change by CRA - Merger (CRMG)</fullName>
+                <default>false</default>
+                <label>Statement of Change by CRA - Merger (CRMG)</label>
+            </value>
+            <value>
+                <fullName>Designation of Agent (AGD)</fullName>
+                <default>false</default>
+                <label>Designation of Agent (AGD)</label>
+            </value>
+            <value>
+                <fullName>Involuntary Revocation (INVR)</fullName>
+                <default>false</default>
+                <label>Involuntary Revocation (INVR)</label>
+            </value>
+            <value>
+                <fullName>License Filing (A2) (LIC)</fullName>
+                <default>false</default>
+                <label>License Filing (A2) (LIC)</label>
+            </value>
+            <value>
+                <fullName>Registrant Revoked (RGRV)</fullName>
+                <default>false</default>
+                <label>Registrant Revoked (RGRV)</label>
+            </value>
+            <value>
+                <fullName>Amendment (AMBX)</fullName>
+                <default>false</default>
+                <label>Amendment (AMBX)</label>
+            </value>
+            <value>
+                <fullName>Domestic Merger/Consolidation (DMGBX)</fullName>
+                <default>false</default>
+                <label>Domestic Merger/Consolidation (DMGBX)</label>
+            </value>
+            <value>
+                <fullName>Partnership Registration Statement Domestic/Foreign (PRSBX)</fullName>
+                <default>false</default>
+                <label>Partnership Registration Statement Domestic/Foreign (PRSBX)</label>
+            </value>
+            <value>
+                <fullName>LLC Merger/Consolidation/Name Change (CMGBX)</fullName>
+                <default>false</default>
+                <label>LLC Merger/Consolidation/Name Change (CMGBX)</label>
+            </value>
+            <value>
+                <fullName>LLP Amendment (KAMBX)</fullName>
+                <default>false</default>
+                <label>LLP Amendment (KAMBX)</label>
+            </value>
+            <value>
+                <fullName>Trade Name (T1BX)</fullName>
+                <default>false</default>
+                <label>Trade Name (T1BX)</label>
+            </value>
+            <value>
+                <fullName>Trade Mark (T2BX)</fullName>
+                <default>false</default>
+                <label>Trade Mark (T2BX)</label>
+            </value>
+            <value>
+                <fullName>Service Mark (T3BX)</fullName>
+                <default>false</default>
+                <label>Service Mark (T3BX)</label>
+            </value>
+            <value>
+                <fullName>Reservation/Renewal of Name (R7BX)</fullName>
+                <default>false</default>
+                <label>Reservation/Renewal of Name (R7BX)</label>
+            </value>
+            <value>
+                <fullName>Certificate (CERBX)</fullName>
+                <default>false</default>
+                <label>Certificate (CERBX)</label>
+            </value>
+            <value>
+                <fullName>Order of Reinstatement (ORDER)</fullName>
+                <default>false</default>
+                <label>Order of Reinstatement (ORDER)</label>
+            </value>
+            <value>
+                <fullName>Unknown Transaction Types (UNKN)</fullName>
+                <default>false</default>
+                <label>Unknown Transaction Types (UNKN)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Administrative Dissolution (INDBX)</fullName>
+                <default>false</default>
+                <label>Certificate of Administrative Dissolution (INDBX)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Revocation (INCBX)</fullName>
+                <default>false</default>
+                <label>Certificate of Revocation (INCBX)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Administrative Termination (ADMBX)</fullName>
+                <default>false</default>
+                <label>Certificate of Administrative Termination (ADMBX)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Revocation (RVKBX)</fullName>
+                <default>false</default>
+                <label>Certificate of Revocation (RVKBX)</label>
+            </value>
+            <value>
+                <fullName>TM/SM Classification (CLSF)</fullName>
+                <default>false</default>
+                <label>TM/SM Classification (CLSF)</label>
+            </value>
+            <value>
+                <fullName>Correspondence Document (CORBX)</fullName>
+                <default>false</default>
+                <label>Correspondence Document (CORBX)</label>
+            </value>
+            <value>
+                <fullName>Administrative Purge (PURG)</fullName>
+                <default>false</default>
+                <label>Administrative Purge (PURG)</label>
+            </value>
+            <value>
+                <fullName>Articles of Correction (AC)</fullName>
+                <default>false</default>
+                <label>Articles of Correction (AC)</label>
+            </value>
+            <value>
+                <fullName>Affadavit (AFF)</fullName>
+                <default>false</default>
+                <label>Affadavit (AFF)</label>
+            </value>
+            <value>
+                <fullName>Agent Address Change (AGAD)</fullName>
+                <default>false</default>
+                <label>Agent Address Change (AGAD)</label>
+            </value>
+            <value>
+                <fullName>Change of Registered Agent (AGC)</fullName>
+                <default>false</default>
+                <label>Change of Registered Agent (AGC)</label>
+            </value>
+            <value>
+                <fullName>Resignation of Agent (AGR)</fullName>
+                <default>false</default>
+                <label>Resignation of Agent (AGR)</label>
+            </value>
+            <value>
+                <fullName>Amendment (AM)</fullName>
+                <default>false</default>
+                <label>Amendment (AM)</label>
+            </value>
+            <value>
+                <fullName>Articles of Amendment / Increase (AMIN)</fullName>
+                <default>false</default>
+                <label>Articles of Amendment / Increase (AMIN)</label>
+            </value>
+            <value>
+                <fullName>Articles of Amendment / Name Change (AMNC)</fullName>
+                <default>false</default>
+                <label>Articles of Amendment / Name Change (AMNC)</label>
+            </value>
+            <value>
+                <fullName>Articles of Amendment / Reduction (AMRD)</fullName>
+                <default>false</default>
+                <label>Articles of Amendment / Reduction (AMRD)</label>
+            </value>
+            <value>
+                <fullName>Amended / Restated (AMRS)</fullName>
+                <default>false</default>
+                <label>Amended / Restated (AMRS)</label>
+            </value>
+            <value>
+                <fullName>Articles of Incorporation (ART)</fullName>
+                <default>false</default>
+                <label>Articles of Incorporation (ART)</label>
+            </value>
+            <value>
+                <fullName>Articles of Termination (AT)</fullName>
+                <default>false</default>
+                <label>Articles of Termination (AT)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Correction (CC)</fullName>
+                <default>false</default>
+                <label>Certificate of Correction (CC)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Correction (CCLP) (CCLP)</fullName>
+                <default>false</default>
+                <label>Certificate of Correction (CCLP) (CCLP)</label>
+            </value>
+            <value>
+                <fullName>Application For Certificate of Cancellation (CN)</fullName>
+                <default>false</default>
+                <label>Application For Certificate of Cancellation (CN)</label>
+            </value>
+            <value>
+                <fullName>??? (CO)</fullName>
+                <default>false</default>
+                <label>??? (CO)</label>
+            </value>
+            <value>
+                <fullName>Application For Certificate of Authority For Foreign Corp. (COA)</fullName>
+                <default>false</default>
+                <label>Application For Certificate of Authority For Foreign Corp. (COA)</label>
+            </value>
+            <value>
+                <fullName>Articles of Organization Conversion (CONV)</fullName>
+                <default>false</default>
+                <label>Articles of Organization Conversion (CONV)</label>
+            </value>
+            <value>
+                <fullName>??? (COTF)</fullName>
+                <default>false</default>
+                <label>??? (COTF)</label>
+            </value>
+            <value>
+                <fullName>Articles of Conversion (CV)</fullName>
+                <default>false</default>
+                <label>Articles of Conversion (CV)</label>
+            </value>
+            <value>
+                <fullName>Designated Office Address Change (DOFF)</fullName>
+                <default>false</default>
+                <label>Designated Office Address Change (DOFF)</label>
+            </value>
+            <value>
+                <fullName>Articles of Dissolution (DS)</fullName>
+                <default>false</default>
+                <label>Articles of Dissolution (DS)</label>
+            </value>
+            <value>
+                <fullName>??? (EX)</fullName>
+                <default>false</default>
+                <label>??? (EX)</label>
+            </value>
+            <value>
+                <fullName>Expired (EXP)</fullName>
+                <default>false</default>
+                <label>Expired (EXP)</label>
+            </value>
+            <value>
+                <fullName>Foreign Certificate of Change (FCHG)</fullName>
+                <default>false</default>
+                <label>Foreign Certificate of Change (FCHG)</label>
+            </value>
+            <value>
+                <fullName>Application For Certificate of Authority For FLLC (FLLC)</fullName>
+                <default>false</default>
+                <label>Application For Certificate of Authority For FLLC (FLLC)</label>
+            </value>
+            <value>
+                <fullName>Foriegn Limited Liability Partnership (FLLP)</fullName>
+                <default>false</default>
+                <label>Foriegn Limited Liability Partnership (FLLP)</label>
+            </value>
+            <value>
+                <fullName>Application For Certificate of Authority For Foreign LP (FLP)</fullName>
+                <default>false</default>
+                <label>Application For Certificate of Authority For Foreign LP (FLP)</label>
+            </value>
+            <value>
+                <fullName>Foreign Partnership Registration Statement (FPRS)</fullName>
+                <default>false</default>
+                <label>Foreign Partnership Registration Statement (FPRS)</label>
+            </value>
+            <value>
+                <fullName>Trustee Final Report (FRPT)</fullName>
+                <default>false</default>
+                <label>Trustee Final Report (FRPT)</label>
+            </value>
+            <value>
+                <fullName>Statement of Change (GPC)</fullName>
+                <default>false</default>
+                <label>Statement of Change (GPC)</label>
+            </value>
+            <value>
+                <fullName>Statement of Correction for Partnership (GPSC)</fullName>
+                <default>false</default>
+                <label>Statement of Correction for Partnership (GPSC)</label>
+            </value>
+            <value>
+                <fullName>Involuntary Cancellation (INCN)</fullName>
+                <default>false</default>
+                <label>Involuntary Cancellation (INCN)</label>
+            </value>
+            <value>
+                <fullName>Involuntary Dissolution (INDS)</fullName>
+                <default>false</default>
+                <label>Involuntary Dissolution (INDS)</label>
+            </value>
+            <value>
+                <fullName>Statement of Issuance of Shares (IS)</fullName>
+                <default>false</default>
+                <label>Statement of Issuance of Shares (IS)</label>
+            </value>
+            <value>
+                <fullName>Articles of Organization (LLC)</fullName>
+                <default>false</default>
+                <label>Articles of Organization (LLC)</label>
+            </value>
+            <value>
+                <fullName>Statement of Qualification (LLP)</fullName>
+                <default>false</default>
+                <label>Statement of Qualification (LLP)</label>
+            </value>
+            <value>
+                <fullName>Limited Partnership Certificate (LP)</fullName>
+                <default>false</default>
+                <label>Limited Partnership Certificate (LP)</label>
+            </value>
+            <value>
+                <fullName>Certificate of Amendment of Limited Partnership (LPAM)</fullName>
+                <default>false</default>
+                <label>Certificate of Amendment of Limited Partnership (LPAM)</label>
+            </value>
+            <value>
+                <fullName>Articles of Merger (MG)</fullName>
+                <default>false</default>
+                <label>Articles of Merger (MG)</label>
+            </value>
+            <value>
+                <fullName>Merger / Consolidation (MGAM)</fullName>
+                <default>false</default>
+                <label>Merger / Consolidation (MGAM)</label>
+            </value>
+            <value>
+                <fullName>Merged By (MGBY)</fullName>
+                <default>false</default>
+                <label>Merged By (MGBY)</label>
+            </value>
+            <value>
+                <fullName>Merger / Consolidation name Change (MGNC)</fullName>
+                <default>false</default>
+                <label>Merger / Consolidation name Change (MGNC)</label>
+            </value>
+            <value>
+                <fullName>Name Change (NC)</fullName>
+                <default>false</default>
+                <label>Name Change (NC)</label>
+            </value>
+            <value>
+                <fullName>Partnership Dissolution Statement (PDS)</fullName>
+                <default>false</default>
+                <label>Partnership Dissolution Statement (PDS)</label>
+            </value>
+            <value>
+                <fullName>Partnership Registration Statement (PRS)</fullName>
+                <default>false</default>
+                <label>Partnership Registration Statement (PRS)</label>
+            </value>
+            <value>
+                <fullName>??? (RC)</fullName>
+                <default>false</default>
+                <label>??? (RC)</label>
+            </value>
+            <value>
+                <fullName>??? (RD)</fullName>
+                <default>false</default>
+                <label>??? (RD)</label>
+            </value>
+            <value>
+                <fullName>Reinstatement (RE)</fullName>
+                <default>false</default>
+                <label>Reinstatement (RE)</label>
+            </value>
+            <value>
+                <fullName>Redomestication (REDO)</fullName>
+                <default>false</default>
+                <label>Redomestication (REDO)</label>
+            </value>
+            <value>
+                <fullName>Registrant Address Change (RGAC)</fullName>
+                <default>false</default>
+                <label>Registrant Address Change (RGAC)</label>
+            </value>
+            <value>
+                <fullName>Registrant Cancelled (RGCN)</fullName>
+                <default>false</default>
+                <label>Registrant Cancelled (RGCN)</label>
+            </value>
+            <value>
+                <fullName>Registrant Dissolved (RGDS)</fullName>
+                <default>false</default>
+                <label>Registrant Dissolved (RGDS)</label>
+            </value>
+            <value>
+                <fullName>Registrant Involuntarily Cancelled (RGIC)</fullName>
+                <default>false</default>
+                <label>Registrant Involuntarily Cancelled (RGIC)</label>
+            </value>
+            <value>
+                <fullName>Registrant Involuntarily Dissolved (RGID)</fullName>
+                <default>false</default>
+                <label>Registrant Involuntarily Dissolved (RGID)</label>
+            </value>
+            <value>
+                <fullName>Registrant Merged (RGMG)</fullName>
+                <default>false</default>
+                <label>Registrant Merged (RGMG)</label>
+            </value>
+            <value>
+                <fullName>Registrant Name Change (RGNC)</fullName>
+                <default>false</default>
+                <label>Registrant Name Change (RGNC)</label>
+            </value>
+            <value>
+                <fullName>Registrant Withdrawn (RGWD)</fullName>
+                <default>false</default>
+                <label>Registrant Withdrawn (RGWD)</label>
+            </value>
+            <value>
+                <fullName>Renewal of Reservation or Name (RN)</fullName>
+                <default>false</default>
+                <label>Renewal of Reservation or Name (RN)</label>
+            </value>
+            <value>
+                <fullName>Restated Articles (RS)</fullName>
+                <default>false</default>
+                <label>Restated Articles (RS)</label>
+            </value>
+            <value>
+                <fullName>Restated Certificate of Limited Partnership (RSC)</fullName>
+                <default>false</default>
+                <label>Restated Certificate of Limited Partnership (RSC)</label>
+            </value>
+            <value>
+                <fullName>Restated / Name Change (RSNC)</fullName>
+                <default>false</default>
+                <label>Restated / Name Change (RSNC)</label>
+            </value>
+            <value>
+                <fullName>Reservation of Name (RV)</fullName>
+                <default>false</default>
+                <label>Reservation of Name (RV)</label>
+            </value>
+            <value>
+                <fullName>Articles of Revocation of Dissolution (RVDS)</fullName>
+                <default>false</default>
+                <label>Articles of Revocation of Dissolution (RVDS)</label>
+            </value>
+            <value>
+                <fullName>Involuntary Revoked (RVKD)</fullName>
+                <default>false</default>
+                <label>Involuntary Revoked (RVKD)</label>
+            </value>
+            <value>
+                <fullName>??? (RVKE)</fullName>
+                <default>false</default>
+                <label>??? (RVKE)</label>
+            </value>
+            <value>
+                <fullName>Statement of Cancellation of Acquired Shares (SC)</fullName>
+                <default>false</default>
+                <label>Statement of Cancellation of Acquired Shares (SC)</label>
+            </value>
+            <value>
+                <fullName>Statement of Dissociation (SD)</fullName>
+                <default>false</default>
+                <label>Statement of Dissociation (SD)</label>
+            </value>
+            <value>
+                <fullName>Statement of Denial (SDEN)</fullName>
+                <default>false</default>
+                <label>Statement of Denial (SDEN)</label>
+            </value>
+            <value>
+                <fullName>Statement of Intent to Dissolve (STD)</fullName>
+                <default>false</default>
+                <label>Statement of Intent to Dissolve (STD)</label>
+            </value>
+            <value>
+                <fullName>Terminated (TERM)</fullName>
+                <default>false</default>
+                <label>Terminated (TERM)</label>
+            </value>
+            <value>
+                <fullName>Application for TN/TM/SM Assignment (TNAS)</fullName>
+                <default>false</default>
+                <label>Application for TN/TM/SM Assignment (TNAS)</label>
+            </value>
+            <value>
+                <fullName>Cancellation of TN/TM/SM (TNCN)</fullName>
+                <default>false</default>
+                <label>Cancellation of TN/TM/SM (TNCN)</label>
+            </value>
+            <value>
+                <fullName>Application for Registration of TN/TM/SM (TNNA)</fullName>
+                <default>false</default>
+                <label>Application for Registration of TN/TM/SM (TNNA)</label>
+            </value>
+            <value>
+                <fullName>Change of name for TN/TM/SM (TNNC)</fullName>
+                <default>false</default>
+                <label>Change of name for TN/TM/SM (TNNC)</label>
+            </value>
+            <value>
+                <fullName>Renewal of TN/TM/SM (TNRN)</fullName>
+                <default>false</default>
+                <label>Renewal of TN/TM/SM (TNRN)</label>
+            </value>
+            <value>
+                <fullName>Revocation of TN/TM/SM (TNRV)</fullName>
+                <default>false</default>
+                <label>Revocation of TN/TM/SM (TNRV)</label>
+            </value>
+            <value>
+                <fullName>Transfer of Name Reservation (TR)</fullName>
+                <default>false</default>
+                <label>Transfer of Name Reservation (TR)</label>
+            </value>
+            <value>
+                <fullName>Application For Withdrawal (WD)</fullName>
+                <default>false</default>
+                <label>Application For Withdrawal (WD)</label>
+            </value>
+            <value>
+                <fullName>??? (XXXX)</fullName>
+                <default>false</default>
+                <label>??? (XXXX)</label>
+            </value>
+            <value>
+                <fullName>Administrative Termination (ADMT)</fullName>
+                <default>false</default>
+                <label>Administrative Termination (ADMT)</label>
+            </value>
+            <value>
+                <fullName>Temporary Transaction (TEMP)</fullName>
+                <default>false</default>
+                <label>Temporary Transaction (TEMP)</label>
+            </value>
+            <value>
+                <fullName>Partnership Change of Name Statement (PNC)</fullName>
+                <default>false</default>
+                <label>Partnership Change of Name Statement (PNC)</label>
+            </value>
+            <value>
+                <fullName>Restated Statement of Qualification (RSS)</fullName>
+                <default>false</default>
+                <label>Restated Statement of Qualification (RSS)</label>
+            </value>
+            <value>
+                <fullName>Testing (TST)</fullName>
+                <default>false</default>
+                <label>Testing (TST)</label>
+            </value>
+            <value>
+                <fullName>Annual Filing (ANN)</fullName>
+                <default>false</default>
+                <label>Annual Filing (ANN)</label>
+            </value>
+            <value>
+                <fullName>Assignment of TN/TM/SM to Another Entity (TNTR)</fullName>
+                <default>false</default>
+                <label>Assignment of TN/TM/SM to Another Entity (TNTR)</label>
+            </value>
+            <value>
+                <fullName>Converted Into (CVIN)</fullName>
+                <default>false</default>
+                <label>Converted Into (CVIN)</label>
+            </value>
+            <value>
+                <fullName>Transfer of Name Reservation (RVIN)</fullName>
+                <default>false</default>
+                <label>Transfer of Name Reservation (RVIN)</label>
+            </value>
+            <value>
+                <fullName>Articles of Conversion / Name Change (CVNC)</fullName>
+                <default>false</default>
+                <label>Articles of Conversion / Name Change (CVNC)</label>
+            </value>
+            <value>
+                <fullName>Multiple Transaction Types Possible for This Form (MULT)</fullName>
+                <default>false</default>
+                <label>Multiple Transaction Types Possible for This Form (MULT)</label>
+            </value>
+            <value>
+                <fullName>Correspondence Only (CRSP)</fullName>
+                <default>false</default>
+                <label>Correspondence Only (CRSP)</label>
+            </value>
+            <value>
+                <fullName>Correction (CORR)</fullName>
+                <default>false</default>
+                <label>Correction (CORR)</label>
+            </value>
+            <value>
+                <fullName>Cancellation of Name Reservation (RVCN)</fullName>
+                <default>false</default>
+                <label>Cancellation of Name Reservation (RVCN)</label>
+            </value>
+            <value>
+                <fullName>Address Change (ADD)</fullName>
+                <default>false</default>
+                <label>Address Change (ADD)</label>
+            </value>
+            <value>
+                <fullName>Officer / Director Change (ODC)</fullName>
+                <default>false</default>
+                <label>Officer / Director Change (ODC)</label>
+            </value>
+            <value>
+                <fullName>License Filing (A2) (LICN)</fullName>
+                <default>false</default>
+                <label>License Filing (A2) (LICN)</label>
+            </value>
+            <value>
+                <fullName>TM/TN/SM REVOCATION (TNRVK)</fullName>
+                <default>false</default>
+                <label>TM/TN/SM REVOCATION (TNRVK)</label>
+            </value>
+            <value>
+                <fullName>Amendment / Cancellation LLP (AMCN)</fullName>
+                <default>false</default>
+                <label>Amendment / Cancellation LLP (AMCN)</label>
+            </value>
+            <value>
+                <fullName>Converted To (CVTO)</fullName>
+                <default>false</default>
+                <label>Converted To (CVTO)</label>
+            </value>
+            <value>
+                <fullName>Foreign Merger/Consolidation (FMGBX)</fullName>
+                <default>false</default>
+                <label>Foreign Merger/Consolidation (FMGBX)</label>
+            </value>
+            <value>
+                <fullName>Statement of Abandonment of Conversion (CVAX)</fullName>
+                <default>false</default>
+                <label>Statement of Abandonment of Conversion (CVAX)</label>
+            </value>
+            <value>
+                <fullName>Merger Termination (MGTX)</fullName>
+                <default>false</default>
+                <label>Merger Termination (MGTX)</label>
+            </value>
+            <value>
+                <fullName>Termination of CRA for Represented Entity (CRTX)</fullName>
+                <default>false</default>
+                <label>Termination of CRA for Represented Entity (CRTX)</label>
+            </value>
+            <value>
+                <fullName>TN/TM/SM address change (TNAD)</fullName>
+                <default>false</default>
+                <label>TN/TM/SM address change (TNAD)</label>
+            </value>
+            <value>
+                <fullName>Statement of Termination of Limited Partnership (LPCN)</fullName>
+                <default>false</default>
+                <label>Statement of Termination of Limited Partnership (LPCN)</label>
+            </value>
+            <value>
+                <fullName>Back Scanned Document (BSX)</fullName>
+                <default>false</default>
+                <label>Back Scanned Document (BSX)</label>
+            </value>
+            <value>
+                <fullName>Annual report/statement (ANNBX)</fullName>
+                <default>false</default>
+                <label>Annual report/statement (ANNBX)</label>
+            </value>
+            <value>
+                <fullName>Articles of Termination (ATBX)</fullName>
+                <default>false</default>
+                <label>Articles of Termination (ATBX)</label>
+            </value>
+            <value>
+                <fullName>Amended / Restated (AMRSX)</fullName>
+                <default>false</default>
+                <label>Amended / Restated (AMRSX)</label>
+            </value>
+            <value>
+                <fullName>Application For Certificate of Authority For Foreign Corp. (COABX)</fullName>
+                <default>false</default>
+                <label>Application For Certificate of Authority For Foreign Corp. (COABX)</label>
+            </value>
+            <value>
+                <fullName>Articles of Conversion (CVBX)</fullName>
+                <default>false</default>
+                <label>Articles of Conversion (CVBX)</label>
+            </value>
+            <value>
+                <fullName>Articles of Dissolution (DSBX)</fullName>
+                <default>false</default>
+                <label>Articles of Dissolution (DSBX)</label>
+            </value>
+            <value>
+                <fullName>Statement of Dissociation (SDBX)</fullName>
+                <default>false</default>
+                <label>Statement of Dissociation (SDBX)</label>
+            </value>
+            <value>
+                <fullName>Articles of Incorporation (ARTBX)</fullName>
+                <default>false</default>
+                <label>Articles of Incorporation (ARTBX)</label>
+            </value>
+            <value>
+                <fullName>Articles of Organization (LLCBX)</fullName>
+                <default>false</default>
+                <label>Articles of Organization (LLCBX)</label>
+            </value>
+            <value>
+                <fullName>Officer / Director Change (ODCBX)</fullName>
+                <default>false</default>
+                <label>Officer / Director Change (ODCBX)</label>
+            </value>
+            <value>
+                <fullName>TN</fullName>
+                <default>false</default>
+                <label>Trade Name</label>
+            </value>
+            <value>
+                <fullName>TM</fullName>
+                <default>false</default>
+                <label>TM</label>
+            </value>
+            <value>
+                <fullName>SM</fullName>
+                <default>false</default>
+                <label>SM</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

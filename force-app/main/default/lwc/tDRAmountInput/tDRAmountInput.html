@@ -1,0 +1,25 @@
+<template>
+    <div if:true={isInput}>
+        <lightning-input type="number"
+                         data-role="forInput"
+                         value={value}
+                         name={name}
+                         variant="label-hidden"
+                         formatter="decimal"
+                         step="0.01"
+                         onblur={handleOnblur}
+                         onchange={handleRowAmountChange}>
+        </lightning-input>
+    </div>
+    <div if:false={isInput}>
+        <lightning-input type="number"
+                         data-role="forDisplay"
+                         value={displayVal}
+                         name={name}
+                         variant="label-hidden"
+                         formatter="decimal"
+                         step="0.01"
+                         onfocus={handleOnFocus}>
+        </lightning-input>
+    </div>
+</template>

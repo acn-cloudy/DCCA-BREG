@@ -1,0 +1,9 @@
+.THIS .checkboxWidth {
+    width: 2rem;
+    display: inline-block;
+}
+
+.THIS .slds-input
+{
+	max-width: initial !important;
+}

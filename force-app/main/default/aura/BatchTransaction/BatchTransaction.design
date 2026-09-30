@@ -1,0 +1,4 @@
+<design:component>
+    <design:attribute name="location" label="Location" />
+    <design:attribute name="accountsPerPage" label="Accounts per Page" />
+</design:component>

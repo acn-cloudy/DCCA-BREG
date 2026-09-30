@@ -1,0 +1,141 @@
+<apex:page readOnly="true"
+           controller="PVL_DoorCertController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="pdf">
+    <html>
+    <head>
+        <style>
+            * {
+                font-family: Helvetica, sans-serif;
+                font-size: 11pt;
+            }
+        </style>
+    </head>
+    <body>
+    <p style="text-align: center;">
+        <apex:image value="{!$Resource.DoorCertLogo}" width="120"/>
+    </p>
+    <p style="text-align: center">
+        STATE OF HAWAII<br/>
+        <b>REAL ESTATE BRANCH</b><br/>
+        PROFESSIONAL AND VOCATIONAL LICENSING DIVISION<br/>
+        DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS<br/>
+        KING KALAKAUA BUILDING<br/>
+        335 MERCHANT STREET, ROOM 333<br/>
+        HONOLULU, HAWAII 96813<br/>
+        <a href="http://www.hawaii.gov/hirec">http://www.hawaii.gov/hirec</a><br/>
+        <a href="mailto:hire@dcca.hawaii.gov">hire@dcca.hawaii.gov</a>
+    </p>
+    <p style="text-align: center">
+        The REAL ESTATE COMMISSION has approved the following Continuing<br/>
+        Education Provider to offer the continuing education course<br/>
+        listed below at the time, date, and location indicated:
+    </p>
+    <br/>
+    <br/>
+    <div style="width: auto; padding-left: 110px;">
+        <table style="border-spacing: 0; border-collapse: collapse; width: 100%;">
+            <tr>
+                <td style="width: 100px;">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Course:</td>
+                <td style="padding-left: 20px;">
+                        {!course.c.Subject__r.Name}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <br/>
+    <div style="width: auto; padding-left: 110px;">
+        <table style="border-spacing: 0; border-collapse: collapse; width: 100%;">
+            <tr>
+                <td style="width: 100px;">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Credit Hours:</b></td>
+                <td style="padding-left: 20px;">
+                    <b>{!course.c.Credits__c}</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Provider:</td>
+                <td style="padding-left: 20px;">{!course.c.Account__r.Name}</td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+    <br/>
+    <div style="width: auto; padding-left: 110px;">
+        <table style="border-spacing: 0; border-collapse: collapse; width: 100%;">
+            <tr>
+                <td style="width: 100px;">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Instructor:</td>
+                <td style="padding-left: 20px;">{!course.c.InstructorName__c}</td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td style="padding-left: 20px;">
+                {!course.c.Address__c} {!course.c.Address2__c} {!course.c.City__c} {!course.c.Island__c}
+                    , {!course.c.State__c} {!course.c.ZipCode__c}
+                </td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td style="padding-left: 20px;">
+                    <apex:outputText value="{0, date, MM/d/yyyy}">
+                        <apex:param value="{!course.c.StartDate__c}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td>Time:</td>
+                <td style="padding-left: 20px;">
+                        {!course.startTimeDisplay}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        This certificate must be posted in a conspicuous place at the location and time that the course is offered.
+        Notify the Commission of any changes immediately.
+    </p>
+    <br/>
+    <br/>
+    <div style="width: auto; padding-left: 110px;">
+        <table>
+            <tr>
+                <td style="width: 100px;">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Issued:</td>
+                <td style="padding-left: 20px;">
+                    <apex:outputText value="{0, date, MM/d/yyyy}">
+                        <apex:param value="{!NOW()}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            <tr>
+                <td>Course Code:</td>
+                <td style="padding-left: 20px;">
+                        {!course.c.CourseId__c}
+                </td>
+            </tr>
+        </table>
+    </div>
+    </body>
+    </html>
+</apex:page>

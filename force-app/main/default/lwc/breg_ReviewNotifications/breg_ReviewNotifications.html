@@ -1,0 +1,96 @@
+<template>
+    <div class="slds-p-around_medium">
+        <p class="slds-text-body_regular">
+            Please select how you want to receive notifications. There is no additional charge to receive notifications via both email and text.
+        </p>
+        <template lwc:if={isLoadedData}>
+            <template if:true={tnData}>
+                <template for:each={tnData} for:item="tn" for:index="index">
+                    <div key={tn.recordId} class="slds-m-bottom_large">
+                        <h2 class="slds-text-heading_medium slds-m-top_large">{tn.type}: {tn.businessName}</h2>
+                        <lightning-datatable
+                            key-field="id"
+                            data={tn.notifications}
+                            columns={tradeColumns}
+                            hide-checkbox-column
+                            onrowaction={handleRowAction}
+                        >
+                        </lightning-datatable>
+                    </div>
+                </template>
+            </template>
+
+            <template if:true={businessData}>
+                <template for:each={businessData} for:item="biz" for:index="index">
+                    <div key={biz.recordId} class="slds-m-bottom_large">
+                        <h2 class="slds-text-heading_medium slds-m-top_large">Business: {biz.businessName}</h2>
+                        <lightning-datatable
+                            key-field="id"
+                            data={biz.notifications}
+                            columns={businessColumns}
+                            hide-checkbox-column
+                            onrowaction={handleRowAction}
+                        >
+                        </lightning-datatable>
+                    </div>
+                </template>
+            </template>
+        </template>
+        <h2 class="main-title">Total: <lightning-formatted-number value={totalCost} format-style="currency" currency-code="USD"></lightning-formatted-number></h2>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-checkbox">
+                    <input
+                        type="checkbox"
+                        name="options"
+                        id="checkbox-unique-id-73"
+                        value="checkbox-unique-id-73"
+                        checked={acknoledgementChecked}
+                        onchange={handleAcknowledgementChange}
+                    />
+                    <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="slds-form-element__label">I acknowledge that this payment is non refundable</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <lightning-spinner if:false={isLoadedData} alternative-text="Loading..."></lightning-spinner>
+    </div>
+    <div class="slds-size_1-of-1">
+        <div class="slds-m-top_large slds-grid slds-grid_align-spread">
+            <div>
+                <lightning-button
+                    class="slds-m-right_small"
+                    label={labels.BREG_Cancel}
+                    variant="destructive-outline"
+                    onclick={handleCancel}
+                ></lightning-button>
+                <lightning-button
+                    label={labels.BREG_Prev}
+                    icon-name="utility:chevronleft"
+                    class="slds-m-right_small"
+                    onclick={handlePrev}
+                ></lightning-button>
+                <lightning-button
+                    label={labels.BREG_AddToCart}
+                    icon-name="utility:chevronright"
+                    icon-position="right"
+                    variant="brand"
+                    onclick={handleAddToCart}
+                    disabled={disableNext}
+                ></lightning-button>
+            </div>
+            <div class="slds-grid slds-grid_align-end">
+                <lightning-button
+                    icon-name="utility:search"
+                    variant="neutral"
+                    class="slds-m-right_small"
+                    label="Search Again"
+                    onclick={handleSearchAgain}
+                ></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

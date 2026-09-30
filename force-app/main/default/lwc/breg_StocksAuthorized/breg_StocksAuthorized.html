@@ -1,0 +1,47 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large dxp-text-heading-medium-mobile slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <!-- Authorized Capital Table (Read-only): Class, No. of Shares, Par Value, Par Total -->
+        <lightning-layout-item lwc:if={hasStocks} size="12" class="form-layout-item">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Class">Class</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="No. of Shares">No. of Shares</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Par Value">Par Value</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Par Total">Par Total</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={stocks} for:item="stock">
+                        <tr key={stock.uniqueKey} class="slds-hint-parent">
+                            <td data-label="Class">
+                                <div class="slds-truncate slds-text-body_regular">{stock.classSeries}</div>
+                            </td>
+                            <td data-label="No. of Shares">
+                                <div class="slds-truncate slds-text-body_regular">{stock.sharesCountFormatted}</div>
+                            </td>
+                            <td data-label="Par Value">
+                                <div class="slds-truncate slds-text-body_regular">{stock.parValueFormatted}</div>
+                            </td>
+                            <td data-label="Par Total">
+                                <div class="slds-truncate slds-text-body_regular">{stock.parTotalFormatted}</div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

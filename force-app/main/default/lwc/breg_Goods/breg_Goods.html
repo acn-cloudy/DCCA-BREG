@@ -1,0 +1,12 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-input
+        name="goodsOrServices"
+        value={goodsOrServices}
+        label={config.labelOverride2}
+        type="text"
+        onchange={handleInputChange}
+        required={required}
+        read-only={readOnly}
+    ></lightning-input>
+</template>

@@ -1,0 +1,78 @@
+<aura:component >
+    <aura:attribute type="Object[]" name="sections" />
+    <aura:iteration items="{!v.sections}" var="section">
+        <c:sc_CollapsibleSection title="{!section.name}" open="{!section.open}">
+            <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                <div class="slds-p-horizontal_small slds-size_6-of-12">
+                    <aura:iteration items="{!section.fields.left}" var="field">
+                        <c:sc_MiniFormField label="{#field.label}" aura:id="field" showCondition="{#field.showCondition}"
+                                        subLabel="{#field.subLabel}" required="{#field.required}" hidden="{#field.hidden}"
+                                        helpText="{#field.helpText}"  inputInFront="{#field.inputInFront}" >
+                            <c:sc_FieldInput type="{#field.type}" 
+                                             placeholder="{#field.placeholder}"
+                                             aura:id="fieldInput"
+                                             field="{#field}" hidden="{!field.hidden}"
+                                             dependentOptions="{#field.dependentOptions}"
+                                             dependentField="{#field.dependentField}"
+                                             apiName="{#field.apiName}"
+                                             options="{#field.options}"
+                                             required="{#field.required}"
+                                             readOnly="{#field.readOnly}"
+                                             validator="{#field.validator}"
+                                             errorMessage="{#field.errorMessage}"
+                                             parentId="{!field.parentId}" 
+                                             dateValidation="{!field.dateValidation}"
+                                             displayDatePicker="{#field.displayDatePicker}" />
+                        </c:sc_MiniFormField>
+                    </aura:iteration>
+                </div>
+                <div class="slds-p-horizontal_small slds-size_6-of-12">
+                    <aura:iteration items="{!section.fields.right}" var="field">
+                        <c:sc_MiniFormField label="{#field.label}" subLabel="{#field.subLabel}" showCondition="{#field.showCondition}"
+                                        required="{#field.required}" hidden="{#field.hidden}" aura:id="field"
+                                        helpText="{#field.helpText}" inputInFront="{#field.inputInFront}" >
+                            <c:sc_FieldInput aura:id="fieldInput"
+                                             type="{#field.type}"
+                                             placeholder="{#field.placeholder}"
+                                             field="{#field}" hidden="{!field.hidden}"
+                                             options="{#field.options}"
+                                             errorMessage="{#field.errorMessage}"
+                                             dependentOptions="{#field.dependentOptions}"
+                                             dependentField="{#field.dependentField}"
+                                             apiName="{#field.apiName}"
+                                             required="{#field.required}"
+                                             validator="{#field.validator}"
+                                             readOnly="{#field.readOnly}"                                          
+                                             parentId="{!field.parentId}"
+                                             dateValidation="{!field.dateValidation}"
+                                             displayDatePicker="{#field.displayDatePicker}" />
+                        </c:sc_MiniFormField>
+                    </aura:iteration>  
+                </div>
+                <div class="slds-p-horizontal_small slds-size_12-of-12" >
+                    <aura:iteration items="{!section.fields.end}" var="field">
+                        <c:sc_MiniFormField label="{#field.label}" subLabel="{#field.subLabel}" showCondition="{#field.showCondition}"
+                                        required="{#field.required}" hidden="{#field.hidden}" aura:id="field"
+                                        helpText="{#field.helpText}" inputInFront="{#field.inputInFront}" >
+                            <c:sc_FieldInput aura:id="fieldInput"
+                                             type="{#field.type}" 
+                                             placeholder="{#field.placeholder}"
+                                             field="{#field}" hidden="{#field.hidden}"
+                                             validator="{#field.validator}"
+                                             errorMessage="{#field.errorMessage}"
+                                             dependentOptions="{#field.dependentOptions}"
+                                             dependentField="{#field.dependentField}"
+                                             apiName="{#field.apiName}"
+                                             options="{#field.options}"
+                                             required="{#field.required}"
+                                             readOnly="{#field.readOnly}"                                          
+                                             parentId="{!field.parentId}"
+                                             dateValidation="{!field.dateValidation}"
+                                             displayDatePicker="{#field.displayDatePicker}" />
+                        </c:sc_MiniFormField>
+                    </aura:iteration>
+                </div>
+            </div>
+        </c:sc_CollapsibleSection>
+    </aura:iteration>
+</aura:component>

@@ -1,0 +1,28 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <p><lightning-formatted-text value={readOnlyDateIncorporatedValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-input
+                    name="dateIncorporated"
+                    label="The corporation was incorporated on"
+                    type="date"
+                    placeholder="Select One"
+                    value={dateIncorporatedValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    class="slds-var-m-bottom_medium"
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

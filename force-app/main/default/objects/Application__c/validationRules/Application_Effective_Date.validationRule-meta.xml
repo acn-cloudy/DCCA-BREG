@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Effective_Date</fullName>
+    <active>true</active>
+    <description>PacPoint KN12222020, PacPoint DL082521 updated for PVL Support Case 15218</description>
+    <errorConditionFormula>AND(
+   OR(
+      ISPICKVAL(Type__c, &quot;ADDP - Additional Special Privilege&quot;),
+      ISPICKVAL(Type__c, &quot;LICF - New License after Forfeiture&quot;),
+      ISPICKVAL(Type__c, &quot;DUAL - Dual (Sole/RME or RME/RME or RME/Sole)&quot;),
+      ISPICKVAL(Type__c, &quot;R2DBA - RME to Sole Owner&quot;),
+      ISPICKVAL(Type__c, &quot;RB2SO - RB to Sole Owner&quot;),
+      ISPICKVAL(Type__c, &quot;RELOC - Relocation&quot;),
+      ISPICKVAL(Type__c, &quot;RELOC - Business Site Relocation&quot;),
+      ISPICKVAL(Type__c, &quot;REAC - Reactivation&quot;)),
+
+
+   OR (
+
+       AND(
+          ISPICKVAL(Phase__c, &quot;H - License Generation&quot;),
+          TEXT(Status__c) = &quot;&quot; ),
+       AND(
+          ISPICKVAL(Phase__c, &quot;H - License Generation&quot;),
+          ISPICKVAL(Status__c,&quot;HC - Application Completed&quot;))
+
+
+
+       )
+
+,
+
+ISBLANK(ApplicationEffectiveDate__c),
+ISCHANGED( Status__c ) 
+)</errorConditionFormula>
+    <errorMessage>Please populate the Application Effective Date for this Application Type. This date is the date the ADDP/LICF/REAC/DUAL will be effective.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,40 @@
+<apex:component >
+    <apex:attribute name="license" type="License__c" description="License"/>
+    <apex:attribute name="associatedLicenses" type="AssociatedLicense__c[]" description="Associated License"/>
+    <div style="font-size: 11pt;padding-left: 85px; padding-top: 180px"><apex:outputText escape="false" value="{!license.LicenseeNameFormula__c}"/><br/>
+        <apex:outputText escape="false" rendered="{!license.DBAEntity__c != null}"
+                         value="{!license.DBAEntity__c + '<br/>' }"></apex:outputText>
+        <apex:outputText escape="false" value="{!license.RenewalMailToStreet__c}"></apex:outputText>
+        <br/>
+            {!license.RenewalMailToCity__c}, {!license.RenewalMailToState__c} {!license.RenewalMailToZipCode__c}<apex:outputText rendered="{!NOT(ISBLANK(license.RenewalMailToCountry__c))}" escape="false" value="{!'<br/>' + license.RenewalMailToCountry__c}"/>
+    </div>
+    <div style="margin-top: 300px; padding-left: 40px;">
+        <table>
+            <tr>
+                <td valign="top">
+                    EMPLOYERS: LICENSE OF FIRM MUST ALSO BE RENEWED FOR ISSUANCE OF RME'S LICENSE.
+                </td>
+            </tr>
+        </table>
+        <table style="min-width: 400px;">
+            <tr>
+                <td>EMPLOYER'S NAME</td>
+                <td>&nbsp;</td>
+                <td>POSITION</td>
+                <td>&nbsp;</td>
+                <td>LICENSE NO.</td>
+            </tr>
+            <apex:repeat value="{!associatedLicenses}"
+                         var="associatedLicense"
+                         id="theRepeat">
+                <tr>
+                    <td>{!associatedLicense.EntityLicense__r.LicenseeName__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!associatedLicense.Position__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!associatedLicense.EntityLicense__r.Name}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </div>
+</apex:component>

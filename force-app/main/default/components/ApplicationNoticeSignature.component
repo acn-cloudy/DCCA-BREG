@@ -1,0 +1,4 @@
+<apex:component controller="ApplicationNoticeSignatureController" access="global">
+    <apex:attribute name="application" assignTo="{!app}" description="" type="Application__c" access="global"/>
+    <apex:image url="{!imageData}" width="250" style="padding: 5px; border-bottom: solid 1px;"/>
+</apex:component>

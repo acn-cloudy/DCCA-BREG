@@ -1,0 +1,11 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-input
+        name="stateOrCountry"
+        value={stateOrCountryValue}
+        label="State or country incorporated, formed or organized (Optional)"
+        type="text"
+        onchange={handleInputChange} onblur={handleInputBlur}
+        read-only={readOnly}
+    ></lightning-input>
+</template>

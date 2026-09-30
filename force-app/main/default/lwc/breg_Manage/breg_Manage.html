@@ -1,0 +1,76 @@
+<template>
+    <lightning-tabset active-tab-value={activeTab}>
+        <lightning-tab label="Manage" value="main" icon-name="utility:case">
+            <div class="slds-p-around_medium-small slds-p-around_none">
+                <template lwc:if={showSectionHeader}>
+                    <div class="slds-var-m-bottom_medium">
+                        <h1 class="slds-text-heading_large title">{sectionHeader}</h1>
+                    </div>
+                </template>
+                <template lwc:if={isManagePage}>
+                    <div class="dashboard-grid">
+                        <div class="slds-grid slds-wrap slds-var-m-around_medium-small slds-var-m-around_none">
+                            <template for:each={cards} for:item="card">
+                                <div
+                                    key={card.id}
+                                    class="breg-min-height slds-col slds-small-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2 slds-grid_vertical-align-stretch"
+                                >
+                                    <div
+                                        class="slds-m-around_xx-small slds-card slds-p-around_medium slds-box slds-theme_default slds-grid_vertical slds-has-flexi-truncate slds-grow"
+                                    >
+                                        <header class="slds-media slds-media_center slds-m-bottom_small">
+                                            <div class="slds-media__figure">
+                                                <lightning-icon icon-name={card.icon} size="small" alternative-text={card.title}></lightning-icon>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <h2 class="slds-card__header-title slds-text-heading_small">{card.title}</h2>
+                                            </div>
+                                        </header>
+
+                                        <div class="slds-card__body slds-text-body_regular slds-m-bottom_medium">
+                                            <span>{card.description}</span>
+                                            <template if:true={card.linkLabel}>
+                                                <span class="slds-m-top_xx-small"> &nbsp;(<a href={card.linkUrl}>{card.linkLabel}</a>) </span>
+                                            </template>
+                                        </div>
+                                        <lightning-button
+                                            variant="neutral"
+                                            label={card.buttonLabel}
+                                            data-id={card.id}
+                                            onclick={handleSectionClick}
+                                        ></lightning-button>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <template lwc:if={isAnnualReportPage}>
+                    <c-breg-_-annual-reports
+                        ongotocart={handleGoToCart}
+                        onaddtocart={addDocumentToCart}
+                        onhelp={changeTabToHelp}
+                    ></c-breg-_-annual-reports>
+                </template>
+                <template lwc:if={isChangesPage}>
+                    <c-breg-_-changes
+                        is-not-guest={isNotGuest}
+                    ></c-breg-_-changes>
+                </template>
+                <template lwc:if={isCommercialAgentPage}> </template>
+                <template lwc:if={isTradenamePage}>
+                    <c-breg-_-t-n-t-m-s-m-page
+                        is-not-guest={isNotGuest}
+                    ></c-breg-_-t-n-t-m-s-m-page>
+                </template>
+                <template lwc:if={isNotificationsPage}>
+                    <c-breg-_-business-notifications ongotocart={handleGoToCart} onaddtocart={addDocumentToCart}></c-breg-_-business-notifications>
+                </template>
+            </div>
+        </lightning-tab>
+        <lightning-tab label="Help" value="help" icon-name="utility:help_custom"> <c-breg-_-f-a-qs topic-name="Manage"></c-breg-_-f-a-qs></lightning-tab>
+        <lightning-tab label={cartTabLabel} icon-name="utility:cart" value="cart">
+            <c-breg-_-shopping-_-cart oncontinueshopping={handleContinueShopping} oncartupdated={handleCartUpdated}></c-breg-_-shopping-_-cart>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

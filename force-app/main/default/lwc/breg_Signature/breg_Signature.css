@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  h2.dxp-text-heading-largee {
+    font-size: 24px;
+  }
+}
+
+.inline-label {
+  display: inline-block;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.inline-input {
+  display: inline-block;
+  width: 140px;
+}
+
+.inline-input .slds-form-element {
+  margin-bottom: 0;
+}

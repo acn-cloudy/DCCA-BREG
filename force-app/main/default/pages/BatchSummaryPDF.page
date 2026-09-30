@@ -1,0 +1,10 @@
+<apex:page renderAs="PDF" controller="BatchSummaryPDF">
+    {!transactions.size} transactions were created in batch <b>{!batch}</b>
+    for Cashier Codes:&nbsp;&nbsp; <b><apex:repeat value="{!codes}" var="code">{!code} &nbsp;</apex:repeat></b>
+    <br /><br />
+
+        <apex:repeat var="trans" value="{!transactionSummaryList}">
+            <apex:outputText value="{!trans}" escape="false"/>
+        </apex:repeat>
+
+</apex:page>

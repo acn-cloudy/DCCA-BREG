@@ -1,0 +1,322 @@
+// Spring'24 Release fixes for Kinectic changes
+[kx-scope^=button-][kx-type=ripple]:focus{
+    transition: unset;
+}
+
+[kx-scope=button-brand]:active, 
+[kx-scope=button-neutral]:active, 
+[kx-scope=button-outline]:active, 
+[kx-scope=button-filled]:active{
+    transform: unset !important;;
+}
+
+[kx-scope^=button-][kx-type=ripple]:after,
+[kx-scope^=button-][kx-type=ripple]:hover:after,
+[kx-scope^=button-][kx-type=ripple]:focus:after,
+[kx-scope=button][kx-type=underline]:after,
+[kx-scope=button][kx-type=underline]:hover:after,
+[kx-scope=button][kx-type=underline]:focus:after,
+[kx-scope^=button-][kx-type=ripple]:before,
+[kx-scope^=button-][kx-type=ripple]:hover:before,
+[kx-scope^=button-][kx-type=ripple]:focus:before,
+[kx-scope=button][kx-type=underline]:before,
+[kx-scope=button][kx-type=underline]:hover:before,
+[kx-scope=button][kx-type=underline]:focus:before {
+    will-change: unset; 
+    position: unset;
+    top: unset;
+    left: unset; 
+    height: auto; 
+    width: auto; 
+    background: transparent; 
+    background-position: unset !important; 
+    transform: unset; 
+    transform-origin: unset !important;
+    transition: unset !important;
+    opacity: unset !important;
+    z-index:unset !important;
+}
+[kx-scope=button][kx-type=underline]{
+    will-change: unset;
+    transition: unset;
+    transition-property: unset;
+}
+[kx-scope^=button-][kx-type=ripple].slds-kx-is-animating-from-click:after{
+    animation: none !important;
+}
+[kx-scope=button-brand]:hover, [kx-scope=button-brand]:active, [kx-scope=button-neutral]:hover, [kx-scope=button-neutral]:active, [kx-scope=button-outline]:hover, [kx-scope=button-outline]:active, [kx-scope=button-filled]:hover, [kx-scope=button-filled]:active{
+    transition: unset !important;
+}
+@media (hover: hover) and (pointer: fine) {
+    [kx-scope=button-brand]:hover, [kx-scope=button-neutral]:hover, [kx-scope=button-outline]:hover, [kx-scope=button-filled]:hover {
+        transform: unset !important;
+    }
+}
+.mds{
+    //Hide/Show
+    &-show{
+        display: block;
+    }
+    &-hide{
+        display: none;
+    }
+
+    /* ======= Mobile/Tab Devices ========= */
+
+    //Show in Mobile
+    &-show_mobile {
+        display: none !important;
+
+        @include responsive(phone) {
+            display: block !important;
+        }
+    }
+
+    // Hide in Mobile
+    &-hide_mobile {
+        @include responsive(phone) {
+            display: none !important;
+        }
+    }
+
+    //Show in tab
+    &-show_tab {
+        display: none !important;
+
+        @include responsive(tab-port) {
+            display: block !important;
+        }
+    }
+
+    // Hide in tab
+    &-hide_tab {
+        @include responsive(tab-port) {
+            display: none !important;
+        }
+    }
+
+    //Icons
+    &-icon_family{
+        font-family: "material-icon";
+    }
+
+    //Width
+    &-width{
+        &_100{
+            width: 100%;
+        }
+    }
+
+    // Divider
+    &-divider{
+        border-top: (var(--border-width-thin) solid var(--other-divider));
+        margin: (var(--spacing-small) 0);
+
+        &_small{
+            border-top: (var(--border-width-thin) solid var(--other-divider));
+            margin: (var(--spacing-x-small) 0);
+        }
+
+        &_medium{
+            border-top: (var(--border-width-thin) solid var(--other-divider));
+            margin: (var(--spacing-large) 0);
+        }
+
+        &_large{
+            border-top: (var(--border-width-thin) solid var(--other-divider));
+            margin: (var(--spacing-x-large) 0);
+        }
+    }
+
+    //Opacity Declarations
+    &-opacity{
+        &_none{
+            opacity: 0;
+        }
+        &_light{
+            opacity: 0.4;
+        }
+        &_dark{
+            opacity: 0.8;
+        }
+        &_neutral{
+            opacity: 1;
+        }
+    }
+
+    // Container
+    &-container {
+        max-width: 90rem; //1440px
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    /* ============== Asterisk Line ===============  */
+    &-asterisk-caption{
+        font-size: var(--font-size-14);
+        color: var(--text-secondary);
+    }
+
+    /* ============= Text Line Clamp =============== */
+    &-text-line_clamp{
+        width:100%;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    // Broder for individual sides
+    &-border{
+        &_right{
+            border-right: (var(--border-width-thin) solid var(--other-divider));
+        }
+        &_left{
+            border-left: (var(--border-width-thin) solid var(--other-divider));
+        }
+        &_top{
+            border-top: (var(--border-width-thin) solid var(--other-divider));
+        }
+        &_bottom{
+            border-bottom: (var(--border-width-thin) solid var(--other-divider));
+        }
+    }
+
+    //Flex Align
+    &-align{
+        &_center{
+            align-self: center;
+        }
+    }
+
+    //Text Decoration
+    &-text_underline{
+        text-decoration: underline;
+    }
+}
+
+//Error Color Overriden
+.slds-has-error {
+    .slds-form-element__help{
+        color: var(--error-main);
+    }
+}
+
+//icons size class 
+.mds-icons {
+    &_small {
+        ::before,&::before, ::after,&::after {
+            font-size: var(--font-size-16);
+        }
+    }
+
+    &_medium {
+        ::before,&::before,::after,&::after {
+            font-size: var(--font-size-24);
+        }
+    }
+
+    &_large {
+        ::before,&::before,::after,&::after {
+            font-size: var(--font-size-32);
+        }
+    }
+
+    &_x-large {
+        ::before,&::before,::after,&::after {
+            font-size: var(--font-size-40);
+        }
+    }
+
+    &_xx-large {
+        ::before,&::before,::after,&::after {
+            font-size: var(--font-size-48);
+        }
+    }
+}
+
+//icons color class 
+.mds-icons-color {
+    &_brand {
+        ::before,::after,&::before,&::after {
+            color: var(--primary-main);
+        }
+    }
+
+    &_primary-dark {
+        ::before,::after,&::before,&::after {
+            color: var(--primary-dark);
+        }
+    }
+
+    &_default {
+        ::before,::after,&::before,&::after {
+            color: var(--text-primary);
+        }
+    }
+
+    &_secondary {
+        ::before,::after,&::before,&::after {
+            color: var(--text-secondary);
+        }
+    }
+
+    &_disabled {
+        ::before,::after,&::before,&::after {
+            color: var(--text-disabled);
+        }
+    }
+
+    &_white {
+        ::before,::after,&::before,&::after {
+            color: var(--white);
+        }
+    }
+
+    &_black {
+        ::before,::after,&::before,&::after {
+            color: var(--black);
+        }
+    }
+
+    &_warning {
+        ::before,::after,&::before,&::after {
+            color: var(--warning-main);
+        }
+    }
+    &_warning-title-label {
+        ::before,::after,&::before,&::after {
+            color: var(--warning-title-label);
+        }
+    }
+
+    &_error {
+        ::before,::after,&::before,&::after {
+            color: var(--error-main);
+        }
+    }
+
+    &_error-dark {
+        ::before,::after,&::before,&::after {
+            color: var(--error-dark);
+        }
+    }
+
+    &_success {
+        ::before,::after,&::before,&::after {
+            color: var(--success-main);
+        }
+    }
+
+    &_success-dark {
+        ::before,::after,&::before,&::after {
+            color: var(--success-dark);
+        }
+    }
+}
+
+//height-full with object fit
+.mds-height_100{
+    height: 100%;
+    object-fit: cover;
+}

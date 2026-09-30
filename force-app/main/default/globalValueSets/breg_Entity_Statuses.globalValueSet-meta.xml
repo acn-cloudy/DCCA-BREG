@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>New (Y)</fullName>
+        <default>false</default>
+        <label>New (Y)</label>
+    </customValue>
+    <customValue>
+        <fullName>Active (A)</fullName>
+        <default>false</default>
+        <label>Active (A)</label>
+    </customValue>
+    <customValue>
+        <fullName>Adm. Terminated (V)</fullName>
+        <default>false</default>
+        <label>Adm. Terminated (V)</label>
+    </customValue>
+    <customValue>
+        <fullName>Terminated (T)</fullName>
+        <default>false</default>
+        <label>Terminated (T)</label>
+    </customValue>
+    <customValue>
+        <fullName>Withdrawn (W)</fullName>
+        <default>false</default>
+        <label>Withdrawn (W)</label>
+    </customValue>
+    <customValue>
+        <fullName>Cancelled (C)</fullName>
+        <default>false</default>
+        <label>Cancelled (C)</label>
+    </customValue>
+    <customValue>
+        <fullName>Dissolved (D)</fullName>
+        <default>false</default>
+        <label>Dissolved (D)</label>
+    </customValue>
+    <customValue>
+        <fullName>Annual report 1 yr delinquent (1)</fullName>
+        <default>false</default>
+        <label>Delinquent Status 1 (1)</label>
+    </customValue>
+    <customValue>
+        <fullName>Annual report 2 yr delinquent (2)</fullName>
+        <default>false</default>
+        <label>Delinquent Status 2 (2)</label>
+    </customValue>
+    <customValue>
+        <fullName>Inv. Revoked (R)</fullName>
+        <default>false</default>
+        <label>Inv. Revoked (R)</label>
+    </customValue>
+    <customValue>
+        <fullName>Inv. Cancelled (X)</fullName>
+        <default>false</default>
+        <label>Inv. Cancelled (X)</label>
+    </customValue>
+    <customValue>
+        <fullName>Inv. Dissolved (7)</fullName>
+        <default>false</default>
+        <label>Inv. Dissolved (7) or (I)</label>
+    </customValue>
+    <customValue>
+        <fullName>Merged (M)</fullName>
+        <default>false</default>
+        <label>Merged (M)</label>
+    </customValue>
+    <customValue>
+        <fullName>Converted (9)</fullName>
+        <default>false</default>
+        <label>Converted (9)</label>
+    </customValue>
+    <customValue>
+        <fullName>Expired (E)</fullName>
+        <default>false</default>
+        <label>Expired (E)</label>
+    </customValue>
+    <customValue>
+        <fullName>Inactive (I)</fullName>
+        <default>false</default>
+        <label>Inactive (I)</label>
+    </customValue>
+    <customValue>
+        <fullName>Unknown</fullName>
+        <default>false</default>
+        <label>Unknown</label>
+    </customValue>
+    <masterLabel>Entity Statuses</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

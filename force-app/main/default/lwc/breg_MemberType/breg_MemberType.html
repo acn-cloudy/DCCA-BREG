@@ -1,0 +1,117 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                <lightning-input
+                    name="hasChanged"
+                    value={hasChangedValue}
+                    type="checkbox"
+                    label={hasChangedCheckboxLabel}
+                    onchange={handleInputChange}
+                    checked={hasChangedValue}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        
+        <template lwc:if={showFields}>
+            <lightning-layout-item size="12" lwc:if={showDescription} class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            
+            <!-- Edit Mode -->
+            <template lwc:if={editMode}>        
+                <lightning-layout-item lwc:if={showMemberTypeSelector} size="12" class="form-layout-item">
+                    <lightning-radio-group
+                        data-name="memberType"
+                        label={memberTypeSelectorLabel}
+                        options={memberTypeOptions}
+                        onchange={handleInputChange} onblur={handleInputBlur}
+                        value={memberTypeValue}
+                        required={required}
+                        disabled={readOnly}
+                    ></lightning-radio-group>
+                </lightning-layout-item>
+        
+                <!-- Entity Fields -->
+                <template lwc:if={isEntity}>
+                    <!-- Entity Name -->
+                    <lightning-layout-item size="12" class="form-layout-item">
+                        <lightning-input
+                            name="entityName"
+                            value={entityNameValue}
+                            label="Entity Name"
+                            type="text"
+                            onchange={handleInputChange} onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                    <!-- Entity Location -->
+                    <lightning-layout-item lwc:if={showEntityLocationField} size="12" class="form-layout-item">
+                        <lightning-input
+                            name="entityLocation"
+                            value={entityLocationValue}
+                            label="State, Province, or Country of Formation/Incorporation/Organization"
+                            type="text"
+                            onchange={handleInputChange} onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                </template>
+        
+                <!-- Individual Fields -->
+                <template lwc:if={isIndividual}>
+                    <lightning-layout-item size="12"></lightning-layout-item>
+                    <!-- First Name -->
+                    <lightning-layout-item size="6" class="form-layout-item">
+                        <lightning-input
+                            name="firstName"
+                            value={firstNameValue}
+                            label="First Name"
+                            type="text"
+                            placeholder="James"
+                            onchange={handleInputChange} onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                    <!-- Last Name -->
+                    <lightning-layout-item size="6" class="form-layout-item">
+                        <lightning-input
+                            name="lastName"
+                            value={lastNameValue}
+                            label="Last Name"
+                            type="text"
+                            placeholder="Carter"
+                            onchange={handleInputChange} onblur={handleInputBlur}
+                            required={required}
+                            read-only={readOnly}
+                        ></lightning-input>
+                    </lightning-layout-item>
+                </template>
+            </template>
+            <!-- Read-only Mode -->
+            <template lwc:else>
+                <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={hasChangedCheckboxLabel}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item slds-m-bottom_medium">
+                    <b><lightning-formatted-text value={readOnlyName}></lightning-formatted-text></b>
+                    <lightning-formatted-text lwc:if={showMemberTypeSelector} value={readOnlyMemberType}></lightning-formatted-text>
+                </lightning-layout-item>
+                <template lwc:if={showEntityLocationField}>
+                    <lightning-layout-item size="6" small-device-size="12" class="form-layout-item">
+                        <lightning-formatted-text value={entityLocationValue}></lightning-formatted-text>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

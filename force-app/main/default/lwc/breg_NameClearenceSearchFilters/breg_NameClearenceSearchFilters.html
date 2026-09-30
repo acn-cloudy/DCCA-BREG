@@ -1,0 +1,52 @@
+<template>
+    <div class="slds-p-horizontal_small slds-grid slds-wrap slds-gutters">
+        <!-- Match Type Filter -->
+        <div class="slds-size_1-of-2 slds-p-horizontal_small">
+            <label class="slds-form-element__label" for="match-type">
+                <strong>Match Type</strong>
+            </label>
+            <div class="slds-form-element__control">
+                <lightning-radio-group
+                    name="matchType"
+                    variant="label-hidden"
+                    value={selectedMatchType}
+                    options={matchTypeOptions}
+                    onchange={handleMatchTypeChange}
+                    type="radio"
+                >
+                </lightning-radio-group>
+            </div>
+        </div>
+
+        <!-- Data Sources Filter -->
+        <div class="slds-size_1-of-2 slds-p-horizontal_small">
+            <label class="slds-form-element__label">
+                <strong>Data Sources</strong>
+            </label>
+            <div class="slds-form-element__control">
+                <lightning-checkbox-group
+                    name="dataSources"
+                    variant="label-hidden"
+                    value={selectedDataSources}
+                    options={dataSourceOptions}
+                    onchange={handleDataSourceChange}
+                >
+                </lightning-checkbox-group>
+            </div>
+            <div if:true={showDataSourceError} class="slds-form-element__help slds-text-color_error">Please select at least one data source</div>
+        </div>
+        <!-- Reset Filters -->
+        <div class="slds-grid slds-gutters slds-size_1-of-1 slds-p-horizontal_small">
+            <div class="slds-col">
+                <lightning-button
+                    variant="neutral"
+                    label="Reset Filters"
+                    onclick={handleResetFilters}
+                    icon-name="utility:refresh"
+                    class="slds-button_stretch"
+                >
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

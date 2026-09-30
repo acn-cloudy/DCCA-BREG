@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Posted_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>TNOX: The user who authored this comment. Auto-populated on creation and cannot be changed.</description>
+    <label>Posted By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Ticket Comments</relationshipLabel>
+    <relationshipName>tkt_Ticket_Comments</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

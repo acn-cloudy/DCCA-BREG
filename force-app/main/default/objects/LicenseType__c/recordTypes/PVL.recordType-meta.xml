@@ -1,0 +1,3945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PVL</fullName>
+    <active>true</active>
+    <label>PVL</label>
+    <picklistValues>
+        <picklist>AccountType__c</picklist>
+        <values>
+            <fullName>Business Account</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Person Account</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ActiveInactiveDuetoInsuranceLoss__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ActiveInactiveDuetoLossofDependent__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ActiveInactiveDuetoNonRenewal__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ActiveInactive__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AssociatedLicenseRelationship__c</picklist>
+        <values>
+            <fullName>EmployeeLicense</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EntityLicense</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AuditActiveInactive__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AuditStatuses__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AuditType__c</picklist>
+        <values>
+            <fullName>Post-Audit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre-Audit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Audit_Method_of_Licensure_Selection__c</picklist>
+        <values>
+            <fullName>Query Method of Licensure only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Query Null Method of Licensure</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Query all licenses</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Audit_Method_of_Licensure__c</picklist>
+        <values>
+            <fullName>1 - RB Renewal - corporation or Partnership %28Category 1%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 - RB Renewal - Sole-Proprietor %28Category 2%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 - CT Renewal - Other Individual%3B Principal Broker%2C Broker in Charge%2C or Broker Salesperson %28Category 3%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 - CT Renewal - Inactive RME and Firm %28Category 1%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 - CT Renewal - Active RME %28Category 2%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 - CT Renewal - Active Firm%3B Paper Entity and Sole Proprietorship %28Category 3%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A - Apprentice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Passed Combination of FLEX%2C national Board or USMLE%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C - Combination Exam%2FReciprocity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Medical Council of Canada Qualifying Examination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E - By Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Passed FLEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>G - Grandfathered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - Dept of Health%2FAPRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J - Master%27s Entry Program for Nursing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L - Law Degree %28Training%29 or License to Practice Law</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LC - Licensure Compact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M - Graduate Level Degree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N - National Board Exam%2C National Certification or Regional Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>O - National Certification%2FAPRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - GRI or Other Professional Designation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q - Equivalency Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - By Reciprocity%2C Endorsement or Credentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - Passed SPEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T - Temporary Military Spouse License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U - Passed USMLE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W - Through Waiver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X - Executive%2FBoard Approval Needed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AutoForfeitureStatduetoDepNonRen__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>AutoForfeitureStatus__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CertificateTypeIssued__c</picklist>
+        <values>
+            <fullName>B - Pocket ID %26 Wall certificate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C - Wall certificate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - Pocket ID card</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ClassStatusDuetoLossof_Dependent__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Class No Longer Active %28License Delinquent%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Class No Longer Active %28License Forfeited%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I - Class No Longer Active %28No RME%2FFirm%2C No EMPR%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ClassStatusDuetoNonRenewal__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Class No Longer Active %28License Delinquent%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Class No Longer Active %28License Forfeited%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I - Class No Longer Active %28No RME%2FFirm%2C No EMPR%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DefaultClassStatus__c</picklist>
+        <values>
+            <fullName>CW - Class Withdrawn by Applicant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - Class Deferred by Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HC - Application Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NA - No Application</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NE - No Exam Required--Class to be Licensed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - Passed Exam--Class to be Licensed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U - Class No Longer Needed Due To Upgrade To Higher Class</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W - Awaiting Approval%2FExam</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ExcludeLicensesbyDateofLicensure__c</picklist>
+        <values>
+            <fullName>Licensed in the 2nd half of Current Biennium %282NB%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed in the new License Period %28New%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed within Current Biennium %28First Renewal%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed within Current Triennium %28First Renewal%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>GenerateLicenseStatus__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>InsuranceBondTypesRequired__c</picklist>
+        <values>
+            <fullName>BD - Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BX - Bond Exemption %28All Boards%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exemption</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FS - Pre-Need Funeral Service Trust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GM - Perpetual Care %28Ground Maintenance%29 Trust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LC - Line of Credit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LI - Liability</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Liability %2F Property Damage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PI - Pre-Need Interment %28Burial%29 Services Trust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SI - Exclusion from Workers Comp%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SL - Self-Insured for W%2FC %28Entity OK%27d By Labor Dept%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SM - No HI Employees - Submit Workers Comp Prior to Hiring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW - Workers Comp Thru Leasing Co%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SX - Exemption No Longer Allowed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T1 - Client Trust Account %231</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T2 - Client Trust Account %232</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T3 - Client Trust Account %233</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T4 - Client Trust Account %234</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T5 - Client Trust Account %235</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Charter Tour</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WC - Workers Compensation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WP - Submit Prior to Hiring Hi Empl - Evidence of WC Not Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LicenseNumberAssignmentCode__c</picklist>
+        <values>
+            <fullName>BRD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LIC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MethodofLicensureRenewalNotice__c</picklist>
+        <values>
+            <fullName>1 - RB Renewal - corporation or Partnership %28Category 1%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2 - RB Renewal - Sole-Proprietor %28Category 2%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3 - CT Renewal - Other Individual%3B Principal Broker%2C Broker in Charge%2C or Broker Salesperson %28Category 3%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4 - CT Renewal - Inactive RME and Firm %28Category 1%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5 - CT Renewal - Active RME %28Category 2%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6 - CT Renewal - Active Firm%3B Paper Entity and Sole Proprietorship %28Category 3%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A - Apprentice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Passed Combination of FLEX%2C national Board or USMLE%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C - Combination Exam%2FReciprocity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Medical Council of Canada Qualifying Examination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E - By Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Passed FLEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>G - Grandfathered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - Dept of Health%2FAPRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>J - Master%27s Entry Program for Nursing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L - Law Degree %28Training%29 or License to Practice Law</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M - Graduate Level Degree</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N - National Board Exam%2C National Certification or Regional Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>O - National Certification%2FAPRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - GRI or Other Professional Designation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Q - Equivalency Exam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - By Reciprocity%2C Endorsement or Credentials</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - Passed SPEX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T - Temporary Military Spouse License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U - Passed USMLE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>W - Through Waiver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X - Executive%2FBoard Approval Needed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MultiSelectDependentLicenseType1__c</picklist>
+        <values>
+            <fullName>ACU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACUI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ADB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AMC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AMD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AOUO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUCR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AUD - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BEO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BEP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BSC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BSH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXMM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXPH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXPR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BXT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CBA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CBB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CCV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CGA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CGA - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CHO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLXB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPA - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CRA - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSDH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CSDT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT - Entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT - RME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CT - Text</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DHT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DIB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DIBR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DIO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DIS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DISB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOSE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOSG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOSR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOSS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOST</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DRP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DTT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EIC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EJI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EJS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMA - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMT-1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMTA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMTB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMTP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ES</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ESI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ESS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EVA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EVM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EVM - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FPTP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FPTP - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FRP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GD - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GDE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>GI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LBSW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LCSW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LPN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LPN TEMP PERMIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LSW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LTD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAE - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MBB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MDT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MFT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MFTP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MHC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MHCP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MVB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MVD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MVD - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MXS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ND</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NHA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OPC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTDOH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCFR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCO - Entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCO - RME</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCO - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCOP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCOS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PCV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PD - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PDA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PHT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PHY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PMP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PNF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PROJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PSY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PSYI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PSYP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PTA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PWD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RB - Broker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RB - Entity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RB - Sole Proprietor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RBO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RDS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>REA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>REAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RN TEMP PERMIT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - FINAL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - PHASE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - PRELIM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLA - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SP - Temp</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SPP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TAR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TBO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TBOOTH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TBR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TLA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TLP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSRA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UAA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VE - CR Permit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OnlineRenewalCodes__c</picklist>
+        <values>
+            <fullName>B - Business Address Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I - Current Insurance Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L - Late Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L012 - Late Renewal %2F 12 Months to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L021 - Late Renewal %2F 21 Months to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M - Mailing Address Change</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>O - Ontime Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Residence Address Change</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PartialCERequirement__c</picklist>
+        <values>
+            <fullName>Licensed in 1st half of Biennium Requires Partial CE %281SB%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensed in the Current License Period Requires Partial CE %28CUR%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No %28All CE will be Required%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PreferredAddress__c</picklist>
+        <values>
+            <fullName>Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependent Business</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependent Employer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependent Mailing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mailing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Residence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PreferredEmail__c</picklist>
+        <values>
+            <fullName>Applicant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dependent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PrivilegeRenewalNotice__c</picklist>
+        <values>
+            <fullName>2 - Parenteral Therapy %26 Minor Office Procedures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A - Deep Sedation or General Anesthesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Moderate Sedation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C - Charter Tour Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Diagnostic Pharmaceutical Agents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E- Approved to Use Doctoral Title</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - Home Study</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I - Infiltration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L - Infiltration %26 Block</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M - Minor office Procedures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N - Parenteral Therapy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - Permit to Practice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - Clinical Social Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T - Therapeutic Parenteral Agents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U - Prescriptive Authority</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X - RX%2E Of Controlled Substances %28Includes Non Controlled%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RenewalMailToCode__c</picklist>
+        <values>
+            <fullName>* - Special Program for unique situations</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Business Mailing%2FBusiness%2FResidence</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E - Employer If licensee is inactive%2C licensee%E2%80%99s Mailing%2FResidence%2E Otherwise%2C c%2Fo Employer%E2%80%99s Mailing%2FBusiness</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Residence Mailing%2FResidence</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RenewalNoticeMethod__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Notice</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SelectRenewalPostcard__c</picklist>
+        <values>
+            <fullName>Renewal Flyer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Postcard</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Renewal Reminder</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SpecialPrivilegeAuditSelection__c</picklist>
+        <values>
+            <fullName>Query Null Special Privileges</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Query Special Privileges Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Query all Licenses</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SpecialPrivilege__c</picklist>
+        <values>
+            <fullName>2 - Parenteral Therapy %26 Minor Office Procedures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>A - Deep Sedation or General Anesthesia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B - Moderate Sedation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C - Charter Tour Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Diagnostic Pharmaceutical Agents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E- Approved to Use Doctoral Title</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - Home Study</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I - Infiltration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>L - Infiltration %26 Block</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>M - Minor office Procedures</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N - Parenteral Therapy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - Permit to Practice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S - Clinical Social Worker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T - Therapeutic Parenteral Agents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>U - Prescriptive Authority</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X - RX%2E Of Controlled Substances %28Includes Non Controlled%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoDependentNonRenewal__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoDependent_LicNonRestore__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoLossofDependent__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoLossofInsurance__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HC - Application Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoNonRenewal__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoNonRestore__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatusDuetoRequiredINSInactive__c</picklist>
+        <values>
+            <fullName>C - Current%2C Valid %26 In Good Standing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CM - Current%2C Valid %26 In Good Standing%2FMaint%2E Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CP - Current Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR - Current%2FNext Renewal Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D - Forfeited%3B Needs to Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DA - Delinquent Restoration Subject To Approval%2FMaint%2E May Be Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DM - Forfeited%2FMaintenance Requirement Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DN - Downgraded License Type</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX - Exempt From CMA Registration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>F - Terminated%3B Needs to Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FA - Forfeited%2C Restoration Subject To Approval and Maybe Maintenance%2FDisciplinary%2FConditional Regent Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FM - Terminated%2FMaintenance Requirement Due%3B Needs To Reapply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>H - History</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LP - Law Repealed%2FChanged</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NL - No License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NS - No Status Or Status Not Applicable</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>R - Valid Thru Expiration Date%2C Subject To Renewal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM - Valid Thru Exp Date%2C Subject To Renwl%2FMaint Reqmt Due</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SC - Sole Owner License Cancelled%2C Corporation%2FPartnership License Issued</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TC - Voluntary Request To Cancel%2FTerminate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TD - Deceased</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TE - %22Employer Releases An Employee%22 Or %22Temporary%2FLimited Status Has Expired%22</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TI - Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TN - Licensing No Longer Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TR - Rescinded License</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TS - Forfeited Due To Nonpayment Of CT Special Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TX - Terminated And Refunded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TZ - Revocation Vacated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UP - Upgraded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Y - Approved By Board</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z - Current %26 Valid%2C But Subject To Disciplinary Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z1 - Susp Due To 1%29Loss Of Bond By Licensee And%2FOr Dependent Or 2%29Loss of RME%2C If Def Not Cured by Renewal%2C Must Re-Apply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Z2 - Suspended License%3B Eligible For Restoration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZD - Forfeited Disciplined License%3B Needs To Restore</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZF - Terminated Due To Recovery Fund Payout</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZI - Automatically Forfeited Due To Insurance Loss %2860 Days to Restore%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZM - Current %26 Valid%2C But Subject To Disciplinary%2FMaintenance Requirement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZO - Out Of State Disciplinary Action</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZP - Voluntary Suspension</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZR - Revoked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZS - Suspended</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZV - Voluntary Revocation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZW - Conditional License Withdrawn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZZ - Prohibited From Practice Pending Hearing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TypeofPositionStatus__c</picklist>
+        <values>
+            <fullName>D - DESIGNATED</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>P - PRINCIPAL</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WallCertSealPosition__c</picklist>
+        <values>
+            <fullName>Bottom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Left</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WallCertSignatureType__c</picklist>
+        <values>
+            <fullName>Chairperson</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WallCertTypeofSeal__c</picklist>
+        <values>
+            <fullName>DCCA-PVL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HMB</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

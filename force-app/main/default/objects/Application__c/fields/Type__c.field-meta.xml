@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>PacPoint-IC071519- Created for PVL phase 1</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ADDC - Additional Class</fullName>
+                <default>false</default>
+                <label>ADDC - Additional Class</label>
+            </value>
+            <value>
+                <fullName>ADDP - Additional Special Privilege</fullName>
+                <default>false</default>
+                <label>ADDP - Additional Special Privilege</label>
+            </value>
+            <value>
+                <fullName>AMEND - Amendment</fullName>
+                <default>false</default>
+                <label>AMEND - Amendment</label>
+            </value>
+            <value>
+                <fullName>APPR - Apprentice or Appraiser Trainee or Intern</fullName>
+                <default>false</default>
+                <label>APPR - Apprentice or Appraiser Trainee or Intern</label>
+            </value>
+            <value>
+                <fullName>BAP - Apprentice Barber</fullName>
+                <default>false</default>
+                <label>BAP - Apprentice Barber</label>
+            </value>
+            <value>
+                <fullName>BEP - Beauty Apprentice</fullName>
+                <default>false</default>
+                <label>BEP - Beauty Apprentice</label>
+            </value>
+            <value>
+                <fullName>CCNM - Change BP Name</fullName>
+                <default>false</default>
+                <label>CCNM - Change BP Name</label>
+            </value>
+            <value>
+                <fullName>CONV - Conversion</fullName>
+                <default>false</default>
+                <label>CONV - Conversion</label>
+            </value>
+            <value>
+                <fullName>CVN - Converted License Type</fullName>
+                <default>false</default>
+                <label>CVN - Converted License Type</label>
+            </value>
+            <value>
+                <fullName>DELQ - Deliquent Failure to Renew</fullName>
+                <default>false</default>
+                <label>DELQ - Deliquent Failure to Renew</label>
+            </value>
+            <value>
+                <fullName>DP - Applying for Designated Principal</fullName>
+                <default>false</default>
+                <label>DP - Applying for Designated Principal</label>
+            </value>
+            <value>
+                <fullName>DUAL - Dual (Sole/RME or RME/RME or RME/Sole)</fullName>
+                <default>false</default>
+                <label>DUAL - Dual (Sole/RME or RME/RME or RME/Sole)</label>
+            </value>
+            <value>
+                <fullName>EVA - Apprentice Elevator Mechanic</fullName>
+                <default>false</default>
+                <label>EVA - Apprentice Elevator Mechanic</label>
+            </value>
+            <value>
+                <fullName>EXPER - Experience Certificate</fullName>
+                <default>false</default>
+                <label>EXPER - Experience Certificate</label>
+            </value>
+            <value>
+                <fullName>GDS2O - GD to Sole Owner</fullName>
+                <default>false</default>
+                <label>GDS2O - GD to Sole Owner</label>
+            </value>
+            <value>
+                <fullName>LICC - New License after Cancelation/Close Business</fullName>
+                <default>false</default>
+                <label>LICC - New License after Cancelation/Close Business</label>
+            </value>
+            <value>
+                <fullName>LICF - New License after Forfeiture</fullName>
+                <default>false</default>
+                <label>LICF - New License after Forfeiture</label>
+            </value>
+            <value>
+                <fullName>LICN - New License</fullName>
+                <default>false</default>
+                <label>LICN - New License</label>
+            </value>
+            <value>
+                <fullName>MAP - Apprentice Massage Therapist</fullName>
+                <default>false</default>
+                <label>MAP - Apprentice Massage Therapist</label>
+            </value>
+            <value>
+                <fullName>PD2SO - PD to Sole Owner</fullName>
+                <default>false</default>
+                <label>PD2SO - PD to Sole Owner</label>
+            </value>
+            <value>
+                <fullName>PDREL - Preliminary Decision: Real Estate Salesperson or Broker</fullName>
+                <default>false</default>
+                <label>PDREL - Preliminary Decision: Real Estate Salesperson or Broker</label>
+            </value>
+            <value>
+                <fullName>PHA - Assistant Pharmacist</fullName>
+                <default>false</default>
+                <label>PHA - Assistant Pharmacist</label>
+            </value>
+            <value>
+                <fullName>R2DBA - RME to Sole Owner</fullName>
+                <default>false</default>
+                <label>R2DBA - RME to Sole Owner</label>
+            </value>
+            <value>
+                <fullName>RB2SO - RB to Sole Owner</fullName>
+                <default>false</default>
+                <label>RB2SO - RB to Sole Owner</label>
+            </value>
+            <value>
+                <fullName>REAC - Reactivation</fullName>
+                <default>false</default>
+                <label>REAC - Reactivation</label>
+            </value>
+            <value>
+                <fullName>RECOG - Temporary Recognition for Real Estate Appraisers</fullName>
+                <default>false</default>
+                <label>RECOG - Temporary Recognition for Real Estate Appraisers</label>
+            </value>
+            <value>
+                <fullName>RELOC - Business Site Relocation</fullName>
+                <default>false</default>
+                <label>RELOC - Business Site Relocation</label>
+            </value>
+            <value>
+                <fullName>RNEW - Renewal</fullName>
+                <default>false</default>
+                <label>RNEW - Renewal</label>
+            </value>
+            <value>
+                <fullName>RSTR - Restore - No A/I Status</fullName>
+                <default>false</default>
+                <label>RSTR - Restore - No A/I Status</label>
+            </value>
+            <value>
+                <fullName>RSTRA - Restore Active</fullName>
+                <default>false</default>
+                <label>RSTRA - Restore Active</label>
+            </value>
+            <value>
+                <fullName>RXMOD - APRN-RX Collegial Agreement Modification</fullName>
+                <default>false</default>
+                <label>RXMOD - APRN-RX Collegial Agreement Modification</label>
+            </value>
+            <value>
+                <fullName>TEMP - Temporary Permit to Practice</fullName>
+                <default>false</default>
+                <label>TEMP - Temporary Permit to Practice</label>
+            </value>
+            <value>
+                <fullName>UPGRD - Upgrade License</fullName>
+                <default>false</default>
+                <label>UPGRD - Upgrade License</label>
+            </value>
+            <value>
+                <fullName>WBOND - Bond Waiver</fullName>
+                <default>false</default>
+                <label>WBOND - Bond Waiver</label>
+            </value>
+            <value>
+                <fullName>WECCE - Waive Elective Course Hours of Cont. Education Requirement</fullName>
+                <default>false</default>
+                <label>WECCE - Waive Elective Course Hours of Cont. Education Requirement</label>
+            </value>
+            <value>
+                <fullName>WEDUC - Education Waiver</fullName>
+                <default>false</default>
+                <label>WEDUC - Education Waiver</label>
+            </value>
+            <value>
+                <fullName>WUSEM - Waive Uniform Section of Hawaii Real Estate Licensing Exam</fullName>
+                <default>false</default>
+                <label>WUSEM - Waive Uniform Section of Hawaii Real Estate Licensing Exam</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

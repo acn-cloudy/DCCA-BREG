@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentLicensePrivilege__c</fullName>
+    <description>PacPoint-KN05292020-Created for PVL Phase 1 Sprint 4</description>
+    <externalId>false</externalId>
+    <formula>TEXT(DependentLicense__r.Privilege__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dependent License Privilege</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>PacPoint-MV010219 - Created for BREG phase 1</description>
+    <interviewLabel>Task:Assignment Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Task:Assignment Creation</label>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>CreateAssignmentRecord</name>
+        <label>Create AssignmentRecord</label>
+        <locationX>187</locationX>
+        <locationY>87</locationY>
+        <assignRecordIdToReference>AssignmentId</assignRecordIdToReference>
+        <connector>
+            <targetReference>UpdateTaskRecord</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Investigation__c</field>
+            <value>
+                <elementReference>InvestigationID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>SubjectName</elementReference>
+            </value>
+        </inputAssignments>
+        <object>TimeandExpenseHeader__c</object>
+    </recordCreates>
+    <recordUpdates>
+        <name>UpdateTaskRecord</name>
+        <label>Update Task Record</label>
+        <locationX>185</locationX>
+        <locationY>211</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>TaskId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>TimeandExpenseHeader__c</field>
+            <value>
+                <elementReference>AssignmentId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+    </recordUpdates>
+    <startElementReference>CreateAssignmentRecord</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>AssignmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>InvestigationID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>SubjectName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>TaskId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

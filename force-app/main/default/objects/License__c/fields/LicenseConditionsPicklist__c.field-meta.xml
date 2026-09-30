@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseConditionsPicklist__c</fullName>
+    <inlineHelpText>Select the Conditions for this License. Note: this information is viewable to the public.</inlineHelpText>
+    <label>License Conditions - Public</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>B - ADDITIONAL CONDITIONS OR LIMITATIONS IMPOSED AFFECTING THE LICENSEE&apos;S PRACTICE</fullName>
+                <default>false</default>
+                <label>B - ADDITIONAL CONDITIONS OR LIMITATIONS IMPOSED AFFECTING THE LICENSEE&apos;S PRACTICE</label>
+            </value>
+            <value>
+                <fullName>C - ADDITIONAL CONDITIONS OR LIMITATIONS IMPOSED FOR COMPLIANCE WITH BOARD OR COURT ORDER</fullName>
+                <default>false</default>
+                <label>C - ADDITIONAL CONDITIONS OR LIMITATIONS IMPOSED FOR COMPLIANCE WITH BOARD OR COURT ORDER</label>
+            </value>
+            <value>
+                <fullName>F - CONTINUAL PROOF REQUIRED OF MAINTAINING FINANCIAL INTEGRITY</fullName>
+                <default>false</default>
+                <label>F - CONTINUAL PROOF REQUIRED OF MAINTAINING FINANCIAL INTEGRITY</label>
+            </value>
+            <value>
+                <fullName>L - LICENSE/LICENSEE REQUESTED, BOARD APPROVED, CONDITIONED LICENSE</fullName>
+                <default>false</default>
+                <label>L - LICENSE/LICENSEE REQUESTED, BOARD APPROVED, CONDITIONED LICENSE</label>
+            </value>
+            <value>
+                <fullName>M - LICENSED UNDER MILITARY SPOUSE PROVISION (ACT 247)</fullName>
+                <default>false</default>
+                <label>M - LICENSED UNDER MILITARY SPOUSE PROVISION (ACT 247)</label>
+            </value>
+            <value>
+                <fullName>P - PERMITTED TO WORK ONLY FOR SPECIFIED TERM PURSUANT TO INS AUTHORIZATION TO WORK IN US</fullName>
+                <default>false</default>
+                <label>P - PERMITTED TO WORK ONLY FOR SPECIFIED TERM PURSUANT TO INS AUTHORIZATION TO WORK IN US</label>
+            </value>
+            <value>
+                <fullName>Q - SEMI-ANNUAL REPORTING BY AGENCIES OF LIST OF EMPLOYEES DOING INVESTIGATIVE OR GUARD WORK</fullName>
+                <default>false</default>
+                <label>Q - SEMI-ANNUAL REPORTING BY AGENCIES OF LIST OF EMPLOYEES DOING INVESTIGATIVE OR GUARD WORK</label>
+            </value>
+            <value>
+                <fullName>V - ADDITIONAL CONDITIONS OR LIMITATIONS INVOLVING VARIOUS DESCRIPTIONS</fullName>
+                <default>false</default>
+                <label>V - ADDITIONAL CONDITIONS OR LIMITATIONS INVOLVING VARIOUS DESCRIPTIONS</label>
+            </value>
+            <value>
+                <fullName>Z - ZONING</fullName>
+                <default>false</default>
+                <label>Z - ZONING</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

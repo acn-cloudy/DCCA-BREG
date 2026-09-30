@@ -1,0 +1,64 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController"
+           standardStylesheets="false" renderAs="PDF"
+           applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            @page { margin: 0.5in; }
+
+            body {
+                font-size: 8.5pt;
+                font-family: Arial;
+            line-height: 1.1;
+            }
+
+            ol.list-type-decimal-parentheses,
+            ol.list-type-decimal-roman-align-left{
+                list-style: none;
+                padding-left: 25px;
+                margin-left: 0;
+            }
+
+            ol.list-type-decimal-parentheses > li,
+            ol.list-type-decimal-roman-align-left > li{
+                position: relative;
+                margin-left: 25px;
+            }
+
+            ol.list-type-decimal-parentheses > li::before {
+                content: counter(list-item)")";
+                position: absolute;
+                display: inline-block;
+                margin-left: -25px;
+            }
+
+            ol.list-type-decimal-roman-align-left > li::before {
+                content: counter(list-item, lower-roman)".";
+                position: absolute;
+                text-align: left;
+                display: inline-block;
+                margin-left: -25px;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum"/>
+    <body>
+    <apex:repeat value="{!records}" var="record" >
+        <c:RenewalNotificationAssociatedLicMyPVL license="{!record}"
+                                            licenseType="{!record.LicenseType__r}" 
+                                            associatedLicenses="{!record.AssociatedEntities__r}" dToday="{!dToday}" />
+        <div style="page-break-after:always;"></div>
+        <c:RenewalNotificationAddress license="{!record}" />
+        <apex:outputPanel rendered="{!record.LicenseType__r.Name = 'RS' || record.LicenseType__r.Name = 'RB - Broker'}">
+            <div style="page-break-after:always;"></div>
+            <c:RenewalNotificationInstructions />
+        </apex:outputPanel>
+
+        <apex:outputPanel rendered="{!rowNum != records.size}">
+            <div style="page-break-after:always;"></div>
+        </apex:outputPanel>
+
+        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+    </apex:repeat>
+
+    </body>
+</apex:page>

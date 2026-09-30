@@ -1,0 +1,173 @@
+<aura:component controller="CustomRecordCreate" access="global" implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" extends="c:Basic">
+	<aura:attribute name="hideButton" type="Boolean" default="false" />
+	<aura:attribute name="sObjectName" type="string" default="Account" />
+	<aura:attribute name="layoutName" type="string" default="PVL Account Layout" />
+	<aura:attribute name="saveButtonLabel" type="string" default="Save" />
+	<aura:attribute name="finishButtonLabel" type="string" default="Finish" />
+	<aura:attribute name="layout" type="object" />
+	<aura:attribute name="sObj" type="object" />
+	<aura:attribute name="recordTypeName" type="string" />
+	<aura:attribute name="recordId" type="string" />
+	<aura:attribute name="hideNameField" type="boolean" default="false" />
+	<aura:attribute name="isCountryUSA" type="boolean" default="false" />
+    <aura:attribute name="typeField" type="string" default="LICN - New Licenses" />
+	<aura:attribute name="header" type="Aura.Component[]" />
+	<aura:attribute name="displayMap" type="string" default="false" />
+	<aura:attribute name="latitudeField" type="string" default="" />
+	<aura:attribute name="longitudeField" type="string" default="" />
+	<aura:attribute name="BillingCountryField" type="string" default="United States" />
+	<aura:attribute name="updateOnFiledValueChange" type="Object" />
+	<aura:attribute name="customMessage" type="string"  />
+	<aura:attribute name="fireMessageEvent" type="string" default="false" />
+	<aura:attribute name="displayUpload" type="string" default="false" />
+	<aura:attribute name="uploadLabel1" type="string" default="" />
+	<aura:attribute name="uploadLabel2" type="string" default="" />
+	<aura:attribute name="uploadLabel3" type="string" default="" />
+	<aura:attribute name="uploadLabel4" type="string" default="" />
+	<aura:attribute name="uploadLabel5" type="string" default="" />
+	
+	<aura:attribute name="step" type="string" default="1" />
+	
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+    <aura:registerEvent name="message" type="c:Message"/>
+    
+    <aura:method name="save" action="{!c.saveRecord}" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>	
+    
+	<aura:if isTrue="{!v.step == '1'}">
+        <!--loading spinner start... style=Brand Medium (blue dots)-->
+                     <aura:if isTrue="{!v.Spinner}">
+                        <div aura:id="spinnerId" class="slds-spinner_container">
+                           <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                             <span class="slds-assistive-text">Loading</span>
+                             <div class="slds-spinner__dot-a"></div>
+                             <div class="slds-spinner__dot-b"></div>
+                           </div>
+                        </div>
+                     </aura:if>
+                 <!-- Loading spinner end-->  
+		<aura:if isTrue="{!v.layout != null}">
+		{!v.header}
+		<div class="slds-form slds-form_compound">
+			<aura:iteration items="{!v.layout.sections}" var="layoutSection">
+			<fieldset class="slds-form-element">
+				<legend class="slds-form-element__label slds-text-title_caps">{!layoutSection.label}</legend>
+				<div class="slds-grid" >
+					<aura:if isTrue="{!layoutSection.columns == 2}">
+						<div class="slds-size_1-of-2 slds-p-horizontal_x-small">
+							<aura:iteration items="{!layoutSection.fields}" var="fieldGroup">
+								<aura:if isTrue="{!fieldGroup.field1 != null &amp;&amp; ( fieldGroup.field1.fieldAPIName != 'Name'|| not(v.hideNameField)) &amp;&amp; fieldGroup.field1.fieldAPIName != 'ParentId' }">
+								<aura:if isTrue="{!fieldGroup.field1.fieldIsMandatory}">*</aura:if>
+								<aura:if isTrue="{!fieldGroup.field1.fieldLabel != 'No Name'}">
+									<aura:if isTrue="{!fieldGroup.field1.fieldLabel != $Label.c.OldAddressLabel}">
+										<label for="input-01">{!fieldGroup.field1.fieldLabel}</label>
+										<aura:set attribute="else">
+											<label for="input-01">{!$Label.c.AddressLabel}</label>
+										</aura:set>
+									</aura:if>
+								</aura:if>
+
+									<aura:if isTrue="{!fieldGroup.field1.fieldHelpText}">
+										<button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" title="{!fieldGroup.field1.fieldHelpText}">
+											<lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+										</button>
+									</aura:if>
+
+									<c.CustomRecordCreateField runOnCopyAddress="{!v.updateOnFiledValueChange}" sObjectName="{!v.sObjectName}" recordTypeName="{!v.recordTypeName}" aura:id="field" sObj="{!v.sObj}" field="{!fieldGroup.field1}" /> 
+								</aura:if>
+							</aura:iteration>
+						</div>
+						<div class="slds-size_1-of-2 slds-p-horizontal_x-small">
+							<aura:iteration items="{!layoutSection.fields}" var="fieldGroup">
+								<aura:if isTrue="{!fieldGroup.field2 != null  &amp;&amp; ( fieldGroup.field2.fieldAPIName != 'Name'|| !v.hideNameField)  &amp;&amp; fieldGroup.field2.fieldAPIName != 'ParentId' }">
+									<aura:if isTrue="{!fieldGroup.field2.fieldIsMandatory}">*</aura:if>
+									<aura:if isTrue="{!fieldGroup.field2.fieldLabel != 'No Name'}">
+										<label for="input-02">{!fieldGroup.field2.fieldLabel}</label>
+										</aura:if>
+									
+									
+									<aura:if isTrue="{!fieldGroup.field2.fieldHelpText}">
+										<button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" title="{!fieldGroup.field2.fieldHelpText}">
+											<lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+										</button>
+									</aura:if>
+									
+									<c.CustomRecordCreateField runOnCopyAddress="{!v.updateOnFiledValueChange}" sObjectName="{!v.sObjectName}" recordTypeName="{!v.recordTypeName}" aura:id="field" sObj="{!v.sObj}" field="{!fieldGroup.field2}" /> 
+								</aura:if>
+							</aura:iteration>
+						</div>
+					</aura:if>
+					<aura:if isTrue="{!layoutSection.columns == 1}">
+						<aura:iteration items="{!layoutSection.fields}" var="fieldGroup">
+							<div class="slds-form-element__row">
+								<div class="slds-form-element slds-size_1-of-1">
+									<aura:if isTrue="{!fieldGroup.field1 != null   &amp;&amp;  ( fieldGroup.field1.fieldAPIName != 'Name'|| !v.hideNameField)  &amp;&amp; fieldGroup.field1.fieldAPIName != 'ParentId' }">
+										<aura:if isTrue="{!fieldGroup.field1.fieldIsMandatory}">*</aura:if>
+										
+										<aura:if isTrue="{!fieldGroup.field1.fieldLabel != 'No Name'}">
+											<aura:if isTrue="{!fieldGroup.field1.fieldLabel != $Label.c.OldAddressLabel}">
+												<label for="input-01">{!fieldGroup.field1.fieldLabel}</label>
+												<aura:set attribute="else">
+													<label for="input-01">{!$Label.c.AddressLabel}</label>
+												</aura:set>
+											</aura:if>
+										</aura:if>
+										
+										
+										<aura:if isTrue="{!fieldGroup.field1.fieldHelpText}">
+											<button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" title="{!fieldGroup.field1.fieldHelpText}">
+												<lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+											</button>
+										</aura:if>
+
+										<c.CustomRecordCreateField runOnCopyAddress="{!v.updateOnFiledValueChange}" aura:id="field" sObjectName="{!v.sObjectName}" recordTypeName="{!v.recordTypeName}" sObj="{!v.sObj}" field="{!fieldGroup.field1}" /> 
+									</aura:if>
+								</div>
+							</div>
+						</aura:iteration>
+					</aura:if>
+				</div>
+			</fieldset>
+		</aura:iteration>
+			
+			<aura:if isTrue="{!v.displayMap == 'true'}">
+				Please move the marker on the location
+				<c:CustomRecordCreateMap sObj="{!v.sObj}" latitudeField="{!v.latitudeField}" longitudeField="{!v.longitudeField}" />
+				<br />
+			</aura:if>
+			{!v.body}
+            <div class="{!v.hideButton ? 'slds-hide': ''}">
+                <lightning:button variant="brand" label="{!v.saveButtonLabel}" onclick="{!c.saveRecord}" />
+            </div>
+		</div>
+		</aura:if>
+	</aura:if>
+	<aura:if isTrue="{!v.step == '2'}">
+		<aura:if isTrue="{!and(v.uploadLabel1 != null, v.uploadLabel1 != '')}">
+			<c:files aura:id="files" label="{!v.uploadLabel1}" multiple="true" parentId="{!v.recordId}" />
+		</aura:if>
+		<aura:if isTrue="{!and(v.uploadLabel2 != null, v.uploadLabel2 != '')}">
+			<c:files aura:id="files" label="{!v.uploadLabel2}" multiple="true" parentId="{!v.recordId}" />
+			<!--<lightning:fileUpload label="{!v.uploadLabel2}" multiple="true" recordId="{!v.recordId}" />-->
+		</aura:if>
+		<aura:if isTrue="{!and(v.uploadLabel3 != null, v.uploadLabel3 != '')}">
+			<c:files aura:id="files" label="{!v.uploadLabel3}" multiple="true" parentId="{!v.recordId}" />
+			<!--<lightning:fileUpload label="{!v.uploadLabel3}" multiple="true" recordId="{!v.recordId}" /> -->
+		</aura:if>
+		<aura:if isTrue="{!and(v.uploadLabel4 != null, v.uploadLabel4 != '')}">
+			<c:files aura:id="files" label="{!v.uploadLabel4}" multiple="true" parentId="{!v.recordId}" />
+			<!--<lightning:fileUpload label="{!v.uploadLabel4}" multiple="true" recordId="{!v.recordId}" /> -->
+		</aura:if>
+		<aura:if isTrue="{!and(v.uploadLabel5 != null, v.uploadLabel5 != '')}">
+			<c:files aura:id="files" label="{!v.uploadLabel5}" multiple="true" parentId="{!v.recordId}" />
+			<!--<lightning:fileUpload label="{!v.uploadLabel5}" multiple="true" recordId="{!v.recordId}" /> -->
+		</aura:if>
+        <div class="{!v.hideButton ? 'slds-hide': ''}">
+            <lightning:button variant="brand" label="{!v.finishButtonLabel}" onclick="{!c.saveStep2}" />
+        </div>
+	</aura:if>
+	
+</aura:component>

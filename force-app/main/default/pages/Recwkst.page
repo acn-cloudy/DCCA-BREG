@@ -1,0 +1,296 @@
+<apex:page standardController="FiscalForm__c"
+           extensions="RecwkstPdfController"
+           renderAs="pdf"
+           showHeader="false"
+           applyHtmlTag="false">
+    <html>
+    <head>
+        <style>
+            @page {
+                margin: 0.25in;
+                size: A4;
+                background-color: #c7ffe5;
+            }
+
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 10pt;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            td.resultLabelBold {
+                font-weight: bold;
+            }
+
+            td.textAlignRight {
+                text-align: right;
+            }
+
+            table td {
+                vertical-align: top;
+                padding-top: 7px;
+                padding-bottom: 7px;
+            }
+        </style>
+    </head>
+    <body>
+    <div style="width: 100%; text-align: center; margin-bottom: 15px;">
+        State of Hawaii<br/>
+        Department of Commerce and Consumer Affairs
+        <br/>
+        <br/>
+        <b style="text-transform: uppercase;">Daily Reconciliation of Collections &amp; Deposit</b>
+    </div>
+    <table>
+        <tr>
+            <td class="resultLabelBold">NAME</td>
+            <td>
+                    {!creatingUser}
+            </td>
+        </tr>
+        <tr>
+            <td class="resultLabelBold">BATCH DATE</td>
+            <td>
+                <apex:outputText value="{0,date,MM/dd/YYYY}">
+                    <apex:param value="{!batchDate}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td class="resultLabelBold">CURRENCY:</td>
+            <td>SALESFORCE/4GOV<br/>
+                TERMINAL #3
+            </td>
+            <td>SALESFORCE/4GOV<br/>
+                TERMINAL #13
+            </td>
+        </tr>
+        <tr>
+            <td>TOTAL:</td>
+            <td>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal3TotalCash}"/>
+                </apex:outputText>
+            </td>
+            <td>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal13TotalCash}"/>
+                </apex:outputText>
+            </td>
+            <td class="resultLabelBold">Total Currency:</td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!totalCash}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td class="resultLabelBold">COINS:</td>
+        </tr>
+        <tr>
+            <td>TOTAL:</td>
+            <td>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal3TotalCoins}"/>
+                </apex:outputText>
+            </td>
+            <td>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal13TotalCoins}"/>
+                </apex:outputText>
+            </td>
+            <td class="resultLabelBold">TOTAL COINS:</td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!totalCoins}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td class="resultLabelBold">
+                CHECKS:
+            </td>
+            <td>
+            </td>
+            <td></td>
+            <td>TAPE #1</td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape1Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                TAPE #2
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape2Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                TAPE #3
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape3Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                TAPE #4
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape4Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                TAPE #5
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape5Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                TAPE #6
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!tape6Check}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td class="resultLabelBold">
+                TOTAL DEPOSIT
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!totalDeposit}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td class="resultLabelBold">
+                RECEIPTS:
+            </td>
+            <td>
+                SALESFORCE #3 Total Receipts
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal3TotalCheck}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                4GOV #3 Total Receipts
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!gov3TotalCheck}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                SALESFORCE #13 Total Receipts
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!terminal13TotalCheck}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                4GOV #13 Total Receipts
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!gov13TotalCheck}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr>
+            <td><br/></td>
+        </tr>
+        <tr>
+            <td><br/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Total Receipts</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="resultLabelBold">
+                TOTAL RECEIPTS
+            </td>
+            <td class="textAlignRight">
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!totalReceipt}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+    </table>
+    </body>
+    </html>
+</apex:page>

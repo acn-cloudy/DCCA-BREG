@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalNumberofExamsPassed__c</fullName>
+    <description>PacPoint FT 10.30.20 PVL</description>
+    <label>Total Number of Exams Passed</label>
+    <summaryFilterItems>
+        <field>ExamsRequired__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Passed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>ExamsRequired__c.Application__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

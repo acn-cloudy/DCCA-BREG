@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BienniumYear__c</fullName>
+    <description>PacPoint-KN08312020-Created for PVL CE and INS Portal</description>
+    <externalId>false</externalId>
+    <formula>TEXT(YEAR(EffectiveExpireDate__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The current biennium that the license is in.</inlineHelpText>
+    <label>Biennium Year</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

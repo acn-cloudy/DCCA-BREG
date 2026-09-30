@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContractExplanation__c</fullName>
+    <description>PacPoint-IC101218 - Created for BREG phase 1</description>
+    <inlineHelpText>If the contract/agreement was not in writing, explain your understanding of the terms of your contract/agreement.</inlineHelpText>
+    <label>1d. Contract Explanation</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

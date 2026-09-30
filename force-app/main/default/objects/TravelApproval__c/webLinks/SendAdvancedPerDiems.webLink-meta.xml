@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SendAdvancedPerDiems</fullName>
+    <availability>online</availability>
+    <description>PacPoint-JF - Case #7710 - Created for Travel Phase 1</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Send Advanced Per Diems</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(&quot;/apex/dsfs__DocuSign_CreateEnvelope&quot;, null, [SourceID =
+TravelApproval__c.Id,DST=&apos;826349e5-644f-4308-9933-8365e31c1e35&apos;])}</url>
+</WebLink>

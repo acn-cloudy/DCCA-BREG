@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PVLBPID__c</fullName>
+    <description>PacPoint-MV100319 - Created for PVL phase 1 to be used when searching applications on lookups</description>
+    <externalId>true</externalId>
+    <inlineHelpText>The Business Person ID. Can be a social security number or an assigned number.</inlineHelpText>
+    <label>PVL BP ID</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

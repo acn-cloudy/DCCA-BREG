@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FinalReportChecked</fullName>
+    <active>true</active>
+    <description>Before Statement of Completed Travel Status Field can be selected to &quot;SOCT Completed – entire SOCT completed, reimbursement check received, travel report uploaded&quot; the Final Report Uploaded Checkbox needs to be set to true</description>
+    <errorConditionFormula>AND(
+        ISCHANGED(StatementOfCompletedTravelStatus__c),
+        ISPICKVAL(StatementOfCompletedTravelStatus__c, &apos;SOCT Completed – entire SOCT completed, reimbursement check received, travel report uploaded&apos;),
+        NOT(Final_Report_Uploaded__c),
+        NOT(ISPICKVAL( TravelType__c , &apos;Intra-State&apos;))
+    )</errorConditionFormula>
+    <errorMessage>Before Statement of Completed Travel Status Field can be selected to &quot;SOCT Completed – entire SOCT completed, reimbursement check received, travel report uploaded&quot; the Final Report Uploaded Checkbox needs to be set to true</errorMessage>
+</ValidationRule>

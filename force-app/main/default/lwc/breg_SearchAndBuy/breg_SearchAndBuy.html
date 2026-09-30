@@ -1,0 +1,168 @@
+<template>
+    <lightning-tabset active-tab-value={activeTab}>
+        <lightning-tab label={labels.tabLabel} icon-name="utility:search" value="search">
+            <!-- Loading Spinner -->
+            <template if:true={showSpinner}>
+                <div class="slds-align_absolute-center slds-p-top_xx-large">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Search Form -->
+            <template if:true={showSearch}>
+                <h1 class="title dxp-text-heading-xlarge slds-m-bottom_medium">{labels.title}</h1>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3 slds-p-right_none slds-p-right_large-small">
+                        <div class="slds-text-body_regular slds-m-bottom_medium">{labels.search_and_buy_description}</div>
+
+                        <!-- Error Message -->
+                        <template if:true={showErrorMessage}>
+                            <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium" role="alert">
+                                <span class="slds-assistive-text">{labels.error}</span>
+                                <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small">
+                                    <lightning-icon
+                                        icon-name="utility:error"
+                                        alternative-text={labels.error}
+                                        size="x-small"
+                                        variant="inverse"
+                                    ></lightning-icon>
+                                </span>
+                                <h2 class="slds-text-heading_small">{labels.mustEnterSearchTerm}</h2>
+                                <button
+                                    class="slds-button slds-button_icon slds-button_icon-small slds-notify__close"
+                                    title={labels.close}
+                                    onclick={handleCloseError}
+                                >
+                                    <lightning-icon
+                                        icon-name="utility:close"
+                                        alternative-text={labels.close}
+                                        size="x-small"
+                                        variant="inverse"
+                                    ></lightning-icon>
+                                    <span class="slds-assistive-text">{labels.close}</span>
+                                </button>
+                            </div>
+                        </template>
+
+                        <c-breg-_-search-input
+                            placeholder={labels.search_and_buy_placeholder}
+                            show-search-button="true"
+                            onsearch={handleSearch}
+                        ></c-breg-_-search-input>
+                        <div class="slds-text-body_regular slds-m-top_medium">
+                            <span
+                                >{labels.search_and_buy_note} (<a href="#" tabindex="-1" onclick={handleMoreInfoClick}
+                                    ><strong>{labels.moreInfo}</strong></a
+                                >)</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+                        <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                            <c-breg_-e-l-b_-additional-services></c-breg_-e-l-b_-additional-services>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Page Not Found -->
+            <template if:true={showNotFound}>
+                <div class="slds-grid slds-grid_align-center slds-p-top_xx-large">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12 slds-text-align_center">
+                        <div class="slds-illustration slds-illustration_large">
+                            <lightning-icon icon-name="utility:error" size="large" variant="error"></lightning-icon>
+                        </div>
+                        <div class="slds-m-top_large">
+                            <h1 class="slds-text-heading_large slds-m-bottom_medium">{labels.pageNotFound}</h1>
+                            <h2 class="slds-text-heading_small slds-m-bottom_medium">{labels.error404}</h2>
+                            <p class="slds-text-body_regular">
+                                {labels.tryTo}
+                                <a href="#" class="slds-text-link" onclick={handleSearchAgainClick}>{labels.searchAgain}</a> {labels.orGoToOur}
+                                <a href="#" class="slds-text-link" onclick={handleNotFoundHelpClick}>{labels.helpPage}</a> {labels.forAssistance}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Results Table -->
+            <template if:true={showTable}>
+                <c-breg-_-account-search-results-table
+                    include-record-type="true"
+                    show-new-search="true"
+                    include-filters="true"
+                    onopendetails={handleOpenDetails}
+                    include-tn-tm-sm="true"
+                    include-transactions="true"
+                    onnewsearch={handleNewSearch}
+                    filter-record-type={filterRecordType}
+                    filter-status={filterStatus}
+                    filter-entity-type={filterEntityType}
+                    onfiltersapplied={handleFiltersApplied}
+                ></c-breg-_-account-search-results-table>
+            </template>
+
+            <!-- Account Details -->
+            <template if:true={showDetails}>
+                <c-breg-_-search-and-buy-_-business-details
+                    record-id={detailedRecordId}
+                    active-tab={detailedRecordActiveTab}
+                    onbacktosearch={handleBackToSearch}
+                    onaccountnotfound={handleAccountNotFound}
+                    onitemsaddedtocart={handleItemsAddedToCart}
+                >
+                </c-breg-_-search-and-buy-_-business-details>
+            </template>
+        </lightning-tab>
+        <lightning-tab label={labels.helpTabLabel} icon-name="utility:help_custom" value="help">
+            <!-- Placeholder for Help tab -->
+            <c-breg_-f-a-qs topic-name={faqsTopicName}></c-breg_-f-a-qs>
+        </lightning-tab>
+        <lightning-tab label={cartTabLabel} icon-name="utility:cart" value="cart" class="cart-tab">
+            <!-- Cart content placeholder -->
+            <c-breg-_-shopping-_-cart oncontinueshopping={handleContinueShopping} oncartupdated={handleCartUpdated}></c-breg-_-shopping-_-cart>
+        </lightning-tab>
+    </lightning-tabset>
+
+    <!-- Modal Window for more info-->
+    <template if:true={showModal}>
+        <section
+            role="dialog"
+            tabindex="-1"
+            aria-labelledby="modal-heading-01"
+            aria-modal="true"
+            aria-describedby="modal-content-id-1"
+            class="modal-section slds-modal slds-fade-in-open"
+        >
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title={labels.close}
+                        onclick={handleCloseModal}
+                    >
+                        <lightning-icon icon-name="utility:close" alternative-text={labels.close} variant="inverse" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">{labels.close}</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{labels.aboutTheSearch}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-text-body_regular">
+                        <p class="slds-m-bottom_medium">{labels.searchPurposeText}</p>
+                        <p class="slds-m-bottom_medium">{labels.contactBregText}</p>
+                        <p>
+                            {labels.readOur}
+                            <a href="#" class="slds-text-link" onclick={handleHelpPageClick}><strong>{labels.helpPage}</strong></a>
+                            {labels.forBusinessNamingRules}
+                        </p>
+                    </div>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={handleCloseModal}>{labels.close}</button>
+                </footer>
+            </div>
+        </section>
+        <div class="modal-bg slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

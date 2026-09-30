@@ -1,0 +1,3 @@
+<apex:page standardController="Deposits__c" extensions="DepositRollupsButton" action="{!StartRollupBatch}">
+  
+</apex:page>

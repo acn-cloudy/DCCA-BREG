@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RecordTypePlaceholder__c</fullName>
+    <description>PacPoint: RdG - Case# 8741 - For PVL Phase 1 - Developer Name of the Application Record Type to be converted with</description>
+    <externalId>false</externalId>
+    <label>Record Type Placeholder</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

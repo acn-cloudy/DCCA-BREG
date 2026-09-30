@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OneTwoSided__c</fullName>
+    <description>PacPoint-FT120419 - Created for PVL phase 1</description>
+    <label>One / Two Sided</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Run on ONE side</fullName>
+                <default>false</default>
+                <label>Run on ONE side</label>
+            </value>
+            <value>
+                <fullName>Run on TWO sides</fullName>
+                <default>false</default>
+                <label>Run on TWO sides</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,36 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Cashier Code Lookup component - Simulates a cashier code lookup in lightning
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component controller="CashierCodeLookup">
+	
+    <aura:attribute name="code" type="String" default="" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="records" type="List" />
+    <aura:attribute name="showRecords" type="String" default="false" />
+    <aura:attribute name="amount" type="decimal" />
+    <aura:attribute name="parentCmp" type="Object" />
+
+    <div>
+        <ui:inputText change="{!c.updateValues}" aura:id="inputCode" class="slds-input" value="{!v.code}" updateOn="keyup" keyup="{!c.searchRec}" focus="{!c.divFocus}" blur="{!c.divBlur}" />
+        <aura:if isTrue="{!v.showRecords == 'true'}">
+            <ul class="codesList">
+                <aura:iteration items="{!v.records}" var="record">
+                    <li>
+                        <a onclick="{!c.selectValue}" data-codeId="{!record.Id}" data-codeName="{!record.Name}" data-codeAmount="{!record.Amount__c}">{!record.Name}</a>
+                    </li>
+                </aura:iteration>
+            </ul>
+        </aura:if>
+    </div>
+    
+</aura:component>

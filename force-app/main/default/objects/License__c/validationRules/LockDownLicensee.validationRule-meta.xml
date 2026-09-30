@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LockDownLicensee</fullName>
+    <active>false</active>
+    <description>PacPoint-MV102119 - Created for PVL phase 1</description>
+    <errorConditionFormula>ISCHANGED(Licensee__c)</errorConditionFormula>
+    <errorMessage>The Licensee cannot be changed</errorMessage>
+</ValidationRule>

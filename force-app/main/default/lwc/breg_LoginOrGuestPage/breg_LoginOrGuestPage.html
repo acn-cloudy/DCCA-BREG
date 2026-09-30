@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title={labels.BREG_Annual_LogInTitle}>
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-size_2-of-3">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <div class="slds-box slds-box_x-small slds-m-around_x-small slds-p-around_medium full-height">
+                            <h3 class="slds-text-heading_small slds-border_bottom">{labels.BREG_Annual_BenefitsTitle}</h3>
+                            <ul class="slds-m-top_small">
+                                <li>• {labels.BREG_Annual_Benefit_Receipt}</li>
+                                <li>• {labels.BREG_Annual_Benefit_Submission}</li>
+                                <li>• {labels.BREG_Annual_Benefit_Tracking}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                        <div class="slds-box slds-box_x-small slds-m-around_x-small slds-p-around_medium full-height">
+                            <h3 class="slds-text-heading_small slds-border_bottom">{labels.BREG_Annual_GuestAccessTitle}</h3>
+                            <ul class="slds-m-top_small">
+                                <li>• {labels.BREG_Annual_GuestAccessOption1}</li>
+                                <li>• {labels.BREG_Annual_GuestAccessOption2}</li>
+                            </ul>
+                            <lightning-button label={labels.BREG_Annual_ContinueAsGuest} class="slds-m-top_small" onclick={handleGuest}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <c-breg-_-tile title={labels.BREG_Annual_LogInTitle}>
+                    <div class="slds-m-vertical_small">{labels.BREG_Annual_TileIntro}</div>
+                    <div class="slds-m-vertical_small">{labels.BREG_Annual_TileSignup}</div>
+                    <lightning-button
+                        variant="brand"
+                        label={labels.BREG_Annual_GoToSSO}
+                        class="slds-m-vertical_small"
+                        onclick={handleSSO}
+                    ></lightning-button>
+                    <div class="slds-m-around_x-small slds-text-body_big">
+                        <strong><em>{labels.BREG_Annual_WhyChangeTitle}</em></strong>
+                    </div>
+                    <div class="slds-text-body_small">
+                        {labels.BREG_Annual_WhyChangeText}
+                        <span><a href="https://my.hawaii.gov" target="_blank"> myHawaii</a>.</span>
+                    </div>
+                </c-breg-_-tile>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubmitterType__c</fullName>
+    <label>Submitter Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Licensed Insurance Agent</fullName>
+                <default>false</default>
+                <label>Licensed Insurance Agent</label>
+            </value>
+            <value>
+                <fullName>Not Admitted Insurer or Leasing Company</fullName>
+                <default>false</default>
+                <label>Not Admitted Insurer or Leasing Company</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

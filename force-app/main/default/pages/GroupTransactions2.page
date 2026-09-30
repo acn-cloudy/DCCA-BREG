@@ -1,0 +1,40 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Support VF page for the Group Transaction component - Allows the user to group multiple transactions
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<apex:page standardController="Transaction__c" title="Group Transactions" recordSetVar="transactions">
+    <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:GroupTransactions2Page", function() {
+          $Lightning.createComponent("c:GroupTransactions2",
+              { },
+              "lightning",
+              function(cmp) {
+                  $A.eventService.addHandler({ "event": "c:BatchTransactionRedirect", "handler" : redirectToList });
+                  $A.eventService.addHandler({ "event": "c:NewTransactionRedirect", "handler" : redirectToRecord });
+              }
+          );
+        });
+
+        var redirectToRecord = function(event) {
+            var tId = event.getParam('transactionId');
+            window.location = '/lightning/r/Transaction__c/' + tId + '/view';
+        };
+        var redirectToList = function(event) {
+            window.location = '/lightning/r/Transaction__c/list';
+        };
+
+    </script>
+</apex:page>

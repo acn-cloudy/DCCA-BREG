@@ -1,0 +1,18 @@
+<apex:page controller="DocuSignCallbackController" action="{!init}">
+    <apex:slds />
+    <div class="slds-scope">
+        <div class="slds-p-around_medium">
+            <apex:outputPanel rendered="{!error != null}">
+                <div class="slds-notify slds-notify_alert slds-theme_error" role="alert">
+                    <h2>Error: {!error}</h2>
+                </div>
+            </apex:outputPanel>
+
+            <apex:outputPanel rendered="{!message != null}">
+                <div class="slds-notify slds-notify_alert slds-theme_success" role="alert">
+                    <h2>{!message}</h2>
+                </div>
+            </apex:outputPanel>
+        </div>
+    </div>
+</apex:page>

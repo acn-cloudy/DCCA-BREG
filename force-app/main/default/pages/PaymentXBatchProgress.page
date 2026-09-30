@@ -1,0 +1,13 @@
+<apex:page controller="PaymentXBatchProgress" tabStyle="FeeSchedule__c">
+    <apex:form >
+        <center>
+            <br />
+            <apex:commandButton value="Start PaymentX Batch" action="{!StartPaymentXBatch}" />
+            <apex:commandButton value="Back To List View" action="{!BacktolistView}" />
+            <br /><br />
+        </center>
+        <apex:pageMessages />
+        <c:BatchJobsProgressComponent bComponentLabel="Payment Batch" apexClass="PaymentXBatch" noOfJobs="5" />
+
+    </apex:form>
+</apex:page>

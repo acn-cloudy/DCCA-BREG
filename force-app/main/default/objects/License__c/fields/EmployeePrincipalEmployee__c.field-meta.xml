@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmployeePrincipalEmployee__c</fullName>
+    <description>PacPoint-FT021220- Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This holds the Employee or Principal Employee.  Used for Licenses Types that don&apos;t require licensed principals, like COLA, COLAX, etc. This was previously housed in the Business Address.</inlineHelpText>
+    <label>Employee / Principal Employee</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

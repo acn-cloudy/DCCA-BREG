@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMEandEntity__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN102219-Created for PVL Sprint 2 Phase 1</description>
+    <inlineHelpText>Check this checkbox when the License Conditions listed on this Record apply to both the RME and Entity. Leave unchecked if the License Conditions only apply to the RME.</inlineHelpText>
+    <label>RME and Entity</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

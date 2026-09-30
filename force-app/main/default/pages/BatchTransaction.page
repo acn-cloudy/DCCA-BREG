@@ -1,0 +1,35 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Support VF page for the Batch Transaction component - Allows the user to create multiple transactions
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-LC040819 - Created for DCCA phase 1
+* @author       Lucian Ciobanu - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<apex:page standardController="Transaction__c" title="batch Transactions" recordSetVar="transactions">
+    <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:BatchTransactionPage", function() {
+          $Lightning.createComponent("c:BatchTransaction",
+              { location: 'TransactionListView' },
+              "lightning",
+              function(cmp) {
+                  $A.eventService.addHandler({ "event": "c:BatchTransactionRedirect", "handler" : redirectToList });
+              }
+          );
+        });
+    
+        var redirectToList = function(event) {
+            window.location = '/lightning/o/Transaction__c/list';
+        };
+ 
+    </script>
+</apex:page>

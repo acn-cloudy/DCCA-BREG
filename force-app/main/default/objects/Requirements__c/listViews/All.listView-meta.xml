@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>ALIASRequirementNumber__c</columns>
+    <columns>NAME</columns>
+    <columns>ParentRequirement__c</columns>
+    <columns>SubRequirementNumber__c</columns>
+    <columns>RequirementFeeAmount__c</columns>
+    <columns>RequirementCategory__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>RequirementShortDescription__c</columns>
+    <columns>RequirementLongDescription__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingCompletedRequiredInvestmentAdvisor</fullName>
+    <active>true</active>
+    <description>PacPoint: AC Case#8952 - BREG Support | Validation for Filings Completed Status</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Investment Adviser&quot;,
+ISPICKVAL(Status__c, &quot;Filing Completed&quot;),
+ISNULL(HIApprovalDate__c),
+ISNULL( DateofIANoticeFiling__c)
+)</errorConditionFormula>
+    <errorMessage>Error: Please populate &quot;HI Approval Date&quot; or &quot;Date of IA Notice Filing&quot; before updating the status to Filing Completed.</errorMessage>
+</ValidationRule>

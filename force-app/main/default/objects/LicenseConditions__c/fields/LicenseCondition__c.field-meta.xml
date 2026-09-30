@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseCondition__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-MV111819 - Created for PVL phase 1. Created to have a relationship with the original license condition.</description>
+    <label>License Condition</label>
+    <referenceTo>LicenseConditions__c</referenceTo>
+    <relationshipLabel>License Conditions</relationshipLabel>
+    <relationshipName>License_Conditions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

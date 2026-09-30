@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-FT070218 - Created for phase 1</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Draft</fullName>
+                <default>true</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Deposited</fullName>
+                <default>false</default>
+                <label>Deposited</label>
+            </value>
+            <value>
+                <fullName>Carry Forward to Next Deposit</fullName>
+                <default>false</default>
+                <label>Carry Forward to Next Deposit</label>
+            </value>
+            <value>
+                <fullName>Carry Forward Resolved</fullName>
+                <default>false</default>
+                <label>Carry Forward Resolved</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

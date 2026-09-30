@@ -1,0 +1,64 @@
+.THIS {
+}
+
+.THIS .customInline{
+    display: flex;
+}
+
+.THIS.showmodal{
+    display:block;
+}
+
+.THIS.hidemodal{
+    display:none;
+}
+
+.THIS .mandatory {
+    color:red;
+}
+
+.THIS .floatright {
+    float: right;
+    width: 75%;
+   
+}
+
+.THIS .checkboxfloatright {
+    float: right;  
+   
+}
+
+.THIS .inputcheckbox {
+    margin-top:1em;
+    display : inline-block;
+}
+
+.THIS .floatleft {
+    float: left;
+    width: 75%;
+   
+}
+
+.THIS .datefloatright {
+   float: right;
+    width: 50%;
+   clear: both;
+}
+.THIS .clearfix {
+    
+    clear: both;
+    
+}
+
+.THIS.slds-has-error .customTextarea .slds-textarea{
+    border-color: rgb(208, 234, 245);
+    box-shadow: none;
+    background-clip:initial;
+}
+.THIS.slds-has-error .customTextarea .slds-textarea:focus, 
+.THIS.slds-has-error .customTextarea .slds-textarea:active {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0, 112, 210) 0px 0px 3px;
+    outline: 0px;
+    border-color: rgb(21, 137, 238);
+}

@@ -1,0 +1,40 @@
+<template>
+    <fieldset class="slds-form-element">
+
+        <!-- LABEL -->
+        <template lwc:if={label}>
+            <legend class="slds-form-element__legend slds-form-element__label">
+
+                <template lwc:if={required}>
+                    <abbr class="slds-required">*</abbr>
+                </template>
+
+                <template lwc:if={isLabelHidden}>
+                    <span class="slds-assistive-text">{label}</span>
+                </template>
+
+                <template lwc:else>
+                    {label}
+                </template>
+
+            </legend>
+        </template>
+
+        <div class="slds-form-element__control">
+
+            <template for:each={computedOptions} for:item="opt">
+
+                <div key={opt.value} class="slds-m-bottom_x-small">
+                    <c-breg_-radio-with-help
+                        name={name}
+                        required={required}
+                        disabled={disabled}
+                        option={opt}
+                        checked={opt.checked}
+                        onvaluechange={handleChange}>
+                    </c-breg_-radio-with-help>
+                </div>
+            </template>
+        </div>
+    </fieldset>
+</template>

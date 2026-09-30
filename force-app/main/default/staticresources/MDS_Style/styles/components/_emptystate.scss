@@ -1,0 +1,13 @@
+.mds-empty-state_box {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow-2);
+    padding: var(--spacing-xx-large);
+
+    &-content {
+        margin: auto;
+
+        h3 {
+            color: var(--primary-main);
+        }
+    }
+}

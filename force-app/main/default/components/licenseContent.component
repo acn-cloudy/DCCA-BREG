@@ -1,0 +1,70 @@
+<apex:component >
+<apex:attribute name="record" description="This is the value for the component." type="License__c" />
+<div style="width: 525px; 
+  height: 407px;
+  box-sizing: border-box;
+  position: relative;
+  font-size:15px;">
+    <div style="position: relative; 
+      font-family: sans-serif;
+      padding:15px 20px;">
+        <div>
+            <div style="display:inline-block;
+          font-size: 0.9em;">
+                <div>Department of Commerce &amp; Consumer Affairs</div>
+                <div>Professional &amp; Vocational Licensing Division</div>
+                <div>P.O. Box 3469</div>
+                <div>Honolulu, HI 96801</div>
+            </div>
+            <!-- <div style="display:inline-block;
+              font-size:0.7em;
+              border: 1px solid;
+              box-sizing: border-box;
+              float: right;
+              padding: 5px 3px;
+              text-align: center">
+                <div>PRESORTED</div>
+                <div>STANDARD</div>
+                <div> U.S. POSTAGE</div>
+                <div>PAID</div>
+                <div>PERMIT NO. 521</div>
+                <div>HONOLULU, HI</div>
+            </div> -->
+        </div>
+        <div>
+            <img src="{!$Resource.RenewalNotice}" width="120"/>
+        </div>
+
+    </div>
+    <div style="padding-left: 170px">
+        <table>
+            <tr>
+                <td>LICENSE NO: {!record.Name}</td>
+                <td>FILE NO: <apex:outputText value="{!record.TruncatedPVLBPID__c}" rendered="{!record.LicenseType__r.Entity__c}"/></td>
+            </tr>
+        </table>
+      <div style="text-align: left">{!record.LicenseeNameFormula__c}</div>
+      <div style="text-align: left"><apex:outputText escape="false" value="{!record.RenewalMailToStreet__c}" ></apex:outputText></div>
+      <div style="text-align: left">
+        <span>
+          {!record.RenewalMailToCity__c} 
+          {!record.RenewalMailToState__c}
+          {!record.RenewalMailToZipCode__c}
+        </span>
+      </div>
+      <div style="text-transform:uppercase;">
+        {!If(record.RenewalMailToCountry__c == 'United States', "", record.RenewalMailToCountry__c)}
+      </div>
+    </div>
+    <div style="
+      position:absolute;
+      font-size: 1em;
+      font-weight: bold;
+      bottom:20px;
+      left: 0; 
+      right: 0;
+      text-align: center;">
+      <apex:outputText value="{!$Label.MyPVLLinkStr}" />
+    </div>
+</div>
+</apex:component>

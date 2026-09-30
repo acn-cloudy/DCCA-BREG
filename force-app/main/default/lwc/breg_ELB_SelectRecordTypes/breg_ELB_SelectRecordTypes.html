@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Select Record Types">
+        <template if:true={showValidationError}>
+            <div class="slds-text-color_error slds-m-top_x-small">Please select at least one option.</div>
+        </template>
+        <div class="slds-grid slds-wrap slds-gutters_x-small">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <template for:each={checkboxItems1} for:item="type" for:index="index">
+                    <div key={type} class="checkbox-item">
+                        <lightning-input type="checkbox" label={type.label} name={type.value}  checked={type.checked} onchange={handleCheckboxChange}></lightning-input>
+                    </div>
+                </template>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <template for:each={checkboxItems2} for:item="type" for:index="index">
+                    <div key={type} class="checkbox-item">
+                        <lightning-input type="checkbox" label={type.label} name={type.value}  checked={type.checked} onchange={handleCheckboxChange}></lightning-input>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <lightning-button variant="base" label="Select All" title="Select All" onclick={handleSelectAllClick} class="slds-m-left-medium slds-m-right-medium"></lightning-button>
+        <lightning-button variant="base" label="Deselect All" title="Deselect All" onclick={handleDeselectAllClick} class="slds-m-left_x-large"></lightning-button>
+
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+</template>

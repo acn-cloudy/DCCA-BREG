@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcludeAudit__c</fullName>
+    <description>PacPoint-MV120419 - Created for PVL phase 1</description>
+    <formula>IF(
+TEXT(LicenseType__r.AuditType__c) = &quot;Pre-Audit&quot;, 
+   IF(
+       OR (
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 24,
+          OriginalDateofLicensure__c &gt;=  LicenseType__r.LicenseTypeEffectiveDate__c ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed within Current Biennium (First Renewal)&quot;) 
+           ),
+
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 36,
+          OriginalDateofLicensure__c &gt;=  LicenseType__r.LicenseTypeEffectiveDate__c ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed within Current Triennium (First Renewal)&quot;) 
+           ),
+
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 24,
+          OriginalDateofLicensure__c &gt;=   LicenseType__r.SecondYearStart__c  ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed in the 2nd half of Current Biennium (2NB)&quot;) 
+           ),
+  
+          AND(
+          OriginalDateofLicensure__c &gt;=    LicenseType__r.NextLicensePeriodEffectiveDate__c   ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed in the new License Period (New)&quot;) 
+           )
+     ), 
+     true, 
+     false), 
+
+   IF(
+       OR (
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 24,
+          OriginalDateofLicensure__c &gt;=   LicenseType__r.PreviousLicensePeriodEffectiveDate__c  ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed within Current Biennium (First Renewal)&quot;) 
+           ),
+
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 36,
+          OriginalDateofLicensure__c &gt;=  LicenseType__r.PreviousLicensePeriodEffectiveDate__c ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed within Current Triennium (First Renewal)&quot;) 
+           ),
+
+          AND(
+          LicenseType__r.DurationofLicenseInMonths__c = 24,
+          OriginalDateofLicensure__c &gt;=    LicenseType__r.PreviousSecondYearStart__c   ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed in the 2nd half of Current Biennium (2NB)&quot;) 
+          ),
+
+          AND(
+          OriginalDateofLicensure__c &gt;=     LicenseType__r.LicenseTypeEffectiveDate__c    ,
+          ISPICKVAL( LicenseType__r.ExcludeLicensesbyDateofLicensure__c , &quot;Licensed in the new License Period (New)&quot;) 
+          )
+     ), 
+     true, 
+     false)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Exclude Audit</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

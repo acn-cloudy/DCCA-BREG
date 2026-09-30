@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssociatedLicPrincipalStatusCheck</fullName>
+    <active>true</active>
+    <description>PACPOINT-FT03042020-Created for PVL Phase 1 Sprint 3</description>
+    <errorConditionFormula>IF( EmployeeLicense__r.LicenseType__r.BoardProgram__r.Name &lt;&gt; &quot;REAL ESTATE COMMISSION&quot;
+&amp;&amp;ISCHANGED(PositionStatus__c)
+
+&amp;&amp; TEXT( PositionStatus__c ) = TEXT( EntityLicense__r.LicenseType__r.TypeofPositionStatus__c)
+
+&amp;&amp; (TEXT( PositionStatus__c) = &quot;P - PRINCIPAL&quot; || TEXT( PositionStatus__c) = &quot;D - DESIGNATED&quot;)
+
+&amp;&amp; (EmployeeActiveInactive__c = &quot;Inactive&quot; ||
+
+
+(EmployeeLicenseStatus__c &lt;&gt; &quot;C - Current, Valid &amp; In Good Standing&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;R - Valid Thru Expiration Date, Subject To Renewal&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;CP - Current Pending&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement&quot;)), true,
+IF(
+EmployeeLicense__r.LicenseType__r.BoardProgram__r.Name = &quot;REAL ESTATE COMMISSION&quot;
+&amp;&amp;ISCHANGED( Position__c )
+&amp;&amp; TEXT( Position__c ) = &quot;PB - PRINCIPAL BROKER (REAL ESTATE COMMISSION)&quot;
+&amp;&amp; (EmployeeActiveInactive__c = &quot;Inactive&quot; ||
+(EmployeeLicenseStatus__c &lt;&gt; &quot;C - Current, Valid &amp; In Good Standing&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;R - Valid Thru Expiration Date, Subject To Renewal&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;CP - Current Pending&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot; &amp;&amp; EmployeeLicenseStatus__c &lt;&gt; &quot;ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement&quot;)),true,false))</errorConditionFormula>
+    <errorMessage>You can only set a license as Entity / Principal if it is Current and Active.</errorMessage>
+</ValidationRule>

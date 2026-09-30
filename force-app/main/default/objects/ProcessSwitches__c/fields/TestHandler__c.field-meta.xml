@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TestHandler__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>This field is only for apex unit testing in TriggerHandlerTest.cls. Do not name a real process with this name.</description>
+    <inlineHelpText>This field is only for apex unit testing in TriggerHandlerTest.cls. Do not name a real process with this name.</inlineHelpText>
+    <label>TestHandler</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,318 @@
+<!--
+  @description       :
+  @last modified on  : 07-07-2025
+  @last modified by  :
+-->
+<template>
+    <template lwc:if={isNotGuest}>
+        <lightning-tabset active-tab-value={activeTab}>
+            <lightning-tab label="Start" icon-name="utility:company">
+                <lightning-spinner if:true={isLoading} alternative-text="Loading..." size="large"></lightning-spinner>
+                <template lwc:if={initialInformationStep}>
+                    <lightning-layout horizontal-align="spread" vertical-align="start" multiple-rows="true">
+                        <lightning-layout-item size="12" padding="around-small">
+                            <div class="slds-var-m-bottom_medium">
+                                <h1 class="dxp-text-heading-xlarge">Start a New Business</h1>
+                            </div>
+                            <h2>First, let&apos;s get some initial information</h2>
+                        </lightning-layout-item>
+                        <!-- Business Type Selector -->
+                        <lightning-layout-item size="12" padding="around-small">
+                            <span class="text-italic color-grey">Select the most applicable</span>
+                            <c-breg_-radio-group-with-help
+                                name="businessProcess"
+                                label="Business Process"
+                                options={businessProcessOptions}
+                                value={businessProcessValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></c-breg_-radio-group-with-help>
+                        </lightning-layout-item>
+                        <!-- Business Location Selector -->
+                        <lightning-layout-item lwc:if={showBusinessLocationSelector} size="12" padding="around-small">
+                            <span class="">Was the business started and based in Hawaii, or formed and in existence in another State or Country?</span>
+                            <lightning-radio-group
+                                name="businessLocation"
+                                label="Business Location"
+                                options={businessLocationOptions}
+                                value={businessLocationValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></lightning-radio-group>
+                        </lightning-layout-item>
+                        <!-- Business Structure Selector -->
+                        <lightning-layout-item lwc:if={showBusinessStructureSelector} size="12" padding="around-small">
+                            <span class=""
+                                >What is the business structure? Visit the <a href="https://cca.hawaii.gov/breg/legalinfo/">BREG Business Entity Types</a> to review business structures.</span
+                            >
+                            <lightning-combobox
+                                name="businessStructure"
+                                label="Business Structure"
+                                options={businessStructureOptions}
+                                value={businessStructureValue}
+                                variant="label-hidden"
+                                placeholder="Select one"
+                                onchange={handleInputChange}
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <!-- Business Profit Selector -->
+                        <lightning-layout-item lwc:if={showBusinessProfitSelector} size="12" padding="around-small">
+                            <span class="">
+                                Is your business a for profit or non-profit entity?
+                                &nbsp;
+                                <c-breg_-help-text-popup
+                                    label="Learn More"
+                                    title="Non-Profit Business"
+                                    message={learnMoreProfitNonProfit}
+                                    cancel-button-label="Close">
+                                </c-breg_-help-text-popup>
+                            </span>
+                            <lightning-radio-group
+                                name="businessProfit"
+                                label="Profit or Non-Profit"
+                                options={profitOptions}
+                                value={businessProfitValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></lightning-radio-group>
+                        </lightning-layout-item>
+                        <!-- Corporation Type Selector -->
+                        <lightning-layout-item lwc:if={showCorporationTypeSelector} size="12" padding="around-small">
+                            <span class="">What is the type of corporation?</span>
+                            <lightning-combobox
+                                name="corporationType"
+                                label="Corporation Type"
+                                options={corporationTypeOptions}
+                                value={corporationTypeValue}
+                                variant="label-hidden"
+                                placeholder="Select one"
+                                onchange={handleInputChange}
+                                disabled={disabledCorporationTypeSelector}
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <!-- Cooperative Type Selector -->
+                        <lightning-layout-item lwc:if={showCooperativeTypeSelector} size="12" padding="around-small">
+                            <span class="">What is the type of cooperative?</span>
+                            <lightning-combobox
+                                name="cooperativeType"
+                                label="Cooperative Type"
+                                options={cooperativeTypeOptions}
+                                value={cooperativeTypeValue}
+                                variant="label-hidden"
+                                placeholder="Select one"
+                                onchange={handleInputChange}
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <!-- Stock Type Selector -->
+                        <lightning-layout-item lwc:if={showStockTypeSelector} size="12" padding="around-small">
+                            <span class="">Is your business with or without stock?</span>
+                            <lightning-combobox
+                                name="stockType"
+                                label="Stock Type"
+                                options={stockTypeOptions}
+                                value={stockTypeValue}
+                                variant="label-hidden"
+                                placeholder="Select one"
+                                onchange={handleInputChange}
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <!-- Partnership Type Selector -->
+                        <lightning-layout-item lwc:if={showPartnershipTypeSelector} size="12" padding="around-small">
+                            <span class="">What is the type of partnership?</span>
+                            <lightning-combobox
+                                name="partnershipType"
+                                label="Partnership Type"
+                                options={partnershipTypeOptions}
+                                value={partnershipTypeValue}
+                                variant="label-hidden"
+                                placeholder="Select one"
+                                onchange={handleInputChange}
+                            ></lightning-combobox>
+                        </lightning-layout-item>
+                        <!-- GP Registered Selector -->
+                        <lightning-layout-item lwc:if={showGPRegisteredSelector} size="12" padding="around-small">
+                            <span class="">Is General Partnership already registered?</span>
+                            <lightning-radio-group
+                                name="gpRegistered"
+                                label="Is General Partnership already registered?"
+                                options={gpRegisteredOptions}
+                                value={gpRegisteredValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></lightning-radio-group>
+                        </lightning-layout-item>
+                        <!-- GP Registered Selector -->
+                        <lightning-layout-item lwc:if={showGPName} size="12" padding="around-small">
+                            <span class="">Enter General Partnership Name.</span>
+                            <lightning-input
+                                name="gpName"
+                                label="Enter General Partnership Name"
+                                type="text"
+                                value={gpNameValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></lightning-input>
+                        </lightning-layout-item>
+                        <!-- Trade Name Selector -->
+                        <lightning-layout-item lwc:if={showTradeNameSelector} size="6" padding="around-small">
+                            <span class="">What is the registration type?
+                                &nbsp;
+                                <c-breg_-help-text-popup
+                                    label="Learn More"
+                                    title="Difference between a trade name, trademark, and a service mark"
+                                    message={learnMoreTntmsm}
+                                    cancel-button-label="Close">
+                                </c-breg_-help-text-popup>
+                            </span>
+                            <lightning-radio-group
+                                name="registrationType"
+                                label="Registration Type"
+                                options={registrationTypeOptions}
+                                value={registrationTypeValue}
+                                variant="label-hidden"
+                                onchange={handleInputChange}
+                            ></lightning-radio-group>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+                <template lwc:elseif={stepsWithWhatIsITForm}>
+                    <lightning-layout multiple-rows="true" horizontal-align="spread" vertical-align="start">
+                        <lightning-layout-item size="12" large-device-size="9" padding="around-small" class="slds-order_2 slds-large-order_1">
+                            <template lwc:if={formDataStep}>
+                                <div class="slds-var-m-bottom_medium">
+                                    <h1 class="dxp-text-heading-xlarge">{dynamicFormsHeaderTitle}</h1>
+                                </div>
+                                <template lwc:if={showResubmissionDueDateDescription}>
+                                    <p class="color-grey slds-var-p-bottom_medium">{resubmissionDueDateDescription}</p>
+                                </template>
+                                <p class="slds-var-p-bottom_large">
+                                    <lightning-formatted-rich-text value={dynamicFormsHeaderDescription}></lightning-formatted-rich-text>
+                                </p>
+                                <span class="text-italic color-grey slds-var-p-bottom_large">
+                                    All fields are required unless otherwise noted as &apos;Optional&apos;
+                                </span>
+
+                                <template lwc:if={formData}>
+                                    <c-breg_-registration-dynamic-form
+                                        form-configuration={formConfiguration}
+                                        form-data={formData}
+                                        case-id={caseId}
+                                        parent-case-id={parentCaseId}
+                                        onsave={handleSaveForm}
+                                        oninputchange={handleFormDataChange}
+                                        cmp-properties={componentProperties}
+                                        files-data={files}
+                                    ></c-breg_-registration-dynamic-form>
+                                </template>
+                                <template lwc:else>
+                                    <lightning-spinner alternative-text="Loading form..." size="medium"></lightning-spinner>
+                                </template>
+
+                                <template lwc:if={componentProperties.readOnly}>
+                                    <div class="slds-p-top_small slds-p-bottom_small">
+                                        <c-breg_-account-info case-id={caseId} parent-case-id={parentCaseId} is-dynamic-forms read-only> </c-breg_-account-info>
+                                    </div>
+                                </template>
+                                <template lwc:if={isReviewMode}>
+                                    <template lwc:if={signatureConfirmDesc}>
+                                        <div class="slds-p-bottom_small">
+                                            <lightning-formatted-rich-text value={signatureConfirmDesc}></lightning-formatted-rich-text>
+                                        </div>
+                                    </template>
+                                </template>
+                            </template>
+                            <template lwc:elseif={formsAndFeesStep}>
+                                <c-breg_-forms-and-fees
+                                    case-id={caseId}
+                                    account-id={accountId}
+                                    tntmsm-id={tntmsmId}
+                                    company-name={companyName}
+                                    entity-type={entityType}
+                                    entity-type-for-fees={entityTypeForFees}
+                                    registration-type={registrationType}
+                                    is-gp-and-llp-registration={isGpAndLlpRegistration}
+                                    form-action={formAction}
+                                    form-configuration={formConfiguration}
+                                    company-date-formed-on={companyDateFormedOn}
+                                    form-data={formData}
+                                    onpaynow={handlePayNow}
+                                    onback={handleBack}
+                                ></c-breg_-forms-and-fees>
+                            </template>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" large-device-size="3" padding="around-small" class="slds-order_1 slds-large-order_2">
+                            <div>
+                                <c-breg_-what-is-this-form title="What is this form?" text-body={whatIsThisForm}></c-breg_-what-is-this-form>
+
+                                <template lwc:if={showRequiredInformation}>
+                                    <div class="slds-m-top_medium">
+                                        <c-breg_-what-is-this-form title="" text-body={requiredInformation}></c-breg_-what-is-this-form>
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+                <!-- Navigation Buttons -->
+                <lightning-layout-item size="12" class="btn-container">
+                    <!-- Initial business filling Buttons -->
+                    <template lwc:if={initialInformationStep}>
+                        <lightning-button variant="brand" label="Continue" disabled={continueButtonDisabled} onclick={handleContinue}></lightning-button>
+                    </template>
+                    <!-- Dynamic Forms Buttons -->
+                    <template lwc:elseif={formDataStep}>
+                        <!-- For Internal Users -->
+                        <template lwc:if={isInternal}>
+                            <lightning-button variant="brand" label="Save" class="slds-var-m-right_small" onclick={handleSave}></lightning-button>
+                            <lightning-button
+                                variant="bare"
+                                label="Save & New"
+                                class="btn-draft slds-var-m-right_small"
+                                onclick={handleSaveAndNew}
+                            ></lightning-button>
+                        </template>
+                        <!-- For Portal Users -->
+                        <template lwc:else>
+                            <template lwc:if={formFillingStep}>
+                                <lightning-button
+                                    variant="brand"
+                                    label="Review & Purchase"
+                                    class="slds-var-m-right_small"
+                                    onclick={handleReview}
+                                ></lightning-button>
+                                <lightning-button
+                                    variant="bare"
+                                    label="Save Draft"
+                                    class="btn-draft slds-var-m-right_small"
+                                    onclick={handleSaveDraft}
+                                ></lightning-button>
+                            </template>
+                            <template lwc:else>
+                                <lightning-button
+                                    variant="brand"
+                                    label={confirmButtonLabel}
+                                    class="slds-var-m-right_small"
+                                    onclick={handleConfirm}
+                                ></lightning-button>
+                            </template>
+                        </template>
+                        <!-- For All Users -->
+                        <lightning-button
+                            variant="neutral"
+                            label="Cancel"
+                            class="btn-cancel slds-var-m-right_small"
+                            onclick={handleCancel}
+                        ></lightning-button>
+                        <lightning-button lwc:if={showBackButton} variant="neutral" label="Back" onclick={handleBack}></lightning-button>
+                    </template>
+                </lightning-layout-item>
+            </lightning-tab>
+            <lightning-tab lwc:if={showTabs} label="Help" value="help" icon-name="utility:help_custom">
+                <c-breg-_-f-a-qs topic-name="Start"></c-breg-_-f-a-qs>
+            </lightning-tab>
+        </lightning-tabset>
+    </template>
+    <template lwc:else>
+        <c-breg_-login-redirection-page></c-breg_-login-redirection-page>
+    </template>
+</template>

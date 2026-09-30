@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LICNCodes</fullName>
+    <columns>NAME</columns>
+    <columns>CashierCodeAmount__c</columns>
+    <columns>FeeAmount__c</columns>
+    <columns>RenewalFeePeriod__c</columns>
+    <columns>RenewalFeePercentage__c</columns>
+    <columns>Status__c</columns>
+    <columns>LicenseType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>LICN - New License</value>
+    </filters>
+    <filters>
+        <field>LicenseType__c</field>
+        <operation>equals</operation>
+        <value>CT - Entity</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>&quot;A1 - Application Submitted, Awaiting Review&quot;</value>
+    </filters>
+    <label>LICN Codes</label>
+</ListView>

@@ -1,0 +1,452 @@
+<aura:component implements="forceCommunity:themeLayout">
+
+    <aura:attribute name="search" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false"/>
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false"/>
+
+    <aura:attribute name="BackgroundImage" type="string"
+                    default="https://agrdev3-agrdev3-hawaii-agr.cs14.force.com/resource/1502793301000/CustomTemplate/bg-image-2.jpg"/>
+    <aura:attribute name="TopLeftLogo" type="string"
+                    default="https://agrdev3-agrdev3-hawaii-agr.cs14.force.com/resource/1502793301000/CustomTemplate/hawaii.png"/>
+    <aura:attribute name="TopLeftText" type="string" default="Hawaii.gov"/>
+    <aura:attribute name="TopLeftLink" type="string" default="http://portal.ehawaii.gov/"/>
+    <aura:attribute name="TopRightLogo" type="string"
+                    default="https://agrdev3-agrdev3-hawaii-agr.cs14.force.com/resource/1502793301000/CustomTemplate/globe.png"/>
+    <aura:attribute name="TopRightText" type="string" default="Stay Connected"/>
+    <aura:attribute name="TopRightLink" type="string" default="http://stayconnected.hawaii.gov/"/>
+    <aura:attribute name="HeaderLogo" type="string"
+                    default="https://agrdev3-agrdev3-hawaii-agr.cs14.force.com/resource/1502793301000/CustomTemplate/copy-dcca-seal-logo.png"/>
+    <aura:attribute name="HeaderLogoLink" type="string" default="https://agrdev3-agrdev3-hawaii-agr.cs14.force.com/s/"/>
+    <aura:attribute name="HeaderTitle" type="string" default="State of Hawaii"/>
+    <aura:attribute name="HeaderSubtitle" type="string" default="Department of Commerce and Consumer Affairs"/>
+    <aura:attribute name="HeaderSubtitleColor" type="string" default="#4D76A4"/>
+    <aura:attribute name="TwitterLink" type="string" default=""/>
+    <aura:attribute name="RSSLink" type="string" default=""/>
+    <aura:attribute name="FacebookLink" type="string" default=""/>
+    <aura:attribute name="UStreamLink" type="string" default=""/>
+    <aura:attribute name="YoutubeLink" type="string" default=""/>
+    <aura:attribute name="InstagramLink" type="string" default=""/>
+    <aura:attribute name="NavigationBackgroundColor" type="string" default="#2D822D"/>
+    <aura:attribute name="NavigationHoverColor" type="string" default="#2D702D"/>
+    <aura:attribute name="PhoneNumber" type="string" default="808-587-3222"/>
+    <aura:attribute name="EmailAddress" type="string" default="dcca@dcca.hawaii.gov"/>
+    <aura:attribute name="Website" type="string" default="https://portal.ehawaii.gov/"/>
+    <aura:attribute name="CopyrightText" type="string"
+                    default="Copyright © 2017, State of Hawaii. All rights reserved."/>
+    <aura:attribute name="AboutUsTitle" type="string" default="About Us"/>
+    <aura:attribute name="AboutUsLink1" type="string" default="/AgrCSS/s/"/>
+    <aura:attribute name="AboutUsText1" type="string" default="Test"/>
+    <aura:attribute name="AboutUsLink2" type="string" default=""/>
+    <aura:attribute name="AboutUsText2" type="string" default=""/>
+    <aura:attribute name="AboutUsLink3" type="string" default=""/>
+    <aura:attribute name="AboutUsText3" type="string" default=""/>
+    <aura:attribute name="AboutUsLink4" type="string" default=""/>
+    <aura:attribute name="AboutUsText4" type="string" default=""/>
+    <aura:attribute name="AboutUsLink5" type="string" default=""/>
+    <aura:attribute name="AboutUsText5" type="string" default=""/>
+    <aura:attribute name="PoliciesTitle" type="string" default="Policies"/>
+    <aura:attribute name="PoliciesLink1" type="string" default="/AgrCSS/s/"/>
+    <aura:attribute name="PoliciesText1" type="string" default="Test"/>
+    <aura:attribute name="PoliciesLink2" type="string" default=""/>
+    <aura:attribute name="PoliciesText2" type="string" default=""/>
+    <aura:attribute name="PoliciesLink3" type="string" default=""/>
+    <aura:attribute name="PoliciesText3" type="string" default=""/>
+    <aura:attribute name="PoliciesLink4" type="string" default=""/>
+    <aura:attribute name="PoliciesText4" type="string" default=""/>
+    <aura:attribute name="PoliciesLink5" type="string" default=""/>
+    <aura:attribute name="PoliciesText5" type="string" default=""/>
+    <aura:attribute name="BodyPMargin" type="string" default="5px"/>
+    <aura:attribute name="BodyPLineHeight" type="string" default="1.5"/>
+
+    <aura:attribute name="HomePage" type="string" default=""/>
+    
+    <aura:attribute name="HidePage" type="string" default="true"/>
+
+    <ltng:require styles="{!$Resource.CustomTemplate + '/style.css'}" afterScriptsLoaded="{!c.scriptsLoaded}"/>
+
+    <head lang="en-US">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0"/>
+        <meta name="google-site-verification" content="jrc8N7eFb8h123d6S6BR-0-vDziL7h7vnpk_NlFGKTQ" />
+        <!-- <link rel="stylesheet" href="{!$Resource.CustomTemplate + '/style.css'}" type="text/css" /> -->
+        <link rel="stylesheet" href="{!$Resource.CustomTemplate + '/print.css'}" type="text/css" media="print"/>
+        <link rel="dns-prefetch" href="http://s.w.org/"/>
+        <style type="text/css">
+            img.wp-smiley,
+            img.emoji {
+                display: inline !important;
+                border: none !important;
+                box-shadow: none !important;
+                height: 1em !important;
+                width: 1em !important;
+                margin: 0 .07em !important;
+                vertical-align: -0.1em !important;
+                background: none !important;
+                padding: 0 !important;
+            }
+            
+            /*.siteforcePanelsContainer {
+            	display:none;
+            }*/
+            
+            ul.slds-page-header__detail-row {
+            	z-index:auto;
+            }
+            
+            .uiTooltipAdvanced {
+                height: 0px;
+            }
+        </style>
+        <link rel="stylesheet" id="dashicons-css" href="{!$Resource.CustomTemplate + '/dashicons.css'}" type="text/css"
+              media="all"/>
+        <link rel="stylesheet" id="thickbox-css" href="{!$Resource.CustomTemplate + '/thickbox.css'}" type="text/css"
+              media="all"/>
+        <link rel="stylesheet" id="simple_announcer_style-css"
+              href="{!$Resource.CustomTemplate + '/simple_announcer_style.css'}" type="text/css" media="screen"/>
+        <link rel="stylesheet" id="scp_style-css" href="{!$Resource.CustomTemplate + '/scp_style.css'}" type="text/css"
+              media="screen"/>
+        <link rel="stylesheet" id="font-awesome-st-css" href="{!$Resource.CustomTemplate + '/font-awesome-st.css'}"
+              type="text/css" media="screen"/>
+        <link rel="stylesheet" id="nivo_slider_style-css" href="{!$Resource.CustomTemplate + '/nivo-slider.css'}"
+              type="text/css" media="screen"/>
+        <link rel="stylesheet" id="nivo_slider_theme_style-css" href="{!$Resource.CustomTemplate + '/default.css'}"
+              type="text/css" media="screen"/>
+        <link rel="stylesheet" id="et-shortcodes-css-css" href="{!$Resource.CustomTemplate + '/shortcodes.css'}"
+              type="text/css" media="all"/>
+        <link rel="stylesheet" id="et-shortcodes-responsive-css-css"
+              href="{!$Resource.CustomTemplate + '/shortcodes_responsive.css'}" type="text/css" media="all"/>
+        <link rel="stylesheet" id="pcs-styles-css" href="{!$Resource.CustomTemplate + '/default-styles.css'}"
+              type="text/css" media="screen"/>
+        <link rel="stylesheet" id="featured-widget-css-css"
+              href="{!$Resource.CustomTemplate + '/featured-page-widget.css'}" type="text/css" media="all"/>
+        <link rel="stylesheet" type="text/css" href="{!$Resource.CustomTemplate + '/pagination.css'}"/>
+
+        <style type="text/css">
+            @media (max-width: 767px) {
+                #scheme_color_blue #header .inner-header {
+                    background-color: {!v.NavigationBackgroundColor} !important;
+                }
+
+                #navigation {
+                    display: block !important;
+                }
+
+                .forceCommunityNavigationMenu {
+                    text-align: left;
+                }
+
+                .logo {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+
+                .logo img {
+                    width: 50% !important;
+                    display: inline;
+                    float: left;
+                }
+
+                .title_tagline {
+                    float: right;
+                    margin-top: 15px;
+                }
+
+                #additional-info {
+                    padding-left: 20px !important;
+                }
+
+                #et-social-icons {
+                    padding: 10px !important;
+                }
+
+                #footer {
+                    background-color: #EEEEEE !important;
+                }
+
+                #navigation ul li div.menuItem a.menuItemLink {
+                    color: {!v.NavigationBackgroundColor} !important;
+                }
+
+                #scheme_color_blue .statewide-header {
+                    background-color: {!v.NavigationHoverColor} !important;
+                }
+
+                #navigation ul li a.homeLink {
+                    display: inline-block !important;
+                    color: {!v.NavigationBackgroundColor} !important;
+                }
+
+                .image-button .dotnav {
+                    display: none !important;
+                }
+            }
+        </style>
+    </head>
+    <body class="">
+    <aura:if isTrue="{!v.HidePage == 'true'}">
+        <div style="opacity:1; background-color:#FFFFFF; position:fixed; width:100%; height:100%; top:0px; left:0px; z-index:1000;">
+            <div class="demo-only" style="height: 6rem;">
+                <div role="status" class="slds-spinner slds-spinner_medium">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+
+    <!--<a name="top"></a>-->
+    <div id="scheme_color_blue">
+        <div id="backgroundCover" data-background="{!v.BackgroundImage}"
+             style="{!'background: rgba(0, 0, 0, 0) url(\'' + v.BackgroundImage + '\') no-repeat fixed 0% 0% / cover ;'}">
+        </div>
+
+        <div id="wrap">
+            <div id="sliver" class="statewide-header">
+                <div class="statewide-banner">
+                    <div id="hawaii-home" class="statewide-banner-left">
+                        <a href="{!v.TopLeftLink}" title="Link to Hawaii.gov"
+                           style="{!'background-image: url(\'' + v.TopLeftLogo + '\');'}">{!v.TopLeftText}</a>
+                    </div><!-- /hawaii-home -->
+
+                    <div class="notmobile statewide-banner-right"
+                         style="{!'background-image: url(\'' + v.TopRightLogo + '\');'}">
+                        <a href="{!v.TopRightLink}" title="Link to Stay Connected">{!v.TopRightText}</a>
+                    </div><!-- /notmobile statewide-banner-right -->
+                </div><!-- /statewide-banner -->
+            </div><!-- /statewide-header -->
+            <div id="inner-wrap">
+                <div id="page" class="group">
+                    <header>
+                        <div id="header" class="group" style="z-index:auto;">
+                            <div class="inner-header group" style="overflow: visible;">
+
+                                <div class="nine-col logo">
+                                    <a href="{!v.HeaderLogoLink}" title="Go to Homepage Link">
+                                        <img src="{!v.HeaderLogo}" alt="Logo" width="0" height="0"/>
+                                    </a>
+                                    <div class="title_tagline">
+                                        <span class="tagline">{!v.HeaderTitle}</span>
+                                        <h1 class="title"><a href="{!v.HomePage}"
+                                                             style="{!'color:' + v.HeaderSubtitleColor}" title="Go to Homepage Link">{!v.HeaderSubtitle}</a>
+                                        </h1>
+                                    </div>
+                                </div><!-- /nine-col logo -->
+                                <style>
+                                    .slds-global-header__item--search, .slds-global-header__item_search {
+                                    	display: none !important;
+                                    }
+                                </style>
+                                <!--<div id="header_search" class="three-col last-col">
+
+                                </div> #header_search -->
+
+                                <div id="additional-info" class="three-col last-col" style="overflow: visible;">
+                                    <style>
+                                        #profileMenuDiv .uiMenuItem a {
+                                        }
+                                    </style>
+                                    <div id="profileMenuDiv" style="overflow: visible">
+                                            {!v.profileMenu}
+                                    </div>
+                                        
+                                    <div id="et-social-icons" style="text-align:right;">
+                                        <aura:if isTrue="{!v.TwitterLink != ''}">
+                                            <a href="{!v.TwitterLink}" alt="Twitter">
+                                                <i class="icon-twitter-sign"></i>
+                                                <span class="social-media-link-text">Twitter icon</span>
+                                            </a>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.RSSLink != ''}">
+                                            <a href="{!v.RSSLink}" alt="RSS">
+                                                <i class="icon-rss-sign"></i>
+                                                <span class="social-media-link-text">RSS icon</span>
+                                            </a>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.FacebookLink != ''}">
+                                            <a href="{!v.FacebookLink}" alt="Facebook">
+                                                <i class="icon-facebook-sign"></i>
+                                                <span class="social-media-link-text">Facebook icon</span>
+                                            </a>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.UStreamLink != ''}">
+                                            <a href="{!v.UStreamLink}" alt="Ustream">
+                                                <i class="icon-facetime-video"></i>
+                                                <span class="social-media-link-text">Facetime icon</span>
+                                            </a>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.YoutubeLink != ''}">
+                                            <a href="{!v.YoutubeLink}" alt="Youtube">
+                                                <i class="icon-youtube"></i>
+                                                <span class="social-media-link-text">Youtube icon</span>
+                                            </a>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.InstagramLink != ''}">
+                                            <a href="{!v.InstagramLink}" alt="Instagram">
+                                                <i class="icon-instagram"></i>
+                                                <span class="social-media-link-text">Instagram icon</span>
+                                            </a>
+                                        </aura:if>
+                                    </div><!-- / social icons -->
+                                </div> <!-- / additional-info -->
+
+                            </div><!-- /inner-header -->
+
+                            <a name="menu"></a>
+                            <style>
+                                .homeLink {
+                                    display: none !important;
+                                }
+
+                                .uiMenuItem a {
+                                    padding-top: 5px !important;
+                                    padding-bottom: 5px !important;
+                                }
+
+                                #navigation .current .menuItemLink {
+                                    background-color: {!v.NavigationHoverColor} !important;
+                                }
+
+                                #scheme_color_blue #navigation ul li a.menuItemLink:hover {
+                                    background-color: {!v.NavigationHoverColor} !important;
+                                }
+                            </style>
+                            <div id="navigation" style="{!'background-color:' + v.NavigationBackgroundColor}">
+                            {!v.navBar}
+                                <div style="clear:both;"></div>
+                            </div>
+
+                        </div> <!-- end #header -->
+
+                    </header>
+
+                    <br/>
+                    <style>
+                        #bodyCustom p {
+                            margin-bottom: {!v.BodyPMargin};
+                            line-height: {!v.BodyPLineHeight};
+                        }
+
+                        #bodyCustom .slds-page-header__detail-row {
+                            margin-left: 0;
+                            margin-right: 0;
+                        }
+
+                        #bodyCustom .primaryFieldRow {
+                            z-index: auto;
+                        }
+
+                        #bodyCustom .slds-input {
+                            border-color: #d4d4d4;
+                        }
+
+                        #bodyCustom .slds-media__body h2#header {
+                            z-index: auto;
+                        }
+                    </style>
+                    <div id="bodyCustom">
+                            {!v.body}
+                    </div>
+                    <br/>
+                </div>
+                <!--<a name="footer"></a>-->
+                <div id="footer">
+                    <div id="footer-widgets">
+                        <div id="nav_menu-2" class="widget-1 widget-first footer_widget two-col">
+                            <h2 class="widgettitle">{!v.AboutUsTitle}</h2>
+                            <div class="menu-footer-about-us-container">
+                                <ul id="menu-footer-about-us" class="menu">
+                                    <aura:if isTrue="{!v.AboutUsLink1 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.AboutUsLink1}">{!v.AboutUsText1}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.AboutUsLink2 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.AboutUsLink2}">{!v.AboutUsText2}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.AboutUsLink3 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.AboutUsLink3}">{!v.AboutUsText3}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.AboutUsLink4 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.AboutUsLink4}">{!v.AboutUsText4}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.AboutUsLink5 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.AboutUsLink5}">{!v.AboutUsText5}</a></li>
+                                    </aura:if>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="nav_menu-3" class="widget-2 footer_widget two-col">
+                            <h2 class="widgettitle">{!v.PoliciesTitle}</h2>
+                            <div class="menu-footer-policies-container">
+                                <ul id="menu-footer-policies" class="menu">
+                                    <aura:if isTrue="{!v.PoliciesLink1 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.PoliciesLink1}">{!v.PoliciesText1}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.PoliciesLink2 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.PoliciesLink2}">{!v.PoliciesText2}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.PoliciesLink3 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.PoliciesLink3}">{!v.PoliciesText3}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.PoliciesLink4 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.PoliciesLink4}">{!v.PoliciesText4}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.PoliciesLink5 != ''}">
+                                        <li id="menu-item-114"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                                            <a href="{!v.PoliciesLink5}">{!v.PoliciesText5}</a></li>
+                                    </aura:if>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="nav_menu-4" class="widget-3 widget-last last-col footer_widget two-col">
+                            <div class="menu-footer-contact-container">
+                                <ul id="menu-footer-contact" class="menu">
+                                    <aura:if isTrue="{!and(v.PhoneNumber != null, v.PhoneNumber != '')}">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119">
+                                            <a title="tel">{!v.PhoneNumber}</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!and(v.EmailAddress != null, v.EmailAddress != '')}">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-120">
+                                            <a title="email" href="{!'mailto:' + v.EmailAddress}">contact email</a></li>
+                                    </aura:if>
+                                    <aura:if isTrue="{!and(v.Website != null, v.Website != '')}">
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-120">
+                                            <a title="website" href="{!v.Website}">website</a></li>
+                                    </aura:if>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- #footer_widgets -->
+                    <div class="clearfix"></div> <!-- .clearfix -->
+                    <div class="clearfix"></div>
+                    <div id="copyright_info" class="twelve-col last-col">
+                        <span>{!v.CopyrightText}</span>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div><!-- #inner-wrap -->
+            </div> <!-- #wrap -->
+        </div> <!-- #color theme -->
+    </div>
+    </body>
+
+</aura:component>

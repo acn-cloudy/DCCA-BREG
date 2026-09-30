@@ -1,0 +1,244 @@
+<template>
+    <div class="slds-m-bottom_medium">
+        <div class="slds-grid slds-m-bottom_medium slds-align_absolute-center slds-align-middle">
+            <div class="slds-col slds-grid slds-align-middle">
+                <h1 class="dxp-text-heading-xlarge title slds-m-bottom_none">{labels.resultsTitle}</h1>
+                <div class="slds-grid slds-grid_vertical-align-center">
+                    <button onclick={handleNewSearch} class="new-search-btn">
+                        <lightning-icon
+                            icon-name="utility:search"
+                            alternative-text={labels.newSearch}
+                            size="x-small"
+                            class="new-search-icon"
+                        ></lightning-icon>
+                        <p>{labels.newSearch}</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-p-around_large">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        
+        <template if:true={error}>
+            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                <span class="slds-assistive-text">Error</span>
+                <h2>{error}</h2>
+            </div>
+        </template>
+        
+        <template if:true={hasNoResults}>
+            <div class="slds-align_absolute-center slds-p-around_large">
+                <div class="slds-text-align_center">
+                    <div class="slds-m-bottom_medium">
+                        <lightning-icon 
+                            icon-name="utility:search" 
+                            size="large" 
+                            variant="inverse"
+                            class="slds-icon-text-default"
+                        ></lightning-icon>
+                    </div>
+                    <h2 class="slds-text-heading_medium slds-m-bottom_small">
+                        {labels.noResultsFound}
+                    </h2>
+                </div>
+            </div>
+        </template>
+        
+        <template if:true={hasResults}>
+            <div class="slds-text-body_regular slds-m-bottom_medium">
+                {labels.instructions}
+            </div>
+            
+            <div class="slds-text-body_regular slds-m-bottom_small">
+                <strong>{agentsFoundText}</strong>
+            </div>
+            
+            <div class="slds-m-bottom_small">
+                <div style="max-height: 400px; overflow: auto;">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer agent-results-table" style="min-width: 600px;">
+                        <colgroup>
+                            <col style="max-width: 220px; width: 35%;" />
+                            <col style="width: 25%;" />
+                            <col style="width: 15%;" />
+                            <col style="width: 25%;" />
+                        </colgroup>
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">
+                                    <div class="slds-truncate" title={labels.agentColumn}>
+                                        {labels.agentColumn}
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title={labels.businessRecordsColumn}>
+                                        {labels.businessRecordsColumn}
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title={labels.priceColumn}>
+                                        {labels.priceColumn}
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title={labels.purchaseColumn}>
+                                        {labels.purchaseColumn} 
+                                        [<a href="#" onclick={handleSelectAll}><strong>{labels.selectAll}</strong></a>|<a href="#" onclick={handleSelectNone}><strong>{labels.selectNone}</strong></a>]
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={tableData} for:item="row">
+                                <tr key={row.agentId}>
+                                    <td>
+                                        <div class="slds-truncate" title={row.agentName}>
+                                            {row.agentName}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            {row.businessRecords}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            {row.formattedPrice}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-checkbox">
+                                                    <input 
+                                                        type="checkbox" 
+                                                        id={row.agentId}
+                                                        data-agent-id={row.agentId}
+                                                        checked={row.isSelected}
+                                                        onchange={handleCheckboxChange}
+                                                    />
+                                                    <label class="slds-checkbox__label" for={row.agentId}>
+                                                        <span class="slds-checkbox_faux"></span>
+                                                        <span class="slds-form-element__label">{labels.select}</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="slds-text-body_small slds-m-bottom_medium">
+                {showingEntriesText}
+            </div>
+            
+            <!-- Validation Error Message -->
+            <template if:true={showValidationError}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium" role="alert">
+                    <span class="slds-assistive-text">{labels.error}</span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small">
+                        <lightning-icon
+                            icon-name="utility:error"
+                            alternative-text={labels.error}
+                            size="x-small"
+                            variant="inverse"
+                        ></lightning-icon>
+                    </span>
+                    <h2 class="slds-text-heading_small">{labels.noAgentsSelected}</h2>
+                    <button
+                        class="slds-button slds-button_icon slds-button_icon-small slds-notify__close"
+                        title={labels.close}
+                        onclick={handleCloseValidationError}
+                    >
+                        <lightning-icon
+                            icon-name="utility:close"
+                            alternative-text={labels.close}
+                            size="x-small"
+                            variant="inverse"
+                        ></lightning-icon>
+                        <span class="slds-assistive-text">{labels.close}</span>
+                    </button>
+                </div>
+            </template>
+            
+            <div class="slds-text-body_regular slds-m-bottom_medium">
+                {labels.reminderText} <!-- <a href="#" class="slds-text-link" target="_blank" onclick={handleMoreInfoClick}><strong>{labels.tellMeMore}</strong></a> -->
+            </div>
+            
+            <div class="slds-grid slds-grid_align-start">
+                <lightning-button 
+                    label={labels.continueToConfirmation}
+                    variant="brand"
+                    class="slds-m-right_small"
+                    onclick={handleContinue}
+                ></lightning-button>
+                <lightning-button 
+                    label={labels.cancel}
+                    variant="neutral"
+                    icon-name="utility:close"
+                    onclick={handleCancel}
+                ></lightning-button>
+            </div>
+        </template>
+        
+        <!-- Subscriber Account Required Modal -->
+        <!-- <template if:true={showSubscriberModal}>
+            <section
+                role="dialog"
+                tabindex="-1"
+                aria-labelledby="subscriber-modal-heading"
+                aria-modal="true"
+                aria-describedby="subscriber-modal-content"
+                class="slds-modal slds-fade-in-open"
+            >
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button
+                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title={labels.close}
+                            onclick={handleCloseSubscriberModal}
+                        >
+                            <lightning-icon icon-name="utility:close" alternative-text={labels.close} variant="inverse" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">{labels.close}</span>
+                        </button>
+                        <h2 id="subscriber-modal-heading" class="slds-modal__title slds-hyphenate">
+                            {labels.subscriberAccountRequiredTitle}
+                        </h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="subscriber-modal-content">
+                        <div class="slds-grid">
+                            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_small">
+                                <lightning-icon
+                                    icon-name="utility:warning"
+                                    alternative-text="Warning"
+                                    size="small"
+                                ></lightning-icon>
+                            </span>
+                            <div>
+                                <p class="slds-text-body_regular slds-m-bottom_small">
+                                    {labels.subscriberAccountRequiredMessage}
+                                </p>
+                                <p class="slds-text-body_regular">
+                                    {labels.subscriberContactMessage}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_brand" onclick={handleCloseSubscriberModal}>
+                            {labels.close}
+                        </button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template> -->
+    </div>
+</template>

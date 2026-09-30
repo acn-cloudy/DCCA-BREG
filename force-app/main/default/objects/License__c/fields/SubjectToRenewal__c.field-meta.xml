@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubjectToRenewal__c</fullName>
+    <description>PacPoint-MV010419 - Created for PVL phase 1</description>
+    <formula>IF(
+ AND(
+  FlaggedforAudit__c = false,
+  OR(
+  ISPICKVAL(Status__c,&quot;C - Current, Valid &amp; In Good Standing&quot;),
+  ISPICKVAL(Status__c,&quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot;),
+  ISPICKVAL(Status__c,&quot;CR - Current/Next Renewal Paid&quot;),
+  ISPICKVAL(Status__c,&quot;DM - Forfeited/Maintenance Requirement Due&quot;),
+  ISPICKVAL(Status__c,&quot;R - Valid Thru Expiration Date, Subject To Renewal&quot;),
+  ISPICKVAL(Status__c,&quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;),
+  ISPICKVAL(Status__c,&quot;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot;),
+  ISPICKVAL(Status__c,&quot;ZI - Automatically Forfeited Due To Insurance Loss&quot;),
+  ISPICKVAL(Status__c,&quot;ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance&quot;)
+  )
+ ), 
+true, 
+false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Subject To Renewal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

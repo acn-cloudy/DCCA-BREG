@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReceivedDateGracePeriod__c</fullName>
+    <description>The amount of days prior to the start of a renewal cycle that an application can be considered valid for dependency renewals.
+
+Used in: PVL_RenewalsGetDependentApplications.getDependentApplication</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The amount of days prior to the start of a renewal cycle that an application can be considered valid for dependency renewals.</inlineHelpText>
+    <label>Received Date Grace Period</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  :host {
+    overflow-x: hidden;
+  }
+}

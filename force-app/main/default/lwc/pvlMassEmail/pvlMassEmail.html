@@ -1,0 +1,138 @@
+<template>
+    <div class="slds-p-around_medium">
+        <!-- Loading spinner -->
+        <template if:true={isLoading}>
+            <div class="slds-align_absolute-center slds-m-around_large">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <!-- Send To -->
+            <div class="slds-m-bottom_small">
+                <lightning-radio-group
+                    name="target"
+                    label="Send To"
+                    options={targetOptions}
+                    value={target}
+                    type="button"
+                    onchange={handleTargetChange}
+                    required>
+                </lightning-radio-group>
+            </div>
+
+            <!-- Content Type -->
+            <div class="slds-m-bottom_small">
+                <lightning-radio-group
+                    name="contentType"
+                    label="Email Content"
+                    options={contentTypeOptions}
+                    value={contentType}
+                    type="button"
+                    onchange={handleContentTypeChange}
+                    required>
+                </lightning-radio-group>
+            </div>
+
+            <!-- Email Template Selection -->
+            <template if:true={isTemplate}>
+                <div class="slds-m-bottom_small">
+                    <lightning-combobox
+                        name="emailTemplate"
+                        label="Email Template"
+                        options={emailTemplateOptions}
+                        value={selectedTemplateId}
+                        onchange={handleTemplateChange}
+                        placeholder="Select a template..."
+                        required>
+                    </lightning-combobox>
+                </div>
+            </template>
+
+            <!-- Free Text -->
+            <template if:true={isFreeText}>
+                <div class="slds-m-bottom_small">
+                    <lightning-input
+                        label="Subject"
+                        value={subject}
+                        onchange={handleSubjectChange}
+                        required>
+                    </lightning-input>
+                </div>
+                <div class="slds-m-bottom_small">
+                    <lightning-textarea
+                        label="Email Body"
+                        value={body}
+                        onchange={handleBodyChange}
+                        max-length="32000"
+                        required>
+                    </lightning-textarea>
+                    <p class="slds-text-color_weak slds-text-body_small slds-m-top_xx-small">
+                        {mergeTagHelpText}
+                    </p>
+                </div>
+            </template>
+
+            <!-- Filters Section (Accordion) -->
+            <div class="slds-m-top_small">
+                <p class="slds-text-title_caps slds-m-bottom_xx-small">Filters (Optional)</p>
+                <lightning-accordion allow-multiple-sections-open>
+                    <lightning-accordion-section name="status" label="Status">
+                        <c-pvl-multi-select-picklist
+                            label="Status"
+                            options={statusOptions}
+                            value={selectedStatuses}
+                            onselectionchange={handleStatusFilterChange}>
+                        </c-pvl-multi-select-picklist>
+                    </lightning-accordion-section>
+
+                    <lightning-accordion-section name="mol" label="Method of Licensure">
+                        <c-pvl-multi-select-picklist
+                            label="Method of Licensure"
+                            options={molOptions}
+                            value={selectedMol}
+                            onselectionchange={handleMolFilterChange}>
+                        </c-pvl-multi-select-picklist>
+                    </lightning-accordion-section>
+
+                    <template if:true={isLicenses}>
+                        <lightning-accordion-section name="privilege" label="Special Privilege">
+                            <c-pvl-multi-select-picklist
+                                label="Special Privilege"
+                                options={privilegeOptions}
+                                value={selectedPrivileges}
+                                onselectionchange={handleSpecialPrivilegeFilterChange}>
+                            </c-pvl-multi-select-picklist>
+                        </lightning-accordion-section>
+                    </template>
+
+                    <lightning-accordion-section name="classification" label={classificationLabel}>
+                        <c-pvl-multi-select-picklist
+                            label={classificationLabel}
+                            options={classificationOptions}
+                            value={selectedClassifications}
+                            onselectionchange={handleClassificationFilterChange}>
+                        </c-pvl-multi-select-picklist>
+                    </lightning-accordion-section>
+                </lightning-accordion>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="slds-m-top_medium slds-clearfix">
+                <div class="slds-float_right">
+                    <lightning-button
+                        label="Cancel"
+                        onclick={handleCancel}
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                    <lightning-button
+                        label="Send Mass Email"
+                        variant="brand"
+                        onclick={handleSubmit}
+                        disabled={isSubmitting}>
+                    </lightning-button>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

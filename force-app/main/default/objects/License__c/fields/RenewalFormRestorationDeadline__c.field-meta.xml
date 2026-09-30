@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalFormRestorationDeadline__c</fullName>
+    <formula>IF(
+OR(
+LicenseType__r.DurationofRestorationInMonths__c &gt;  LicenseType__r.DurationofLicenseInMonths__c,
+ISBLANK(LicenseType__r.DurationofRestorationInMonths__c),
+ISNULL(LicenseType__r.DurationofRestorationInMonths__c)) , 
+
+IF(
+OR(LicenseType__r.Name = &quot;RS&quot;, LicenseType__r.Name = &quot;RB - Broker&quot;, LicenseType__r.Name = &quot;RB - Sole Proprietor&quot;),
+IF
+(
+ EffectiveExpireDate__c &gt;= TODAY(), 
+   ADDMONTHS(LicenseType__r.LicenseTypeExpireDate__c,12) , 
+  ADDMONTHS(LicenseType__r.PreviousLicensePeriodExpireDate__c,12 )), 
+IF
+(
+EffectiveExpireDate__c &gt;= TODAY(),
+ADDMONTHS(LicenseType__r.LicenseTypeExpireDate__c,LicenseType__r.DurationofLicenseInMonths__c) ,
+ADDMONTHS(LicenseType__r.PreviousLicensePeriodExpireDate__c, LicenseType__r.DurationofLicenseInMonths__c ))),
+ 
+IF
+(
+EffectiveExpireDate__c &gt;= TODAY(),
+ADDMONTHS(LicenseType__r.LicenseTypeExpireDate__c,LicenseType__r.DurationofRestorationInMonths__c) ,
+ADDMONTHS(LicenseType__r.PreviousLicensePeriodExpireDate__c, LicenseType__r.DurationofRestorationInMonths__c )))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Form Restoration Deadline</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

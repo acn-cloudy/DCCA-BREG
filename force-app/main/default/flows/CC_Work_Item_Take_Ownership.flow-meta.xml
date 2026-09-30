@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>CALL-705: guarded path. The work item is already Closed or Transferred, so only ownership changes — Status__c is deliberately left untouched so the closed date is not re-stamped and Days Open is preserved.</description>
+        <name>Assign_Owner_Only</name>
+        <label>Assign Owner Only</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>rec_WorkItem.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Work_Item</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>CALL-705: default path. Unchanged pre-existing behavior for work items that are not already Closed or Transferred (New, In-Progress, or no status).</description>
+        <name>Assign_Updates_to_Record</name>
+        <label>Assign Updates to Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>rec_WorkItem.OwnerId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>rec_WorkItem.Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>In-Progress</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Work_Item</targetReference>
+        </connector>
+    </assignments>
+    <customProperties>
+        <name>ScreenProgressIndicator</name>
+        <value>
+            <stringValue>{&quot;location&quot;:&quot;top&quot;,&quot;type&quot;:&quot;simple&quot;}</stringValue>
+        </value>
+    </customProperties>
+    <decisions>
+        <description>CALL-705: guards against reopening a work item that is already finished. Taking ownership of a Closed or Transferred item should record who owns it without changing its status — re-closing would re-stamp Work_Item_Closed_Date__c, which Days_Open__c is calculated from.</description>
+        <name>Is_Closed_or_Transferred</name>
+        <label>Is Closed or Transferred?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Updates_to_Record</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Open item</defaultConnectorLabel>
+        <rules>
+            <name>Closed_or_Transferred</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>rec_WorkItem.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>rec_WorkItem.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Transferred</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Owner_Only</targetReference>
+            </connector>
+            <label>Closed or Transferred</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>CALL-705: decides whether to show the guarded-path confirmation screen. It re-tests the same two values after the update rather than carrying a flag, so the message cannot be displayed unless the record really is still Closed or Transferred — the decision validates the claim the screen makes. On the default path Status__c has just been set to In-Progress, so this never matches and the flow ends without an extra screen, exactly as it does today.</description>
+        <name>Status_Left_Unchanged</name>
+        <label>Status left unchanged?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Open item — no message</defaultConnectorLabel>
+        <rules>
+            <name>Still_Closed_or_Transferred</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>rec_WorkItem.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>rec_WorkItem.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Transferred</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Ownership_Recorded</targetReference>
+            </connector>
+            <label>Still Closed or Transferred</label>
+        </rules>
+    </decisions>
+    <description>This screen flow is used to change the owner of a work item to a user in the Cases and Complaints app.</description>
+    <environments>Default</environments>
+    <interviewLabel>CC: {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CC :: Work Item :: Take Ownership</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>Get_Work_Item_Record</name>
+        <label>Get Work Item Record</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Closed_or_Transferred</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <object>Work_Item__c</object>
+        <outputReference>rec_WorkItem</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>OwnerId</queriedFields>
+        <queriedFields>Status__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Work_Item</name>
+        <label>Update Work Item</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Status_Left_Unchanged</targetReference>
+        </connector>
+        <inputReference>rec_WorkItem</inputReference>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Confirm_Ownership</name>
+        <label>Confirm Ownership</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Get_Work_Item_Record</targetReference>
+        </connector>
+        <fields>
+            <name>ConfirmChange</name>
+            <fieldText>&lt;p&gt;Please confirm that you want to take ownership of this Work Item.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <nextOrFinishButtonLabel>Confirm</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
+        <description>CALL-705: guarded-path confirmation. Without this the modal simply closes and the only visible change is the owner field, which reads as &quot;nothing happened&quot; and invites a second click. Shown only after the update has committed, so it reports what was done rather than what was intended. Reached only from Status_Left_Unchanged; the default path is unchanged and shows no extra screen.</description>
+        <name>Ownership_Recorded</name>
+        <label>Ownership Recorded</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>OwnershipRecordedMessage</name>
+            <fieldText>&lt;p&gt;&lt;b&gt;You are now the owner of this work item.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Its status is unchanged — it remains &lt;b&gt;{!rec_WorkItem.Status__c}&lt;/b&gt;. Taking ownership does not reopen an item that is already finished, so the date closed and days open are unaffected.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <nextOrFinishButtonLabel>Done</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Confirm_Ownership</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>rec_WorkItem</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Work_Item__c</objectType>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

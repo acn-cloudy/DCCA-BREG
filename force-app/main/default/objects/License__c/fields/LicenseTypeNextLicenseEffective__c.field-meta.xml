@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseTypeNextLicenseEffective__c</fullName>
+    <description>PacPoint-DN06172020-Created for PVL Phase 1 Sprint 5</description>
+    <formula>LicenseType__r.NextLicensePeriodEffectiveDate__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License Type Next License Effective</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

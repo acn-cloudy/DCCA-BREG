@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Set_Override_Payment_And_Received</name>
+        <label>Set Override Payment And Received</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.breg_Override_Payment__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Received</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Check_BREG_Settings</name>
+        <label>Check BREG Settings</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Is_Manual_Filing_Non_Payment_Form</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Global_Data_Migration_Triggers_Disabled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.BREG_Setting__c.Global_Data_Migration_Triggers_Disabled__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Global Data Migration Triggers Disabled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Manual_Filing_Non_Payment_Form</name>
+        <label>Is Manual Filing Non Payment Form</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Manual_Filing_With_Non_Payment_Form</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Person</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.breg_Form_Code__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>formFormula_Is_Non_Payment_Form</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Override_Payment_And_Received</targetReference>
+            </connector>
+            <label>Manual Filing With Non Payment Form</label>
+        </rules>
+    </decisions>
+    <description>Auto-set Override Payment and Received status for non-payment Manual Filing cases (Origin = In Person) with form codes ADD-TNTMSM, TN-RNC, TN-CANC.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>formFormula_Is_Non_Payment_Form</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    TEXT({!$Record.breg_Form_Code__c}) = &apos;ADD-TNTMSM&apos;,
+    TEXT({!$Record.breg_Form_Code__c}) = &apos;TN-RNC&apos;,
+    TEXT({!$Record.breg_Form_Code__c}) = &apos;TN-CANC&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>BREG Case - Before Create Manual Filing {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>BREG Case - Before Create Manual Filing</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_BREG_Settings</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

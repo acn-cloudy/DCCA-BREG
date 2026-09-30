@@ -1,0 +1,111 @@
+<template>
+    <template lwc:if={isLoading}>
+        <div class="slds-align_absolute-center slds-p-around_large">
+            <lightning-spinner alternative-text="Searching for accounts" size="medium"></lightning-spinner>
+        </div>
+    </template>
+    <template lwc:if={readOnly}>
+        <div class="slds-box container">
+
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small slds-border_bottom">
+                Contact Information for questions, approvals, or returned documents:
+            </h2>
+
+            <div class="slds-grid slds-gutters slds-var-m-top_small">
+
+                <!-- Contact Info -->
+                <div class="slds-col slds-size_11-of-12 slds-grid slds-wrap slds-text-body_regular">
+                    <table>
+                        <tr>
+                            <td class="slds-size_1-of-4"><strong>Name:</strong></td>
+                            <td>{contactName}</td>
+                        </tr>
+                        <tr>
+                            <td class="slds-size_1-of-4"><strong>Mailing Address:</strong></td>
+                            <td>{contactMailingAddress}</td>
+                        </tr>
+                        <tr>
+                            <td class="slds-size_1-of-4"><strong>Phone Number:</strong></td>
+                            <td>{contactPhone}</td>
+                        </tr>
+                        <tr>
+                            <td class="slds-size_1-of-4"><strong>Email:</strong></td>
+                            <td>{contactEmail}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Edit Button -->
+                <div class="slds-col slds-size_1-of-12 slds-align-middle slds-text-align_right">
+                    <lightning-button
+                        label="Edit"
+                        onclick={handleEdit}>
+                    </lightning-button>
+                </div>
+
+            </div>
+
+            <lightning-input
+                class="slds-var-m-top_medium"
+                type="checkbox"
+                label="I certify the above contact information is correct."
+                required>
+            </lightning-input>
+
+        </div>
+    </template>
+    <template lwc:else>
+        <h2 class="dxp-text-heading-large slds-var-m-bottom_small">Update Account</h2>
+
+        <div class="slds-border_bottom">
+            <div class="slds-p-bottom_x-small">Return to <a href="https://hbe.dcca.hawaii.gov" target="_self">Hawai'i Business Express</a> without updating.</div>
+
+            <div class="slds-p-bottom_x-small">All fields are <strong>required</strong> unless otherwise noted.</div>
+
+            <h3 class="dxp-text-heading-medium slds-p-bottom_x-small">Name & Email</h3>
+            <!-- TODO: comment out the following line until we have a way to update the name and email -->
+            <div>To edit name, email, MFA option or password, go to <a href="https://sso.ehawaii.gov/sso/account/update.lala">manage your SSO account</a>.</div>
+
+            <!-- Contact Info -->
+            <c-breg_-contact-info is-nested contact-data={contactData}></c-breg_-contact-info>
+        </div>
+
+        <div class="slds-p-top_small slds-border_bottom">
+            <h3 class="dxp-text-heading-medium slds-p-bottom_x-small">Address</h3>
+
+            <!-- Mailing Address -->
+            <c-breg_-address is-nested hide-header predefined-values={contactData} onchange={handleInfoChange}>
+            </c-breg_-address>
+        </div>
+
+        <div class="slds-p-top_small slds-border_bottom">
+            <h3 class="dxp-text-heading-medium slds-p-bottom_x-small">Contact Information</h3>
+
+            <div>Provide the following information so we may contact you if necessary. This information is used for official State business only, and it will never be transferred to any 3rd party.</div>
+
+            <!-- Phone -->
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="6" small-device-size="12">
+                    <lightning-input required class="slds-m-right_small" data-name="Primary Phone" type="tel" label="Phone"
+                                value={contactData.Phone} onblur={handlePhoneBlur}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" small-device-size="12">
+                    <lightning-input data-name="Secondary Phone" type="tel" label="Secondary Phone(Optional)" value={contactData.SecondaryPhone} onblur={handlePhoneBlur}></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6" small-device-size="12">
+                    <lightning-input class="mobile-as-primary-checkbox" type="checkbox" label="Mobile # same as Primary" onchange={handleMobileSameAsPrimary}></lightning-input>
+                    <div>Mobile Phone - <a>USA only</a> (Optional):</div>
+                    <lightning-input data-name="Mobile Phone" class="slds-m-right_small" type="tel" label="Mobile Phone" variant="label-hidden" value={contactData.MobilePhone} onblur={handlePhoneBlur}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <div class="terms-conditions-checkbox">
+            <lightning-input class="slds-p-top_small" type="checkbox" label="Agree to the Terms" variant="label-hidden" required></lightning-input>
+            <div class="terms-conditions-checkbox-label">I agree to the <a>Terms of Use</a></div>
+        </div>
+
+        <lightning-button label="Save" onclick={handleSave}></lightning-button>
+    </template>
+</template>

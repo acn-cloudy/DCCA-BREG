@@ -1,0 +1,12 @@
+.nbr-internal-container h2, 
+.nbr-internal-container h3, 
+.nbr-internal-container h4, 
+.nbr-internal-container h5, 
+.nbr-internal-container h6 {
+    font-weight: revert;
+    font-size: revert;
+}
+
+.nbr-internal-container h1 {
+    font-size: 2rem;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disciplinary_Status_Change</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND
+( 
+ISCHANGED( Status__c ), 
+   OR  
+   ( 
+    TEXT(Status__c) = &quot;TC - Voluntary Request To Cancel/Terminate&quot;,
+    TEXT(Status__c) = &quot;TD - Deceased&quot;,
+    TEXT(Status__c) = &quot;ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action&quot;,
+    TEXT(Status__c) = &quot;ZD - Forfeited Disciplined License; Needs To Restore&quot;,
+    TEXT(Status__c) = &quot;ZF - Terminated Due To Recovery Fund Payout&quot;,
+    TEXT(Status__c) = &quot;ZO - Out Of State Disciplinary Action&quot;,
+    TEXT(Status__c) = &quot;ZP - Voluntary Suspension&quot;,
+    TEXT(Status__c) = &quot;ZR - Revoked&quot;,
+    TEXT(Status__c) = &quot;ZS - Suspended&quot;,
+    TEXT(Status__c) = &quot;ZV - Voluntary Revocation&quot;,
+    TEXT(Status__c) = &quot;ZZ - Prohibited From Practice Pending Hearing&quot;,
+    TEXT(Status__c) = &quot;ZW - Conditional License Withdrawn&quot;
+   ),
+ISNULL( CancelDate__c ) 
+)</errorConditionFormula>
+    <errorMessage>This status can only be set by clicking the &quot;Update/Cancel License&quot; button.  Please click that button to update the License Status</errorMessage>
+</ValidationRule>

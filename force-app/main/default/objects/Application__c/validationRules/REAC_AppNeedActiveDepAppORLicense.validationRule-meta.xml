@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>REAC_AppNeedActiveDepAppORLicense</fullName>
+    <active>true</active>
+    <description>PacPoint: RdG - Case# 8405 - REAC Application Must have Active Dependent Application  OR Dependent License</description>
+    <errorConditionFormula>AND(
+    LicenseType__r.DependencyRequired__c,
+    LicenseType__r.SoleProp__c = false,
+    ISPICKVAL(Type__c, &apos;REAC - Reactivation&apos;),
+    ISCHANGED(Status__c),
+    ISPICKVAL(Status__c, &apos;HC - Application Completed&apos;),
+    OR(
+       NOT(ISBLANK(DependentApplication__c)) &amp;&amp; ISBLANK(DependentApplication__r.CurrentLicense__c), 
+       ISBLANK(DependentApplication__c) &amp;&amp; ISBLANK(DependentLicense__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>You must have either an active Dependent Application or a Dependent License</errorMessage>
+</ValidationRule>

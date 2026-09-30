@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionType__c</fullName>
+    <description>PacPoint-FT041820- Created for PVL phase 1</description>
+    <label>Transaction Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ADDP - ADD SPECIAL PRIVILEGE</fullName>
+                <default>false</default>
+                <label>ADDP - ADD SPECIAL PRIVILEGE</label>
+            </value>
+            <value>
+                <fullName>ADT6 - ADDITIONAL TRAVEL AGENCY CLIENT TRUST ACCOUNTS</fullName>
+                <default>false</default>
+                <label>ADT6 - ADDITIONAL TRAVEL AGENCY CLIENT TRUST ACCOUNTS</label>
+            </value>
+            <value>
+                <fullName>BAP - BARBER APPRENTICE</fullName>
+                <default>false</default>
+                <label>BAP - BARBER APPRENTICE</label>
+            </value>
+            <value>
+                <fullName>BCHK - BOUNCED CHECK RECORDING</fullName>
+                <default>false</default>
+                <label>BCHK - BOUNCED CHECK RECORDING</label>
+            </value>
+            <value>
+                <fullName>BCLF - BOUNCED CHECK - LICF</fullName>
+                <default>false</default>
+                <label>BCLF - BOUNCED CHECK - LICF</label>
+            </value>
+            <value>
+                <fullName>BCNL - BOUNCED CHECK - NEW LICENSEE</fullName>
+                <default>false</default>
+                <label>BCNL - BOUNCED CHECK - NEW LICENSEE</label>
+            </value>
+            <value>
+                <fullName>BCPY - REPAYMENT FOR BOUNCED CHECK</fullName>
+                <default>false</default>
+                <label>BCPY - REPAYMENT FOR BOUNCED CHECK</label>
+            </value>
+            <value>
+                <fullName>BCRN - BOUNCED CHECK - RENEWAL</fullName>
+                <default>false</default>
+                <label>BCRN - BOUNCED CHECK - RENEWAL</label>
+            </value>
+            <value>
+                <fullName>BCRS - BOUNCED CHECK - RESTORATION</fullName>
+                <default>false</default>
+                <label>BCRS - BOUNCED CHECK - RESTORATION</label>
+            </value>
+            <value>
+                <fullName>BEP - BEAUTY APPRENTICE</fullName>
+                <default>false</default>
+                <label>BEP - BEAUTY APPRENTICE</label>
+            </value>
+            <value>
+                <fullName>BOUT - REAL ESTATE BROKER OUT OF TOWN</fullName>
+                <default>false</default>
+                <label>BOUT - REAL ESTATE BROKER OUT OF TOWN</label>
+            </value>
+            <value>
+                <fullName>BPLF - BOUNCED CHECK REPAYMENT, LICF</fullName>
+                <default>false</default>
+                <label>BPLF - BOUNCED CHECK REPAYMENT, LICF</label>
+            </value>
+            <value>
+                <fullName>BPNL - BOUNCED CHECK REPAYMENT, NEW LICENSE</fullName>
+                <default>false</default>
+                <label>BPNL - BOUNCED CHECK REPAYMENT, NEW LICENSE</label>
+            </value>
+            <value>
+                <fullName>BPRN - BOUNCED CHECK RENEWALS, REPAYMENT RENEWALS</fullName>
+                <default>false</default>
+                <label>BPRN - BOUNCED CHECK RENEWALS, REPAYMENT RENEWALS</label>
+            </value>
+            <value>
+                <fullName>BPRS - BOUNCED CHECK RENEWALS, REPAYMENT RESTORATION</fullName>
+                <default>false</default>
+                <label>BPRS - BOUNCED CHECK RENEWALS, REPAYMENT RESTORATION</label>
+            </value>
+            <value>
+                <fullName>CANL - VOLUNTARILY CANCELLED LICENSE (PEOPLE ONLY)</fullName>
+                <default>false</default>
+                <label>CANL - VOLUNTARILY CANCELLED LICENSE (PEOPLE ONLY)</label>
+            </value>
+            <value>
+                <fullName>CBADD - BUSINESS ADDRESS CHANGED - OLD ADDRESS RECORDED HERE (ALL LICENSE TYPES CONSIDERED A BUSINESS AND BUSINESS ADDRESS CHANGES)</fullName>
+                <default>false</default>
+                <label>CBADD - BUSINESS ADDRESS CHANGED - OLD ADDRESS RECORDED HERE (ALL LICENSE TYPES CONSIDERED A BUSINESS AND BUSINESS ADDRESS CHANGES)</label>
+            </value>
+            <value>
+                <fullName>CCLLC - CORPORATION CHANGING TO LLC</fullName>
+                <default>false</default>
+                <label>CCLLC - CORPORATION CHANGING TO LLC</label>
+            </value>
+            <value>
+                <fullName>CGPC - GENERAL PARTNERSHIP CHANGING TO CORPORATION (CONVERSION)</fullName>
+                <default>false</default>
+                <label>CGPC - GENERAL PARTNERSHIP CHANGING TO CORPORATION (CONVERSION)</label>
+            </value>
+            <value>
+                <fullName>CLBUS - BUSINESS ADDRESS ARCHIVED DUE TO CLOSING OF BUSINESS.</fullName>
+                <default>false</default>
+                <label>CLBUS - BUSINESS ADDRESS ARCHIVED DUE TO CLOSING OF BUSINESS.</label>
+            </value>
+            <value>
+                <fullName>CLLCC - LLC CHANGING TO CORPORATION</fullName>
+                <default>false</default>
+                <label>CLLCC - LLC CHANGING TO CORPORATION</label>
+            </value>
+            <value>
+                <fullName>CLLCP - LLC CHANGING TO LIMITED PARTNERSHIP</fullName>
+                <default>false</default>
+                <label>CLLCP - LLC CHANGING TO LIMITED PARTNERSHIP</label>
+            </value>
+            <value>
+                <fullName>CLOS - OFFICE (CORP/PART) CLOSED</fullName>
+                <default>false</default>
+                <label>CLOS - OFFICE (CORP/PART) CLOSED</label>
+            </value>
+            <value>
+                <fullName>CLPB - SITE OFFICE CLOSED DUE TO NO PRINCIPAL BROKER</fullName>
+                <default>false</default>
+                <label>CLPB - SITE OFFICE CLOSED DUE TO NO PRINCIPAL BROKER</label>
+            </value>
+            <value>
+                <fullName>CMADD - MAILING ADDRESS CHANGED - OLD ADDRESS RECORDED HERE</fullName>
+                <default>false</default>
+                <label>CMADD - MAILING ADDRESS CHANGED - OLD ADDRESS RECORDED HERE</label>
+            </value>
+            <value>
+                <fullName>CNV - ACT 197 CONVERTED ALL DO TO DOS.</fullName>
+                <default>false</default>
+                <label>CNV - ACT 197 CONVERTED ALL DO TO DOS.</label>
+            </value>
+            <value>
+                <fullName>COND - CONDITIONAL LICENSE ISSUED</fullName>
+                <default>false</default>
+                <label>COND - CONDITIONAL LICENSE ISSUED</label>
+            </value>
+            <value>
+                <fullName>CPADD - PUBLIC ADDRESS CHANGED - OLD ADDRESS RECORDED HERE</fullName>
+                <default>false</default>
+                <label>CPADD - PUBLIC ADDRESS CHANGED - OLD ADDRESS RECORDED HERE</label>
+            </value>
+            <value>
+                <fullName>CPLLC - GENERAL PARTNERSHIP CHANGE TO LLC</fullName>
+                <default>false</default>
+                <label>CPLLC - GENERAL PARTNERSHIP CHANGE TO LLC</label>
+            </value>
+            <value>
+                <fullName>DECE - DECEASED</fullName>
+                <default>false</default>
+                <label>DECE - DECEASED</label>
+            </value>
+            <value>
+                <fullName>DELQ - DELINQUENT</fullName>
+                <default>false</default>
+                <label>DELQ - DELINQUENT</label>
+            </value>
+            <value>
+                <fullName>DN - DOWNGRADED LICENSE TYPE</fullName>
+                <default>false</default>
+                <label>DN - DOWNGRADED LICENSE TYPE</label>
+            </value>
+            <value>
+                <fullName>EC33 - BECAME SOLE OWNER (RME TO DBA)</fullName>
+                <default>false</default>
+                <label>EC33 - BECAME SOLE OWNER (RME TO DBA)</label>
+            </value>
+            <value>
+                <fullName>EMR - EMPLOYMENT RESTRICTED (RECO)</fullName>
+                <default>false</default>
+                <label>EMR - EMPLOYMENT RESTRICTED (RECO)</label>
+            </value>
+            <value>
+                <fullName>EVA - ELEVATOR MECHANIC APPRENTICE</fullName>
+                <default>false</default>
+                <label>EVA - ELEVATOR MECHANIC APPRENTICE</label>
+            </value>
+            <value>
+                <fullName>EZ - EMPLOYER DISCIPLINED</fullName>
+                <default>false</default>
+                <label>EZ - EMPLOYER DISCIPLINED</label>
+            </value>
+            <value>
+                <fullName>EZIN - EMPLOYER DISCIPLINED-EMPLOYEE PLACED ON INACTIVE STATUS</fullName>
+                <default>false</default>
+                <label>EZIN - EMPLOYER DISCIPLINED-EMPLOYEE PLACED ON INACTIVE STATUS</label>
+            </value>
+            <value>
+                <fullName>FC2DC - FOREIGN CORP CHANGING TO DOMESTIC CORP</fullName>
+                <default>false</default>
+                <label>FC2DC - FOREIGN CORP CHANGING TO DOMESTIC CORP</label>
+            </value>
+            <value>
+                <fullName>FORF - FORFEITED</fullName>
+                <default>false</default>
+                <label>FORF - FORFEITED</label>
+            </value>
+            <value>
+                <fullName>I - INACTIVE</fullName>
+                <default>false</default>
+                <label>I - INACTIVE</label>
+            </value>
+            <value>
+                <fullName>IALT - ALTERNATIVE TO INSURANCE REQMT APPROVED - SEE REMARKS</fullName>
+                <default>false</default>
+                <label>IALT - ALTERNATIVE TO INSURANCE REQMT APPROVED - SEE REMARKS</label>
+            </value>
+            <value>
+                <fullName>INAC - INACTIVATED BY PROGRAM FOR ON-LINE TASK 14</fullName>
+                <default>false</default>
+                <label>INAC - INACTIVATED BY PROGRAM FOR ON-LINE TASK 14</label>
+            </value>
+            <value>
+                <fullName>LICC - NEW LICENSE AFTER CANCELLATION/CLOSE BUSINESS</fullName>
+                <default>false</default>
+                <label>LICC - NEW LICENSE AFTER CANCELLATION/CLOSE BUSINESS</label>
+            </value>
+            <value>
+                <fullName>LICF - NEW LICENSE AFTER FORFEITURE</fullName>
+                <default>false</default>
+                <label>LICF - NEW LICENSE AFTER FORFEITURE</label>
+            </value>
+            <value>
+                <fullName>LICN - NEW CT LICENSE FEES &amp; RSO INITIAL REGISTRATION PERIOD</fullName>
+                <default>false</default>
+                <label>LICN - NEW CT LICENSE FEES &amp; RSO INITIAL REGISTRATION PERIOD</label>
+            </value>
+            <value>
+                <fullName>LICS - NEW LICENSE AFTER SUSPENSION</fullName>
+                <default>false</default>
+                <label>LICS - NEW LICENSE AFTER SUSPENSION</label>
+            </value>
+            <value>
+                <fullName>LICT - NEW LICENSE AFTER TERMINATION DUE TO LOSS OF INSURANCE</fullName>
+                <default>false</default>
+                <label>LICT - NEW LICENSE AFTER TERMINATION DUE TO LOSS OF INSURANCE</label>
+            </value>
+            <value>
+                <fullName>LICZ - NEW LICENSE AFTER REVOCATION</fullName>
+                <default>false</default>
+                <label>LICZ - NEW LICENSE AFTER REVOCATION</label>
+            </value>
+            <value>
+                <fullName>LMERG - LICENSE MERGED WITH PREVIOUSLY ISSUED LICENSE</fullName>
+                <default>false</default>
+                <label>LMERG - LICENSE MERGED WITH PREVIOUSLY ISSUED LICENSE</label>
+            </value>
+            <value>
+                <fullName>LP - LICENSE REPEALED</fullName>
+                <default>false</default>
+                <label>LP - LICENSE REPEALED</label>
+            </value>
+            <value>
+                <fullName>MAIN - RBO PLACED INACTIVE DUE TO MAIN OFFICE/PB BEING DELQ/INAC</fullName>
+                <default>false</default>
+                <label>MAIN - RBO PLACED INACTIVE DUE TO MAIN OFFICE/PB BEING DELQ/INAC</label>
+            </value>
+            <value>
+                <fullName>MAP - MASSAGE THERAPIST APPRENTICE</fullName>
+                <default>false</default>
+                <label>MAP - MASSAGE THERAPIST APPRENTICE</label>
+            </value>
+            <value>
+                <fullName>MISC - UNUSUAL TRANSACTIONS THAT DO NOT ORDINARILY COME UP &amp; SOME TRANS CODE IS NEEDED TO ENTER</fullName>
+                <default>false</default>
+                <label>MISC - UNUSUAL TRANSACTIONS THAT DO NOT ORDINARILY COME UP &amp; SOME TRANS CODE IS NEEDED TO ENTER</label>
+            </value>
+            <value>
+                <fullName>MLOS - MAIN OFFICE LOST DPMS</fullName>
+                <default>false</default>
+                <label>MLOS - MAIN OFFICE LOST DPMS</label>
+            </value>
+            <value>
+                <fullName>NBIC - NO BROKER-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>NBIC - NO BROKER-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>OFCX - EXTEND EXPIRATON DATE OF OFFICE ADDRESS</fullName>
+                <default>false</default>
+                <label>OFCX - EXTEND EXPIRATON DATE OF OFFICE ADDRESS</label>
+            </value>
+            <value>
+                <fullName>PLOS - FIRM LOST PRINCIPAL (PRIN TERM, I, D OR Z)</fullName>
+                <default>false</default>
+                <label>PLOS - FIRM LOST PRINCIPAL (PRIN TERM, I, D OR Z)</label>
+            </value>
+            <value>
+                <fullName>PRIN - EMPMT DATES OF FORMER NON-LICENSED PRINCIPAL</fullName>
+                <default>false</default>
+                <label>PRIN - EMPMT DATES OF FORMER NON-LICENSED PRINCIPAL</label>
+            </value>
+            <value>
+                <fullName>REA - REAL ESTATE APPRAISER TRAINEE</fullName>
+                <default>false</default>
+                <label>REA - REAL ESTATE APPRAISER TRAINEE</label>
+            </value>
+            <value>
+                <fullName>REAC - REACTIVATED</fullName>
+                <default>false</default>
+                <label>REAC - REACTIVATED</label>
+            </value>
+            <value>
+                <fullName>REIN - REINSTATED (LICENSE WAS SUSPENDED/REVOKED/TERMINATED)</fullName>
+                <default>false</default>
+                <label>REIN - REINSTATED (LICENSE WAS SUSPENDED/REVOKED/TERMINATED)</label>
+            </value>
+            <value>
+                <fullName>REINA - REINSTATING TO ACTIVE STATUS</fullName>
+                <default>false</default>
+                <label>REINA - REINSTATING TO ACTIVE STATUS</label>
+            </value>
+            <value>
+                <fullName>REINI - REINSTATING TO INACTIVE STATUS</fullName>
+                <default>false</default>
+                <label>REINI - REINSTATING TO INACTIVE STATUS</label>
+            </value>
+            <value>
+                <fullName>REOA - REOPEN BUSINESS AFTER CLOSING DURING THE CURRENT PERIOD</fullName>
+                <default>false</default>
+                <label>REOA - REOPEN BUSINESS AFTER CLOSING DURING THE CURRENT PERIOD</label>
+            </value>
+            <value>
+                <fullName>RNEW - RENEWED</fullName>
+                <default>false</default>
+                <label>RNEW - RENEWED</label>
+            </value>
+            <value>
+                <fullName>RSTR - RESTORED (LICENSE WAS DELINQUENT/FORFEITED)</fullName>
+                <default>false</default>
+                <label>RSTR - RESTORED (LICENSE WAS DELINQUENT/FORFEITED)</label>
+            </value>
+            <value>
+                <fullName>SPECA - SPECIAL ASSESSMENT</fullName>
+                <default>false</default>
+                <label>SPECA - SPECIAL ASSESSMENT</label>
+            </value>
+            <value>
+                <fullName>TF - RME FORFEITED DUE TO LOSS OF EMPLOYER &amp; FAILURE TO NOTIFY OF NEW STATUS WITHIN SPECIFIED TIME</fullName>
+                <default>false</default>
+                <label>TF - RME FORFEITED DUE TO LOSS OF EMPLOYER &amp; FAILURE TO NOTIFY OF NEW STATUS WITHIN SPECIFIED TIME</label>
+            </value>
+            <value>
+                <fullName>TN - LICENSING NO LONGER REQUIRED</fullName>
+                <default>false</default>
+                <label>TN - LICENSING NO LONGER REQUIRED</label>
+            </value>
+            <value>
+                <fullName>TR - LICENSE RESCINDED</fullName>
+                <default>false</default>
+                <label>TR - LICENSE RESCINDED</label>
+            </value>
+            <value>
+                <fullName>TS - FORFEITED DUE TO NONPAYMENT OF CT SPECIAL ASSESSMENT</fullName>
+                <default>false</default>
+                <label>TS - FORFEITED DUE TO NONPAYMENT OF CT SPECIAL ASSESSMENT</label>
+            </value>
+            <value>
+                <fullName>UP - UPGRADED LICENSE TYPE</fullName>
+                <default>false</default>
+                <label>UP - UPGRADED LICENSE TYPE</label>
+            </value>
+            <value>
+                <fullName>Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN</fullName>
+                <default>false</default>
+                <label>Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN</label>
+            </value>
+            <value>
+                <fullName>Z1 - PDG SUSPENSION CODE FOR &quot;LOSS&quot; SCENARIOS</fullName>
+                <default>false</default>
+                <label>Z1 - PDG SUSPENSION CODE FOR &quot;LOSS&quot; SCENARIOS</label>
+            </value>
+            <value>
+                <fullName>ZC - VOLUNTARILY SURRENDER OR FORFEIT LICENSE DUE TO DISCIPLINARY ACTION</fullName>
+                <default>false</default>
+                <label>ZC - VOLUNTARILY SURRENDER OR FORFEIT LICENSE DUE TO DISCIPLINARY ACTION</label>
+            </value>
+            <value>
+                <fullName>ZF - TERMINATED DUE TO RECOVERY FUND PAYOUT</fullName>
+                <default>false</default>
+                <label>ZF - TERMINATED DUE TO RECOVERY FUND PAYOUT</label>
+            </value>
+            <value>
+                <fullName>ZI - FORFEITED AUTOMATICALLY DUE TO LOSS OF INSURANCE (60 DAYS TO RESTORE)</fullName>
+                <default>false</default>
+                <label>ZI - FORFEITED AUTOMATICALLY DUE TO LOSS OF INSURANCE (60 DAYS TO RESTORE)</label>
+            </value>
+            <value>
+                <fullName>ZP - VOLUNTARY SUSPENSION</fullName>
+                <default>false</default>
+                <label>ZP - VOLUNTARY SUSPENSION</label>
+            </value>
+            <value>
+                <fullName>ZR - REVOKED</fullName>
+                <default>false</default>
+                <label>ZR - REVOKED</label>
+            </value>
+            <value>
+                <fullName>ZS - SUSPENDED</fullName>
+                <default>false</default>
+                <label>ZS - SUSPENDED</label>
+            </value>
+            <value>
+                <fullName>ZT - REMAIN FORFEITED DUE TO FAILURE TO RESTORE WITHIN 60 DAY PERIOD.</fullName>
+                <default>false</default>
+                <label>ZT - REMAIN FORFEITED DUE TO FAILURE TO RESTORE WITHIN 60 DAY PERIOD.</label>
+            </value>
+            <value>
+                <fullName>ZTB - ONLY SOLE OWNER PORTION OF CT LICENSE TERMINATED DUE TO LACK OF INSURANCE - RME PORTION OF LICENSE RETAINED</fullName>
+                <default>false</default>
+                <label>ZTB - ONLY SOLE OWNER PORTION OF CT LICENSE TERMINATED DUE TO LACK OF INSURANCE - RME PORTION OF LICENSE RETAINED</label>
+            </value>
+            <value>
+                <fullName>ZV - VOLUNTARY REVOCATION</fullName>
+                <default>false</default>
+                <label>ZV - VOLUNTARY REVOCATION</label>
+            </value>
+            <value>
+                <fullName>ZW - CONDITIONAL LICENSE WITHDRAWN</fullName>
+                <default>false</default>
+                <label>ZW - CONDITIONAL LICENSE WITHDRAWN</label>
+            </value>
+            <value>
+                <fullName>ZZ - PROHIBITED FROM PRACTICE PENDING HEARING</fullName>
+                <default>false</default>
+                <label>ZZ - PROHIBITED FROM PRACTICE PENDING HEARING</label>
+            </value>
+            <value>
+                <fullName>RELOC - BUSINESS SITE RELOCATION</fullName>
+                <default>false</default>
+                <label>RELOC - BUSINESS SITE RELOCATION</label>
+            </value>
+            <value>
+                <fullName>JTVT - JOINT VENTURE REGISTRATION</fullName>
+                <default>false</default>
+                <label>JTVT - JOINT VENTURE REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>NMAD - B/P NAME AND ADDRESS CHANGE</fullName>
+                <default>false</default>
+                <label>NMAD - B/P NAME AND ADDRESS CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMBP - NAME (B/P) CHANGE</fullName>
+                <default>false</default>
+                <label>NMBP - NAME (B/P) CHANGE</label>
+            </value>
+            <value>
+                <fullName>CRADD - CHANGE OF RESIDENCE ADDRESS</fullName>
+                <default>false</default>
+                <label>CRADD - CHANGE OF RESIDENCE ADDRESS</label>
+            </value>
+            <value>
+                <fullName>EC31 - DESIGNATE PRINCIPAL RME</fullName>
+                <default>false</default>
+                <label>EC31 - DESIGNATE PRINCIPAL RME</label>
+            </value>
+            <value>
+                <fullName>ADBS - ADDRESS CHANGE-BUSINESS</fullName>
+                <default>false</default>
+                <label>ADBS - ADDRESS CHANGE-BUSINESS</label>
+            </value>
+            <value>
+                <fullName>ADML - ADDRESS CHANGE-MAILING</fullName>
+                <default>false</default>
+                <label>ADML - ADDRESS CHANGE-MAILING</label>
+            </value>
+            <value>
+                <fullName>ADOF - ADDRESS CHANGE-OFFICE</fullName>
+                <default>false</default>
+                <label>ADOF - ADDRESS CHANGE-OFFICE</label>
+            </value>
+            <value>
+                <fullName>ADRS - ADDRESS CHANGE-RESIDENCE</fullName>
+                <default>false</default>
+                <label>ADRS - ADDRESS CHANGE-RESIDENCE</label>
+            </value>
+            <value>
+                <fullName>CCNM - CHANGE B/P NAME</fullName>
+                <default>false</default>
+                <label>CCNM - CHANGE B/P NAME</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,216 @@
+<apex:page standardController="pymt__PaymentX__c"
+           extensions="PaymentReceiptPdfExtController"
+           renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="false">
+    <html>
+    <head>
+        <style>
+            @page {
+                /*size: 107.95mm 139.70mm;*/
+                margin: 20px 50px 20px 50px ;
+                padding: 0px 0px 0px 0px ;
+            }
+
+            body {
+                font-size: 10pt;
+            }
+
+            * {
+                font-family: Arial Unicode MS, sans-serif; /* Arial Unicode MS for the special characters */
+            }
+
+
+            b {
+                font-family: Helvetica, sans-serif; /* Different font for bold since the Arial Unicode doesn't work on BOLD */
+            }
+
+            table {
+                border-collapse: collapse;
+                /*display:inline-table;*/
+            }
+
+            table.widthFull {
+                width: 100%;
+                table-layout: fixed;
+                page-break-inside: auto;
+                -fs-table-paginate: paginate;
+            }
+
+            table tr.page-break {
+                page-break-after: auto;
+                page-break-inside: avoid;
+            }
+
+            table.widthFull tfoot {
+                display: table-footer-group;
+            }
+
+            table.widthFull thead {
+                display: table-header-group;
+            }
+
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <table style="width: 100%">
+        <tr>
+            <td width="15%" style="text-align: right">
+                <apex:image width="100px" url="{!$Resource.SealoftheStateofHawaii}"/>
+            </td>
+            <td width="3%"></td>
+            <td width="82%">
+                <b>STATE OF HAWAII</b><br/>
+                <b>
+                        {!IF(pymt__PaymentX__c.Division__c == 'PUC','Public Utilities Commission','DEPT OF COMMERCE & CONSUMER AFFAIRS')}
+                </b><br/><br/>
+                <b>OFFICIAL RECEIPT</b>
+            </td>
+        </tr>
+    </table>
+    <p style="width: 100%; text-align: right;"></p>
+    <p>
+        <b>Reference Number:</b> {!pymt__PaymentX__c.Transaction__r.Name}
+    </p>
+    <p>
+        <b>DATE:</b>&nbsp;
+        <apex:outputText value="{0,date,M/dd/yyyy}">
+            <apex:param value="{!pymt__PaymentX__c.pymt__Date__c}"/>
+        </apex:outputText>
+    </p>
+    <p>
+        <b>ACCOUNT:</b>
+        <apex:repeat value="{!transactionAccounts}" var="tgaccts">
+        {!tgaccts.Account__r.Name},
+        </apex:repeat>
+        <apex:outputText value="{!pymt__PaymentX__c.pymt__Account__r.Name}"
+                         rendered="{!transactionAccounts.size <= 0}"/>
+
+    </p>
+    <p>
+        <apex:outputText rendered="{!pymt__PaymentX__c.pymt__Status__c == 'Voided'}" value="">
+            <b>STATUS:</b> Voided
+        </apex:outputText>
+    </p>
+    <p>
+        <b>TRANSACTION LINES:</b>
+    </p>
+    <!--Payment Transaction-->
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.Transaction__r.TransactionType__c == 'Payment'}">
+        <table class="bordered widthFull" cellspacing="0">
+            <thead>
+            <tr>
+                <th width="15px"><b>Cashier Code</b></th>
+                <th width="70px"><b>Name</b></th>
+                <th width="15px">
+                    <b>
+                        <apex:outputText value="Amount"
+                                         rendered="{!pymt__PaymentX__c.Division__c != 'PUC'}"/>
+                        <apex:outputText value="Description"
+                                         rendered="{!pymt__PaymentX__c.Division__c == 'PUC'}"/>
+                    </b>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!transactionLines}" var="tl">
+                <apex:variable var="v" value="1"  rendered="{!tl.amountAllocated != null && tl.amountAllocated > 0}"> 
+                <tr class="page-break">
+                    <td width="20px">
+                            {!tl.cashierCode}
+                    </td>
+                    <td width="60px">
+                        <apex:outputText value="{!tl.cashierCodeName}" escape="false"/>
+                    </td>
+                    <td width="20px">
+                        <apex:outputText value="&#36;" rendered="{!pymt__PaymentX__c.Division__c != 'PUC'}"
+                                         escape="false"/>
+                        <apex:outputText value="{!tl.amountAllocated}" rendered="{!pymt__PaymentX__c.Division__c != 'PUC'}"/>
+                        <apex:outputText value="{!tl.description}"
+                                         rendered="{!pymt__PaymentX__c.Division__c == 'PUC'}"/>
+                    </td>
+                </tr>
+                </apex:variable>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </apex:outputPanel>
+    <!--Grouped Transaction-->
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.Transaction__r.TransactionType__c == 'Group'}">
+        <table class="bordered widthFull" cellspacing="0">
+            <thead>
+            <tr class="page-break">
+                <th width="20px">Account</th>
+                <th width="5px">Cashier Code</th>
+                <th width="60px">Name</th>
+                <th width="15px">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!groupedTransactionLines}" var="tl">
+                <apex:variable var="v" value="1"  rendered="{!tl.amountAllocated != null && tl.amountAllocated > 0}"> 
+                <tr class="page-break">
+                    <td width="20px">
+                        <apex:outputText value="{!tl.accountName}" escape="false"/>
+                    </td>
+                    <td width="10px">
+                            {!tl.cashierCode}
+                    </td>
+                    <td width="50px">
+                        <apex:outputText value="{!tl.cashierCodeName}" escape="false"/>
+                    </td>
+                    <td width="20px">
+                        ${!tl.amountAllocated}
+                    </td>
+                </tr>
+                </apex:variable>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.Transaction__r.Description__c == null}"><br/></apex:outputPanel>
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.Transaction__r.Description__c != null}">
+        <p><b>DESCRIPTION:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.Transaction__r.Description__c}"/>
+        </p>
+    </apex:outputPanel>
+    <b>AMOUNT:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Amount__c}"/>
+    <p><b>PAYMENT TYPE:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Payment_Type__c}"/>
+    </p>
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.pymt__Memo__c != null}">
+        <b>MEMO:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Memo__c}"/>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.pymt__Check_Number__c != null}">
+        <b>CHECK NUMBER:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Check_Number__c}"/>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!pymt__PaymentX__c.pymt__Last_4_Digits__c != null}">
+        <apex:outputPanel rendered="{!pymt__PaymentX__c.pymt__Check_Number__c != null}">
+            <p><b>LAST 4 DIGITS OF CREDIT CARD:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Last_4_Digits__c}"/>
+            </p>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!pymt__PaymentX__c.pymt__Check_Number__c == null}">
+            <b>LAST 4 DIGITS OF CREDIT CARD:</b>&nbsp;<apex:outputField value="{!pymt__PaymentX__c.pymt__Last_4_Digits__c}"/>
+        </apex:outputPanel>
+    </apex:outputPanel>
+    <apex:outputPanel >
+        <apex:outputPanel >
+            <p><b>CUSTOMER SIGNATURE: </b>&nbsp;_____________________________
+            </p>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+    </body>
+    </html>
+</apex:page>

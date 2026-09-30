@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaints_DFI_AccountName</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Complaints DFI</label>
+    <queue>Complaints_DFI</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

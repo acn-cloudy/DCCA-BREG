@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotificationMailingState__c</fullName>
+    <description>PacPoint-KN102319-Created for PVL Sprint 2 Phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( PreferredAddress__c,
+&quot;Renewal Mail To&quot;, RenewalMailToState1__c,
+&quot;Mailing&quot;,TEXT(MailingState__c),  
+&quot;Business&quot;,TEXT(BusinessState__c), 
+&quot;Residence&quot;,Applicant__r.PersonContact.MailingState,
+&quot;Employer&quot;,TEXT(EmployerState__c), 
+&quot;Dependent Mailing&quot;,DependentMailingState__c, 
+&quot;Dependent Business&quot;,DependentBusinessState__c, 
+&quot;Dependent Employer&quot;,DependentEmployerState__c, 
+&quot;Dependent 2 Mailing&quot;, TEXT(DependentLicense2__r.MailingState__c),
+&quot;N/A&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notification Mailing State</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

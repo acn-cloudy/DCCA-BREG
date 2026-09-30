@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>PacPoint-JB110718 - Created for BREG phase 1</description>
+    <label>Type</label>
+    <required>true</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Category__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Accredited investor notice</fullName>
+                <default>false</default>
+                <label>Accredited investor notice</label>
+            </value>
+            <value>
+                <fullName>Affidavit</fullName>
+                <default>false</default>
+                <label>Affidavit</label>
+            </value>
+            <value>
+                <fullName>Annual financial statements</fullName>
+                <default>false</default>
+                <label>Annual financial statements</label>
+            </value>
+            <value>
+                <fullName>Application for Registration of Securities by Qualification</fullName>
+                <default>false</default>
+                <label>Application for Registration of Securities by Qualification</label>
+            </value>
+            <value>
+                <fullName>Attorney&apos;s opinion</fullName>
+                <default>false</default>
+                <label>Attorney&apos;s opinion</label>
+            </value>
+            <value>
+                <fullName>Attorney Exhibits</fullName>
+                <default>false</default>
+                <label>Attorney Exhibits</label>
+            </value>
+            <value>
+                <fullName>Attorney Work Product</fullName>
+                <default>false</default>
+                <label>Attorney Work Product</label>
+            </value>
+            <value>
+                <fullName>Audited financial statements</fullName>
+                <default>false</default>
+                <label>Audited financial statements</label>
+            </value>
+            <value>
+                <fullName>Bank Records</fullName>
+                <default>false</default>
+                <label>Bank Records</label>
+            </value>
+            <value>
+                <fullName>By Qualification Application Attachment</fullName>
+                <default>false</default>
+                <label>By Qualification Application Attachment</label>
+            </value>
+            <value>
+                <fullName>Certified copy of Issuer&apos;s articles of organization</fullName>
+                <default>false</default>
+                <label>Certified copy of Issuer&apos;s articles of organization</label>
+            </value>
+            <value>
+                <fullName>Certified Corporate Resolution</fullName>
+                <default>false</default>
+                <label>Certified Corporate Resolution</label>
+            </value>
+            <value>
+                <fullName>Company Notice Filing</fullName>
+                <default>false</default>
+                <label>Company Notice Filing</label>
+            </value>
+            <value>
+                <fullName>Complainant Documents</fullName>
+                <default>false</default>
+                <label>Complainant Documents</label>
+            </value>
+            <value>
+                <fullName>Consent by accountant</fullName>
+                <default>false</default>
+                <label>Consent by accountant</label>
+            </value>
+            <value>
+                <fullName>Consent by counsel</fullName>
+                <default>false</default>
+                <label>Consent by counsel</label>
+            </value>
+            <value>
+                <fullName>Consent by tax adviser</fullName>
+                <default>false</default>
+                <label>Consent by tax adviser</label>
+            </value>
+            <value>
+                <fullName>Consent to Service of Process</fullName>
+                <default>false</default>
+                <label>Consent to Service of Process</label>
+            </value>
+            <value>
+                <fullName>Consent to Service of Process and Acknowledgement</fullName>
+                <default>false</default>
+                <label>Consent to Service of Process and Acknowledgement</label>
+            </value>
+            <value>
+                <fullName>Consent to service of process and corporate resolution</fullName>
+                <default>false</default>
+                <label>Consent to service of process and corporate resolution</label>
+            </value>
+            <value>
+                <fullName>Consent to Service of Process By Issuer of or Dealer in Securities</fullName>
+                <default>false</default>
+                <label>Consent to Service of Process By Issuer of or Dealer in Securities</label>
+            </value>
+            <value>
+                <fullName>Consent w/acknowledgement</fullName>
+                <default>false</default>
+                <label>Consent w/acknowledgement</label>
+            </value>
+            <value>
+                <fullName>Contracts</fullName>
+                <default>false</default>
+                <label>Contracts</label>
+            </value>
+            <value>
+                <fullName>Copy of advertising</fullName>
+                <default>false</default>
+                <label>Copy of advertising</label>
+            </value>
+            <value>
+                <fullName>Copy of general announcement</fullName>
+                <default>false</default>
+                <label>Copy of general announcement</label>
+            </value>
+            <value>
+                <fullName>Copy of Prospectus</fullName>
+                <default>false</default>
+                <label>Copy of Prospectus</label>
+            </value>
+            <value>
+                <fullName>Copy of resolutions by directors</fullName>
+                <default>false</default>
+                <label>Copy of resolutions by directors</label>
+            </value>
+            <value>
+                <fullName>Correspondence</fullName>
+                <default>false</default>
+                <label>Correspondence</label>
+            </value>
+            <value>
+                <fullName>Deficiency Correction - 1</fullName>
+                <default>false</default>
+                <label>Deficiency Correction - 1</label>
+            </value>
+            <value>
+                <fullName>Deficiency Correction - 2</fullName>
+                <default>false</default>
+                <label>Deficiency Correction - 2</label>
+            </value>
+            <value>
+                <fullName>Deficiency Correction - 3</fullName>
+                <default>false</default>
+                <label>Deficiency Correction - 3</label>
+            </value>
+            <value>
+                <fullName>Deficiency Correction - 4</fullName>
+                <default>false</default>
+                <label>Deficiency Correction - 4</label>
+            </value>
+            <value>
+                <fullName>Deficiency Correction - 5</fullName>
+                <default>false</default>
+                <label>Deficiency Correction - 5</label>
+            </value>
+            <value>
+                <fullName>Document - 1</fullName>
+                <default>false</default>
+                <label>Document - 1</label>
+            </value>
+            <value>
+                <fullName>Document - 2</fullName>
+                <default>false</default>
+                <label>Document - 2</label>
+            </value>
+            <value>
+                <fullName>Document - 3</fullName>
+                <default>false</default>
+                <label>Document - 3</label>
+            </value>
+            <value>
+                <fullName>Document - 4</fullName>
+                <default>false</default>
+                <label>Document - 4</label>
+            </value>
+            <value>
+                <fullName>Document - 5</fullName>
+                <default>false</default>
+                <label>Document - 5</label>
+            </value>
+            <value>
+                <fullName>Financials</fullName>
+                <default>false</default>
+                <label>Financials</label>
+            </value>
+            <value>
+                <fullName>Form A - Uniform Franchise Registration Application</fullName>
+                <default>false</default>
+                <label>Form A - Uniform Franchise Registration Application</label>
+            </value>
+            <value>
+                <fullName>Form B - Franchisor&apos;s Costs and Sources of Funds</fullName>
+                <default>false</default>
+                <label>Form B - Franchisor&apos;s Costs and Sources of Funds</label>
+            </value>
+            <value>
+                <fullName>Form C - Uniform Franchise Consent to Service of Process and Acknowledgement</fullName>
+                <default>false</default>
+                <label>Form C - Uniform Franchise Consent to Service of Process and Acknowledgement</label>
+            </value>
+            <value>
+                <fullName>Form D - Franchise Seller Disclosure Form</fullName>
+                <default>false</default>
+                <label>Form D - Franchise Seller Disclosure Form</label>
+            </value>
+            <value>
+                <fullName>Form D - Notice of Exempt Offering of Securities</fullName>
+                <default>false</default>
+                <label>Form D - Notice of Exempt Offering of Securities</label>
+            </value>
+            <value>
+                <fullName>Form E - Guarantee of Performance</fullName>
+                <default>false</default>
+                <label>Form E - Guarantee of Performance</label>
+            </value>
+            <value>
+                <fullName>Form F - Consent of Accountant</fullName>
+                <default>false</default>
+                <label>Form F - Consent of Accountant</label>
+            </value>
+            <value>
+                <fullName>Form NF</fullName>
+                <default>false</default>
+                <label>Form NF</label>
+            </value>
+            <value>
+                <fullName>Form of escrow agreement</fullName>
+                <default>false</default>
+                <label>Form of escrow agreement</label>
+            </value>
+            <value>
+                <fullName>Form of selling agency agreement</fullName>
+                <default>false</default>
+                <label>Form of selling agency agreement</label>
+            </value>
+            <value>
+                <fullName>Form of subscription agreement</fullName>
+                <default>false</default>
+                <label>Form of subscription agreement</label>
+            </value>
+            <value>
+                <fullName>Form U4</fullName>
+                <default>false</default>
+                <label>Form U4</label>
+            </value>
+            <value>
+                <fullName>Franchise Disclosure Document (FDD) - Clean</fullName>
+                <default>false</default>
+                <label>Franchise Disclosure Document (FDD) - Clean</label>
+            </value>
+            <value>
+                <fullName>Franchise Disclosure Document (FDD) - Redline</fullName>
+                <default>false</default>
+                <label>Franchise Disclosure Document (FDD) - Redline</label>
+            </value>
+            <value>
+                <fullName>HI Form S1</fullName>
+                <default>false</default>
+                <label>HI Form S1</label>
+            </value>
+            <value>
+                <fullName>HI Form S7</fullName>
+                <default>false</default>
+                <label>HI Form S7</label>
+            </value>
+            <value>
+                <fullName>HI Form S9</fullName>
+                <default>false</default>
+                <label>HI Form S9</label>
+            </value>
+            <value>
+                <fullName>HI Form S9 Supplemental</fullName>
+                <default>false</default>
+                <label>HI Form S9 Supplemental</label>
+            </value>
+            <value>
+                <fullName>Indenture/note/contracts containing terms of notes or other debt to be offered</fullName>
+                <default>false</default>
+                <label>Indenture/note/contracts containing terms of notes or other debt to be offered</label>
+            </value>
+            <value>
+                <fullName>Indenture by which the securities are issued (if any)</fullName>
+                <default>false</default>
+                <label>Indenture by which the securities are issued (if any)</label>
+            </value>
+            <value>
+                <fullName>Investigation Exhibits</fullName>
+                <default>false</default>
+                <label>Investigation Exhibits</label>
+            </value>
+            <value>
+                <fullName>Investigation Report</fullName>
+                <default>false</default>
+                <label>Investigation Report</label>
+            </value>
+            <value>
+                <fullName>Investigator Work Product</fullName>
+                <default>false</default>
+                <label>Investigator Work Product</label>
+            </value>
+            <value>
+                <fullName>Issuer&apos;s articles of incorporation/organization</fullName>
+                <default>false</default>
+                <label>Issuer&apos;s articles of incorporation/organization</label>
+            </value>
+            <value>
+                <fullName>Issuer&apos;s by-laws, Certified by authorized officer</fullName>
+                <default>false</default>
+                <label>Issuer&apos;s by-laws, Certified by authorized officer</label>
+            </value>
+            <value>
+                <fullName>Issuer&apos;s by laws or operating agreement</fullName>
+                <default>false</default>
+                <label>Issuer&apos;s by laws or operating agreement</label>
+            </value>
+            <value>
+                <fullName>Issuer Financial Statements within 4 months prior to filing</fullName>
+                <default>false</default>
+                <label>Issuer Financial Statements within 4 months prior to filing</label>
+            </value>
+            <value>
+                <fullName>Memorandum</fullName>
+                <default>false</default>
+                <label>Memorandum</label>
+            </value>
+            <value>
+                <fullName>Model Accredited Investor Exemption Uniform Notice of Transaction</fullName>
+                <default>false</default>
+                <label>Model Accredited Investor Exemption Uniform Notice of Transaction</label>
+            </value>
+            <value>
+                <fullName>Month-end financial statements</fullName>
+                <default>false</default>
+                <label>Month-end financial statements</label>
+            </value>
+            <value>
+                <fullName>Opinion of counsel as to the legality of the securities</fullName>
+                <default>false</default>
+                <label>Opinion of counsel as to the legality of the securities</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Other - Supporting Document</fullName>
+                <default>false</default>
+                <label>Other - Supporting Document</label>
+            </value>
+            <value>
+                <fullName>Pleadings – Administrative</fullName>
+                <default>false</default>
+                <label>Pleadings – Administrative</label>
+            </value>
+            <value>
+                <fullName>Pleadings – Civil</fullName>
+                <default>false</default>
+                <label>Pleadings – Civil</label>
+            </value>
+            <value>
+                <fullName>Prospectus</fullName>
+                <default>false</default>
+                <label>Prospectus</label>
+            </value>
+            <value>
+                <fullName>Receipts</fullName>
+                <default>false</default>
+                <label>Receipts</label>
+            </value>
+            <value>
+                <fullName>Reg A notice</fullName>
+                <default>false</default>
+                <label>Reg A notice</label>
+            </value>
+            <value>
+                <fullName>Registrant agreement</fullName>
+                <default>false</default>
+                <label>Registrant agreement</label>
+            </value>
+            <value>
+                <fullName>Registration</fullName>
+                <default>false</default>
+                <label>Registration</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Respondent Documents</fullName>
+                <default>false</default>
+                <label>Respondent Documents</label>
+            </value>
+            <value>
+                <fullName>SCOR Form</fullName>
+                <default>false</default>
+                <label>SCOR Form</label>
+            </value>
+            <value>
+                <fullName>Signed consent of any expert opinion</fullName>
+                <default>false</default>
+                <label>Signed consent of any expert opinion</label>
+            </value>
+            <value>
+                <fullName>Specimen copy of each certificate to be registered</fullName>
+                <default>false</default>
+                <label>Specimen copy of each certificate to be registered</label>
+            </value>
+            <value>
+                <fullName>Specimen of ownership certificate</fullName>
+                <default>false</default>
+                <label>Specimen of ownership certificate</label>
+            </value>
+            <value>
+                <fullName>Spreadsheets</fullName>
+                <default>false</default>
+                <label>Spreadsheets</label>
+            </value>
+            <value>
+                <fullName>Statement</fullName>
+                <default>false</default>
+                <label>Statement</label>
+            </value>
+            <value>
+                <fullName>Subpoena</fullName>
+                <default>false</default>
+                <label>Subpoena</label>
+            </value>
+            <value>
+                <fullName>Underwriting agreement (if any)</fullName>
+                <default>false</default>
+                <label>Underwriting agreement (if any)</label>
+            </value>
+            <value>
+                <fullName>Witness Documents</fullName>
+                <default>false</default>
+                <label>Witness Documents</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>Exam Documents</controllingFieldValue>
+            <controllingFieldValue>Exam Deficiencies</controllingFieldValue>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <controllingFieldValue>SEB Complaint</controllingFieldValue>
+            <valueName>Correspondence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Deficiency Correction - 1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Deficiency Correction - 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Deficiency Correction - 3</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Deficiency Correction - 4</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Deficiency Correction - 5</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Document - 1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Document - 2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Document - 3</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Document - 4</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Document - 5</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>Exam Documents</controllingFieldValue>
+            <controllingFieldValue>Exam Deficiencies</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Financials</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form A - Uniform Franchise Registration Application</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form B - Franchisor&apos;s Costs and Sources of Funds</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form C - Uniform Franchise Consent to Service of Process and Acknowledgement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form D - Franchise Seller Disclosure Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form E - Guarantee of Performance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form F - Consent of Accountant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Franchise Disclosure Document (FDD) - Clean</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <valueName>Franchise Disclosure Document (FDD) - Redline</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>Exam Documents</controllingFieldValue>
+            <controllingFieldValue>Exam Deficiencies</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Other - Supporting Document</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Franchise</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <controllingFieldValue>Exam Documents</controllingFieldValue>
+            <controllingFieldValue>Exam Deficiencies</controllingFieldValue>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Receipts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <valueName>Consent to Service of Process and Acknowledgement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Unit Investment Trust</controllingFieldValue>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Mutual Fund</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Form NF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Accredited investor notice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Affidavit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Annual financial statements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Audited financial statements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Consent w/acknowledgement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>HI Form S1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>HI Form S7</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>HI Form S9</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>HI Form S9 Supplemental</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Month-end financial statements</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEB Complaint</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Prospectus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <valueName>Reg A notice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Investment Adviser Representative</controllingFieldValue>
+            <controllingFieldValue>SEC - Broker-Dealer Agent</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>SCOR Form</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Issuer Dealer Agent</controllingFieldValue>
+            <valueName>Form U4</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Consent to service of process and corporate resolution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <valueName>Copy of general announcement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Model Accredited Investor</controllingFieldValue>
+            <valueName>Model Accredited Investor Exemption Uniform Notice of Transaction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>By Qualification Application Attachment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Certified copy of Issuer&apos;s articles of organization</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Certified Corporate Resolution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Consent to Service of Process</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Copy of Prospectus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Indenture by which the securities are issued (if any)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Issuer&apos;s by-laws, Certified by authorized officer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Issuer Financial Statements within 4 months prior to filing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Opinion of counsel as to the legality of the securities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Signed consent of any expert opinion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Specimen copy of each certificate to be registered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation A</controllingFieldValue>
+            <controllingFieldValue>SEC - By Qualification</controllingFieldValue>
+            <valueName>Underwriting agreement (if any)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - Regulation D</controllingFieldValue>
+            <valueName>Form D - Notice of Exempt Offering of Securities</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Attorney Exhibits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Attorney Work Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Bank Records</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Complainant Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Investigation Exhibits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Investigation Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Investigator Work Product</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Memorandum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Pleadings – Administrative</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Pleadings – Civil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Registration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Research</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Respondent Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Spreadsheets</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Subpoena</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Clerical</controllingFieldValue>
+            <controllingFieldValue>SEB Investigation</controllingFieldValue>
+            <controllingFieldValue>SEB Legal</controllingFieldValue>
+            <valueName>Witness Documents</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Attorney&apos;s opinion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Consent by accountant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Consent by counsel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Consent by tax adviser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Copy of advertising</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Copy of resolutions by directors</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Form of escrow agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Form of selling agency agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Form of subscription agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Indenture/note/contracts containing terms of notes or other debt to be offered</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Issuer&apos;s articles of incorporation/organization</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Issuer&apos;s by laws or operating agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Registrant agreement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEC - SCOR</controllingFieldValue>
+            <valueName>Specimen of ownership certificate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Complaint</controllingFieldValue>
+            <valueName>Contracts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SEB Complaint</controllingFieldValue>
+            <valueName>Statement</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

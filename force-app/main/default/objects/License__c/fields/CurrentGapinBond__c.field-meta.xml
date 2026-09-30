@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CurrentGapinBond__c</fullName>
+    <description>PacPoint-KN03262020 (Case 5015) - Created for PVL Phase 1 Sprint 3</description>
+    <label>Current Gap in Bond</label>
+    <summarizedField>InsuranceBond__c.CurrentGapInInsurance__c</summarizedField>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Type__c</field>
+        <operation>equals</operation>
+        <value>BD - Bond</value>
+    </summaryFilterItems>
+    <summaryForeignKey>InsuranceBond__c.License__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

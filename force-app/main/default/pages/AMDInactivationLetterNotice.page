@@ -1,0 +1,122 @@
+<apex:page sidebar="false" showHeader="false" controller="AMDInactivationLetterNoticeController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            @page {
+                size: 8.5in 14in;
+                margin: 0;
+            }
+
+            html,
+            body {
+                
+                
+                
+                
+                : 100%;
+                padding: 0;                
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="margin: 0.5in;">
+            <div style="font-size:9pt; text-align:center;">
+                <div rendered="!IF(pdf == true)">
+                    <apex:image url="{!$Resource.PVLPdfLogo}" width="100"/>
+                </div>
+                <p><apex:outputText value="{!boardProgramName}" /></p>
+                <p>STATE OF HAWAII</p>
+                <p>PROFESSIONAL AND VOCATIONAL LICENSING DIVISION</p>
+                <p>DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS</p>
+                <p>P.O. BOX 3469, HONOLULU, HAWAII 96801-3469</p>
+                <br/>
+            </div>
+            <div style="font-size: 11pt;">
+                <div>
+                    <apex:outputText escape="false" value="{!licenseeName}" style="font-size:11pt; color:black;"/>
+                </div>
+                <div>
+                    <apex:outputText value="{!renewalMailToStreet}" style="font-size:11pt; color:black;"/>
+                </div>
+                <div>
+                    <apex:outputText value="{!renewalMailToCity} {!renewalMailToState} {!renewalMailToZipCode}" style="font-size:11pt; color:black;"/>
+                </div>
+            </div>
+            <br/>
+            <div style="font-size: 11pt;">
+            <apex:outputText value="{0, date,  MM/dd/yy}">
+                            <apex:param value="{!TODAY()}"/>
+                        </apex:outputText>
+            </div>
+            <br/>
+            <div style="font-size:11pt; color:black;">
+                <div>
+                    <span style="margin-right: 3pt;">License Number:</span>
+                    <span><apex:outputText value="{!lic.Name}"/></span>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        Dear &nbsp;<apex:outputText escape="false" value="{!licenseeName}"/>,
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div style="text-align: center;">
+                        RE: License to Practice as a Physician Assistant Loss of Supervising Physician
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        This is to inform you that your license has been automatically inactivated pursuant to HAR § 16-85-50 as you do not meet one of the necessary requirements to practice as an active physician assistant in Hawaii.  Specifically, you do not have a supervising physician or osteopathic physician who “possesses a current and unrestricted Hawaii license that is in good standing with the board”, as required by §16-85-49(a)(1), Hawaii Administrative Rules (“HAR”).
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        Pursuant to this letter as defined under Hawaii Administrative Rules (HAR) chapter 16-85, subchapter 6. HAR chapter 16-85, subchapter 6 requires that you have at least 1 Hawaii-licensed physician/osteopathic physician supervisor. 
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        If you wish to reactivate your license:<br/>
+        Enclosed is the Verification – Supervising Form to be completed by you as well as your supervising Hawaii licensed physician or osteopathic physician.  Please complete and return this form to the following address so that we may update your licensing file in Hawaii
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div style="padding-left: 50pt;">                            
+                        <div>Hawaii Medical Board</div>                            
+                        <div>Attn: Licensing Branch, Records Section</div>                            
+                        <div>P.O. Box 3469</div>                            
+                        <div>Honolulu, HI 96801</div>
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        If we do not receive or you are unable to provide us with the completed Verification – Supervising Physician Form or any other response, your license will remain automatically inactivated pursuant to HAR § 16-85-50.  Please be advised that you are prohibited from practicing in this State if your license is on inactive status.  Should you wish to practice as a physician assistant in this State, you will be required to reactivate your license, provided you submit: all applicable fees; a reactivation application; and evidence of having a supervising Hawaii licensed physician or osteopathic physician.
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div>
+                        Should you have any questions, please feel free to contact the Licensing Branch at (808) 586-3000, between the hours of 7:45 a.m. – 4:30 p.m., Hawaiian Standard Time. 
+                    </div>
+                    <br/>
+                    <br/>                        
+                    <div style="text-align: right">
+                        <table>
+                            <tr><td align="left">Sincerely,</td></tr>
+                            <tr><td align="left">Licensing Branch Records Section</td></tr>
+                        </table>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/> 
+                    <div>Verification &ndash; Supervising Physician Form</div>
+                </div>
+            </div>
+        </div>
+        <div style="page-break-after: always"/>
+        <div style="text-align: center;margin-top: 50px">
+            <apex:image url="{!$Resource.Verification_Supervising_Physician_Form}" width="815" height="1250"  />
+        </div>
+    </body>
+</apex:page>

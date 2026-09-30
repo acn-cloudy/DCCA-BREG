@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AssociatedLicenseNonRenewalCount__c</fullName>
+    <inlineHelpText>Displays all Associated Employees who have not Renewed.</inlineHelpText>
+    <label>Associated License Non Renewal Count</label>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.EmploymentStatus__c</field>
+        <operation>equals</operation>
+        <value>Employed</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.EndDate__c</field>
+        <operation>equals</operation>
+        <value></value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.ThisLicenseRenewed__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.ExcludefromRenewalRollup__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>AssociatedLicense__c.EntityLicense__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

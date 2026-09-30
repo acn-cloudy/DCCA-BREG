@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TravelApprovalEdit</fullName>
+    <active>false</active>
+    <compactLayoutAssignment>Travel_Approval_Compact_Layout</compactLayoutAssignment>
+    <description>PacPoint-AC121319 - Created for DCCA Travel Approval phase 1</description>
+    <label>Travel Approval (Edit)</label>
+    <picklistValues>
+        <picklist>ApprovingAuthorityTitle__c</picklist>
+        <values>
+            <fullName>Deputy Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Governor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Chair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Executive Officer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DepartmentDivisionOffice__c</picklist>
+        <values>
+            <fullName>ASO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BREG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DFI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FISCAL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ISCO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OAH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PVL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RICO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dept_Day_CONUS__c</picklist>
+        <values>
+            <fullName>0%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E00</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dept_Day_OCONUS__c</picklist>
+        <values>
+            <fullName>0%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E00</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MealType__c</picklist>
+        <values>
+            <fullName>Less Meals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Meal Only</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MemoSignerTitle__c</picklist>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaints %26 Enforcement Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deputy Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Governor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensing Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Chair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Section Head</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Paid_By__c</picklist>
+        <values>
+            <fullName>Third Party</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Traveler</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>pCard</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PerDiemAllowanceRate__c</picklist>
+        <values>
+            <fullName>145</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>ReasonForMemo__c</picklist>
+        <values>
+            <fullName>%28a%29 Travel deviation and%2For 12-month travel history notification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%28b%29 Amendment to state authorized%2Fapproved travel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>%28c%29 Request for approval of Delinquent Travel Claim</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>RequestingAuthorityTitle__c</picklist>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATV Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaints and Enforcement Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deputy Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IS Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensing Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Chair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Section Head</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Senior Hearings Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rtn_Day_CONUS__c</picklist>
+        <values>
+            <fullName>0%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E00</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rtn_Day_OCONUS__c</picklist>
+        <values>
+            <fullName>0%2E25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>0%2E75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1%2E00</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>StatementOfCompletedTravelStatus__c</picklist>
+        <values>
+            <fullName>Cancelled %E2%80%93 trip cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DAGS approved %E2%80%93 Reimbursement approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DAGS rejected %E2%80%93 SOCT packet corrections required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Div sent to Fiscal %E2%80%93 Division submitted to Fiscal for processing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal Accepted - No Payment Required %28Zero%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal Accepted - Payment thru Petty Cash</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal did not receive the required travel documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal received %E2%80%93 Fiscal%E2%80%99s acknowledgement of SOCT packet received%2Fin review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal rejected %E2%80%93 SOCT packet corrections required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fiscal sent to DAGS %E2%80%93 SOCT packet printed%2F sent to DAGS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>SOCT Completed %E2%80%93 entire SOCT completed%2C reimbursement check received%2C travel report uploaded</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Title__c</picklist>
+        <values>
+            <fullName>Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATV Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complaints and Enforcement Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deputy Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deputy Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IS Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Insurance Commissioner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Licensing Administrator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Chair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PUC Executive Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TravelApprovalStatus__c</picklist>
+        <values>
+            <fullName>APD Sent to Fiscal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

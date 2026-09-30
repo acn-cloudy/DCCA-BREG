@@ -1,0 +1,204 @@
+<apex:component >
+  <apex:attribute name="license" type="License__c" description="License" />
+  <c:RenewalNotificationAddress license="{!license}" />
+  <div style="font-size: 8pt; font-family: 'Arial Narrow'; padding-top: 112px; line-height: 1.15">
+    <div class="bgap">
+      TO BE COMPLETED BY THE LICENSEE (Circle your answers and provide
+      additional information where requested):
+    </div>
+    <div class="bgap">
+      The following questions apply to physicians (MD/DO), physician assistants,
+      and podiatrists:
+    </div>
+
+    <div class="tgap bgap">
+      <p style="margin: 0 0 1px 0">
+        1) Are you a US Citizen, a U.S. National, or an alien authorized to work
+        in the
+        U.S.?...........................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+      </p>
+
+      <p style="margin-bottom: 1px; margin-top: 0">
+        2) Since you last filed an application (initial/renewal) with the Board,
+        has any medical or osteopathic medical license
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        to practice in any state or country:
+      </p>
+      <div style="padding-left: 20px">
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          a) Has it been revoked, suspended, placed on probation, surrendered,
+          reprimanded, admonished, or
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          otherwise subject to disciplinary action; or have you been issued a
+          letter of
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          concern; or have you entered into a consent order or settlement
+          agreement?...............................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          b) Is any disciplinary action pending against
+          you?.............................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          c) Have you been denied a license or withdrawn an application for
+          licensure?.................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; font-style: italic">
+          If response is "yes" attach a detailed explanation on a separate
+          sheet, which includes state or country
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; font-style: italic">
+          where action is pending or took place, relevant dates, action taken
+          and reasons for such action.
+        </p>
+      </div>
+
+      <p style="margin-bottom: 1px; margin-top: 0">
+        3) Since you last filed an application (initial/renewal) with the Board,
+        has any educational training program or facility,
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        state/federal controlled substance agency, local, state, federal or
+        military professional or disciplinary body or any hospital
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        privileging or credentialing body, grievance committee or any other
+        medical group, including medical or
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        osteopathic medical societies and speciality boards:
+      </p>
+      <div style="padding-left: 20px">
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          a) Have you been subject to disciplinary or adverse actions or entered
+          into an
+          agreement?..............................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          b) Is any disciplinary or adverse action pending against
+          you?............................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          c) Have you been denied or withdrawn an application for privileges or
+          membership, or have you
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          resigned, surrendered, or failed to renew your privileges for
+          membership while under investigation
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          or due to adverse or derogatory
+          reasons?.......................................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; font-style: italic">
+          If response is "yes", attach a detailed explanation on a separate
+          sheet, which includes the bodies of
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; font-style: italic">
+          jurisdiction or organizations involved, action taken and reasons for
+          such action.
+        </p>
+      </div>
+
+      <p style="margin-bottom: 1px; margin-top: 0">
+        4) Since you last filed an application (initial/renewal) with the Board,
+        regarding professional liability, participation in any
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        health plan or federal or state health care program:
+      </p>
+      <div style="padding-left: 20px">
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          a) Have any claims of malpractice been filed against
+          you?..................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          b) Has any insurance carrier denied, conditioned, curtailed, limited,
+          suspended, or revoked your
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          coverage?..........................................................................................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          c) Have you relinquished participation or certification, or been
+          denied, terminated, sanctioned,
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+          penalized, decertified, or otherwise excluded from
+          participation?...................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px">
+          d) Have you been convicted of insurance
+          fraud?...................................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+        </p>
+        <p style="margin-bottom: 1px; margin-top: 1px; font-style: italic">
+          If the response is "yes," attach a detailed explanation on a separate
+          sheet, which:
+        </p>
+        <ul
+          style="
+            list-style: square;
+            margin-top: 1px;
+            margin-bottom: 0;
+            margin-left: 10px;
+          "
+        >
+          <li style="font-style: italic">
+            Includes the date of the case (month/year), jurisdiction (State,
+            etc.), nature of the case, allegations, <br /> and amount paid on
+            your behalf. Information is to be provided on all settlements,
+            judgments, <br /> awards, and claims (including those for which no
+            money was paid); and/or
+          </li>
+          <li style="font-style: italic">
+            Provides the name and address of your insurance carrier, specific
+            circumstances, date and action <br /> taken.
+          </li>
+        </ul>
+      </div>
+
+      <p style="margin-bottom: 1px; margin-top: 0">
+        5) Since you last filed an application (initial/renewal) with the Board,
+        have you been addicted to, dependent on, or a
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        habitual user of alcohol or of a narcotic, barbiturate, amphetamine,
+        hallucinogen, or other drug having similar
+        effects?....................................................................................................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+      </p>
+      <p
+        style="
+          margin-bottom: 1px;
+          margin-top: 1px;
+          padding-left: 15px;
+          font-style: italic;
+        "
+      >
+        If response is "yes," attach a detailed explanation on a separate sheet.
+      </p>
+
+      <p style="margin-bottom: 1px; margin-top: 0">
+        6) Since you last filed an application (initial/renewal) with the Board,
+        have you been convicted of a crime in which the
+      </p>
+      <p style="margin-bottom: 1px; margin-top: 1px; padding-left: 15px">
+        conviction has not been annulled or
+        expunged?......................................................................................................................YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO
+      </p>
+      <p
+        style="
+          margin-bottom: 1px;
+          margin-top: 1px;
+          padding-left: 15px;
+          font-style: italic;
+        "
+      >
+        Explain "yes" on a separate sheet with detailed information and attach
+        supporting documents.
+      </p>
+    </div>
+  </div>
+</apex:component>

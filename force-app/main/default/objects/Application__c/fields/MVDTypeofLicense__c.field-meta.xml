@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MVDTypeofLicense__c</fullName>
+    <description>PacPoint-KN06092020-Created for PVL Phase 1 Sprint 5</description>
+    <inlineHelpText>Used for MVD and AUC Fees.</inlineHelpText>
+    <label>MVD Type of License</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Vehicles - Honolulu (includes used vehicles)</fullName>
+                <default>false</default>
+                <label>New Vehicles - Honolulu (includes used vehicles)</label>
+            </value>
+            <value>
+                <fullName>New Vehicles - Neighbor Islands (includes used vehicles)</fullName>
+                <default>false</default>
+                <label>New Vehicles - Neighbor Islands (includes used vehicles)</label>
+            </value>
+            <value>
+                <fullName>Used Vehicles (includes new motorcycle-scooter with franchise agreement(s))</fullName>
+                <default>false</default>
+                <label>Used Vehicles (includes new motorcycle-scooter with franchise agreement(s))</label>
+            </value>
+            <value>
+                <fullName>Used Vehicles (includes new motorcycle-scooter with franchise agreement(s)) - Neighbor Islands</fullName>
+                <default>false</default>
+                <label>Used Vehicles (includes new motorcycle-scooter with franchise agreement(s)) - Neighbor Islands</label>
+            </value>
+            <value>
+                <fullName>Motorcycle-Scooter Only - Honolulu</fullName>
+                <default>false</default>
+                <label>Motorcycle-Scooter Only - Honolulu</label>
+            </value>
+            <value>
+                <fullName>Motorcycle-Scooter Only - Neighbor Islands</fullName>
+                <default>false</default>
+                <label>Motorcycle-Scooter Only - Neighbor Islands</label>
+            </value>
+            <value>
+                <fullName>Auction - All Counties</fullName>
+                <default>false</default>
+                <label>Auction - All Counties</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

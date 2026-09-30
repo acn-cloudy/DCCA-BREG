@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Popover_Help__c</fullName>
+    <description>If this field is populated, mouse over help will display on the control</description>
+    <inlineHelpText>If this field is populated, mouse over help will display on the control</inlineHelpText>
+    <label>Popover Help (Override)</label>
+    <length>2000</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

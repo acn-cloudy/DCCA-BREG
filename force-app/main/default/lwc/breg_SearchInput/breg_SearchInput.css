@@ -1,0 +1,80 @@
+.search-buy-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background: #fafafa;
+  border-radius: 40px;
+  padding: 0.5rem;
+  box-shadow: none;
+  margin-bottom: 1.5rem;
+  border: solid;
+  border-width: 2.5px;
+}
+
+.search-buy-combobox {
+  min-width: 160px;
+  border-radius: 30px;
+  background: #fff;
+  margin-right: 0.5rem;
+  padding-left: 1.2rem;
+  padding-right: 2.2rem;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  border: none;
+  font-size: 1.1rem;
+  color: #222;
+  appearance: none;
+  box-shadow: none;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+  position: relative;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px 18px;
+}
+
+.search-buy-combobox:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--breg-primary-color);
+}
+
+.search-buy-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1.1rem;
+  color: #888;
+  padding: 1.1rem 0.5rem;
+}
+
+.search-buy-btn {
+  width: 48px;
+  height: 48px;
+  background: var(--breg-primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  margin-left: auto;
+  transition: background 0.2s;
+}
+
+.search-buy-btn lightning-icon {
+  --sds-c-icon-color-foreground-default: #fff;
+}
+
+@media (max-width: 768px) {
+  .search-buy-combobox {
+    min-width: 140px;
+    padding-left: 8px;
+    margin: 0;
+    padding-right: 0;
+  }
+}

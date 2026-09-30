@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentApplicationhasLicense__c</fullName>
+    <description>PacPoint-MV100619 - Created for PVL phase 1 to be used in PB to create associated license as a workaround of the PB limitation to use cross-object reference fields on the criteria</description>
+    <formula>IF(
+  AND(
+  NOT(ISBLANK(DependentApplication__c)),
+  NOT(ISBLANK(DependentApplication__r.CurrentLicense__c))
+  ), 
+  true,
+  false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dependent Application has License</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseABPrefix__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE
+(
+ClassPrefix__c,
+&quot;ABC&quot;, &quot;AB&quot;,
+&quot;AC&quot;, &quot;A&quot;,
+&quot;AB&quot;, &quot;AB&quot;,
+&quot;A&quot;, &quot;A&quot;,
+&quot;B&quot;, &quot;B&quot;,
+&quot;BC&quot;, &quot;B&quot;,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License AB Prefix</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

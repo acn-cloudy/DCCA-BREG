@@ -1,0 +1,137 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+            body {
+                margin-top: 5px;
+                font-size: 11pt;
+                font-family: Arial Narrow, Arial;
+            }
+            li span {
+                position: relative;
+                left: 3px;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-2" licenseType="CONTRACTORS LICENSE BOARD" />
+            <div style="padding-left: 50px; padding-top: 15px;">
+                <div style="text-align: left;">
+                    <span><apex:outputText value="{0, date, MM/dd/yyyy}">
+                        <apex:param value="{!dToday}" />
+                    </apex:outputText></span><span style="left: 240px; position: relative">License No. {!record.Name}</span>
+                </div>
+                <apex:outputText value="{!record.LicenseeNameRBA__c}" escape="false" />
+                <br/> <apex:outputText value="{!record.RenewalMailToStreet__c}" escape="false" />
+                <br/> {!record.RenewalMailToCity__c} {!record.RenewalMailToState__c} {!record.RenewalMailToZipCode__c}
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="padding-left: 35px;font-weight: bold;font-size: 12pt;">SUBJECT: Non-Renewal of Contractor’s License for&nbsp;
+                    <apex:outputText value="{0,date,yyyy}" >  
+                        <apex:param value="{!record.LicenseType__r.NextLicensePeriodEffectiveDate__c}"/>  
+                    </apex:outputText>
+                    -
+                    <apex:outputText value="{0,date,yyyy}" >  
+                        <apex:param value="{!record.LicenseType__r.NextLicensePeriodExpireDate__c}"/>  
+                    </apex:outputText>
+                &nbsp;Period</div>
+                <table style="padding-top: 20px; width: 520px">
+                    <tr>
+                        <td style="vertical-align: top"><c:NoticeUnCheck /></td>
+                        <td style="vertical-align: top; ">Please be advised that we were unable to renew your license because <u>your 
+                            employer failed to renew its contractor license.</u> <b>A Responsible Managing 
+                            Employee cannot be licensed without an employer.</b> </td>
+                    </tr>
+                    <tr style="height:15px"></tr>
+                    <tr>
+                        <td style="vertical-align: top"><c:NoticeCheck /></td>
+                        <td style="vertical-align: top">Please be advised that we were unable to renew your license <u>because your
+                            Responsible Managing Employee failed to renew his/her license.</u> <b>A contracting
+                            entity cannot be licensed without a Responsible Managing Employee.</b> </td>
+                    </tr>
+                </table>
+
+                <div style="width: 520px">
+                    <ul>
+                        <li>
+                            The deadline to renew all Contractor licenses was&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                                <apex:param value="{!record.LicenseType__r.PreviousLicensePeriodExpireDate__c}"/>  
+                            </apex:outputText>. Thus, due to the
+                            reason indicated above, your license has expired, and you no longer possess a
+                            valid Contractor license. However, you may RESTORE your license if the
+                            problem indicated above is rectified by the restoration deadline of&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!record.LicenseType__r.PreviousRestorationDeadline__c}"/></apex:outputText>.
+                            (Note: If the above is rectified by the restoration deadline but your renewal was
+                            NOT received by/on the renewal deadline of&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!record.LicenseType__r.PreviousLicensePeriodExpireDate__c}"/>  
+                        </apex:outputText>, you are required to pay
+                            a penalty fee of $50 made payable to DCCA.) 
+                        </li>
+                        <li style="padding-top: 10px">
+                            Failure to correct the problem above and restore your license by&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!record.LicenseType__r.PreviousRestorationDeadline__c}"/></apex:outputText> will
+                            cause your license to be FORFEITED and will require you to apply as a new
+                            applicant. You will no longer possess a Contractor license. Please visit
+                            hawaii.gov/dcca/pvl to obtain an application form. No exam will be required for
+                            individuals who file within 4 years of the forfeiture date. A full refund of your
+                            renewal fees of&nbsp;<apex:outputText value="{0, number, $###,###.00}">  
+                            <apex:param value="{!record.LicenseType__r.RenewalFee__c}"/></apex:outputText> will be processed after&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy}" >  
+                            <apex:param value="{!record.LicenseType__r.PreviousRestorationDeadline__c}"/></apex:outputText>. The processing time
+                            for refunds is 6 to 8 weeks. 
+                        </li>
+                        <li style="padding-top: 10px">
+                            THIS WILL BE YOUR ONLY NOTICE PRIOR TO FORFEITURE.
+                        </li>
+                    </ul>
+                </div>
+                <br/>
+                <br/>
+                <div style="width: 550px;">
+                    If you wish to request a contested case hearing on this decision, you must submit a request
+                    for a hearing to the Board within 60 days from the date of this letter or you will lose your
+                    right to a hearing and your right to appeal to the circuit court. A contested case hearing is 
+                </div>
+            </div>
+            <div style="page-break-after:always;"></div>
+            <div style="padding-left: 50px; padding-top: 20px;">
+                <apex:outputText value="{!record.LicenseeNameFormula__c}" escape="false" /><br/>
+                <apex:outputText value="{0,date,MM/dd/yyyy}"><apex:param value="{!dToday}"/></apex:outputText> <br/>
+                Page 2
+                <div style="padding-top: 30px;width: 550px;">
+                    held before a Hearings Officer. Please understand that the hearings process is not an
+                    opportunity to submit new information. 
+                    <br/><br/>
+                    After the contested case hearing, the Hearings Officer will make a recommendation to the
+                    Board, and both sides will be allowed to present any areas of disagreement with the
+                    Hearings Officer's recommended decision. The Board will consider the Hearings Officer's
+                    recommendation and the arguments by the parties, and then issue a final order. If you
+                    disagree with the Board's final order after having pursued your contested case hearing
+                    option, you may appeal that decision to the circuit court. You must complete the contested
+                    case hearing process before you request relief from the circuit court.
+                    <br/><br/>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

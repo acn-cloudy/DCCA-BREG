@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MealType__c</fullName>
+    <description>PacPoint-AC121019 - Created for DCCA Travel Approval phase 1</description>
+    <label>Meal Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Less Meals</fullName>
+                <default>false</default>
+                <label>Less Meals</label>
+            </value>
+            <value>
+                <fullName>Meal Only</fullName>
+                <default>false</default>
+                <label>Meal Only</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

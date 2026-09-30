@@ -1,0 +1,34 @@
+<!--
+  @description       : 
+  @author            : Gaurav Agarwal
+  @group             : 
+  @last modified on  : 04-30-2025
+  @last modified by  : Gaurav Agarwal
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="mds-container mds-m-around_large">
+        <h1 alt="Dashboard">Dashboard</h1>
+        <div class="slds-text-align--right mds-m-vertical_x-large" alt="CATV Info">
+            <div class="mds-alert mds-scoped-notification slds-theme_success slds-theme_alert-texture slds-grid slds-grid--align-spread" role="alert">
+                <div class="mds-alert__body slds-grid">
+                    <div class="mds-media__figure">
+                        <span title="info" alt="CATV Contact Help Text">
+                            <i class="material-icon material-icon-info_outline" alt="info"></i>
+                        </span>
+                    </div>
+                    <div class="mds-media__body">
+                        <lightning-formatted-rich-text value={message} aria-label="CATV Contact Help Text"></lightning-formatted-rich-text>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+        <div if:true={showProviderTab}>
+            <c-catv_provider_tabs provider={account} provider-contact={contact}></c-catv_provider_tabs>
+        </div>
+        <div if:true={showRequestorTab}>
+            <c-catv_requestor_tabs requestor={account} requestor-contact ={contact}></c-catv_requestor_tabs>
+        </div>
+    </div>
+</template>

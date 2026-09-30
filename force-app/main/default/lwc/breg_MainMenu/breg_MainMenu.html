@@ -1,0 +1,41 @@
+<template>
+    <!-- Main navigation -->
+    <nav class="navigation-container slds-var-p-right_medium slds-col_bump-left slds-grid">
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="/" data-type="link" onclick={handleMobileMenuClick}>Home</a></li>
+                <li><a href="/start" data-type="link" onclick={handleMobileMenuClick}>Start</a></li>
+                <li class="dropdown">
+                    <a href="/manage" data-param="manage" data-type="link" onclick={handleMenuClick}>Manage</a>
+                    <lightning-icon icon-name="utility:down" size="x-small" alternative-text="Dropdown" onclick={toggleDropdown}>></lightning-icon>
+
+                    <ul class="dropdown-menu" if:true={openDropdown}>
+                        <li>
+                            <a href="/manage?section=annual-report" data-param="annual-report" data-type="link" onclick={handleMenuClick}>Annual Report</a>
+                        </li>
+                        <li><a href="/manage?section=change" data-param="change" data-type="link" onclick={handleMenuClick}>Change Business</a></li>
+                        <li>
+                            <a href="/manage?section=commercial_agent" data-param="commercial_agent" data-type="link" onclick={handleMenuClick}
+                                >Commercial Registered Agent</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/manage?section=tradename" data-param="tradename" data-type="link" onclick={handleMenuClick}>Trade Names & Marks</a>
+                        </li>
+                        <li>
+                            <a href="/manage?section=notifications" data-param="notifications" data-type="link" onclick={handleMenuClick}>Notifications</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/search-and-buy" data-param="search-and-buy" data-type="link" onclick={handleMenuClick}>Search & Buy</a></li>
+                <li><a href="/my-dashboard" data-type="link" onclick={handleMobileMenuClick}>My Dashboard</a></li>
+                <li>
+                    <a href="/cart" data-type="link" class="slds-grid slds-grid_vertical-align-center" title="Cart" onclick={handleMobileMenuClick}>
+                        <lightning-icon icon-name="utility:cart" size="small" alternative-text="Cart" class="slds-m-right_x-small"> </lightning-icon>
+                        <span class="slds-assistive-text">Cart</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</template>

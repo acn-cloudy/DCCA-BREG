@@ -1,0 +1,55 @@
+<aura:component access="global" extends="c:sc_execute">
+  <aura:attribute name="isLoading" type="Boolean" />
+  <aura:attribute name="value" type="Object" />
+  <aura:attribute name="title" type="String" />
+  <aura:attribute name="label" type="String" />
+  <aura:attribute name="appId" type="String" />
+  <aura:attribute name="cardMetaName" type="String" />
+  <aura:attribute name="cardStr" type="String" />
+  <aura:attribute name="card" type="Object" />
+  <aura:attribute name="valueMap" type="Object" />
+  <aura:attribute name="cardCaches" type="Object" />
+  <aura:attribute name="nextActions" type="Object" />
+  <aura:attribute name="cancelActions" type="Object" />
+  <aura:attribute name="formData" type="String" />
+  <aura:attribute name="displayItem" type="Boolean" />
+  <aura:attribute name="syncApp" type="Boolean" />
+
+  <aura:registerEvent name="cmpMessage" type="c:sc_Message" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:method name="setError" action="{!c.setErrors}">
+    <aura:attribute name="errorMessage" type="String" />
+    <aura:attribute name="label" type="String" />
+  </aura:method>
+  <lightning:spinner
+    aura:id="mySpinner"
+    alternativeText="Loading.."
+    size="medium"
+    title="Loading.."
+    variant="base"
+    class="{!v.isLoading ? 'coverAll': 'slds-hide'}"
+  />
+  <aura:if isTrue="{!v.syncApp}">
+    <c:syncApp
+      recordId="{!v.appId}"
+      cardStr="{!v.cardStr}"
+      cardMetaName="{!v.cardMetaName}"
+    ></c:syncApp>
+  </aura:if>
+  <aura:if isTrue="{!v.displayItem}">
+    <c:sc_popup title="Warning" hide="{!c.closeApp}">
+      <ui:outputRichText value="{!v.title}" />
+      <aura:set attribute="footers">
+        <div class="slds-grid slds-grid_align-center">
+          <!-- Change these so existing has label option and able to define to include  -->
+          <lightning:button
+            variant="brand"
+            label="{!v.label==null ? 'Edit Application' : v.label}"
+            onclick="{!c.closeApp}"
+          />
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </aura:if>
+  
+</aura:component>

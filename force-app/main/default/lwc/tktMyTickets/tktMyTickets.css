@@ -1,0 +1,48 @@
+.ticket-item {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.ticket-item:hover {
+    background-color: #f3f3f3;
+}
+
+.description-box {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.comments-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.comment-item {
+    background-color: #fafafa;
+}
+
+.comment-body {
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+}
+
+/* Modal styles */
+.slds-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9001;
+}
+
+.slds-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9000;
+}

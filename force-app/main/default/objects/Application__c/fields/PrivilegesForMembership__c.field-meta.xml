@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrivilegesForMembership__c</fullName>
+    <description>Used for Medical Renewal Questions for License Types MD, AMD, PO</description>
+    <inlineHelpText>2. In the past two years, with regard to any educational training program or facility, state/federal controlled substance agency, local, state, federal or military professional or disciplinary body or any hospital privileging or credentialing body, grievance....
+c) Have you ever been denied or withdrawn an application for privileges or membership, or have you ever resigned, surrendered, or failed to renew your privileges for membership while under investigation or due to adverse or derogatory reasons?</inlineHelpText>
+    <label>Privileges For Membership</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>When this event is published, any subscriber listening to it will display a custom toast notification.</description>
+    <eventType>HighVolume</eventType>
+    <label>Toast Event</label>
+    <pluralLabel>Toast Events</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

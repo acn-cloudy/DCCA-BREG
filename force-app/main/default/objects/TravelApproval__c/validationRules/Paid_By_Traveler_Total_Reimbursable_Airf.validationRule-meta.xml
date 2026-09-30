@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paid_By_Traveler_Total_Reimbursable_Airf</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+
+    AND(
+        ISPICKVAL(Paid_By__c, &quot;Traveler&quot;),
+        OR(
+            ISBLANK(TotalReimbursableAirfare__c),
+            NOT(ISBLANK(TotalAirfareCostToState__c))
+        )
+    ),
+
+    AND(
+        OR(
+            ISPICKVAL(Paid_By__c, &quot;pCard&quot;),
+            ISPICKVAL(Paid_By__c, &quot;Third Party&quot;)
+        ),
+        OR(
+            ISBLANK(TotalAirfareCostToState__c),
+            NOT(ISBLANK(TotalReimbursableAirfare__c))
+        )
+    )
+
+)</errorConditionFormula>
+    <errorMessage>Based on the selected Paid By value, complete only the appropriate airfare field. If Paid By is Traveler, enter Total Reimbursable Airfare &amp; Baggage only. If Paid By is pCard or Third Party, enter Total Airfare &amp; Baggage Cost to State only.</errorMessage>
+</ValidationRule>

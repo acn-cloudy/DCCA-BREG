@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventNewExamsRequiredWithSameExamType</fullName>
+    <active>false</active>
+    <errorConditionFormula>Prevent_Save__c = True</errorConditionFormula>
+    <errorMessage>You can&apos;t create this exam required record because there is one existed with same exam type.</errorMessage>
+</ValidationRule>

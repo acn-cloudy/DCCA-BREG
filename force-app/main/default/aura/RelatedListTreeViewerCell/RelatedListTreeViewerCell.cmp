@@ -1,0 +1,116 @@
+<aura:component>
+    <aura:attribute name="value" type="Object"/>
+    <aura:attribute name="rowData" type="Object"/>
+    <aura:attribute name="fieldDef" type="Object"/>
+
+    <aura:attribute name="mode" type="String" default="edit"/>
+
+    <aura:attribute name="cellClass" type="String" default="col-fit"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.value}" action="{!c.handleValueChange}"/>
+
+    <aura:attribute name="overlayLib" type="Object"/>
+    <aura:attribute name="refMouseHoverLoading" type="Boolean" default="false"/>
+    <aura:attribute name="mouseOut" type="Boolean" default="false"/>
+    <aura:attribute name="uniqueClass" type="String"/>
+    <aura:attribute name="compactMode" type="Boolean"/>
+    <aura:method name="handleMassAction" action="{!c.handleMassAction}" access="PUBLIC" >
+        <aura:attribute name="action" type="Object" /> 
+    </aura:method>
+
+
+    <!--to prevent row change event from firing on initial load-->
+    <aura:attribute name="isDoneInitialRender" type="Boolean" default="false"/>
+
+    <td onclick="{!c.goEditMode}" class="{!v.cellClass}"
+        style="{!if(v.fieldDef.type == 'REFERENCE','overflow:visible;','')}">
+        <lightning:overlayLibrary aura:id="overlayLib"/>
+        <aura:if isTrue="{!v.mode == 'read' || not(v.fieldDef.editable)}">
+            <aura:if isTrue="{!v.fieldDef.type == 'BOOLEAN'}">
+                <lightning:input type="checkbox"
+                                 label=""
+                                 name="{!v.fieldDef.fieldApiName}"
+                                 checked="{!v.value}"
+                                 disabled="true"/>
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!v.fieldDef.type == 'REFERENCE'}">
+                        <a class="{!'slds-truncate outputLookupLink '+v.uniqueClass}"
+                           href="{!'/lightning/r/' + v.value + '/view'}" onmouseover="{!c.showPopover}"
+                           onmouseleave="{!c.hidePopOver}">
+                            <c:InputLookup2 readOnlyLookup="true"
+                                            type="{!v.fieldDef.referenceObjectName}"
+                                            field="{!v.fieldDef.fieldApiName}"
+                                            value="{!v.value}"
+                                            sObj=""
+                                            className="slds-input"/>
+                        </a>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.fieldDef.isNameField}">
+                                <a class="slds-truncate outputLookupLink"
+                                   href="{!'/lightning/r/' + v.rowData.Id + '/view'}">
+                                        {!v.value}
+                                </a>
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!and(v.fieldDef.type == 'TEXTAREA', v.mode == 'edit')}">
+                                        <div class="slds-line-clamp_small">{!v.value}</div>                                      
+                                        <aura:set attribute="else">
+                                            {!v.value}
+                                        </aura:set>
+                                        </aura:if>                                       
+                                </aura:set>
+                            </aura:if>
+
+                        </aura:set>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+
+            <aura:if isTrue="{!and(not(empty(v.value)), v.fieldDef.type == 'TEXTAREA' || v.fieldDef.type == 'STRING')}">
+                <div class="showable-overflow">
+                    <lightning:helptext title="Show all"
+                                        iconName="utility:preview"
+                                        class="slds-icon_small"
+                                        content="{!v.value}"
+                    />
+                </div>
+            </aura:if>
+        </aura:if>
+        <aura:if isTrue="{!and(v.mode == 'edit', v.fieldDef.editable)}">
+            <aura:if isTrue="{!v.fieldDef.type == 'TEXTAREA'}">
+                <lightning:textarea name="{!v.fieldDef.fieldApiName}"
+                                    value="{!v.value}"
+                                    label=""/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldDef.type == 'BOOLEAN'}">
+                <lightning:input type="checkbox"
+                                 label=""
+                                 name="{!v.fieldDef.fieldApiName}"
+                                 checked="{!v.value}"
+                                 value="{!v.value}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldDef.type == 'PICKLIST'}">
+                <lightning:select label=""
+                                  name="{!v.fieldDef.fieldApiName}"
+                                  value="{!v.value}">
+                    <aura:iteration items="{!v.fieldDef.pickListOptions}" var="opt">
+                        <option value="{!opt.value}">{!opt.label}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldDef.type == 'DATE'}">
+                <lightning:input label="" type="date"
+                                 value="{!v.value}"
+                                 name="{!v.fieldDef.fieldApiName}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldDef.type == 'REFERENCE'}">
+                <c:InputLookup2 readOnlyLookup="false"
+                                type="{!v.fieldDef.referenceObjectName}"
+                                field="{!v.fieldDef.fieldApiName}"
+                                value="{!v.value}"
+                                sObj=""
+                                className="slds-input"/>
+            </aura:if>
+        </aura:if>
+    </td>
+</aura:component>

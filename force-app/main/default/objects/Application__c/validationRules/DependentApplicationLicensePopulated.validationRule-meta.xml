@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentApplicationLicensePopulated</fullName>
+    <active>true</active>
+    <description>PacPoint-IC073019- Created for PVL phase 1
+Stop the users from having both the Dependent Application &amp; Dependent License populated.</description>
+    <errorConditionFormula>AND(
+NOT( ISBLANK( DependentApplication__c ) ),
+NOT( ISBLANK( DependentLicense__c ) )
+)</errorConditionFormula>
+    <errorDisplayField>X3rd_Party_Applicant_Signature__c</errorDisplayField>
+    <errorMessage>Dependent Application and Dependent License shouldn&apos;t be populated at the same time.</errorMessage>
+</ValidationRule>

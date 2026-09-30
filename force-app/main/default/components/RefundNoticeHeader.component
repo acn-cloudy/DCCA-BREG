@@ -1,0 +1,53 @@
+<apex:component >
+    <apex:attribute name="pageStr" type="String" description="today" default="A-18.27-15" />
+    <apex:attribute name="licenseType" type="String" description="today" />
+    <table>
+        <tbody>
+            <tr>
+                <td colspan="1" rowspan="1" style="width: 270px;"></td>
+                <td colspan="1" rowspan="1">
+                    <div style="padding-top: 50px">
+                        <img src="{!$Resource.RenewalRefundLogo}" style="width: 150px;" />
+                    </div>
+                </td>
+                <td colspan="1" rowspan="1">
+                    <!-- <div style="border: 2px solid; margin-left: 120px; width: 160px;">
+                        <table style="font-weight: bold; width: 150px;">
+                            <tbody>
+                                <tr>
+                                    <td colspan="1" rowspan="1">Part:</td>
+                                    <td colspan="1" rowspan="1">Appendix</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1">Ref:</td>
+                                    <td colspan="1" rowspan="1">Notice Type SD</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1">Date:</td>
+                                    <td colspan="1" rowspan="1">03/12/2018</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1">Page:</td>
+                                    <td colspan="1" rowspan="1">{!pageStr}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="text-align: center;">
+        <!-- <div style="font-weight: bold; font-size: 10pt">{!licenseType}</div> -->
+        <div style="font-size: 6pt">
+            STATE OF HAWAII
+            <br/>
+            PROFESSIONAL AND VOCATIONAL LICENSING DIVISION
+            <br/>DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS
+            <br/>
+            <b>P.O. BOX 3469
+            <br/>HONOLULU, HAWAII 96801
+            <br/>cca.hawaii.gov/pvl</b>
+        </div>
+    </div>
+</apex:component>

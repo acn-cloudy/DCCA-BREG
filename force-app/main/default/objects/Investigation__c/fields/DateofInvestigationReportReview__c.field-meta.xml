@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateofInvestigationReportReview__c</fullName>
+    <description>PacPoint-RA110218-BREG Phase 1</description>
+    <inlineHelpText>Review investigation report (within 2 weeks of receiving case file)</inlineHelpText>
+    <label>Date of Investigation Report Review</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,226 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable"
+                controller="LicenseMassScannerController">
+
+    <aura:attribute name="licenses" type="String"/>
+    <aura:attribute name="receivedDate" type="Date"/>
+    <aura:attribute name="status" type="String"/>
+    <aura:attribute name="isActive" type="Boolean" default="false"/>
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="isCpaPa" type="Boolean" default="false"/>
+    <aura:attribute name="renewingPermitToPractice" type="String"/>
+    <aura:attribute name="renewByPermitToPractice" type="String"/>
+
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+
+    <aura:attribute name="statusOptions" type="Object[]"/>
+    <aura:attribute name="typeOptions" type="Object[]"/>
+    <aura:attribute name="renewingPermitToPracticeOptions" type="Object[]"/>
+    <aura:attribute name="renewByPermitToPracticeOptions" type="Object[]"/>
+    <aura:attribute name="activeInactiveOptions" type="Object[]"/>
+    <aura:attribute name="scanResult" type="Object"/>
+    <aura:attribute name="failCount" type="Integer"/>
+    <aura:attribute name="successCount" type="Integer"/>
+
+    <aura:attribute name="mode" type="String" default="Create"/>
+
+    <aura:attribute name="screen" type="String" default="scan"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <lightning:layout class="slds-box slds-wrap">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner/>
+        </aura:if>
+
+        <!--scan screen-->
+        <aura:if isTrue="{!v.screen == 'scan'}">
+            <lightning:layoutItem flexibility="auto" class="slds-p-right_small">
+                <lightning:textarea label="{!$Label.c.PVLScanningInstructions}"
+                                    name="licenses"
+                                    value="{!v.licenses}"
+                                    required="true"
+                                    onchange="{!c.handleLicenseChange}"
+                                    aura:id="inputRequired"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" class="slds-p-left_small">
+                <lightning:layout class="slds-grid_vertical">
+                    <aura:if isTrue="{!equals(v.mode,'Create')}">
+                        <lightning:input type="date"
+                                         label="Received Date"
+                                         name="receivedDate"
+                                         value="{!v.receivedDate}"
+                                         required="true"
+                                         aura:id="inputRequired"/>
+                        <lightning:select label="Type"
+                                          name=""
+                                          required="true"
+                                          value="{!v.type}"
+                                          class="slds-m-top_small"
+                                          aura:id="inputRequired">
+                            <option value="">-None-</option>
+                            <aura:iteration items="{!v.typeOptions}" var="opt">
+                                <option value="{!opt.value}">{!opt.label}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <aura:if isTrue="{!v.isCpaPa}">
+                            <lightning:select label="Renewing Permit to Practice?"
+                                              name=""
+                                              value="{!v.renewingPermitToPractice}"
+                                              class="slds-m-top_small"
+                            onchange="{!c.handleRenewingPermitToPracticeChange}">
+                                <option value="">-None-</option>
+                                <aura:iteration items="{!v.renewingPermitToPracticeOptions}" var="opt">
+                                    <option value="{!opt.value}">{!opt.label}</option>
+                                </aura:iteration>
+                            </lightning:select>
+                            <aura:if isTrue="{!v.renewingPermitToPractice == 'Yes'}">
+                                <lightning:select label="Renew by Permit to Practice"
+                                                  name=""
+                                                  required="true"
+                                                  value="{!v.renewByPermitToPractice}"
+                                                  class="slds-m-top_small"
+                                                  aura:id="inputRequired">
+                                    <option value="">-None-</option>
+                                    <aura:iteration items="{!v.renewByPermitToPracticeOptions}" var="opt">
+                                        <option value="{!opt.value}">{!opt.label}</option>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </aura:if>
+                        </aura:if>
+                        <lightning:input label="Renew Inactive"
+                                         type="checkbox"
+                                         checked="{!v.isActive}"/>
+                    </aura:if>
+                    <aura:if isTrue="{!equals(v.mode,'Update')}">
+                        <lightning:select label="Application Status"
+                                          name=""
+                                          required="true"
+                                          value="{!v.status}"
+                                          class="slds-m-top_small"
+                                          aura:id="inputRequired">
+                            <option value="">-None-</option>
+                            <aura:iteration items="{!v.statusOptions}" var="opt">
+                                <option value="{!opt.value}">{!opt.label}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                        <lightning:layout class="slds-m-top_small">
+                            &nbsp;
+                        </lightning:layout>
+                        
+                    </aura:if>
+                    <lightning:layout class="slds-m-top_small slds-grid_align-end">
+                        <div>
+                            <lightning:button variant="neutral" label="Clear" onclick="{!c.handleClearClick}"/>
+                            <lightning:button variant="brand" label="Submit" onclick="{!c.handleSubmitClick}"/>
+                        </div>
+                    </lightning:layout>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </aura:if>
+
+        <!--result screen-->
+        <aura:if isTrue="{!v.screen == 'result'}">
+            <lightning:layoutItem size="12">
+                <lightning:layout>
+                    <lightning:layoutitem flexibility="auto">
+                            {!$Label.c.PVLScanningLogTitle}
+                    </lightning:layoutitem>
+                    <lightning:layoutItem flexibility="auto">
+                        <lightning:layout class="slds-grid_align-end">
+                            <div>
+                                <lightning:button variant="neutral" label="Export to CSV"
+                                                  onclick="{!c.handleExportClick}"/>
+                                <lightning:button variant="neutral" label="Print" onclick="{!c.handlePrintClick}"/>
+                            </div>
+                        </lightning:layout>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="slds-m-top_small">
+                <p>
+                {!$Label.c.PVLScanningSuccess }= {!v.successCount}<br/>
+                        {!$Label.c.PVLScanningFails} = {!v.failCount}
+                </p>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="slds-m-top_small">
+                <lightning:card iconName="utility:error" title="{!$Label.c.PVLScanningFailsTitle}" class="failCard">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+                        <thead>
+                        <tr>
+                            <th>License Number</th>
+                            <th>License Status</th>
+                            <th>Comments</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="tableDataContainer">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+                            <tbody>
+                            <aura:if isTrue="{!empty(v.scanResult.failed)}">
+                                <tr>
+                                    <td colspan="2">
+                                        No data.
+                                    </td>
+                                </tr>
+                                <aura:set attribute="else">
+                                    <aura:iteration items="{!v.scanResult.failed}" var="f">
+                                        <tr>
+                                            <td>{!f.LicenseNumber__c}</td>
+                                            <td>{!f.License__r.Status__c}</td>
+                                            <td>{!f.Comments__c}</td>
+                                        </tr>
+                                    </aura:iteration>
+                                </aura:set>
+                            </aura:if>
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning:card>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="slds-m-top_small">
+                <lightning:card iconName="utility:success" title="Success" class="successCard">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+                        <thead>
+                        <tr>
+                            <th>License Number</th>
+                            <th>License Status</th>
+                            <th>Comments</th>
+                        </tr>
+                        </thead>
+                    </table>
+                    <div class="tableDataContainer">
+                        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_fixed-layout">
+                            <tbody>
+                            <aura:if isTrue="{!empty(v.scanResult.success)}">
+                                <tr>
+                                    <td colspan="2">
+                                        No data.
+                                    </td>
+                                </tr>
+                                <aura:set attribute="else">
+                                    <aura:iteration items="{!v.scanResult.success}" var="s">
+                                        <tr>
+                                            <td>{!s.LicenseNumber__c}</td>
+                                            <td>{!s.License__r.Status__c}</td>
+                                            <td>{!s.Comments__c}</td>
+                                        </tr>
+                                    </aura:iteration>
+                                </aura:set>
+                            </aura:if>
+                            </tbody>
+                        </table>
+                    </div>
+                </lightning:card>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="slds-m-top_small">
+                <lightning:layout class="slds-grid_align-end">
+                    <div>
+                        <lightning:button label="Back" onclick="{!c.handleBackClick}"/>
+                        <lightning:button variant="brand" label="Save" onclick="{!c.handleSaveClick}"/>
+                    </div>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </aura:if>
+    </lightning:layout>
+</aura:component>

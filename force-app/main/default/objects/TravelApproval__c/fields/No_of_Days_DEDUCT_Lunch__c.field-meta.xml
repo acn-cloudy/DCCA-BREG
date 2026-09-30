@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_of_Days_DEDUCT_Lunch__c</fullName>
+    <description>No. of days deduct lunch when meals provided at no cost.</description>
+    <externalId>false</externalId>
+    <label>No. of Days DEDUCT Lunch</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

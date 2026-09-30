@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Refunds_on_NonPaid_Lines</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISPICKVAL( PaidStatus__c ,&quot;Paid&quot;))  &amp;&amp;  RequestRefund__c  = TRUE</errorConditionFormula>
+    <errorDisplayField>RequestRefund__c</errorDisplayField>
+    <errorMessage>You can only Request a Refund on a Transaction Line that has been Paid</errorMessage>
+</ValidationRule>

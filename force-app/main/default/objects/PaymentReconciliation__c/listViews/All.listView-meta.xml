@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>TransactionID__c</columns>
+    <columns>Status__c</columns>
+    <columns>PaymentDate__c</columns>
+    <columns>PaymentType__c</columns>
+    <columns>AccountNumber__c</columns>
+    <columns>FirstName__c</columns>
+    <columns>LastName__c</columns>
+    <columns>Email__c</columns>
+    <columns>RelatedPayment__c</columns>
+    <columns>Division__c</columns>
+    <columns>InvalidEmail__c</columns>
+    <columns>Amount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Transaction Not Found</value>
+    </filters>
+    <label>All</label>
+</ListView>

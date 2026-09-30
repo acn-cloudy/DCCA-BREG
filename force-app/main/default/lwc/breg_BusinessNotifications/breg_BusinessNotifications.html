@@ -1,0 +1,154 @@
+<template>
+    <div class="container">
+        <template if:false={isLogged}>
+            <div class="slds-grid slds-wrap slds-grid_align-spread">
+                <div class="slds-size_1-of-1 slds-large-size_3-of-4">
+                    <c-breg_-notifications-intro is-dashboard-context={isDashboardContext}></c-breg_-notifications-intro>
+                </div>
+
+                <template if:false={isDashboardContext}>
+                    <div class="slds-size_1-of-1 slds-large-size_1-of-4 slds-p-around_medium">
+                        <c-breg-_-tile title={labels.BREG_Annual_LogInTitle}>
+                            <div class="slds-m-vertical_small">{labels.BREG_Annual_TileIntro}</div>
+                            <div class="slds-m-vertical_small">{labels.BREG_Annual_TileSignup}</div>
+                            <lightning-button
+                                variant="brand"
+                                label={labels.BREG_Annual_GoToSSO}
+                                class="slds-m-vertical_small"
+                                onclick={handleSSO}
+                            ></lightning-button>
+                            <div class="slds-m-around_x-small slds-text-body_big">
+                                <strong><em>{labels.BREG_Annual_WhyChangeTitle}</em></strong>
+                            </div>
+                            <div class="slds-text-body_small">
+                                {labels.BREG_Annual_WhyChangeText}
+                                <span><a href="https://my.hawaii.gov" target="_blank"> myHawaii</a>.</span>
+                            </div>
+                        </c-breg-_-tile>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:true={isLogged}>
+            <!-- User Guide button -->
+            <div class="user-guide">
+                <lightning-button label={labels.BREG_Notif_UserGuide} variant="brand-outline" onclick={handleOpenUserGuide}></lightning-button>
+            </div>
+
+            <!-- Step 1 -->
+            <h1 class="main-title">{labels.BREG_Notif_Step1}</h1>
+            <template if:true={isStepOne}>
+                <div class="step">
+                    <template lwc:if={showSearch}>
+                        <div class="slds-text-body_regular slds-m-bottom_medium">{labels.BREG_Notif_Search_Hint}</div>
+                        <c-breg-_-search-input
+                            search-value={searchValue}
+                            placeholder={labels.BREG_Annuals_SearchInputPlaceholder}
+                            onsearch={handleSearch}
+                        ></c-breg-_-search-input>
+                    </template>
+                    <template lwc:else> {labels.BREG_List_Result_Description}</template>
+                    <c-breg-_-account-search-results-table
+                        show-new-search={showNewSearch}
+                        search-by-number="false"
+                        onselected={handleSelectedRecords}
+                        include-tn-tm-sm={includeTnTmSm}
+                        onnewsearch={handleNewSearch}
+                        include-notifications-fields="true"
+                        is-only-tn-tm-sm-type={isOnlyTnTmSmType}
+                        exclude-accounts={excludeAccounts}
+                        notification-category={category}
+                    >
+                    </c-breg-_-account-search-results-table>
+                </div>
+                <template lwc:if={isSelected}>
+                    <div class="slds-size_1-of-1">
+                        <div class="slds-m-top_large slds-grid slds-grid_align-spread">
+                            <div>
+                                <lightning-button
+                                    label="Select Notifications for chosen entities"
+                                    icon-name="utility:chevronright"
+                                    icon-position="right"
+                                    variant="brand"
+                                    onclick={handleGoToSelect}
+                                ></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+
+            <!-- Step 2 -->
+            <h2 class="main-title">{labels.BREG_Notif_Step2}</h2>
+            <template if:true={isStepTwo}>
+                <div class="step">
+                    <c-breg_-select-notifications
+                        onprevious={getParamsFromUrl}
+                        record-ids={selectedRecordsIds}
+                        ongotosend={handleGoToSend}
+                        onsearchagain={handleSearchagain}
+                        chosen-category={chosenCategory}
+                        category={category}
+                    ></c-breg_-select-notifications>
+                </div>
+            </template>
+
+            <!-- Step 3 -->
+            <h2 class="main-title">{labels.BREG_Notif_Step3}</h2>
+            <template if:true={isStepThree}>
+                <div class="step">
+                    <c-breg-_-send-to-notifications
+                        onprevious={getParamsFromUrl}
+                        onnext={getParamsFromUrl}
+                        record-ids={selectedRecordsIds}
+                        selected-items={selectedItems}
+                        onsearchagain={handleSearchagain}
+                        chosen-notifications={chosenNotificationPackages}
+                        category={category}
+                    ></c-breg-_-send-to-notifications>
+                </div>
+            </template>
+
+            <!-- Step 4 -->
+            <h2 class="main-title">{labels.BREG_Notif_Step4}</h2>
+            <template if:true={isStepFour}>
+                <div class="step">
+                    <c-breg-_-review-notifications
+                        onprevious={getParamsFromUrl}
+                        onaddtocart={goToCart}
+                        record-ids={selectedRecordsIds}
+                        selected-items={selectedItems}
+                        onsearchagain={handleSearchagain}
+                        chosen-notifications={chosenNotificationPackages}
+                        category={category}
+                    ></c-breg-_-review-notifications>
+                </div>
+            </template>
+
+            <!-- Step 5 -->
+            <h2 class="main-title">{labels.BREG_Notif_Step5}</h2>
+        </template>
+
+        <!-- User Guide Modal -->
+        <template if:true={showUserGuideModal}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container user-guide-modal">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseUserGuide}>
+                            <lightning-icon icon-name="utility:close" alternative-text="Close" variant="inverse"></lightning-icon>
+                        </button>
+                        <h2 class="slds-text-heading_medium">{labels.BREG_Notif_UserGuide}</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <c-breg_-notifications-intro hide-intro-title is-dashboard-context={isDashboardContext}></c-breg_-notifications-intro>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning-button variant="brand-outline" label="Close" onclick={handleCloseUserGuide}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </div>
+</template>

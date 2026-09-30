@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MethodEmail__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN11/25/2020 - Created for PVL Case 11829</description>
+    <label>Method = Email</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

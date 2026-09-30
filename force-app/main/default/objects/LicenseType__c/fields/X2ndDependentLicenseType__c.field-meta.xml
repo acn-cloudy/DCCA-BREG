@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X2ndDependentLicenseType__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-KN01152019-Created for Phase 1 Sprint 3</description>
+    <label>2nd Dependent License Type</label>
+    <referenceTo>LicenseType__c</referenceTo>
+    <relationshipLabel>License Types (2nd Dependent License Type)</relationshipLabel>
+    <relationshipName>License_Types2</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

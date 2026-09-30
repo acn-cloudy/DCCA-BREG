@@ -1,0 +1,91 @@
+.lookup-table-dropdown {
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.slds-table tr {
+    cursor: pointer;
+}
+
+input[type=search]{
+    width: -webkit-fill-available !important;
+}
+
+.advanced-search-button {
+    cursor: pointer;
+}
+
+.advanced-search-options {
+    width: 450px;
+    z-index: 2;
+    position: absolute;
+}
+
+.advanced-search-options-mobile {
+    width: 90%;
+    z-index: 2;
+    position: absolute;
+}
+
+.box {
+    background-color: #dee9dd;
+    border-radius: 10px;
+}
+
+.full-width {
+    flex: 1;
+}
+
+.c-float-above {
+    z-index: 50;
+    position: absolute;
+}
+
+/* Search container styles */
+.search-container {
+    width: 500px;
+    min-width: 500px; /* Ensures it doesn't shrink further on desktop */
+}
+
+/* Style for the filter button */
+.filter-button {
+    --sds-c-button-radius-border: 50%; /* Makes it circular like other icons */
+    --sds-c-icon-color-foreground-default: #0070d2; /* Blue color for the icon */
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .slds-align_absolute-center {
+        padding: 0 10px;
+    }
+    
+    .search-container {
+        width: 250px; /* Wider input for mobile */
+        min-width: 250px;
+    }
+    
+    /* Adjust spacing for mobile */
+    lightning-layout-item {
+        margin: 0 2px;
+    }
+    
+    /* Style for search icon button */
+    .search-icon-button {
+        --sds-c-button-radius-border: 50%; /* Makes it circular like other icons */
+        --sds-c-icon-color-foreground-default: #0070d2; /* Blue color for the icon */
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .search-container {
+        width: 200px; /* Still wider than before for small devices */
+        min-width: 200px;
+    }
+    
+    /* Reduce horizontal padding to save space */
+    .slds-var-p-horizontal_small {
+        padding-left: 0.125rem;
+        padding-right: 0.125rem;
+    }
+}

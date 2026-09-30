@@ -1,0 +1,132 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="6" class="form-layout-item slds-var-m-bottom_small">
+                <p><lightning-formatted-text value={readOnlyAdoptedDateValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_small">
+                <p><lightning-formatted-text value={readOnlyAmendmentAdoptionTypeValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+
+            <!-- Meeting Fields -->
+            <template lwc:if={showMeetingFields}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={readOnlyDesignationValue}></lightning-formatted-text></p>
+                    <p><b><lightning-formatted-text class="slds-var-m-bottom_small slds-var-m-left_small" value={designationValue}></lightning-formatted-text></b></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_small">
+                    <p><lightning-formatted-text value={readOnlyTotalNumberOfMembershipsValue}></lightning-formatted-text></p>
+                    <p><b><lightning-formatted-number class="slds-var-m-bottom_small slds-var-m-left_small" value={totalNumberOfMembershipsValue}></lightning-formatted-number></b></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_small">
+                    <p><lightning-formatted-text value={readOnlyTotalNumberOfVotesValue}></lightning-formatted-text></p>
+                    <p><b><lightning-formatted-number class="slds-var-m-bottom_small slds-var-m-left_small" value={totalNumberOfVotesValue}></lightning-formatted-number></b></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_small">
+                    <p><lightning-formatted-text value={readOnlyNumberOfVotesForValue}></lightning-formatted-text></p>
+                    <p><b><lightning-formatted-number class="slds-var-m-bottom_small slds-var-m-left_small" value={numberOfVotesForValue}></lightning-formatted-number></b></p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_small">
+                    <p><lightning-formatted-text value={readOnlyNumberOfVotesAgainstValue}></lightning-formatted-text></p>
+                    <p><b><lightning-formatted-number class="slds-var-m-bottom_small slds-var-m-left_small" value={numberOfVotesAgainstValue}></lightning-formatted-number></b></p>
+                </lightning-layout-item>
+            </template>
+        </template>
+
+        <template lwc:else>
+            <lightning-layout-item size="6" class="form-layout-item">
+                <lightning-input
+                    name="adoptedDate"
+                    label={adoptedDateLabel}
+                    type="date"
+                    value={adoptedDateValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="amendmentAdoptionType"
+                    label={amendmentAdoptionTypeLabel}
+                    options={amendmentAdoptionTypeOptions}
+                    value={amendmentAdoptionTypeValue}
+                    onchange={handleInputChange}
+                    required={required}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <!-- Meeting Fields -->
+            <template lwc:if={showMeetingFields}>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="designation"
+                        value={designationValue}
+                        label="Designation (class) of Membership"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="totalNumberOfMemberships"
+                        value={totalNumberOfMembershipsValue}
+                        label="Total Number of Memberships (Votes) Outstanding"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" class="form-layout-item">
+                    <lightning-input
+                        name="totalNumberOfVotes"
+                        value={totalNumberOfVotesValue}
+                        label="Total Number of Votes Entitled to be Cast by Each Class"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfVotesFor"
+                        value={numberOfVotesForValue}
+                        label={numberOfVotesForLabel}
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfVotesAgainst"
+                        value={numberOfVotesAgainstValue}
+                        label={numberOfVotesAgainstLabel}
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PVL_Work_Item_Type__c</fullName>
+    <description>The different types of PVL work items</description>
+    <label>PVL Work Item Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Refund Status</fullName>
+                <default>false</default>
+                <label>Refund Status</label>
+            </value>
+            <value>
+                <fullName>Payment Issues</fullName>
+                <default>false</default>
+                <label>Payment Issues</label>
+            </value>
+            <value>
+                <fullName>Status of Application</fullName>
+                <default>false</default>
+                <label>Status of Application</label>
+            </value>
+            <value>
+                <fullName>Unable to Access Account</fullName>
+                <default>false</default>
+                <label>Unable to Access Account</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

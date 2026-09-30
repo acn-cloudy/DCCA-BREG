@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NumberofHours2__c</fullName>
+    <externalId>false</externalId>
+    <formula>Case(ClassificationName__c,
+
+&quot;NAIL&quot;, &quot;A national exam-equivalent to 350 hours&quot;,
+&quot;COSM&quot;, &quot;A national exam-equivalent to 1800 hours&quot;,
+&quot;HAIR&quot;, &quot;1250 training hours required&quot;,
+&quot;ESTN&quot;, &quot;A national exam-equivalent to 600 hours&quot;,
+&quot;ALL&quot;, &quot;A national exam-equivalent to 1800 hours&quot;,
+null
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Number of Hours</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

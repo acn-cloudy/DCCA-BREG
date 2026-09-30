@@ -1,0 +1,4 @@
+.transactions-list-wrapper{
+    max-height: 55vh !important;
+    overflow-y: auto !important;
+}

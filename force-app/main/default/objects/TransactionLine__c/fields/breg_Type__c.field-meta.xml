@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NBR Form</fullName>
+                <default>false</default>
+                <label>NBR Form</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Form</fullName>
+                <default>false</default>
+                <label>TNTMSM Form</label>
+            </value>
+            <value>
+                <fullName>Change Form</fullName>
+                <default>false</default>
+                <label>Change Form</label>
+            </value>
+            <value>
+                <fullName>Annual Form</fullName>
+                <default>false</default>
+                <label>Annual Form</label>
+            </value>
+            <value>
+                <fullName>Name Reservation Form</fullName>
+                <default>false</default>
+                <label>Name Reservation Form</label>
+            </value>
+            <value>
+                <fullName>CRA Registration Form</fullName>
+                <default>false</default>
+                <label>CRA Registration Form</label>
+            </value>
+            <value>
+                <fullName>Document</fullName>
+                <default>false</default>
+                <label>Document</label>
+            </value>
+            <value>
+                <fullName>Entity List</fullName>
+                <default>false</default>
+                <label>Entity List</label>
+            </value>
+            <value>
+                <fullName>Agent Search List</fullName>
+                <default>false</default>
+                <label>Agent Search List</label>
+            </value>
+            <value>
+                <fullName>Notification</fullName>
+                <default>false</default>
+                <label>Notification</label>
+            </value>
+            <value>
+                <fullName>Withdrawal Form</fullName>
+                <default>false</default>
+                <label>Withdrawal Form</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

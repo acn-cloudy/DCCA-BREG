@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Number__c</fullName>
+    <description>PacPoint-AC112219 - Created for Payment Collection Support
+(This was created for use on an SEC Batch Summary report)</description>
+    <externalId>false</externalId>
+    <formula>Payment__r.pymt__Check_Number__c</formula>
+    <label>Check Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

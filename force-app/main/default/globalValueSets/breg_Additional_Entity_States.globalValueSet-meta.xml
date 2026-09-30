@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Pending ODC request</fullName>
+        <default>false</default>
+        <label>Pending ODC request</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending ADD request</fullName>
+        <default>false</default>
+        <label>Pending ADD request</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending O/D/M/M/P ADD request</fullName>
+        <default>false</default>
+        <label>Pending O/D/M/M/P ADD request</label>
+    </customValue>
+    <customValue>
+        <fullName>Has no amendments approved</fullName>
+        <default>false</default>
+        <label>Has no amendments approved</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending transfer of name reservation</fullName>
+        <default>false</default>
+        <label>Pending transfer of name reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending cancellation of name reservation</fullName>
+        <default>false</default>
+        <label>Pending cancellation of name reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>Bounce check in progress</fullName>
+        <default>false</default>
+        <label>Bounce check in progress</label>
+    </customValue>
+    <customValue>
+        <fullName>Not in good standing</fullName>
+        <default>false</default>
+        <label>Not in good standing</label>
+    </customValue>
+    <customValue>
+        <fullName>Not active</fullName>
+        <default>false</default>
+        <label>Not active</label>
+    </customValue>
+    <customValue>
+        <fullName>No active agent associated who is not a CRA</fullName>
+        <default>false</default>
+        <label>No active agent associated who is not a CRA</label>
+    </customValue>
+    <customValue>
+        <fullName>Expired</fullName>
+        <default>false</default>
+        <label>Expired</label>
+    </customValue>
+    <customValue>
+        <fullName>Not have a ZZ file suffix</fullName>
+        <default>false</default>
+        <label>Not have a ZZ file suffix</label>
+    </customValue>
+    <customValue>
+        <fullName>Current date is not within the last 180 days of active term</fullName>
+        <default>false</default>
+        <label>Current date is not within the last 180 days of active term</label>
+    </customValue>
+    <customValue>
+        <fullName>More than 14 days prior to the expiration date</fullName>
+        <default>false</default>
+        <label>More than 14 days prior to the expiration date</label>
+    </customValue>
+    <customValue>
+        <fullName>2 years after dissolution</fullName>
+        <default>false</default>
+        <label>2 years after dissolution</label>
+    </customValue>
+    <customValue>
+        <fullName>Not survivor or merged entity</fullName>
+        <default>false</default>
+        <label>Not survivor or merged entity</label>
+    </customValue>
+    <customValue>
+        <fullName>Expired more than 180 days</fullName>
+        <default>false</default>
+        <label>Expired more than 180 days</label>
+    </customValue>
+    <customValue>
+        <fullName>Pending annual</fullName>
+        <default>false</default>
+        <label>Pending annual</label>
+    </customValue>
+    <customValue>
+        <fullName>No active registered agent</fullName>
+        <default>false</default>
+        <label>No active registered agent</label>
+    </customValue>
+    <customValue>
+        <fullName>Not a CRA</fullName>
+        <default>false</default>
+        <label>Not a CRA</label>
+    </customValue>
+    <customValue>
+        <fullName>Registered CRA</fullName>
+        <default>false</default>
+        <label>Registered CRA</label>
+    </customValue>
+    <customValue>
+        <fullName>120 days after dissolution effective date</fullName>
+        <default>false</default>
+        <label>120 days after dissolution effective date</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Individual</fullName>
+        <default>false</default>
+        <label>Not Individual</label>
+    </customValue>
+    <customValue>
+        <fullName>Not Entity</fullName>
+        <default>false</default>
+        <label>Not Entity</label>
+    </customValue>
+    <masterLabel>Additional Entity States</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

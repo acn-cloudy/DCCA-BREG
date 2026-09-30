@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActiveInactiveIsSetToInactive</fullName>
+    <active>true</active>
+    <description>PacPoint-IC021920- Created for PVL phase 1</description>
+    <errorConditionFormula>AND(
+
+ISPICKVAL( ActiveInactive__c , &quot;Inactive&quot;),
+NOT( LicenseType__r.AbleToInactivate__c ) 
+
+)</errorConditionFormula>
+    <errorMessage>This license is not eligible to go inactive.</errorMessage>
+</ValidationRule>

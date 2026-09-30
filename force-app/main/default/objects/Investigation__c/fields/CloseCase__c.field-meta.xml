@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CloseCase__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC101718 - Created for BREG phase 1</description>
+    <inlineHelpText>Closing correspondence
+•SCB Referral Closing Memo
+•Respondent(s) Closing Letter
+•Complainant(s) Closing Letter
+•U6
+•FINRA Notification</inlineHelpText>
+    <label>Close Case</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

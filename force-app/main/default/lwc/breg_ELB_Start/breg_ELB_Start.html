@@ -1,0 +1,7 @@
+<template>
+    <div>See the following costs table and read more about the List Builder service.</div>
+    <lightning-spinner if:true={isLoading} alternative-text="Loading..."></lightning-spinner>
+    <lightning-card if:false={isLoading} title="Service Pricing">
+        <lightning-datatable key-field="id" data={tableData} columns={columns} hide-checkbox-column> </lightning-datatable>
+    </lightning-card>
+</template>

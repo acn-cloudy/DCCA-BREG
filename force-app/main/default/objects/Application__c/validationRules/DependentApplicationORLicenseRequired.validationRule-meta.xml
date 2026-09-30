@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependentApplicationORLicenseRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-MV092319 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+ AND(
+   ISCHANGED(GenerateLicense__c),
+   GenerateLicense__c = true,
+   ISPICKVAL(Status__c,&quot;HC - Application Completed&quot;),
+   ISBLANK(DependentApplication__c), 
+   ISBLANK(DependentLicense__c),
+   ISPICKVAL(ActiveInactive__c, &quot;Active&quot;),
+   LicenseType__r.DependencyRequired__c =true
+ ), 
+true, 
+false
+)</errorConditionFormula>
+    <errorMessage>Please enter a &quot;Dependent Application&quot; or &quot;Dependent License&quot; before creating the license</errorMessage>
+</ValidationRule>

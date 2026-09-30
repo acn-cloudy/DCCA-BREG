@@ -1,0 +1,28 @@
+// Toggle option
+.mds-toggle-option {
+    .slds-checkbox_toggle [type=checkbox]:checked+.slds-checkbox_faux_container .slds-checkbox_faux{
+        background-color: var(--success-main);
+        border-color: var(--success-main);
+    }
+    .slds-checkbox_toggle [type=checkbox][disabled]+.slds-checkbox_faux_container .slds-checkbox_faux:after{
+        background-color: var(--input-border);
+    }
+    .slds-checkbox_toggle [type=checkbox][disabled]+.slds-checkbox_faux_container .slds-checkbox_faux{
+        background-color: var(--text-disabled);
+    }
+    .slds-checkbox_toggle .slds-checkbox_faux{
+        background-color: var(--input-border);
+    }
+    .slds-checkbox_faux{
+        box-shadow: none;
+    }
+    .slds-form-element__label{
+        padding-top: 0;
+        font-size: var(--font-size-16);
+        color: var(--text-primary);
+    }
+    .slds-checkbox_toggle [type=checkbox]:checked+.slds-checkbox_faux_container .slds-checkbox_on,
+    .slds-checkbox_toggle [type=checkbox]+.slds-checkbox_faux_container .slds-checkbox_off{
+        display: none;
+    }
+}

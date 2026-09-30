@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RICOReferral__c</fullName>
+    <label>RICO Referral</label>
+    <referenceTo>RICOReferral__c</referenceTo>
+    <relationshipLabel>RICO / Violations &amp; Allegations</relationshipLabel>
+    <relationshipName>RICO_Violations</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

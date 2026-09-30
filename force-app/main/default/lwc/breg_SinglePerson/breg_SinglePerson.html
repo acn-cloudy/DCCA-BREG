@@ -1,0 +1,52 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="6">
+            <lightning-input 
+                name="firstName" 
+                value={firstName} 
+                label="First Name" 
+                type="text" 
+                class="slds-var-m-bottom_small slds-var-m-right_small"
+                onchange={handleInputChange} onblur={handleInputBlur}
+                required={required}
+                read-only={readOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <lightning-input 
+                name="lastName" 
+                value={lastName} 
+                label="Last Name" 
+                type="text" 
+                class="slds-var-m-bottom_small"
+                onchange={handleInputChange} onblur={handleInputBlur}
+                required={required}
+                read-only={readOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item lwc:if={showOfficeTitleField} size="12">
+            <lightning-input 
+                name="officeTitle" 
+                value={officeTitleValue} 
+                label="Office Title" 
+                type="text"
+                class="slds-var-m-bottom_small"
+                onchange={handleInputChange} onblur={handleInputBlur}
+                read-only={readOnly}
+            ></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <c-breg_-address
+                form-config={formConfig}
+                form-data={formData}
+                is-nested="true"
+                label-hidden="true"
+                class="form-cmp"
+                config={config}
+                onchange={handleChangeNestedComponent}
+                cmp-properties={cmpProperties}
+            ></c-breg_-address>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allegation__c</fullName>
+    <inlineHelpText>The Allegation. Only REB Allegations are available int this picklist field. If you do not see the Allegation here, then type in the Allegation in the Allegation Text field below.</inlineHelpText>
+    <label>Allegation</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Advertising</fullName>
+                <default>false</default>
+                <label>Advertising</label>
+            </value>
+            <value>
+                <fullName>DUIs/ Convictions</fullName>
+                <default>false</default>
+                <label>DUIs/ Convictions</label>
+            </value>
+            <value>
+                <fullName>Failure to comply with statutory responsibilities</fullName>
+                <default>false</default>
+                <label>Failure to comply with statutory responsibilities</label>
+            </value>
+            <value>
+                <fullName>Failure to comply with statutory responsibilities as principal broker</fullName>
+                <default>false</default>
+                <label>Failure to comply with statutory responsibilities as principal broker</label>
+            </value>
+            <value>
+                <fullName>Failure to Renew License/Practicing without a License</fullName>
+                <default>false</default>
+                <label>Failure to Renew License/Practicing without a License</label>
+            </value>
+            <value>
+                <fullName>Failure to report</fullName>
+                <default>false</default>
+                <label>Failure to report</label>
+            </value>
+            <value>
+                <fullName>Failure to report any disciplinary action against licensee</fullName>
+                <default>false</default>
+                <label>Failure to report any disciplinary action against licensee</label>
+            </value>
+            <value>
+                <fullName>Failure to report changes within 10 days</fullName>
+                <default>false</default>
+                <label>Failure to report changes within 10 days</label>
+            </value>
+            <value>
+                <fullName>Failure to report DUI/Convictions</fullName>
+                <default>false</default>
+                <label>Failure to report DUI/Convictions</label>
+            </value>
+            <value>
+                <fullName>False Statement</fullName>
+                <default>false</default>
+                <label>False Statement</label>
+            </value>
+            <value>
+                <fullName>Procuring a license through fraud, misrepresentation, or deceit</fullName>
+                <default>false</default>
+                <label>Procuring a license through fraud, misrepresentation, or deceit</label>
+            </value>
+            <value>
+                <fullName>Unlicensed Activities</fullName>
+                <default>false</default>
+                <label>Unlicensed Activities</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

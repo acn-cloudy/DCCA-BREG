@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseCompactLayout</fullName>
+    <fields>Name</fields>
+    <fields>Licensee__c</fields>
+    <fields>LicenseType__c</fields>
+    <fields>OriginalDateofLicensure__c</fields>
+    <fields>EffectiveExpireDate__c</fields>
+    <fields>Status__c</fields>
+    <label>License Compact Layout</label>
+</CompactLayout>

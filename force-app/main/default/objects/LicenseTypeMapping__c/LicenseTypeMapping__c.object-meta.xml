@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>PacPoint: RdG - Case# 8722 - For PVL Phase 1 - License Type Mapping</description>
+    <enableFeeds>false</enableFeeds>
+    <label>License Type Mapping</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-FT041820- Created for PVL phase 1</description>
+    <label>License</label>
+    <referenceTo>License__c</referenceTo>
+    <relationshipLabel>Other Trade/DBA Names</relationshipLabel>
+    <relationshipName>LicenseNames</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

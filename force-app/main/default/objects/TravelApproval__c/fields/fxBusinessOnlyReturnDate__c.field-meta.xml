@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fxBusinessOnlyReturnDate__c</fullName>
+    <description>PacPoint: JF - Case #6406 - Travel Phase 1 - Used for DocuSign Templates</description>
+    <externalId>false</externalId>
+    <formula>LEFT(TEXT(fxBusinessOnlyReturnDate3__c), 10)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Business Only Return Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

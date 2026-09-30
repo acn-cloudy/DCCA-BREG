@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ApplicationRespondByInDays__c</fullName>
+    <description>PacPoint-KN06092020-Created for PVL Phase 1 Sprint 5</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field is used for Timeshare and Subdivision. It is used to populate the &apos;Application Respond By Date&apos; on the Application.</inlineHelpText>
+    <label>Application Respond By (In Days)</label>
+    <precision>3</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

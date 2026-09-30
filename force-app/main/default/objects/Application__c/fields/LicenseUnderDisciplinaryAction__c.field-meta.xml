@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseUnderDisciplinaryAction__c</fullName>
+    <description>Used for Medical Renewal Questions for License Types MD, AMD, PO</description>
+    <inlineHelpText>In the past two years, with regard to any medical or osteopathic medical license to practice in any state or country:
+a) Has it ever been revoked, suspended, placed on probation, surrendered, reprimanded, admonished, or otherwise subject to disciplinary action; or have you ever been issued a letter of concern; or have you ever entered into a consent order or settlement agreement?</inlineHelpText>
+    <label>License Under Disciplinary Action</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

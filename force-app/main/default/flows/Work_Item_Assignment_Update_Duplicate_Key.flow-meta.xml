@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Duplicate_Check_Key</name>
+        <label>Assign Duplicate Check Key</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Duplicate_Key_Check__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_Duplicate_Key</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Duplicate_Key</targetReference>
+        </connector>
+    </assignments>
+    <description>Flow used to update the Duplicate Key on the Work Assignment record to use in duplicate rule logic</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>form_Duplicate_Key</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Assigned_Clerk__r.Id} &amp;
+&quot;_&quot; &amp;
+{!$Record.Board_Program__r.Id} &amp;
+&quot;_&quot; &amp;
+{!$Record.License_Type__r.Id} &amp;
+&quot;_&quot; &amp;
+TEXT({!$Record.Clerk_Type__c}) &amp;
+&quot;_&quot; &amp;
+IF({!$Record.Active__c}, &quot;A&quot;, &quot;I&quot;)</expression>
+    </formulas>
+    <interviewLabel>Work Item Assignment: Update Duplicate Key {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Work Item Assignment: Update Duplicate Key</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Duplicate_Key</name>
+        <label>Update Duplicate Key</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>Duplicate_Key_Check__c</field>
+            <value>
+                <elementReference>form_Duplicate_Key</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Duplicate_Check_Key</targetReference>
+        </connector>
+        <object>PVL_Board_Assignment__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

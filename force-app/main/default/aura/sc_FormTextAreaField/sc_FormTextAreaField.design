@@ -1,0 +1,9 @@
+<design:component label="REVENUE_FormTextAreaField">
+    <design:attribute name="fieldName" label="Name" description="API Name of the field" />
+    <design:attribute name="fieldLabel" label="Label" description="Label that you want to be shown"/>
+    <design:attribute name="fieldType" label="Type" description="select data type" datasource="text,number,checkbox,radio,number,range,date,time,datetime-local,month,week,email,url,tel,file,button,search"/>	
+    <design:attribute name="fieldplaceholder" label="Place Holder" description="Type in placeholder"/>	
+   <design:attribute name="fieldrequired" label="Required ?" description="Required?" datasource="true,False"/>	
+     <design:attribute name="value" label="value" description="value" />	
+    <design:attribute name="cardname" label="Card Name"/>
+</design:component>

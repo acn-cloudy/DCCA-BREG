@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Apex_Data_Provider__c</fullName>
+    <description>Apex class name that implements the logic to fulfill email template merge fields</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Apex class name that implements the logic to fulfill email template merge fields</inlineHelpText>
+    <label>Apex Data Provider</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

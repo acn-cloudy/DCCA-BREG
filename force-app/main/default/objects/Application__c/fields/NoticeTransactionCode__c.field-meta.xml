@@ -1,0 +1,1429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NoticeTransactionCode__c</fullName>
+    <label>Notice Transaction Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>WEDUC - EDUCATION WAIVER</fullName>
+                <default>false</default>
+                <label>WEDUC - EDUCATION WAIVER</label>
+            </value>
+            <value>
+                <fullName>XPCT - EXPERIENCE CERTIFICATE</fullName>
+                <default>false</default>
+                <label>XPCT - EXPERIENCE CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>XTMP - EXTEND TEMPORARY LICENSE</fullName>
+                <default>false</default>
+                <label>XTMP - EXTEND TEMPORARY LICENSE</label>
+            </value>
+            <value>
+                <fullName>XXXX - INVALID TRANSACTION REQUESTED</fullName>
+                <default>false</default>
+                <label>XXXX - INVALID TRANSACTION REQUESTED</label>
+            </value>
+            <value>
+                <fullName>Z - DISCIPLINARY ACTION TAKEN-COMBINATION SANCTIONS</fullName>
+                <default>false</default>
+                <label>Z - DISCIPLINARY ACTION TAKEN-COMBINATION SANCTIONS</label>
+            </value>
+            <value>
+                <fullName>ZC - VOLUNTARILY TERMINATE OR FORFEIT LICENSE DUE TO DISCIPLINARY ACTION</fullName>
+                <default>false</default>
+                <label>ZC - VOLUNTARILY TERMINATE OR FORFEIT LICENSE DUE TO DISCIPLINARY ACTION</label>
+            </value>
+            <value>
+                <fullName>ZF - FINED</fullName>
+                <default>false</default>
+                <label>ZF - FINED</label>
+            </value>
+            <value>
+                <fullName>ZI - SUSPENDED SUMMARILY DUE TO INSURANCE LOSS</fullName>
+                <default>false</default>
+                <label>ZI - SUSPENDED SUMMARILY DUE TO INSURANCE LOSS</label>
+            </value>
+            <value>
+                <fullName>ZR - REVOKED</fullName>
+                <default>false</default>
+                <label>ZR - REVOKED</label>
+            </value>
+            <value>
+                <fullName>ZRS - RESTITUTION</fullName>
+                <default>false</default>
+                <label>ZRS - RESTITUTION</label>
+            </value>
+            <value>
+                <fullName>ZS - SUSPENDED</fullName>
+                <default>false</default>
+                <label>ZS - SUSPENDED</label>
+            </value>
+            <value>
+                <fullName>ZT - TERMINATED DUE TO RF PAYOUT OR PAST TIME LIMITED TO REINSTATE SUSPENDED LICENSE</fullName>
+                <default>false</default>
+                <label>ZT - TERMINATED DUE TO RF PAYOUT OR PAST TIME LIMITED TO REINSTATE SUSPENDED LICENSE</label>
+            </value>
+            <value>
+                <fullName>ZW - CONDITIONAL LICENSE WITHDRAWN</fullName>
+                <default>false</default>
+                <label>ZW - CONDITIONAL LICENSE WITHDRAWN</label>
+            </value>
+            <value>
+                <fullName>LICC - NEW LICENSE AFTER CANCELLATION/CLOSE BUSINESS</fullName>
+                <default>false</default>
+                <label>LICC - NEW LICENSE AFTER CANCELLATION/CLOSE BUSINESS</label>
+            </value>
+            <value>
+                <fullName>REA - REAL ESTATE APPRAISER TRAINEE</fullName>
+                <default>false</default>
+                <label>REA - REAL ESTATE APPRAISER TRAINEE</label>
+            </value>
+            <value>
+                <fullName>DP - APPLYING FOR DESIGNATED PRINICIPAL</fullName>
+                <default>false</default>
+                <label>DP - APPLYING FOR DESIGNATED PRINICIPAL</label>
+            </value>
+            <value>
+                <fullName>REISS - RE-ISSUE APPRENTICE REGISTRATION</fullName>
+                <default>false</default>
+                <label>REISS - RE-ISSUE APPRENTICE REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>SISL - SELF-INSURED FOR W/C</fullName>
+                <default>false</default>
+                <label>SISL - SELF-INSURED FOR W/C</label>
+            </value>
+            <value>
+                <fullName>WUSEM - WAIVE UNIFORM SECTION OF HAWAII REAL ESTATE LICENSING EXAM</fullName>
+                <default>false</default>
+                <label>WUSEM - WAIVE UNIFORM SECTION OF HAWAII REAL ESTATE LICENSING EXAM</label>
+            </value>
+            <value>
+                <fullName>PDREL - PRELIMINARY DECISION: REAL ESTATE SALESPERSON OR BROKER</fullName>
+                <default>false</default>
+                <label>PDREL - PRELIMINARY DECISION: REAL ESTATE SALESPERSON OR BROKER</label>
+            </value>
+            <value>
+                <fullName>RB2SO - RB TO SOLE OWNER</fullName>
+                <default>false</default>
+                <label>RB2SO - RB TO SOLE OWNER</label>
+            </value>
+            <value>
+                <fullName>WECCE - WAIVE ELECTIVE COURSE HOURS OF CONT. EDUCATION REQUIREMENT</fullName>
+                <default>false</default>
+                <label>WECCE - WAIVE ELECTIVE COURSE HOURS OF CONT. EDUCATION REQUIREMENT</label>
+            </value>
+            <value>
+                <fullName>ACUI - ACUPUNCTURE INTERN</fullName>
+                <default>false</default>
+                <label>ACUI - ACUPUNCTURE INTERN</label>
+            </value>
+            <value>
+                <fullName>CONV - CONVERSION</fullName>
+                <default>false</default>
+                <label>CONV - CONVERSION</label>
+            </value>
+            <value>
+                <fullName>SISW - SUSPENSE--WORKERS COMP THRU LEASING CO.</fullName>
+                <default>false</default>
+                <label>SISW - SUSPENSE--WORKERS COMP THRU LEASING CO.</label>
+            </value>
+            <value>
+                <fullName>RECOG - TEMPORARY RECOGNITION FOR REAL ESTATE APPRAISERS</fullName>
+                <default>false</default>
+                <label>RECOG - TEMPORARY RECOGNITION FOR REAL ESTATE APPRAISERS</label>
+            </value>
+            <value>
+                <fullName>DP2SO - DP TO SOLE OWNER</fullName>
+                <default>false</default>
+                <label>DP2SO - DP TO SOLE OWNER</label>
+            </value>
+            <value>
+                <fullName>REGST - APPRENTICE REGISTRATION</fullName>
+                <default>false</default>
+                <label>REGST - APPRENTICE REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>REIN - REINSTATED</fullName>
+                <default>false</default>
+                <label>REIN - REINSTATED</label>
+            </value>
+            <value>
+                <fullName>RELOC - BUSINESS SITE RELOCATION</fullName>
+                <default>false</default>
+                <label>RELOC - BUSINESS SITE RELOCATION</label>
+            </value>
+            <value>
+                <fullName>REOA - REOPEN ACTIVE (STILL CURRENT) W/O DBA (FORMERLY CLOSED/CANCELLED OR CURRENT LICENSE)</fullName>
+                <default>false</default>
+                <label>REOA - REOPEN ACTIVE (STILL CURRENT) W/O DBA (FORMERLY CLOSED/CANCELLED OR CURRENT LICENSE)</label>
+            </value>
+            <value>
+                <fullName>REOI - REOPEN INACTIVE</fullName>
+                <default>false</default>
+                <label>REOI - REOPEN INACTIVE</label>
+            </value>
+            <value>
+                <fullName>REOO - REOPEN OFFICE</fullName>
+                <default>false</default>
+                <label>REOO - REOPEN OFFICE</label>
+            </value>
+            <value>
+                <fullName>REXL - EXTEND TIME LIMIT TO PASS EXAM (CLB)</fullName>
+                <default>false</default>
+                <label>REXL - EXTEND TIME LIMIT TO PASS EXAM (CLB)</label>
+            </value>
+            <value>
+                <fullName>REXM - RE-EXAM</fullName>
+                <default>false</default>
+                <label>REXM - RE-EXAM</label>
+            </value>
+            <value>
+                <fullName>RFNF - REFUND-NO FEE REQUIRED</fullName>
+                <default>false</default>
+                <label>RFNF - REFUND-NO FEE REQUIRED</label>
+            </value>
+            <value>
+                <fullName>GD2SO - GD TO SOLE OWNER</fullName>
+                <default>false</default>
+                <label>GD2SO - GD TO SOLE OWNER</label>
+            </value>
+            <value>
+                <fullName>PD2SO - PD TO SOLE OWNER</fullName>
+                <default>false</default>
+                <label>PD2SO - PD TO SOLE OWNER</label>
+            </value>
+            <value>
+                <fullName>RFOP - REFUND-OVERPAYMENT</fullName>
+                <default>false</default>
+                <label>RFOP - REFUND-OVERPAYMENT</label>
+            </value>
+            <value>
+                <fullName>RFOT - REFUND-OTHER</fullName>
+                <default>false</default>
+                <label>RFOT - REFUND-OTHER</label>
+            </value>
+            <value>
+                <fullName>RFRT - REFUND-REJECT/INELIGIBLE</fullName>
+                <default>false</default>
+                <label>RFRT - REFUND-REJECT/INELIGIBLE</label>
+            </value>
+            <value>
+                <fullName>RFWD - REFUND-WITHDRAW</fullName>
+                <default>false</default>
+                <label>RFWD - REFUND-WITHDRAW</label>
+            </value>
+            <value>
+                <fullName>RIBA - REINSTATE: REINSTATE W/BREGS-ACTIVE</fullName>
+                <default>false</default>
+                <label>RIBA - REINSTATE: REINSTATE W/BREGS-ACTIVE</label>
+            </value>
+            <value>
+                <fullName>RIIN - REINSTATE: SUMMARILY SUSPENDED</fullName>
+                <default>false</default>
+                <label>RIIN - REINSTATE: SUMMARILY SUSPENDED</label>
+            </value>
+            <value>
+                <fullName>RIRA - REINSTATE ACTIVE (REVOKED LICENSE)</fullName>
+                <default>false</default>
+                <label>RIRA - REINSTATE ACTIVE (REVOKED LICENSE)</label>
+            </value>
+            <value>
+                <fullName>RIRI - REINSTATE INACTIVE (REVOKED LICENSE)</fullName>
+                <default>false</default>
+                <label>RIRI - REINSTATE INACTIVE (REVOKED LICENSE)</label>
+            </value>
+            <value>
+                <fullName>RISA - REINSTATE: END OF SUSPENSION-ACTIVE</fullName>
+                <default>false</default>
+                <label>RISA - REINSTATE: END OF SUSPENSION-ACTIVE</label>
+            </value>
+            <value>
+                <fullName>RISI - REINSTATE: END OF SUSPENSION-INACTIVE</fullName>
+                <default>false</default>
+                <label>RISI - REINSTATE: END OF SUSPENSION-INACTIVE</label>
+            </value>
+            <value>
+                <fullName>RNEC - RENEW W/CHANGE(S)</fullName>
+                <default>false</default>
+                <label>RNEC - RENEW W/CHANGE(S)</label>
+            </value>
+            <value>
+                <fullName>RNEW - RENEWAL</fullName>
+                <default>false</default>
+                <label>RNEW - RENEWAL</label>
+            </value>
+            <value>
+                <fullName>ROAT - RE-OPEN ACTIVE (STILL CURRENT) W/DBA (FORMERLY CLOSED/CANCELLED)</fullName>
+                <default>false</default>
+                <label>ROAT - RE-OPEN ACTIVE (STILL CURRENT) W/DBA (FORMERLY CLOSED/CANCELLED)</label>
+            </value>
+            <value>
+                <fullName>RSEA - RESTORE ESTIMATE-ACTIVE</fullName>
+                <default>false</default>
+                <label>RSEA - RESTORE ESTIMATE-ACTIVE</label>
+            </value>
+            <value>
+                <fullName>RSEI - RESTORE ESTIMATE-INACTIVE</fullName>
+                <default>false</default>
+                <label>RSEI - RESTORE ESTIMATE-INACTIVE</label>
+            </value>
+            <value>
+                <fullName>RSTA - RESTORE-ACTIVE</fullName>
+                <default>false</default>
+                <label>RSTA - RESTORE-ACTIVE</label>
+            </value>
+            <value>
+                <fullName>RSTC - RESTORE-ACTIVE W/CHANGE</fullName>
+                <default>false</default>
+                <label>RSTC - RESTORE-ACTIVE W/CHANGE</label>
+            </value>
+            <value>
+                <fullName>RSTI - RESTORE-INACTIVE</fullName>
+                <default>false</default>
+                <label>RSTI - RESTORE-INACTIVE</label>
+            </value>
+            <value>
+                <fullName>RSTR - RESTORE-NO A/I STATUS</fullName>
+                <default>false</default>
+                <label>RSTR - RESTORE-NO A/I STATUS</label>
+            </value>
+            <value>
+                <fullName>RSTRA - RESTORATION WITH OTHER REQUIREMENTS</fullName>
+                <default>false</default>
+                <label>RSTRA - RESTORATION WITH OTHER REQUIREMENTS</label>
+            </value>
+            <value>
+                <fullName>RTWC - RETURNED WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>RTWC - RETURNED WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>RXMAC - RE-EXAM FOR ADDITIONAL CLASS</fullName>
+                <default>false</default>
+                <label>RXMAC - RE-EXAM FOR ADDITIONAL CLASS</label>
+            </value>
+            <value>
+                <fullName>RXMLF - RE-EXAM NEW LICENSE AFTER FORFEITURE</fullName>
+                <default>false</default>
+                <label>RXMLF - RE-EXAM NEW LICENSE AFTER FORFEITURE</label>
+            </value>
+            <value>
+                <fullName>RXMLN - RE-EXAM NEW LICENSE</fullName>
+                <default>false</default>
+                <label>RXMLN - RE-EXAM NEW LICENSE</label>
+            </value>
+            <value>
+                <fullName>RXSUB - RE-EXAM ON SUBSEQUENT EXAM</fullName>
+                <default>false</default>
+                <label>RXSUB - RE-EXAM ON SUBSEQUENT EXAM</label>
+            </value>
+            <value>
+                <fullName>SE - SUSPENSE--REAL ESTATE EMPLOYMENT</fullName>
+                <default>false</default>
+                <label>SE - SUSPENSE--REAL ESTATE EMPLOYMENT</label>
+            </value>
+            <value>
+                <fullName>SI - SUSPENSE--INSURANCE</fullName>
+                <default>false</default>
+                <label>SI - SUSPENSE--INSURANCE</label>
+            </value>
+            <value>
+                <fullName>SIBD - SUSPENSE--BOND</fullName>
+                <default>false</default>
+                <label>SIBD - SUSPENSE--BOND</label>
+            </value>
+            <value>
+                <fullName>SILI - SUSPENSE--LIABILITY</fullName>
+                <default>false</default>
+                <label>SILI - SUSPENSE--LIABILITY</label>
+            </value>
+            <value>
+                <fullName>SILP - SUSPENSE--LIABILITY/PROPERTY DAMAGE</fullName>
+                <default>false</default>
+                <label>SILP - SUSPENSE--LIABILITY/PROPERTY DAMAGE</label>
+            </value>
+            <value>
+                <fullName>SIWC - SUSPENSE--WORKERS COMPENSATION</fullName>
+                <default>false</default>
+                <label>SIWC - SUSPENSE--WORKERS COMPENSATION</label>
+            </value>
+            <value>
+                <fullName>SOEC - SOLE OWNERSHIP CLOSED, LICENSEE BECAME EMPLOYEE</fullName>
+                <default>false</default>
+                <label>SOEC - SOLE OWNERSHIP CLOSED, LICENSEE BECAME EMPLOYEE</label>
+            </value>
+            <value>
+                <fullName>SPAN - SPECIAL PRIVILEGE-ANESTHIA</fullName>
+                <default>false</default>
+                <label>SPAN - SPECIAL PRIVILEGE-ANESTHIA</label>
+            </value>
+            <value>
+                <fullName>SPECA - SPECIAL ASSESSMENT</fullName>
+                <default>false</default>
+                <label>SPECA - SPECIAL ASSESSMENT</label>
+            </value>
+            <value>
+                <fullName>SPHS - SPECIAL PRIVILEGE-HOME STUDY</fullName>
+                <default>false</default>
+                <label>SPHS - SPECIAL PRIVILEGE-HOME STUDY</label>
+            </value>
+            <value>
+                <fullName>SPPP - PERMIT TO PRACTICE</fullName>
+                <default>false</default>
+                <label>SPPP - PERMIT TO PRACTICE</label>
+            </value>
+            <value>
+                <fullName>SPPT - PERMIT TO PRACTICE-TEMPORARY</fullName>
+                <default>false</default>
+                <label>SPPT - PERMIT TO PRACTICE-TEMPORARY</label>
+            </value>
+            <value>
+                <fullName>SPPY - SPECIAL PRIVILEGE-PHYSIOTHERAPY</fullName>
+                <default>false</default>
+                <label>SPPY - SPECIAL PRIVILEGE-PHYSIOTHERAPY</label>
+            </value>
+            <value>
+                <fullName>SPSL - SPECIAL PRIVILEGE-SALVAGE</fullName>
+                <default>false</default>
+                <label>SPSL - SPECIAL PRIVILEGE-SALVAGE</label>
+            </value>
+            <value>
+                <fullName>SUBSQ - SUBSEQUENT PERMIT/REGISTRATION</fullName>
+                <default>false</default>
+                <label>SUBSQ - SUBSEQUENT PERMIT/REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>SUBXM - SUBSEQUENT EXAM FOR NEW LICENSE</fullName>
+                <default>false</default>
+                <label>SUBXM - SUBSEQUENT EXAM FOR NEW LICENSE</label>
+            </value>
+            <value>
+                <fullName>SUPV - SUPERVISOR CHANGE</fullName>
+                <default>false</default>
+                <label>SUPV - SUPERVISOR CHANGE</label>
+            </value>
+            <value>
+                <fullName>SZSP - SATISFY DISCIPLINARY SUSPENSE</fullName>
+                <default>false</default>
+                <label>SZSP - SATISFY DISCIPLINARY SUSPENSE</label>
+            </value>
+            <value>
+                <fullName>TC - LICENSE CLOSED/CANCELLED</fullName>
+                <default>false</default>
+                <label>TC - LICENSE CLOSED/CANCELLED</label>
+            </value>
+            <value>
+                <fullName>TEMP - TEMPORARY PERMIT TO PRACTICE</fullName>
+                <default>false</default>
+                <label>TEMP - TEMPORARY PERMIT TO PRACTICE</label>
+            </value>
+            <value>
+                <fullName>TRES - TERMINATE RESIDENCY CONTRACT</fullName>
+                <default>false</default>
+                <label>TRES - TERMINATE RESIDENCY CONTRACT</label>
+            </value>
+            <value>
+                <fullName>UEDC - UPDATE EDUCATION</fullName>
+                <default>false</default>
+                <label>UEDC - UPDATE EDUCATION</label>
+            </value>
+            <value>
+                <fullName>UEXP - UPDATE EXPERIENCE</fullName>
+                <default>false</default>
+                <label>UEXP - UPDATE EXPERIENCE</label>
+            </value>
+            <value>
+                <fullName>UPGRD - UPGRADE LICENSE</fullName>
+                <default>false</default>
+                <label>UPGRD - UPGRADE LICENSE</label>
+            </value>
+            <value>
+                <fullName>VERF - VERIFY LICENSE</fullName>
+                <default>false</default>
+                <label>VERF - VERIFY LICENSE</label>
+            </value>
+            <value>
+                <fullName>WARN - OUT-OF-STATE NOTIFICATION</fullName>
+                <default>false</default>
+                <label>WARN - OUT-OF-STATE NOTIFICATION</label>
+            </value>
+            <value>
+                <fullName>WBOND - BOND WAIVER</fullName>
+                <default>false</default>
+                <label>WBOND - BOND WAIVER</label>
+            </value>
+            <value>
+                <fullName>WDRW - WITHDRAW--</fullName>
+                <default>false</default>
+                <label>WDRW - WITHDRAW--</label>
+            </value>
+            <value>
+                <fullName>EXAM - EXAM</fullName>
+                <default>false</default>
+                <label>EXAM - EXAM</label>
+            </value>
+            <value>
+                <fullName>EXPER - EXPERIENCE CERTIFICATE</fullName>
+                <default>false</default>
+                <label>EXPER - EXPERIENCE CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>EXTND - EXTEND (TEMPORARY PERMIT)</fullName>
+                <default>false</default>
+                <label>EXTND - EXTEND (TEMPORARY PERMIT)</label>
+            </value>
+            <value>
+                <fullName>EZ - EMPLOYER DISCIPLINED</fullName>
+                <default>false</default>
+                <label>EZ - EMPLOYER DISCIPLINED</label>
+            </value>
+            <value>
+                <fullName>EZIN - EMPLR DISCIPLINED-EMPLOYEE PLACED ON INACTIVE STATUS</fullName>
+                <default>false</default>
+                <label>EZIN - EMPLR DISCIPLINED-EMPLOYEE PLACED ON INACTIVE STATUS</label>
+            </value>
+            <value>
+                <fullName>FILE - FILE REPORT (DUE TO CONDITIONAL LICENSE)</fullName>
+                <default>false</default>
+                <label>FILE - FILE REPORT (DUE TO CONDITIONAL LICENSE)</label>
+            </value>
+            <value>
+                <fullName>FORF - FORFEITED</fullName>
+                <default>false</default>
+                <label>FORF - FORFEITED</label>
+            </value>
+            <value>
+                <fullName>HIST - HISTORICAL</fullName>
+                <default>false</default>
+                <label>HIST - HISTORICAL</label>
+            </value>
+            <value>
+                <fullName>I - INACTIVATED</fullName>
+                <default>false</default>
+                <label>I - INACTIVATED</label>
+            </value>
+            <value>
+                <fullName>IWAV - INSURANCE WAIVER</fullName>
+                <default>false</default>
+                <label>IWAV - INSURANCE WAIVER</label>
+            </value>
+            <value>
+                <fullName>JTVT - JOINT VENTURE REGISTRATION</fullName>
+                <default>false</default>
+                <label>JTVT - JOINT VENTURE REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>LICA - LICENSE-ACTIVE</fullName>
+                <default>false</default>
+                <label>LICA - LICENSE-ACTIVE</label>
+            </value>
+            <value>
+                <fullName>LICF - NEW LICENSE AFTER FORFEITURE</fullName>
+                <default>false</default>
+                <label>LICF - NEW LICENSE AFTER FORFEITURE</label>
+            </value>
+            <value>
+                <fullName>LICI - LICENSE-INACTIVE</fullName>
+                <default>false</default>
+                <label>LICI - LICENSE-INACTIVE</label>
+            </value>
+            <value>
+                <fullName>LICN - NEW LICENSE</fullName>
+                <default>false</default>
+                <label>LICN - NEW LICENSE</label>
+            </value>
+            <value>
+                <fullName>MAKE - AUTHORIZED MAKE CHANGE</fullName>
+                <default>false</default>
+                <label>MAKE - AUTHORIZED MAKE CHANGE</label>
+            </value>
+            <value>
+                <fullName>MAP - APPRENTICE MASSAGE THERAPIST</fullName>
+                <default>false</default>
+                <label>MAP - APPRENTICE MASSAGE THERAPIST</label>
+            </value>
+            <value>
+                <fullName>NBIC - NO BROKER-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>NBIC - NO BROKER-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>NEW - NEW PERMIT/REGISTRATION</fullName>
+                <default>false</default>
+                <label>NEW - NEW PERMIT/REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>NEWR - NEW RESPONSIBLE FOUND</fullName>
+                <default>false</default>
+                <label>NEWR - NEW RESPONSIBLE FOUND</label>
+            </value>
+            <value>
+                <fullName>NMAA - ADD ALIAS NAME</fullName>
+                <default>false</default>
+                <label>NMAA - ADD ALIAS NAME</label>
+            </value>
+            <value>
+                <fullName>NMAD - B/P NAME AND ADDRESS CHANGE</fullName>
+                <default>false</default>
+                <label>NMAD - B/P NAME AND ADDRESS CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMBP - NAME (B/P) CHANGE</fullName>
+                <default>false</default>
+                <label>NMBP - NAME (B/P) CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMJC - CHANGE JOINT VENTURE NAME</fullName>
+                <default>false</default>
+                <label>NMJC - CHANGE JOINT VENTURE NAME</label>
+            </value>
+            <value>
+                <fullName>NMOA - OFFICE NAME-ADD</fullName>
+                <default>false</default>
+                <label>NMOA - OFFICE NAME-ADD</label>
+            </value>
+            <value>
+                <fullName>NMOC - OFFICE NAME-CHANGE</fullName>
+                <default>false</default>
+                <label>NMOC - OFFICE NAME-CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMOD - OFFICE NAME-DELETE</fullName>
+                <default>false</default>
+                <label>NMOD - OFFICE NAME-DELETE</label>
+            </value>
+            <value>
+                <fullName>NMPA - PROFESSIONAL NAME-ADD</fullName>
+                <default>false</default>
+                <label>NMPA - PROFESSIONAL NAME-ADD</label>
+            </value>
+            <value>
+                <fullName>NMPC - PROFESSIONAL NAME-CHANGE</fullName>
+                <default>false</default>
+                <label>NMPC - PROFESSIONAL NAME-CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMPD - PROFESSIONAL NAME-DELETE</fullName>
+                <default>false</default>
+                <label>NMPD - PROFESSIONAL NAME-DELETE</label>
+            </value>
+            <value>
+                <fullName>NMTA - TRADENAME-ADD</fullName>
+                <default>false</default>
+                <label>NMTA - TRADENAME-ADD</label>
+            </value>
+            <value>
+                <fullName>NMTC - TRADENAME-CHANGE</fullName>
+                <default>false</default>
+                <label>NMTC - TRADENAME-CHANGE</label>
+            </value>
+            <value>
+                <fullName>NMTD - TRADENAME-DELETE</fullName>
+                <default>false</default>
+                <label>NMTD - TRADENAME-DELETE</label>
+            </value>
+            <value>
+                <fullName>NOPB - NO PRINCIPAL BROKER</fullName>
+                <default>false</default>
+                <label>NOPB - NO PRINCIPAL BROKER</label>
+            </value>
+            <value>
+                <fullName>NRES - NEW/RENEW RESIDENCY CONTRACT</fullName>
+                <default>false</default>
+                <label>NRES - NEW/RENEW RESIDENCY CONTRACT</label>
+            </value>
+            <value>
+                <fullName>OFCA - OFFICE-ADD (UNLICENSED)</fullName>
+                <default>false</default>
+                <label>OFCA - OFFICE-ADD (UNLICENSED)</label>
+            </value>
+            <value>
+                <fullName>OFCC - OFFICE-CLOSE</fullName>
+                <default>false</default>
+                <label>OFCC - OFFICE-CLOSE</label>
+            </value>
+            <value>
+                <fullName>OFCX - OFFICE-EXTEND TEMPORARY (SITE) OFFICE</fullName>
+                <default>false</default>
+                <label>OFCX - OFFICE-EXTEND TEMPORARY (SITE) OFFICE</label>
+            </value>
+            <value>
+                <fullName>PERMT - TEMPORARY PERMIT</fullName>
+                <default>false</default>
+                <label>PERMT - TEMPORARY PERMIT</label>
+            </value>
+            <value>
+                <fullName>PHA - ASSISTANT PHARMACIST</fullName>
+                <default>false</default>
+                <label>PHA - ASSISTANT PHARMACIST</label>
+            </value>
+            <value>
+                <fullName>PLOS - FIRM LOST PRINCIPAL (PRIN TERM, I, D OR Z)</fullName>
+                <default>false</default>
+                <label>PLOS - FIRM LOST PRINCIPAL (PRIN TERM, I, D OR Z)</label>
+            </value>
+            <value>
+                <fullName>POBPH - PRINTOUT - BP HISTORY DATA</fullName>
+                <default>false</default>
+                <label>POBPH - PRINTOUT - BP HISTORY DATA</label>
+            </value>
+            <value>
+                <fullName>POBPN - PRINTOUT - BP NAME DATA</fullName>
+                <default>false</default>
+                <label>POBPN - PRINTOUT - BP NAME DATA</label>
+            </value>
+            <value>
+                <fullName>POBPR - PRINTOUT - BP DATA</fullName>
+                <default>false</default>
+                <label>POBPR - PRINTOUT - BP DATA</label>
+            </value>
+            <value>
+                <fullName>POBPX - PRINTOUT - EXAM HISTORY DATA</fullName>
+                <default>false</default>
+                <label>POBPX - PRINTOUT - EXAM HISTORY DATA</label>
+            </value>
+            <value>
+                <fullName>POLAM - PRINTOUT - AUTHORIZED MAKE DATA</fullName>
+                <default>false</default>
+                <label>POLAM - PRINTOUT - AUTHORIZED MAKE DATA</label>
+            </value>
+            <value>
+                <fullName>POLCL - PRINTOUT - LICENSE CLASS DATA</fullName>
+                <default>false</default>
+                <label>POLCL - PRINTOUT - LICENSE CLASS DATA</label>
+            </value>
+            <value>
+                <fullName>POLEE - PRINTOUT - EDUCATION/EXPERIENCE DATA</fullName>
+                <default>false</default>
+                <label>POLEE - PRINTOUT - EDUCATION/EXPERIENCE DATA</label>
+            </value>
+            <value>
+                <fullName>POLHI - PRINTOUT - LICENSE HISTORY DATA</fullName>
+                <default>false</default>
+                <label>POLHI - PRINTOUT - LICENSE HISTORY DATA</label>
+            </value>
+            <value>
+                <fullName>POLIB - PRINTOUT - INSURANCE/BOND DATA</fullName>
+                <default>false</default>
+                <label>POLIB - PRINTOUT - INSURANCE/BOND DATA</label>
+            </value>
+            <value>
+                <fullName>POLIC - PRINTOUT - LICENSE DATA</fullName>
+                <default>false</default>
+                <label>POLIC - PRINTOUT - LICENSE DATA</label>
+            </value>
+            <value>
+                <fullName>POLNM - PRINTOUT - TRADENAME DATA</fullName>
+                <default>false</default>
+                <label>POLNM - PRINTOUT - TRADENAME DATA</label>
+            </value>
+            <value>
+                <fullName>POLSU - PRINTOUT - SUPERVISOR DATA</fullName>
+                <default>false</default>
+                <label>POLSU - PRINTOUT - SUPERVISOR DATA</label>
+            </value>
+            <value>
+                <fullName>POLYE - PRINTOUT - EMPLOYEE DATA</fullName>
+                <default>false</default>
+                <label>POLYE - PRINTOUT - EMPLOYEE DATA</label>
+            </value>
+            <value>
+                <fullName>POLYR - PRINTOUT - EMPLOYER DATA</fullName>
+                <default>false</default>
+                <label>POLYR - PRINTOUT - EMPLOYER DATA</label>
+            </value>
+            <value>
+                <fullName>PPREL - PRE-ASSIGN LICENSE NUMBER</fullName>
+                <default>false</default>
+                <label>PPREL - PRE-ASSIGN LICENSE NUMBER</label>
+            </value>
+            <value>
+                <fullName>PRNW - PRE-PAY RENEWAL</fullName>
+                <default>false</default>
+                <label>PRNW - PRE-PAY RENEWAL</label>
+            </value>
+            <value>
+                <fullName>PTPN - POSTPONE</fullName>
+                <default>false</default>
+                <label>PTPN - POSTPONE</label>
+            </value>
+            <value>
+                <fullName>R2DBA - RME TO SOLE OWNER</fullName>
+                <default>false</default>
+                <label>R2DBA - RME TO SOLE OWNER</label>
+            </value>
+            <value>
+                <fullName>RAPPL - RECEIVED APPLICATION</fullName>
+                <default>false</default>
+                <label>RAPPL - RECEIVED APPLICATION</label>
+            </value>
+            <value>
+                <fullName>RCON - REMOVE CONDITIONAL STATUS</fullName>
+                <default>false</default>
+                <label>RCON - REMOVE CONDITIONAL STATUS</label>
+            </value>
+            <value>
+                <fullName>REAC - REACTIVATION</fullName>
+                <default>false</default>
+                <label>REAC - REACTIVATION</label>
+            </value>
+            <value>
+                <fullName>REAT - RE-ACTIVATE W/DBA</fullName>
+                <default>false</default>
+                <label>REAT - RE-ACTIVATE W/DBA</label>
+            </value>
+            <value>
+                <fullName>RECN - RECONSIDER</fullName>
+                <default>false</default>
+                <label>RECN - RECONSIDER</label>
+            </value>
+            <value>
+                <fullName>CCOF - CHANGE OFFICE</fullName>
+                <default>false</default>
+                <label>CCOF - CHANGE OFFICE</label>
+            </value>
+            <value>
+                <fullName>CCON - CHANGE OFFICE NAME</fullName>
+                <default>false</default>
+                <label>CCON - CHANGE OFFICE NAME</label>
+            </value>
+            <value>
+                <fullName>CCPT - CHANGE PARTNER/OFFICER</fullName>
+                <default>false</default>
+                <label>CCPT - CHANGE PARTNER/OFFICER</label>
+            </value>
+            <value>
+                <fullName>CCSS - CHANGE SUSPENSE</fullName>
+                <default>false</default>
+                <label>CCSS - CHANGE SUSPENSE</label>
+            </value>
+            <value>
+                <fullName>CCSU - CHANGE SUSPENSE</fullName>
+                <default>false</default>
+                <label>CCSU - CHANGE SUSPENSE</label>
+            </value>
+            <value>
+                <fullName>CDAM - DELETE AUTHORIZED MAKE/MODEL</fullName>
+                <default>false</default>
+                <label>CDAM - DELETE AUTHORIZED MAKE/MODEL</label>
+            </value>
+            <value>
+                <fullName>CDAT - DELETE APPLICATION TRANSACTION</fullName>
+                <default>false</default>
+                <label>CDAT - DELETE APPLICATION TRANSACTION</label>
+            </value>
+            <value>
+                <fullName>CDBP - DELETE B/P RECORD</fullName>
+                <default>false</default>
+                <label>CDBP - DELETE B/P RECORD</label>
+            </value>
+            <value>
+                <fullName>CDCI - DELETE CERTIFICATE ISSUED/REQUESTED</fullName>
+                <default>false</default>
+                <label>CDCI - DELETE CERTIFICATE ISSUED/REQUESTED</label>
+            </value>
+            <value>
+                <fullName>CDEE - DELETE EDUCATION/EXPERIENCE</fullName>
+                <default>false</default>
+                <label>CDEE - DELETE EDUCATION/EXPERIENCE</label>
+            </value>
+            <value>
+                <fullName>CDEH - DELETE EXAM</fullName>
+                <default>false</default>
+                <label>CDEH - DELETE EXAM</label>
+            </value>
+            <value>
+                <fullName>CDIB - DELETE INSURANCE/BOND</fullName>
+                <default>false</default>
+                <label>CDIB - DELETE INSURANCE/BOND</label>
+            </value>
+            <value>
+                <fullName>CDJB - DELETE EMPLOYMENT</fullName>
+                <default>false</default>
+                <label>CDJB - DELETE EMPLOYMENT</label>
+            </value>
+            <value>
+                <fullName>CDLC - DELETE LICENSE CLASS</fullName>
+                <default>false</default>
+                <label>CDLC - DELETE LICENSE CLASS</label>
+            </value>
+            <value>
+                <fullName>CDLH - DELETE LICENSE HISTORY</fullName>
+                <default>false</default>
+                <label>CDLH - DELETE LICENSE HISTORY</label>
+            </value>
+            <value>
+                <fullName>CDLI - DELETE LICENSE</fullName>
+                <default>false</default>
+                <label>CDLI - DELETE LICENSE</label>
+            </value>
+            <value>
+                <fullName>CDLN - DELETE LICENSE NAME</fullName>
+                <default>false</default>
+                <label>CDLN - DELETE LICENSE NAME</label>
+            </value>
+            <value>
+                <fullName>CDNM - DELETE B/P NAME</fullName>
+                <default>false</default>
+                <label>CDNM - DELETE B/P NAME</label>
+            </value>
+            <value>
+                <fullName>CDOF - DELETE OFFICER</fullName>
+                <default>false</default>
+                <label>CDOF - DELETE OFFICER</label>
+            </value>
+            <value>
+                <fullName>CDON - DELETE OFFICE NAME</fullName>
+                <default>false</default>
+                <label>CDON - DELETE OFFICE NAME</label>
+            </value>
+            <value>
+                <fullName>CDPT - DELETE PARTNER/OFFICER</fullName>
+                <default>false</default>
+                <label>CDPT - DELETE PARTNER/OFFICER</label>
+            </value>
+            <value>
+                <fullName>CDSS - DELETE SUSPENSE</fullName>
+                <default>false</default>
+                <label>CDSS - DELETE SUSPENSE</label>
+            </value>
+            <value>
+                <fullName>CDSU - DELETE SUPERVISOR</fullName>
+                <default>false</default>
+                <label>CDSU - DELETE SUPERVISOR</label>
+            </value>
+            <value>
+                <fullName>CLOS - CLOSE BUSINESS-MAIN OFFICE, WILL ALSO DELETE ALL BRANCH OFFI CES-RECO</fullName>
+                <default>false</default>
+                <label>CLOS - CLOSE BUSINESS-MAIN OFFICE, WILL ALSO DELETE ALL BRANCH OFFI CES-RECO</label>
+            </value>
+            <value>
+                <fullName>CMBP - MERGE B/P RECORDS</fullName>
+                <default>false</default>
+                <label>CMBP - MERGE B/P RECORDS</label>
+            </value>
+            <value>
+                <fullName>COND - PLACE INTO CONDITIONAL STATUS</fullName>
+                <default>false</default>
+                <label>COND - PLACE INTO CONDITIONAL STATUS</label>
+            </value>
+            <value>
+                <fullName>CONDL - CONDITIONAL LICENSE WAIVER</fullName>
+                <default>false</default>
+                <label>CONDL - CONDITIONAL LICENSE WAIVER</label>
+            </value>
+            <value>
+                <fullName>CRADD - CHANGE OF RESIDENCE ADDRESS</fullName>
+                <default>false</default>
+                <label>CRADD - CHANGE OF RESIDENCE ADDRESS</label>
+            </value>
+            <value>
+                <fullName>CVN - CONVERTED LICENSE TYPE</fullName>
+                <default>false</default>
+                <label>CVN - CONVERTED LICENSE TYPE</label>
+            </value>
+            <value>
+                <fullName>DECE - DECEASED</fullName>
+                <default>false</default>
+                <label>DECE - DECEASED</label>
+            </value>
+            <value>
+                <fullName>DELQ - DELINQUENT</fullName>
+                <default>false</default>
+                <label>DELQ - DELINQUENT</label>
+            </value>
+            <value>
+                <fullName>DPEW - DUPLICATE-EDUCATION WAIVER</fullName>
+                <default>false</default>
+                <label>DPEW - DUPLICATE-EDUCATION WAIVER</label>
+            </value>
+            <value>
+                <fullName>DPID - DUPLICATE-POCKET ID</fullName>
+                <default>false</default>
+                <label>DPID - DUPLICATE-POCKET ID</label>
+            </value>
+            <value>
+                <fullName>DPWC - DUPLICATE-WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>DPWC - DUPLICATE-WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>DPWP - DUPLICATE-WALL CERTIFICATE AND POCKET ID</fullName>
+                <default>false</default>
+                <label>DPWP - DUPLICATE-WALL CERTIFICATE AND POCKET ID</label>
+            </value>
+            <value>
+                <fullName>DPXP - DUPLICATE-EXPERIENCE CERTIFICATION</fullName>
+                <default>false</default>
+                <label>DPXP - DUPLICATE-EXPERIENCE CERTIFICATION</label>
+            </value>
+            <value>
+                <fullName>FC2DC - FOREIGN CORP CHANGING TO DOMESTIC CORPORATION</fullName>
+                <default>false</default>
+                <label>FC2DC - FOREIGN CORP CHANGING TO DOMESTIC CORPORATION</label>
+            </value>
+            <value>
+                <fullName>DUAL - DUAL (SOLE/RME OR RME/RME OR RME/SOLE)</fullName>
+                <default>false</default>
+                <label>DUAL - DUAL (SOLE/RME OR RME/RME OR RME/SOLE)</label>
+            </value>
+            <value>
+                <fullName>EC - EMPLOYER CLOSED</fullName>
+                <default>false</default>
+                <label>EC - EMPLOYER CLOSED</label>
+            </value>
+            <value>
+                <fullName>EC01 - LICENSEE CHANGES BROKER</fullName>
+                <default>false</default>
+                <label>EC01 - LICENSEE CHANGES BROKER</label>
+            </value>
+            <value>
+                <fullName>EC02 - LICENSEE CHANGES OFFICE,SAME BROKER</fullName>
+                <default>false</default>
+                <label>EC02 - LICENSEE CHANGES OFFICE,SAME BROKER</label>
+            </value>
+            <value>
+                <fullName>EC03 - FIRM CHANGES BROKER-IN-CHARGE (BIC)</fullName>
+                <default>false</default>
+                <label>EC03 - FIRM CHANGES BROKER-IN-CHARGE (BIC)</label>
+            </value>
+            <value>
+                <fullName>EC05 - FIRM CHANGES PRINCIPAL BROKER (PB)</fullName>
+                <default>false</default>
+                <label>EC05 - FIRM CHANGES PRINCIPAL BROKER (PB)</label>
+            </value>
+            <value>
+                <fullName>EC07 - DESIGNATE TEMPORARY BIC</fullName>
+                <default>false</default>
+                <label>EC07 - DESIGNATE TEMPORARY BIC</label>
+            </value>
+            <value>
+                <fullName>EC09 - EXTEND TEMPORARY BIC</fullName>
+                <default>false</default>
+                <label>EC09 - EXTEND TEMPORARY BIC</label>
+            </value>
+            <value>
+                <fullName>EC11 - DESIGNATE TEMPORARY PB</fullName>
+                <default>false</default>
+                <label>EC11 - DESIGNATE TEMPORARY PB</label>
+            </value>
+            <value>
+                <fullName>EC13 - EXTEND TEMPORARY PB</fullName>
+                <default>false</default>
+                <label>EC13 - EXTEND TEMPORARY PB</label>
+            </value>
+            <value>
+                <fullName>EC15 - BROKER CHANGES TO INDEPENDENT BROKER (IB)</fullName>
+                <default>false</default>
+                <label>EC15 - BROKER CHANGES TO INDEPENDENT BROKER (IB)</label>
+            </value>
+            <value>
+                <fullName>EC16 - BROKER CHANGES TO INDEPENDENT BROKER W/TRADENAME</fullName>
+                <default>false</default>
+                <label>EC16 - BROKER CHANGES TO INDEPENDENT BROKER W/TRADENAME</label>
+            </value>
+            <value>
+                <fullName>EC17 - INDEPENDENT BROKER CHANGES TO BROKER-SALESMAN (RBS)</fullName>
+                <default>false</default>
+                <label>EC17 - INDEPENDENT BROKER CHANGES TO BROKER-SALESMAN (RBS)</label>
+            </value>
+            <value>
+                <fullName>EC18 - BIC/PB CHANGES TO BROKER-SALESMAN (RBS)</fullName>
+                <default>false</default>
+                <label>EC18 - BIC/PB CHANGES TO BROKER-SALESMAN (RBS)</label>
+            </value>
+            <value>
+                <fullName>EC19 - BIC/PB CHANGES TO RBS WITH SAME OFFICE</fullName>
+                <default>false</default>
+                <label>EC19 - BIC/PB CHANGES TO RBS WITH SAME OFFICE</label>
+            </value>
+            <value>
+                <fullName>EC20 - IB OR BROKER CHANGES TO PB/BIC</fullName>
+                <default>false</default>
+                <label>EC20 - IB OR BROKER CHANGES TO PB/BIC</label>
+            </value>
+            <value>
+                <fullName>EC21 - DESIGNATE SITE SUPERVISOR</fullName>
+                <default>false</default>
+                <label>EC21 - DESIGNATE SITE SUPERVISOR</label>
+            </value>
+            <value>
+                <fullName>EC23 - RME CHANGES FIRM</fullName>
+                <default>false</default>
+                <label>EC23 - RME CHANGES FIRM</label>
+            </value>
+            <value>
+                <fullName>EC25 - FIRM RELEASES RME</fullName>
+                <default>false</default>
+                <label>EC25 - FIRM RELEASES RME</label>
+            </value>
+            <value>
+                <fullName>EC27 - FIRM EMPLOYS RME</fullName>
+                <default>false</default>
+                <label>EC27 - FIRM EMPLOYS RME</label>
+            </value>
+            <value>
+                <fullName>EC29 - DUAL RME</fullName>
+                <default>false</default>
+                <label>EC29 - DUAL RME</label>
+            </value>
+            <value>
+                <fullName>EC31 - DESIGNATE PRINCIPAL RME</fullName>
+                <default>false</default>
+                <label>EC31 - DESIGNATE PRINCIPAL RME</label>
+            </value>
+            <value>
+                <fullName>EC33 - LICENSEE BECOMES SOLE OWNER (RME TO DBA)</fullName>
+                <default>false</default>
+                <label>EC33 - LICENSEE BECOMES SOLE OWNER (RME TO DBA)</label>
+            </value>
+            <value>
+                <fullName>EC35 - SOLE OWNER BECOMES RME (DBA TO RME)</fullName>
+                <default>false</default>
+                <label>EC35 - SOLE OWNER BECOMES RME (DBA TO RME)</label>
+            </value>
+            <value>
+                <fullName>ECHG - EMPLOYMENT CHANGE</fullName>
+                <default>false</default>
+                <label>ECHG - EMPLOYMENT CHANGE</label>
+            </value>
+            <value>
+                <fullName>EDWV - EDUCATION WAIVER</fullName>
+                <default>false</default>
+                <label>EDWV - EDUCATION WAIVER</label>
+            </value>
+            <value>
+                <fullName>EVA - APPRENTICE ELEVATOR MECHANIC</fullName>
+                <default>false</default>
+                <label>EVA - APPRENTICE ELEVATOR MECHANIC</label>
+            </value>
+            <value>
+                <fullName>PHI - PHARMACY INTERN</fullName>
+                <default>false</default>
+                <label>PHI - PHARMACY INTERN</label>
+            </value>
+            <value>
+                <fullName>RXMOD - APRN-RX COLLEGIAL AGREEMENT MODIFICATION</fullName>
+                <default>false</default>
+                <label>RXMOD - APRN-RX COLLEGIAL AGREEMENT MODIFICATION</label>
+            </value>
+            <value>
+                <fullName>ADBS - ADDRESS CHANGE-BUSINESS</fullName>
+                <default>false</default>
+                <label>ADBS - ADDRESS CHANGE-BUSINESS</label>
+            </value>
+            <value>
+                <fullName>ADDC - ADDITIONAL CLASS</fullName>
+                <default>false</default>
+                <label>ADDC - ADDITIONAL CLASS</label>
+            </value>
+            <value>
+                <fullName>ADDP - ADDITIONAL SPECIAL PRIVILEGE</fullName>
+                <default>false</default>
+                <label>ADDP - ADDITIONAL SPECIAL PRIVILEGE</label>
+            </value>
+            <value>
+                <fullName>ADML - ADDRESS CHANGE-MAILING</fullName>
+                <default>false</default>
+                <label>ADML - ADDRESS CHANGE-MAILING</label>
+            </value>
+            <value>
+                <fullName>ADOF - ADDRESS CHANGE-OFFICE</fullName>
+                <default>false</default>
+                <label>ADOF - ADDRESS CHANGE-OFFICE</label>
+            </value>
+            <value>
+                <fullName>ADPA - ADDRESS CHANGE-PUBLIC ADDRESS</fullName>
+                <default>false</default>
+                <label>ADPA - ADDRESS CHANGE-PUBLIC ADDRESS</label>
+            </value>
+            <value>
+                <fullName>ADRS - ADDRESS CHANGE-RESIDENCE</fullName>
+                <default>false</default>
+                <label>ADRS - ADDRESS CHANGE-RESIDENCE</label>
+            </value>
+            <value>
+                <fullName>APAC - APPEAL DENIAL-ADDITIONAL CLASS</fullName>
+                <default>false</default>
+                <label>APAC - APPEAL DENIAL-ADDITIONAL CLASS</label>
+            </value>
+            <value>
+                <fullName>APDS - APPEAL DISCIPLINARY ACTION</fullName>
+                <default>false</default>
+                <label>APDS - APPEAL DISCIPLINARY ACTION</label>
+            </value>
+            <value>
+                <fullName>APLC - APPEAL DENIAL-LICENSE (WAIVE BOND)</fullName>
+                <default>false</default>
+                <label>APLC - APPEAL DENIAL-LICENSE (WAIVE BOND)</label>
+            </value>
+            <value>
+                <fullName>APPN - APPEAL DENIAL-POSTPONE</fullName>
+                <default>false</default>
+                <label>APPN - APPEAL DENIAL-POSTPONE</label>
+            </value>
+            <value>
+                <fullName>APPR - APPRENTICE OR APPRAISER TRAINEE OR INTERN</fullName>
+                <default>false</default>
+                <label>APPR - APPRENTICE OR APPRAISER TRAINEE OR INTERN</label>
+            </value>
+            <value>
+                <fullName>APRC - APPEAL DENIAL-RECONSIDERATION</fullName>
+                <default>false</default>
+                <label>APRC - APPEAL DENIAL-RECONSIDERATION</label>
+            </value>
+            <value>
+                <fullName>APRN - APPEAL DENIAL-REINSTATEMENT</fullName>
+                <default>false</default>
+                <label>APRN - APPEAL DENIAL-REINSTATEMENT</label>
+            </value>
+            <value>
+                <fullName>APRS - APPEAL DENIAL-RESTORATION</fullName>
+                <default>false</default>
+                <label>APRS - APPEAL DENIAL-RESTORATION</label>
+            </value>
+            <value>
+                <fullName>APRW - APPEAL DENIAL-RENEWAL</fullName>
+                <default>false</default>
+                <label>APRW - APPEAL DENIAL-RENEWAL</label>
+            </value>
+            <value>
+                <fullName>APRX - APPEAL DENIAL-RE-EXAM</fullName>
+                <default>false</default>
+                <label>APRX - APPEAL DENIAL-RE-EXAM</label>
+            </value>
+            <value>
+                <fullName>APTL - APPEAL DENIAL-TEMPORARY LICENSE</fullName>
+                <default>false</default>
+                <label>APTL - APPEAL DENIAL-TEMPORARY LICENSE</label>
+            </value>
+            <value>
+                <fullName>APWD - APPEAL DENIAL OF REFUND</fullName>
+                <default>false</default>
+                <label>APWD - APPEAL DENIAL OF REFUND</label>
+            </value>
+            <value>
+                <fullName>APXM - APPEAL DENIAL-EXAM</fullName>
+                <default>false</default>
+                <label>APXM - APPEAL DENIAL-EXAM</label>
+            </value>
+            <value>
+                <fullName>APXT - APPEAL DENIAL-TEMPORARY LICENSE EXTENSION</fullName>
+                <default>false</default>
+                <label>APXT - APPEAL DENIAL-TEMPORARY LICENSE EXTENSION</label>
+            </value>
+            <value>
+                <fullName>BAP - APPRENTICE BARBER</fullName>
+                <default>false</default>
+                <label>BAP - APPRENTICE BARBER</label>
+            </value>
+            <value>
+                <fullName>BCHK - BOUNCED CHECK-RECORDING</fullName>
+                <default>false</default>
+                <label>BCHK - BOUNCED CHECK-RECORDING</label>
+            </value>
+            <value>
+                <fullName>BCNL - BOUNCED CHECK-NEW LICENSEE</fullName>
+                <default>false</default>
+                <label>BCNL - BOUNCED CHECK-NEW LICENSEE</label>
+            </value>
+            <value>
+                <fullName>BCPY - BOUNCED CHECK-REPAYMENT</fullName>
+                <default>false</default>
+                <label>BCPY - BOUNCED CHECK-REPAYMENT</label>
+            </value>
+            <value>
+                <fullName>BEP - BEAUTY APPRENTICE</fullName>
+                <default>false</default>
+                <label>BEP - BEAUTY APPRENTICE</label>
+            </value>
+            <value>
+                <fullName>BICN - BOND/INSURANCE-CANCELLED</fullName>
+                <default>false</default>
+                <label>BICN - BOND/INSURANCE-CANCELLED</label>
+            </value>
+            <value>
+                <fullName>BICO - BOND/INSURANCE-CONTINUANCE</fullName>
+                <default>false</default>
+                <label>BICO - BOND/INSURANCE-CONTINUANCE</label>
+            </value>
+            <value>
+                <fullName>BINW - BOND/INSURANCE-NEW</fullName>
+                <default>false</default>
+                <label>BINW - BOND/INSURANCE-NEW</label>
+            </value>
+            <value>
+                <fullName>BIRN - BOND/INSURANCE-REINSTATE</fullName>
+                <default>false</default>
+                <label>BIRN - BOND/INSURANCE-REINSTATE</label>
+            </value>
+            <value>
+                <fullName>BWAV - BOND WAIVER (REMOVE BOND REQUIREMENT)</fullName>
+                <default>false</default>
+                <label>BWAV - BOND WAIVER (REMOVE BOND REQUIREMENT)</label>
+            </value>
+            <value>
+                <fullName>CAAM - ADD AUTHORIZED MAKE MODEL</fullName>
+                <default>false</default>
+                <label>CAAM - ADD AUTHORIZED MAKE MODEL</label>
+            </value>
+            <value>
+                <fullName>CACI - ADD CERTIFICATE ISSUED/REQUESTED</fullName>
+                <default>false</default>
+                <label>CACI - ADD CERTIFICATE ISSUED/REQUESTED</label>
+            </value>
+            <value>
+                <fullName>CAEE - ADD EDUCATION/EXPERIENCE</fullName>
+                <default>false</default>
+                <label>CAEE - ADD EDUCATION/EXPERIENCE</label>
+            </value>
+            <value>
+                <fullName>CAEH - ADD EXAM HISTORY</fullName>
+                <default>false</default>
+                <label>CAEH - ADD EXAM HISTORY</label>
+            </value>
+            <value>
+                <fullName>CAIB - ADD INSURANCE/BOND</fullName>
+                <default>false</default>
+                <label>CAIB - ADD INSURANCE/BOND</label>
+            </value>
+            <value>
+                <fullName>CAJB - ADD EMPLOYMENT</fullName>
+                <default>false</default>
+                <label>CAJB - ADD EMPLOYMENT</label>
+            </value>
+            <value>
+                <fullName>CALC - ADD LICENSE CLASS</fullName>
+                <default>false</default>
+                <label>CALC - ADD LICENSE CLASS</label>
+            </value>
+            <value>
+                <fullName>CALH - ADD LICENSE HISTORY</fullName>
+                <default>false</default>
+                <label>CALH - ADD LICENSE HISTORY</label>
+            </value>
+            <value>
+                <fullName>CALN - ADD LICENSE NAME</fullName>
+                <default>false</default>
+                <label>CALN - ADD LICENSE NAME</label>
+            </value>
+            <value>
+                <fullName>CANL - VOLUNTARILY CANCELLED (PEOPLE ONLY)</fullName>
+                <default>false</default>
+                <label>CANL - VOLUNTARILY CANCELLED (PEOPLE ONLY)</label>
+            </value>
+            <value>
+                <fullName>CANM - ADD B/P NAME</fullName>
+                <default>false</default>
+                <label>CANM - ADD B/P NAME</label>
+            </value>
+            <value>
+                <fullName>CANT - APPLICANT CANCELLED TRANSACTION</fullName>
+                <default>false</default>
+                <label>CANT - APPLICANT CANCELLED TRANSACTION</label>
+            </value>
+            <value>
+                <fullName>CAOF - ADD OFFICE</fullName>
+                <default>false</default>
+                <label>CAOF - ADD OFFICE</label>
+            </value>
+            <value>
+                <fullName>CAON - ADD OFFICE NAME</fullName>
+                <default>false</default>
+                <label>CAON - ADD OFFICE NAME</label>
+            </value>
+            <value>
+                <fullName>CAPT - ADD PARTNER/OFFICER</fullName>
+                <default>false</default>
+                <label>CAPT - ADD PARTNER/OFFICER</label>
+            </value>
+            <value>
+                <fullName>CASS - ADD SUSPENSE</fullName>
+                <default>false</default>
+                <label>CASS - ADD SUSPENSE</label>
+            </value>
+            <value>
+                <fullName>CASU - ADD SUPERVISOR</fullName>
+                <default>false</default>
+                <label>CASU - ADD SUPERVISOR</label>
+            </value>
+            <value>
+                <fullName>CCAM - CHANGE AUTHORIZED MAKE/MODEL</fullName>
+                <default>false</default>
+                <label>CCAM - CHANGE AUTHORIZED MAKE/MODEL</label>
+            </value>
+            <value>
+                <fullName>CCAT - CHANGE APPLICATION TRANSACTION RECORD</fullName>
+                <default>false</default>
+                <label>CCAT - CHANGE APPLICATION TRANSACTION RECORD</label>
+            </value>
+            <value>
+                <fullName>CCBP - CHANGE B/P RECORD</fullName>
+                <default>false</default>
+                <label>CCBP - CHANGE B/P RECORD</label>
+            </value>
+            <value>
+                <fullName>CCCI - CHANGE CERT ISSUED/REQUESTED</fullName>
+                <default>false</default>
+                <label>CCCI - CHANGE CERT ISSUED/REQUESTED</label>
+            </value>
+            <value>
+                <fullName>CCEE - CHANGE EDUCATION/EXPERIENCE</fullName>
+                <default>false</default>
+                <label>CCEE - CHANGE EDUCATION/EXPERIENCE</label>
+            </value>
+            <value>
+                <fullName>CCEH - CHANGE EXAM</fullName>
+                <default>false</default>
+                <label>CCEH - CHANGE EXAM</label>
+            </value>
+            <value>
+                <fullName>CCIB - CHANGE INSURANCE/BOND</fullName>
+                <default>false</default>
+                <label>CCIB - CHANGE INSURANCE/BOND</label>
+            </value>
+            <value>
+                <fullName>CCID - CHANGE B/P ID</fullName>
+                <default>false</default>
+                <label>CCID - CHANGE B/P ID</label>
+            </value>
+            <value>
+                <fullName>CCJB - CHANGE EMPLOYMENT</fullName>
+                <default>false</default>
+                <label>CCJB - CHANGE EMPLOYMENT</label>
+            </value>
+            <value>
+                <fullName>CCLC - CHANGE LICENSE CLASS (LICENSE HISTORY RECORD)</fullName>
+                <default>false</default>
+                <label>CCLC - CHANGE LICENSE CLASS (LICENSE HISTORY RECORD)</label>
+            </value>
+            <value>
+                <fullName>CCLH - CHANGE LICENSE HISTORY</fullName>
+                <default>false</default>
+                <label>CCLH - CHANGE LICENSE HISTORY</label>
+            </value>
+            <value>
+                <fullName>CCLI - CHANGE LICENSE</fullName>
+                <default>false</default>
+                <label>CCLI - CHANGE LICENSE</label>
+            </value>
+            <value>
+                <fullName>CCLN - CHANGE LICENSE NAME</fullName>
+                <default>false</default>
+                <label>CCLN - CHANGE LICENSE NAME</label>
+            </value>
+            <value>
+                <fullName>CCNM - CHANGE B/P NAME</fullName>
+                <default>false</default>
+                <label>CCNM - CHANGE B/P NAME</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

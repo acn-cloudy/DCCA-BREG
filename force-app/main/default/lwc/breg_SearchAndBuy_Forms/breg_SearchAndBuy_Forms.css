@@ -1,0 +1,15 @@
+/* Forms section styling */
+.forms-container {
+    text-align: left;
+}
+
+.forms-info-box {
+    border: 1px solid #d8dde6;
+    padding: 16px;
+    background-color: #f3f3f3;
+}
+
+.forms-list {
+    margin-left: 20px;
+    list-style-type: disc;
+}

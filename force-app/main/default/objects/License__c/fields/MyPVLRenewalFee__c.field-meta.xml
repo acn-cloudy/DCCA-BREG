@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyPVLRenewalFee__c</fullName>
+    <formula>IF(
+EffectiveExpireDate__c &gt;= Today(),
+IF(
+TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+LicenseType__r.InactiveRenewalFee__c,
+
+
+
+    CASE( LicenseTypeName__c , 
+    &quot;MVD&quot;, 
+           IF(
+           NeighborIsland__c = true, 
+             CASE(ClassPrefix__c , 
+             &quot;U&quot;, 344, 
+             &quot;N&quot;, 634,
+             &quot;M&quot;, 344,
+             &quot;MU&quot;, 344,
+             &quot;NU&quot;, 634,
+             &quot;MN&quot;, 634,
+             &quot;MNU&quot;, 634,
+             LicenseType__r.RenewalFee__c) , 
+
+             CASE(ClassPrefix__c , 
+             &quot;U&quot;, 538, 
+             &quot;N&quot;, 1122,
+             &quot;M&quot;, 538,
+             &quot;MU&quot;, 538,
+             &quot;NU&quot;, 1122,
+             &quot;MN&quot;, 1122,
+             &quot;MNU&quot;, 1122,
+             LicenseType__r.RenewalFee__c)
+              ) , 
+
+    &quot;MVB&quot;, 
+         IF(
+         NeighborIsland__c = true, 
+         344, 
+         538
+         ) ,
+
+
+
+    &quot;DIS&quot;, 
+         (CASE(FranchiseAgreements__c, 
+
+           0, 1, 
+           FranchiseAgreements__c 
+           ) * 616 ) + 1298
+
+         ,
+
+    &quot;F&quot;, 
+         (CASE(FranchiseAgreements__c, 
+
+           0, 1, 
+           FranchiseAgreements__c 
+           ) * 616 ) + 1298
+
+         ,
+   &quot;MVD - Sole Proprietor&quot;, 
+           IF(
+           NeighborIsland__c = true, 
+             CASE(ClassPrefix__c , 
+             &quot;U&quot;, 344, 
+             &quot;N&quot;, 634,
+             &quot;M&quot;, 344,
+             &quot;MU&quot;, 344,
+             &quot;NU&quot;, 634,
+             &quot;MN&quot;, 634,
+             &quot;MNU&quot;, 634,
+             LicenseType__r.RenewalFee__c) , 
+
+             CASE(ClassPrefix__c , 
+             &quot;U&quot;, 538, 
+             &quot;N&quot;, 1122,
+             &quot;M&quot;, 538,
+             &quot;MU&quot;, 538,
+             &quot;NU&quot;, 1122,
+             &quot;MN&quot;, 1122,
+             &quot;MNU&quot;, 1122,
+             LicenseType__r.RenewalFee__c)
+              ) , 
+
+    LicenseType__r.RenewalFee__c 
+
+    ) 
+
+
+),
+LateActiveInactiveRenewalFee__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MyPVL Renewal Fee</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

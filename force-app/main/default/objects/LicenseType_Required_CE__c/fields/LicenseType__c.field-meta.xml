@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseType__c</fullName>
+    <description>PacPoint-KN08122020-Created for PVL CE and INS</description>
+    <label>License Type</label>
+    <referenceTo>LicenseType__c</referenceTo>
+    <relationshipLabel>Education Subjects</relationshipLabel>
+    <relationshipName>License_Type_Required_CE</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

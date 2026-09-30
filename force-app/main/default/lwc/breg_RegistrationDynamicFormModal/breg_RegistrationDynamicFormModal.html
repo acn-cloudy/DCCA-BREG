@@ -1,0 +1,33 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal Header -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCancel}>
+                    <lightning-icon icon-name="utility:close" alternative-text="Close" variant="inverse"></lightning-icon>
+                </button>
+                <h2 class="slds-text-heading_large modal-title">{title}</h2>
+            </header>
+
+            <!-- Modal Body -->
+            <div class="slds-modal__content slds-p-horizontal_medium slds-p-bottom_medium modal-body">
+                <c-breg_-registration-dynamic-form
+                    form-configuration={formConfiguration}
+                    full-form-config={fullFormConfig}
+                    form-data={formData}
+                    onsave={handleSaveFormEvent}
+                    oninputchange={handleFormDataChange}
+                    onformupdate={handleFormDataChange}
+                    cmp-properties={cmpProperties}
+                ></c-breg_-registration-dynamic-form>
+            </div>
+
+            <!-- Modal Footer -->
+            <footer class="slds-modal__footer footer-btns">
+                <lightning-button variant="neutral" label="Cancel" onclick={handleCancel} disabled={isLoading}></lightning-button>
+                <lightning-button variant="brand" label="Save" onclick={handleSave} disabled={isLoading} class="slds-m-left_small"></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

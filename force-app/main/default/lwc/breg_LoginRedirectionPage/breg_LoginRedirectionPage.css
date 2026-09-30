@@ -1,0 +1,3 @@
+ul:not(.browser-default) li {
+    list-style-type: disc;
+}

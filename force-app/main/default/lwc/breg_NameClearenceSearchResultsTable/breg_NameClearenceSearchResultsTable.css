@@ -1,0 +1,24 @@
+.page-size-selector {
+  width: 80px;
+  min-width: 80px;
+  margin-bottom: 0;
+}
+
+.results-table {
+  min-height: 200px;
+}
+
+.slds-grid_vertical-align-center {
+  align-items: center;
+}
+
+/* Pagination button styling */
+.slds-button[disabled] {
+  opacity: 0.5;
+}
+
+@media print and (orientation: portrait) {
+  .results-table {
+    zoom: 0.6;
+  }
+}

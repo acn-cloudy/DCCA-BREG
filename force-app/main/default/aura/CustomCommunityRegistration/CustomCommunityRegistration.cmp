@@ -1,0 +1,230 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Custom component that allows the user to self register
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* PacPoint-LC012519 - Created for BREG Phase 1
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* @author       Lucian Ciobanu - PacificPointCorp 
+* @created      2019-01-25
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+--> 
+<aura:component controller="CustomCommunityRegistrationController" implements="forceCommunity:availableForAllPageTypes" access="global">
+
+    <!-- Design Attribute -->
+    <aura:attribute name="Title" type="String" default="Community Registration" />
+    <aura:attribute name="profileName" type="String" default="DCCA BREG - CustomerCommunityLogin" />
+    <aura:attribute name="businessAccRecordTypeDeveloperName" type="String" default="BusinessAccount" /> 
+    <aura:attribute name="personAccRecordTypeDeveloperName" type="String" default="PersonAccount" />
+    
+    <!-- Component Attributes -->
+    <aura:attribute name="workForCompany" type="Boolean" default="false" />
+    <aura:attribute name="step" type="String" default="1" />    
+    <aura:attribute name="contactFields" type="List" />
+    <aura:attribute name="contact" type="Contact" />
+    <aura:attribute name="useExistingContact" type="Boolean" default="false" />    
+    <aura:attribute name="accountFields" type="List" />
+	<aura:attribute name="account" type="Account" />
+	<aura:attribute name="accountsFound" type="List" />
+	<aura:attribute name="accountsFoundResults" type="Boolean" />
+	<aura:attribute name="accountsSearch" type="Boolean" default="false" />
+    <aura:attribute name="useExistingAccount" type="Boolean" default="false"/>
+    <aura:attribute name="isProcessing" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+	
+    <h2>{!v.Title}</h2><br/>
+        
+    <!-- Search for Contact -->
+    <aura:if isTrue="{!v.step == '1'}">
+        <fieldset class="slds-form-element slds-form_compound">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <aura:iteration items="{!v.contactFields}" var="fieldWrapper">
+                        <div class="slds-col slds-has-flexi-truncate slds-size--1-of-2">
+                            <c.CustomRecordCreateField3 sObj="{!v.contact}" field="{!fieldWrapper}" getDefaultValue="false" />
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="Continue" onclick="{!c.step1Continue}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </aura:if>
+    
+    <!-- Contact Found -->
+    <aura:if isTrue="{!v.step == '2'}">
+        <fieldset class="slds-form-element slds-form_compound">
+            {!$Label.c.CustomRegistrationContactFound}
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="{!$Label.c.CustomRegistrationCreateNewUserBtn}" title="{!$Label.c.CustomRegistrationCreateNewUserBtn}" onclick="{!c.step2Yes}"/>
+                        <lightning:button variant="brand" label="{!$Label.c.CustomRegistrationHomeBtn}" title="{!$Label.c.CustomRegistrationHomeBtn}" onclick="{!c.step2No}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </aura:if>
+
+    <!-- Part Of Company ? -->
+    <aura:if isTrue="{!v.step == '3'}">
+        <fieldset class="slds-form-element slds-form_compound">
+            {!$Label.c.CustomRegistrationPartOfCompany}
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="Yes" title="Yes" onclick="{!c.step3Yes}"/>
+        				<lightning:button variant="brand" label="No" title="No" onclick="{!c.step3No}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </aura:if>
+
+    <!-- Account Name and Address -->
+    <aura:if isTrue="{!v.step == '4'}">
+        <fieldset class="slds-form-element slds-form_compound">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-grid slds-gutters_small">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <lightning:input label="Name of Firm" name="inputAccountName"
+                                         value="{!v.account.Name}"
+                                         required="true"/>
+                    </div>
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <lightning:input label="CRD#" name="inputAccountCRD"
+                                         value="{!v.account.CRD__c}"
+                                         required="false"/>
+                    </div>
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <lightning:input label="DBA" name="inputAccountDBA"
+                                         value="{!v.account.DBA__c}"
+                                         required="false"/>
+                    </div>
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <lightning:input label="Street" name="inputAccountStreet"
+                                         value="{!v.account.BillingStreet}"
+                                         required="false"/>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="Search" title="Search" onclick="{!c.step4Search}"/>
+                    </div>
+                </div>
+            </div>
+            <aura:if isTrue="{!v.accountsSearch == true}"> 
+                <br /><br />
+            	<aura:if isTrue="{!!v.accountsFoundResults}">
+            		No accounts found
+            	</aura:if>
+	            <aura:iteration items="{!v.accountsFound}" var="accFound">
+	            	<fieldset class="slds-form-element slds-form_compound">
+			            <div class="slds-form slds-form_stacked">
+			                <div class="slds-grid slds-wrap slds-gutters_small">
+			                    <aura:iteration items="{!v.accountFields}" var="fieldWrapper">
+			                        <div class="slds-col slds-has-flexi-truncate slds-size--1-of-2">
+			                            <c.CustomRecordCreateField3 sObj="{!accFound}" field="{!fieldWrapper}" readOnly="true" getDefaultValue="false" />
+			                        </div>
+			                    </aura:iteration>
+			                </div>
+			            </div>
+			            <div class="slds-form-element__control" style="padding-top:25px;">
+			                <div class="slds-form-element__group">
+			                    <div class="slds-form-element__row">
+			                    	<span onclick="{!c.step4Continue}" data-accid="{!accFound.Id}">
+			                        	<lightning:button variant="brand" label="Continue with this account" title="Continue with this account" />
+			                        </span>
+			                    </div>
+			                </div>
+			            </div>
+			        </fieldset>
+			        <hr />
+	            </aura:iteration>
+	            <div class="slds-form-element__control" style="padding-top:25px;">
+	                <div class="slds-form-element__group">
+	                    <div class="slds-form-element__row">
+	                        <lightning:button variant="brand" label="Create a new account" title="Create a new account" onclick="{!c.step4Create}"/>
+	                    </div>
+	                </div>
+	            </div>
+	        </aura:if>
+        </fieldset>
+    </aura:if>
+
+    <!-- Display Account Details - ->
+    <aura:if isTrue="{!v.step == '5'}">
+        {!$Label.c.CustomRegistrationAccountFound}
+        <fieldset class="slds-form-element slds-form_compound">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <aura:iteration items="{!v.accountFields}" var="fieldWrapper">
+                        <div class="slds-col slds-has-flexi-truncate slds-size- -1-of-2">
+                            <c.CustomRecordCreateField3 sObj="{!v.accountFound}" field="{!fieldWrapper}" readOnly="true" getDefaultValue="false" />
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="Yes" title="Yes" onclick="{!c.step5Yes}"/>
+                        <lightning:button variant="brand" label="No" title="No" onclick="{!c.step5No}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </aura:if>-->
+
+    <!-- Edit Account Details -->
+    <aura:if isTrue="{!v.step == '6'}">
+        <fieldset class="slds-form-element slds-form_compound">
+            <div class="slds-form slds-form_stacked">
+                <div class="slds-grid slds-wrap slds-gutters_small">
+                    <aura:iteration items="{!v.accountFields}" var="fieldWrapper">
+                        <div class="slds-col slds-has-flexi-truncate slds-size--1-of-2">
+                            <c.CustomRecordCreateField3 sObj="{!v.account}" field="{!fieldWrapper}" getDefaultValue="false" />
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+            <div class="slds-form-element__control" style="padding-top:25px;">
+                <div class="slds-form-element__group">
+                    <div class="slds-form-element__row">
+                        <lightning:button variant="brand" label="Continue" title="Continue" onclick="{!c.step6Continue}"/>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </aura:if>
+
+    <!-- Thank you message -->
+    <aura:if isTrue="{!v.step == '7'}">
+        <div style="text-align: center;">
+            {!$Label.c.CustomRegistrationThankYouMsg}
+        </div>
+    </aura:if>
+
+    <!-- Existing User message -->
+    <aura:if isTrue="{!v.step == '8'}">
+        <div style="text-align: center;">
+            {!$Label.c.CustomRegistrationExistingUserMsg}
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isProcessing}">
+        <lightning:spinner alternativeText="Loading" size="large"/>
+    </aura:if>
+</aura:component>

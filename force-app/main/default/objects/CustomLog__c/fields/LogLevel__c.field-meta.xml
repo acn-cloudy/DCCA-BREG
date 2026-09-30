@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LogLevel__c</fullName>
+    <defaultValue>1</defaultValue>
+    <description>1-9. 1 is highest priority log, 9 is lowest priority log.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>number in range [1-9]. 1 is highest priority log (e.g. exceptions), 9 is lowest priority log (e.g. info).</inlineHelpText>
+    <label>Log Level</label>
+    <precision>1</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

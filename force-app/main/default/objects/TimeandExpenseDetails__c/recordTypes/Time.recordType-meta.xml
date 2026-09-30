@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time</fullName>
+    <active>true</active>
+    <description>PacPoint-MV010319 - Created for BREG phase 1</description>
+    <label>Time</label>
+    <picklistValues>
+        <picklist>PaymentType__c</picklist>
+        <values>
+            <fullName>4009 - Publication %28service of pleading%29 %E2%80%93 Bid list not available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4089 - Publication %28service of pleading%29 %E2%80%93 Bid list available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4101 - Mileage %28staff only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4104 - Parking %28staff only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4201 - Airfare %28witness appearance and%2For staff%2C intra-state%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4201 - Taxi %28witness appearance and%2For staff%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4301 - Per Diem %28staff only%2C inter-state only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4302 - Airport Parking %28staff only%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4315 - Meals only %28same day travel%2C inter-state%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4601 - Car Rental %28staff only%2C inter-state%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7102 - Process Server</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7102 - Subpoena %E2%80%93 Research Fees</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7104 - Court Reporters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7204 - Subpoena %E2%80%93 Photo Copies of Documents</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

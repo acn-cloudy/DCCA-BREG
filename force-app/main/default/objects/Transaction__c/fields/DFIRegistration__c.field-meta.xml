@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DFIRegistration__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-MV021120 - Created for DFI phase 1</description>
+    <label>DFI Registration</label>
+    <referenceTo>DFIRegistration__c</referenceTo>
+    <relationshipLabel>Transactions</relationshipLabel>
+    <relationshipName>Transactions</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

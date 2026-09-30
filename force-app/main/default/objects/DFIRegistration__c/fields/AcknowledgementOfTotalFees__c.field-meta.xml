@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AcknowledgementOfTotalFees__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint: RdG - Case 7975 - For Payment Collection Year 3 - This field will be on the DFI Registration community page.</description>
+    <label>No Name</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

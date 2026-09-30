@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>PacPoint KN 11/03/2023 - RT Flow created to track the selected License Period and Date of Licensure.
+Set to an After Save flow, since we need to reference the License Type.Next License Period Effective Date field.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Used to calculate the Date of Licensure based on the License Period</description>
+        <name>DateofLicensure</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+ISPICKVAL({!$Record.LicensePeriod__c}, &quot;Next License Period&quot;),
+{!$Record.LicenseType__r.NextLicensePeriodEffectiveDate__c},
+{!$Flow.CurrentDate}
+)</expression>
+    </formulas>
+    <interviewLabel>Application: Date of Licensure {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application: Date of Licensure</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Date_of_Licensure</name>
+        <label>Update Date of Licensure</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <inputAssignments>
+            <field>DateofLicensure__c</field>
+            <value>
+                <elementReference>DateofLicensure</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Date_of_Licensure</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>LicensePeriod__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicensePeriod__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Application__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

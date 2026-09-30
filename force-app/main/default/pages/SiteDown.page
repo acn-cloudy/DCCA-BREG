@@ -1,0 +1,45 @@
+<apex:page applyHtmlTag="false" applyBodyTag="false" showHeader="false">
+    <html>
+    <head title="Maintenance">
+        <style>
+            body {
+                font-size: 16pt;
+            }
+
+            .announcement {
+                width: 500px;
+                margin: 50px auto;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                padding: 20px;
+                box-shadow: 1px 2px 5px #eee;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div class="announcement">
+        <div style="text-align: center;">
+            <h1>Temporarily Down for Maintenance</h1>
+        </div>
+        <div>
+        <!--
+            <p>
+                Estimated downtime: 4:30 am - 7:00 am HST
+            </p>
+         -->
+            <p>
+                We are performing scheduled maintenance, and apologize for this inconvenience.
+            </p>
+            <p>
+                We appreciate your continued support with allowing us the time to improve things.
+            </p>
+            <p>
+                Much mahalo for your patience and understanding,<br/><br/>
+                DCCA
+            </p>
+        </div>
+    </div>
+    </body>
+    </html>
+</apex:page>

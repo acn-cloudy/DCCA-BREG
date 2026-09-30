@@ -1,0 +1,62 @@
+<aura:component
+  controller="PaymentTerminalController"
+  implements="force:lightningQuickAction,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName"
+>
+  <aura:attribute name="warningTitle" type="String" />
+  <aura:attribute name="memo" type="String" />
+  <aura:attribute name="paymentType" type="String" />
+  <aura:attribute name="recordId" type="String" />
+  <aura:attribute name="sObjectName" type="String" default="Transaction__c" />
+  <aura:attribute name="hide" type="Boolean" default="false" />
+  <aura:attribute name="showWarning" type="Boolean" default="false" />
+  <aura:attribute name="show" type="Boolean" default="false" />
+  <aura:attribute name="options" type="List" />
+  <aura:handler name="init" value="this" action="{!c.doInit}" />
+  <aura:handler
+    name="evtPaymentProcessingComplete"
+    event="pymt:EvtPaymentProcessingComplete"
+    action="{!c.savePayment}"
+  />
+
+  <lightning:notificationsLibrary aura:id="notifLib" />
+  <aura:if isTrue="{!v.show}">
+    <aura:if isTrue="{!!v.hide}">
+      <aura:if isTrue="{!v.showWarning}">
+        <div class="slds-m-bottom_small">
+          <div class="slds-align_absolute-center">
+            <span class="warning">Warning:</span>
+          </div>
+          <div class="warning">
+            Customer cannot pay with check, credit card, ECheck, Electronic
+            Funds Transfer, TDR, JV, or Deposit Slip, because account has a most
+            recent {!v.warningTitle}.
+          </div>
+        </div>
+      </aura:if>
+      <lightning:select
+        name="paymentType"
+        label="Payment Type"
+        value="{!v.paymentType}"
+        onchange="{!c.updateTransaction}"
+      >
+        <option value="Cash">Cash</option>
+        <option value="Cashier's Check">Cashier's Check</option>
+        <option value="Money Order">Money Order</option>
+        <aura:iteration items="{!v.options}" var="op">
+          <option value="{!op}">{!op}</option>
+        </aura:iteration>
+      </lightning:select>
+      <lightning:textarea
+        name="memo"
+        label="Memo"
+        value="{!v.memo}"
+        onchange="{!c.updateTransaction}"
+      />
+    </aura:if>
+    <pymt:PaymentTerminal
+      recordId="{!v.recordId}"
+      sObjectName="{!v.sObjectName}"
+      aura:id="paymentTerminal"
+    />
+  </aura:if>
+</aura:component>

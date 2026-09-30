@@ -1,0 +1,140 @@
+<apex:page readOnly="true"
+           controller="PVL_PrelicensePassCertController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="pdf">
+    <html>
+    <head>
+        <style>
+            @page {
+                size: letter landscape;
+                margin: .25in;
+                padding: 0;
+                border: 3px solid #2f4f4f;
+            }
+
+            * {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            p.default-font-size,
+            div.default-font-size {
+                font-size: 11pt;
+            }
+
+            div.stateSeal {
+                background-image: url("{!$Resource.PreLicPassCertSeal}");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+
+            div.psiSeal {
+                background-image: url("{!$Resource.PsiSeal}");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+
+            ol li {
+                line-height: 125%;
+            }
+        </style>
+    </head>
+    <body>
+    <apex:variable var="cnt" value="{!1}"/>
+    <apex:repeat value="{!enrollments}" var="e">
+        <div class="stateSeal"
+             style="{!IF(cnt==enrollments.size,'','page-break-after:always; height: 100%;')}">
+            <h1 style="text-align:center; font-size: 32pt; font-family: 'Old English Text','Open Sans', sans-serif; padding: 0; margin: 0;">
+                Hawaii Real Estate Commission
+            </h1>
+            <h2 style="text-align:center; font-size: 24pt; font-family: 'Old English Text','Open Sans', sans-serif;">
+                School Completion Certificate
+            </h2>
+            <p class="default-font-size" style="text-align: center;">
+                Certificate Number: <span style="border-bottom: 1px solid; padding-left: 100px; padding-right: 100px;">
+                    {!e.CertificateNumberFormula__c}
+            </span>
+            </p>
+            <br/>
+            <div class="default-font-size" style="text-align: center;">
+                <p>This is to certify that</p>
+                <div style="display: table; margin: 0 auto; border-bottom: 1px solid; width: 600px; padding:0;">
+                    <div style="display: table-cell; text-align: right; padding-right: 15px;">{!e.Account__r.Name}</div>
+                    <div style="display: table-cell; text-align: right; padding-right: 70px;">{!e.Account__r.AccountSequenceId__c}</div>
+                </div>
+                <div style="display: table; margin: 0 auto; font-size: 9pt;width: 600px">
+                    <div style="display: table-cell; text-align: right; padding-right: 15px;">Name (As it appears on Proper Identification)</div>
+                    <div style="display: table-cell; text-align: right; padding-right: 70px;">Candidate ID</div>
+                </div>
+            </div>
+            
+            
+            
+            <br/>
+            <br/>
+            <div class="default-font-size" style="text-align: center;">
+                has successfully completed a course of study conforming to the approved curriculum for Real Estate <br/><br/><br/>
+                <div style="border-bottom: 1px solid; width: 250px; display: inline-block;">
+                        {!e.Course__r.Subject__r.PrelicenseType__c}
+                </div>
+                license
+                as established by the Hawaii Real Estate Commission.<br/><br/><br/>
+            </div>
+            <br/>
+            <div class="default-font-size" style="text-align: center;">
+                Accredited School
+                <div style="border-bottom: 1px solid; width: 550px; text-align: center; display: inline-block;">{!e.Course__r.Account__r.Name}</div>
+            </div>
+            <br/><br/>
+            <div class="default-font-size" style="text-align: center;">
+                Principal
+                <div style="display: inline-block; width: 300px; border-bottom: 1px solid;"></div>
+                Expiration Date
+                <div style="display: inline-block; width: 200px; border-bottom: 1px solid;">
+                    <apex:outputText value="{0, date, MM/d/yyyy}">
+                        <apex:param value="{!e.PassDate__c}"/>
+                    </apex:outputText>
+                </div>
+                <br/>
+                <div style="text-align: center; width: 750px; margin-top: 5px;">Signature</div>
+            </div>
+            <br/>
+            <div class="default-font-size" style="width: 740px; display: inline-block;">
+                <span style="padding-left: 21px;">Note:</span>
+                <ol style="margin-top: -1px;">
+                    <li>
+                        This certificate expires on the date indicated above. No extensions of time will be granted.
+                    </li>
+                    <li>
+                        Upon passing the licensing examination, candidates must submit a complete application for
+                        license<br/>
+                        within two (2) years from the date of the examination, or they will be subject to the
+                        prerequisites<br/>
+                        for licensure, including meeting all pre-licensing education requirements and reexamination.
+                    </li>
+                    <li>
+                        Candidates with incomplete or incorrect certificates will not be permitted to take the
+                        examination.
+                    </li>
+                    <li>
+                        Candidates for the broker examination are required to apply and be granted an “Experience<br/>
+                        Certificate” prior to registering for the examination with the testing company. Failure to
+                        obtain the <br/>
+                        Experience Certificate prior to examination will result in the invalidation of the examination
+                        score <br/>
+                        pursuant to Hawaii Administrative Rules, Section 16-99-19.2
+                    </li>
+                </ol>
+            </div>
+            <div style="display: inline-block; width: 200px; text-align: center;">
+                <img alt="" width="150px" src="{!$Resource.PsiSeal}"/>
+            </div>
+        </div>
+        <apex:variable var="cnt" value="{!cnt+1}"/>
+    </apex:repeat>
+    </body>
+    </html>
+</apex:page>

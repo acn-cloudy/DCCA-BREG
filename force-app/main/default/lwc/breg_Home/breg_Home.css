@@ -1,0 +1,549 @@
+.warning-banner {
+  background-color: #fff3cd;
+  border-left: 5px solid #f0ad4e;
+  border-right: 5px solid #f0ad4e;
+  color: #5a4000;
+  padding: 0.85rem 1.25rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.warning-banner-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.warning-banner-body {
+  text-align: center;
+}
+
+.warning-banner .warning-icon {
+  flex-shrink: 0;
+}
+
+.hero {
+  background: #3cedea;
+  position: relative;
+}
+
+/* Content Box */
+.content-box {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  z-index: 10;
+  margin-top: 70px;
+  max-width: var(--c-max-content-width);
+}
+
+/* Hero Text */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 118px;
+}
+
+.hero-title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 140%;
+  color: #353d41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-subtitle {
+  height: 68px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 140%;
+  color: #353d41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-maps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  background-image: url('/sfsites/c/resource/BREG_portalResources/img/hawaii_map.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 450px;
+}
+
+/* Search + Info Container */
+.search-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  height: 180px;
+}
+
+/* Search Section */
+.search-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  border-radius: 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  flex: 0.99;
+  border: none;
+  outline: none;
+  height: 68px;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 400;
+  border-radius: 50px;
+}
+
+.search-button {
+  width: 64px;
+  height: 64px;
+  background: var(--breg-primary-color);
+  border: none;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  --slds-c-icon-color-foreground-default: #fff;
+}
+
+/* Info Text Below Search */
+.hero-info {
+  width: 100%;
+  height: 84px;
+  font-size: 20px;
+  line-height: 140%;
+  color: #353d41;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-info strong {
+  font-weight: 600;
+}
+
+/*==================================================
+  Cards Section
+==================================================*/
+
+.cards-container {
+  background: linear-gradient(180deg, #3cedea 0%, #ffffff 37.98%);
+  display: flex;
+  justify-content: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding-bottom: 3rem;
+  justify-items: center;
+  max-width: var(--c-max-content-width);
+  margin-top: 140px;
+}
+
+.card {
+  width: 310px;
+  height: 500px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px 0px #0000000d;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.start .card-icon {
+  --slds-c-icon-color-foreground-default: #ed4a4a;
+  --slds-c-icon-color-foreground: #ed4a4a;
+}
+
+.card.manage .card-icon {
+  --slds-c-icon-color-foreground-default: #eb9234;
+  --slds-c-icon-color-foreground: #eb9234;
+}
+
+.card.search .card-icon {
+  --slds-c-icon-color-foreground-default: var(--breg-primary-color);
+  --slds-c-icon-color-foreground: var(--breg-primary-color);
+}
+
+.card.dashboard .card-icon {
+  --slds-c-icon-color-foreground-default: #00b8d9;
+  --slds-c-icon-color-foreground: #00b8d9;
+}
+
+.card h3 {
+  margin-top: 1.5rem;
+  height: 34px;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  color: #212121;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  list-style: none;
+  margin: 0;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.card-list li {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+}
+
+.cardin {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.cardin lightning-icon {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.cardin .list-text {
+  flex: 1;
+}
+
+.check-icon {
+  margin-right: 0.5rem;
+}
+
+.question {
+  text-align: center;
+  padding-bottom: 8rem;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  vertical-align: center;
+}
+
+.action-button {
+  position: relative;
+  width: 164px;
+  top: 320px;
+  left: 67px;
+  border-radius: 8px;
+  border: none;
+  background: #ffb55c !important;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-bottom: 16px;
+  padding-left: 32px;
+  gap: 8px;
+}
+
+.action-button:hover {
+  background-color: #e09b49;
+}
+
+/* ==================================================
+ Responsive Breakpoints
+ ================================================== */
+
+/* Large Desktops (1440px and up) - Adjust fixed widths */
+@media (max-width: 1440px) {
+  .hero {
+    width: 100%;
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .search-info-container,
+  .search-section,
+  .hero-info {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1300px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-box,
+  .hero-text {
+    height: auto;
+  }
+
+  .hero-title {
+    text-align: center;
+  }
+
+  .search-info-container {
+    padding: 0 10px;
+  }
+}
+
+/* Tablets and Small Laptops (1024px) */
+@media (max-width: 1024px) {
+  .nav-left {
+    margin-left: 30px;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .content-box {
+    position: static;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .hero-maps {
+    margin-top: 30px;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .search-info-container {
+    padding: 0;
+  }
+
+  .question {
+    padding: 1rem;
+  }
+
+  .search-button {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .top-left,
+  .top-right {
+    margin: 10px 0;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .search-section {
+    width: 100%;
+  }
+
+  .hero-info {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+    margin-top: 60px;
+  }
+
+  .search-button {
+    width: 52px;
+    height: 52px;
+    /* For mobile, you might want to make it more prominent */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Mobile Menu Toggle (for smallest screens) */
+@media (max-width: 640px) {
+  .nav-right {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-right.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 160px;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-button {
+    margin: 10px auto;
+  }
+}
+
+/* Mobile Phones (480px) */
+@media (max-width: 480px) {
+  .top-left a,
+  .top-right a {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .hero-info {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .card-list {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .card-icon {
+    text-align: center;
+  }
+
+  .card h3{
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .action-button {
+    position: static;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .search-button {
+    width: 48px;
+    height: 48px;
+    /* Make it easier to tap on mobile */
+    min-width: 48px;
+    min-height: 48px;
+  }
+}
+
+/* Very Small Phones (360px and below) */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-info {
+    font-size: 14px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card-list li {
+    font-size: 16px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+  }
+
+  .search-button {
+    width: 44px;
+    height: 44px;
+  }
+}

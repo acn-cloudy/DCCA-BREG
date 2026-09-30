@@ -1,0 +1,144 @@
+<aura:component implements="forceCommunity:themeLayout">
+
+  <aura:attribute name="search" type="Aura.Component[]" required="false" />
+  <aura:attribute name="profileMenu" type="Aura.Component[]" required="false" />
+  <aura:attribute name="navBar" type="Aura.Component[]" required="false" />
+
+  <ltng:require styles="{!$Resource.ComplaintsThemeLayout + '/css/style.css'}" />
+  <ltng:require styles="{!$Resource.ComplaintsThemeLayout + '/css/font-awesome-st.css'}" />
+
+
+  <body>
+    <div id="scheme_color_blue">
+      <div id="wrap">
+        <div id="inner-wrap">
+          <div id="page" class="group">
+            <header>
+              <div id="header" class="group" style="z-index:auto;background:#fff !important;">
+                <div class="group inner-header slds-grid slds-grid--vertical-align-center slds-large-nowrap slds-wrap" style="display:flex;background:#fff !important;">
+
+                  <div class="nine-col logo">
+                    <a href="{!$Site.siteUrlPrefix}" title="Go to Homepage Link">
+                      <img src="{!$Resource.ComplaintsThemeLayout + '/imgs/logo.png'}" alt="Logo" width="0"
+                        height="0" />
+                    </a>
+                    <div class="title_tagline">
+                      <span class="tagline" style="color: rgb(78,113,183) !important;">State of Hawaii</span>
+                      <h1 class="title">
+                        <a href="{!$Site.siteUrlPrefix}" title="Go to Homepage Link"
+                          style="color:rgb(23,64,130) !important;font-size: 18px;">Department of Commerce and Consumer Affairs</a>
+                        <div style="color: rgb(78,113,183) !important;"><i>Ka 'Oihana Pili Kālepa</i></div>
+                      </h1>
+                    </div>
+                  </div>
+
+                  <div id="additional-info">
+                    <div id="et-social-icons" class="slds-grid slds-grid--align-spread slds-grid--vertical-align-center">
+                      <div class="slds-grid slds-m-horizontal--small">
+                        <a href="https://www.facebook.com/DCCAHawaii" alt="Facebook">
+                          <i class="icon-facebook-sign"></i>
+                          <span class="social-media-link-text">Facebook icon</span>
+                        </a>
+                        <a href="https://www.youtube.com/user/DCCAHawaii" alt="Youtube">
+                          <i class="icon-youtube"></i>
+                          <span class="social-media-link-text">Youtube icon</span>
+                        </a>
+                        <!--
+                        <a href="https://hawaii.gov/dcca/whats-new/whats-new/RSS" alt="RSS">
+                          <i class="icon-rss-sign"></i>
+                          <span class="social-media-link-text">RSS icon</span>
+                        </a>
+                        <a href="https://twitter.com/DCCAHawaii" alt="Twitter">
+                          <i class="icon-twitter"></i>
+                          <span class="social-media-link-text">Twitter icon</span>
+                        </a>
+                        -->
+                      </div>
+                      <div class="slds-is-relative" style="flex: 1;">
+                        <input aura:id="search" placeholder="Search"/>
+                        <i class="icon-search" onclick="{!c.handleSearch}" style="cursor: pointer;"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="navigation">
+                  {!v.navBar}
+                  <div style="clear:both;"></div>
+                </div>
+              </div>
+            </header>
+            <div id="bodyCustom">
+              {!v.body}
+            </div>
+          </div>
+
+          <div id="footer" class="slds-grid slds-grid--align-spread slds-grid--vertical-align-center">
+            <div id="footer-widgets" style="margin: 0;padding: 0px 12px;">
+              <div id="nav_menu-2" class="widget-1 widget-first footer_widget two-col">
+                <!-- <h2 class="widgettitle">About</h2> -->
+                <div class="menu-footer-about-us-container">
+                  <ul id="menu-footer-about-us" class="menu">
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://cca.hawaii.gov/directors-message/">About</a>
+                    </li>
+                    <!--
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="/">Statutes and Rules</a>
+                    </li>
+                    -->
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://cca.hawaii.gov/faqs/">FAQS</a>
+                    </li>
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://cca.hawaii.gov/jobs/">Jobs</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="nav_menu-3" class="widget-2 footer_widget two-col">
+                <!-- <h2 class="widgettitle"></h2> -->
+                <div class="menu-footer-policies-container">
+                  <ul id="menu-footer-policies" class="menu">
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://portal.ehawaii.gov/page/terms-of-use/">Terms of use</a>
+                    </li>
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://portal.ehawaii.gov/page/accessibility/">Accessibility</a>
+                    </li>
+                    <li id="menu-item-114"
+                      class="menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
+                      <a href="https://portal.ehawaii.gov/page/privacy-policy/">Privacy Policy</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+              <!-- <div id="nav_menu-4" class="widget-3 widget-last last-col footer_widget two-col">
+                <div class="menu-footer-contact-container">
+                  <ul id="menu-footer-contact" class="menu">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119">
+                      <a title="tel">{!v.PhoneNumber}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+              <div id="copyright_info" class="twelve-col last-col">
+                <span style="text-align: left;">COPYRIGHT © 2024, STATE OF HAWAII. ALL RIGHTS RESERVED</span>
+              </div>
+            </div>
+            <div>
+              <img src="{!$Resource.ComplaintsThemeLayout + '/imgs/footer.png'}" alt="Logo" width="120" height="120"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</aura:component>

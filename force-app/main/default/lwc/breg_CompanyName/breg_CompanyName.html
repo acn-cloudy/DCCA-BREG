@@ -1,0 +1,99 @@
+<template>
+    <lightning-layout multiple-rows="true" class="company-name-container">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <c-breg-_-popup
+            visible={showModal}
+            title={labels.BREG_Name_to_be_reserved}
+            message={modalText}
+            oncontinue={handleModalContinue}
+            oncancel={handleModalCancel}
+            hide-next-button="true"
+            cancel-button-label={labels.BREG_Close}
+        >
+        </c-breg-_-popup>
+
+        <!-- Edit mode -->
+        <template lwc:if={editMode}>
+            <lightning-layout-item size="12" lwc:if={showNameRulesText} class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={nameRulesText}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showDescription} size="12" class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={businessProcessNameReservation} size="12" class="form-layout-item slds-m-bottom--small">
+                <span>{labels.BREG_Name_to_be_reserved} (<a href="#" onclick={handleLearnMoreClick}>{labels.Learn_More}</a>)</span>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-input
+                    name="companyName"
+                    type="text"
+                    label={config.labelOverride2}
+                    class="companyName"
+                    max-length="80"
+                    message-when-too-short="Name cannot be blank."
+                    message-when-too-long="Name cannot exceed 80 characters."
+                    value={companyNameValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showFictitiousName} size="12" class="form-layout-item">
+                <lightning-input
+                    name="fictitiousName"
+                    value={fictitiousNameValue}
+                    checked={fictitiousNameValue}
+                    class="fictitiousName"
+                    type="checkbox"
+                    label="Reserved name includes a fictitious name for a foreign LLC, corporation or limited partnership. (Optional)"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showFileNumber} size="12" class="form-layout-item">
+                <lightning-input
+                    name="fileNumber"
+                    value={fileNumberValue}
+                    label="File Number"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+        <!-- Read-only mode -->
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <p><b><lightning-formatted-text class="slds-var-m-bottom_small" value={companyNameValue}></lightning-formatted-text></b></p>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showFileNumber} size="12" class="form-layout-item">
+                <p><lightning-formatted-text value={fileNumberValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showPendingDocText} size="12" class="form-layout-item slds-var-m-top_medium">
+                <p class="slds-text-color_weak">
+                    <lightning-icon icon-name="utility:info" size="x-small" class="slds-var-m-right_x-small"></lightning-icon>
+                    <b>After submission, Business Name pending DCCA approval.</b>
+                </p>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={includesFictitious} size="12" class="form-layout-item slds-var-m-top_medium">
+                <p>Reserved name includes a fictitious name for a foreign LLC, corporation or limited partnership.</p>
+                <p><lightning-formatted-text value={fictitiousNameValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,101 @@
+<template>
+    <!-- Search Bar -->
+    <div class="slds-grid slds-gutters slds-m-bottom_medium slds-align-bottom">
+        <div class="slds-col slds-size_9-of-12">
+            <div class="slds-form-element">
+                <div class="slds-align_absolute-center">
+                    <lightning-layout class="full-width" >
+                        <lightning-layout-item>
+                            <!-- custom search input because of box-sizing style issue in community -->
+                            <div class={searchContainerClass}>
+                                <c-search-input onvaluesubmit={handleSearch} onvaluechange={handleSearchTextChange} value={searchKey} is-loading={isSearching} placeholder="Search Business/Individual Name..."></c-search-input>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-var-p-horizontal_small">
+                            <template if:true={isMobileDevice}>
+                                <lightning-button-icon icon-name="utility:search" variant="border-filled" class="search-icon-button" alternative-text="Search" title="Search" onclick={handleSearch}></lightning-button-icon>
+                            </template>
+                            <template if:false={isMobileDevice}>
+                                <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+                            </template>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- NO RESULTS -->
+    <template if:true={showNoResults}>
+        <div class="slds-m-vertical_medium slds-text-color_error">
+            <lightning-icon
+                icon-name="utility:search"
+                size="small"
+                class="slds-m-right_x-small">
+            </lightning-icon>
+            No Pending or Prior Complaints found for any businesses or individuals matching that name
+        </div>
+    </template>
+
+    <template if:true={isLoading}>
+        <lightning-spinner
+            alternative-text="Loading"
+            size="medium">
+        </lightning-spinner>
+    </template>
+
+    <!-- Contact Table -->
+    <template if:true={contacts.length}>
+        <div  class="slds-m-top_medium">
+            <lightning-card>
+                <div class="slds-p-around_medium">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={contacts}
+                        columns={contactColumns}
+                        onrowaction={handleContactClick}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+                
+            <!-- PAGINATION -->
+                <div class="slds-grid slds-grid_align-spread slds-p-around_medium slds-p-top_none">
+                    <div>
+                        Page {pageNumber} of {totalPages}
+                    </div>
+                    <div>
+                        <lightning-button
+                            label="Previous"
+                            onclick={handlePrevious}
+                            disabled={isFirstPage}>
+                        </lightning-button>
+
+                        <lightning-button
+                            label="Next"
+                            class="slds-m-left_x-small"
+                            onclick={handleNext}
+                            disabled={isLastPage}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+
+    <!-- Cases Table -->
+    <template if:true={cases.length}>        
+        <div  class="slds-m-top_medium">
+            <lightning-card title="Pending or Prior Complaints">
+                <div class="slds-m-around_medium">
+                    <lightning-datatable
+                        key-field="Id"
+                        data={cases}
+                        columns={caseColumns}
+                        onrowaction={handleRowAction}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+</template>

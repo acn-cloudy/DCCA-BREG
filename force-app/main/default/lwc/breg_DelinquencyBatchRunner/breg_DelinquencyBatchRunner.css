@@ -1,0 +1,37 @@
+.slds-notify_alert {
+    border-left: 4px solid #4bca81;
+    background-color: #f3f9f1;
+    border-radius: 0.25rem;
+    padding: 1rem;
+}
+
+.slds-box {
+    border: 1px solid #e5e5e5;
+    border-radius: 0.25rem;
+}
+
+.slds-list_dotted {
+    padding-left: 1.5rem;
+}
+
+.slds-list_dotted li {
+    margin-bottom: 0.25rem;
+}
+
+.slds-form-element__help {
+    color: #706e6b;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.success-message-box {
+    border-left: 3px solid #4bca81;
+}
+
+.success-message-box a {
+    text-decoration: none;
+}
+
+.success-message-box a:hover {
+    text-decoration: underline;
+}

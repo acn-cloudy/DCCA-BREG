@@ -1,0 +1,250 @@
+<template>
+    <lightning-card title="My Support Tickets" icon-name="standard:case">
+        <div class="slds-p-around_medium">
+            <!-- Loading State -->
+            <template lwc:if={isLoading}>
+                <div class="slds-align_absolute-center slds-m-vertical_large">
+                    <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+                </div>
+            </template>
+
+            <template lwc:elseif={hasError}>
+                <div class="slds-align_absolute-center slds-m-vertical_large">
+                    <div class="slds-text-align_center">
+                        <lightning-icon icon-name="utility:error" variant="error" size="large" class="slds-m-bottom_small"></lightning-icon>
+                        <p class="slds-text-body_regular slds-text-color_error">{errorMessage}</p>
+                        <lightning-button label="Retry" onclick={loadTickets} class="slds-m-top_small"></lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <template lwc:else>
+                <!-- Ticket List View -->
+                <template lwc:if={showList}>
+                    <template lwc:if={hasTickets}>
+                        <div class="slds-grid slds-grid_align-spread slds-m-bottom_small">
+                            <p class="slds-text-body_small slds-text-color_weak">{ticketCount} ticket(s)</p>
+                            <lightning-button-icon 
+                                icon-name="utility:refresh" 
+                                alternative-text="Refresh" 
+                                onclick={loadTickets}
+                                title="Refresh tickets"
+                            ></lightning-button-icon>
+                        </div>
+                        
+                        <div class="ticket-list">
+                            <template for:each={tickets} for:item="ticket">
+                                <div key={ticket.Id} class="slds-box slds-box_x-small slds-m-bottom_small ticket-item" onclick={handleTicketClick} data-id={ticket.Id}>
+                                    <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                                        <div class="slds-col">
+                                            <p class="slds-text-body_regular">
+                                                <strong>{ticket.Name}</strong>
+                                            </p>
+                                            <p class="slds-text-body_small slds-truncate" style="max-width: 300px;">
+                                                {ticket.Subject__c}
+                                            </p>
+                                        </div>
+                                        <div class="slds-col slds-text-align_right">
+                                            <lightning-badge label={ticket.Status__c} class={ticket.statusClass}></lightning-badge>
+                                            <lightning-badge label={ticket.Priority__c} class={ticket.priorityClass}></lightning-badge>
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-m-top_x-small">
+                                        <p class="slds-text-body_small slds-text-color_weak">
+                                            Created: {ticket.formattedDate}
+                                        </p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <template lwc:else>
+                        <div class="slds-align_absolute-center slds-m-vertical_large">
+                            <div class="slds-text-align_center">
+                                <lightning-icon icon-name="utility:inbox" size="large" class="slds-m-bottom_small"></lightning-icon>
+                                <p class="slds-text-heading_small slds-m-bottom_small">No Tickets Found</p>
+                                <p class="slds-text-body_regular slds-text-color_weak">You haven't submitted any support tickets yet.</p>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+
+                <!-- Ticket Detail View -->
+                <template lwc:if={showDetail}>
+                    <div class="slds-m-bottom_medium">
+                        <lightning-button 
+                            label="← Back to List" 
+                            variant="base" 
+                            onclick={handleBackToList}
+                        ></lightning-button>
+                    </div>
+
+                    <!-- Ticket Header -->
+                    <div class="slds-box slds-m-bottom_medium">
+                        <div class="slds-grid slds-grid_align-spread slds-m-bottom_small">
+                            <h2 class="slds-text-heading_small">{selectedTicket.Name}</h2>
+                            <div class="slds-grid slds-grid_vertical-align-center">
+                                <lightning-badge label={selectedTicket.Status__c} class={selectedTicket.statusClass}></lightning-badge>
+                                <lightning-badge label={selectedTicket.Priority__c} class={selectedTicket.priorityClass}></lightning-badge>
+                                <template lwc:if={canCloseTicket}>
+                                    <lightning-button 
+                                        label="Close Ticket" 
+                                        variant="destructive" 
+                                        onclick={handleOpenCloseModal}
+                                        class="slds-m-left_small"
+                                        icon-name="utility:close"
+                                    ></lightning-button>
+                                </template>
+                            </div>
+                        </div>
+                        
+                        <p class="slds-text-body_regular slds-m-bottom_small"><strong>Subject:</strong> {selectedTicket.Subject__c}</p>
+                        
+                        <template lwc:if={selectedTicket.Description__c}>
+                            <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_xx-small">Description:</p>
+                            <div class="slds-box slds-box_x-small slds-theme_shade description-box">
+                                <p class="slds-text-body_small" style="white-space: pre-wrap;">{selectedTicket.Description__c}</p>
+                            </div>
+                        </template>
+
+                        <div class="slds-grid slds-wrap slds-m-top_small">
+                            <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                <p class="slds-text-body_small"><strong>Category:</strong> {selectedTicket.categoryDisplay}</p>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                <p class="slds-text-body_small"><strong>Created:</strong> {selectedTicket.formattedDate}</p>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                <p class="slds-text-body_small"><strong>Impact:</strong> {selectedTicket.impactDisplay}</p>
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                <p class="slds-text-body_small"><strong>Environment:</strong> {selectedTicket.environmentDisplay}</p>
+                            </div>
+                            <template lwc:if={selectedTicket.Due_Date__c}>
+                                <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                    <p class="slds-text-body_small"><strong>Due Date:</strong> {selectedTicket.formattedDueDate}</p>
+                                </div>
+                            </template>
+                            <template lwc:if={selectedTicket.Related_Record_Id__c}>
+                                <div class="slds-col slds-size_1-of-2 slds-p-bottom_x-small">
+                                    <p class="slds-text-body_small">
+                                        <strong>Related Record:</strong> 
+                                        <a href={selectedTicket.relatedRecordUrl} target="_blank">{selectedTicket.Related_Record_Id__c}</a>
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <div class="slds-box">
+                        <h3 class="slds-text-heading_small slds-m-bottom_small">
+                            <lightning-icon icon-name="utility:comments" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                            Comments ({commentCount})
+                        </h3>
+
+                        <!-- Add Comment Form -->
+                        <div class="slds-m-bottom_medium">
+                            <lightning-textarea
+                                label="Add a Comment"
+                                value={newComment}
+                                onchange={handleCommentChange}
+                                placeholder="Type your message here..."
+                                max-length="32000"
+                                disabled={isAddingComment}
+                            ></lightning-textarea>
+                            <div class="slds-m-top_small">
+                                <lightning-button
+                                    label={addCommentButtonLabel}
+                                    variant="brand"
+                                    onclick={handleAddComment}
+                                    disabled={isAddCommentDisabled}
+                                ></lightning-button>
+                            </div>
+                        </div>
+
+                        <!-- Comments List -->
+                        <template lwc:if={hasComments}>
+                            <div class="comments-list">
+                                <template for:each={comments} for:item="comment">
+                                    <div key={comment.Id} class="slds-box slds-box_x-small slds-m-bottom_small comment-item">
+                                        <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                                            <p class="slds-text-body_small">
+                                                <strong>{comment.postedByName}</strong>
+                                                <template lwc:if={comment.Is_Internal__c}>
+                                                    <lightning-badge label="Internal" class="slds-m-left_xx-small"></lightning-badge>
+                                                </template>
+                                            </p>
+                                            <p class="slds-text-body_small slds-text-color_weak">{comment.formattedDate}</p>
+                                        </div>
+                                        <div class="comment-body">
+                                            <lightning-formatted-rich-text value={comment.Comment_Body__c}></lightning-formatted-rich-text>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+
+                        <template lwc:else>
+                            <p class="slds-text-body_small slds-text-color_weak slds-text-align_center slds-p-around_medium">
+                                No comments yet. Be the first to add one!
+                            </p>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <!-- Footer with Close Button -->
+        <div slot="footer">
+            <lightning-button label="Close" onclick={handleClose}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <!-- Close Ticket Modal -->
+    <template lwc:if={showCloseModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="close-modal-heading" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning-button-icon 
+                        icon-name="utility:close" 
+                        alternative-text="Close" 
+                        class="slds-modal__close"
+                        onclick={handleCancelClose}
+                    ></lightning-button-icon>
+                    <h2 id="close-modal-heading" class="slds-modal__title slds-hyphenate">Close Ticket</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p class="slds-m-bottom_small">Are you sure you want to close this ticket?</p>
+                    <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_medium">
+                        <strong>{selectedTicket.Name}</strong>: {selectedTicket.Subject__c}
+                    </p>
+                    <lightning-textarea
+                        label="Close Note (Optional)"
+                        value={closeNote}
+                        onchange={handleCloseNoteChange}
+                        placeholder="Add a note about why you're closing this ticket..."
+                        max-length="32000"
+                        disabled={isClosingTicket}
+                    ></lightning-textarea>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button 
+                        label="Cancel" 
+                        onclick={handleCancelClose}
+                        disabled={isClosingTicket}
+                    ></lightning-button>
+                    <lightning-button 
+                        label={closeButtonLabel}
+                        variant="destructive" 
+                        onclick={handleConfirmClose}
+                        disabled={isClosingTicket}
+                        class="slds-m-left_x-small"
+                    ></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

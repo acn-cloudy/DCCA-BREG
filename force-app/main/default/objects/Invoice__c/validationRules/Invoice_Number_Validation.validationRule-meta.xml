@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Number_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(ISNUMBER( Name ) )</errorConditionFormula>
+    <errorMessage>Invalid input: Numbers only.</errorMessage>
+</ValidationRule>

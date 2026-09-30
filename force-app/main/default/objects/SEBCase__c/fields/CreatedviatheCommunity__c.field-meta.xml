@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreatedviatheCommunity__c</fullName>
+    <description>PacPoint-MV081919 - Created for BREG phase 1</description>
+    <formula>IF(
+ ISPICKVAL(CreatedBy.UserType, &quot;Standard&quot;),
+ false, 
+ true
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Created via the Community</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountDependencyRequired__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN112619-Created for PVL Sprint 2 Phase 1</description>
+    <label>Account Dependency Required?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisplayBothFilesDSCLM__c</fullName>
+    <formula>AND(DATEVALUE(CreatedDate) &gt;= DATEVALUE(&apos;2023-03-14&apos;), DATEVALUE(CreatedDate) &lt;= DATEVALUE(&apos;2023-03-18&apos;))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Display Both Files and DS CLM</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

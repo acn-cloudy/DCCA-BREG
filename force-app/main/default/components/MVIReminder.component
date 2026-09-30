@@ -1,0 +1,106 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="License__c" />
+    <div style="width: 525px;height: 407px;font-size:10px;box-sizing: border-box;position: relative;font-family: sans-serif;">
+        <div style="position: absolute;left: 5%;bottom: 5%;width: 90%;">
+            <img src="{!$Resource.LogoBlack}" width="100%" />
+        </div>
+        <div style="position: relative; padding: 30px;">
+            <div>
+                <p>State of Hawaii </p>
+                <p>Department of Commerce and Consumer Affairs</p>
+                <p>Professional &amp; Vocational Licensing Division</p>
+            </div>
+            <div style="position: relative;">
+                <div style="width:49%;display:inline-block;margin:0 3% 3px 0;vertical-align: top;">
+
+                    <h2 style="margin-left:10px">REMINDER</h2>
+                    <h1 style="margin-left:20px">license</h1>
+                    <h1 style="margin-left:40px">renewal</h1>
+
+                    <div style="border:1px solid;width:65%;padding:5px;"><b>
+                        Please disregard this notice if you have already renewed.
+                    </b></div>
+                    <h4>Renew your license online:</h4>
+                    <h4>at <u><apex:outputText value="{!$Label.MyPVLLink}" /></u></h4>
+                    <h4>Midnight (HST)
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                        </apex:outputText>
+                    </h4>
+              
+                    <p style="margin-top:4px">
+                        <b>Licensees should renew early</b> to better ensure receipt of new pocket ID card by 
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                        </apex:outputText>
+                    </p>
+                    
+                    <p style="margin-top:4px">
+                        It is secure, fast and simple! Pay by credit card or checking account and have a receipt emailed to you.
+                    </p>
+                    <p style="margin-top:4px;">
+                        If you do not renew your license by
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!record.LicenseType__r.LicenseTypeExpireDate__c}" />
+                        </apex:outputText>
+                        your license will be automatically forfeited and you will be required to apply as a new applicant, meet all current requirements,
+                        and submit all documents and fees agian.
+                    </p>
+
+                    <div style="margin-top:5px;">
+                        <p style="font-weight:bold;white-space:nowrap"> If you cannot renew online or prefer to mail in your renewal: </p>
+                        <p>Contact the licensing branch at (808) 586-3000 to request a renewal application. </p>
+                    </div>
+
+                </div>
+                <div style="width:47%;display:inline-block;margin-top:4px;">
+                    <h5 style="font-weight:bold">
+                        What is MyPVL ?
+                    </h5>
+                    <p>
+                        MyPVL is the home for all PVL licenses;
+                        <br/> 24/7 access to information and services from a single dashboard.
+                    </p>
+                    <h5 style="font-weight:bold;margin-top:4px">How do I login to MyPVL?</h5>
+                    <p>
+                        "Sign up" for a free eHawaii.gov account at
+                        <u><apex:outputText value="{!$Label.MyPVLLinkStr}" /></u>
+                        or "login" with your existing eHawaii.gov account.
+                    </p>
+                    <h5 style="font-weight:bold;margin-top:4px">How do I renew my license?</h5>
+                    <p>
+                        <ul>
+                            <li>"Login" to MyPVL.</li>
+                            <li>Select your already linked license or
+                            </li>
+                            <li>Find your license by entering your license type, license number and SSN (last 4 digits) or file
+                                number.
+                            </li>
+                            <li>Select "Renew" to proceed to online renewal.
+                            </li>
+                        </ul>
+                    </p>
+                    <div style="border:2px dotted;font-weight:bolder;margin:5px 10px;text-align:center;padding:3px">
+                        A licensee who has not renewed by the license expiration data is
+                        <u>unlicensed</u> and shall not practice
+                    </div>
+                    <div style="margin:4px 30px 10 0;text-align:center;">
+                        <p style="font-weight:bolder">**NEW FEATURE**</p>
+                        <p>Check the sttus of your renewal</p>
+                        <p>at
+                            <u>
+                                <b> <apex:outputText value="{!$Label.MyPVLLink}" /></b>
+                            </u>
+                        </p>
+                        <p>Select "Pending Application"</p>
+                    </div>
+
+                </div>
+            </div>
+            <h4 style="text-align:center;font-weight:bold">
+                Renewing onling is faster
+                <br/> than mailing in your renewal
+            </h4>
+        </div>
+    </div>
+</apex:component>

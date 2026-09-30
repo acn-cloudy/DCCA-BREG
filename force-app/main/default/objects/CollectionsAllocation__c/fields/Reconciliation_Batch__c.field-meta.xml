@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reconciliation_Batch__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-CZ103019 - Created for 4GOV phase 1</description>
+    <label>Reconciliation Batch</label>
+    <referenceTo>Reconciliation_Batch__c</referenceTo>
+    <relationshipLabel>Collections Allocations</relationshipLabel>
+    <relationshipName>Collections_Allocations</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

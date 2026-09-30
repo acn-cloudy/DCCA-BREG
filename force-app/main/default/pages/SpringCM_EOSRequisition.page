@@ -1,0 +1,3 @@
+<apex:page standardController="Requisition__c">
+	<SpringCMEos:SpringCM_EOSGrid objectType="Requisition__c" objectId="{!Id}" />
+</apex:page>

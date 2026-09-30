@@ -1,0 +1,36 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Displays a button on the filing page based on criteria, to send the user to the payment page
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* PacPoint-LC012519 - Created for BREG Phase 1
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* @author       Lucian Ciobanu - PacificPointCorp 
+* @created      2019-01-25
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component controller="CustomPaymentButtonController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+
+	<!-- Design attributes -->
+	<aura:attribute name="paymentButtonName" type="String" default="Execute Payment" />
+	<aura:attribute name="checkboxApiName" type="String" default="ShowPaymentButton__c" />
+
+	<!-- Custom Attributes -->
+	<aura:attribute name="serverResponse" type="CustomUploadButtonController.Response" />
+	<aura:attribute name="paymentPageURL" type="String" default="https://dev-hawaiidcca.cs33.force.com/pmtx/pymt__SiteCheckout" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	
+	<aura:if isTrue="{!v.serverResponse.showPaymentButton == true}">
+        <button style="margin-left: 5px; margin-top: 15px;" class="slds-button slds-button_neutral" onclick="{!c.goToPaymentSection}" >                         
+            {!v.paymentButtonName}
+            <lightning:icon style="margin-left: 6px;" iconName="utility:money" size="x-small" alternativeText="Save"/>
+        </button>
+        &nbsp;
+    </aura:if>
+
+</aura:component>

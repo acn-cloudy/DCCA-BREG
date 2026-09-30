@@ -1,0 +1,32 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" class="form-layout-item">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <div class="slds-checkbox">
+                        <abbr lwc:if={required} class="slds-required" title="required" aria-hidden="true">*</abbr>
+                        <input type="checkbox"
+                            name="isCertified"
+                            id="isCertified"
+                            required={required}
+                            disabled={readOnly}
+                            class="form-cmp"
+                        />
+                        <label class="slds-checkbox__label" for="isCertified">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-form-element__label"><lightning-formatted-rich-text value={config.labelOverrideLong}></lightning-formatted-rich-text></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={config.labelOverrideLong2} size="12" padding="horizontal-small">
+            <lightning-formatted-rich-text value={config.labelOverrideLong2}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

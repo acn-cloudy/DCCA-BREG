@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateofWitnessInterviews__c</fullName>
+    <description>PacPointRA110218- BREG Phase 1</description>
+    <inlineHelpText>Interview other witnesses with assigned attorney or another investigator. Add date of last interview here.</inlineHelpText>
+    <label>Date of Witness Interviews</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

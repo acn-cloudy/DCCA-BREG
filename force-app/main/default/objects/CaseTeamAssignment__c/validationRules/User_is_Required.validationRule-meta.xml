@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>User_is_Required</fullName>
+    <active>true</active>
+    <description>unable to make User lookup field required, so we need a validation rule</description>
+    <errorConditionFormula>ISBLANK( User__c )</errorConditionFormula>
+    <errorDisplayField>User__c</errorDisplayField>
+    <errorMessage>A User is required to save this record</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<template>
+    <template if:false={hideSpinner}>
+        <lightning-spinner>
+        </lightning-spinner>
+    </template>
+    <lightning-quick-action-panel header="Tax Clearance Check">
+        <input type="hidden" value={recordId}/>
+        <div class="slds-text-heading_small slds-text-align_center">
+            <template if:true={hideSpinner}>
+                <lightning-icon icon-name="utility:info" variant="success" size="small">
+                </lightning-icon>
+                &nbsp;
+            </template>
+            <template if:false={hideSpinner}>
+                <lightning-icon icon-name="utility:warning" variant="warning">
+                </lightning-icon>
+                &nbsp;
+            </template>
+            {message}
+        </div>
+        <div slot="footer" if:true={hideSpinner}>
+            <lightning-button variant="brand" label="OK" title="Close" onclick={closeQuickAction}></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

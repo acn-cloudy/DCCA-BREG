@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TriggerType__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Trigger Type</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AFR Revenue 1 Mil</fullName>
+                <default>true</default>
+                <label>AFR Revenue 1 Mil</label>
+            </value>
+            <value>
+                <fullName>Case Party Add</fullName>
+                <default>false</default>
+                <label>Case Party Add</label>
+            </value>
+            <value>
+                <fullName>Case Party Removed</fullName>
+                <default>false</default>
+                <label>Case Party Removed</label>
+            </value>
+            <value>
+                <fullName>Case Team Add</fullName>
+                <default>false</default>
+                <label>Case Team Add</label>
+            </value>
+            <value>
+                <fullName>Citation Action Required</fullName>
+                <default>false</default>
+                <label>Citation Action Required</label>
+            </value>
+            <value>
+                <fullName>Citation Past Due</fullName>
+                <default>false</default>
+                <label>Citation Past Due</label>
+            </value>
+            <value>
+                <fullName>Confirmation of Resolved Citation</fullName>
+                <default>false</default>
+                <label>Confirmation of Resolved Citation</label>
+            </value>
+            <value>
+                <fullName>Daily Activity Report</fullName>
+                <default>false</default>
+                <label>Daily Activity Report</label>
+            </value>
+            <value>
+                <fullName>Default Report Subscription</fullName>
+                <default>false</default>
+                <label>Default Report Subscription</label>
+            </value>
+            <value>
+                <fullName>Filing In-Review</fullName>
+                <default>false</default>
+                <label>Filing In-Review</label>
+            </value>
+            <value>
+                <fullName>Filing Rejected</fullName>
+                <default>false</default>
+                <label>Filing Rejected</label>
+            </value>
+            <value>
+                <fullName>First Payment After Due Date</fullName>
+                <default>false</default>
+                <label>First Payment After Due Date</label>
+            </value>
+            <value>
+                <fullName>First Payment At Due Date</fullName>
+                <default>false</default>
+                <label>First Payment At Due Date</label>
+            </value>
+            <value>
+                <fullName>First Payment Before Due Date</fullName>
+                <default>false</default>
+                <label>First Payment Before Due Date</label>
+            </value>
+            <value>
+                <fullName>Large File Upload Success</fullName>
+                <default>false</default>
+                <label>Large File Upload Success</label>
+            </value>
+            <value>
+                <fullName>Notice of Citation Greater than $25k</fullName>
+                <default>false</default>
+                <label>Notice of Citation Greater than $25k</label>
+            </value>
+            <value>
+                <fullName>Notice of Citation Less than $25k</fullName>
+                <default>false</default>
+                <label>Notice of Citation Less than $25k</label>
+            </value>
+            <value>
+                <fullName>Payment After Due Date</fullName>
+                <default>false</default>
+                <label>Payment After Due Date</label>
+            </value>
+            <value>
+                <fullName>Payment At Due Date</fullName>
+                <default>false</default>
+                <label>Payment At Due Date</label>
+            </value>
+            <value>
+                <fullName>Payment Before Due Date</fullName>
+                <default>false</default>
+                <label>Payment Before Due Date</label>
+            </value>
+            <value>
+                <fullName>Second Payment After Due Date</fullName>
+                <default>false</default>
+                <label>Second Payment After Due Date</label>
+            </value>
+            <value>
+                <fullName>Second Payment At Due Date</fullName>
+                <default>false</default>
+                <label>Second Payment At Due Date</label>
+            </value>
+            <value>
+                <fullName>Second Payment Before Due Date</fullName>
+                <default>false</default>
+                <label>Second Payment Before Due Date</label>
+            </value>
+            <value>
+                <fullName>Subscriber Email Verification</fullName>
+                <default>false</default>
+                <label>Subscriber Email Verification</label>
+            </value>
+            <value>
+                <fullName>Transaction Paid</fullName>
+                <default>false</default>
+                <label>Transaction Paid</label>
+            </value>
+            <value>
+                <fullName>Yearly AFR MC</fullName>
+                <default>false</default>
+                <label>Yearly AFR MC</label>
+            </value>
+            <value>
+                <fullName>Yearly AFR Utility</fullName>
+                <default>false</default>
+                <label>Yearly AFR Utility</label>
+            </value>
+            <value>
+                <fullName>Filing Released</fullName>
+                <default>false</default>
+                <label>Filing Released</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

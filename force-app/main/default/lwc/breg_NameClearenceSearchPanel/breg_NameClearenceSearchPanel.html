@@ -1,0 +1,48 @@
+<template>
+    <div class="slds-p-horizontal_small">
+        <!-- Search Input -->
+        <div class="slds-p-bottom_xxx-small">
+            <lightning-input
+                id="search-input"
+                label="Business Name"
+                type="search"
+                value={searchTerm}
+                placeholder="Enter business name to search..."
+                onchange={handleSearchTermChange}
+                onkeydown={handleKeyDown}
+                class="search-input"
+            >
+            </lightning-input>
+            <div lwc:if={showMinLengthError} class="slds-form-element__help slds-text-color_error">Please enter at least 2 characters</div>
+        </div>
+
+        <!-- Search Actions -->
+        <div class="slds-grid slds-gutters slds-m-bottom_xxx-small">
+            <div class="slds-col">
+                <lightning-button variant="brand" label="Search" onclick={handleSearchClick} disabled={isSearchDisabled} class="slds-m-right_x-small">
+                </lightning-button>
+                <lightning-button variant="neutral" label="Clear" onclick={handleClear} disabled={isClearDisabled}> </lightning-button>
+            </div>
+        </div>
+
+        <!-- Search Status -->
+        <div lwc:if={showStatus} class="slds-m-bottom_small">
+            <div lwc:if={isErrorStatus} class="slds-notify slds-notify_alert slds-theme_error">
+                <span class="slds-assistive-text">error</span>
+                <lightning-icon icon-name="utility:error" alternative-text="Error" size="x-small" class="slds-m-right_x-small"> </lightning-icon>
+                Search failed - please try again
+            </div>
+        </div>
+
+        <!-- Search Tips -->
+        <!-- <div class="slds-text-body_small slds-text-color_weak">
+                <p><strong>Search Tips:</strong></p>
+                <ul class="slds-list_dotted">
+                    <li>Use "Exact match" for precise name matching</li>
+                    <li>Use "Contains" for partial name searches</li>
+                    <li>Use "Begins with" to find names starting with your term</li>
+                    <li>Use "Phonetic" for similar sounding names</li>
+                </ul>
+        </div> -->
+    </div>
+</template>

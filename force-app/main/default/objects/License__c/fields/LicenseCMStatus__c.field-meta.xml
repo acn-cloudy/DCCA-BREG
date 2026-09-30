@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseCMStatus__c</fullName>
+    <description>PacPoint-KN09242020-Created for PVL Phase 1</description>
+    <formula>ISPICKVAL(Status__c,&apos;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License CM Status</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthdate__c</fullName>
+    <description>PacPoint-KN08142020-Created for PVL Phase 1</description>
+    <formula>Applicant__r.PersonContact.Birthdate</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Required for all medical license types</inlineHelpText>
+    <label>Birthdate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

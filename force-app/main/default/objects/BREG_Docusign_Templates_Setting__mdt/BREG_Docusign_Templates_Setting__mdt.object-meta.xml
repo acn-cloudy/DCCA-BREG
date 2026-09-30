@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Aalta BREG-5135 - Used to keep name and path in Docusign folder hierarchy for particular document template</description>
+    <label>BREG Docusign Templates Setting</label>
+    <pluralLabel>BREG Docusign Templates Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

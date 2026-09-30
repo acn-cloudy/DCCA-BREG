@@ -1,0 +1,80 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={TNTMSMDescriptionValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={TNTMSMWithSymbolValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-textarea
+                    name="TNTMSMDescription"
+                    value={TNTMSMDescriptionValue}
+                    label={config.labelOverride2}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-textarea>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="TNTMSMWithSymbol"
+                    value={TNTMSMWithSymbolValue}
+                    label={config.labelOverrideLong}
+                    options={yesNoOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+        </template>
+
+        <lightning-layout-item lwc:if={showSymbolUpload} size="12" class="slds-m-bottom_large">
+            <c-breg_-file-upload
+                config={config}
+                form-config={formConfig}
+                form-data={formData}
+                cmp-properties={cmpProperties}
+                class="form-cmp slds-m-top_small"
+                upload-target="TNTMSMSymbol"
+                files={files}
+                onfileupload={handleFileUpload}
+                onfileremove={handleFileRemove}
+                onformupdate={handleFormUpdate}
+                description-override={symbolDescription}
+                description2-override={symbolDescription2}
+                required={required}
+                is-nested
+                label-hidden
+            ></c-breg_-file-upload>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12">
+            <c-breg_-file-upload
+                config={config}
+                form-config={formConfig}
+                form-data={formData}
+                cmp-properties={cmpProperties}
+                class="form-cmp slds-m-top_small"
+                files={files}
+                upload-target="TNTMSMSpecimen"
+                onfileupload={handleFileUpload}
+                onformupdate={handleFormUpdate}
+                required={required}
+                is-nested
+                label-hidden
+                description-override={specimenDescription}
+                description2-override={specimenDescription2}
+            ></c-breg_-file-upload>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

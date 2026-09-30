@@ -1,0 +1,25 @@
+/* Modal positioned at bottom of window to avoid header overlap */
+.slds-modal {
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+}
+
+.slds-modal__container {
+    margin: 0 !important;
+    margin-bottom: 2rem !important;
+    max-height: 70vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.slds-backdrop {
+    z-index: 9998 !important;
+} 
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 24px;
+    }
+}

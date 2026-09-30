@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LossofPrincipalRMEDate__c</fullName>
+    <description>PacPoint-KN081619 - Created for PVL Phase 1</description>
+    <inlineHelpText>The date when the principal RME was lost.</inlineHelpText>
+    <label>Loss of Principal RME Date</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RegisteredinStateofHawaii_Comments__c</fullName>
+    <description>PacPoint - RA122618 - BREG Phase 1</description>
+    <inlineHelpText>If they were registered in the State of Hawaii, when? Also, add additional comments here.</inlineHelpText>
+    <label>Registered in State of Hawaii - Comments</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

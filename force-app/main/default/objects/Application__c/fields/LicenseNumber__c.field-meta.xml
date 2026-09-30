@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseNumber__c</fullName>
+    <description>PacPoint-MV082119 - Created for PVL phase 1. To be used when the user needs to enter the License Number Manually for MAN License Types. This field will be used to populate the License Number on the License on creation.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>To be used when the user needs to enter the License Number Manually for MAN License Types. This field will be used to populate the License Number on the License on creation.</inlineHelpText>
+    <label>License Number</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

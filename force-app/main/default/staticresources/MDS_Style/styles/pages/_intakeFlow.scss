@@ -1,0 +1,47 @@
+.mds_intake{
+&-header{
+    background: var(--white);
+    box-shadow:var( --box-shadow-default);
+    padding: var(--spacing-small) 0;
+    position: sticky;
+    z-index: 2;
+    top: 71px;
+}
+
+&-leftbar{
+    position: fixed;
+    top: 121px;
+}
+&-rightbar{
+    padding: var(--spacing-x-large);
+    margin-left: calc(100% - 75%);
+    .mds-card{
+        border-radius: 0;
+    }
+}
+}
+.mds-stepper-navigation{
+    background: var(--white);
+    box-shadow: var( --box-shadow-default);
+    height: 100vh;
+}
+
+@include responsive(tab-port){
+    .mds_intake-leftbar{
+        padding: var(--spacing-x-large) var(--spacing-x-large)  0rem var(--spacing-x-large);
+        position: unset;
+    }
+    .mds_intake-rightbar{
+        margin-left: 0 !important;
+    }
+    .mds-stepper-navigation{
+        height: auto;
+        overflow: scroll;
+    }
+}
+@include responsive(tab-port-start){
+    .mds_intake-header{
+        top: 60px !important;
+    }
+   
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PerDiemAllowanceRate__c</fullName>
+    <description>PacPoint-AC121019 - Created for DCCA Travel Approval phase 1</description>
+    <label>Per Diem Allowance Rate</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>90</fullName>
+                <default>false</default>
+                <label>90</label>
+            </value>
+            <value>
+                <fullName>145</fullName>
+                <default>false</default>
+                <label>145</label>
+            </value>
+            <value>
+                <fullName>200</fullName>
+                <default>false</default>
+                <label>200</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

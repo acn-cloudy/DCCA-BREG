@@ -1,0 +1,175 @@
+<aura:component controller="GroupTransactionController" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="transaction" type="Transaction__c" />
+    <aura:attribute name="transactions" type="List" />
+	<aura:attribute name="lines" type="List" />
+    <aura:attribute name="totalAmount" type="decimal" default="0" />
+    <aura:attribute name="errorSaving" type="string" default="" />
+    
+    
+    <aura:attribute name="showPopup" type="Boolean" default="false" />
+    <aura:attribute name="filterText" type="String" default="" />
+    <aura:attribute name="filterName" type="String" default="" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div>
+        <article class="slds-card">
+          	<div class="slds-card__header slds-grid">
+            	<header class="slds-media slds-media_center slds-has-flexi-truncate">
+              		<div class="slds-media__body">
+                		<h2 class="slds-card__header-title">
+                  			<span class="slds-text-heading_small">New Transaction Group</span>
+                		</h2>
+              		</div>
+            	</header>
+          	</div>
+          	<div class="slds-card__body slds-card__body_inner">
+                
+                    <lightning:input type="date" id="form-element-date" value="{!v.transaction.Date__c}" label="Date" />
+                    <lightning:textarea id="form-element-desription" value="{!v.transaction.Description__c}" label="Description" />
+                    
+                    <br /><br />
+                    <b>Transactions</b>
+                    <br /><br />
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                      	<thead>
+                        	<tr class="slds-text-title_caps">
+                          		<th scope="col">
+                            		<div class="slds-truncate" title="Name">Name</div>
+                          		</th>
+                                <th scope="col">
+                            		<div class="slds-truncate" title="Account">Account</div>
+                          		</th>
+                          		<th scope="col">
+                            		<div class="slds-truncate" title="Amount">Amount</div>
+                          		</th>
+                          	</tr>
+                      	</thead>
+                      	<tbody>
+                            <aura:iteration items="{!v.lines}" var="line">
+                                <tr>
+                                    <td data-label="Name">
+                                        <div class="slds-truncate" title="{!line.Name}">{!line.Name}</div>
+                                    </td>
+                                    <td data-label="Account">
+                                        <div class="slds-truncate" title="{!line.Account__r.Name}">{!line.Account__r.Name}</div>
+                                    </td>
+                                    
+                                    <td data-label="Amount">
+                                        <div class="slds-truncate" title="{!line.TotalAmount__c}">
+                                            <ui:outputCurrency value="{!line.TotalAmount__c}" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                      	</tbody>
+                      	<thead>
+                        	<tr class="slds-text-title_caps">
+                          		<th scope="col" style="font-weight:bold;">
+                            		Total
+                          		</th>
+                          		<th scope="col">
+                            		
+                          		</th>
+                          		
+                          		<th scope="col" style="font-weight:bold;">
+                            		<div class="slds-truncate" title="{!v.totalAmount}">
+                                        <ui:outputCurrency value="{!v.totalAmount}" />
+                                    </div>
+                          		</th>
+                          	</tr>
+                      	</thead>
+                    </table>
+                    
+                
+                <aura:if isTrue="{!v.showPopup}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container" style="width: 100%;">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add Transactions</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="overflow-x:auto;">
+                                <table>
+                                	<tr>
+                                    	<td width="49%">
+                                            <lightning:input type="search" id="form-element-filter" value="{!v.filterText}" label="Type Account Name to search" onkeyup="{!c.filterLines}" />
+                                        </td>
+                                        <td width="2%"></td>
+                                        <td width="49%">
+                                        	<lightning:input type="search" id="form-element-filter" value="{!v.filterName}" label="Type Transaction Name to search" onkeyup="{!c.filterLines}" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br />
+                                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead>
+                                        <tr class="slds-text-title_caps">
+                                            <th scope="col">
+                                                
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Name">Name</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Account">Account</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Amount">Amount</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:iteration items="{!v.transactions}" var="line">
+                                            <aura:if isTrue="{!line.Visible}">
+                                                <tr>
+                                                    <td>
+                                                        <ui:inputCheckbox value="{!line.Selected}" />
+                                                    </td>
+                                                    <td data-label="Name">
+                                                        <div class="slds-truncate" title="{!line.Name}">{!line.Name}</div>
+                                                    </td>
+                                                    <td data-label="Account">
+                                                        <div class="slds-truncate" title="{!line.Account__r.Name}">{!line.Account__r.Name}</div>
+                                                    </td>
+                                                    <td data-label="Amount">
+                                                        <div class="slds-truncate" title="{!line.TotalAmount__c}">
+                                                            <ui:outputCurrency value="{!line.TotalAmount__c}" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand" label="Add Selected" onclick="{!c.finishAddLines}" />
+                                <lightning:button label="Cancel" onclick="{!c.closeAddLines}" />
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </aura:if>
+                
+            </div>
+          	<footer class="slds-card__footer">
+                <aura:if isTrue="{!v.errorSaving != ''}">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{!v.errorSaving}</h2>
+                    </div>
+                    <br /><br />
+                </aura:if>
+                
+                <lightning:button variant="brand" label="Add Transactions" onclick="{!c.addLines}" />
+                <lightning:button variant="brand" label="Save" onclick="{!c.saveForm}" />
+                
+                <lightning:button label="Cancel" onclick="{!c.cancelForm}" />
+          	</footer>
+        </article>
+        
+    </div>
+</aura:component>

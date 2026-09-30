@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Closed_from_Legal_Status</fullName>
+    <active>false</active>
+    <description>Ensures the Disposition is required when a case status is updated from Legal to Closed, and that the Investigation has a Status of Recommend to Close. Also checks that all Case Contacts have an Allegation, and that all Allegations have a Violation.</description>
+    <errorConditionFormula>IF( SEBCaseContactNoViolation__c &lt; 1,
+
+AND(
+OR(AND( ISPICKVAL( Status__c , &quot;Closed&quot; ),
+ISPICKVAL( PRIORVALUE(Status__c) , &quot;Legal&quot; ),
+OR( Investigation_Legal_Recommend__c &lt; 1,
+Investigation_Recommend_Referral__c &lt; 1,
+Total_of_Allegations__c != Total_of_Allegation_Violations__c,
+Total_of_Case_Contacts__c != Total_of_Case_Contact_Allegations__c,
+Total_of_Case_Contacts__c != Total_of_Legal_Actions__c
+)
+)
+)),
+AND(
+OR(AND( ISPICKVAL( Status__c , &quot;Closed&quot; ),
+ISPICKVAL( PRIORVALUE(Status__c) , &quot;Legal&quot; ),
+OR( Investigation_Legal_Recommend__c &lt; 1,
+Investigation_Recommend_Referral__c &lt; 1,
+Total_of_Case_Contacts__c != Total_of_Case_Contact_Allegations__c
+
+)
+)
+))
+)</errorConditionFormula>
+    <errorMessage>Populate Disposition, Case Contacts have Allegations with Allegations Violations and Legal Actions, Investigation is &quot;Recommend Referral to Legal&quot; and Legal Investigation is &quot;Recommend Warning Letter&quot; or &quot;Recommend to Close&quot; or &quot;Recommend to Settlement&quot; .</errorMessage>
+</ValidationRule>

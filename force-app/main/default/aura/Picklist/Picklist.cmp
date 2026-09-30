@@ -1,0 +1,19 @@
+<aura:component >
+    <aura:attribute name="value" type="string" access="global" />
+    <aura:attribute name="options" type="Object[]" access="global" default="[]" />
+    <aura:attribute name="errors" type="Object[]" access="global" default="[]" />    
+    <aura:attribute name="updateValueMapForSelect" type="Object" />    
+    <aura:attribute name="dependentField" type="String" />
+    <aura:attribute name="dependentOptions" type="Object" />
+    <aura:handler name="change" value="{!v.options}" action="{!c.clearValue}" />
+    
+    <ui:inputSelect aura:id="field" value="{!v.value}" 
+                    class="minHeight" blur="{!v.updateValueMapForSelect}" errors="{!v.errors}" >
+        <ui:inputSelectOption label="--None--" text="" />
+        <aura:if isTrue="{!v.options &amp;&amp; v.options.length > 0}">
+            <aura:iteration items="{!v.options}" var="opt" indexVar="indx">             
+                <ui:inputSelectOption value="{!opt.value == v.value}" text="{!opt.value}" label="{!opt.label}" />
+            </aura:iteration>
+        </aura:if>
+    </ui:inputSelect>
+</aura:component>

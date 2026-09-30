@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INET_Request</fullName>
+    <active>true</active>
+    <label>INET Request</label>
+    <picklistValues>
+        <picklist>Approval_status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Island__c</picklist>
+        <values>
+            <fullName>Hawaii</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kauai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lanai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maui</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Molokai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oahu</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Provider_Name__c</picklist>
+        <values>
+            <fullName>Hawaii Telecom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTWC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spectrum</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Quote_Subtype__c</picklist>
+        <values>
+            <fullName>Quote Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Requested</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Quote Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote Sent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Assigned Back</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CATV Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Connected to INET</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Invoice Created</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoice Paid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO Created</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resubmitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Submitted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Initiated</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

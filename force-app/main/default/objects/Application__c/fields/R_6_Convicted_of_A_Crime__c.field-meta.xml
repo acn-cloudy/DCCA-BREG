@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>R_6_Convicted_of_A_Crime__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Have you ever been convicted of a crime in any jurisdiction that has not been annulled or expunged?</inlineHelpText>
+    <label>Convicted of A Crime</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

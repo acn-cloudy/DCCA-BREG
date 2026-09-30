@@ -1,0 +1,89 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global"/>
+    <p><b>STATE OF HAWAII</b><br/>
+    <b>DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS</b><br/>
+    <b>PROFESSIONAL AND VOCATIONAL LICENSING DIVISION</b><br/>
+    </p>
+
+    <div style="text-align: center;">
+        <b>
+            NOTICE OF LICENSE RENEWAL<br/>
+            {!record.LicenseType__r.LicenseType__c} - {!record.Name}
+        </b>
+    </div>
+
+    <ul>
+        <li><b>Renewal Opens:</b> Monday, <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+        <li><b>License Expiration Date:</b> <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+    </ul>
+
+    <p>
+        <b>RENEWAL INSTRUCTIONS</b>
+    </p>
+
+    <ol>
+        <li>Visit <u style="color:blue">https://mypvl.dcca.hawaii.gov/</u></li>
+        <li>Log in using your MyPVL account (Email on record: {!record.PVL_Portal_User__r.Email__c})</li>
+        <li>Complete renewal and payment (credit card or checking account) no later than   
+            <b>midnight (HST) on</b> <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>.
+            </apex:outputText>
+        </li>
+        <li>A receipt will be emailed after payment.</li>
+    </ol>
+
+    <p>
+        <b>IMPORTANT INFORMATION</b>
+    </p>
+
+    <ul>
+        <li>
+            A license <b>not renewed</b> by the expiration date, or placed on inactive status,   
+            shall not practice.<br/>
+            Practicing without a current license may subject the licensee to <b>disciplinary action.</b>  
+        </li>
+        <li>
+            <b>
+                Pocket ID cards must be retrieved and printed online via your MyPVL account.  
+            </b><br/>
+            <ul>
+                <li>
+                    No other notice will be provided.  
+                </li>
+                <li>
+                    Requests for mailed cards require a <b>$10 fee.</b>  
+                </li>
+            </ul>
+        </li>
+        <li>
+            Processing time may vary depending on renewal volume. <b>Early renewal is   
+            strongly recommended.</b>  
+        </li>
+        <li>
+            Licenses not renewed or restored by <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText> will require submission of a <b>new   
+            application</b> under current requirements.  
+        </li>
+    </ul>
+
+    <p>
+        <b>ADDITIONAL INFORMATION</b>
+    </p>
+
+    <p>
+        For more details on renewal and restoration, visit: <u style="color:blue">https://cca.hawaii.gov/pvl/</u> and   
+        review the “Renewal and Restoration” section under your licensing area.  
+    </p>
+
+    <p>
+        <b>DCCA – Professional and Vocational Licensing Division</b>
+    </p>
+
+</apex:component>

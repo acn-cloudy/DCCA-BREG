@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClassificationRequested__c</fullName>
+    <description>PacPoint-MV121019 - Created for PVL phase 1. Used on the Doc Generated  settings.</description>
+    <formula>IF(
+ OR(
+   ISPICKVAL(Status__c, &quot;W - Awaiting Approval/Exam&quot;),
+   ISPICKVAL(Status__c, &quot;NE - No Exam Required--Class to be Licensed&quot;),
+   ISPICKVAL(Status__c, &quot;P - Passed Exam--Class to be Licensed&quot;)
+ ), 
+  true, 
+  false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Classification Requested</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

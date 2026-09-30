@@ -1,0 +1,7 @@
+.checkbox-card {
+  min-height: 170px !important;
+  cursor: pointer !important;
+}
+.title {
+  font-size: 40px;
+}

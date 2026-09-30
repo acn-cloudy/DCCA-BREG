@@ -1,0 +1,117 @@
+<aura:component controller="ListViewController" extends="c:Execute" 
+                implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="exploreFields" type="List" />
+    <aura:attribute name="exploreListName" type="String" />
+	<aura:attribute name="exploreRelatedSObject" type="String" />
+	<aura:attribute name="exploreParentField" type="String"  />
+    <aura:attribute name="exploreIcon" type="String"  />
+    <aura:attribute name="isChildren" type="Boolean" default="false" />
+    <aura:attribute name="listName" type="String" />
+    <aura:attribute name="headNames" type="List" default="propertyId,postcode,category,residentialSubCategory,nonResidentialSubCategory" />
+    <aura:attribute name="columnNames" type="List" default="propertyId,postcode,category,residentialSubCategory,nonResidentialSubCategory" />
+    <aura:attribute name="fields" type="List"  />
+    <aura:attribute name="records" type="Object" />
+    <aura:attribute name="valueMap" type="Object" />
+    <aura:attribute name="icon" type="String"  />
+    <aura:attribute name="relatedSObject" type="String" /> 
+    <aura:attribute name="originalRecord" type="Object" />
+    <aura:attribute name="selectOne" type="boolean" default="false" />
+    <aura:attribute name="handleSelect" type="Object" />
+    <aura:attribute name="editMode" type="Boolean" default="false" />
+    
+    <aura:attribute name="showSave" type="Boolean" default="false" />
+    <aura:attribute name="isSaving" type="Boolean" default="false" />
+     <aura:attribute name="recordUpdated" type="Boolean" default="false" />  
+    <aura:attribute name="childrenMap" type="Object" /> 
+    <aura:attribute name="childrenSortBy" type="String" />
+    <aura:registerEvent name="turnOffChildrenList" type="c:Message"/>
+
+    <aura:handler name="activateEditMode" event="c:Message" action="{!c.openEditMode}"/>
+    <aura:handler name="init" value="this" action="{!c.doInit}" />
+    <aura:handler name="fieldInfo" event="c:Message" action="{!c.markAsUpdated}"/>
+    <aura:handler name="clearArrows" event="c:Message" action="{!c.sort}"/>
+    <aura:method name="refresh" action="{!c.doInit}" ></aura:method>
+
+    <lightning:card title="{!v.listName}" iconName="{!v.icon}">
+        <aura:if isTrue="{!v.isSaving}">
+            <lightning:spinner variant="brand" size="large" alternativeText="Loading" />
+        </aura:if>
+        <aura:if isTrue="{!v.showSave}" >
+            <lightning:layout class="slds-align_absolute-center" >
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button label="Cancel" title="Cancel"
+                                    onclick="{! c.cancelChanges }" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button label="Save" title="Save" variant="brand"
+                                    onclick="{! c.comitSave }" />
+                </lightning:layoutItem>
+            </lightning:layout>
+            <tr aria-selected="false" class="slds-hint-parent">
+            <td role="gridcell" colspan="{!v.fields.length + 1}">
+                <div class="slds-p-vertical_medium childTableShadow">
+                </div> 
+            </td>
+        </tr>     
+        </aura:if>
+        <div class="slds-scrollable" style="max-height:600px">
+            <table aria-multiselectable="true" 
+                class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols fixTable" 
+                    role="grid">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-align_right" scope="col" style="width:3.25rem">
+                            <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+                            <div class="slds-th__action slds-th__action_form">
+                                <div class="slds-checkbox">
+                                </div>
+                            </div>
+                        </th>
+                        <aura:iteration items="{!v.headNames}" var="headerName">
+                            <!--<th aria-label="{!headerName.label}" aria-sort="none" class="slds-is-resizable slds-is-sortable" scope="col" colspan="{!headerName.size}">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate slds-p-left_x-small">
+                                    <span class="slds-truncate" title="{!headerName.label}">{!headerName.label}</span>
+                                </div>
+                            </th>-->
+                            <c:ListViewHeader aura:id="listViewHeader" label="{!headerName.label}" size="{!headerName.size}"
+                            title="{!headerName.apiName}" disable="{!!headerName.enableSort}" />
+                        </aura:iteration> 
+                    
+                    </tr> 
+                </thead>
+                <tbody>
+                    <aura:iteration items="{!v.records}" var="record" indexVar="index">
+                        <c:ListViewItem aura:id="listViewItem" handleSelect="{!v.handleSelect}" 
+                                        selectOne="{!v.selectOne}"  fields="{!v.fields}"
+                                        listviewrecord="{!v.records}" childrenSortBy="{!v.childrenSortBy}"
+                                        record="{!record}" index="{!index}" exploreIcon="{!v.exploreIcon}"  
+                                        exploreFields="{!v.exploreFields}" childrenMap="{!v.childrenMap}"
+                                        exploreListName="{!v.exploreListName}"
+                                        exploreRelatedSObject="{!v.exploreRelatedSObject}" 
+                                        exploreParentField="{!v.exploreParentField}"
+                                    /> 
+                    
+                    </aura:iteration>
+                </tbody> 
+            </table>
+        </div>
+        <aura:if isTrue="{!v.showSave}" >
+            <lightning:layout class="slds-align_absolute-center" >
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button label="Cancel" title="Cancel"
+                                    onclick="{! c.cancelChanges }" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button label="Save" title="Save" variant="brand"
+                                    onclick="{! c.comitSave }" />
+                </lightning:layoutItem>
+            </lightning:layout>
+            <tr aria-selected="false" class="slds-hint-parent">
+            <td role="gridcell" colspan="{!v.fields.length + 1}">
+                <div class="slds-p-vertical_medium childTableShadow">
+                </div> 
+            </td>
+        </tr>     
+        </aura:if>
+    </lightning:card>
+</aura:component>

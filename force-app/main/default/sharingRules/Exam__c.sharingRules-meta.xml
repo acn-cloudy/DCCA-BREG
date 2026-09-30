@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>ExamBregSecManagerReadWrite</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-CL11152021 Case 00018525</description>
+        <label>ExamBregSecManagerReadWrite</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>AssistantExaminer__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

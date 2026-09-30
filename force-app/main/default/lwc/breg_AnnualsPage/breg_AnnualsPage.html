@@ -1,0 +1,75 @@
+<template>
+    <div class="no-padding-card">
+        <c-breg-_-popup
+            visible={showModal}
+            title={labels.BREG_Annual_Delinquent_Filings_Late_Fees}
+            message={modalText}
+            oncontinue={handleModalContinue}
+            oncancel={handleModalCancel}
+            next-button-label={labels.BREG_Continue}
+            cancel-button-label={labels.BREG_Cancel}
+        >
+        </c-breg-_-popup>
+        <template lwc:if={isShowDetailedRecord}>
+            <c-breg-_-search-and-buy-_-business-details record-id={recordId} onbacktosearch={handleBack}> </c-breg-_-search-and-buy-_-business-details>
+        </template>
+        <template lwc:else>
+            <!-- Company header and status -->
+            <lightning-card title={cardTitle}>
+                <lightning-button
+                    variant="basic"
+                    label={labels.BREG_Annuals_View_complete_BREG_record}
+                    slot="actions"
+                    onclick={showDetailedRecord}
+                ></lightning-button>
+                <template if:true={goodStanding}>
+                    <div class="slds-box slds-theme_success slds-m-around_medium">{labels.BREG_Annuals_In_good_standing}</div>
+                </template>
+                <template if:false={goodStanding}>
+                    <div class="slds-box slds-theme_error slds-m-around_medium">{labels.BREG_Annuals_Not_in_good_standing}</div>
+                </template>
+                <div class="datatable-scroll-container scrollable_x">
+                    <lightning-datatable
+                        key-field="filingYear"
+                        data={rows}
+                        columns={columns}
+                        hide-checkbox-column
+                        wrap-text-max-lines="10"
+                        onrowaction={handleFileAnnualButton}
+                    >
+                    </lightning-datatable>
+                </div>
+            </lightning-card>
+
+            <!-- Message section -->
+            <div class="slds-m-top_medium">
+                <ul class="slds-list_dotted">
+                    <template lwc:if ={annualsNotExists}>
+                        <li><lightning-icon icon-name="utility:warning" size="x-small" class="slds-m-right_x-small"></lightning-icon>{labels.BREG_Annuals_too_early}</li>
+                    </template>
+                    <template lwc:if={goodStanding}>
+                        <li>{goodStandingMessage}</li>
+                    </template>
+                    <template lwc:else>
+                        <template lwc:if={isDelinquent}>
+                            <li>{delinquentMessage}</li>
+                            <template lwc:if={shouldShowPenaltyFeeMessage}>
+                                <li>{penaltyFeeMessage}</li>
+                            </template>
+                        </template>
+                    </template>
+                    <li>
+                        {labels.BREG_Annuals_learn_more_about_status_of_report}
+                        <a href={labels.BREG_Annuals_FileNumberContactEmailLink} class="slds-text-link"> {labels.BREG_Annuals_FileNumberContactEmail}</a>
+                        {helpMessage}
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Back button -->
+            <div class="slds-m-top_medium slds-m-bottom_medium">
+                <lightning-button label="Back" onclick={handleBack} class="slds-button_neutral"> </lightning-button>
+            </div>
+        </template>
+    </div>
+</template>

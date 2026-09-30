@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateofComplainantInterview__c</fullName>
+    <description>PacPoint-IC101718 - Created for BREG phase 1</description>
+    <inlineHelpText>Interview complainant (with assigned attorney or another investigator within 2 weeks of receiving case file). Add date of interview here.</inlineHelpText>
+    <label>Date of Complainant Interview</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

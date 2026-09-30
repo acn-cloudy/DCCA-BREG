@@ -1,0 +1,101 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="slds-grid slds-wrap">
+            <p class="slds-var-m-bottom_small">
+                The business must have and continuously maintain in the State of Hawaii a registered agent. The agent must have a business address in the
+                State of Hawaii. The agent may be either:
+            </p>
+            <div class="slds-size_1-of-1 slds-var-m-bottom_medium">
+                <ul>
+                    <li>an individual who resides in the State of Hawaii,</li>
+                    <li>a domestic entity, or</li>
+                    <li>a foreign entity authorized to transact business in this State</li>
+                </ul>
+            </div>
+            <div class="slds-size_1-of-1 slds-var-m-bottom_large">A registering entity cannot be its own agent</div>
+            <lightning-radio-group
+                name="agentType"
+                label="Is the registered agent an individual or entity?"
+                options={agentTypeOptions}
+                value={agentTypeValue}
+                onchange={handleInputChange} onblur={handleInputBlur}
+                required={required}
+                disabled={readOnly}
+            ></lightning-radio-group>
+        </lightning-layout-item>
+
+        <template lwc:if={isIndividual}>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="registeredAgentFirstName"
+                    value={registeredAgentFirstNameValue}
+                    label="First Name"
+                    type="text"
+                    placeholder="James"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    class="slds-var-m-right_small"
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="registeredAgentLastName"
+                    value={registeredAgentLastNameValue}
+                    label="Last Name"
+                    type="text"
+                    placeholder="Carter"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <template lwc:if={isEntity}>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="registeredAgentEntityName"
+                    value={registeredAgentEntityNameValue}
+                    label="Entity Name"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    class="slds-var-m-right_small"
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <lightning-input
+                    name="registeredAgentEntityLocation"
+                    value={registeredAgentEntityLocationValue}
+                    label="State, Province, or Country of Formation/Incorporation/Organization"
+                    type="text"
+                    onchange={handleInputChange} onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <lightning-layout-item size="12">
+            <p class="slds-var-m-bottom_small slds-var-m-top_small">
+                <strong>Street address</strong> of the place of business of the person in State of Hawaii to which service of process and other notice and
+                documents being served on or sent to the entity represented by it may be delivered to is:
+            </p>
+        </lightning-layout-item>
+        <lightning-layout-item size="12">
+            <c-breg_-address
+                form-config={formConfig}
+                form-data={formData}
+                is-nested="true"
+                label-hidden="true"
+                class="form-cmp"
+                config={config}
+                onchange={handleChangeNestedComponent}
+                cmp-properties={cmpProperties}
+            ></c-breg_-address>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

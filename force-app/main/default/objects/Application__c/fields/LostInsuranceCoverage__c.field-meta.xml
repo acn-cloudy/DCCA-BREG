@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LostInsuranceCoverage__c</fullName>
+    <description>Used for Medical Renewal Questions for License Types MD, AMD, PO</description>
+    <inlineHelpText>In the past two years with regard to professional liability, participation in any health plan or federal or state health care program:
+b) Has any insurance carrier ever denied, conditioned, curtailed, limited, suspended, or revoked your coverage?</inlineHelpText>
+    <label>Lost Insurance Coverage</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

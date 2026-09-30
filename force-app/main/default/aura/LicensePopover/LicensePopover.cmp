@@ -1,0 +1,31 @@
+<aura:component implements="force:hasRecordId">
+    <aura:attribute name="re1oepGHA1cordId" type="String"/>
+    <section class="slds-popover__header">
+        <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="License__c">
+            <header class="slds-media slds-media_center slds-m-bottom_small">
+                <lightning:icon iconName="standard:task" size="small"/>
+                <div class="slds-media__body slds-p-horizontal_small">
+                    <h2 class="slds-text-heading_medium slds-hyphenate" id="panel-heading-id">
+                        <a href="{!'/lightning/r/'+v.recordId+'/view'}">
+                            <lightning:outputField fieldName="Name" variant="label-hidden"/>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+            <footer class="slds-grid slds-wrap slds-grid_pull-padded">
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                    <lightning:outputField fieldName="Licensee__c"/>
+                </div>
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                    <lightning:outputField fieldName="LicenseType__c"/>
+                </div>
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                    <lightning:outputField fieldName="OriginalDateofLicensure__c"/>
+                </div>
+                <div class="slds-p-horizontal_small slds-size_1-of-2 slds-p-bottom_x-small">
+                    <lightning:outputField fieldName="EffectiveExpireDate__c"/>
+                </div>
+            </footer>
+        </lightning:recordViewForm>
+    </section>
+</aura:component>

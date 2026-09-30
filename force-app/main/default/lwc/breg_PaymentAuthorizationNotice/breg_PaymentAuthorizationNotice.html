@@ -1,0 +1,15 @@
+<template>
+    <div lwc:if={isVisible} class="slds-scoped-notification slds-theme_warning slds-m-vertical_medium notice" role="status">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="utility:warning" alternative-text={labels.title} size="small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-text-heading_small slds-m-bottom_x-small notice-title">{labels.title}</h2>
+                <template for:each={paragraphs} for:item="paragraph">
+                    <p key={paragraph.key} class="slds-m-bottom_x-small">{paragraph.text}</p>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

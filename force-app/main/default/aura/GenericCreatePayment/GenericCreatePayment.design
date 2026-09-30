@@ -1,0 +1,5 @@
+<design:component>
+	<design:attribute name="FilingRecordType" label="Filing Record Type" />
+    <design:attribute name="redirectUrlAfterExit" label="Redirect URL After Exit" />
+    <design:attribute name="paymentPageURL" label="Payment Page URL" />
+</design:component>

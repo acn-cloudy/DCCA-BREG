@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GenerateLetterCongaSign</fullName>
+    <availability>online</availability>
+    <description>PacPoint-JB122118 - Created for BREG Phase1</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Generate and Sign Letter</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>/apex/APXTConga4__Conga_Composer?SolMgr=1&amp;serverUrl={!API.Partner_Server_URL_370}&amp;Id={!Filing__c.Id} 
+
+&amp;QueryId=[Filing]a19t0000000mFTWAA2,[FilingAccount]a19t0000000mHZf,[FilingDeficiencies]a19t0000000mFTbAAM,[ApplicationContact]a19t0000000mFTqAAM%3Fpv0%3D{!Filing__c.Id}~pv1%3D{!Filing__c.FilerContactId__c} 
+
+&amp;Template=a1Fr000000AhYvm 
+
+&amp;pv0={!Filing__c.Id} 
+&amp;DefaultPDF=1 
+&amp;SC0=0 
+&amp;SC1=SalesforceFile 
+&amp;DS7=0
+&amp;CSEmailSubject=Please+Sign
+&amp;CSEmailMessage=Please+sign
+&amp;csvisible=1
+&amp;TemplateGroup=Letters+with+Signature</url>
+</WebLink>

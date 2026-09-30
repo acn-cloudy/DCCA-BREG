@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountOutstandingAmount__c</fullName>
+    <description>PacPoint-KN010220-Created for PVL Sprint 3 Phase 1</description>
+    <formula>Applicant__r.OutstandingAmountOwed__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The total amount owed by the account</inlineHelpText>
+    <label>Account Outstanding Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

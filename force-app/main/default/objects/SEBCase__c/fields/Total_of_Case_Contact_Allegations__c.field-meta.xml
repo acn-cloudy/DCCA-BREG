@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_of_Case_Contact_Allegations__c</fullName>
+    <description>Count of the related Case Contact records that have a corresponding Allegation.</description>
+    <label>Total # of Case Contact Allegations</label>
+    <summaryFilterItems>
+        <field>SEBCaseContact__c.Total_of_Allegations__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>SEBCaseContact__c.Role__c</field>
+        <operation>equals</operation>
+        <value>Respondent</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SEBCaseContact__c.SEBCase__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

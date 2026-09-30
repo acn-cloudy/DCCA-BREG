@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>breg_Form_Name__c</columns>
+    <columns>breg_Suffix_Code__c</columns>
+    <columns>breg_Entity_Type__c</columns>
+    <columns>breg_Business_Process__c</columns>
+    <columns>breg_Business_Location__c</columns>
+    <columns>breg_Business_Structure__c</columns>
+    <columns>breg_Profit_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

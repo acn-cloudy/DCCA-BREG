@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingDateRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-IC032819 - Created for phase 1</description>
+    <errorConditionFormula>ISCHANGED( Status__c ) &amp;&amp;  ISPICKVAL(Status__c , &quot;Assigned for Review&quot;) &amp;&amp;  ISBLANK( FilingDate__c )</errorConditionFormula>
+    <errorDisplayField>FilingDate__c</errorDisplayField>
+    <errorMessage>Please fill out the Filing Date before changing the Status to &quot;Assigned for Review&quot;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes">
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <lightning:layout horizontalAlign="end">
+        <lightning:buttonGroup class="slds-align-right">
+            <lightning:button label="New" onclick="{!c.doNew}"/>
+            <lightning:button label="History Trade/Professional Name Only" onclick="{!c.doHistoryNameOnly}"/>
+        </lightning:buttonGroup>
+    </lightning:layout>
+</aura:component>

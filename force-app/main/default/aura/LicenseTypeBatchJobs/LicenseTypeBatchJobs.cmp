@@ -1,0 +1,9 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" 
+                controller="LicenseTypeBatchJobsController" >
+    <aura:attribute name="recordId" type="String" />    
+    <aura:handler name="init" value="this" action="{!c.handleClick}" />
+    <!-- <lightning:button label="Flag License For Audit" 
+                      name="Flag License For Audit"
+                      disabled="" 
+                      onclick="{!c.handleClick }" class="btn"/> -->
+</aura:component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CEisConfirmed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-FT080719- Created for PVL phase 1</description>
+    <inlineHelpText>Indicates that the Continuing Education Requirement has been confirmed for this License.  This is set to blank at the start of each renewal period.</inlineHelpText>
+    <label>CE is Confirmed</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

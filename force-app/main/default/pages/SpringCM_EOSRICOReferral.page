@@ -1,0 +1,3 @@
+<apex:page standardController="RICOReferral__c">
+	<SpringCMEos:SpringCM_EOSGrid objectType="RICOReferral__c" objectId="{!Id}" />
+</apex:page>

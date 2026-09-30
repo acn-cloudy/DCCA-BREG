@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseGenerationValidation</fullName>
+    <active>true</active>
+    <description>PacPoint-MV082719 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+  AND(
+  ISCHANGED(GenerateLicense__c),
+  GenerateLicense__c = true, 
+  NOT(ISPICKVAL(Phase__c,&quot;H - License Generation&quot;)),
+  OR(
+  NOT(ISPICKVAL(Type__c,&quot;ADDC - Additional Class&quot;)),
+  NOT(ISPICKVAL(Type__c,&quot;RNEW - Renewal&quot;)),
+  NOT(ISPICKVAL(Type__c,&quot;LICN - New License&quot;)),
+  NOT(ISPICKVAL(Type__c,&quot;REAC - Reactivation&quot;)) 
+  ) 
+), 
+true, 
+false
+)</errorConditionFormula>
+    <errorMessage>A License can only be generated if the Phase is &quot;H - License Generation&quot; and type is a ADDC, RNEW, LICN or REAC</errorMessage>
+</ValidationRule>

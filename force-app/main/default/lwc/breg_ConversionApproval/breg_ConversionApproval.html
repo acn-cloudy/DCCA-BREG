@@ -1,0 +1,161 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={conversionApprovalTypeValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <!-- Share Fields -->
+            <template lwc:if={showShareholdersVoteFields}>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={totalNumberOfSharesValueReadOnly}
+                        label="Total Number of Shares Outstanding"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text value={classSeriesValueReadOnly} label="Class/Series"></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={numberOfSharesVotingForValueReadOnly}
+                        label="Number of Shares Voting for the Conversion"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={numberOfSharesVotingAgainstValueReadOnly}
+                        label="Number of Shares Voting Against the Conversion"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+            </template>
+            <!-- LLC Vote Fields -->
+            <template lwc:if={showLLCVoteFields}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={totalNumberOfVotesValueReadOnly}
+                        label="Total Number of Authorized Votes"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={numberOfVotesForValueReadOnly}
+                        label="Number of Votes for the Conversion"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-formatted-rich-text
+                        value={numberOfVotesAgainstValueReadOnly}
+                        label="Number of Votes Against the Conversion"
+                    ></lightning-formatted-rich-text>
+                </lightning-layout-item>
+            </template>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="conversionApprovalType"
+                    label="The Plan of Conversion was approved by the converting entity as follows"
+                    options={conversionApprovalTypeOptions}
+                    value={conversionApprovalTypeValue}
+                    onchange={handleInputChange}
+                    required={required}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+            <!-- Share Fields -->
+            <template lwc:if={showShareholdersVoteFields}>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="totalNumberOfShares"
+                        value={totalNumberOfSharesValue}
+                        label="Total Number of Shares Outstanding"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="classSeries"
+                        value={classSeriesValue}
+                        label="Class/Series"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfSharesVotingFor"
+                        value={numberOfSharesVotingForValue}
+                        label="Number of Shares Voting for the Conversion"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfSharesVotingAgainst"
+                        value={numberOfSharesVotingAgainstValue}
+                        label="Number of Shares Voting Against the Conversion"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+            <!-- LLC Vote Fields -->
+            <template lwc:if={showLLCVoteFields}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-input
+                        name="totalNumberOfVotes"
+                        value={totalNumberOfVotesValue}
+                        label="Total Number of Authorized Votes"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfVotesFor"
+                        value={numberOfVotesForValue}
+                        label="Number of Votes for the Conversion"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="numberOfVotesAgainst"
+                        value={numberOfVotesAgainstValue}
+                        label="Number of Votes Against the Conversion"
+                        type="number"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

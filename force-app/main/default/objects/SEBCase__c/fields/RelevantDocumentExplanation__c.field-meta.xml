@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RelevantDocumentExplanation__c</fullName>
+    <description>PacPoint-IC101218 - Created for BREG phase 1</description>
+    <inlineHelpText>If documents are not attached, explain why you are not providing documents to support your complaint.</inlineHelpText>
+    <label>8b. Relevant Document Explanation</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

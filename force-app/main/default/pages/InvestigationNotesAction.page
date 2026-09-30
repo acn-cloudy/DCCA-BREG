@@ -1,0 +1,2 @@
+<apex:page standardController="Investigation__c" extensions="InvestigationNotesController" action="{!generateInvestigationNotes}">
+</apex:page>

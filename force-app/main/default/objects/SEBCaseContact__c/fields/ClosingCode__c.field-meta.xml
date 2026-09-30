@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClosingCode__c</fullName>
+    <description>PacPoint-JB110118 - Created for BREG phase 1</description>
+    <label>Closing Code</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Role__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Administrative Error</fullName>
+                <default>false</default>
+                <label>Administrative Error</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy</fullName>
+                <default>false</default>
+                <label>Bankruptcy</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy Plan</fullName>
+                <default>false</default>
+                <label>Bankruptcy Plan</label>
+            </value>
+            <value>
+                <fullName>Civil</fullName>
+                <default>false</default>
+                <label>Civil</label>
+            </value>
+            <value>
+                <fullName>Complainant/Witness Deceased</fullName>
+                <default>false</default>
+                <label>Complainant/Witness Deceased</label>
+            </value>
+            <value>
+                <fullName>Complainant Uncooperative/Unavailable</fullName>
+                <default>false</default>
+                <label>Complainant Uncooperative/Unavailable</label>
+            </value>
+            <value>
+                <fullName>Complaint Withdrawn</fullName>
+                <default>false</default>
+                <label>Complaint Withdrawn</label>
+            </value>
+            <value>
+                <fullName>Conversion Disposition</fullName>
+                <default>false</default>
+                <label>Conversion Disposition</label>
+            </value>
+            <value>
+                <fullName>Entity Insolvent</fullName>
+                <default>false</default>
+                <label>Entity Insolvent</label>
+            </value>
+            <value>
+                <fullName>Foreign Jurisdiction</fullName>
+                <default>false</default>
+                <label>Foreign Jurisdiction</label>
+            </value>
+            <value>
+                <fullName>Insufficient Evidence</fullName>
+                <default>false</default>
+                <label>Insufficient Evidence</label>
+            </value>
+            <value>
+                <fullName>Legal action</fullName>
+                <default>false</default>
+                <label>Legal action</label>
+            </value>
+            <value>
+                <fullName>No action</fullName>
+                <default>false</default>
+                <label>No action</label>
+            </value>
+            <value>
+                <fullName>No Jurisdiction</fullName>
+                <default>false</default>
+                <label>No Jurisdiction</label>
+            </value>
+            <value>
+                <fullName>No Longer in Business</fullName>
+                <default>false</default>
+                <label>No Longer in Business</label>
+            </value>
+            <value>
+                <fullName>No Violation</fullName>
+                <default>false</default>
+                <label>No Violation</label>
+            </value>
+            <value>
+                <fullName>Prior Action Taken</fullName>
+                <default>false</default>
+                <label>Prior Action Taken</label>
+            </value>
+            <value>
+                <fullName>Records Only</fullName>
+                <default>false</default>
+                <label>Records Only</label>
+            </value>
+            <value>
+                <fullName>Referral/Action Taken-Other Agency</fullName>
+                <default>false</default>
+                <label>Referral/Action Taken-Other Agency</label>
+            </value>
+            <value>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+                <label>Resolved</label>
+            </value>
+            <value>
+                <fullName>Respondent Deceased</fullName>
+                <default>false</default>
+                <label>Respondent Deceased</label>
+            </value>
+            <value>
+                <fullName>Respondent Unlocatable</fullName>
+                <default>false</default>
+                <label>Respondent Unlocatable</label>
+            </value>
+            <value>
+                <fullName>See Connecting Case</fullName>
+                <default>false</default>
+                <label>See Connecting Case</label>
+            </value>
+            <value>
+                <fullName>Warning Letter</fullName>
+                <default>false</default>
+                <label>Warning Letter</label>
+            </value>
+            <value>
+                <fullName>Witness Uncooperative/Unavailable</fullName>
+                <default>false</default>
+                <label>Witness Uncooperative/Unavailable</label>
+            </value>
+            <value>
+                <fullName>Bankruptcy/Entity Involvent</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Bankruptcy/Entity Involvent</label>
+            </value>
+            <value>
+                <fullName>Respondent Added to Case</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Respondent Added to Case</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Administrative Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Bankruptcy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Bankruptcy Plan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Civil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Complainant/Witness Deceased</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Complainant Uncooperative/Unavailable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Complaint Withdrawn</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Conversion Disposition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Entity Insolvent</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Foreign Jurisdiction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Insufficient Evidence</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Legal action</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>No action</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>No Jurisdiction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>No Longer in Business</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>No Violation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Prior Action Taken</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Records Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Referral/Action Taken-Other Agency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Respondent Deceased</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Respondent Unlocatable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>See Connecting Case</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Warning Letter</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Respondent</controllingFieldValue>
+            <valueName>Witness Uncooperative/Unavailable</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

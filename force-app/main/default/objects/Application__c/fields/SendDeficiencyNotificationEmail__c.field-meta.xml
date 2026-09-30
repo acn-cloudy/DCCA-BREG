@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SendDeficiencyNotificationEmail__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV082319 - Created for PVL phase 1</description>
+    <inlineHelpText>Pleas confirm that you would  like to send a Deficiency Notification Email</inlineHelpText>
+    <label>Send Deficiency Notification Email</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

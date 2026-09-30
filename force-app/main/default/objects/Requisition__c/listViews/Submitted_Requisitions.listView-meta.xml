@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Submitted_Requisitions</fullName>
+    <columns>NAME</columns>
+    <columns>TitleofDocument__c</columns>
+    <columns>Requisitioner__c</columns>
+    <columns>Status__c</columns>
+    <columns>Date__c</columns>
+    <columns>DatetobeCompletedBy__c</columns>
+    <columns>BoardProgram__c</columns>
+    <columns>LicenseType__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Submitted</value>
+    </filters>
+    <label>Submitted Requisitions</label>
+</ListView>

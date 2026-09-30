@@ -1,0 +1,134 @@
+<aura:component  > 
+    <aura:attribute name="type" type="string" access="global" />
+    <aura:attribute name="placeholder" type="string" access="global" />
+    <aura:attribute name="value" type="string" access="global" />
+    <aura:attribute name="apiName" type="string" access="global" />
+    <aura:attribute name="field" type="Object" access="global" />
+    <aura:attribute name="parentId" type="String" access="global" />
+    <aura:attribute name="options" type="Object[]" access="global" default="[]" />
+    <aura:attribute name="required" type="Boolean" access="global" default="false" />
+    <aura:attribute name="displayDatePicker" type="Boolean" access="global" default="true" />
+    <aura:attribute name="onchange" type="Object" access="global"/>
+    <aura:attribute name="errors" type="Object[]" access="global"/>
+    <aura:attribute name="dependentField" type="String"/>
+    <aura:attribute name="dependentOptions" type="Object"/>
+    <aura:attribute name="readOnly" type="Boolean"  default="false"/>
+     <aura:attribute name="IsEnabled"  type="Boolean" default="false" />
+    <aura:registerEvent name="fieldInfo" type="c:Message"/>
+    <aura:method name="setError" action="{!c.addErrors}" >
+        <aura:attribute name="message" type="String" />
+    </aura:method>
+    
+      <aura:if isTrue="{!v.readOnly}">
+         <aura:if isTrue="{!v.type == 'checkbox'}">
+            <ui:outputCheckBox value="{!v.value}" 
+                               aura:id="field" />
+         </aura:if>
+         <aura:if isTrue="{!v.type == 'longtextareaR'}" >
+                <c:TextAreaDisplay aura:id="textarea" value="{!v.value}" />
+         </aura:if>  
+         <aura:if isTrue="{!v.type == 'longtextarea'}" >
+            <c:TextAreaDisplay aura:id="textarea" value="{!v.value}" />
+                <!--<div aria-label="" class="slds-rich-text-area__content slds-grow slds-cell-wrap">
+                    <ui:outputTextArea aura:id="oTextarea" value="{!v.value}"/>
+                </div>  -->
+        </aura:if>  
+            <aura:if isTrue="{!v.type != 'datetime' &amp;&amp; v.type != 'longtextarea' &amp;&amp; v.type != 'longtextareaR' &amp;&amp; v.type != 'checkbox' &amp;&amp; v.type != 'textarea'}">
+            {!v.value}
+            </aura:if>
+            
+            <aura:if isTrue="{!v.type == 'datetime'}">
+                <ui:inputDateTime  aura:id="field" value="{!v.value}" disabled="true"  />
+            </aura:if>  
+        <aura:set attribute="else">
+              <aura:if isTrue="{!v.type == 'longtextarea'}">
+                <ui:inputTextArea aura:id="field" value="{!v.value}" rows="2"
+                                    required="{!v.required}" 
+                                    errors="{!v.errors}"
+                                    keyup="{!c.updateValueMap}"
+                                    updateOn="keyup"/> 
+              </aura:if>
+              <aura:if isTrue="{!v.type == 'longtextareaR'}" >
+                <div aria-label="" class="slds-rich-text-area__content slds-grow slds-cell-wrap">
+                    <ui:outputTextArea aura:id="oTextarea" value="{!v.value}"/>
+                </div> 
+             </aura:if>  
+             <aura:if isTrue="{!v.type == 'formula'}">
+                    <ui:outputTextArea aura:id="field" value="{!v.value}" /> 
+              </aura:if>
+             
+            <aura:if isTrue="{!v.type == 'lookup'}">
+                <c:Lookup field_API_text="{!v.field.field_API_text}"
+                             field_API_val="{!v.field.field_API_val}"
+                             limit="{!v.field.limit}"
+                             objectName="{!v.field.objectName}"
+                             lookupIcon="{!v.field.lookupIcon}"
+                             display="{!v.field.display}"
+                             change="{!c.updateValueMap}" 
+                             value="{!v.value}" />
+            </aura:if>
+            
+            <aura:if isTrue="{!v.type == 'checkbox'}">
+                <ui:inputCheckBox required="{!v.required}" value="{!v.value}" 
+                                  errors="{!v.errors}" aura:id="field" 
+                                  change="{!c.updateValueMap}" /> 
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'text'}">
+               <ui:inputText value="{!v.value}" errors="{!v.errors}"
+                              aura:id="field" class="slds-input" 
+                              placeholder="{!v.placeholder}" 
+                              required="{!v.required}" change="{!c.updateValueMap}" />	
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'datetime'}">
+                <ui:inputDateTime aura:id="field" value="{!v.value}"  errors="{!v.errors}"                                 
+                                  displayDatePicker="true" change="{!c.updateValueMap}" />
+            </aura:if>
+            
+            <aura:if isTrue="{!v.type == 'picklist'}">                
+                <c:Picklist aura:id="field" 
+                               value="{!v.value}" 
+                               options="{!v.options}" errors="{!v.errors}"
+                               dependentField="{!v.dependentField}"
+                               dependentOptions="{!v.dependentOptions}"
+                               updateValueMapForSelect="{!c.updateValueMapForSelect}" />
+            </aura:if>        
+            <aura:if isTrue="{!v.type == 'multiPicklist'}">        
+                <c:MultiPicklist aura:id="field" 
+                                    options="{!v.options}" 
+                                    value="{!v.value}" errors="{!v.errors}"
+                                    change="{!c.updateValueMap}" />
+            </aura:if> 
+            <aura:if isTrue="{!v.type == 'date'}">
+                <c:DateField value="{!v.value}" aura:id="field"
+                                change="{!c.updateValueMap}" errors="{!v.errors}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'textarea'}">
+                <ui:inputTextArea required="{!v.required}" errors="{!v.errors}"
+                                  value="{!v.value}" aura:id="field" 
+                                  change="{!c.updateValueMap}" /> 
+            </aura:if> 
+            <aura:if isTrue="{!v.type == 'richTextarea'}">
+                <ui:inputTextArea required="{!v.required}" errors="{!v.errors}"
+                                  value="{!v.value}" aura:id="field" 
+                                  change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'currency'}">
+                <ui:inputCurrency required="{!v.required}" 
+                                  value="{!v.value}" 
+                                  format="$ #,##0.00" errors="{!v.errors}"
+                                  aura:id="field" change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'email'}">
+                <ui:inputEmail required="{!v.required}" errors="{!v.errors}"
+                               value="{!v.value}" aura:id="field" 
+                               change="{!c.updateValueMap}" />
+            </aura:if>
+            <aura:if isTrue="{!v.type == 'number'}">
+                <ui:inputNumber required="{!v.required}" value="{!v.value}" 
+                                aura:id="field"  errors="{!v.errors}"
+                                change="{!c.updateValueMap}" />
+            </aura:if>
+        </aura:set>
+    </aura:if>   
+    
+</aura:component>

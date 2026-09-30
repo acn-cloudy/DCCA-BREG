@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ApplicationDeficiencyLetter</fullName>
+        <description>Application:Deficiency Letter</description>
+        <protected>false</protected>
+        <recipients>
+            <field>NotificationEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply@dcca.hawaii.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PVL/ApplicationDeficiencyLetter</template>
+    </alerts>
+    <alerts>
+        <fullName>Change_in_Exam_Provider</fullName>
+        <description>Change in Exam Provider</description>
+        <protected>false</protected>
+        <recipients>
+            <field>NotificationEmail__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply@dcca.hawaii.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>PVL/Change_in_Exam_Provider</template>
+    </alerts>
+    <alerts>
+        <fullName>ExamBranchNotificationofAddressChange</fullName>
+        <ccEmails>flint.tearney@pacificpointcorp.com</ccEmails>
+        <ccEmails>pvlexam@dcca.hawaii.gov</ccEmails>
+        <ccEmails>flint.tearney@gmail.com</ccEmails>
+        <description>Exam Branch Notification of Address Change</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>PVL/NotifyExamBranchofAddressChange</template>
+    </alerts>
+</Workflow>

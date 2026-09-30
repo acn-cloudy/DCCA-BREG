@@ -1,0 +1,12 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    <aura:attribute name="transactionRecord" type="Transaction__c"/>
+    <aura:attribute name="recordId" type="String"/>
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Id,Name,TotalAmount__c,Account__c,Account__r.Name,AmountOutstanding__c,TransactionLinesCount__c,TransactionType__c"
+                      targetFields="{!v.transactionRecord}"
+                      recordUpdated="{!c.validateAndRedirect}"
+    />
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+</aura:component>

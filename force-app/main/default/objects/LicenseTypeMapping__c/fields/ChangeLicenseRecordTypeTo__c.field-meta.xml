@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ChangeLicenseRecordTypeTo__c</fullName>
+    <description>PacPoint: RdG - Case# - For PVL Phase 1 - License Type Mapping</description>
+    <externalId>false</externalId>
+    <label>Change License Record Type To</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

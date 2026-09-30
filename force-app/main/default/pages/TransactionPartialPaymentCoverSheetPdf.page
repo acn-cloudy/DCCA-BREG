@@ -1,0 +1,125 @@
+<apex:page standardController="Transaction__c" renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="false"
+           extensions="TransactionPaymentCoverSheetExtCtrl">
+    <html>
+    <head>
+        <style>
+            * {
+                font-family: Arial Unicode MS, sans-serif; /* Arial Unicode MS for the special characters */
+            }
+
+            b {
+                font-family: Helvetica, sans-serif; /* Different font for bold since the Arial Unicode doesn't work on BOLD */
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table.fixed {
+                table-layout: fixed;
+            }
+
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+    <p style="width: 100%; text-align: center;"><b>PARTIAL PAYMENT COVER SHEET</b></p>
+    <apex:outputPanel rendered="{!Transaction__c.TransactionType__c != 'Group'}">
+        <p>
+            <b>ACCOUNT:</b> {!Transaction__c.Account__r.Name}
+        </p>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!Transaction__c.TransactionType__c == 'Group'}">
+        <p>
+            <b>ACCOUNT:</b>
+            <apex:repeat value="{!Transaction__c.Transactions__r}" var="tr">
+                    {!tr.Account__r.Name},
+            </apex:repeat>
+        </p>
+    </apex:outputPanel>
+    <p>
+        <b>TRANSACTION REF#:</b> {!Transaction__c.Name}
+    </p>
+    <p>
+        <b>TRANSACTION DATE:</b>&nbsp; <apex:outputtext value="{0, date, M/dd/yyyy}"> <apex:param value="{!Transaction__c.Date__c}"> </apex:param> </apex:outputtext>
+    </p>
+    <p>
+        <b>WORKITEM ID:</b>&nbsp;{!Transaction__c.WorkitemID__c}
+    </p>
+    <p>
+        <b>TRANSACTION LINES:</b>
+    </p>
+    <apex:outputPanel rendered="{!Transaction__c.TransactionType__c != 'Group'}">
+    <table class="bordered">
+        <thead>
+        <tr>
+            <th><b>Cashier Code</b></th>
+            <th><b>Cashier Code Name</b></th>
+            <th><b>Amount Outstanding</b></th>
+        </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!partialTransactionLineList}" var="tl">
+            <apex:variable var="v" value="1"  rendered="{!tl.AmountOutstanding__c > 0}">
+            <tr>
+                <td>
+                        {!tl.CashierCodeCode__c}
+                </td>
+                <td>
+                    {!tl.CashierCode__r.Name}
+                </td>
+                <td>
+                    <apex:outputField value="{!tl.AmountOutstanding__c}"/>
+                </td>
+            </tr>   
+            </apex:variable>
+        </apex:repeat>
+        </tbody>
+    </table>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!Transaction__c.TransactionType__c == 'Group'}">
+        <table class="bordered">
+            <thead>
+            <tr>
+                <th><b>Cashier Code</b></th>
+                <th><b>Cashier Code Name</b></th>
+                <th><b>Total Amount Outstanding</b></th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!partialTransactionLineList}" var="tr">
+                <tr>
+                    <td>
+                        {!tr.CashierCodeCode__c}
+                    </td>
+                    <td>
+                        {!tr.CashierCode__r.Name}
+                    </td>
+                    <td>
+                        <apex:outputField value="{!tr.AmountOutstanding__c}"/>
+                    </td>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </apex:outputPanel>
+    <p>
+        <b>TOTAL AMOUNT OUTSTANDING:</b>&nbsp;
+        <apex:outputText value="{0, number, $#,##0.00}">
+            <apex:param value="{!partialOutStanding}" />
+        </apex:outputText>
+        
+    </p>
+    <p>
+        <b>DESCRIPTION:</b>&nbsp;<apex:outputField value="{!Transaction__c.Description__c}"/>
+    </p>
+    </body>
+    </html>
+</apex:page>

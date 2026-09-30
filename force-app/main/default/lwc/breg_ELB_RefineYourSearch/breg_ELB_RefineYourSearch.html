@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="Step 2: Refine Your Search" icon-name="utility:search">
+        <p class="slds-var-m-bottom_medium">
+            To get started, enter the name of the business or individual you are searching for. You can enter a full name, partial name, or a combination
+            of both.
+        </p>
+        <lightning-input data-name="name" name="name" label="Name" type="text" class="slds-var-m-bottom_small" onchange={handleInput} value={entityName}></lightning-input>
+        <div class="slds-var-m-bottom_medium">You may further refine your search by mailing address zip code(s), registration date, and/or status.</div>
+
+        <lightning-input
+            data-name="zipCodes"
+            name="zipCodes"
+            label="Zip Codes"
+            type="text"
+            class="slds-var-m-bottom_small"
+            placeholder="#####,#####,#####"
+            onchange={handleInput}
+            value={zipCodes}
+            max-length="2000"
+            min-length="5"
+            lwc:ref="zipInput"
+            message-when-too-long="Zip codes must be 2000 characters or less."
+            message-when-too-short="Zip codes must be at least 5 characters long."
+        ></lightning-input>
+        <div class="error">{zipError}</div>
+        <!-- <lightning-combobox label="Country" class="slds-var-m-right_small"></lightning-combobox> -->
+
+        <lightning-input
+            data-name="startDate"
+            lass="slds-var-m-bottom_small"
+            name="startDate"
+            label="Start Date"
+            type="date"
+            onchange={handleInput}
+            value={startDate}
+        ></lightning-input>
+
+        <lightning-input
+            data-name="endDate"
+            lass="slds-var-m-bottom_small"
+            name="endDate"
+            label="End Date"
+            type="date"
+            onchange={handleInput}
+            value={endDate}
+        ></lightning-input>
+
+        <lightning-combobox
+            lass="slds-var-m-bottom_small"
+            name="status"
+            label="Status"
+            value={selectedStatus}
+            placeholder="Select Status"
+            options={statusOptions}
+            onchange={handleInput}
+        >
+        </lightning-combobox>
+    </lightning-card>
+</template>

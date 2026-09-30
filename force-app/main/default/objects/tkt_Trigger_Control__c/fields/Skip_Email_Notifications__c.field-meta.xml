@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skip_Email_Notifications__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>TNOX: When enabled, skips all email notifications from ticket triggers. Used during data migrations to prevent email spam.</description>
+    <inlineHelpText>Enable to skip email notifications during data migrations.</inlineHelpText>
+    <label>Skip Email Notifications</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

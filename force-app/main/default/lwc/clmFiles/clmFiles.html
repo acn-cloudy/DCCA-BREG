@@ -1,0 +1,33 @@
+<template>
+    <c-spring-files
+      record-id={recordId}
+      label={label}
+      onuploadfinished={handleUploadFinished}
+      hideloadresult="true"
+      signed-url={uploadUrl}
+    ></c-spring-files>
+    <lightning-layout multiple-rows="true">
+      <!-- header -->
+      <lightning-layout-item size="3" padding="around-small" class="tableHeader">
+        Actions
+      </lightning-layout-item>
+      <lightning-layout-item size="9" padding="around-small" class="tableHeader">
+        Name
+      </lightning-layout-item>
+      <template for:each={files} for:item="file">
+        <lightning-layout-item size="3" padding="around-small" key={file.fileUrl}>
+          <lightning-button-group>
+            <lightning-button
+              variant="destructive"
+              icon-name="utility:delete"
+              accesskey={file.fileUrl}
+              onclick={deleteDoc}
+            ></lightning-button>
+          </lightning-button-group>
+        </lightning-layout-item>
+        <lightning-layout-item size="9" padding="around-small" key={file.fileUrl}>
+          {file.name}
+        </lightning-layout-item>
+      </template>
+    </lightning-layout>
+  </template>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Agricultural Cooperative</fullName>
+        <default>false</default>
+        <label>Agricultural Cooperative</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer Cooperative</fullName>
+        <default>false</default>
+        <label>Consumer Cooperative</label>
+    </customValue>
+    <customValue>
+        <fullName>Corporation Sole</fullName>
+        <default>false</default>
+        <label>Corporation Sole</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic General  Partnership</fullName>
+        <default>false</default>
+        <label>Domestic General  Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Limited Liability Company</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Limited Liability Limited Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Limited Liability Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Limited Partnership</fullName>
+        <default>false</default>
+        <label>Domestic Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Nonprofit Corporation</fullName>
+        <default>false</default>
+        <label>Domestic Nonprofit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Professional Corporation</fullName>
+        <default>false</default>
+        <label>Domestic Professional Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Domestic Profit Corporation</fullName>
+        <default>false</default>
+        <label>Domestic Profit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign General Partnership</fullName>
+        <default>false</default>
+        <label>Foreign General Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Liability Company</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Liability Limited Partnership</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Liability Partnership</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Limited Partnership</fullName>
+        <default>false</default>
+        <label>Foreign Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Nonprofit Corporation</fullName>
+        <default>false</default>
+        <label>Foreign Nonprofit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Foreign Profit Corporation</fullName>
+        <default>false</default>
+        <label>Foreign Profit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Publicity Rights Name Registration</fullName>
+        <default>false</default>
+        <label>Publicity Rights Name Registration</label>
+    </customValue>
+    <customValue>
+        <fullName>Sustainable Business Corporation</fullName>
+        <default>false</default>
+        <label>Sustainable Business Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Trade Names, Trademarks or Service Marks Registered by Individuals or Unregistered Entities</fullName>
+        <default>false</default>
+        <label>Trade Names, Trademarks or Service Marks Registered by Individuals or Unregistered Entities</label>
+    </customValue>
+    <masterLabel>Entity Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

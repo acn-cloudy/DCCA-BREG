@@ -1,0 +1,36 @@
+<!--
+  @description       : 
+  @author            : Gaurav Agarwal
+  @group             : 
+  @last modified on  : 04-29-2025
+  @last modified by  : Gaurav Agarwal
+-->
+<aura:component implements="forceCommunity:themeLayout" access="global">  
+    <aura:attribute name="header" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="body" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="footer" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="headerHide" type="Boolean" default="true" />
+    <ltng:require styles="{!$Resource.MDS_Style + '/styles/main.css'}"></ltng:require>
+    <aura:if isTrue="{!v.headerHide}">
+        <header class="main-header" role="banner">
+            <a class="skip-link" tabindex="0" href="#main-content">Skip to main content</a>
+            {!v.header}
+        </header>
+    </aura:if>
+
+    <div class="slds-grid slds-wrap">
+        <!-- Body and Footer -->
+        <div class="slds-col slds-size--12-of-12 main-content">
+            <div  role="main" id="main-content">
+                {!v.body}
+            </div>
+
+            <!-- Footer -->
+            <footer role="contentinfo">
+                <div class="mds-p-left_large mds-p-right_large component-footer">
+                    {!v.footer}
+                </div>
+            </footer>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEBCaseContactNoViolation__c</fullName>
+    <description>PacPoint-AC012621 - Created for BREG SEC/SEB Year 2 Support - Counts number of SEB Case Contacts records where Role = &quot;Respondent&quot; and Closing Code = &quot;No Violation&quot;</description>
+    <label>SEB Case Contact No Violation</label>
+    <summaryFilterItems>
+        <field>SEBCaseContact__c.ClosingCode__c</field>
+        <operation>equals</operation>
+        <value>No Violation</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>SEBCaseContact__c.Role__c</field>
+        <operation>equals</operation>
+        <value>Respondent</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SEBCaseContact__c.SEBCase__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

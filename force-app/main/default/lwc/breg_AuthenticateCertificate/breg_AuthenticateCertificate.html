@@ -1,0 +1,100 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <!-- Loading Spinner -->
+        <lightning-spinner if:true={isLoading} alternative-text={labels.BREG_Loading} size="small"></lightning-spinner>
+
+        <!-- Main Content -->
+        <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3 slds-p-right_large">
+            <h1 class="dxp-text-heading-xlarge title slds-m-bottom_medium">{labels.title}</h1>
+
+            <div class="slds-text-body_regular slds-m-bottom_medium">{labels.descriptionPrefix} <em>{labels.certificateType}</em>.</div>
+
+            <!-- Input Form -->
+            <div class="slds-form-element slds-m-bottom_medium">
+                <lightning-input
+                    id="auth-code-input"
+                    type="text"
+                    value={authCodeOrDocumentId}
+                    onchange={handleInputChange}
+                    label={labels.inputLabel}
+                ></lightning-input>
+            </div>
+
+            <!-- Authenticate Button -->
+            <div class="slds-m-bottom_medium">
+                <lightning-button
+                    variant="brand"
+                    label={labels.authenticateButton}
+                    title={labels.authenticateButton}
+                    onclick={handleAuthenticate}
+                ></lightning-button>
+            </div>
+
+            <!-- Success Section -->
+            <template if:true={showSuccess}>
+                <div>
+                    <div class="slds-notify slds-notify_alert slds-alert_success slds-m-bottom_xx-small" role="alert">
+                        <span class="slds-assistive-text">{labels.BREG_Success}</span>
+                        <span class="slds-icon_container slds-icon-utility-success slds-m-right_x-small">
+                            <lightning-icon
+                                icon-name="utility:success"
+                                alternative-text={labels.BREG_Success}
+                                size="x-small"
+                                variant="inverse"
+                            ></lightning-icon>
+                        </span>
+                        <h2 class="slds-text-heading_small">{labels.BREG_COGS_found}</h2>
+                        <lightning-button-icon
+                            icon-name="utility:close"
+                            onclick={handleCloseSuccess}
+                            alternative-text={labels.BREG_Close}
+                            title={labels.BREG_Close}
+                        ></lightning-button-icon>
+                    </div>
+                    <div class="slds-card slds-p-left_small">
+                        <header class="slds-card__header slds-grid">
+                            <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="utility:check" size="small"></lightning-icon>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href={recordUrl} class="slds-card__header-link slds-truncate" title={entityName}> {entityName} </a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </header>
+
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div>{orderDate}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Error Section -->
+            <template if:true={showError}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium" role="alert">
+                    <span class="slds-assistive-text">{labels.BREG_Error}</span>
+                    <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small">
+                        <lightning-icon icon-name="utility:error" alternative-text="Error" size="x-small" variant="inverse"></lightning-icon>
+                    </span>
+                    <h2 class="slds-text-heading_small">{errorMessage}</h2>
+                    <lightning-button-icon
+                        icon-name="utility:close"
+                        onclick={handleCloseError}
+                        alternative-text={labels.BREG_Close}
+                        title={labels.BREG_Close}
+                    ></lightning-button-icon>
+                </div>
+            </template>
+        </div>
+
+        <!-- Additional Services Sidebar -->
+        <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+            <div class="slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <c-breg_-e-l-b_-additional-services></c-breg_-e-l-b_-additional-services>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mobile_Pay__c</fullName>
+    <label>Mobile Pay</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Apple Pay</fullName>
+                <default>false</default>
+                <label>Apple Pay</label>
+            </value>
+            <value>
+                <fullName>Google Pay</fullName>
+                <default>false</default>
+                <label>Google Pay</label>
+            </value>
+            <value>
+                <fullName>Samsung Pay</fullName>
+                <default>false</default>
+                <label>Samsung Pay</label>
+            </value>
+            <value>
+                <fullName>Android Pay</fullName>
+                <default>false</default>
+                <label>Android Pay</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

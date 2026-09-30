@@ -1,0 +1,3 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader" access="global">
+    <c:tktMyTickets onclose="{!c.handleClose}"></c:tktMyTickets>
+</aura:component>

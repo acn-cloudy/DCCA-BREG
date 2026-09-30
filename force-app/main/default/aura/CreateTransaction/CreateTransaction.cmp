@@ -1,0 +1,307 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" controller="CreateTransaction">
+
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="initialized" type="Boolean" default="false" />
+    <aura:attribute name="transaction" type="Transaction__c" />
+    <aura:attribute name="exampleLine" type="TransactionLine__c" />
+    <aura:attribute name="lines" type="List" />
+    <aura:attribute name="totalAmount" type="decimal" default="0" />
+    <aura:attribute name="errorSaving" type="string" default="" />
+
+    <aura:attribute name="statuses" type="List" />
+    <aura:attribute name="transactionTypes" type="List" />
+    <aura:attribute name="dccaSections" type="List" />
+    <aura:attribute name="services" type="List" />
+
+    <aura:attribute name="cashierCodes" type="List" />
+    <aura:attribute name="displayCashierCodes" type="List" />
+    <aura:attribute name="displayMoreCodes" type="Boolean" default="false" />
+    <aura:attribute name="maxDisplaySize" type="decimal" default="30" />
+    <aura:attribute name="disableSave" type="Boolean" default="false"/>
+
+    <aura:attribute name="showPopup" type="Boolean" default="true" />
+    <aura:attribute name="filterTextCashierCode" type="String" default="" />
+    <aura:attribute name="filterTextFeeCode" type="String" default="" />
+    <aura:attribute name="filterTextCategory" type="String" default="" />
+    <aura:attribute name="filterTextFormDescription" type="String" default="" />
+    <aura:attribute name="filterTextDescription" type="String" default="" />
+    
+    <aura:attribute name="filtering" type="String" default="false" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <style>
+    	.slds-modal__container {
+            width: 90%;
+            max-width: 90%;
+        	
+        }
+    	.slds-modal__content {
+            height: 80% !important;
+            max-height: 80% !important;
+        	
+        }
+    </style>
+
+    <div>
+        <article class="slds-card">
+          	<div class="slds-card__header slds-grid">
+            	<header class="slds-media slds-media_center slds-has-flexi-truncate">
+              		<div class="slds-media__body">
+                		<h2 class="slds-card__header-title">
+                  			<span class="slds-text-heading_small">
+                                <aura:if isTrue="{!v.transaction.Id == null}">New Transaction</aura:if>
+                                <aura:if isTrue="{!v.transaction.Id != null}">Transaction {!v.transaction.Name}</aura:if>
+                            </span>
+                		</h2>
+              		</div>
+            	</header>
+          	</div>
+          	<div class="slds-card__body slds-card__body_inner">
+                <aura:if isTrue="{!v.initialized}">
+                    <lightning:input label="Transaction Type" name="transactionType" readonly="true" value="Payment"/>
+                    <lightning:input type="date" id="form-element-date" value="{!v.transaction.Date__c}" label="Date" />
+                    <lightning:textarea id="form-element-desription" value="{!v.transaction.Description__c}" label="Description" />
+                    <!--<ui:inputSelect class="slds-select" label="Status" value="{!v.transaction.Status__c}">
+                        <aura:iteration items="{!v.statuses}" var="opt">
+                            <ui:inputSelectOption text="{!opt.value}" label="{!opt.label}" value="{!opt.value == v.transaction.Status__c}"/>
+                        </aura:iteration>
+                    </ui:inputSelect>
+
+                    <ui:inputSelect class="slds-select" label="Division" value="{!v.transaction.DCCASection__c}">
+                        <aura:iteration items="{!v.dccaSections}" var="opt">
+                            <ui:inputSelectOption text="{!opt.value}" label="{!opt.label}" value="{!opt.value == v.transaction.DCCASection__c}"/>
+                        </aura:iteration>
+                    </ui:inputSelect>-->
+
+                    <br /><br />
+                    <b>Transaction Lines</b>
+                    <br /><br />
+                    <div style="overflow-y: scroll;">
+                    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                      	<thead>
+                        	<tr class="slds-text-title_caps">
+                          		<th scope="col">
+                            		<div class="slds-truncate" title="Cashier Code">Cashier Code</div>
+                          		</th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Fee Code">Fee Code</div>
+                                </th>
+                                
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Category">Category</div>
+                                </th>
+                                
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Form Description">Form Description</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Description">Description</div>
+                                </th>
+                          		<th scope="col">
+                            		<div class="slds-truncate" title="Amount">Amount</div>
+                          		</th>
+                          	</tr>
+                      	</thead>
+                      	<tbody>
+                            <aura:iteration items="{!v.lines}" var="line">
+                                <tr>
+                                    <td data-label="Cashier Code">
+                                        <div class="slds-truncate" title="{!line.CashierCode}">{!line.Code}</div>
+                                    </td>
+                                    <td data-label="Fee Code">
+                                        <div class="slds-truncate" title="{!line.FeeCode}">{!line.FeeCode}</div>
+                                    </td>
+                                    
+                                    <td data-label="Category">
+                                        <div class="slds-truncate" title="{!line.Category}">{!line.Category}</div>
+                                    </td>
+                                    
+                                    <td data-label="Form Description">
+                                        <div class="slds-truncate" title="{!line.FormDescription}">{!line.FormDescription}</div>
+                                    </td>
+                                    <td data-label="Description">
+                                        <div class="slds-truncate" title="{!line.Description}">{!line.Description}</div>
+                                    </td>
+                                    <td data-label="Amount">
+                                        <div class="slds-truncate" title="{!line.Amount__c}">
+                                            <ui:outputCurrency value="{!line.Amount__c}" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:iteration>
+                      	</tbody>
+                      	<thead>
+                        	<tr class="slds-text-title_caps">
+                          		<th scope="col" style="font-weight:bold;">
+                            		Total
+                          		</th>
+                          		<th scope="col">
+
+                          		</th>
+                          		<th scope="col">
+
+                          		</th>
+                                <th scope="col">
+
+                                </th>
+                                <th scope="col">
+
+                                </th>
+                          		<th scope="col" style="font-weight:bold;">
+                            		<div class="slds-truncate" title="{!v.totalAmount}">
+                                        <ui:outputCurrency value="{!v.totalAmount}" />
+                                    </div>
+                          		</th>
+                          	</tr>
+                      	</thead>
+                    </table>
+					</div>
+                </aura:if>
+
+                <aura:if isTrue="{!v.showPopup}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container" style="width: 100%;">
+                            <header class="slds-modal__header">
+                                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                                    <span class="slds-assistive-text">Close</span>
+                                </button>
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add Cashier Codes</h2>
+                            </header>
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="overflow-x:auto;" onkeyup="{!c.filterLines}">
+                                    <div class="slds-grid slds-gutters">
+                                      <div class="slds-col">
+                                          <lightning:input type="search" id="form-element-filter" value="{!v.filterTextCashierCode}" label="Search by Cashier Code (type a 3 digit code)" />
+                                      </div>
+                                      <div class="slds-col">
+                                        <lightning:input type="search" id="form-element-filter" value="{!v.filterTextFeeCode}" label="Search by Fee Code" />
+                                      </div>
+                                      <div class="slds-col">
+                                        <lightning:input type="search" id="form-element-filter" value="{!v.filterTextCategory}" label="Search by Category" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-grid slds-gutters">
+                                      <div class="slds-col">
+                                        <lightning:input type="search" id="form-element-filter" value="{!v.filterTextFormDescription}" label="Search by Form Description"  />
+                                      </div>
+                                      <div class="slds-col">
+                                        <lightning:input type="search" id="form-element-filter" value="{!v.filterTextDescription}" label="Search in Description"  />
+                                      </div>
+                                      <div class="slds-col"> 
+                                          <br />
+                                          <div>
+                                              <div class="slds-align_absolute-center" style="height: 25px; width:35px; display:inline-block;">
+                                              	  <aura:if isTrue="{!v.filtering == 'true'}">
+                                                      <div role="status" class="slds-spinner slds-spinner_small slds-spinner_inline" style="margin-top: 20px;">
+                                                        <span class="slds-assistive-text">Loading</span>
+                                                        <div class="slds-spinner__dot-a"></div>
+                                                        <div class="slds-spinner__dot-b"></div>
+                                                      </div>
+                                              	  </aura:if>
+                                              </div>
+                                              <lightning:button aura:id="filterButton" variant="brand" label="Filter" onclick="{! c.filterLines2 }"  />
+                                          </div>
+                                      </div>	
+                                    </div>
+                                    <br />
+                                
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead>
+                                        <tr class="slds-text-title_caps">
+                                            <th scope="col">
+
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Cashier Code">Cashier Code</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Amount">Amount</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Amount">Amount Override</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Category">Category</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Fee Code">Fee Code</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Form Description">Form Description</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Division">Division</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:iteration items="{!v.displayCashierCodes}" var="line">
+                                                <tr>
+                                                    <td>
+                                                        <ui:inputCheckbox value="{!line.Selected}" />
+                                                    </td>
+                                                    <td data-label="Cashier Code">
+                                                        <div class="slds-truncate" title="{!line.Name}">{!line.Name}</div>
+                                                    </td>
+                                                    <td data-label="Amount">
+                                                        <div class="slds-truncate" title="{!line.Amount__c}">
+                                                            <ui:outputCurrency value="{!line.Amount__c}" />
+                                                        </div>
+                                                    </td>
+                                                    <td data-label="Amount Override">
+                                                    	<div class="slds-truncate" title="Amount Override">
+                                                        	<lightning:input id="form-element-filter" value="{!line.AmountOverride__c}" />
+                                                    	</div>
+                                                    </td>
+                                                    <td data-label="Category">
+                                                        <div class="slds-truncate" title="{!line.Category__c}">{!line.Category__c}</div>
+                                                    </td>
+                                                    <td data-label="Fee Code">
+                                                        <div class="slds-truncate" title="{!line.FeeCode__c}">{!line.FeeCode__c}</div>
+                                                    </td>
+                                                    <td data-label="FormDescription">
+                                                        <div class="slds-truncate" title="{!line.FormDescription__c}">{!line.FormDescription__c}</div>
+                                                    </td>
+                                                    <td data-label="Division">
+                                                        <div class="slds-truncate" title="{!line.Division__c}">{!line.Division__c}</div>
+                                                    </td>
+                                                </tr>
+                                        </aura:iteration>
+                                    </tbody>
+                                	<tfoot style="{!v.displayMoreCodes ? '' : 'display:none;'}">
+                                        <tr>
+                                        	<th></th>
+                                            <th>
+                                            	<a onclick="{!c.loadMoreLines}">Show more codes ...</a>
+                                            </th>
+                                        </tr>
+                                	</tfoot>
+                                </table>
+                            </div>
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand" label="Add Selected" onclick="{!c.finishAddLines}" />
+                                <lightning:button label="Cancel" onclick="{!c.closeAddLines}" />
+                            </footer>
+                        </div>
+                    </section>
+                    <div class="slds-backdrop slds-backdrop_open"></div>
+                </aura:if>
+            </div>
+          	<footer class="slds-card__footer">
+                <aura:if isTrue="{!v.errorSaving != ''}">
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">error</span>
+                        <h2>{!v.errorSaving}</h2>
+                    </div>
+                    <br /><br />
+                </aura:if>
+                <aura:if isTrue="{!v.initialized}">
+                    <lightning:button variant="brand" label="Add Lines" onclick="{!c.addLines}" />
+                	<lightning:button variant="brand" label="Save" onclick="{!c.saveForm}" disabled="{!v.disableSave}" />
+                </aura:if>
+                <lightning:button label="Cancel" onclick="{!c.cancelForm}" />
+          	</footer>
+        </article>
+    </div>
+    <!-- Total amount -->
+</aura:component>

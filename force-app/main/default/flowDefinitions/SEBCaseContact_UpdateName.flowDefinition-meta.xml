@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>1</activeVersionNumber>
+    <description>PacPoint - JB110818 - Created for BREG Phase 1 
+This flow is launched by a Process Builder on Creation of SEBCaseContact or on change of SEBCaseContact.Account__c or SEBCaseContact.Contact__c. 
+It does the following: 
+1. Looks up the Account__c and Contact__c field to see which if any is populated. 
+2. If Contact__c is populated, it will update the name with Contact First and Last Name plus the Role. 
+3. If Account is populated only, it will update the name with the Role and the Account information.</description>
+    <masterLabel>SEBCaseContact_UpdateName</masterLabel>
+</FlowDefinition>

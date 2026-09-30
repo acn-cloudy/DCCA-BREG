@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>242</locationX>
+        <locationY>1187</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Create_Task</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>RecipientList</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>noreply@dcca.hawaii.gov</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailDescription</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Notification</name>
+        <label>Send Notification</label>
+        <locationX>374</locationX>
+        <locationY>971</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>Document_upload</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <elementReference>Get_Notification_Type.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>Receipents</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>customNotificationAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Owners</name>
+        <label>Assign Owners</label>
+        <locationX>176</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>IntegrationUserID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Owner_ID.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>WordpressIntegrationID</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Wordpress_Integration.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>App_Owner_Wordpress_or_Integration</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Recipient</name>
+        <label>Recipient</label>
+        <locationX>374</locationX>
+        <locationY>863</locationY>
+        <assignmentItems>
+            <assignToReference>Receipents</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Send_Notification</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>App_Owner_Wordpress_or_Integration</name>
+        <label>App Owner Wordpress or Integration?</label>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Get_Notification_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>WordpressIntegrationID</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>IntegrationUserOwnerID</elementReference>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Document_upload</name>
+        <label>Document upload?</label>
+        <locationX>374</locationX>
+        <locationY>1079</locationY>
+        <defaultConnector>
+            <targetReference>Create_Task</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.UploadedPortalDocument__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>PacPoint KN 11/15/2023 - Used to create a task when a portal document is uploaded to an application AND/OR when a fee is paid on the portal. This task will be assigned to the owner of the Application.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <expression>IF(
+TEXT({!$Record.Applicant__r.Type}) = &quot;012t0000000PLy1AAG&quot;,
+{!$Record.Applicant__r.Contact__r.Id},
+{!$Record.Applicant__r.Id})</expression>
+    </formulas>
+    <formulas>
+        <name>Description</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISCHANGED({!$Record.UploadedPortalDocument__c}),
+NOT(ISNULL({!$Record.UploadedPortalDocument__c}))), 
+&quot;A Document has been uploaded on the portal for this Application, please review and update&quot;,
+&quot;The Applicant has paid the outstanding fee on the portal, please review and update&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EmailDescription</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISCHANGED({!$Record.UploadedPortalDocument__c}),
+NOT(ISNULL({!$Record.UploadedPortalDocument__c}))), 
+&quot;A Document has been uploaded on the portal for this Application, please review and update:&quot;
+&amp;BR()
+&amp;{!SalesforceURL},
+&quot;The Applicant has paid the outstanding fee on the portal, please review and update:&quot;
+&amp;BR()
+&amp;{!SalesforceURL}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>IntegrationUserOwnerID</name>
+        <dataType>String</dataType>
+        <expression>&quot;005t00000022GqIAAU&quot;</expression>
+    </formulas>
+    <formulas>
+        <name>RecipientList</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Owner:User.Email}</expression>
+    </formulas>
+    <formulas>
+        <name>SalesforceURL</name>
+        <dataType>String</dataType>
+        <expression>{!$Label.SalesforceURL}&amp;&quot;/&quot;&amp;{!$Record.Id}</expression>
+    </formulas>
+    <formulas>
+        <name>Subject</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISCHANGED({!$Record.UploadedPortalDocument__c}),
+NOT(ISNULL({!$Record.UploadedPortalDocument__c}))), 
+&quot;Portal Document Uploaded on Application: &quot;&amp; {!$Record.Name}, 
+&quot;Outstanding Amount Due = $0 on Application: &quot;&amp; {!$Record.Name}
+)</expression>
+    </formulas>
+    <interviewLabel>Application: New Task for Portal Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application: New Notification for Portal Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Task</name>
+        <label>Create Task</label>
+        <locationX>374</locationX>
+        <locationY>1379</locationY>
+        <inputAssignments>
+            <field>ActivityDate</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <stringValue>High</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Subject</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Type__c</field>
+            <value>
+                <stringValue>Inbound Notification</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>WhatId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Notification_Type</name>
+        <label>Get Notification Type</label>
+        <locationX>374</locationX>
+        <locationY>755</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Recipient</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Application_Portal_UploadFee_Paid_Notification</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CustomNotificationType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Owner_ID</name>
+        <label>Get Integration User</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Wordpress_Integration</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Integration User</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Wordpress_Integration</name>
+        <label>Get Wordpress Integration</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Owners</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Wordpress Integration</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Owner_ID</targetReference>
+        </connector>
+        <filterLogic>(1 AND 2) OR (3 AND 4) AND (8 OR 9) AND 5 AND 6 AND 7</filterLogic>
+        <filters>
+            <field>UploadedPortalDocument__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>UploadedPortalDocument__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OutstandingAmount__c</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OutstandingAmount__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OnlineApplicationType__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>A1 - Application Submitted, Awaiting Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>AP - Application Pending Submittal by Applicant/Licensee</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>LICN - New License</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>LICF - New License after Forfeiture</stringValue>
+            </value>
+        </filters>
+        <object>Application__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>IntegrationUserID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Receipents</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>WordpressIntegrationID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

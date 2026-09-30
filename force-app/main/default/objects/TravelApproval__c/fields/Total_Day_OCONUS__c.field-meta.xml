@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Day_OCONUS__c</fullName>
+    <externalId>false</externalId>
+    <formula>VALUE(TEXT(Rtn_Day_OCONUS__c)) +
+Full_Days_OCONUS__c +
+VALUE(TEXT(Dept_Day_OCONUS__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Totals Dept. Day + Full Days + Rtn. Day</inlineHelpText>
+    <label>Total Days OCONUS</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

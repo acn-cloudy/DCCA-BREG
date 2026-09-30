@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Call Recording" icon-name="utility:voicemail_drop">
+        <div class="slds-p-horizontal_small">
+            <template if:true={audioUrl}>
+                <audio controls class="slds-w-100">
+                    <source src={audioUrl} type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </template>
+        </div>
+    </lightning-card>
+</template>

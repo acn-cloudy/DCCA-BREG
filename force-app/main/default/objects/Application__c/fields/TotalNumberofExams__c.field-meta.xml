@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalNumberofExams__c</fullName>
+    <description>PacPoint FT 10.30.20 PVL</description>
+    <label>Total Number of Exams</label>
+    <summaryForeignKey>ExamsRequired__c.Application__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Report_for_Dean</fullName>
+    <columns>NAME</columns>
+    <columns>TravelerEmail__c</columns>
+    <columns>TravelType__c</columns>
+    <columns>TravelerName__c</columns>
+    <columns>ContactPerson__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>TravelApprovalStatus__c</columns>
+    <columns>FiscalYear__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TravelApprovalStatus__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <filters>
+        <field>TravelType__c</field>
+        <operation>equals</operation>
+        <value>Out-of-State</value>
+    </filters>
+    <label>Report for Dean</label>
+</ListView>

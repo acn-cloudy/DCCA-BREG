@@ -1,0 +1,217 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-m-bottom_medium slds-m-top_medium">{labels.BREG_PaymentConfirmation_PurchasedItems}</h2>
+        <div class="purchases-container">
+            <div class="purchases-content">
+                <div class="table-header slds-grid slds-wrap slds-border_bottom slds-p-vertical_small">
+                    
+                    <div class="slds-col slds-size_3-of-12 slds-text-align_left column-header">
+                        <span>{labels.BREG_PaymentConfirmation_Item}</span>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12 slds-text-align_center column-header">
+                        <span>{labels.BREG_Delivery_Method}</span>
+                    </div>
+
+                    <template lwc:if={isMyDashboardPage}>
+                        <div class="slds-col slds-size_2-of-12 slds-text-align_center column-header">
+                            <span>{labels.BREG_PaymentConfirmation_PurchaseDate}</span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12 slds-text-align_center column-header">
+                            <span>Quantity</span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 slds-text-align_center column-header">
+                            <span>{labels.BREG_Action}</span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12 slds-text-align_right column-header">
+                            <span>{labels.BREG_PaymentConfirmation_Price}</span>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <div class="slds-col slds-size_2-of-12 slds-text-align_center column-header">
+                            <span>Quantity</span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 slds-text-align_center column-header">
+                            <span>{labels.BREG_Action}</span>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12 slds-text-align_right column-header">
+                            <span>{labels.BREG_PaymentConfirmation_Price}</span>
+                        </div>
+                    </template>
+                    
+                </div>
+                    
+                <template for:each={formattedTransactionLines} for:item="line">
+                    <div key={line.uniqueKey} class="slds-grid slds-wrap slds-border_bottom slds-p-vertical_x-small">
+                        <!-- Item column -->
+                        <div class="slds-col slds-size_3-of-12 slds-text-align_left">
+                            
+                            <div class="slds-grid slds-grid_vertical">
+                                <template lwc:if={line.entityName}>
+                                    <div class="slds-text-body_regular">
+                                        <lightning-formatted-url class="custom-link" value={line.entityUrl} label={line.entityName} target="_blank">
+                                        </lightning-formatted-url>
+                                    </div>
+                                </template>
+                                <div class="slds-text-color_weak slds-text-body_small">
+                                    <template lwc:if={line.workItemNumber}>
+                                        <strong>{line.workItemNumber}</strong>:&nbsp;
+                                    </template>
+                                    {line.description}
+                                </div>
+                                <template lwc:if={line.caseStatus}>
+                                    <div class="slds-text-color_weak slds-text-body_small slds-grid slds-grid_align-start">
+                                        <strong>Work Item Status</strong>:&nbsp;{line.caseStatus}
+                                    </div>
+                                </template>
+                                <template lwc:if={line.documentType}>
+                                    <div class="slds-text-color_weak slds-text-body_small slds-grid slds-grid_align-start">
+                                        <lightning-icon
+                                            icon-name={line.iconName}
+                                            alternative-text={line.documentType}
+                                            size="x-small"
+                                            class="slds-m-right_x-small"
+                                        >
+                                        </lightning-icon>
+                                        {line.documentType}
+                                    </div>
+                                </template>
+                                <div class="slds-text-body_small slds-m-top_xx-small">
+                                    <template lwc:if={line.isCertified}>
+                                        <lightning-badge label="Certified" class="slds-m-right_xx-small slds-badge"></lightning-badge>
+                                    </template>
+                                    <template lwc:if={line.isExpedited}>
+                                        <lightning-badge label="Expedited" class="slds-badge"></lightning-badge>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delivery Method column -->
+                        <div class="slds-col slds-size_3-of-12 slds-text-align_center">
+                            <template lwc:if={line.deliveryMethod}>
+                                <div class="slds-grid slds-grid_vertical slds-align_absolute-center">
+                                    <div class="slds-text-body_regular info-value">
+                                        {line.deliveryMethod}
+                                    </div>
+                                </div>
+                            </template>
+                            <template lwc:else>
+                                <div class="slds-text-body_regular slds-text-align_center">
+                                    -
+                                </div>
+                            </template>
+                        </div>
+                        <!-- My Dashboard page -->
+                        <template lwc:if={isMyDashboardPage}>
+                            <!-- Purchase Date column -->
+                            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                                <span class="slds-text-body_regular">{line.formattedPurchaseDate}</span>
+                            </div>
+                            <!-- Quantity column -->
+                            <div class="slds-col slds-size_1-of-12 slds-text-align_center">
+                                <span class="slds-text-body_regular">{line.quantity}</span>
+                            </div>
+                            <!-- Action column -->
+                            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                                <!-- View action -->
+                                <lightning-formatted-url class="custom-link" value={line.paymentConfirmationLink} label="View" target="_blank"></lightning-formatted-url>
+                                <br/>
+                                <!-- Download action -->
+                                <template lwc:if={line.isAvailableToDownload}>
+                                    <a href="javascript:void(0)" 
+                                        class="slds-text-link" 
+                                        onclick={handleDownload}
+                                        data-line-index={line.lineIndex}><strong>{labels.BREG_PaymentConfirmation_Download}</strong></a>
+                                </template>
+                            </div>
+                            <!-- Price column -->
+                            <div class="slds-col slds-size_1-of-12 slds-text-align_right">
+                                <span class="slds-text-body_regular"><lightning-formatted-number value={line.price} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+                            </div>
+                        </template>
+                        <!-- Payment Confirmation page -->
+                        <template lwc:else>
+                            <!-- Quantity column -->
+                            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                                <span class="slds-text-body_regular">{line.quantity}</span>
+                            </div>
+                            <!-- Action column -->
+                            <div class="slds-col slds-size_2-of-12 slds-text-align_center">
+                                <!-- Download action -->
+                                <template lwc:if={line.isAvailableToDownload}>
+                                    <a href="javascript:void(0)" 
+                                        class="slds-text-link" 
+                                        onclick={handleDownload}
+                                        data-line-index={line.lineIndex}><strong>{labels.BREG_PaymentConfirmation_Download}</strong></a>
+                                </template>
+                            </div>
+                            <!-- Price column -->
+                            <div class="slds-col slds-size_2-of-12 slds-text-align_right">
+                                <span class="slds-text-body_regular"><lightning-formatted-number value={line.price} format-style="currency" currency-code="USD"></lightning-formatted-number></span>
+                            </div>
+                        </template>
+                        
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Pagination Controls - Only show on My Dashboard page -->
+        <template lwc:if={isMyDashboardPage}>
+            <div
+                lwc:if={formattedData.length}
+                class="slds-grid slds-p-top_medium slds-p-bottom_medium slds-align_absolute-center slds-grid_align-spread pagination-row"
+            >
+                <div class="pagination-items slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <span>{displayRange}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-align_absolute-center">
+                    <button class="pagination-btn" onclick={goToFirstPage} title="First Page" disabled={isFirstPage}>&laquo;</button>
+                    <button class="pagination-btn" onclick={handlePrevPage} title="Previous Page" disabled={isFirstPage}>&lsaquo;</button>
+                    <span class="slds-m-horizontal_medium">Page {currentPage} of {totalPages}</span>
+                    <button class="pagination-btn" onclick={handleNextPage} title="Next Page" disabled={isLastPage}>&rsaquo;</button>
+                    <button class="pagination-btn" onclick={goToLastPage} title="Last Page" disabled={isLastPage}>&raquo;</button>
+                </div>
+                <div class="pagination-items slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-grid slds-grid_align-end">
+                    <div class="items-per-page-selector">
+                        <select class="slds-select" onchange={handlePageSizeChange}>
+                            <template for:each={pageSizeOptions} for:item="option">
+                                <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                            </template>
+                        </select>
+                        <span class="slds-m-left_x-small items-per-page-label">{labels.itemsPerPage}</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Download Documents Modal -->
+        <template lwc:if={isDownloadModalOpen}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-label="Available Documents" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"></lightning-icon>
+                        </button>
+                        <h2 class="slds-modal__title slds-hyphenate">Available Documents</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <template for:each={modalDocuments} for:item="doc">
+                            <div key={doc.index} class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-p-vertical_x-small slds-border_bottom">
+                                <span class="slds-text-body_regular">{doc.name}</span>
+                                <button
+                                    class="slds-button slds-button_brand slds-m-left_medium"
+                                    data-doc-index={doc.index}
+                                    onclick={handleDownloadSingleDocument}
+                                >
+                                    {labels.BREG_PaymentConfirmation_Download}
+                                </button>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={handleCloseModal}>Close</button>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+</template>

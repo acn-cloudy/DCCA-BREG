@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Email_Addresses__c</fullName>
+    <description>PacPoint-CZ101919 - Created for 4GOV phase 1</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>To Email Addresses</label>
+    <required>false</required>
+    <type>TextArea</type>
+</CustomField>

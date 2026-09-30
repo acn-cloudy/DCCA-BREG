@@ -1,0 +1,115 @@
+<template>
+    <header class="slds-grid slds-wrap">
+        <div class="first-row slds-size_1-of-1 slds-var-p-around_medium">
+            <!-- Top bar -->
+            <div class="content slds-grid slds-grid_align-spread dxp-s-text-heading-small">
+                <div class="links">
+                    <a href="https://www.hawaii.gov" target="_blank" class="slds-var-p-right_large">Hawaii.gov</a>
+                    <a href="https://cca.hawaii.gov/breg" target="_blank">DCCA BREG</a>
+                </div>
+                <div class="contact-us slds-container_right slds-grid">
+                    <lightning-icon icon-name="utility:call" alternative-text="Phone" size="small" class="slds-var-m-right_x-small"></lightning-icon>
+                    <a href="tel:1-844-808-3222" class="contact"> Contact Us </a>
+                </div>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium slds-size_1-of-1 slds-grid slds-grid_align-center">
+            <div class="content slds-grid slds-grid_align-spread dxp-s-text-heading-small slds-media_center">
+                <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                    <div class="logo-container"></div>
+                    <div class="title slds-var-p-left_medium">
+                        <h1 class="slds-text-heading_medium">Hawaii Business Express</h1>
+                    </div>
+                </div>
+                <div class="desktop-menu slds-col_bump-left">
+                    <c-breg_-main-menu is-not-guest={isNotGuest}></c-breg_-main-menu>
+                </div>
+                <template lwc:if={isNotGuest}>
+                    <div class="desktop-menu user-menu-container">
+                        <div class="user-menu">
+                            <div class="avatar" onclick={toggleDropdown}>
+                                <span>{userInitials}</span>
+                            </div>
+                            <div class="username">{userName}</div>
+
+                            <template if:true={showDropdown}>
+                                <div class="dropdown">
+                                    <p class="dropdown-item" onclick={handleEditAccount}>Account Settings</p>
+                                    <p class="dropdown-item" onclick={handleLogout}>Logout</p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+                <template lwc:else>
+                    <lightning-button
+                        icon-name="utility:forward"
+                        icon-position="right"
+                        variant="brand"
+                        label="Login"
+                        class="desktop-menu"
+                        onclick={handleLoginClick}
+                    ></lightning-button>
+                </template>
+
+                <template if:true={isMenuOpen}>
+                    <lightning-button-icon
+                        icon-name="utility:close"
+                        alternative-text="Close menu"
+                        size="large"
+                        variant="bare"
+                        class="burger icon-close"
+                        onclick={toggleMenu}
+                    >
+                    </lightning-button-icon>
+                </template>
+
+                <template if:false={isMenuOpen}>
+                    <lightning-button-icon
+                        icon-name="utility:rows"
+                        alternative-text="Open menu"
+                        size="large"
+                        variant="bare"
+                        class="burger"
+                        onclick={toggleMenu}
+                    >
+                    </lightning-button-icon>
+                </template>
+
+                <template if:true={isMenuOpen}>
+                    <div class="mobile-menu">
+                        <c-breg_-main-menu onclosemenu={closeMenu}></c-breg_-main-menu>
+
+                        <template lwc:if={isNotGuest}>
+                            <div class="user-menu-container">
+                                <div class="user-menu">
+                                    <div class="avatar" onclick={toggleDropdown}>
+                                        <span>{userInitials}</span>
+                                    </div>
+                                    <div class="username">{userName}</div>
+
+                                    <template if:true={showDropdown}>
+                                        <div class="dropdown">
+                                            <p class="dropdown-item" onclick={handleEditAccount}>Account Settings</p>
+                                            <p class="dropdown-item" onclick={handleLogout}>Logout</p>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                        <template lwc:else>
+                            <lightning-button
+                                icon-name="utility:forward"
+                                icon-position="right"
+                                variant="brand"
+                                label="Login"
+                                class=""
+                                onclick={handleLoginClick}
+                            ></lightning-button>
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </header>
+</template>

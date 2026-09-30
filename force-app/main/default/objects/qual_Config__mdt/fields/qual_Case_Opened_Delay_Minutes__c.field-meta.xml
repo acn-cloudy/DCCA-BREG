@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Case_Opened_Delay_Minutes__c</fullName>
+    <defaultValue>120</defaultValue>
+    <description>Minutes to delay sending Opened and Updated events to allow data enrichment (e.g., UJET session data). Set to 0 for immediate send. Closed events always send immediately regardless of this setting.</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Opened/Updated Delay Minutes</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

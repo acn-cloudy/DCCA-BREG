@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEBCaseOwnerEmail__c</fullName>
+    <description>PacPoint-JB102518 - Created for BREG phase 1: Used in Flow</description>
+    <externalId>false</externalId>
+    <formula>IF(LEFT(SEBCase__r.OwnerId,3)= &apos;00G&apos;,  SEBCase__r.Owner:Queue.QueueEmail,  SEBCase__r.Owner:User.Email )</formula>
+    <label>SEBCaseOwnerEmail</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

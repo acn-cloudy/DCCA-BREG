@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>BREG_Case_to_all_BREG_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>BREG Case to all BREG Users</description>
+        <label>BREG Case to all BREG Users</label>
+        <sharedTo>
+            <group>BREG_Internal_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BREG Case</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>BREG_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>BREG Complaints</label>
+        <sharedTo>
+            <group>Complaints_BREG</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BREG Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>BREG_Refund_Case_to_all_BREG_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>BREG Refund Case to all BREG Users</label>
+        <sharedTo>
+            <group>BREG_Internal_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BREG Refund Request Case</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CATV_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>CATV Complaints</label>
+        <sharedTo>
+            <group>Complaints_CATV</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CATV Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing rule for call center to view all related call center cases</description>
+        <label>Call Center</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Call_Center</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_BREG_Bus_Registration</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for BREG Bus Registration</label>
+        <sharedTo>
+            <group>BREG_Business_Registration</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>INS_Branch_v2__c</field>
+            <operation>equals</operation>
+            <value>Business Registration</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_BREG_Sec_Compliance</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for BREG Sec Compliance</label>
+        <sharedTo>
+            <group>BREG_Securities_Compliance</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>INS_Branch_v2__c</field>
+            <operation>equals</operation>
+            <value>Securities Compliance / Investor Education</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_BREG_Sec_Enforcement</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for BREG Sec Enforcement</label>
+        <sharedTo>
+            <group>BREG_Securities_Enforcement</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>INS_Branch_v2__c</field>
+            <operation>equals</operation>
+            <value>Securities Enforcement</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_BREG_Supervisors</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for BREG Supervisors</label>
+        <sharedTo>
+            <group>BREG_Supervisors</group>
+        </sharedTo>
+        <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>BREG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Incoming_Division__c</field>
+            <operation>equals</operation>
+            <value>General,BREG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_INS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for INS</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>INS</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>INS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Incoming_Division__c</field>
+            <operation>equals</operation>
+            <value>General,INS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_OCPv2</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for OCP</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>OCP</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>OCP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Incoming_Division__c</field>
+            <operation>equals</operation>
+            <value>General,OCP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Call_Center_for_PVL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Call Center for PVL</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVL</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 AND (2 OR (3 AND 4))</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value>PVL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Incoming_Division__c</field>
+            <operation>equals</operation>
+            <value>General,PVL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Final_Division__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Case_Call_Center_for_PVL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Case Call Center for PVL</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>PVL</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Call Center</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Case_Sharings_with_Standard_User</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Sharing cases for BREG Standard Users</description>
+        <label>Case_Sharings_with_Standard_User</label>
+        <sharedTo>
+            <group>BREG_BAC</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BREG Case</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Complaints_ALL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Complaints ALL</label>
+        <sharedTo>
+            <group>Complaints_ALL</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DCA Complaint,DO Referral,OCP Complaint,DFI Complaint,CATV Complaint,RICO Complaint,General Complaint,BREG Complaint,INS Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Complaints_RICO</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Complaints RICO</label>
+        <sharedTo>
+            <group>Complaints_RICO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>RICO Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DCA_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DCA Complaints</label>
+        <sharedTo>
+            <group>ComplaintsDCA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DCA Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DCCA_Email_Support_Cases</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Access to Email Support case record types</description>
+        <label>DCCA Email Support Cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>DCCA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Origin</field>
+            <operation>equals</operation>
+            <value>Email</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Email Support</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DFI_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DFI Complaints</label>
+        <sharedTo>
+            <group>Complaints_DFI</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DFI Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>DO_Referral</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>DO Referral</label>
+        <sharedTo>
+            <group>Complaints_DO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DO Referral</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>GeneralComplaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>General Complaints</label>
+        <sharedTo>
+            <group>Complaints_General</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>INS_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>INS Complaints</label>
+        <sharedTo>
+            <group>Complaints_INS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>INS Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>OCP_Complaints</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>OCP Complaints</label>
+        <sharedTo>
+            <group>Complaints_OCP</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>OCP Complaint</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>GuestUserCaseAccessCableComplaint</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>GuestUserCaseAccessCableComplaint</label>
+        <sharedTo>
+            <guestUser>dcca</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CATV Complaint</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>GuestUserCaseAccessDCAComplaint</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>GuestUserCaseAccessDCAComplaint</label>
+        <sharedTo>
+            <guestUser>dcca</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DCA Complaint</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>GuestUserCaseAccessDFIComplaint</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>GuestUserCaseAccessDFIComplaint</label>
+        <sharedTo>
+            <guestUser>dcca</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>DFI Complaint</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>GuestUserCaseAccessGeneralComplaint</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>GuestUserCaseAccessGeneralComplaint</label>
+        <sharedTo>
+            <guestUser>dcca</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General Complaint</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

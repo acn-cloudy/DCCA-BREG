@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>ASO</fullName>
+        <default>false</default>
+        <label>ASO</label>
+    </customValue>
+    <customValue>
+        <fullName>BREG</fullName>
+        <default>false</default>
+        <label>BREG</label>
+    </customValue>
+    <customValue>
+        <fullName>CATV</fullName>
+        <default>false</default>
+        <label>CATV</label>
+    </customValue>
+    <customValue>
+        <fullName>DCA</fullName>
+        <default>false</default>
+        <label>DCA</label>
+    </customValue>
+    <customValue>
+        <fullName>DFI</fullName>
+        <default>false</default>
+        <label>DFI</label>
+    </customValue>
+    <customValue>
+        <fullName>DO</fullName>
+        <default>false</default>
+        <label>DO</label>
+    </customValue>
+    <customValue>
+        <fullName>HPEAP</fullName>
+        <default>false</default>
+        <label>HPEAP</label>
+    </customValue>
+    <customValue>
+        <fullName>INS</fullName>
+        <default>false</default>
+        <label>INS</label>
+    </customValue>
+    <customValue>
+        <fullName>ISCO</fullName>
+        <default>false</default>
+        <label>ISCO</label>
+    </customValue>
+    <customValue>
+        <fullName>OAH</fullName>
+        <default>false</default>
+        <label>OAH</label>
+    </customValue>
+    <customValue>
+        <fullName>OCP</fullName>
+        <default>false</default>
+        <label>OCP</label>
+    </customValue>
+    <customValue>
+        <fullName>PUC</fullName>
+        <default>false</default>
+        <label>PUC</label>
+    </customValue>
+    <customValue>
+        <fullName>PVL</fullName>
+        <default>false</default>
+        <label>PVL</label>
+    </customValue>
+    <customValue>
+        <fullName>RICO</fullName>
+        <default>false</default>
+        <label>RICO</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiscal</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Fiscal</label>
+    </customValue>
+    <customValue>
+        <fullName>Audit</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Audit</label>
+    </customValue>
+    <customValue>
+        <fullName>Admin Support Officer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Admin Support Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>Compliance</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Compliance</label>
+    </customValue>
+    <customValue>
+        <fullName>Case Management</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Case Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Case Manager</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Case Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Chief Counsel</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Chief Counsel</label>
+    </customValue>
+    <customValue>
+        <fullName>Commissioner</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Commissioner</label>
+    </customValue>
+    <customValue>
+        <fullName>Engineering</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Engineering</label>
+    </customValue>
+    <customValue>
+        <fullName>Communications</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Communications</label>
+    </customValue>
+    <customValue>
+        <fullName>Clerical Services</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Clerical Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Compliance Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Compliance Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Section Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Section Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Policy &amp; Research Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Policy &amp; Research Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiscal Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Fiscal Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Clerical Services Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Clerical Services Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Case Management Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Case Management Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Audit Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Audit Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Engineering Head</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Engineering Head</label>
+    </customValue>
+    <customValue>
+        <fullName>Staff</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Staff</label>
+    </customValue>
+    <customValue>
+        <fullName>Policy &amp; Research</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Policy &amp; Research</label>
+    </customValue>
+    <customValue>
+        <fullName>OPR Economist</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OPR Economist</label>
+    </customValue>
+    <customValue>
+        <fullName>OPR Utility Analyst</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OPR Utility Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>OCC Legal Assistant</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>OCC Legal Assistant</label>
+    </customValue>
+    <description>Pre-Defined Case Team Roles. Using Global value set because may be used in other places like ActionPlanTemplateItem</description>
+    <masterLabel>Case Team Roles</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

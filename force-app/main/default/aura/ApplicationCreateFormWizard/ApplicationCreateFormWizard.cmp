@@ -1,0 +1,32 @@
+<aura:component
+        implements="lightning:actionOverride,force:hasRecordId,force:lightningQuickAction,flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="selectableLicense" type="Map"/>
+    <aura:attribute name="selectedLicense" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div>
+        <c:FormWizard aura:id="wizardForm" showNavButtons="false">
+            <c:FormWizardSection label="Select License Type">
+                <c:ComboBoxSearchable selectedValue="{!v.selectedLicense}" options="{!v.selectableLicense}"/>
+            </c:FormWizardSection>
+            <c:FormWizardSection label="Step 2">
+                section2
+            </c:FormWizardSection>
+            <c:FormWizardSection label="Step 3">
+                section3
+            </c:FormWizardSection>
+            <c:FormWizardSection label="Step 4">
+                section4
+            </c:FormWizardSection>
+            <c:FormWizardSection label="Step 5">
+                section5
+            </c:FormWizardSection>
+        </c:FormWizard>
+    </div>
+    <div>
+        <lightning:buttonGroup>
+            <lightning:button value="Back" label="Back" onclick="{!c.goBack}"/>
+            <lightning:button value="Next" label="Next" onclick="{!c.goNext}"/>
+        </lightning:buttonGroup>
+    </div>
+</aura:component>

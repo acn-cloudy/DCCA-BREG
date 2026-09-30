@@ -1,0 +1,29 @@
+<design:component>
+    <design:attribute name="allLicenseReportRecordId" label="All Associated Licenses Report Record Id" description="The record Id of the report used for the All Associated Licenses link, for associated licenses related list."/>
+    <design:attribute name="title" label="Title"/>
+    <design:attribute name="childRelationship1ApiName" label="Child Rel API Name"
+                      description="e.g. Application_Deficiencies__r"/>
+    <design:attribute name="allowNew" label="Allow Create"/>
+    <design:attribute name="createNewDefFields" label="Create New Fields"/>
+    <design:attribute name="child1Columns" label="Child Rel Fields API Name"
+                      description="e.g. REQMT__c,SUB__c,IsDeficient__c,Phase__c"/>
+    <design:attribute name="child1EditableColumns" label="Child Rel Editable Fields API Name"
+                      description="IsDeficient__c,Phase__c"/>
+    <design:attribute name="child1SortFieldApiName" label="Child Rel Sort Field API Name"/>
+    <design:attribute name="child1SortDirection" label="Child Rel Sort Field" datasource="ASC,DESC" default="ASC"/>
+    <design:attribute name="child1AdditionalOrderByStatement" label="Child Additional Sorting Statement" description="e.g. Field__c DESC, AnotherField__c ASC"/>
+
+    <design:attribute name="childRelationship2ApiName" label="Sub Child Rel API Name"
+                      description="e.g. ApplicationRequirements__r"/>
+    <design:attribute name="child2Columns" label="Sub Child Rel Fields API Name"
+                      description="e.g. RequirementShortDescription__c,RequirementLongDescription__c,Remarks__c"/>
+    <design:attribute name="child2EditableColumns" label="Sub Child Rel Editable Fields API Name"
+                      description="e.g. Phase__c,Remarks__c"/>
+    <design:attribute name="child2SortFieldApiName" label="Sub Child Rel Sort Field API Name"/>
+    <design:attribute name="child2SortDirection" label="Sub Child Rel Sort Direction" datasource="ASC,DESC"
+                      default="ASC"/>     
+    <design:attribute name="massUpdateEnabled" label="Enable mass updates"/>
+    <design:attribute name="massUpdateJSONString" label='Mass update JSON ex {"actions":[{"fields":[{"field":"IsDeficient__c", "value":false}], "label": "Mark all as Not Deficient", "helpText": "Sets Is Deficient to false for all requirements on this application","id":"updateDeficientFalse"}]}'/>
+    <design:attribute name="filtersEnabled" label="Enable filters"/>
+    <design:attribute name="filtersJSONString" label='Filter JSON ex {"filters":[{"id": "DeficientTrue", "field":"IsDeficient__c", "label":"Deficient","type":"toggle","value":true, "helpText":"Filters to only show deficient requirements on this application","activeLabel":"Only showing Deficient","inactiveLabel":"Showing all", "active":false, "filterChildren": true}]}'/>
+</design:component>

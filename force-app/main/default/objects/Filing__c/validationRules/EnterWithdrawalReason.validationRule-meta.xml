@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnterWithdrawalReason</fullName>
+    <active>true</active>
+    <description>PacPoint-IC101618 - Created for BREG phase 1</description>
+    <errorConditionFormula>ISPICKVAL(Status__c, &apos;Filing Withdrawn&apos;) &amp;&amp; NOT($Profile.Name = &apos;Customer Community User&apos;) &amp;&amp;  NOT($Profile.Name = &apos;Customer Community Login User&apos;) &amp;&amp; ISBLANK(Text( Withdrawal_Reason_Picklist__c ))</errorConditionFormula>
+    <errorDisplayField>WithdrawalReason__c</errorDisplayField>
+    <errorMessage>You must enter a Withdrawal Reason</errorMessage>
+</ValidationRule>

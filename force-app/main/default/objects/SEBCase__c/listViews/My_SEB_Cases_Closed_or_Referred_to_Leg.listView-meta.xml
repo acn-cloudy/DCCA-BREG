@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_SEB_Cases_Closed_or_Referred_to_Leg</fullName>
+    <columns>SEBCaseNumber__c</columns>
+    <columns>NAME</columns>
+    <columns>DateReceived__c</columns>
+    <columns>Account__c</columns>
+    <columns>Status__c</columns>
+    <columns>Disposition__c</columns>
+    <columns>Subject__c</columns>
+    <columns>RespondentFirstName__c</columns>
+    <columns>RespondentLastName__c</columns>
+    <columns>RespondentsBusinessName__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>SEBCaseNumber__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Investigation_Recommended_to_Close_Legal__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My SEB Cases-Closed or Referred to Legal</label>
+</ListView>

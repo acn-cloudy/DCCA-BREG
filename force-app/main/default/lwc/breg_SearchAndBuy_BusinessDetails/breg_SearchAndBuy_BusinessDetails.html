@@ -1,0 +1,93 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center slds-p-top_xx-large">
+            <lightning-spinner alternative-text="Loading entity details" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Main Content -->
+    <template if:false={isLoading}>
+        <template if:true={showHeader}>
+            <!-- Header with Entity Name and Back Button -->
+            <div>
+                <!-- Entity Name and Back Button -->
+                <div class="slds-grid slds-m-bottom_xxx-small slds-align_absolute-center slds-align-middle">
+                    <div class="entity-header slds-col slds-grid slds-align-middle">
+                        <h1 class="dxp-text-heading-xlarge title slds-m-bottom_none">{displayName}</h1>
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <button onclick={handleBackToSearch} class="new-search-btn">
+                                <lightning-icon
+                                    icon-name="utility:back"
+                                    alternative-text={labels.backToSearchResults}
+                                    size="x-small"
+                                    class="new-search-icon"
+                                ></lightning-icon>
+                                <p>{labels.backToSearchResults}</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Entity Type Label -->
+                <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                    <p>{entityTypeLabel}</p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Tabs Section -->
+        <div>
+            <lightning-tabset>
+                <template if:true={showCompanyInformationTab}>
+                    <lightning-tab label={labels.allCompanyInformation} icon-name="utility:info" value="company-information">
+                        <c-breg_-search-and-buy_-company-information
+                            company-info-fields={companyInfoFields}
+                            annual-filing-data={annualFilingData}
+                            other-filing-data={otherFilingData}
+                            account-affiliation-data={accountAffiliationData}
+                            stock-data={stockData}
+                            tn-tm-sm-data={tnTmSmData}
+                            annual-filing-columns={annualFilingColumns}
+                            other-filing-columns={otherFilingColumns}
+                            account-affiliation-columns={accountAffiliationColumns}
+                            stock-columns={stockColumns}
+                            tn-tm-sm-columns={tnTmSmColumns}
+                            is-account-object={isAccountObject}
+                            is-tn-tm-sm-object={isTnTmSmObject}
+                            is-in-good-standing={isInGoodStanding}
+                            good-standing-message={goodStandingMessage}
+                            record-id={recordId}
+                        >
+                        </c-breg_-search-and-buy_-company-information>
+                    </lightning-tab>
+                </template>
+
+                <template if:true={showFormsTab}>
+                    <lightning-tab label={labels.forms} icon-name="utility:form" value="forms">
+                        <c-breg_-search-and-buy_-forms 
+                            forms={formConfigurationsData}
+                            is-internal-context={isInternalContextForFormsTab}
+                            record-id={recordId}
+                            is-account-object={isAccountObject}
+                        > 
+                        </c-breg_-search-and-buy_-forms>
+                    </lightning-tab>
+                </template>
+                
+                <template if:true={showAvailableDocumentsTab}>
+                    <lightning-tab label={labels.buyAvailableDocs} icon-name="utility:cart" value="buy-available-docs">
+                        <c-breg_-search-and-buy_-buy-available-docs
+                            account-name={displayName}
+                            record-id={recordId}
+                            is-account-object={isAccountObject}
+                            buy-available-docs={buyAvailableDocsData}
+                            buy-available-docs-columns={buyAvailableDocsColumns}
+                            is-internal-context={isInternalContextForAvailableDocumentsTab}
+                        >
+                        </c-breg_-search-and-buy_-buy-available-docs>
+                    </lightning-tab>
+                </template>
+            </lightning-tabset>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subject__c</fullName>
+    <description>PacPoint-KN09162020-Created for PVL CE and INS Portal</description>
+    <label>Subject</label>
+    <referenceTo>Subject__c</referenceTo>
+    <relationshipLabel>Instructors / Subjects</relationshipLabel>
+    <relationshipName>Instructors_Subjects</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

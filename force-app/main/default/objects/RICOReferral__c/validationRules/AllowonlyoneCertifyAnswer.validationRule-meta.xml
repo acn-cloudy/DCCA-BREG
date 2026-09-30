@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllowonlyoneCertifyAnswer</fullName>
+    <active>true</active>
+    <errorConditionFormula>CertifySelection__c = &quot;BOTH&quot;</errorConditionFormula>
+    <errorMessage>In the Disciplinary Actions section, indicate if the Board Received Notice or not.  You selected both.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,27 @@
+.THIS:hover .showable-overflow {
+    display: flex;
+    visibility: visible;
+}
+
+.THIS.popoverClass {
+    min-height: 100px;
+    font-weight: bold;
+    max-width: 500px;
+}
+
+.THIS td .slds-form-element__label {
+    display: none;
+}
+
+.THIS .showable-overflow {
+    visibility: hidden;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+}
+
+.THIS .showable-overflow:hover {
+    box-shadow: -2px 2px 5px #ccc;
+}

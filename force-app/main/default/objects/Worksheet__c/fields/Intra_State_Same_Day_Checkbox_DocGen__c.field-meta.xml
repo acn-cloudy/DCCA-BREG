@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intra_State_Same_Day_Checkbox_DocGen__c</fullName>
+    <description>PacPoint: 00011690 - Created for Spring CM doc generation because client needs an &quot;x&quot; as a value instead of True/False.</description>
+    <externalId>false</externalId>
+    <formula>IF(IntraStateSameDayCheckbox__c = TRUE, &quot;x&quot;, NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Intra-State Same Day Checkbox DocGen</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

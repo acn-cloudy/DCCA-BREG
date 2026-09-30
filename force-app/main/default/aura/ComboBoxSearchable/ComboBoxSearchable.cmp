@@ -1,0 +1,22 @@
+<aura:component>
+    <aura:attribute name="options" type="Object[]"/>
+    <aura:attribute name="label" type="String" default="Select"/>
+    <aura:attribute name="selectedLabel" type="string"/>
+    <aura:attribute name="selectedValue" type="String"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.options}" action="{!c.initItems}"/>
+    <div class="slds-combobox_container">
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aura:id="comboBoxInputSearch">
+            <ui:inputText keyup="{!c.initItems}"
+                          focus="{!c.showOptions}"
+                          value="{!v.selectedValue}"
+                          updateOn="keyup"/>
+            <div id="listbox-id-9" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        {!v.body}
+                </ul>
+            </div>
+        </div>
+    </div>
+</aura:component>

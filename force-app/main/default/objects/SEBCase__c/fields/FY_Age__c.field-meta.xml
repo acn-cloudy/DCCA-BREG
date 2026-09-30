@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FY_Age__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISPICKVAL(Status__c, &quot;Closed&quot;),
+DATEVALUE(ClosedDateTime__c) - DATEVALUE(CreatedDate),
+DATEVALUE(IF(ISBLANK((ClosedDateTime__c) ),(NOW()-167),(ClosedDateTime__c ))) - DATEVALUE(CreatedDate)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>FY Age</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

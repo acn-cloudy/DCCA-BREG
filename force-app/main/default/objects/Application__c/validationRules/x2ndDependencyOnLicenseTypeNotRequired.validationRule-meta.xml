@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>x2ndDependencyOnLicenseTypeNotRequired</fullName>
+    <active>true</active>
+    <description>PacPoint:RdG032020 - PVL Phase 1 - Case 6992 | Check if 
+ 2nd Dependency on the License Type not required before the Application can be moved to Phase L</description>
+    <errorConditionFormula>AND( ISPICKVAL( Phase__c, &apos;L - License Review&apos;) || ISPICKVAL( Status__c, &apos;HC - Application Completed&apos;) , ISPICKVAL(Type__c, &apos;LICN - New License&apos;) || ISPICKVAL(Type__c, &apos;LICF - New License After Forfeiture&apos;) || ISPICKVAL(Type__c, &apos;REAC - Reactivation&apos;) ,
+LicenseType__r.X2ndDependencyRequired__c = true,
+OR( ISBLANK (DependentLicense2__c),
+NOT(ISPICKVAL(DependentLicense2__r.ActiveInactive__c, &apos;Active&apos;))
+)
+)</errorConditionFormula>
+    <errorDisplayField>DependentLicense2__c</errorDisplayField>
+    <errorMessage>2nd Dependency is required for the License Type. Please populate the Dependent License field on the Application. The 2nd Dependency License must be active before the Application can move to Phase L.</errorMessage>
+</ValidationRule>

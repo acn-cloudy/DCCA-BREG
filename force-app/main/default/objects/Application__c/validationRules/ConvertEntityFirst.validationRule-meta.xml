@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConvertEntityFirst</fullName>
+    <active>true</active>
+    <description>PacPoint-MV010419 - Created for PVL phase 1 to avoid the issues of duplicate associated records.</description>
+    <errorConditionFormula>IF(
+ AND(
+   ISCHANGED(GenerateLicense__c),
+   GenerateLicense__c = true,
+   NOT(ISBLANK(DependentApplication__c)),
+   ISBLANK(DependentApplication__r.CurrentLicense__c ),
+   OR(
+      DependentApplication__r.LicenseType__r.Name=&quot;PDA&quot;,
+      DependentApplication__r.LicenseType__r.Name = &quot;GDA&quot;, 
+      DependentApplication__r.LicenseType__r.Name = &quot;PCO - Entity&quot;,
+      DependentApplication__r.LicenseType__r.Name = &quot;CT - Entity&quot;
+   )
+), 
+ true, 
+ false
+)</errorConditionFormula>
+    <errorMessage>Please convert the Entity Application first.</errorMessage>
+</ValidationRule>

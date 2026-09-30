@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FeeAcknowledgement</fullName>
+    <active>true</active>
+    <description>PacPoint-MV021320 - Created for DFI phase 1.</description>
+    <errorConditionFormula>IF(
+ NOT(AcknowledgementOfTotalFees__c) &amp;&amp; NOT(Acknowledgementof35Fee__c ) , 
+ true, 
+ false
+)</errorConditionFormula>
+    <errorMessage>Please acknowledge the fee cost</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InactiveStatusReadOnly</fullName>
+    <active>true</active>
+    <description>PacPoint-KN03252020 (Case 7656) - Created for PVL Phase 1 Sprint 3
+PacPoint-CL12022022 (Case 00026014) - only validate if the insurance is in Inactive status already</description>
+    <errorConditionFormula>AND(
+NOT($Permission.Edit_Inactive_Insurance_Bond_Permission),
+ISPICKVAL(Status__c, &quot;Inactive&quot;),
+NOT(ISCHANGED(Status__c)),
+OR(
+ISCHANGED(Amount__c) ,
+ISCHANGED(EffectiveDate__c),
+ISCHANGED(TermDate__c),
+ISCHANGED(CancelDate__c)
+)
+)</errorConditionFormula>
+    <errorMessage>You can not edit the following fields when the Insurance and Bonds Record has a status of &apos;Inactive.&apos;</errorMessage>
+</ValidationRule>

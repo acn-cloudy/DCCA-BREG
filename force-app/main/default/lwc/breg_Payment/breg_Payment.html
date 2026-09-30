@@ -1,0 +1,26 @@
+<template>
+    <!-- Loading State -->
+    <template if:true={isLoading}>
+        <div class="slds-align_absolute-center">
+            <lightning-spinner alternative-text="Loading transaction details..."></lightning-spinner>
+        </div>
+    </template>
+    
+    <!-- Transaction Lines Table Component -->
+    <template if:false={isLoading}>
+        <c-breg_-transaction-lines-table
+            header="Checkout Items"
+            transaction-lines={transactionLines}>
+        </c-breg_-transaction-lines-table>
+    </template>
+    
+    <!-- Payment Authorization and Reminder -->
+    <c-breg_-payment-authorization-notice></c-breg_-payment-authorization-notice>
+
+    <!-- Payment iframe -->
+    <iframe 
+        src={paymentUrl} 
+        title="Checkout"
+        style="width: 100%; height: 500px; border: none;"
+    ></iframe>
+</template>

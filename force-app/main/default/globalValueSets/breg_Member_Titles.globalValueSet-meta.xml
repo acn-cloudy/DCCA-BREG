@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Chairperson of the Board of Directors</fullName>
+        <default>false</default>
+        <label>Chairperson of the Board of Directors</label>
+    </customValue>
+    <customValue>
+        <fullName>President</fullName>
+        <default>false</default>
+        <label>President</label>
+    </customValue>
+    <customValue>
+        <fullName>Vice President</fullName>
+        <default>false</default>
+        <label>Vice President</label>
+    </customValue>
+    <customValue>
+        <fullName>Secretary</fullName>
+        <default>false</default>
+        <label>Secretary</label>
+    </customValue>
+    <customValue>
+        <fullName>Treasurer</fullName>
+        <default>false</default>
+        <label>Treasurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Chief Executive Officer</fullName>
+        <default>false</default>
+        <label>Chief Executive Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>Chief Financial Officer</fullName>
+        <default>false</default>
+        <label>Chief Financial Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>Chief Operating Officer</fullName>
+        <default>false</default>
+        <label>Chief Operating Officer</label>
+    </customValue>
+    <customValue>
+        <fullName>Senior Vice President</fullName>
+        <default>false</default>
+        <label>Senior Vice President</label>
+    </customValue>
+    <customValue>
+        <fullName>Executive Vice President</fullName>
+        <default>false</default>
+        <label>Executive Vice President</label>
+    </customValue>
+    <customValue>
+        <fullName>Vice Chairman</fullName>
+        <default>false</default>
+        <label>Vice Chairman</label>
+    </customValue>
+    <customValue>
+        <fullName>Controller</fullName>
+        <default>false</default>
+        <label>Controller</label>
+    </customValue>
+    <customValue>
+        <fullName>Assistant Controller</fullName>
+        <default>false</default>
+        <label>Assistant Controller</label>
+    </customValue>
+    <customValue>
+        <fullName>Assistant Secretary</fullName>
+        <default>false</default>
+        <label>Assistant Secretary</label>
+    </customValue>
+    <customValue>
+        <fullName>Assistant Treasurer</fullName>
+        <default>false</default>
+        <label>Assistant Treasurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Fiduciary</fullName>
+        <default>false</default>
+        <label>Fiduciary</label>
+    </customValue>
+    <customValue>
+        <fullName>Receiver</fullName>
+        <default>false</default>
+        <label>Receiver</label>
+    </customValue>
+    <customValue>
+        <fullName>Trustee</fullName>
+        <default>false</default>
+        <label>Trustee</label>
+    </customValue>
+    <customValue>
+        <fullName>Benefit Director</fullName>
+        <default>false</default>
+        <label>Benefit Director</label>
+    </customValue>
+    <customValue>
+        <fullName>Presiding Officer of the Board of Directors</fullName>
+        <default>false</default>
+        <label>Presiding Officer of the Board of Directors</label>
+    </customValue>
+    <customValue>
+        <fullName>Member</fullName>
+        <default>false</default>
+        <label>Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Manager</fullName>
+        <default>false</default>
+        <label>Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Authorized person</fullName>
+        <default>false</default>
+        <label>Authorized person</label>
+    </customValue>
+    <customValue>
+        <fullName>Authorized signatory</fullName>
+        <default>false</default>
+        <label>Authorized signatory</label>
+    </customValue>
+    <customValue>
+        <fullName>General partner</fullName>
+        <default>false</default>
+        <label>General partner</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Chairperson</fullName>
+        <default>false</default>
+        <label>Chairperson</label>
+    </customValue>
+    <masterLabel>Member Titles</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

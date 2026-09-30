@@ -1,0 +1,16 @@
+.THIS {
+}
+.THIS .inline-checkbox{
+    display: inline-block;
+  	float: left;
+    margin-right: 5px;
+   
+}
+
+.THIS .uiInput--checkbox input[type="checkbox"]:checked,.THIS .input.uiInput--checkbox[type="checkbox"]:checked {
+     margin-top:1em;
+}
+
+.THIS .uiInput .uiInputCheckbox .uiInput--default .uiInput--checkbox {
+     margin-top:1em;
+}

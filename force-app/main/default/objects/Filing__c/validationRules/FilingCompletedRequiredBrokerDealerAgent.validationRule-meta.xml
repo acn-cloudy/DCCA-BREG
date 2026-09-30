@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingCompletedRequiredBrokerDealerAgent</fullName>
+    <active>true</active>
+    <description>PacPoint: AC Case#8952 - BREG Support | Validation for Filings Completed Status</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Broker-dealer Agent&quot;,
+ISPICKVAL(Status__c, &quot;Filing Completed&quot;),
+OR(
+ISNULL(StatusDate__c),
+ISPICKVAL (Registration_Status__c,&quot;&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>Error: Please populate &quot;Registration Status&quot;  and &quot;Status Date before updating the status to Filing Completed.</errorMessage>
+</ValidationRule>

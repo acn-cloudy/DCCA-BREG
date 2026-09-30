@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Bounced_Check__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Aalta BREG-2932</description>
+    <label>Bounced Check</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

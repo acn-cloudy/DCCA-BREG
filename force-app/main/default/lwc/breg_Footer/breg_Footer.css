@@ -1,0 +1,114 @@
+.content {
+  max-width: var(--c-max-content-width);
+  flex: 1;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.logo {
+  background-image: url('/sfsites/c/resource/BREG_portalResources/img/state_of_hawaii.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 60px;
+}
+
+.hawaii-business-express {
+  --dxp-c-link-text-color: var(--c-primary-color);
+  color: var(--c-primary-color, #353d41);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.address {
+  --dxp-c-link-text-color: var(--c-primary-color);
+  color: var(--c-primary-color, #353d41);
+  font-size: 24px;
+  line-height: 140%;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.copyright-icon {
+  background-image: url('/sfsites/c/resource/BREG_portalResources/img/copyright.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+}
+
+.all-rights-reserved {
+  color: var(--c-primary-color, #353d41);
+  font-family: 'Inter-SemiBold', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.title-and-address {
+  margin-right: 15%;
+}
+
+.links {
+  --dxp-c-link-text-color: black;
+}
+
+.link {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) { 
+  .title-and-address {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-wrap: wrap;
+  }
+
+  .link.slds-var-p-left_xx-large {
+    padding-left: 0;
+  }
+
+  .link {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .address,
+  .all-rights-reserved {
+    font-size: 14px;
+  }
+
+  .footer-wrapper {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .hawaii-business-express {
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+}

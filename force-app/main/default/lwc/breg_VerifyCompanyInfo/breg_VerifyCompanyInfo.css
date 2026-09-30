@@ -1,0 +1,12 @@
+@media (max-width: 768px) {
+    .btns-wrapper {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .sub-btns-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

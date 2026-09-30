@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>InvestigationFinalApprovalNotification</fullName>
+        <description>Investigation:Final Approval Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>SEBStatusChangeUsers</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/InvestigationFinalApprovalNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>InvestigationFinalRejectedNotification</fullName>
+        <description>Investigation:Final Rejected Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>SEBStatusChangeUsers</recipient>
+            <type>group</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/InvestigationFinalRejectionNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>InvestigationStatusChange</fullName>
+        <description>Investigation: Status Change</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>SEBStatusChangeUsers</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/InvestigationStatusChange</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>InvestigationSetStatusToReportApproved</fullName>
+        <description>PacPoint-IC052919 - Created for BREG phase 1</description>
+        <field>Status__c</field>
+        <literalValue>Report Approved</literalValue>
+        <name>Investigation:SetStatusToReportApproved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Investigation_StatusCorrectionsLegal</fullName>
+        <field>Status__c</field>
+        <literalValue>Corrections by Attorney Required (L)</literalValue>
+        <name>Investigation:StatusCorrectionsLegal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Investigation_StatusCorrectionsRequired</fullName>
+        <description>Updated Status to Corrections Required</description>
+        <field>Status__c</field>
+        <literalValue>Corrections Required</literalValue>
+        <name>Investigation:StatusCorrectionsRequired</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Investigation_StatusCorrectionsSuAtt</fullName>
+        <description>Update to Corrections Required by Supervising Attorney</description>
+        <field>Status__c</field>
+        <literalValue>Corrections by SEB Supervisor Required</literalValue>
+        <name>Investigation:StatusCorrectionsSuAtt</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Investigation_StatusSuAttLegal</fullName>
+        <field>Status__c</field>
+        <literalValue>Ready for Supervising Attorney Review (L)</literalValue>
+        <name>Investigation:StatusSuAttLegal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Investigation_StatusSupervisingAttorney</fullName>
+        <description>Update The Status field on Investigation to &apos;Ready for Supervising Attorney Review&apos;</description>
+        <field>Status__c</field>
+        <literalValue>Ready for Supervising Attorney Review</literalValue>
+        <name>Investigation:StatusSupervisingAttorney</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SetStatusToReadyForSupervisorReview</fullName>
+        <description>PacPoint-IC101818 - Created for BREG phase 1</description>
+        <field>Status__c</field>
+        <literalValue>Ready for Supervisor Review</literalValue>
+        <name>Set Status To Ready For SupervisorReview</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

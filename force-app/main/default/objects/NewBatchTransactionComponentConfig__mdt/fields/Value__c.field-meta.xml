@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value__c</fullName>
+    <description>PacPoint-IC060419- Created for Phase 1</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>For Print Page fields only, use this format-&gt; {&quot;ObjectApiName&quot;:&quot;FieldsSeparatedbyComma&quot;}
+If from multiple Objects, separate by a comma.</inlineHelpText>
+    <label>Value</label>
+    <required>true</required>
+    <type>TextArea</type>
+</CustomField>

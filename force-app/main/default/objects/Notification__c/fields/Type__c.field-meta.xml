@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Parent Print</fullName>
+                <default>false</default>
+                <label>Parent Print</label>
+            </value>
+            <value>
+                <fullName>Child Print</fullName>
+                <default>false</default>
+                <label>Child Print</label>
+            </value>
+            <value>
+                <fullName>Email CLM</fullName>
+                <default>false</default>
+                <label>Email CLM</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

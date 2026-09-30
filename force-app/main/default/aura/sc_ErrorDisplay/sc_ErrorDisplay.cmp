@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="errors" type="Object[]" default="[]"/>
+    <ul class="has-error uiInputDefaultError uiInput uiInputText uiInput--default uiInput--input" 
+        data-aura-class="uiInputDefaultError uiInput uiInputText uiInput--default uiInput--input" 
+        data-aura-rendered-by="1037:4541;a" id="1034:4541;a">
+        <aura:iteration items="{!v.errors}" var="item">                    
+            <li class="form-element__help" data-aura-rendered-by="1040:4541;a">
+                {!item.message}
+            </li>
+        </aura:iteration>
+    </ul>
+</aura:component>

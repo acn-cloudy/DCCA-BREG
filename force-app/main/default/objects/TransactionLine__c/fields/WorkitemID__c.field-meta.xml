@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WorkitemID__c</fullName>
+    <description>PacPoint-FT082218 - Created for phase 1
+
+To be used by BREG to associate to records scanned into BRIMS</description>
+    <externalId>false</externalId>
+    <label>Workitem ID</label>
+    <length>30</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

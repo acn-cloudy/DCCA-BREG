@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dept_Day_CONUS__c</fullName>
+    <inlineHelpText>Reference Time / Dept. Date chart in Worksheet B-CONUS</inlineHelpText>
+    <label>Dept. Day CONUS</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1.00</fullName>
+                <default>false</default>
+                <label>1.00</label>
+            </value>
+            <value>
+                <fullName>0.75</fullName>
+                <default>false</default>
+                <label>0.75</label>
+            </value>
+            <value>
+                <fullName>0.50</fullName>
+                <default>false</default>
+                <label>0.50</label>
+            </value>
+            <value>
+                <fullName>0.25</fullName>
+                <default>false</default>
+                <label>0.25</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Limit1ActiveTypeInsuranceBondRecord</fullName>
+    <active>false</active>
+    <description>PacPoint-KN03272020 (Case7663) Created for PVL Phase 1 Sprint 3</description>
+    <errorConditionFormula>AND(
+
+ISPICKVAL(Type__c, &quot;BD - Bond&quot;), (License__r.NumberofActiveBonds__c &gt; 1)
+
+)</errorConditionFormula>
+    <errorMessage>License can only have 1 Active Insurance/Bond Record (Per Type) at a time.</errorMessage>
+</ValidationRule>

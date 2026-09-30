@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Addcurrentprofessionaldesignations__c</fullName>
+    <description>PacPoint - RA010219 - BREG Phase 1</description>
+    <inlineHelpText>Add all professional designations.</inlineHelpText>
+    <label>Add current professional designations</label>
+    <length>1000</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

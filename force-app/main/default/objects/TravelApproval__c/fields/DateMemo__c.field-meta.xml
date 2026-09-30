@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateMemo__c</fullName>
+    <description>PacPoint-AC121219 - Created for DCCA Travel Approval phase 1</description>
+    <inlineHelpText>MM/DD/YYYY</inlineHelpText>
+    <label>Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

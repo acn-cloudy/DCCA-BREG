@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_SEB_Cases</fullName>
+    <columns>SEBCaseNumber__c</columns>
+    <columns>NAME</columns>
+    <columns>DateReceived__c</columns>
+    <columns>Account__c</columns>
+    <columns>Status__c</columns>
+    <columns>Disposition__c</columns>
+    <columns>Subject__c</columns>
+    <columns>RespondentFirstName__c</columns>
+    <columns>RespondentLastName__c</columns>
+    <columns>RespondentsBusinessName__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <label>My SEB Cases</label>
+</ListView>

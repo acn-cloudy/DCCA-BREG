@@ -1,0 +1,89 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={radioGroupValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showNumberOfSharesField} size="12" class="form-layout-item">
+                <div class="slds-var-m-bottom_small">
+                    <span>The number of common shares all of the same class which the corporation shall have authority to issue.</span>
+                </div>
+                <lightning-formatted-rich-text value={numberOfSharesValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showParValueField} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={parValueValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showPropertyRightsField} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={propertyRightsValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showPropertyRightsRuleField} size="12" class="form-layout-item">
+                <div class="slds-var-m-bottom_small">
+                    <span>State the rule by which the rights and interest shall be determined.</span>
+                </div>
+                <lightning-formatted-rich-text value={propertyRightsRuleValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item lwc:if={showNumberOfSharesField} size="12" class="form-layout-item">
+                <div class="slds-var-m-bottom_small">
+                    <span>The number of common shares all of the same class which the corporation shall have authority to issue.</span>
+                </div>
+                <lightning-input
+                    name="numberOfShares"
+                    value={numberOfSharesValue}
+                    label="Number of Common Shares"
+                    type="number"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    read-only={readOnly}
+                    min="1"
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showParValueField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="parValue"
+                    value={parValueValue}
+                    label="Par Value Of Each Share"
+                    type="number"
+                    formatter="currency"
+                    step="0.01"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showPropertyRightsField} size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="propertyRights"
+                    value={propertyRightsValue}
+                    label="The property rights and interest of each member is"
+                    options={propertyRightsOptions}
+                    onchange={handleInputChange}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showPropertyRightsRuleField} size="12" class="form-layout-item">
+                <div class="slds-var-m-bottom_small">
+                    <span>State the rule by which the rights and interest shall be determined.</span>
+                </div>
+                <lightning-textarea
+                    name="propertyRightsRule"
+                    value={propertyRightsRuleValue}
+                    label="Rule"
+                    placeholder="Enter the rule here"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-textarea>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

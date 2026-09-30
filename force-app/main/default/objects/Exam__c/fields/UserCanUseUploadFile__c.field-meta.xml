@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserCanUseUploadFile__c</fullName>
+    <description>PacPoint-CL01252022 - flag for conditionally showing the file detail creator component in exam record page</description>
+    <formula>OR(
+NOT(ISBLANK(AssistantExaminer__c)) &amp;&amp; AssistantExaminer__c = $User.Id ,
+ NOT(ISBLANK(AssistantExaminer__c)) &amp;&amp; OwnerId =  $User.Id ,
+ $Profile.Name = &quot;System Administrator&quot;,
+ $Profile.Name = &quot;DCCA SEC/SEB System Administrator&quot;,
+ISBLANK( AssistantExaminer__c) &amp;&amp; OR ($Profile.Name = &quot;DCCA SEC Reviewer/Examiner&quot;,
+                              $Profile.Name = &quot;DCCA SEC Clerical&quot;,
+                              $Profile.Name = &quot;DCCA SEC Exam Supervisor&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>UserCanUseUploadFile</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

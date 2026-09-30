@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Filing</fullName>
+    <active>true</active>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <label>Filing</label>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Broker-dealer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Broker-dealer Salesperson</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>By Qualification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Franchise</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment Adviser</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investment Adviser Representative</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Model Accredited Investor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulation A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulation D</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

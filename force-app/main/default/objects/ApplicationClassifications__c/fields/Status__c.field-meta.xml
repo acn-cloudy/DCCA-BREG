@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-IC071619- Created for PVL phase 1</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CW - Class Withdrawn by Applicant</fullName>
+                <default>false</default>
+                <label>CW - Class Withdrawn by Applicant</label>
+            </value>
+            <value>
+                <fullName>H - Class Deferred by Board</fullName>
+                <default>false</default>
+                <label>H - Class Deferred by Board</label>
+            </value>
+            <value>
+                <fullName>HC - Application Completed</fullName>
+                <default>false</default>
+                <label>HC - Application Completed</label>
+            </value>
+            <value>
+                <fullName>NE - No Exam Required--Class to be Licensed</fullName>
+                <default>false</default>
+                <label>NE - No Exam Required--Class to be Licensed</label>
+            </value>
+            <value>
+                <fullName>P - Passed Exam--Class to be Licensed</fullName>
+                <default>false</default>
+                <label>P - Passed Exam--Class to be Licensed</label>
+            </value>
+            <value>
+                <fullName>U - Class No Longer Needed Due To Upgrade To Higher Class</fullName>
+                <default>false</default>
+                <label>U - Class No Longer Needed Due To Upgrade To Higher Class</label>
+            </value>
+            <value>
+                <fullName>W - Awaiting Approval/Exam</fullName>
+                <default>false</default>
+                <label>W - Awaiting Approval/Exam</label>
+            </value>
+            <value>
+                <fullName>NA - No Application</fullName>
+                <default>false</default>
+                <label>NA - No Application</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

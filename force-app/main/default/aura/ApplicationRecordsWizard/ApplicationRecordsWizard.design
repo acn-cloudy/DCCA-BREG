@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="accountId" label="Account Id"/>
+    <design:attribute name="fromAccount" label="From Account"/>
+</design:component>

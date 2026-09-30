@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : Deepanshu Jain
+  @group             : MTX
+  @last modified on  : 04-24-2025
+  @last modified by  : Deepanshu Jain
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-quick-action-panel header="Approve/Reject Account Access Request">
+        <lightning-textarea name="comments" required value={comments}
+            label="Comments" maxlength="2000" onchange={handleInputChange}>
+        </lightning-textarea>
+
+        <div slot="footer">
+            <lightning-button name="rejectAction" variant="destructive" 
+                label="Reject" onclick={handleAction}>
+            </lightning-button>
+            <lightning-button name="approveAction" variant="brand" 
+                label="Approve" onclick={handleAction} class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

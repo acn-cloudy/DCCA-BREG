@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Published immediately when a BREG Case Trigger Handler fails. Uses PublishImmediately so the event persists even when the triggering transaction is rolled back.</description>
+    <eventType>HighVolume</eventType>
+    <label>BREG Handler Error</label>
+    <pluralLabel>BREG Handler Errors</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

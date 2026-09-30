@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisableLicenseTriggers__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Disable triggers for AssociatedLicenseTrigger and LicenseAll</description>
+    <label>Disable License Triggers</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

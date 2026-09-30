@@ -1,0 +1,34 @@
+<apex:component access="global">
+    <apex:attribute name="record" type="InsurancePortalSubmission__c" 
+        description="used to capture the insurance portal submission" />
+<p>
+    This is to acknowledge receipt of this insurance certificate information submittal. This
+    receipt does not constitute approval or acceptance of the submittal. If submittal is
+    approved the insurance record will be updated.
+</p>
+<p>
+    You may visit the <a href="{!$Label.PVLLicenseSearchPage}" target="_blank">PVL License Search page</a> to confirm that the insurance record has been updated. Allow 3 to 5 business days for information to be updated.
+</p>
+<div>
+    <a href="{!record.CertificateLink__c}" target="_blank">
+        {!record.CertificateLink__c}
+    </a>
+</div>
+<div style="margin-top:10px;font-weight:bold; font-size: 12pt">
+    <div style="border-top: 1px solid;width: 550px;line-height:30px;">
+        Transaction information
+    </div>
+    <div style="border-top: 1px solid;width: 550px;line-height:30px">
+        Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insurance Certificate Information for {!record.License__r.Name}
+    </div>
+    <div style="border-bottom: 1px solid;border-top: 1px solid;width: 550px;line-height:30px">
+        Submission Date:&nbsp;&nbsp;<apex:outputText value="{0,date,MM/dd/yyyy hh:mm a}"><apex:param value="{!record.CreatedDate}"/></apex:outputText>
+    </div>
+</div>
+<p>
+    Thank you for using PVL's Insurance Certificate Information Submittal Systems.
+    We appreciate your patience and assistance as we continue our efforts to improve the processing time of insurance certificates.
+    Please do not submit additional insurance certificates to the DCCA/PVL if already
+    submitted online.
+</p>
+</apex:component>

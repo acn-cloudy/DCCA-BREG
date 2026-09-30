@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TypeOfNoticeSent__c</fullName>
+    <label>Type Of Notice Sent</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GS - GENERIC NOTICES - SOLICITORS</fullName>
+                <default>false</default>
+                <label>GS - GENERIC NOTICES - SOLICITORS</label>
+            </value>
+            <value>
+                <fullName>BG - BOUNCED CHECK - GENERIC</fullName>
+                <default>false</default>
+                <label>BG - BOUNCED CHECK - GENERIC</label>
+            </value>
+            <value>
+                <fullName>AQ - NOTICE OF APPROVAL - SPECIAL PRIVILEGE</fullName>
+                <default>false</default>
+                <label>AQ - NOTICE OF APPROVAL - SPECIAL PRIVILEGE</label>
+            </value>
+            <value>
+                <fullName>AO - NOTICE OF APPROVAL - RELOCATION</fullName>
+                <default>false</default>
+                <label>AO - NOTICE OF APPROVAL - RELOCATION</label>
+            </value>
+            <value>
+                <fullName>AS - NOTICE OF APPROVAL - SOLE PROPRIETOR</fullName>
+                <default>false</default>
+                <label>AS - NOTICE OF APPROVAL - SOLE PROPRIETOR</label>
+            </value>
+            <value>
+                <fullName>A - APPROVED</fullName>
+                <default>false</default>
+                <label>A - APPROVED</label>
+            </value>
+            <value>
+                <fullName>AA - RESTORATION/REACTIVATION NOTICE</fullName>
+                <default>false</default>
+                <label>AA - RESTORATION/REACTIVATION NOTICE</label>
+            </value>
+            <value>
+                <fullName>AB - BOND WAIVER NOTICE</fullName>
+                <default>false</default>
+                <label>AB - BOND WAIVER NOTICE</label>
+            </value>
+            <value>
+                <fullName>AC - ADDITIONAL CLASSIFICATION NOTICE</fullName>
+                <default>false</default>
+                <label>AC - ADDITIONAL CLASSIFICATION NOTICE</label>
+            </value>
+            <value>
+                <fullName>AD - DEFICIENCY NOTICE</fullName>
+                <default>false</default>
+                <label>AD - DEFICIENCY NOTICE</label>
+            </value>
+            <value>
+                <fullName>AE - EDUCATION WAIVER</fullName>
+                <default>false</default>
+                <label>AE - EDUCATION WAIVER</label>
+            </value>
+            <value>
+                <fullName>AF - WAIVER OF CONDITIONAL LICENSE NOTICE</fullName>
+                <default>false</default>
+                <label>AF - WAIVER OF CONDITIONAL LICENSE NOTICE</label>
+            </value>
+            <value>
+                <fullName>AG - APPRENTICE REGISTRATION</fullName>
+                <default>false</default>
+                <label>AG - APPRENTICE REGISTRATION</label>
+            </value>
+            <value>
+                <fullName>AI - REAL ESTATE INACTIVE NOTICE</fullName>
+                <default>false</default>
+                <label>AI - REAL ESTATE INACTIVE NOTICE</label>
+            </value>
+            <value>
+                <fullName>AJ - REJECTION NOTICE</fullName>
+                <default>false</default>
+                <label>AJ - REJECTION NOTICE</label>
+            </value>
+            <value>
+                <fullName>AK - APPLICATION BOUNCED CHECK LETTER</fullName>
+                <default>false</default>
+                <label>AK - APPLICATION BOUNCED CHECK LETTER</label>
+            </value>
+            <value>
+                <fullName>AL - NOTICE OF LICENSURE</fullName>
+                <default>false</default>
+                <label>AL - NOTICE OF LICENSURE</label>
+            </value>
+            <value>
+                <fullName>AM - EXAM NOTICE</fullName>
+                <default>false</default>
+                <label>AM - EXAM NOTICE</label>
+            </value>
+            <value>
+                <fullName>AN - ADDITIONAL REQUIREMENTS NOTICE</fullName>
+                <default>false</default>
+                <label>AN - ADDITIONAL REQUIREMENTS NOTICE</label>
+            </value>
+            <value>
+                <fullName>AP - PRE-ASSIGNED LICENSE NUMBER LETTER</fullName>
+                <default>false</default>
+                <label>AP - PRE-ASSIGNED LICENSE NUMBER LETTER</label>
+            </value>
+            <value>
+                <fullName>AR - APPLICATION RECEIPT NOTICE</fullName>
+                <default>false</default>
+                <label>AR - APPLICATION RECEIPT NOTICE</label>
+            </value>
+            <value>
+                <fullName>AT - TEMPORARY PERMIT</fullName>
+                <default>false</default>
+                <label>AT - TEMPORARY PERMIT</label>
+            </value>
+            <value>
+                <fullName>AU - EXAM POSTPONEMENT--APPROVED</fullName>
+                <default>false</default>
+                <label>AU - EXAM POSTPONEMENT--APPROVED</label>
+            </value>
+            <value>
+                <fullName>AV - EXAM POSTPONEMENT--DENIED</fullName>
+                <default>false</default>
+                <label>AV - EXAM POSTPONEMENT--DENIED</label>
+            </value>
+            <value>
+                <fullName>AW - WITHDRAWAL--GENERAL</fullName>
+                <default>false</default>
+                <label>AW - WITHDRAWAL--GENERAL</label>
+            </value>
+            <value>
+                <fullName>AX - EXPERIENCE CERTIFICATE</fullName>
+                <default>false</default>
+                <label>AX - EXPERIENCE CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>AY - WITHDRAWAL FROM EXAM--APPROVED</fullName>
+                <default>false</default>
+                <label>AY - WITHDRAWAL FROM EXAM--APPROVED</label>
+            </value>
+            <value>
+                <fullName>AZ - WITHDRAWAL FROM EXAM--DENIED</fullName>
+                <default>false</default>
+                <label>AZ - WITHDRAWAL FROM EXAM--DENIED</label>
+            </value>
+            <value>
+                <fullName>B - POCKET ID &amp; WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>B - POCKET ID &amp; WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>BN - BOUNCED CHECK - NEW LICENSEE</fullName>
+                <default>false</default>
+                <label>BN - BOUNCED CHECK - NEW LICENSEE</label>
+            </value>
+            <value>
+                <fullName>BR - BOUNCED CHECK - RENEWALS/RESTORATIONS</fullName>
+                <default>false</default>
+                <label>BR - BOUNCED CHECK - RENEWALS/RESTORATIONS</label>
+            </value>
+            <value>
+                <fullName>C - WALL CERTIFICATE</fullName>
+                <default>false</default>
+                <label>C - WALL CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>CF - EMPLOYER CLASSES INACTIVATED</fullName>
+                <default>false</default>
+                <label>CF - EMPLOYER CLASSES INACTIVATED</label>
+            </value>
+            <value>
+                <fullName>CR - RME CLASSES INACTIVATED</fullName>
+                <default>false</default>
+                <label>CR - RME CLASSES INACTIVATED</label>
+            </value>
+            <value>
+                <fullName>D - DEFICIENCY</fullName>
+                <default>false</default>
+                <label>D - DEFICIENCY</label>
+            </value>
+            <value>
+                <fullName>DR - DUPLICATE RENEWAL</fullName>
+                <default>false</default>
+                <label>DR - DUPLICATE RENEWAL</label>
+            </value>
+            <value>
+                <fullName>E - EXTRA ITEMS</fullName>
+                <default>false</default>
+                <label>E - EXTRA ITEMS</label>
+            </value>
+            <value>
+                <fullName>EW - EDUCATION WAIVER CERTIFICATE</fullName>
+                <default>false</default>
+                <label>EW - EDUCATION WAIVER CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>G - GENERAL/INFORMATION/ACKNOWLEDGEMENT</fullName>
+                <default>false</default>
+                <label>G - GENERAL/INFORMATION/ACKNOWLEDGEMENT</label>
+            </value>
+            <value>
+                <fullName>GA - GENERIC NOTICE - CONTRACTOR PROVISIONAL LICENSE</fullName>
+                <default>false</default>
+                <label>GA - GENERIC NOTICE - CONTRACTOR PROVISIONAL LICENSE</label>
+            </value>
+            <value>
+                <fullName>GL - 2-UP GUMLABEL FOR NEW LICENSEE FILE FOLDER</fullName>
+                <default>false</default>
+                <label>GL - 2-UP GUMLABEL FOR NEW LICENSEE FILE FOLDER</label>
+            </value>
+            <value>
+                <fullName>I - INCOMPLETE</fullName>
+                <default>false</default>
+                <label>I - INCOMPLETE</label>
+            </value>
+            <value>
+                <fullName>IC - TO DUAL SOLE-RME THAT INSURANCE WILL BE EXPIRED/CANCELLED</fullName>
+                <default>false</default>
+                <label>IC - TO DUAL SOLE-RME THAT INSURANCE WILL BE EXPIRED/CANCELLED</label>
+            </value>
+            <value>
+                <fullName>IE - TO DUAL-RME THAT EMPLOYER SUSPENSED DUE TO INS-BOND LOSS</fullName>
+                <default>false</default>
+                <label>IE - TO DUAL-RME THAT EMPLOYER SUSPENSED DUE TO INS-BOND LOSS</label>
+            </value>
+            <value>
+                <fullName>II - TO RME (NON-DUAL) THAT EMPLOYER SUSPENDED DUE INS-BOND LOSS</fullName>
+                <default>false</default>
+                <label>II - TO RME (NON-DUAL) THAT EMPLOYER SUSPENDED DUE INS-BOND LOSS</label>
+            </value>
+            <value>
+                <fullName>IS - TO THE DUAL SOLE-RME THAT INS-BOND HAS EXPIRED/CANCELLED</fullName>
+                <default>false</default>
+                <label>IS - TO THE DUAL SOLE-RME THAT INS-BOND HAS EXPIRED/CANCELLED</label>
+            </value>
+            <value>
+                <fullName>IW - TO THE FIRM (NON-DUAL SOLE-RME) TO WARN OF UPCOMING INS-BOND CANCELLATION/EXPIRATION</fullName>
+                <default>false</default>
+                <label>IW - TO THE FIRM (NON-DUAL SOLE-RME) TO WARN OF UPCOMING INS-BOND CANCELLATION/EXPIRATION</label>
+            </value>
+            <value>
+                <fullName>IZ - TO FIRM (NON-DUAL SOLE-RME) THAT INS-BOND HAS EXPIRED/CANCEL</fullName>
+                <default>false</default>
+                <label>IZ - TO FIRM (NON-DUAL SOLE-RME) THAT INS-BOND HAS EXPIRED/CANCEL</label>
+            </value>
+            <value>
+                <fullName>M - SUSPENSE TYPE</fullName>
+                <default>false</default>
+                <label>M - SUSPENSE TYPE</label>
+            </value>
+            <value>
+                <fullName>NB - NOTIFICATION OF LOSS OF BROKER-IN-CHARGE</fullName>
+                <default>false</default>
+                <label>NB - NOTIFICATION OF LOSS OF BROKER-IN-CHARGE</label>
+            </value>
+            <value>
+                <fullName>NC - NO CURRENT SALESPERSON ASSOCIATED WITH CORPORATION</fullName>
+                <default>false</default>
+                <label>NC - NO CURRENT SALESPERSON ASSOCIATED WITH CORPORATION</label>
+            </value>
+            <value>
+                <fullName>NF - RME CURRENTLY NOT EMPLOYED BY ANY EMPLOYER</fullName>
+                <default>false</default>
+                <label>NF - RME CURRENTLY NOT EMPLOYED BY ANY EMPLOYER</label>
+            </value>
+            <value>
+                <fullName>NM - EMPLOYER LOSES P RME; HAS OTHER CURRENT RMES REMAINING</fullName>
+                <default>false</default>
+                <label>NM - EMPLOYER LOSES P RME; HAS OTHER CURRENT RMES REMAINING</label>
+            </value>
+            <value>
+                <fullName>NP - NOTIFICATION OF LOSS OF PRINCIPAL BROKER</fullName>
+                <default>false</default>
+                <label>NP - NOTIFICATION OF LOSS OF PRINCIPAL BROKER</label>
+            </value>
+            <value>
+                <fullName>NR - EMPLOYER LOSES P RME; HAS NO OTHER CURRENT RMES REMAINING</fullName>
+                <default>false</default>
+                <label>NR - EMPLOYER LOSES P RME; HAS NO OTHER CURRENT RMES REMAINING</label>
+            </value>
+            <value>
+                <fullName>P - POCKET IDENTIFICATION CARD</fullName>
+                <default>false</default>
+                <label>P - POCKET IDENTIFICATION CARD</label>
+            </value>
+            <value>
+                <fullName>PL - PROVISIONAL LICENSE</fullName>
+                <default>false</default>
+                <label>PL - PROVISIONAL LICENSE</label>
+            </value>
+            <value>
+                <fullName>R - REJECTION (AND RETURN)</fullName>
+                <default>false</default>
+                <label>R - REJECTION (AND RETURN)</label>
+            </value>
+            <value>
+                <fullName>S - SPECIAL PRINT LICENSE PROCESSING</fullName>
+                <default>false</default>
+                <label>S - SPECIAL PRINT LICENSE PROCESSING</label>
+            </value>
+            <value>
+                <fullName>SB - NOTIFY EMPLOYEE OF INAC STATUS DUE TO FIRM LOSING PRINCIPAL</fullName>
+                <default>false</default>
+                <label>SB - NOTIFY EMPLOYEE OF INAC STATUS DUE TO FIRM LOSING PRINCIPAL</label>
+            </value>
+            <value>
+                <fullName>SH - NOTIFY EMPLOYEE OF INAC STATUS DUE TO BROKER CLOSING</fullName>
+                <default>false</default>
+                <label>SH - NOTIFY EMPLOYEE OF INAC STATUS DUE TO BROKER CLOSING</label>
+            </value>
+            <value>
+                <fullName>SO - NOTIFY EMPLOYEE THAT BROKER ASSOCIATION IS NOT RECOGNIZED</fullName>
+                <default>false</default>
+                <label>SO - NOTIFY EMPLOYEE THAT BROKER ASSOCIATION IS NOT RECOGNIZED</label>
+            </value>
+            <value>
+                <fullName>VL - VERIFICATION OF LICENSE LETTER</fullName>
+                <default>false</default>
+                <label>VL - VERIFICATION OF LICENSE LETTER</label>
+            </value>
+            <value>
+                <fullName>VR - VERIFICATION REQUEST</fullName>
+                <default>false</default>
+                <label>VR - VERIFICATION REQUEST</label>
+            </value>
+            <value>
+                <fullName>W - RENEWAL NOTICE</fullName>
+                <default>false</default>
+                <label>W - RENEWAL NOTICE</label>
+            </value>
+            <value>
+                <fullName>X - DENIED</fullName>
+                <default>false</default>
+                <label>X - DENIED</label>
+            </value>
+            <value>
+                <fullName>XC - EXPERIENCE CERTIFICATE</fullName>
+                <default>false</default>
+                <label>XC - EXPERIENCE CERTIFICATE</label>
+            </value>
+            <value>
+                <fullName>SD - DEPENDENCY REQUIREMENT NOT MET, RENEWAL FEE REFUNDED</fullName>
+                <default>false</default>
+                <label>SD - DEPENDENCY REQUIREMENT NOT MET, RENEWAL FEE REFUNDED</label>
+            </value>
+            <value>
+                <fullName>GB - GENERIC NOTICES - MORTGAGE BROKERS</fullName>
+                <default>false</default>
+                <label>GB - GENERIC NOTICES - MORTGAGE BROKERS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

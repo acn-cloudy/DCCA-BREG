@@ -1,0 +1,18 @@
+.THIS {
+}
+
+.THIS.showmodal{
+    display:block;
+}
+
+.THIS.hidemodal{
+    display:none;
+}
+
+.THIS .hideCard {
+    display: none;
+}
+
+.THIS.test {
+    color:pink;
+}

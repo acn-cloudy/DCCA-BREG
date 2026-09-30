@@ -1,0 +1,17 @@
+<design:component>
+  <design:attribute
+    name="parentId"
+    label="Parent Record ID"
+    description="The ID of the parent record for the file upload."
+  />
+  <design:attribute
+    name="label"
+    label="File Upload Label"
+    description="Label for the file upload component."
+  />
+  <design:attribute
+    name="value"
+    label="Uploaded Files"
+    description="String value for List of uploaded files."
+  />
+</design:component>

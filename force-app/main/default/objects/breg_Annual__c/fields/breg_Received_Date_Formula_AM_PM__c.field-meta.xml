@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Received_Date_Formula_AM_PM__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(breg_Received_Date__c),
+&quot;&quot;,
+IF(HOUR(TIMEVALUE(breg_Received_Date__c- (10/24))) &lt; 12, &quot;AM&quot;, &quot;PM&quot;)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Received Date Formula AM/PM</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

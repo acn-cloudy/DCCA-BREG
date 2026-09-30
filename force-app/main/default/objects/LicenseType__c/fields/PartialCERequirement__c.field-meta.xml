@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartialCERequirement__c</fullName>
+    <description>PacPoint-FT080719- Created for PVL phase 1</description>
+    <inlineHelpText>Indicates under what conditions Partial CE is required as opposed to All CE for Licenses Flagged for Audit.</inlineHelpText>
+    <label>Partial CE Requirement</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No (All CE will be Required)</fullName>
+                <default>false</default>
+                <label>No (All CE will be Required)</label>
+            </value>
+            <value>
+                <fullName>Licensed in 1st half of Biennium Requires Partial CE (1SB)</fullName>
+                <default>false</default>
+                <label>Licensed in 1st half of Biennium Requires Partial CE (1SB)</label>
+            </value>
+            <value>
+                <fullName>Licensed in the Current License Period Requires Partial CE (CUR)</fullName>
+                <default>false</default>
+                <label>Licensed in the Current License Period Requires Partial CE (CUR)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

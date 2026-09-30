@@ -1,0 +1,19 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <p class="slds-var-m-top_medium">Include a summary in the box to the left that best describes your nature of business under the trade name</p>
+    <div class="slds-var-m-top_medium">Examples:</div>
+    <ul>
+        <li>Sales of clothing and general merchandise.</li>
+        <li>Producing steel pipes for irrigation projects.</li>
+        <li>Providing spa services and sales of related products.</li>
+    </ul>
+    <lightning-input
+        name="natureOfBusiness"
+        value={natureOfBusinessValue}
+        label="Nature of business for which the trade name is being used"
+        type="text"
+        class="slds-var-m-top_medium"
+        onchange={handleInputChange} onblur={handleInputBlur}
+        read-only={readOnly}
+    ></lightning-input>
+</template>

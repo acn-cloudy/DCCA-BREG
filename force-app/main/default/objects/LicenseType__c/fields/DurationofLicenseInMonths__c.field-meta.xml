@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DurationofLicenseInMonths__c</fullName>
+    <description>PacPoint-IC071619- Created for PVL phase 1
+PacPoint-KN081419 - Modified for PVL Phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The number of months of the License Period</inlineHelpText>
+    <label>Duration of License (In Months)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

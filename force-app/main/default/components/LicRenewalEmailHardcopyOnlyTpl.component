@@ -1,0 +1,112 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global"/>
+    <p><b>STATE OF HAWAII</b><br/>
+    <b>DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS</b><br/>
+    <b>PROFESSIONAL AND VOCATIONAL LICENSING DIVISION</b><br/>
+    </p>
+
+    <div style="text-align: center;">
+        <b>
+            NOTICE OF LICENSE RENEWAL<br/>
+            {!record.LicenseType__r.LicenseType__c} - {!record.Name}
+        </b>
+    </div>
+
+    <ul>
+        <li><b>Renewal Opens:</b> Monday, <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+        <li><b>License Expiration Date:</b> <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </li>
+    </ul>
+
+    <p>
+        <b>RENEWAL INSTRUCTIONS</b>
+    </p>
+
+    <ul>
+        <li>Renewal is by <b>hardcopy only.</b></li>
+        <li>Renewal forms were <b>mailed out</b> the week before <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>.</li>
+        <li>Submit your completed hardcopy renewal form to <b>DCCA/PVL</b> by <b><apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+            </apex:outputText></b>.</li>
+    </ul>
+
+    <p>
+        <b>DIDN'T RECEIVE YOUR FORM?</b><br/>
+        If you don’t receive your renewal form within 7–10 business days:<br/>
+        <ul>
+            <li>
+                Call the <b>Licensing Branch</b> at 1-844-808-DCCA (3222) to request another copy, OR
+            </li>
+            <li>
+                <b>Pick up in person</b> at:<br/>
+                King Kalakaua Building  <br/>
+                335 Merchant Street, Room 301<br/>
+                Honolulu, HI 96813<br/>
+                Hours: 7:45 a.m. – 4:30 p.m. (Mon–Fri, except state holidays)
+            </li>
+        </ul>
+    </p>
+
+    <p>
+        <b>IMPORTANT INFORMATION</b>
+    </p>
+
+    <ul>
+        <li>
+            A license <b>not renewed</b> by the expiration date, or placed on <b>inactive status</b>,   
+            shall not practice.<br/>
+            Practicing without a current license may subject the licensee to <b>disciplinary action.</b>  
+        </li>
+         <li>
+            <b>
+                Pocket ID cards must be retrieved and printed online via your <u style="color:blue">MyPVL</u> account.  
+            </b><br/>
+            <ul>
+                <li>
+                    Log in using your MyPVL account (Email on record: {!record.PVL_Portal_User__r.Email__c})
+                </li>
+                <li>
+                    No other notice will be provided.  
+                </li>
+                <li>
+                    Requests for mailed cards require a <b>$10 fee.</b>  
+                </li>
+            </ul>
+        </li>
+        <li>
+            Processing time may vary depending on renewal volume. <b>Early renewal is   
+            strongly recommended.</b>  
+        </li>
+        <li>
+            Licenses not renewed or restored by <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText> will require submission of a <b>new   
+            application</b> under current requirements.  
+        </li>
+    </ul>
+
+    <p>
+        <b>ADDITIONAL INFORMATION</b>
+    </p>
+
+    <p>
+        If you have already renewed, please disregard this notice.
+    </p>
+
+    <p>
+        For more details on renewal and restoration, visit: <u style="color:blue">https://cca.hawaii.gov/pvl/</u> and   
+        review the “Renewal and Restoration” section under your licensing area.  
+    </p>
+
+    <p>
+        <b>DCCA – Professional and Vocational Licensing Division</b>
+    </p>
+
+</apex:component>

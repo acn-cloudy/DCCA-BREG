@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Installment_Payments_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NumberofInstallmentPayments__c &gt; 0,
+GeneratePaymentSchedule__c = true,
+ISCHANGED(GeneratePaymentSchedule__c) 
+)</errorConditionFormula>
+    <errorMessage>A payment schedule has already been generated for this Sanction.  If you wish to generate the payment schedule again, you must delete all Payments with a Type of &quot;Installment Payment&quot; first.  Please click &quot;Cancel&quot;.</errorMessage>
+</ValidationRule>

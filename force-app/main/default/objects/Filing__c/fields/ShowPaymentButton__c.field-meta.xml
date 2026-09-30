@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ShowPaymentButton__c</fullName>
+    <description>PacPoint-LC012519 - Created for BREG Phase 1
+Used by the lightning component to decide to display the Payment button in community</description>
+    <formula>IF( 
+AND( 
+NOT(PaymentCompleted__c), 
+ISPICKVAL(Status__c, &quot;In Progress&quot;), 
+OR( 
+AND(RecordType.Name = &apos;By Qualification&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;By Qualification&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Franchise&apos;,TEXT(ApplicationType__c)= &apos;Amendment&apos;), 
+AND(RecordType.Name = &apos;Franchise&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Franchise&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Issuer Dealer&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Issuer Dealer&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Issuer Dealer Agent&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Issuer Dealer Agent&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Model Accredited Investor&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Mutual Fund&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Mutual Fund&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Regulation A&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Regulation A&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;), 
+AND(RecordType.Name = &apos;Regulation D&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Small Company Offering Registration (SCOR)&apos;,TEXT(ApplicationType__c)= &apos;New&apos;),
+AND(RecordType.Name = &apos;Unit Investment Trust&apos;,TEXT(ApplicationType__c)= &apos;New&apos;), 
+AND(RecordType.Name = &apos;Unit Investment Trust&apos;,TEXT(ApplicationType__c)= &apos;Renewal&apos;)
+) 
+), 
+true, 
+false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ShowPaymentButton</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

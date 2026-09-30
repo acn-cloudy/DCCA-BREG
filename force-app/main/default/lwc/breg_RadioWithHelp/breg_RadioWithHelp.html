@@ -1,0 +1,58 @@
+<template>
+    <span class="slds-radio">
+        <input
+            type="radio"
+            name={name}
+            data-name={name}
+            id={optionId}
+            value={option.value}
+            checked={checked}
+            disabled={disabled}
+            required={required}
+            onchange={handleChange}
+        />
+
+        <label class="slds-radio__label" for={optionId}>
+            <span class="slds-radio_faux"></span>
+            <span class="slds-form-element__label">
+                {option.label}
+            </span>
+        </label>
+
+        <template lwc:if={hasAction}>
+            <span class="action-text">
+                &nbsp;{action.prefix}
+
+                <template lwc:if={isTooltip}>
+                    <c-breg_-help-text-tooltip
+                        label={action.label}
+                        title={action.header}
+                        message={action.body}>
+                    </c-breg_-help-text-tooltip>
+                </template>
+
+                <template lwc:if={isLink}>
+                    <a
+                        class="action-link"
+                        href={action.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {action.label}
+                    </a>
+                </template>
+
+                <template lwc:if={isModal}>
+                    <c-breg_-help-text-popup
+                        label={action.label}
+                        title={action.header}
+                        message={action.body}
+                        cancel-button-label="Close">
+                    </c-breg_-help-text-popup>
+                </template>
+
+                {action.suffix}
+            </span>
+        </template>
+    </span>
+</template>

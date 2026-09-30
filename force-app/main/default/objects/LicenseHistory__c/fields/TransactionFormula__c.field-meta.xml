@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionFormula__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+
+LEN(LEFT( TEXT(TransactionType__c) , FIND(&quot;(&quot;, TEXT(TransactionType__c))-1)) = 0,
+
+RIGHT(TEXT(TransactionType__c) ,LEN(TEXT(TransactionType__c))-Find(&quot;-&quot;, TEXT(TransactionType__c) )-1),
+
+LEFT((RIGHT(TEXT(TransactionType__c) ,LEN(TEXT(TransactionType__c))-Find(&quot;-&quot;, TEXT(TransactionType__c) )-1)) , FIND(&quot;(&quot;,(RIGHT(TEXT(TransactionType__c) ,LEN(TEXT(TransactionType__c))-Find(&quot;-&quot;, TEXT(TransactionType__c) )-1)))-1)
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Transaction Formula</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,4 @@
+<apex:component controller="BarCodeUtil">
+    <apex:attribute name="data" assignTo="{!inputText}" required="true" type="String" description="data" />
+    <apex:outputText value="{!svgString}" escape="false" />
+</apex:component>

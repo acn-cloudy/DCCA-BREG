@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MailToName__c</fullName>
+    <description>PacPoint KN061919 - Created for HPEAP Transcript Request</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Name the transcript is being mailed to. If you are requesting the transcript(s) be mailed, all transcripts you request will be sent to this name and address. If you would like transcripts sent to more than one address, please email: hpeap@dcca.hawaii.gov.</inlineHelpText>
+    <label>Mail To Name</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

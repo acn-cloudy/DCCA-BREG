@@ -1,0 +1,111 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="fieldHidden" type="string" access="global" />
+  <aura:attribute name="hideonload" type="string" access="global" />
+  <aura:attribute name="fieldName" type="string" access="global" />
+
+  <aura:attribute name="fieldminlength" type="integer" access="global" />
+  <aura:attribute name="options" type="List" access="global" />
+  <aura:attribute name="fieldInfo" type="Object" access="global" />
+  <aura:attribute name="originalHidden" type="string" access="global" />
+  <aura:attribute name="fieldLabel" type="string" access="global" />
+  <aura:attribute name="popuphelp" type="string" access="global" />
+  <aura:attribute name="valid" type="Boolean" access="global" default="true" />
+  <aura:attribute name="fieldrequired" type="string" access="global" />
+  <aura:attribute name="cardname" type="string" access="global" />
+  <aura:attribute name="numericonly" type="boolean" access="global" />
+  <aura:attribute name="required" type="boolean" access="global" />
+
+  <aura:attribute name="dependField" type="string" access="global" />
+  <aura:attribute name="dependValue" type="string" access="global" />
+  <aura:attribute name="dependAction" type="string" access="global" />
+
+  <aura:attribute
+    name="currentIndex"
+    type="Integer"
+    access="global"
+    default=""
+  />
+  <aura:attribute name="sobjectType" type="string" access="global" default="" />
+  <aura:attribute name="value" type="string" access="global" default="" />
+  <aura:attribute name="columns" type="String" access="global" />
+  <aura:attribute name="headNames" type="List" access="global" />
+  <aura:attribute name="columnNames" type="List" access="global" />
+  <aura:attribute name="sections" type="List" access="global" />
+  <aura:attribute name="rows" type="List" access="global" />
+  <aura:attribute name="modalHidden" type="Boolean" default="true" />
+  <aura:registerEvent
+    name="sc_ApplicationDependFieldEvent"
+    type="c:sc_ApplicationDependFieldEvent"
+  />
+  <aura:registerEvent name="dependentValueChange" type="c:sc_Message" />
+
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+  <div
+    class="{!v.fieldHidden ? 'slds-hide slds-p-horizontal--medium slds-p-vertical--xx-small': 'slds-p-horizontal--medium slds-p-vertical--xx-small'}"
+  >
+    <div class="customInline">
+      <label class="slds-form-element__label" for="{!v.fieldLabel}"
+        >{!v.fieldLabel}</label
+      >
+      <aura:if isTrue="{!(v.required  &amp;&amp; v.fieldLabel != null)}">
+        <abbr class="slds-required" title="required">*</abbr>
+      </aura:if>
+      <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+    </div>
+    <div aura:id="multiinputcontrol" class="slds-p-around_small">
+      <c:sc_SelectListView
+        handleSelect="{!c.handleSelect}"
+        records="{!v.rows}"
+        headNames="{!v.headNames}"
+        aura:id="selectList"
+        columnNames="{!v.columnNames}"
+        valueMap="{!v.accountValueMap}"
+      />
+
+      <div class="slds-p-around--small">
+        <div class="slds-grid slds-grid_align-end">
+          <div>
+            <lightning:button
+              aura:id="btnaddrow"
+              variant="brand"
+              label="Add Row"
+              onclick="{!c.newRow}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--   Modal -->
+    <div class="{!v.modalHidden? 'slds-hide': ''}">
+      <c:sc_popup
+        title="{!v.editmode? 'Edit Row' : 'Add New Row'}"
+        hide="{!c.cancelmodal}"
+      >
+        <aura:if isTrue="{!v.sections != null}">
+          <c:sc_MiniCard
+            sections="{!v.sections}"
+            field="{!v.fieldInfo}"
+            aura:id="card"
+          />
+        </aura:if>
+        <aura:set attribute="footers">
+          <div>
+            <lightning:button label="Cancel" onclick="{! c.cancelmodal }" />
+
+            <lightning:button
+              label="Save"
+              variant="brand"
+              onclick="{! c.addRow }"
+            />
+          </div>
+        </aura:set>
+      </c:sc_popup>
+
+      <!-- END Modal -->
+    </div>
+  </div>
+</aura:component>

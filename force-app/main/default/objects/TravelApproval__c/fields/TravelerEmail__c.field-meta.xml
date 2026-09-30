@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TravelerEmail__c</fullName>
+    <description>PacPoint-AC092520 - Case# 10826 - Created for DCCA Travel Approval</description>
+    <externalId>false</externalId>
+    <label>Traveler Email</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

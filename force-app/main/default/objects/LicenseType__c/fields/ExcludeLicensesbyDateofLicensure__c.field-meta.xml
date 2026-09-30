@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcludeLicensesbyDateofLicensure__c</fullName>
+    <description>PacPoint-FT080719- Created for PVL phase 1</description>
+    <inlineHelpText>Used for Random Audit.  This will exclude certain licenses based on when the original date of licensure.</inlineHelpText>
+    <label>Exclude Licenses by Date of Licensure</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Licensed within Current Biennium (First Renewal)</fullName>
+                <default>false</default>
+                <label>Licensed within Current Biennium (First Renewal)</label>
+            </value>
+            <value>
+                <fullName>Licensed within Current Triennium (First Renewal)</fullName>
+                <default>false</default>
+                <label>Licensed within Current Triennium (First Renewal)</label>
+            </value>
+            <value>
+                <fullName>Licensed in the 2nd half of Current Biennium (2NB)</fullName>
+                <default>false</default>
+                <label>Licensed in the 2nd half of Current Biennium (2NB)</label>
+            </value>
+            <value>
+                <fullName>Licensed in the new License Period (New)</fullName>
+                <default>false</default>
+                <label>Licensed in the new License Period (New)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

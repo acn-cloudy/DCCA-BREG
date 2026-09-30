@@ -1,0 +1,29 @@
+.THIS.anchor {
+    position: relative;
+    display: inline-block;
+}
+
+.THIS .slds-popover {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: calc(50% - 25px);
+    display: none;
+    white-space: normal;
+    margin-bottom: -0.4rem;
+    color: black;
+}
+.THIS .iconAnchor {
+    
+}
+
+.THIS.anchor:hover .slds-popover {
+    display: block;
+}
+.THIS .slds-m-left_large,.THIS .slds-m-left--large {
+    margin-left: .5rem;
+}
+
+.THIS .cREVENUE_HelpIcon.radius {
+    background: #002664;
+    padding: 0px 2px 2px 3px;
+}

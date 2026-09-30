@@ -1,0 +1,58 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={periodOfDurationValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div class="slds-form-element slds-var-m-bottom_medium">
+                    <div class="slds-form-element__control">
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <span class="slds-text-body_regular slds-var-m-right_x-small">
+                                Please provide the period of duration for the business you are registering
+                            </span>
+                            <lightning-helptext
+                                content="The period of duration specifies how long the business entity will exist. 'At will' means perpetual existence, while 'Expires on' allows you to set a specific end date."
+                            ></lightning-helptext>
+                        </div>
+                    </div>
+                </div>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" large-device-size="6" class="form-layout-item">
+                <lightning-radio-group
+                    name="periodOfDuration"
+                    label="Period of Duration"
+                    options={periodOfDurationOptions}
+                    value={periodOfDurationValue}
+                    variant="label-hidden"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    class="slds-var-m-bottom_medium"
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <lightning-layout-item lwc:if={showDateInput} size="12" large-device-size="6" class="form-layout-item">
+                <lightning-input
+                    type="date"
+                    name="expirationDate"
+                    label="Expiration Date"
+                    value={expirationDateValue}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    class="slds-var-m-top_small"
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

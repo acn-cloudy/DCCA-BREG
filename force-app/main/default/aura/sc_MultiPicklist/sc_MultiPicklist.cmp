@@ -1,0 +1,77 @@
+<aura:component >
+    <aura:attribute name="value" type="string" access="global" />
+    <aura:attribute name="escape" type="boolean" access="global" default="false"/>    
+    <aura:attribute name="values" type="string" access="global" />
+    <aura:attribute name="apiName" type="string" access="global" />
+    <aura:attribute name="initiate" type="boolean" default="false" />
+    <aura:attribute name="options" type="Object[]" access="global" default="[]" />
+    <aura:attribute name="selectedValues" type="String[]" access="global" default="[]" />
+    <aura:attribute name="change" type="Object" access="global" />
+    <aura:attribute name="errors" type="Object[]" access="global" />
+    <aura:handler name="change" value="{!v.selectedValues}" action="{!c.updateValue}" />
+	<aura:handler name="change" value="{!v.value}" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div onblur="{!c.closeSelections}">
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" 
+             aria-expanded="true" 
+             aria-haspopup="listbox" tabIndex="0"
+             role="combobox" aura:id="selections" onfocusout="{!c.closeSelections}"  >
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" name="multipleSelectBox" role="none">
+                <ui:inputText class="minHeight select uiInput uiInputSelect 
+                                     uiInput--default uiInput--select cAdops_FieldInput" 
+                              click="{!c.toggleSelections}"
+                              aura:id="fieldInput"
+                              maxlength="0"
+                              errors="{!v.errors}"
+                              value="{!v.selectedValues.length == 0 ? '': v.selectedValues.length + ' Options Selected'}"
+                              />
+            </div>
+            <div id="listbox-unique-id" role="listbox" >
+                <ul class="slds-listbox slds-listbox_vertical 
+                           slds-dropdown slds-dropdown_fluid 
+                           drawable-X" role="presentation">
+                    <aura:iteration items="{!v.options}" var="option" indexVar="index" >
+                        <li role="presentation" class="slds-listbox__item" id="multiSelectItem" tabIndex="{!index}" onmousedown="{!c.select}" >
+                            <div id="listbox-option-unique-id-01" class="{!option.selected ? 
+                                                                         'slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center slds-is-selected' 
+                                                                         : 'slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-media_center' }" role="option">
+                                <span class="slds-media__figure">
+                                    <c:sc_svg class="slds-icon slds-icon_xx-small slds-listbox__icon-selected" 
+                                              ariaHidden="true" 
+                                              xlinkHref="/_slds/icons/utility-sprite/svg/symbols.svg#check" />
+                                </span>
+                                <span class="slds-media__body">
+                                    <span class="slds-truncate" title="{!option.value}">                      
+                                        {!option.label}
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                    </aura:iteration>                                                        
+                </ul>
+                <aura:if isTrue="{!v.selectedValues.length > 0}">
+                    <div aria-orientation="horizontal" id="listbox-selections-unique-id" role="listbox">
+                        <ul aria-label="Selected Options:" class="slds-listbox slds-listbox_horizontal slds-p-top_xxx-small" role="group">
+                            <aura:iteration items="{!v.selectedValues}" var="value" indexVar="index" >
+                                <li class="slds-listbox__item" role="presentation" >
+                                    <span aria-selected="true" class="slds-pill" role="option" tabindex="0">
+                                        <span class="slds-pill__label" title="{!value}" id="multiSelectItem1">
+                                            {!value}
+                                        </span>
+                                        <a href="javascript:void(0)" onclick="{!c.removeItem}" tabIndex="{!index}" >
+                                            <span class="slds-icon_container slds-pill__remove" title="Remove">
+                                                <c:sc_svg ariaHidden="true" 
+                                                          class="slds-icon slds-icon_x-small slds-icon-text-default" 
+                                                          xlinkHref="/_slds/icons/utility-sprite/svg/symbols.svg#close" />
+                                            </span>
+                                        </a>
+                                    </span>
+                                </li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

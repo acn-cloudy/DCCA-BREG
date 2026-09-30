@@ -1,0 +1,124 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+  access="global"
+>
+  <aura:attribute name="fieldName" type="string" access="global" />
+  <aura:attribute name="fieldLabel" type="string" access="global" />
+  <aura:attribute name="fieldType" type="string" access="global" />
+  <aura:attribute name="fieldplaceholder" type="string" access="global" />
+  <aura:attribute name="required" type="string" access="global" />
+  <aura:attribute name="fieldvalues" type="string" access="global" />
+  <aura:attribute name="options" type="string[]" access="global" />
+  <aura:attribute name="selectedValue" type="String" access="global" />
+  <aura:attribute name="dependentValueToSet" type="string" access="global" />
+  <aura:attribute name="value" type="String" access="global" />
+  <aura:attribute name="valid" type="Boolean" access="global" />
+  <aura:attribute name="dependField" type="string" access="global" />
+  <aura:attribute name="dependValue" type="string" access="global" />
+  <aura:attribute name="dependAction" type="string" access="global" />
+  <aura:attribute name="fieldHidden" type="string" access="global" />
+  <aura:attribute name="errors" type="Object[]" access="global" />
+
+  <aura:attribute name="originalHidden" type="string" access="global" />
+  <aura:attribute
+    name="inlinelabel"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="readOnly"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="carddependentvalue" type="string" access="global" />
+  <aura:attribute name="carddependentaction" type="string" access="global" />
+  <aura:attribute name="dependentcards" type="string" access="global" />
+  <aura:attribute name="popuphelp" type="string" access="global" />
+  <aura:registerEvent name="dependentValueChange" type="c:sc_Message" />
+  <aura:registerEvent
+    name="sc_ApplicationDependFieldEvent"
+    type="c:sc_ApplicationDependFieldEvent"
+  />
+
+  <aura:handler name="init" value="{!this}" action="{!c.loadOptions}" />
+  <aura:handler
+    name="change"
+    value="{!v.fieldvalues}"
+    action="{!c.loadOptions}"
+  />
+  <aura:method name="validate" action="{!c.checkValidity}" />
+
+  <div
+    class="{!v.fieldHidden ? 'slds-form-element hidemodal' : 'slds-form-element showmodal'}"
+    aura:id="{!v.fieldName}"
+  >
+    <div class="slds-p-horizontal--medium slds-p-vertical--xx-small">
+      <aura:if isTrue="{!v.inlinelabel}">
+        <div class="slds-grid">
+          <div class="slds-col slds-size--5-of-12">
+            <div class="customInline">
+              <label class="slds-form-element__label" for="{!v.fieldName}"
+                >{!v.fieldLabel}</label
+              >
+              <aura:if
+                isTrue="{!(v.required  &amp;&amp; (v.fieldLabel != null))}"
+              >
+                <abbr class="slds-required" title="required">*</abbr>
+              </aura:if>
+              <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+            </div>
+          </div>
+          <div class="slds-col slds-size--5-of-12">
+            <lightning:select
+              name="{!v.fieldName}"
+              label=""
+              disabled="{!v.readOnly}"
+              aura:id="picklist"
+              onchange="{!c.onChange}"
+              variant="label-hidden"
+              value="{!v.selectedValue}"
+              class="combobox"
+            >
+              <aura:iteration items="{!v.options}" var="opt" indexVar="indx">
+                <option value="{!opt.value}" text="{!opt.label}"></option>
+              </aura:iteration>
+            </lightning:select>
+            <c:sc_ErrorDisplay errors="{!v.errors}" />
+          </div>
+        </div>
+      </aura:if>
+
+      <aura:if isTrue="{!!v.inlinelabel}">
+        <div class="customInline">
+          <label class="slds-form-element__label" for="{!v.fieldName}"
+            >{!v.fieldLabel}</label
+          >
+          <aura:if isTrue="{!(v.required  &amp;&amp; (v.fieldLabel != null))}">
+            <abbr class="slds-required" title="required">*</abbr>
+          </aura:if>
+          <c:sc_HelpIcon popuphelp="{!v.popuphelp}" />
+        </div>
+        <div class="slds-grid">
+          <div class="slds-col slds-size--10-of-12">
+            <lightning:select
+              name="{!v.fieldName}"
+              label=""
+              aura:id="picklist"
+              disabled="{!v.readOnly}"
+              onchange="{!c.onChange}"
+              variant="label-hidden"
+              value="{!v.selectedValue}"
+            >
+              <aura:iteration items="{!v.options}" var="opt" indexVar="indx">
+                <option value="{!opt.value}" text="{!opt.label}"></option>
+              </aura:iteration>
+            </lightning:select>
+            <c:sc_ErrorDisplay errors="{!v.errors}" />
+          </div>
+        </div>
+      </aura:if>
+    </div>
+  </div>
+</aura:component>

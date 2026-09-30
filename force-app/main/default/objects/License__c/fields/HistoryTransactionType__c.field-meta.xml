@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HistoryTransactionType__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE
+(
+TEXT(Status__c),
+&quot;TC - Voluntary Request To Cancel/Terminate&quot;, &quot;CLOS - OFFICE (CORP/PART) CLOSED&quot;,
+&quot;TD - Deceased&quot;, &quot;DECE - DECEASED&quot;,
+&quot;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot;, &quot;Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN&quot;,
+&quot;ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action&quot;, &quot;ZC - VOLUNTARILY SURRENDER OR FORFEIT LICENSE DUE TO DISCIPLINARY ACTION&quot;,
+&quot;ZD - Forfeited Disciplined License; Needs To Restore&quot;, &quot;Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN&quot;,
+&quot;ZF - Terminated Due To Recovery Fund Payout&quot;, &quot;ZF - TERMINATED DUE TO RECOVERY FUND PAYOUT&quot;,
+&quot;ZM - Current &amp; Valid, But Subject To Disciplinary/Maintenance Requirement&quot;, &quot;Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN&quot;,
+&quot;ZO - Out Of State Disciplinary Action&quot;, &quot;Z - FINED AND/OR OTHER DISCIPLINARY ACTION TAKEN&quot;,
+&quot;ZP - Voluntary Suspension&quot;, &quot;ZP - VOLUNTARY SUSPENSION&quot;,
+&quot;ZR - Revoked&quot;, &quot;ZR - REVOKED&quot;,
+&quot;ZS - Suspended&quot;, &quot;ZS - SUSPENDED&quot;,
+&quot;ZV - Voluntary Revocation&quot;, &quot;ZV - VOLUNTARY REVOCATION&quot;,
+&quot;ZZ - Prohibited From Practice Pending Hearing&quot;, &quot;ZZ - PROHIBITED FROM PRACTICE PENDING HEARING&quot;,
+&quot;ZW - Conditional License Withdrawn&quot;, &quot;ZW – CONDITIONAL LICENSE WITHDRAWN&quot;,
+&quot;ZI - Automatically Forfeited Due To Insurance Loss (60 Days to Restore)&quot;, &quot;ZI - FORFEITED AUTOMATICALLY DUE TO LOSS OF INSURANCE (60 DAYS TO RESTORE)&quot;,
+&quot;ZT - Remain Forfeited Due To Failure To Provide Proof Of Continuous Coverage of Insurance or Bond&quot;, &quot;ZT - REMAIN FORFEITED DUE TO FAILURE TO RESTORE WITHIN 60 DAY PERIOD.&quot;,
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>History Transaction Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

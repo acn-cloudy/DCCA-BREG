@@ -1,0 +1,67 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+
+    <head>
+        <style>
+             @page {
+                margin-top: 0;
+            }
+            body {
+                margin-top: 5px;
+                font-size: 10pt; 
+                font-family: Arial Narrow, Arial;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum" />
+
+    <body>
+        <apex:repeat value="{!records}" var="record">
+            <c:RefundNoticeHeader pageStr="A-18.27-8" licenseType="BOARD OF PHARMACY"/>
+            <div style="padding-left: 50px">
+                <c:RefundNoticeSubHeader license="{!record}" dToday="{!dToday}" licenseLabel="PHY Permit No.:" subject="Non-Renewal of Pharmacy Permit for"
+                />
+                <br/>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">Please be advised that we are not able to process the permit renewal application for</div>
+                <div style="text-align: left;">the above referenced pharmacy because the licensing records reflect that the pharmacist in
+                    <br/>charge has failed to renew his/her license.
+                    
+                </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">Hawaii Revised Statutes, section §461-9 and §461-10 require a pharmacist in charge</div>
+                <div style="text-align: left;">to be in personal and immediate charge of the pharmacy and the personnel employed in the
+                    <br/>pharmacy
+                    
+                </div>
+                <br/>
+                <div style="margin-left: 40px; text-align: left;">Failure to designate a pharmacist in charge with a current license by the above date,</div>
+                <div style="text-align: left;">will result in the forfeiture of the pharmacy permit at which time you may not do business
+                    <br/>under this license and will be required to restore or re-apply as a new applicant, including
+                    <br/>submitting a new application form and all required documents and fees.</div>
+                <div style="margin-left: 40px; text-align: left;">A refund of your renewal fees will be processed if there is no response by the above</div>
+                <div style="text-align: left;">date. Please note that processing time for refunds is approximately 8 weeks.
+                    
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <!-- <div style="margin-left: 280px; text-align: left;">Very truly yours,
+                    
+                    <br/>Lee Ann Teshima
+                    <br/>Executive Officer
+                    <br/>Board of Pharmacy</div> -->
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div style="margin-left: 300px; text-align: left;">Records Section</div>
+                <div style="margin-left: 300px; text-align: left;">Licensing Branch</div>
+            </div>
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}" />
+        </apex:repeat>
+    </body>
+</apex:page>

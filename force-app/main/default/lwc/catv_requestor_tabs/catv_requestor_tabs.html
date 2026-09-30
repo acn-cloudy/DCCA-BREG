@@ -1,0 +1,788 @@
+<!--
+  @description       : 
+  @author            : Gaurav Agarwal
+  @group             : 
+  @last modified on  : 02-13-2026
+  @last modified by  : Marichris Roy
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+     <!-- Spinner -->
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+    </template>
+
+    <div class="mds-gap_small mds-m-vertical_x-large slds-grid slds-grid--align-end slds-grid--vertical-align-end">
+        <div class="slds-large-size--4-of-12 slds-medium-size--6-of-12 slds-size--12-of-12">
+            <lightning-input name="enter-search" type="search" class="no-helptext" value={searchValue}
+                placeholder="Search Requests" onchange={handleSearch} oncommit={handleClearSearch}
+                aria-label={getSearchAriaLabel} role = "alert">
+            </lightning-input>
+        </div>
+        <div>
+            <lightning-button variant="brand-outline" label="New Request" title="New Request"
+                onclick={handleNewRequest} class="mds-button mds-icon-left-add">
+            </lightning-button>
+        </div>
+    </div>
+
+    <template if:false={showSearchRecords}>
+        <div if:false={firstLoading} class="mds-tabs_default mds-tabs_responsive">
+            <ul class="mds-tabs_default__nav" role="tablist">
+                <li class="mds-tabs_default__item" title="Draft" role="presentation">
+                    <a class="mds-tabs_default__link" href="javascript:void(0);" role="tab" aria-label="Draft INET Requests" tabindex="-1"
+                        aria-selected="false" id="draft" data-type="draft"
+                        onclick={handleResponsiveTabItems}>
+                        <span class="mds-tabs_item">Draft ({draftCount})</span>
+                    </a><!--aria-controls="draft__item"-->
+                </li>
+                <li class="mds-tabs_default__item" title="Submitted" role="presentation">
+                    <a class="mds-tabs_default__link" href="javascript:void(0);" role="tab" aria-label="Submitted INET Requests" tabindex="-1"
+                        aria-selected="false" id="submitted" data-type="submitted"
+                        onclick={handleResponsiveTabItems}>
+                        <span class="mds-tabs_item">Submitted ({submittedCount})</span>
+                    </a><!--aria-controls="submitted__item"-->
+                </li>
+                <li class="mds-tabs_default__item" title="Assigned Back" role="presentation">
+                    <a class="mds-tabs_default__link" href="javascript:void(0);" role="tab" aria-label="Assigned Back INET Requests" tabindex="-1"
+                        aria-selected="false" id="assignedBack" data-type="assignedBack"
+                        onclick={handleResponsiveTabItems}>
+                        <span class="mds-tabs_item">Assigned Back ({assignedBackCount})</span>
+                    </a><!--aria-controls="assignedBack__item"-->
+                </li>
+                <li class="mds-tabs_default__item  mds-is-active slds-grid mds-align-items_center" title="Active" role="presentation">
+                    <a class="mds-tabs_default__link" href="javascript:void(0);" role="tab" aria-label="Active INET Requests" tabindex="0"
+                        aria-selected="true" id="active" data-type="active"
+                        onclick={handleResponsiveTabItems}>
+                        <span class="mds-tabs_item">Active ({activeCount})</span>
+                    </a><!--aria-controls="active__item"-->
+                </li>
+                <li class="mds-tabs_default__item  slds-grid mds-align-items_center" title="Closed" role="presentation">
+                    <a class="mds-tabs_default__link" href="javascript:void(0);" role="tab" aria-label="Closed INET Requests" tabindex="-1"
+                        aria-selected="false" id="closed" data-type="closed"
+                        onclick={handleResponsiveTabItems}>
+                        <span class="mds-tabs_item">Closed ({closedCount})</span>
+                    </a><!--aria-controls="closed__item"-->
+                </li>
+            </ul>
+            <div id="tab-responsive-default-1__item" class="mds-tabs_default__content mds-hide" role="tabpanel"
+                aria-labelledby="draft">
+                <template if:true={showDraftData} for:each={inetRequestDraftList} for:item="item" for:index="index">
+                    <div key={item.Id} class="mds-m-bottom_small">
+                        <div class="mds-card mds-p-around_large">
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                                    <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                                    <lightning-button variant="brand" label="Resume" data-id={item.Id} title="Resume" aria-label={item.resumeButtonAriaLabel} onclick={handleResumeRequest} class="mds-button btn-width-60"></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={showDraftData}>
+                    <div class="mds-empty-state">
+                        <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                            <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                            <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                                <h3 class="mds-m-bottom_small">No Records Found</h3>
+                                <p>There are currently no request records available for this status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div id="tab-responsive-default-2__item" class="mds-tabs_default__content mds-hide" role="tabpanel"
+                aria-labelledby="submitted">
+                <template if:true={showSubmittedData} for:each={inetRequestSubmittedList} for:item="item" for:index="index">
+                    <div key={item.Id} class="mds-m-bottom_small">
+                        <div class="mds-card mds-p-around_large">
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                                    <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12    mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                                    <lightning-button variant="brand" label="View Request" data-id={item.Id} title="View Request" aria-label={item.viewRequestButtonAriaLabel} onclick={handleViewRequest} class="mds-button btn-width-60"></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={showSubmittedData}>
+                    <div class="mds-empty-state">
+                        <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                            <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                            <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                                <h3 class="mds-m-bottom_small">No Records Found</h3>
+                                <p>There are currently no request records available for this status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div id="tab-responsive-default-3__item" class="mds-tabs_default__content mds-hide" role="tabpanel"
+                aria-labelledby="assignedBack">
+                <template if:true={showAssignBackData} for:each={inetRequestAssignedBackList} for:item="item" for:index="index">
+                    <div key={item.Id} class="mds-m-bottom_small">
+                        <div class="mds-card mds-p-around_large">
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                                    <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                                    <lightning-button variant="outline-brand" label="View Feedback" aria-label={item.viewFeedbackButtonAriaLabel}  title="View Feedback" data-id={item.Id} data-message={item.Rejection_Comments__c} onclick={handleViewFeedback} class="mds-button btn-width-60"></lightning-button>
+                                    <lightning-button variant="brand" label="Submit Updates" aria-label={item.submitUpdatesButtonAriaLabel} title="Submit Updates" data-id={item.Id} data-flowtype="feedback" onclick={handleResumeRequest} class="mds-button btn-width-60"></lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={showAssignBackData}>
+                    <div class="mds-empty-state">
+                        <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                            <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                            <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                                <h3 class="mds-m-bottom_small">No Records Found</h3>
+                                <p>There are currently no request records available for this status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div id="tab-responsive-default-4__item" class="mds-tabs_default__content mds-show" role="tabpanel"
+                aria-labelledby="active">
+                <template if:true={showActiveData} for:each={inetRequestActiveList} for:item="item" for:index="index">
+                    <div key ={item.Id} class="mds-m-bottom_small">
+                        <div class="mds-card mds-p-around_large">
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                                    <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                                    <template if:true={item.showCreatePurchaseOrderButton}>
+                                        <lightning-button variant="brand" label="Create Purchase Order" aria-label={item.createPurchaseOrderButtonAriaLabel} data-id={item.Id}  title="Create Purchase Order" onclick={handlePurchaseOrder} class="mds-button btn-width-61"></lightning-button>
+                                    </template>
+                                    <template if:true={item.showConnectedToINETButton}>
+                                        <lightning-button variant="brand" label="Connected to INET" aria-label={item.connectedToINETButtonAriaLabel} data-id={item.Id}  title="Connected to INETe" onclick={handleConnectedToINET} class="mds-button btn-width-60"></lightning-button>
+                                    </template>
+                                    <lightning-button-menu variant="outline-brand" label="View Details" alternative-text={item.viewDetailsButtonAriaLabel} class="mds-button btn-width-60" menu-alignment="center">
+                                        <lightning-menu-item value="View Requests" label="View Requests" aria-label={item.viewRequestButtonAriaLabel} data-id={item.Id} onclick={handleViewRequest}></lightning-menu-item>
+                                        <template if:true={item.showViewQuoteDetails}>
+                                            <lightning-menu-item value="View Quotes" label="View Quotes" aria-label={item.viewQuoteButtonAriaLabel} data-id={item.Id} onclick={handleViewQuote}></lightning-menu-item>
+                                        </template>
+                                        <template if:true={item.showViePurchaseOrderDetails}>
+                                            <lightning-menu-item value="View Purchase Order" label="View Purchase Order" aria-label={item.viewPurchaseOrderButtonAriaLabel} data-id={item.Id} onclick={handleViewPurchaseOrder}></lightning-menu-item>
+                                        </template>
+                                        <template if:true={item.showViewInvoiceDetails}>
+                                            <lightning-menu-item value="View Invoice(s)" label="View Invoice(s)" aria-label={item.viewInvoicesButtonAriaLabel} data-id={item.Id} onclick={handleViewInvoice}></lightning-menu-item>
+                                        </template>
+                                    </lightning-button-menu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={showActiveData}>
+                    <div class="mds-empty-state">
+                        <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                            <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                            <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                                <h3 class="mds-m-bottom_small">No Records Found</h3>
+                                <p>There are currently no request records available for this status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div id="tab-responsive-default-5__item" class="mds-tabs_default__content mds-hide" role="tabpanel"
+                aria-labelledby="closed">
+                <template if:true={showClosedData} for:each={inetRequestClosedList} for:item="item" for:index="index">
+                    <div key ={item.Id} class="mds-m-bottom_small">
+                        <div class="mds-card mds-p-around_large">
+                            <div class="slds-grid slds-wrap slds-gutters">
+                                <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                                    <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                                </div>
+                                <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12    mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                                    <lightning-button-menu variant="outline-brand" label="View Details" alternative-text={item.viewDetailsButtonAriaLabel} class="mds-button btn-width-60" menu-alignment="center">
+                                        <lightning-menu-item value="View Requests" label="View Requests"  aria-label={item.viewRequestButtonAriaLabel} data-id={item.Id} onclick={handleViewRequest}></lightning-menu-item>
+                                        <template if:true={item.showViewQuoteDetails}>
+                                            <lightning-menu-item value="View Quotes" label="View Quotes" aria-label={item.viewQuoteButtonAriaLabel} data-id={item.Id} onclick={handleViewQuote}></lightning-menu-item>
+                                        </template>
+                                        <template if:true={item.showViePurchaseOrderDetails}>
+                                            <lightning-menu-item value="View Purchase Order" label="View Purchase Order" aria-label={item.viewPurchaseOrderButtonAriaLabel}  data-id={item.Id} onclick={handleViewPurchaseOrder}></lightning-menu-item>
+                                        </template>
+                                        <template if:true={item.showViewInvoiceDetails}>
+                                            <lightning-menu-item value="View Invoice(s)" label="View Invoice(s)" aria-label={item.viewInvoicesButtonAriaLabel} data-id={item.Id} onclick={handleViewInvoice}></lightning-menu-item>
+                                        </template>
+                                    </lightning-button-menu>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={showClosedData}>
+                    <div class="mds-empty-state">
+                        <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                            <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                            <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                                <h3 class="mds-m-bottom_small">No Records Found</h3>
+                                <p>There are currently no request records available for this status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </template>
+    
+    <template if:true={showSearchRecords}>
+        <span class="sr-only searchResult" aria-label={getSearchAriaLabel} tabindex="0" role = "alert">{getSearchAriaLabel}</span>
+        <template if:true={showAllData} for:each={inetRequestList} for:item="item" for:index="index">
+            <div key={item.Id} class="mds-m-bottom_small">
+                <div class="mds-card mds-p-around_large">
+                    <div class="slds-grid slds-wrap slds-gutters">
+                        <div class="slds-col slds-large-size_9-of-12 slds-medium-size_9-of-12 slds-size_12-of-12">
+                            <c-catv_inet-request-data item={item}></c-catv_inet-request-data>
+                        </div>
+                        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_3-of-12 slds-size_12-of-12 mds-text-align_center mds-align_center slds-grid slds-grid--vertical mds-gap_xx-small">
+                            <lightning-button if:true={item.showResumeButton} variant="brand" label="Resume" aria-label={item.resumeButtonAriaLabel} data-id={item.Id} title="Resume" onclick={handleResumeRequest} class="mds-button btn-width-60"></lightning-button>
+                            <lightning-button if:true={item.showCreatePurchaseOrderButton} variant="brand" label="Create Purchase Order" aria-label={item.createPurchaseOrderButtonAriaLabel} data-id={item.Id}  title="Create Purchase Order" onclick={handlePurchaseOrder} class="mds-button"></lightning-button>
+                            <lightning-button if:true={item.showConnectedToINETButton} variant="brand" label="Connected to INET" aria-label={item.connectedToINETButtonAriaLabel} data-id={item.Id}  title="Connected to INETe" onclick={handleConnectedToINET} class="mds-button"></lightning-button>
+                            <lightning-button if:true={item.showAssignBackButton} variant="outline-brand" label="View Feedback" aria-label={item.viewFeedbackButtonAriaLabel} title="View Feedback" data-id={item.Id} data-message={item.Rejection_Comments__c} onclick={handleViewFeedback} class="mds-button btn-width-60"></lightning-button>
+                            <lightning-button if:true={item.showAssignBackButton} variant="brand" label="Submit Updates" aria-label={item.submitUpdatesButtonAriaLabel} title="Submit Updates" data-id={item.Id} data-flowtype="feedback" onclick={handleResumeRequest} class="mds-button btn-width-60"></lightning-button>
+
+                            <lightning-button-menu if:true={item.showViewDetails} alternative-text={item.viewDetailsButtonAriaLabel} variant="outline-brand" label="View Details" class="mds-button btn-width-60" menu-alignment="center">
+                                <lightning-menu-item value="View Requests" label="View Requests" aria-label={item.viewRequestButtonAriaLabel} data-id={item.Id} onclick={handleViewRequest}></lightning-menu-item>
+                                <lightning-menu-item if:true={item.showViewQuoteDetails} value="View Quotes" label="View Quotes" aria-label={item.viewQuoteButtonAriaLabel} data-id={item.Id} onclick={handleViewQuote}></lightning-menu-item>
+                                <lightning-menu-item if:true={item.showViePurchaseOrderDetails} value="View Purchase Order" label="View Purchase Order" aria-label={item.viewPurchaseOrderButtonAriaLabel} data-id={item.Id} onclick={handleViewPurchaseOrder}></lightning-menu-item>
+                                <lightning-menu-item if:true={item.showViewInvoiceDetails} value="View Invoice(s)" label="View Invoice(s)" aria-label={item.viewInvoicesButtonAriaLabel} data-id={item.Id} onclick={handleViewInvoice}></lightning-menu-item>
+                            </lightning-button-menu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={showAllData}>
+            <div class="mds-empty-state">
+                <div class="mds-empty-state_box slds-illustration slds-illustration_small ">
+                    <img alt="Nodata found" src={picture} class="mds-m-bottom_small">
+                    <div class="mds-empty-state_box-content slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_8-of-12 ">
+                        <h3 class="mds-m-bottom_small">No Records Found</h3>
+                        <p>No results matched your search.</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </template>
+
+    <!-- New Request/ Resume Modal Window  -->
+    <template if:true={newRequestModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="mds-modal mds-fade-in-open" onkeydown={closeModalOnEsc}>
+            <div class="mds-modal__container">
+                <div class="mds-modal__header">
+                    <h1 class="mds-text-heading_medium">New Request</h1>
+                    <lightning-button-icon variant="bare" class="mds-icon mds-icon-right-close mds-icons_medium" title="Close Modal" aria-label="Close new request modal" onclick={closeModal}>
+                    </lightning-button-icon>
+                </div>
+                <lightning-record-edit-form object-api-name={requestobjectName}  record-id = {inetRequestRecordId} record-type-id = {recordTypeId} columns="2" onsubmit={handleSubmit} onsuccess={handleSuccess} onerror={handleError}>
+                    <div class="mds-modal__content mds-p-around_medium">
+                        <div class="mds-m-bottom_medium"> Asterisk (<span class="slds-required">*</span>) indicates required
+                            field</div>
+                        <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field field-name="Site_Name__c" aria-label="Site Name"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field field-name="Target_Date__c" aria-label="Target Date"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Address__c" aria-label="Address Line 1"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Address_Line_2__c" aria-label="Address Line 2"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="City__c" aria-label="City"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Island__c" aria-label="Island"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="State__c" aria-label="State"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Zip_Code__c" aria-label="Zip Code"></lightning-input-field>
+                            </div>
+                            <!--<div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Provider_Contact_Name__c" aria-label="Provider Contact Name" onchange={handleProviderContactName}></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Provider__c" aria-label="Provider"></lightning-input-field>
+                            </div>-->
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <div class="slds-form slds-form_horizontal">
+                                    <div class="slds-form-element">
+                                        <label class="slds-form-element__label" for="provider">
+                                            <abbr class="slds-required" title="required">*</abbr> Provider
+                                        </label>
+                                        <lightning-combobox
+                                            name="provider"
+                                            label=""
+                                            value={providerValue}
+                                            placeholder="Select a Provider"
+                                            options={providerOptions}
+                                            onchange={handleProviderChange}
+                                        ></lightning-combobox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="Sow_Needed__c" aria-label="SOW Needed"></lightning-input-field>
+                            </div>
+                           
+                            <div class="slds-col slds-size_6-of-12">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="fileUpload">
+                                        Upload SOW
+                                        <lightning-helptext content="Note: The uploaded document will not be saved if you select the Save Draft option"></lightning-helptext>
+                                    </label>
+                                    <div class="slds-form-element__control">
+                                        <lightning-input type="file" disabled={fileData} id="fileUpload"
+                                            accept={acceptedFormats} variant="label-hidden"
+                                            label="Upload SOW" data-objectname={requestobjectName} onchange={onfileUpload}>
+                                        </lightning-input>
+                                    </div>
+                                </div> 
+
+                                <template if:true={fileData}>
+                                    <div class="slds-grid slds-grid_vertical-align-center slds-m-top_x-small">
+                                        <p class="slds-text-body_regular slds-var-m-right_x-small">Selected File: {fileData.fileName}</p>
+                                        <lightning-icon
+                                            icon-name="utility:delete"
+                                            alternative-text="Clear file"
+                                            tabindex="0"
+                                            size="small"
+                                            title="Clear selected file"
+                                            class="slds-icon_container slds-icon-utility-delete slds-button_icon slds-button_icon-small"
+                                            onclick={clearFile}
+                                            onkeydown={handleEnterKey}
+                                        ></lightning-icon>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mds-modal__footer">
+                        <lightning-button label="Exit" title="Exit" aria-label="Close new request modal" class="slds-m-right_x-small mds-button mds-button_outline-brand"
+                            onclick={handleRequestExit}>
+                        </lightning-button>
+                        <template if:true={showSaveDraftButton}>
+                            <lightning-button label="Save Draft" data-id="savedraft" aria-label="Save new request in draft" name="savedraft" title="Save Draft" type="submit" onclick={handleDraftInetRequest} class="slds-m-right_x-small slds-m-left_x-small mds-button mds-button_outline-brand">
+                            </lightning-button>
+                        </template>
+                        <lightning-button label="Submit" variant="brand" data-id="submit" aria-label="Submit new inet request" name="submit" type="submit" title="Submit"
+                            class="mds-button mds-button_brand mds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </section>
+        <div class="mds-backdrop mds-backdrop_open" role="presentation"></div>
+    </template>  
+    <!--View Request Modal Popup-->
+    <template if:true={viewRequestModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="mds-modal mds-fade-in-open" onkeydown={closeModalOnEsc}>
+            <div class="mds-modal__container">
+                <header class="mds-modal__header">
+                    <h1 class="mds-text-heading_medium">View Request</h1>
+                    <lightning-button-icon variant="bare" class="mds-icon mds-icon-right-close mds-icons_medium" title="Close Modal" aria-label="Close view request modal" onclick={closeModal}>
+                    </lightning-button-icon>
+                </header>
+                <div class="mds-modal__content mds-p-around_medium">
+                    <lightning-record-view-form
+                    object-api-name={requestobjectName}
+                    record-id={inetRequestRecordId}>
+                    <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Site_Name__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Target_Date__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Address__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Address_Line_2__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="City__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Island__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="State__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Zip_Code__c"></lightning-output-field>
+                        </div>
+                        <div if:true={showProviderContactName} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-outfield-default-color mds-pointer-none">
+                            <lightning-output-field  field-name="Provider_Contact_Name__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-pointer-none mds-outfield-default-color">
+                            <lightning-output-field  field-name="Provider__c"></lightning-output-field>
+                        </div>
+                        <div if:true={showWorkCompletedDate} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Mileage__c"></lightning-output-field>
+                        </div>
+                        <div if:true={showWorkCompletedDate} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-pointer-none">
+                            <lightning-output-field  field-name="Work_Completed_Date__c"></lightning-output-field>
+                        </div>
+                        <div if:true={showUpdateProgressDetails} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Permit_Status__c"></lightning-output-field>
+                        </div>
+                         <div if:true={showUpdateProgressDetails} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Projected_Deployment_Date__c"></lightning-output-field>
+                        </div>
+                         <div if:true={showUpdateProgressDetails} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Scheduled_Deployment_Date__c"></lightning-output-field>
+                        </div>
+                         <div if:true={showUpdateProgressDetails} class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Deployment_Start_Date__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="Sow_Needed__c"></lightning-output-field>
+                        </div>
+                    </div>
+                    </lightning-record-view-form>
+                    <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-button label="Preview SOW" title="Preview" aria-label="Preview file" class="mds-button mds-button_outline-brand" data-objectname={requestobjectName} data-recordid={inetRequestRecordId} onclick={handlePreview}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mds-modal__footer">
+                    <lightning-button label="Close" title="Close" aria-label="Close view request modal" class="mds-button mds-button_outline-brand" onclick={closeModal}>
+                    </lightning-button>
+                </div>
+            </div>
+        </section>
+        <div class="mds-backdrop mds-backdrop_open" role="presentation"></div>
+    </template>  
+   
+    <!-- New Purchase Order Modal Window  -->
+    <template if:true={newPurchaseModal}> 
+        <section role="dialog" tabindex="-1" aria-modal="true" class="mds-modal mds-fade-in-open" onkeydown={closeModalOnEsc}>
+            <div class="mds-modal__container">
+                <div class="mds-modal__header">
+                    <h1 class="mds-text-heading_medium">Create Purchase Order</h1>
+                    <lightning-button-icon variant="bare" class="mds-icon mds-icon-right-close mds-icons_medium" title="Close Modal" aria-label="Close create purchase order modal" onclick={closeModal}>
+                    </lightning-button-icon>
+                </div>
+                <lightning-record-edit-form object-api-name={purchaseOrderObjectName}  columns="2" onsubmit={handlePurchaseOrderSubmit} onsuccess={handlePurchaseOrderSuccess} onerror={handlePurchaseOrderError}>
+                    <div class="mds-modal__content mds-p-around_medium">
+                        <div class="mds-m-bottom_medium"> Asterisk (<span class="slds-required">*</span>) indicates required
+                            field </div>
+                        <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field field-name="Name" aria-label="Name" required></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field field-name="PO_Date__c" aria-label="PO Date"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                                <lightning-input-field  field-name="PO_Amount__c" aria-label="PO Amount"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_6-of-12">
+                                <lightning-input type="file"  disabled={fileData}
+                                    accept={acceptedFormats}
+                                    label="Upload Purchase Order" data-objectname={purchaseOrderObjectName} onchange={onfileUpload}>
+                                </lightning-input>
+                                <template if:true={fileData}>
+                                    <div class="slds-grid slds-grid_vertical-align-center slds-m-top_x-small">
+                                        <p class="slds-text-body_regular slds-var-m-right_x-small">Selected File: {fileData.fileName}</p>
+                                        <lightning-icon
+                                            icon-name="utility:delete"
+                                            alternative-text="Clear file"
+                                            tabindex="0"
+                                            size="small"
+                                            title="Clear selected file"
+                                            class="slds-icon_container slds-icon-utility-delete slds-button_icon slds-button_icon-small"
+                                            onclick={clearFile}
+                                            onkeydown={handleEnterKey}
+                                        ></lightning-icon>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mds-modal__footer">
+                        <lightning-button label="Exit" title="Exit" aria-label="Close create purchase order modal" class="slds-m-right_x-small mds-button mds-button_outline-brand"
+                            onclick={closeModal}>
+                        </lightning-button>
+                        <lightning-button label="Submit" variant="brand" data-id="submit" aria-label="Submit new purchase order" name="submit" type="submit" title="Submit"
+                            class="mds-button mds-button_brand mds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </section>
+        <div class="mds-backdrop mds-backdrop_open" role="presentation"></div>
+        
+    </template> 
+    
+    <!--View Quote Modal Popup-->
+    <template if:true={viewQuoteModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header" style="border-bottom: 1px solid #dddbda;">
+                    <lightning-button-icon icon-name="utility:close" onclick={closeModal} alternative-text="close" variant="bare-inverse" class="slds-modal__close"></lightning-button-icon>
+                    <h2 class="slds-text-heading_medium">View Quote</h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <template if:true={showSpinner}>
+                        <lightning-spinner alternative-text="Loading..." size="medium" variant="brand"></lightning-spinner>
+                    </template>
+
+                    <lightning-record-view-form 
+                        object-api-name={quoteObjectName} 
+                        record-id={quoteRecord.Id} 
+                        density="compact">
+                    
+                        <div class="slds-grid slds-wrap slds-gutters">
+                        
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <lightning-output-field field-name="Name" variant="label-inline"></lightning-output-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <div class="slds-form-element slds-form-element_horizontal custom-static-field">
+                                    <span class="slds-form-element__label">INET Request</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">{inetRequestNumber}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <lightning-output-field field-name="Description__c" variant="label-inline"></lightning-output-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <lightning-output-field field-name="Amount__c" variant="label-inline"></lightning-output-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <div class="slds-form-element slds-form-element_horizontal custom-static-field">
+                                    <span class="slds-form-element__label">Requestor</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">{requestorName}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <lightning-output-field field-name="Submitted_Date__c" variant="label-inline"></lightning-output-field>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <div class="slds-form-element slds-form-element_horizontal custom-static-field">
+                                    <span class="slds-form-element__label">Provider</span>
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-form-element__static">{providerName}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                <lightning-output-field field-name="Status__c" variant="label-inline"></lightning-output-field>
+                            </div>
+
+                            <template if:true={showQuoteAcceptedDate}>
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                    <lightning-output-field field-name="Quote_Accepted_Date__c" variant="label-inline"></lightning-output-field>
+                                </div>
+                            </template>
+
+                            <template if:true={isAlreadyDenied}>
+                                <template if:true={quoteRecord.Rejection_Reason__c}>
+                                    <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                                        <lightning-output-field field-name="Rejection_Reason__c" variant="label-inline"></lightning-output-field>
+                                    </div>
+                                </template>
+                            </template>
+
+                        </div>
+                    </lightning-record-view-form>
+
+                    <template if:true={isDenied}>
+                        <div class="rejection-box slds-m-top_medium">
+                            <lightning-combobox
+                                name="rejectionReason"
+                                label="Rejection Reason"
+                                value={rejectionReason}
+                                placeholder="Select a reason..."
+                                options={rejectionOptions}
+                                onchange={handleRejectionReasonChange}
+                                required>
+                            </lightning-combobox>
+                            <div class="slds-m-top_small">
+                                <lightning-button label="Confirm Rejection" variant="destructive" onclick={confirmRejection}></lightning-button>
+                                <lightning-button label="Back" variant="neutral" onclick={cancelRejection} class="slds-m-left_x-small"></lightning-button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <footer class="slds-modal__footer slds-grid slds-grid_align-spread" style="border-top: 1px solid #dddbda;">
+                    <div class="left-actions">
+                        <template if:false={isDenied}>
+                            <lightning-button 
+                                label="Preview Quote" 
+                                variant="neutral" 
+                                onclick={handlePreview}
+                                data-recordid={quoteRecord.Id}
+                                data-objectname={quoteObjectName}>
+                            </lightning-button>
+                        </template>
+                    </div>
+            
+                    <div class="right-actions">
+                        <template if:false={isDenied}>
+                            <lightning-button label="Close" onclick={closeModal} class="slds-m-right_x-small"></lightning-button>
+                            <template if:true={showAcceptRejectButton}>
+                                <lightning-button label="Reject" variant="destructive" onclick={handleRejectQuote} class="slds-m-right_x-small"></lightning-button>
+                                <lightning-button label="Accept" variant="brand" onclick={handleAcceptQuote}></lightning-button>
+                            </template>
+                        </template>
+                    </div>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:true={viewPurchaseOrderModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="mds-modal mds-fade-in-open" onkeydown={closeModalOnEsc}>
+            <div class="mds-modal__container">
+                <div class="mds-modal__header">
+                    <h1 class="mds-text-heading_medium">View Purchase Order</h1>
+                    <lightning-button-icon variant="bare" class="mds-icon mds-icon-right-close mds-icons_medium" title="Close Modal" aria-label="Close view purchase order modal" onclick={closeModal}>
+                    </lightning-button-icon>
+                </div>
+                <div class="mds-modal__content mds-p-around_medium">
+                    <lightning-record-view-form
+                    object-api-name={purchaseOrderObjectName}
+                    record-id={purchaseOrderRecord.Id}>
+                    <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field field-name="Name"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="PO_Amount__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-output-field  field-name="PO_Date__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <div class="slds-form-element">
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_4-of-12 slds-p-horizontal_none">
+                                        <label class="slds-form-element__label" for="poAmount">
+                                            Actual PO Amount
+                                            <lightning-helptext class="slds-m-left_x-small" content="For a PO Amount change, contact CATV."></lightning-helptext>
+                                        </label>
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_none">
+                                        <div class="slds-form-element__control" id="poAmount">
+                                            <lightning-output-field field-name="Actual_PO_Amount__c" variant="label-hidden"></lightning-output-field>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-outfield-default-color mds-pointer-none">
+                            <lightning-output-field  field-name="Quote__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-outfield-default-color mds-pointer-none">
+                            <lightning-output-field  field-name="INET_Request__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-outfield-default-color mds-pointer-none">
+                            <lightning-output-field field-name="Requestor__c"></lightning-output-field>
+                        </div>
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12 mds-outfield-default-color mds-pointer-none">
+                            <lightning-output-field  field-name="Provider__c"></lightning-output-field>
+                        </div>
+                    </div>
+                    </lightning-record-view-form>
+                    <div class="slds-grid slds-wrap slds-gutters mds-m-bottom_large">
+                        <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+                            <lightning-button label="Preview Purchase Order" title="Preview" aria-label="Preview file" class="mds-button mds-button_outline-brand" data-objectname={purchaseOrderObjectName} data-recordid={purchaseOrderRecord.Id} onclick={handlePreview}>
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mds-modal__footer">
+                    <lightning-button label="Close" title="Close" aria-label="Close view purchase order modal" class="slds-m-left_x-small mds-button mds-button_outline-brand" onclick={closeModal}>
+                    </lightning-button>
+                </div>
+            </div>
+        </section>
+        <div class="mds-backdrop mds-backdrop_open" role="presentation"></div>
+    </template>
+    
+    <!--View Feedback details if the request is assigned back-->
+    <template if:true={feedbackModal}>
+        <c-catv_modal onclose={closeModal} header-title="View Feedback">
+            <div slot="body">
+                <p>{feedbackText}</p>
+            </div>
+            
+            <div slot="footer" class="slds-grid">
+                <lightning-button label="Close" title="Close" class="slds-m-right_x-small slds-m-left_x-small mds-button mds-button_outline-brand"
+                        onclick={closeModal}>
+                </lightning-button>
+                <lightning-button data-id={inetRequestRecordId} data-flowtype="feedback" label="Submit Updates" variant="brand" title="Submit Updates"
+                    class="mds-button mds-button_brand mds-m-left_x-small"
+                    onclick={handleResumeRequest}>
+                </lightning-button>
+            </div>
+        </c-catv_modal>
+    </template>
+    <template if:true={viewInvoiceModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="mds-modal mds-fade-in-open" onkeydown={closeModalOnEsc}>
+            <div class="mds-modal__container">
+                <div class="mds-modal__header">
+                    <h1 class="mds-text-heading_medium">Invoice(s)</h1>
+                    <lightning-button-icon variant="bare" class="mds-icon mds-icon-right-close mds-icons_medium" title="Close Modal"
+                    aria-label="Close view invoice's modal"  onclick={closeModal}>
+                    </lightning-button-icon>
+                </div>
+                <div class="mds-modal__content mds-p-around_medium">
+                    <div class="mds-p-around_medium">
+                        <div class="basic-border">
+                            <lightning-datatable
+                                    key-field="Id"
+                                    data={invoiceRecords}
+                                    columns={invoiceColumns}
+                                    onrowaction={callRowAction}
+                                    hide-checkbox-column="true">
+                            </lightning-datatable>
+                            <div aria-live="polite">
+                                <template if:true={showMessage}>
+                                    <p class="slds-assistive-text">{screenReaderMessage}</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mds-backdrop mds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

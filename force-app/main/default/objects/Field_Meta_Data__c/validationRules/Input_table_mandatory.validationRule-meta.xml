@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Input_table_mandatory</fullName>
+    <active>true</active>
+    <errorConditionFormula>if ( ISPICKVAL( Type__c , &apos;inputtable&apos;) &amp;&amp;  (ISBLANK(Target_Fields_For_Input_Table__c) || ISBLANK( input_table_field_types__c ) || ISBLANK( input_table_cols__c ) || ISBLANK(Parent_Object_Field_for_Input_Table__c) ) ,true,false)</errorConditionFormula>
+    <errorMessage>If the Type is inputtable the following fields are mandatory [Columns for Input Table, Field Types for Input Table, Parent Object for Input Table, Target Fields For Input Table]</errorMessage>
+</ValidationRule>

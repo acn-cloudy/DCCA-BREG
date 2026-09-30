@@ -1,0 +1,246 @@
+<apex:page showHeader="false"
+           applyHtmlTag="false"
+           standardController="Application__c"
+           extensions="CTCheckoutFormController"
+           renderAs="pdf">
+    <html>
+    <head>
+        <style>
+            .header-row-border td {
+                border-bottom: 1px solid;
+                padding-bottom: 10px;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            table.header-table td {
+                padding: 2px;
+            }
+
+            div.info-container {
+                margin-top: 10px;
+                border-bottom: 1px dashed;
+                padding-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body style="font-size: 10pt;">
+    <table class="header-table">
+        <tr>
+            <td></td>
+            <td>Date Filed &nbsp;
+                <apex:outputText value="{0,date,MM/dd/yy}">
+                    <apex:param value="{!Application__c.ApplicationReceivedDate__c}"/>
+                </apex:outputText>
+            </td>
+            <td>BRD Mtg &nbsp;
+                <apex:outputText value="{0,date,MM/dd/yy}">
+                    <apex:param value="{!Application__c.BoardMeetingDate__c}"/>
+                </apex:outputText>
+            </td>
+        </tr>
+        <tr class="header-row-border">
+            <td>CONTRACTOR APPLICATION CHECK-OUT</td>
+            <td>AT Id
+                &nbsp; {!application__c.SocialSecurityTemplate__c} {!application__c.LicenseType__r.LicensePrefix__c}</td>
+            <td>{!application__c.TypeCodeTemplate__c}</td>
+        </tr>
+    </table>
+    <table style="margin-top: 10px;">
+        <tr>
+            <td>Name of Applicant:</td>
+            <td>Entity Desc:</td>
+            <td>Type of Entity:</td>
+        </tr>
+        <tr>
+            <td>{!application__c.ApplicantNameText__c}</td>
+            <td>{!application__c.LicenseType__r.Name}</td>
+            <td>{!application__c.TypeofEntity__c}</td>
+        </tr>
+    </table>
+    <div class="info-container">
+        <table>
+            <tr>
+                <td>Address: {!application__c.NotificationMailingStreet__c}</td>
+                <td>Applying For:</td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!application__c.NotificationMailingCity__c}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {!application__c.NotificationMailingState__c}&nbsp;
+                        {!application__c.NotificationMailingZipcode__c}
+                </td>
+                <td>
+                        {!application__c.Type__c}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="info-container">
+        <p>Classification(s) Requested:</p>
+        <table>
+            <apex:repeat value="{!applicationClassifications}" var="cl">
+                <tr>
+                    <td>{!cl.ClassificationName1__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <p>License Held:</p>
+        <table>
+            <apex:repeat value="{!applicantLicenses}" var="lic">
+                <tr>
+                    <td>{!lic.NotificationLicenseNumber__c}</td>
+                    <td>Status: {!lic.LicenseCode__c}</td>
+                    <td>
+                        <apex:outputText value="{0,date,MM/dd/yy}">
+                            Exp:&nbsp;
+                            <apex:param value="{!lic.EffectiveExpireDate__c}"/>
+                        </apex:outputText>
+                    </td>
+                    <td>{!lic.CheckoutFormConditional__c}</td>
+                    <td>{!lic.ActiveInactive__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <p>Classification(s) Currently Held:</p>
+        <table>
+            <apex:repeat value="{!classificationsHeld}" var="classficiation">
+                <tr>
+                    <td>{!classficiation.ClassificationName__c}</td>
+                    <td>{!classficiation.Status__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <p>
+            EO Remarks: {!Application__c.EORemarks__c}
+            <br/>
+            Remarks: {!Application__c.Remarks__c}
+        </p>
+    </div>
+    <div class="info-container">
+        <p>Credit Report: (Name/Position/Status)</p>
+        <table>
+            <apex:repeat value="{!Application__c.Partners_Officers__r}" var="po">
+                <tr>
+                    <td>{!po.PartnerOfficerName__c}</td>
+                    <td>{!po.PositionHeld__c}</td>
+                    <td>{!po.CreditReportReceived__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <table style="margin-top: 10px;">
+            <tr>
+                <td>Tax Clearance: {!application__c.TaxClearance__c}</td>
+                <td>Financial Statement: {!application__c.FinancialStatement__c}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="border-top: 1px dashed;"></div>
+    <div class="info-container">
+        <table>
+            <tr>
+                <td>Name of {!application__c.DependentApplicationLicenseLT__c}</td>
+            </tr>
+            <tr>
+                <td>{!application__c.DependentApplicantLicensee__c}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="min-height: 250px;">
+        <table>
+            <tr>
+                <td>Applicant ID: {!application__c.DependentApplicantBPID__c}</td>
+                <td>Applying For: {!application__c.DependentApplicationAppType__c}</td>
+            </tr>
+        </table>
+        <p>Classification(s) Requested:</p>
+        <table>
+            <apex:repeat value="{!dependentApplicationClassifications}" var="cl">
+                <tr>
+                    <td>{!cl.ClassificationName1__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <p>License Held:</p>
+        <table>
+            <apex:repeat value="{!dependentLicenseLicenses}" var="lic">
+                <tr>
+                    <td>{!lic.NotificationLicenseNumber__c}</td>
+                    <td> Status: {!lic.LicenseCode__c}</td>
+                    <td>
+                        <apex:outputText value="{0,date,MM/dd/yy}">
+                            Exp:&nbsp;
+                            <apex:param value="{!lic.EffectiveExpireDate__c}"/>
+                        </apex:outputText>
+                    </td>
+                    <td>{!lic.CheckoutFormConditional__c}</td>
+                    <td>{!lic.ActiveInactive__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <p>Classification(s) Currently Held:</p>
+        <table>
+            <apex:repeat value="{!dependentLicenseLicenseClassifications}" var="cl">
+                <tr>
+                    <td>{!cl.ClassificationName__c}</td>
+                    <td>{!cl.Status__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </div>
+    <div style="margin-top: 10px;">
+        Recommendation:
+        <table>
+            <tr>
+                <td>A [&nbsp;&nbsp;&nbsp;] Approve, no exam required</td>
+                <td>C [&nbsp;&nbsp;&nbsp;] Defer</td>
+            </tr>
+            <tr>
+                <td>B [&nbsp;&nbsp;&nbsp;] Approve, exam is required</td>
+                <td>D [&nbsp;&nbsp;&nbsp;] Deny</td>
+            </tr>
+        </table>
+        <br/>
+        Remarks:
+        <table>
+            <tr>
+                <td> [&nbsp;&nbsp;&nbsp;] Subject to $_______________________ bond</td>
+            </tr>
+            <tr>
+                <td> [&nbsp;&nbsp;&nbsp;] Approve/Qualifies for _______________________, but deny
+                    __________________________________________________
+                </td>
+            </tr>
+            <tr>
+                <td> [&nbsp;&nbsp;&nbsp;] Failure to show financial
+                    _______________________________________________________________________________
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    [&nbsp;&nbsp;&nbsp;] Request: [&nbsp;&nbsp;&nbsp;] Project list for
+                    _____________________________________________________________________________<br/>
+                    <span style="visibility: hidden;">[&nbsp;&nbsp;&nbsp;] Request:</span>
+                    [&nbsp;&nbsp;&nbsp;] Experience verification
+                    ______________________________________________________________________
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 20px;">[&nbsp;&nbsp;&nbsp;] Comments:</td>
+            </tr>
+        </table>
+    </div>
+    <div style="display: none;">
+        <apex:outputText rendered="false" value="{!Application__c.Applicant__c}"/>
+        <apex:outputText rendered="false" value="{!Application__c.DependentLicense__c}"/>
+        <apex:outputText rendered="false" value="{!Application__c.DependentLicense__r.Licensee__c}"/>
+        <apex:outputText rendered="false" value="{!Application__c.DependentApplication__c}"/>
+        <apex:outputText rendered="false" value="{!Application__c.DependentApplication__r.CurrentLicense__c}"/>
+    </div>
+    </body>
+    </html>
+</apex:page>

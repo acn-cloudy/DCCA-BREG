@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PolicyEffectiveAndExpiryDateIfNonLiCB</fullName>
+    <active>true</active>
+    <description>PacPoint-JK13042022- Case 21146</description>
+    <errorConditionFormula>AND(
+ NonLicensedInsurerSubmittal_Approved__c = true,
+ TransactionType__c &lt;&gt; &apos;CANC&apos;,
+OR(
+  ISBLANK(  PolicyEffectiveDateDay__c  ) ,
+  ISBLANK(  PolicyEffectiveDateMonth__c   ) ,
+  ISBLANK(  PolicyEffectiveDateYear__c   ) ,
+  ISBLANK(  PolicyExpirationDateDay__c  ) ,
+  ISBLANK(  PolicyExpirationDateMonth__c   ) ,
+  ISBLANK(  PolicyExpirationDateYear__c   ) 
+)
+)</errorConditionFormula>
+    <errorMessage>For Non Licensed Insurer approvals, you must populate the Policy Effective Date and the Policy Expiration Date</errorMessage>
+</ValidationRule>

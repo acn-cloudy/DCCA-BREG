@@ -1,0 +1,31 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={hasMembersValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div class="slds-var-m-bottom_small">Does the corporation have members?</div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="hasMembers"
+                    label="Does the corporation have members?"
+                    options={hasMembersOptions}
+                    value={hasMembersValue}
+                    variant="label-hidden"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

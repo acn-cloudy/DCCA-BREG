@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>PacPoint-RA101218 - Created for BREG phase 1</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agent</fullName>
+                <default>false</default>
+                <label>Agent</label>
+            </value>
+            <value>
+                <fullName>Assist</fullName>
+                <default>false</default>
+                <label>Assist</label>
+            </value>
+            <value>
+                <fullName>Broker-dealer Agent</fullName>
+                <default>false</default>
+                <label>Broker-dealer Agent</label>
+            </value>
+            <value>
+                <fullName>Broker-dealer Firm</fullName>
+                <default>false</default>
+                <label>Broker-dealer Firm</label>
+            </value>
+            <value>
+                <fullName>Exotic Program</fullName>
+                <default>false</default>
+                <label>Exotic Program</label>
+            </value>
+            <value>
+                <fullName>Financial Planner</fullName>
+                <default>false</default>
+                <label>Financial Planner</label>
+            </value>
+            <value>
+                <fullName>Finder or Solicitor</fullName>
+                <default>false</default>
+                <label>Finder or Solicitor</label>
+            </value>
+            <value>
+                <fullName>Franchise</fullName>
+                <default>false</default>
+                <label>Franchise</label>
+            </value>
+            <value>
+                <fullName>Inspection B/D</fullName>
+                <default>false</default>
+                <label>Inspection B/D</label>
+            </value>
+            <value>
+                <fullName>Inspection BD/IA</fullName>
+                <default>false</default>
+                <label>Inspection BD/IA</label>
+            </value>
+            <value>
+                <fullName>Inspection IA</fullName>
+                <default>false</default>
+                <label>Inspection IA</label>
+            </value>
+            <value>
+                <fullName>Insurance Agent</fullName>
+                <default>false</default>
+                <label>Insurance Agent</label>
+            </value>
+            <value>
+                <fullName>Insurance Firm</fullName>
+                <default>false</default>
+                <label>Insurance Firm</label>
+            </value>
+            <value>
+                <fullName>Internal</fullName>
+                <default>false</default>
+                <label>Internal</label>
+            </value>
+            <value>
+                <fullName>Investment Adviser Firm</fullName>
+                <default>false</default>
+                <label>Investment Adviser Firm</label>
+            </value>
+            <value>
+                <fullName>Investment Adviser Representative</fullName>
+                <default>false</default>
+                <label>Investment Adviser Representative</label>
+            </value>
+            <value>
+                <fullName>Issuer</fullName>
+                <default>false</default>
+                <label>Issuer</label>
+            </value>
+            <value>
+                <fullName>Undercover</fullName>
+                <default>false</default>
+                <label>Undercover</label>
+            </value>
+            <value>
+                <fullName>Unregistered Firm</fullName>
+                <default>false</default>
+                <label>Unregistered Firm</label>
+            </value>
+            <value>
+                <fullName>Unregistered Individual</fullName>
+                <default>false</default>
+                <label>Unregistered Individual</label>
+            </value>
+            <value>
+                <fullName>Conversion</fullName>
+                <default>false</default>
+                <label>Conversion</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>A - Investment Advisor</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>A - Investment Advisor</label>
+            </value>
+            <value>
+                <fullName>B - Broker Dealer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>B - Broker Dealer</label>
+            </value>
+            <value>
+                <fullName>F - Franchise</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>F - Franchise</label>
+            </value>
+            <value>
+                <fullName>I - Issuer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>I - Issuer</label>
+            </value>
+            <value>
+                <fullName>J - Inspection B/D</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>J - Inspection B/D</label>
+            </value>
+            <value>
+                <fullName>K - Inspection IA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>K - Inspection IA</label>
+            </value>
+            <value>
+                <fullName>L - Inspection BD/IA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>L - Inspection BD/IA</label>
+            </value>
+            <value>
+                <fullName>N - Internal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>N - Internal</label>
+            </value>
+            <value>
+                <fullName>U - Undercover</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>U - Undercover</label>
+            </value>
+            <value>
+                <fullName>X - Exotic Program</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>X - Exotic Program</label>
+            </value>
+            <value>
+                <fullName>Z - Assist</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Z - Assist</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

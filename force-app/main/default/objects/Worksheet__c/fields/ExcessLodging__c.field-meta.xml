@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcessLodging__c</fullName>
+    <description>PacPoint-AC121219 - Created for DCCA Travel Approval phase 1</description>
+    <formula>If(
+
+HotelRate__c &lt;&gt; 0,
+
+CASE(TravelType__c, &quot;Intra-State&quot;, ( HotelRate__c - 50), &quot;Out-of-State&quot;, ( HotelRate__c - 85),
+
+0)
+,
+0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Excess Lodging (Per Day)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

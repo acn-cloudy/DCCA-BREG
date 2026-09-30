@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Debug_Level__c</fullName>
+    <description>Error: Handled and unhandled exceptions that need support team visibility (e.g. A controller class failed to update a record)
+
+Debug: Messages that are useful to developers and support staff that are not usually logged in production but may assist with issue resolution in construct and validate phases (e.g. Log inbound and outbound messages including their payloads and timings)
+
+Info: Information messages useful to ensure a process is running smoothly (e.g. When a batch job runs how many records were processed?, What was the start time/end time etc)
+
+Warning: Messages that allow developers to notify support teams that application limits set during the design phase might be reached (e.g. A batch job has been set up to process 1000 records at a time. If the number of records pending to be processed exceeds the limit the support team can be notified that the limit may need to be increased due to increasing volumes)</description>
+    <inlineHelpText>Debug: Messages that are useful to developers and support staff that are not usually logged in production but may assist with issue resolution in construct and validate phases (e.g. Log inbound and outbound messages including their payloads and timings)</inlineHelpText>
+    <label>Debug Level</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Error</fullName>
+                <default>false</default>
+                <label>Error</label>
+            </value>
+            <value>
+                <fullName>Info</fullName>
+                <default>false</default>
+                <label>Info</label>
+            </value>
+            <value>
+                <fullName>Warning</fullName>
+                <default>false</default>
+                <label>Warning</label>
+            </value>
+            <value>
+                <fullName>Debug</fullName>
+                <default>false</default>
+                <label>Debug</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

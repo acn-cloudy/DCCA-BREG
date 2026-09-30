@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BREG_Block_Edit_When_Entity_Populated</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    NOT($Permission.BREG_Edit_Account),
+    NOT(ISBLANK(PRIORVALUE(breg_Entity__c))),
+    NOT(ISCHANGED(breg_Bypass_Validation_Token__c))
+)</errorConditionFormula>
+    <errorMessage>You cannot edit this Account Affiliation record because Entity is populated.</errorMessage>
+</ValidationRule>

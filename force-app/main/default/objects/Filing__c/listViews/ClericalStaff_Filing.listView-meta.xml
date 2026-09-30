@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClericalStaff_Filing</fullName>
+    <columns>ApplicationType__c</columns>
+    <columns>Status__c</columns>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>FilingDate__c</columns>
+    <columns>Reviewer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>In Progress</value>
+    </filters>
+    <label>Clerical Staff</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

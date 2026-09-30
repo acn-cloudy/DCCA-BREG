@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConsentToService__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC100818 - Created for BREG phase 1</description>
+    <label>Consent to Service</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

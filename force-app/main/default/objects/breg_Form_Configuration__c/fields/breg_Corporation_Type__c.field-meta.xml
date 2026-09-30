@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Corporation_Type__c</fullName>
+    <description>Specifies the specific classification of profit corporation being established.</description>
+    <inlineHelpText>Select the type of profit corporation that best describes your business structure.</inlineHelpText>
+    <label>Corporation Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>breg_Profit_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>General Profit Corporation</fullName>
+                <default>false</default>
+                <label>General Profit Corporation</label>
+            </value>
+            <value>
+                <fullName>Professional Corporation</fullName>
+                <default>false</default>
+                <label>Professional Corporation</label>
+            </value>
+            <value>
+                <fullName>Sustainable Business Corporation</fullName>
+                <default>false</default>
+                <label>Sustainable Business Corporation</label>
+            </value>
+            <value>
+                <fullName>General Nonprofit Corporation</fullName>
+                <default>false</default>
+                <label>General Nonprofit Corporation</label>
+            </value>
+            <value>
+                <fullName>Corporation Sole</fullName>
+                <default>false</default>
+                <label>Corporation Sole</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>For Profit</controllingFieldValue>
+            <valueName>General Profit Corporation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>For Profit</controllingFieldValue>
+            <valueName>Professional Corporation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>For Profit</controllingFieldValue>
+            <valueName>Sustainable Business Corporation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Profit</controllingFieldValue>
+            <valueName>General Nonprofit Corporation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Profit</controllingFieldValue>
+            <valueName>Corporation Sole</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

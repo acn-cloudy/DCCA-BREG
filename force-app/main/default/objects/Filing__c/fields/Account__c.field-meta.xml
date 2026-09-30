@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <label>Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only Accounts that are set as SEB/SEC accounts can be selected.</errorMessage>
+        <filterItems>
+            <field>Account.SEBSEC__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Filing</relationshipLabel>
+    <relationshipName>Filing</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

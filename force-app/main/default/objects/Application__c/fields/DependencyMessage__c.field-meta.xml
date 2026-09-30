@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DependencyMessage__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to display rich text on lightning page. This function is used during Restoration when an application does not have a dependency met.</description>
+    <label>Dependency Message</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

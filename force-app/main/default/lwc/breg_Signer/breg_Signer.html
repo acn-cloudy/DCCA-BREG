@@ -1,0 +1,115 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <!-- Label -->
+        <lightning-layout-item size="12" class="slds-p-vertical_small form-layout-item">
+            <div class="slds-text-heading_medium slds-text-title_bold slds-m-top_medium"><b>{label}</b></div>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <!-- First and Last Name -->
+            <template lwc:if={showSignerSignedByName}>
+                <!-- Empty layout item to create line break -->
+                <lightning-layout-item size="12"></lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <p>
+                        <strong>First Name</strong><br />
+                        <lightning-formatted-text value={signerSignedByFirstNameValue}></lightning-formatted-text>
+                    </p>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <p>
+                        <strong>Last Name</strong><br />
+                        <lightning-formatted-text value={signerSignedByLastNameValue}></lightning-formatted-text>
+                    </p>
+                </lightning-layout-item>
+            </template>
+            <!-- Title -->
+            <lightning-layout-item lwc:if={showSignerSignedByTitleSelector} size="12" class="form-layout-item">
+                <p>
+                    <strong>Title</strong><br />
+                    <lightning-formatted-text value={signerSignedByTitleSelectorValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showSignerSignedByTitleText} size="12" class="form-layout-item">
+                <p>
+                    <strong>Title</strong><br />
+                    <lightning-formatted-text value={signerSignedByTitleTextValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+            <!-- Signature -->
+            <lightning-layout-item size="12" class="form-layout-item">
+                <p>
+                    <strong>Signature</strong><br />
+                    <lightning-formatted-text value={signerSignatureValue}></lightning-formatted-text>
+                </p>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <!-- First and Last Name -->
+            <template lwc:if={showSignerSignedByName}>
+                <!-- Empty layout item to create line break -->
+                <lightning-layout-item size="12"></lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="signerSignedByFirstName"
+                        value={signerSignedByFirstNameValue}
+                        label="First Name"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" class="form-layout-item">
+                    <lightning-input
+                        name="signerSignedByLastName"
+                        value={signerSignedByLastNameValue}
+                        label="Last Name"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+            <!-- Title -->
+            <lightning-layout-item lwc:if={showSignerSignedByTitleSelector} size="12" class="form-layout-item">
+                <lightning-combobox
+                    name="signerSignedByTitleSelector"
+                    value={signerSignedByTitleSelectorValue}
+                    label="Title"
+                    options={titleOptions}
+                    onchange={handleInputChange}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showSignerSignedByTitleText} size="12" class="form-layout-item">
+                <lightning-input
+                    name="signerSignedByTitleText"
+                    value={signerSignedByTitleTextValue}
+                    label="Title"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <!-- Signature -->
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-input
+                    name="signerSignature"
+                    value={signerSignatureValue}
+                    label="Signature"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

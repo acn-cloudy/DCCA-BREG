@@ -1,0 +1,182 @@
+<template>
+    <lightning-quick-action-panel header="Edit Entity">
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium">
+                <lightning-spinner size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+            <template if:true={errorMessage}>
+                <div class="slds-p-around_medium slds-text-color_error">
+                    {errorMessage}
+                </div>
+            </template>
+
+            <template if:true={isAllowed}>
+                <template if:true={hasEditableFields}>
+                    
+                    <!-- STEP 1 -->
+                    <template if:true={isStep1}>
+                        <div class="slds-p-around_medium">
+                            <p class="slds-m-bottom_small">
+                                Select fields you are going to edit.
+                            </p>
+
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2 slds-p-right_small">
+                                    <template for:each={fieldOptionsLeft} for:item="field">
+                                        <div key={field.value} class="slds-m-bottom_x-small">
+                                            <lightning-input
+                                                type="checkbox"
+                                                label={field.label}
+                                                data-field-name={field.value}
+                                                checked={field.checked}
+                                                onchange={handleCheckboxChange}>
+                                            </lightning-input>
+                                        </div>
+                                    </template>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2 slds-p-left_small">
+                                    <template for:each={fieldOptionsRight} for:item="field">
+                                        <div key={field.value} class="slds-m-bottom_x-small">
+                                            <lightning-input
+                                                type="checkbox"
+                                                label={field.label}
+                                                data-field-name={field.value}
+                                                checked={field.checked}
+                                                onchange={handleCheckboxChange}>
+                                            </lightning-input>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slds-p-around_medium slds-grid slds-grid_align-end">
+                            <lightning-button
+                                label="Cancel"
+                                onclick={handleCancel}
+                                disabled={disableButtons}>
+                            </lightning-button>
+
+                            <lightning-button
+                                class="slds-m-left_small"
+                                variant="brand"
+                                label="Next"
+                                onclick={handleNext}
+                                disabled={disableButtons}>
+                            </lightning-button>
+                        </div>
+                    </template>
+
+                    <!-- STEP 2 -->
+                    <template if:true={isStep2}>
+                        <lightning-record-edit-form
+                            object-api-name="Account"
+                            record-id={recordId}
+                            onsubmit={handleSubmit}
+                            onsuccess={handleSuccess}
+                            onerror={handleError}>
+
+                            <lightning-messages></lightning-messages>
+
+                            <div class="slds-p-around_medium">
+                                <div class="form-masonry">
+                                    <template for:each={selectedSectionsForForm} for:item="section">
+                                        <div
+                                            key={section.key}
+                                            class="form-masonry__item">
+
+                                            <!-- STANDARD ADDRESS -->
+                                            <template if:true={section.isCompoundAddress}>
+                                                <div class="slds-box slds-box_x-small">
+                                                    <div class="slds-text-title slds-m-bottom_small">
+                                                        {section.label}
+                                                    </div>
+
+                                                    <lightning-input-field
+                                                        field-name={section.fieldName}
+                                                        variant="label-hidden">
+                                                    </lightning-input-field>
+                                                </div>
+                                            </template>
+
+                                            <!-- CUSTOM ADDRESS -->
+                                            <template if:true={section.isCustomAddressGroup}>
+                                                <div class="slds-box slds-box_x-small">
+                                                    <div class="slds-text-title slds-m-bottom_small">
+                                                        {section.label}
+                                                    </div>
+
+                                                    <div class="slds-grid slds-wrap">
+                                                        <template for:each={section.fields} for:item="fieldItem">
+                                                            <div
+                                                                key={fieldItem.key}
+                                                                class={fieldItem.className}>
+                                                                <lightning-input-field
+                                                                    field-name={fieldItem.fieldName}>
+                                                                </lightning-input-field>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </template>
+
+                                            <!-- REGULAR FIELD -->
+                                            <template if:true={section.isRegularSection}>
+                                                <template for:each={section.fields} for:item="fieldItem">
+                                                    <div
+                                                        key={fieldItem.key}
+                                                        class="slds-col slds-size_1-of-1">
+                                                        <lightning-input-field
+                                                            field-name={fieldItem.fieldName}>
+                                                        </lightning-input-field>
+                                                    </div>
+                                                </template>
+                                            </template>
+
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div class="slds-p-around_medium slds-grid slds-grid_align-end">
+                                <lightning-button
+                                    label="Back"
+                                    onclick={handleBack}
+                                    disabled={disableButtons}>
+                                </lightning-button>
+
+                                <lightning-button
+                                    class="slds-m-left_small"
+                                    label="Cancel"
+                                    onclick={handleCancel}
+                                    disabled={disableButtons}>
+                                </lightning-button>
+
+                                <lightning-button
+                                    class="slds-m-left_small"
+                                    variant="brand"
+                                    type="submit"
+                                    label="Save"
+                                    disabled={disableButtons}>
+                                </lightning-button>
+                            </div>
+
+                        </lightning-record-edit-form>
+                    </template>
+
+                </template>
+
+                <template if:false={hasEditableFields}>
+                    <div class="slds-p-around_medium">
+                        No editable Account fields were found in the configured permission set.
+                    </div>
+                </template>
+
+            </template>
+        </template>
+    </lightning-quick-action-panel>
+</template>

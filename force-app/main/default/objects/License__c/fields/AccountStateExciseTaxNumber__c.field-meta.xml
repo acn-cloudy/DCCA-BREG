@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountStateExciseTaxNumber__c</fullName>
+    <externalId>false</externalId>
+    <formula>Licensee__r.StateExciseTaxNumber__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The Licensee&apos;s State Tax Id. To update this field, please go to the Licensee record.</inlineHelpText>
+    <label>State Excise Tax Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

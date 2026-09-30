@@ -1,0 +1,16 @@
+<template>
+    <li onmousedown={selectedHandler}>
+        <span class="slds-lookup__item-action slds-media slds-media_center slds-p-horizontal_large">
+            <lightning-icon icon-name={iconName} size="medium"></lightning-icon>
+            <template if:true={record}>
+                <div class="slds-p-around_xx-small slds-media__body">
+                    <div class="slds-input-has-icon slds-input-has-icon_right">
+                        <div class="search-result-name slds-text-body_regular" lwc:dom="manual"></div>
+                        <div class="search-result-additional-data slds-text-body_small slds-text-color_weak slds-truncate"
+                            lwc:dom="manual"></div>
+                    </div>
+                </div>
+            </template>
+        </span>
+    </li>
+</template>

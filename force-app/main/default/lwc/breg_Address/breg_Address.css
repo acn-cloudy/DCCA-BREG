@@ -1,0 +1,9 @@
+.address-section-margin {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    h2.dxp-text-heading-large {
+        font-size: 24px;
+    }
+}

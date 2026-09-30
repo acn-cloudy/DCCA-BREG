@@ -1,0 +1,72 @@
+.button-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #f0f0f0;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.tab.selected {
+  background: #dff0d8;
+  color: green;
+}
+.company-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.discount {
+  color: green;
+}
+.strike {
+  text-decoration: line-through;
+  color: red;
+}
+.messages .late-warning {
+  color: orange;
+}
+.messages .online-discount {
+  color: green;
+}
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+.next-steps {
+  margin-top: 2rem;
+}
+.next-steps h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.next-steps ol {
+  padding-left: 1.5rem;
+}
+.next-steps li {
+  margin-bottom: 0.75rem;
+}
+.save-note {
+  color: green;
+  font-weight: normal;
+}
+
+.fixed-layout-table {
+  width: 100%;
+}
+
+.item-cell {
+  width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.amount-cell {
+  width: 20%;
+  white-space: nowrap;
+}

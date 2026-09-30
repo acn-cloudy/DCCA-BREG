@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#529840</headerColor>
+        <logo>dccaseallogo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>SEC</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Exam Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Clerical</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Reviewer/Examiner</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC/SEB System Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Attorney</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Clerical</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Intake</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Investigation</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>File_Details_Record_Page_DSCLM</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>FileDetails__c</pageOrSobjectType>
+        <recordType>FileDetails__c.SEC</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB/SEC Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>Call Center Agent</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>Call Center Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA ASO</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA BREG Deputy Commissioner</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA BREG Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Cases and Complaints</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Cashier</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Complaints</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Complaints General</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Director&apos;s Office</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA General Complaints</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Integration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA ISCO Data Export</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Maui BAC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Maui BAC - New</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Maui BAC_V2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA OCP Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Applications Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL EO</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Koan Access</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Records Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Secretary</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA PVL Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Read-Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA RICO Access</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA RICO Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Attorney</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Clerical</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Clerical_v2</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Intake</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Investigation</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEB/SEC Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Clerical</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Exam Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC Reviewer/Examiner</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA SEC/SEB System Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA System Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>DCCA Travel Approval</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>Google Integration User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>PVL_Case</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.PVL</recordType>
+        <type>Flexipage</type>
+        <profile>TerranoxReadOnly</profile>
+    </profileActionOverrides>
+    <tabs>SEC_Filing_Home</tabs>
+    <tabs>SEC_Exams_Home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Filing__c</tabs>
+    <tabs>Exam__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>FileDetails__c</tabs>
+    <tabs>Sanction__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>SEC_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property
+                name="showOnlyAvailableDocumentsTab"
+                type="Boolean"
+                label="Show Only Available Documents Tab"
+                description="Should be true for display component on account record for the 'Documents Available for Purchase' tab"
+                default="false"
+            />
+            <property
+                name="showOnlyFormsTab"
+                type="Boolean"
+                label="Show Only Forms Tab"
+                description="Should be true for display component on account record or TN/TM/SM record for the 'Forms' tab"
+                default="false"
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

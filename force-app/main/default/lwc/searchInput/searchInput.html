@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-form-element">
+        <template if:true={label}>
+            <label class="slds-form-element__label" for="text-input-id-47">{label}</label>
+        </template>
+        <div
+            class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right slds-input-has-icon_group-right">
+            <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
+                <use xlink:href={searchIcon}></use>
+            </svg>
+            <input type="text" id="text-input-id-47" placeholder={placeholder} class="slds-input" onchange={handleInputChange} value={inputValue} onkeydown={handleKeyDown}/>
+            <div class="slds-input__icon-group slds-input__icon-group_right">
+                <template if:true={isLoading}>
+                    <div role="status" class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </template>
+                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Clear" onclick={clearInput}>
+                    <svg class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+                        <use xlink:href={clearIcon}></use>
+                    </svg>
+                    <span class="slds-assistive-text">Clear</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

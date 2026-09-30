@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_RECWKST</fullName>
+    <columns>NAME</columns>
+    <columns>StartDate__c</columns>
+    <columns>EndDate__c</columns>
+    <columns>FundType__c</columns>
+    <columns>PaymentType__c</columns>
+    <columns>Division__c</columns>
+    <columns>Notes__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>FiscalForm__c.RECWKST</value>
+    </filters>
+    <label>All RECWKST</label>
+</ListView>

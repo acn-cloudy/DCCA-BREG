@@ -1,0 +1,63 @@
+<template>
+    <!-- Expedited Processing Unavailable Modal -->
+    <c-breg-_-popup
+        visible={showExpeditedDisabledModal}
+        title="Expedited processing"
+        message="Expedited processing is temporarily not available."
+        oncontinue={handleExpeditedDisabledModalClose}
+        oncancel={handleExpeditedDisabledModalClose}
+        next-button-label="OK"
+        cancel-button-label="Cancel"
+    >
+    </c-breg-_-popup>
+    <lightning-card title={labels.BREG_Annual_Step_3_Title}>
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-size_2-of-3">
+                <div class="slds-grid">
+                    <template for:each={options} for:item="opt">
+                        <div key={opt.value} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                            <div class={opt.class} data-value={opt.value} onclick={handleOptionClick}>
+                                <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                                    <lightning-input
+                                        type="checkbox"
+                                        checked={opt.checked}
+                                        variant="label-hidden"
+                                        class="slds-m-right_small"
+                                    ></lightning-input>
+                                    <span class="slds-text-title_bold slds-text-color_brand">{opt.label}</span>
+                                </div>
+                                <div>{opt.description}</div>
+                                <div>{opt.details} <strong>{opt.term}</strong></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div class="slds-m-top_large slds-grid slds-grid_align-spread">
+                    <lightning-button label={labels.BREG_Cancel} variant="destructive-outline" onclick={handleCancel}></lightning-button>
+                    <div>
+                        <lightning-button
+                            label={labels.BREG_Prev}
+                            icon-name="utility:chevronleft"
+                            class="slds-m-right_small"
+                            onclick={handlePrev}
+                        ></lightning-button>
+                        <lightning-button
+                            label={labels.BREG_Next}
+                            icon-name="utility:chevronright"
+                            icon-position="right"
+                            variant="brand"
+                            onclick={handleNext}
+                        ></lightning-button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <c-breg-_-tile title={tileTitle}>
+                    <div class="slds-theme_alert-texture slds-theme_shade slds-p-around_medium slds-text-align_center">
+                        <div class="slds-text-body_regular slds-text-color_error">{yearReport}</div>
+                    </div>
+                </c-breg-_-tile>
+            </div>
+        </div>
+    </lightning-card>
+</template>

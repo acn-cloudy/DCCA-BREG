@@ -1,0 +1,50 @@
+// Tooltip
+
+//The content part of tooltip
+.slds-popover_tooltip,
+.slds-popover__body{
+    background-color: var(--tooltips-bg);
+    color: var(--black) !important;
+    font-size: var(--font-size-14) !important;
+}
+//The arrow that targets on the tooltip Icon
+.slds-nubbin_bottom-left{
+    &::before{
+        background-color: var(--white);
+        box-shadow: var(--box-shadow-8);
+    }
+}
+
+// Tooltip around padding removed
+.slds-form-element {
+    .slds-form-element__icon {
+        .slds-button_icon {
+            padding: 0;
+        }
+
+        .slds-button__icon {
+            fill: var(--card-body-text);
+        }
+    }
+}
+
+lightning-helptext {
+    .slds-button {
+        &:hover svg path {
+            fill: var(--primary-dark);
+        }
+
+        &:focus {
+            svg path {
+                fill: var(--primary-dark);
+            }
+
+            @include focus-outline();
+        }
+    }
+
+    .slds-button__icon {
+        fill: var(--card-body-text);
+    }
+
+}

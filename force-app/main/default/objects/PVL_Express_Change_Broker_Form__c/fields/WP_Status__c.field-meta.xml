@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WP_Status__c</fullName>
+    <label>WP Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agent E-mail is Missing</fullName>
+                <default>false</default>
+                <label>Agent E-mail is Missing</label>
+            </value>
+            <value>
+                <fullName>Agent E-mail is Invalid</fullName>
+                <default>false</default>
+                <label>Agent E-mail is Invalid</label>
+            </value>
+            <value>
+                <fullName>Agent E-mail is Valid</fullName>
+                <default>false</default>
+                <label>Agent E-mail is Valid</label>
+            </value>
+            <value>
+                <fullName>Agent Verification E-mail Sent</fullName>
+                <default>false</default>
+                <label>Agent Verification E-mail Sent</label>
+            </value>
+            <value>
+                <fullName>Agent E-mail Verified</fullName>
+                <default>false</default>
+                <label>Agent E-mail Verified</label>
+            </value>
+            <value>
+                <fullName>Releasing Broker Verification Sent</fullName>
+                <default>false</default>
+                <label>Releasing Broker Verification Sent</label>
+            </value>
+            <value>
+                <fullName>Releasing Broker Verified</fullName>
+                <default>false</default>
+                <label>Releasing Broker Verified</label>
+            </value>
+            <value>
+                <fullName>New Broker Verification Sent</fullName>
+                <default>false</default>
+                <label>New Broker Verification Sent</label>
+            </value>
+            <value>
+                <fullName>New Broker Verified</fullName>
+                <default>false</default>
+                <label>New Broker Verified</label>
+            </value>
+            <value>
+                <fullName>Request Complete</fullName>
+                <default>false</default>
+                <label>Request Complete</label>
+            </value>
+            <value>
+                <fullName>Request Canceled - Releasing Broker Unresponsive</fullName>
+                <default>false</default>
+                <label>Request Canceled - Releasing Broker Unresponsive</label>
+            </value>
+            <value>
+                <fullName>Agent Information Confirmed</fullName>
+                <default>false</default>
+                <label>Agent Information Confirmed</label>
+            </value>
+            <value>
+                <fullName>Request Canceled - Hiring Broker Unresponsive</fullName>
+                <default>false</default>
+                <label>Request Canceled - Hiring Broker Unresponsive</label>
+            </value>
+            <value>
+                <fullName>Agent Verification E-mail Resend Request</fullName>
+                <default>false</default>
+                <label>Agent Verification E-mail Resend Request</label>
+            </value>
+            <value>
+                <fullName>Request Canceled - Agent Canceled</fullName>
+                <default>false</default>
+                <label>Request Canceled - Agent Canceled</label>
+            </value>
+            <value>
+                <fullName>Request Canceled - Hiring Broker Canceled</fullName>
+                <default>false</default>
+                <label>Request Canceled - Hiring Broker Canceled</label>
+            </value>
+            <value>
+                <fullName>Change Request Initiated</fullName>
+                <default>false</default>
+                <label>Change Request Initiated</label>
+            </value>
+            <value>
+                <fullName>Request Canceled - E-mail Bounced</fullName>
+                <default>false</default>
+                <label>Request Canceled - E-mail Bounced</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,140 @@
+.mds-card{
+    background-color: var(--white);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--box-shadow-8);
+    &_dates{
+        padding: (toRem(18) var(--spacing-small));
+    }
+    &__body{
+        font-size: var(--font-size-16);
+        color: var(--card-body-text);
+    }
+    &_title{
+        font-size: var(--font-size-18);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-primary);
+    }
+    &__footer{
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--spacing-xx-small);
+    }
+}
+
+// Social media icons
+.mds-social-media_icons{
+    justify-content: center;
+    i{
+        font-size: var(--font-size-20);
+    }
+    .facebook{
+        i {
+            color: #1877F2;
+        }
+    }
+    .twitter{
+        i{
+            color: #1DA1F2;
+        }
+    }
+}
+
+// Quick link
+.mds-quicklink{
+    background-color: var(--primary-shades-4-p);
+    padding: var(--spacing-x-small);
+}
+
+// Progress card
+.mds-progress_card {
+    .mds-user-badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: toRem(54);
+        height: toRem(54);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: toRem(-50);
+        border-radius: var(--border-radius-circle);
+        background-color: var(--primary-main);
+
+        &_initials {
+            font-weight: var(--font-weight-medium);
+            text-align: center;
+            color: var(--white);
+        }
+    }
+}
+
+// Vertical card
+.mds-vertical-card{
+    border-top: var(--spacing-xxx-small) solid var(--primary-main);
+}
+
+.mds-threedots_vertical-menu{
+    .slds-button_icon-more {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+    }
+    .slds-button, .slds-dropdown__item a {
+        &:focus {
+            @include focus-outline-minus();
+        }
+    }
+    .slds-button__icon {
+        &[data-key="down"] {
+            display: none;
+        }
+        fill: var(--text-primary);
+    }
+    &-brand{
+        .slds-button__icon{
+            fill: var(--primary-main);
+        }
+    }
+}
+
+// Post card
+.mds_profile-name{
+    margin-left: var(--spacing-xx-small);
+    font-size: var(--font-size-14);
+    color: var(--black);
+    font-weight: var(--font-weight-medium);
+}
+
+// Post card with image
+.mds-postcard{
+    &_img{
+        position: relative;
+    }
+    &_bookmark{
+        position: absolute;
+        top:0; 
+        right: 0;
+    }
+}
+
+.mds-icon_bookmark-white {
+    .slds-button {
+        &:before {
+            content: '\ead3';
+            color: var(--white);
+            @extend .mds-icon_family;
+        }
+    }
+}
+
+
+/* Custom Style */
+.mds-card_content{
+    .mds-card__body{
+        .mds-gap_xx-large{
+            @include responsive(tab-port){
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

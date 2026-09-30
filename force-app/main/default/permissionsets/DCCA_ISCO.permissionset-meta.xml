@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is to allow a DCCA ISCO resource to be able to download weekly backups.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DCCA ISCO</label>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>DataExport</name>
+    </userPermissions>
+</PermissionSet>

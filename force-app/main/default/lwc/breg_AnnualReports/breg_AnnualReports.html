@@ -1,0 +1,155 @@
+<template>
+    <div class="slds-grid slds-wrap report-container">
+        <template lwc:if={isStepOne}>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3 slds-p-right_large-small slds-p-right_none">
+           
+                <template if:true={showSearch}>
+                    <c-breg-_-search-input search-value={searchValue} placeholder={labels.BREG_Annuals_SearchInputPlaceholder} onsearch={handleSearch}></c-breg-_-search-input>
+                    <div class="slds-text-body_regular slds-m-bottom_medium">
+                        <b>{labels.BREG_Annuals_WhatIsMyFileNumber}</b> {labels.BREG_Annuals_WhatIsMyFileNumberDescription1} <a href="/search-and-buy">{labels.BREG_SearchAndBuy_TabLabel}</a> {labels.BREG_Annuals_WhatIsMyFileNumberDescription2}
+                    </div>
+                    <div class="slds-text-body_regular slds-m-bottom_medium">
+                        {labels.BREG_Annuals_FileNumberContactQuestion} <b>{labels.BREG_Annuals_ContactNumber}</b> {labels.BREG_Annuals_or} <a href={labels.BREG_Annuals_FileNumberContactEmailLink}>{labels.BREG_Annuals_FileNumberContactEmail}</a>.
+                    </div>
+                </template>
+                <template lwc:if={showDetails}>
+                    <c-breg-_-annuals-page onback={handleBack} onfound={handleRecordFound} onfileannual={getParamsFromUrl}></c-breg-_-annuals-page>
+                </template>
+                <template lwc:else>
+                    <!-- Results Table -->
+                    <c-breg-_-account-search-results-table 
+                        show-new-search={showNewSearch} 
+                        search-by-number="true"
+                        onopendetails={getParamsFromUrl}>
+                    </c-breg-_-account-search-results-table>
+                </template>
+                
+            </div>
+        
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+                <c-breg-_-tile
+                    title={labels.helpTabLabel}
+                    description="">
+                    <div class="slds-m-bottom_small">
+                        <b>{labels.BREG_Annuals_WhatIsAnnualReportHeading}</b>
+                    </div>
+                    <div class="slds-m-bottom_small">
+                        {labels.BREG_Annuals_WhatIsAnnualReportText}
+                    </div>
+                    <div class="slds-m-bottom_small">
+                        {labels.BREG_Annuals_DelinquentAnnualReportsText}<br />
+                        <a href="/manage?section=annual-report&tab=help" onclick={handleHelpClick} class="slds-text-link">{labels.BREG_Annuals_FAQLink}</a>
+                    </div>
+                    <div class="slds-m-bottom_small">
+                        <b>{labels.BREG_Annuals_WhyShouldIFillHeading}</b>
+                        <ul class="slds-list_dotted">
+                            <li>{labels.BREG_Annuals_ReasonRequiredByStatute}</li>
+                            <li>{labels.BREG_Annuals_ReasonGoodStandingIfDelinquent}</li>
+                            <li>{labels.BREG_Annuals_ReasonRemainInGoodStanding}</li>
+                            <li>{labels.BREG_Annuals_ReasonStateContracts}</li>
+                        </ul>
+                        <br />
+                        <div>
+                            <b>{labels.BREG_Annuals_WhenCanIFile}</b><br />
+                            <lightning-combobox
+                                name="progress"
+                                label={labels.BREG_Annuals_WhenCanIFileLabel}
+                                value={selectedQuarter}
+                                placeholder={labels.BREG_Annuals_SelectQuarter}
+                                options={registeredOptions}
+                                onchange={handleQuarterChange} ></lightning-combobox>
+                                <template lwc:if={showQuartersTabs}>
+                                        <lightning-tabset active-tab-value={activeTab}>
+                                            <template for:each={registeredOptions} for:item="quarter">
+                                                <lightning-tab key={quarter.value} value={quarter.value} label={quarter.value} onactive={handleTabActive}>
+                                                    <b class="slds-text-color_success">{labels.BREG_Annuals_FilingWindowTitle}</b>
+                                                    <div>
+                                                        {labels.BREG_Annuals_FilingWindowText}
+                                                    </div>
+                                                    <div>
+                                                        <b>{annualQuarterDateStart} - {annualQuarterDateFinish}</b>
+                                                    </div>
+                                                    <div>
+                                                        {filingMustBeApprovedText}
+                                                    </div>
+                                                    <hr>
+                                                    <b class="slds-text-color_error">{labels.BREG_Annuals_LateFilingTitle}</b><br/>
+                                                    <b>{lateFilingAfterText}</b>
+                                                    <div>
+                                                        {labels.BREG_Annuals_LateFilingText1}
+                                                    </div>
+                                                    <div>
+                                                        {labels.BREG_Annuals_LateFilingText2}
+                                                    </div>
+                                                </lightning-tab>
+                                                
+                                            </template>
+                                        </lightning-tabset>
+                                </template>
+                        </div>
+                    </div>
+                </c-breg-_-tile>
+            </div>
+        </template>
+        <template lwc:if={isStepTwo}>
+            <template lwc:if={showContactInfoStep}>
+                <lightning-card title={contactInfoTitle}>
+                    <div class="slds-p-bottom_small">{labels.BREG_Annual_ContactInfoPrompt}</div>
+                    <c-breg-_-contact-info show-phone=true show-address=true></c-breg-_-contact-info>
+                    <div class="slds-p-top_small slds-grid slds-grid_align-spread">
+                        <lightning-button variant="neutral" label={labels.BREG_Back} onclick={handleContactBack}></lightning-button>
+                        <lightning-button variant="brand" label={labels.BREG_Continue} onclick={handleContactContinue} disabled={disableContactContinue}></lightning-button>
+                    </div>
+                </lightning-card>
+            </template>
+            <template lwc:else>
+                <c-breg-_-verify-company-info 
+                    account-number={accountFileNumber} 
+                    should-set-record-id={shouldSetRecordIdForAnnualForm}
+                    filing-year={filingYear}
+                    annual-id={annualId}
+                    case-id={caseId}
+                    parent-case-id={parentCaseId}
+                    form-data={formData}
+                    onprevious={getParamsFromUrl}
+                    onnext={goToNextStep}
+                    account-id={accountId}
+                    onsave={handleSaveForm}
+                    form-action={formAction}
+                ></c-breg-_-verify-company-info>
+            </template>
+        </template>
+        <template lwc:if={isStepThree}>
+            <div class="slds-size_1-of-1">
+                <c-breg-_-expedited
+                    account-name={accountName}
+                    onprevious={getParamsFromUrl}
+                    onnext={goToNextStep}
+                    account-number={accountFileNumber}
+                    account-id={accountId}
+                    filing-year={filingYear}
+                    fees={fees}
+                    form-action={formAction}
+                ></c-breg-_-expedited>
+            </div>
+        </template>
+        <template lwc:if={isStepFour}>
+            <div class="slds-size_1-of-1">
+                <c-breg-_-annuals-submission-choice
+                    onnextreport={handleNextReport}
+                    onaddtocart={handleAddToCart}
+                    oncheckout={handleCheckout}
+                    onprevious={getParamsFromUrl}
+                    processing-speed={processingSpeed}
+                    filing-year={filingYear}
+                    account-name={accountName}
+                    account-number={accountFileNumber}
+                    account-id={accountId}
+                    fees={fees}
+                    case-id={caseId}
+                    form-action={formAction}
+                ></c-breg-_-annuals-submission-choice>
+            </div>
+        </template>
+    </div>
+</template>

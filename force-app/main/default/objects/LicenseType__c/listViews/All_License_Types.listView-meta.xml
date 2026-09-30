@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_License_Types</fullName>
+    <columns>NAME</columns>
+    <columns>LicenseType__c</columns>
+    <columns>BoardProgram__c</columns>
+    <columns>OnlineRenewalCopyDownload__c</columns>
+    <columns>ActiveInactiveDuetoNonRenewal__c</columns>
+    <columns>LicenseTypeExpireDate__c</columns>
+    <columns>RestorationDeadline__c</columns>
+    <columns>DependencyRequired__c</columns>
+    <columns>EligibleforClassifications__c</columns>
+    <columns>RequiresInsurance__c</columns>
+    <columns>X2ndDependencyRequired__c</columns>
+    <columns>StartofRenewalPeriod__c</columns>
+    <columns>EndofRenewalPeriod__c</columns>
+    <columns>ActiveInactiveDuetoLossofDependent__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>LicenseType__c.PVL</value>
+    </filters>
+    <label>All License Types</label>
+</ListView>

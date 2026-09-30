@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseeNameFormula__c</fullName>
+    <description>PacPoint FT112719 - Created for PVL</description>
+    <externalId>false</externalId>
+    <formula>IF(LicenseTypeFormula__c = &quot;COLAX&quot;  || LicenseTypeFormula__c = &quot;COLA&quot;,  Licensee__r.Name  +  BR()  + &quot;C/O &quot; +  EmployeePrincipalEmployee__c, IF(LicenseTypeFormula__c &lt;&gt; &quot;COLAX&quot;  || LicenseTypeFormula__c &lt;&gt; &quot;COLA&quot;,
+BLANKVALUE( Licensee__r.Name,
+IF(ISBLANK(Licensee__r.MiddleName),
+if(ISBLANK(Licensee__r.FirstName) ,&apos;&apos;, Licensee__r.FirstName+ &apos; &apos; ) + Licensee__r.LastName+ &apos; &apos; +   Licensee__r.Suffix  
+,
+Licensee__r.FirstName+ &apos; &apos; + Licensee__r.MiddleName+ &apos; &apos; + Licensee__r.LastName+ &apos; &apos; +   Licensee__r.Suffix 
+)
+
+), NULL))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Licensee Name Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

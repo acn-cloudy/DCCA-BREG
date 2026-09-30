@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TypeofEntity__c</fullName>
+    <description>PacPoint-FT070119 - Created for PVL phase 1</description>
+    <inlineHelpText>Indicates what type of entity this license is. Person licenses will be set to Individual, this includes sole proprietor licenses.</inlineHelpText>
+    <label>Type of Entity</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A - Association</fullName>
+                <default>false</default>
+                <label>A - Association</label>
+            </value>
+            <value>
+                <fullName>C - Corporation</fullName>
+                <default>false</default>
+                <label>C - Corporation</label>
+            </value>
+            <value>
+                <fullName>I - Individual</fullName>
+                <default>false</default>
+                <label>I - Individual</label>
+            </value>
+            <value>
+                <fullName>J - Joint Venture</fullName>
+                <default>false</default>
+                <label>J - Joint Venture</label>
+            </value>
+            <value>
+                <fullName>O - Organization (LLC)</fullName>
+                <default>false</default>
+                <label>O - Organization (LLC)</label>
+            </value>
+            <value>
+                <fullName>P - Limited Partnership/Partnership</fullName>
+                <default>false</default>
+                <label>P - Limited Partnership/Partnership</label>
+            </value>
+            <value>
+                <fullName>Q - Limited Liability Partnership</fullName>
+                <default>false</default>
+                <label>Q - Limited Liability Partnership</label>
+            </value>
+            <value>
+                <fullName>T - Trust</fullName>
+                <default>false</default>
+                <label>T - Trust</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

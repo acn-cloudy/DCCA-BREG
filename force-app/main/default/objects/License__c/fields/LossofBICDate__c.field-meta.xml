@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LossofBICDate__c</fullName>
+    <description>VPVL-13: Date when the RB-Entity license lost all its associated Brokers-In-Charge (BIC). This field is populated when the RB-Entity no longer has any active BIC associated with it and has active RBO licenses.</description>
+    <label>Loss of BIC Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

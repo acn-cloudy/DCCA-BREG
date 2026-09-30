@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_Start_Date_is_not_blank_then_End_Dat</fullName>
+    <active>true</active>
+    <description>If Start Date is not blank, then End Date cannot be blank</description>
+    <errorConditionFormula>AND(NOT(ISBLANK(breg_Start_Date__c)),ISBLANK(breg_End_Date__c))</errorConditionFormula>
+    <errorDisplayField>breg_End_Date__c</errorDisplayField>
+    <errorMessage>If Start Date is not blank, then End Date cannot be blank</errorMessage>
+</ValidationRule>

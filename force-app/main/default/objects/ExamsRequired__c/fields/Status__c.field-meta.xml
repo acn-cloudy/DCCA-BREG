@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-MV091219 - Created for PVL phase 1</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Awaiting Results</fullName>
+                <default>true</default>
+                <label>Awaiting Results</label>
+            </value>
+            <value>
+                <fullName>Passed</fullName>
+                <default>false</default>
+                <label>Passed</label>
+            </value>
+            <value>
+                <fullName>Failed</fullName>
+                <default>false</default>
+                <label>Failed</label>
+            </value>
+            <value>
+                <fullName>Exam Not Required</fullName>
+                <default>false</default>
+                <label>Exam Not Required</label>
+            </value>
+            <value>
+                <fullName>Board Deferred</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Board Deferred</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

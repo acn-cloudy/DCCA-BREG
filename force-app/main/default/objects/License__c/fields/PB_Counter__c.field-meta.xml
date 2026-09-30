@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PB_Counter__c</fullName>
+    <label>PB Counter</label>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.Position__c</field>
+        <operation>equals</operation>
+        <value>PB - PRINCIPAL BROKER (REAL ESTATE COMMISSION)</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>AssociatedLicense__c.EmploymentStatus__c</field>
+        <operation>equals</operation>
+        <value>Employed</value>
+    </summaryFilterItems>
+    <summaryForeignKey>AssociatedLicense__c.EntityLicense__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

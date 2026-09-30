@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Object_Type__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Object Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Account</fullName>
+                <default>true</default>
+                <label>Account</label>
+            </value>
+            <value>
+                <fullName>breg_TN_TM_SM__c</fullName>
+                <default>false</default>
+                <label>breg_TN_TM_SM__c</label>
+            </value>
+            <value>
+                <fullName>breg_Transaction__c</fullName>
+                <default>false</default>
+                <label>breg_Transaction__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

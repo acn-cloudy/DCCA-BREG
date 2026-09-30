@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BD - Bond</fullName>
+        <default>false</default>
+        <label>BD - Bond</label>
+    </customValue>
+    <customValue>
+        <fullName>BX - Bond Exemption (All Boards)</fullName>
+        <default>false</default>
+        <label>BX - Bond Exemption (All Boards)</label>
+    </customValue>
+    <customValue>
+        <fullName>D - Employee Dishonesty Insurance</fullName>
+        <default>false</default>
+        <label>D - Employee Dishonesty Insurance</label>
+    </customValue>
+    <customValue>
+        <fullName>EX - Exemption</fullName>
+        <default>false</default>
+        <label>EX - Exemption</label>
+    </customValue>
+    <customValue>
+        <fullName>FS - Pre-Need Funeral Service Trust</fullName>
+        <default>false</default>
+        <label>FS - Pre-Need Funeral Service Trust</label>
+    </customValue>
+    <customValue>
+        <fullName>GM - Perpetual Care (Ground Maintenance) Trust</fullName>
+        <default>false</default>
+        <label>GM - Perpetual Care (Ground Maintenance) Trust</label>
+    </customValue>
+    <customValue>
+        <fullName>LC - Line of Credit</fullName>
+        <default>false</default>
+        <label>LC - Line of Credit</label>
+    </customValue>
+    <customValue>
+        <fullName>LI - Liability</fullName>
+        <default>false</default>
+        <label>LI - Liability</label>
+    </customValue>
+    <customValue>
+        <fullName>LP - Liability / Property Damage</fullName>
+        <default>false</default>
+        <label>LP - Liability / Property Damage</label>
+    </customValue>
+    <customValue>
+        <fullName>PI - Pre-Need Interment (Burial) Services Trust</fullName>
+        <default>false</default>
+        <label>PI - Pre-Need Interment (Burial) Services Trust</label>
+    </customValue>
+    <customValue>
+        <fullName>SI - Exclusion from Workers Comp.</fullName>
+        <default>false</default>
+        <label>SI - Exclusion from Workers Comp.</label>
+    </customValue>
+    <customValue>
+        <fullName>SL - Self-Insured for W/C (Entity OK&apos;d By Labor Dept)</fullName>
+        <default>false</default>
+        <label>SL - Self-Insured for W/C (Entity OK&apos;d By Labor Dept)</label>
+    </customValue>
+    <customValue>
+        <fullName>SM - No HI Employees - Submit Workers Comp Prior to Hiring</fullName>
+        <default>false</default>
+        <label>SM - No HI Employees - Submit Workers Comp Prior to Hiring</label>
+    </customValue>
+    <customValue>
+        <fullName>SW - Workers Comp Thru Leasing Co.</fullName>
+        <default>false</default>
+        <label>SW - Workers Comp Thru Leasing Co.</label>
+    </customValue>
+    <customValue>
+        <fullName>SX - Exemption No Longer Allowed</fullName>
+        <default>false</default>
+        <label>SX - Exemption No Longer Allowed</label>
+    </customValue>
+    <customValue>
+        <fullName>T1 - Client Trust Account #1</fullName>
+        <default>false</default>
+        <label>T1 - Client Trust Account #1</label>
+    </customValue>
+    <customValue>
+        <fullName>T2 - Client Trust Account #2</fullName>
+        <default>false</default>
+        <label>T2 - Client Trust Account #2</label>
+    </customValue>
+    <customValue>
+        <fullName>T3 - Client Trust Account #3</fullName>
+        <default>false</default>
+        <label>T3 - Client Trust Account #3</label>
+    </customValue>
+    <customValue>
+        <fullName>T4 - Client Trust Account #4</fullName>
+        <default>false</default>
+        <label>T4 - Client Trust Account #4</label>
+    </customValue>
+    <customValue>
+        <fullName>T5 - Client Trust Account #5</fullName>
+        <default>false</default>
+        <label>T5 - Client Trust Account #5</label>
+    </customValue>
+    <customValue>
+        <fullName>TC - Charter Tour</fullName>
+        <default>false</default>
+        <label>TC - Charter Tour</label>
+    </customValue>
+    <customValue>
+        <fullName>WC - Workers Compensation</fullName>
+        <default>false</default>
+        <label>WC - Workers Compensation</label>
+    </customValue>
+    <customValue>
+        <fullName>WP - Submit Prior to Hiring Hi Empl - Evidence of WC Not Submitted</fullName>
+        <default>false</default>
+        <label>WP - Submit Prior to Hiring Hi Empl - Evidence of WC Not Submitted</label>
+    </customValue>
+    <masterLabel>Insurance Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

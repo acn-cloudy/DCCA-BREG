@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotificationMailingZipcode__c</fullName>
+    <description>PacPoint-KN102319-Created for PVL Sprint 1 Phase 1</description>
+    <externalId>false</externalId>
+    <formula>CASE( PreferredAddress__c,
+&quot;Renewal Mail To&quot;, RenewalMailToZipCode1__c,
+&quot;Mailing&quot;,MailingZipCode__c,  
+&quot;Business&quot;,BusinessZipCode__c, 
+&quot;Residence&quot;, Applicant__r.PersonContact.MailingPostalCode ,
+&quot;Employer&quot;,EmployerZipCode__c, 
+&quot;Dependent Mailing&quot;,DependentMailingZipCode__c, 
+&quot;Dependent Business&quot;,DependentBusinessZipCode__c, 
+&quot;Dependent Employer&quot;,DependentEmployerZipCode__c, 
+&quot;Dependent 2 Mailing&quot;, DependentLicense2__r.MailingZipCode__c,
+&quot;N/A&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notification Mailing Zipcode</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

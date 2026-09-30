@@ -1,0 +1,74 @@
+<apex:page renderAs="pdf" controller="LicenseScannerResultController" applyHtmlTag="false" showHeader="falseD">
+    <html>
+    <head>
+        <style>
+            * {
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 10pt;
+            }
+
+            table {
+                table-layout: fixed;
+                border-collapse: collapse;
+            }
+
+            table th,
+            table td {
+                border: 1px solid;
+                padding: 2px;
+            }
+        </style>
+    </head>
+    <body>
+
+    <p>
+            {!$Label.PVLScanningLogTitle}
+    </p>
+    <p>
+    {!$Label.PVLScanningSuccess }= {!successCount}<br/>
+            {!$Label.PVLScanningFails} = {!failCount}
+    </p>
+    <p>
+        Fail
+    </p>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th>License Number</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!scanResult.failed}" var="f">
+            <tr>
+                <td>{!f.LicenseNumber__c}</td>
+                <td>{!f.Comments__c}</td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        Success
+    </p>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+        <tr>
+            <th>License Number</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <apex:repeat value="{!scanResult.success}" var="s">
+            <tr>
+                <td>{!s.LicenseNumber__c}</td>
+                <td>{!s.Comments__c}</td>
+            </tr>
+        </apex:repeat>
+        </tbody>
+    </table>
+    </body>
+    </html>
+</apex:page>

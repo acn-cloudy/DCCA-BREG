@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ContinuingEducation__c</fullName>
+    <description>PacPoint-KN082319-Created for PVL Phase 1</description>
+    <label>Continuing Education</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>C - Continuing Education</fullName>
+                <default>false</default>
+                <label>C - Continuing Education</label>
+            </value>
+            <value>
+                <fullName>L - Law Degree</fullName>
+                <default>false</default>
+                <label>L - Law Degree</label>
+            </value>
+            <value>
+                <fullName>M - Real Estate Major</fullName>
+                <default>false</default>
+                <label>M - Real Estate Major</label>
+            </value>
+            <value>
+                <fullName>P - GRI or Professional</fullName>
+                <default>false</default>
+                <label>P - GRI or Professional</label>
+            </value>
+            <value>
+                <fullName>R - Minimum Real Estate Course</fullName>
+                <default>false</default>
+                <label>R - Minimum Real Estate Course</label>
+            </value>
+            <value>
+                <fullName>S - Salesman Course</fullName>
+                <default>false</default>
+                <label>S - Salesman Course</label>
+            </value>
+            <value>
+                <fullName>W - Continuing Education Waived</fullName>
+                <default>false</default>
+                <label>W - Continuing Education Waived</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

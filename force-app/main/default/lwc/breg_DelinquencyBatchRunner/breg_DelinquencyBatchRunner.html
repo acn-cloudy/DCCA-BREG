@@ -1,0 +1,88 @@
+<template>
+    <lightning-card title="Run Delinquency Status Update Batch Job" icon-name="utility:automate">
+        <div class="slds-p-around_large">
+            <!-- Preview Mode Checkbox -->
+            <div class="slds-form-element slds-m-bottom_large">
+                <div class="slds-form-element__control">
+                    <div class="slds-checkbox">
+                        <input
+                            type="checkbox"
+                            name="previewMode"
+                            id="previewMode"
+                            checked={isPreviewMode}
+                            onchange={handlePreviewModeChange}
+                            class="slds-checkbox__input"
+                        />
+                        <label class="slds-checkbox__label" for="previewMode">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-form-element__label">Preview Mode</span>
+                        </label>
+                    </div>
+                    <div class="slds-form-element__help">
+                        When enabled, the batch job will only preview changes without updating records
+                    </div>
+                </div>
+            </div>
+
+            <!-- Run Button -->
+            <div class="slds-m-bottom_large">
+                <lightning-button
+                    variant="brand"
+                    label="Run Batch Job"
+                    onclick={handleRunBatch}
+                    disabled={isButtonDisabled}
+                    class="slds-button_brand"
+                ></lightning-button>
+            </div>
+
+
+            <!-- Success Message -->
+            <div class={successMessageClass}>
+                <div class="slds-box slds-box_x-small slds-theme_shade slds-m-bottom_medium success-message-box">
+                    <div class="slds-text-body_small">
+                        <strong>Batch job started successfully</strong>
+                        <div class="slds-m-top_x-small">{successMessage}</div>
+                        <div class="slds-m-top_small">
+                            <template if:true={isPreviewMode}>
+                                <p class="slds-text-body_small slds-m-bottom_x-small">
+                                    <strong>View Preview Results:</strong>
+                                </p>
+                                <a href={previewReportUrl}
+                                   target="_blank"
+                                   class="slds-button slds-button_neutral slds-button_small">
+                                    <lightning-icon icon-name="utility:service_report" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Open Report
+                                </a>
+                            </template>
+                            <template if:false={isPreviewMode}>
+                                <p class="slds-text-body_small slds-m-bottom_x-small">
+                                    <strong>View Batch Results:</strong>
+                                </p>
+                                <a href={regularReportUrl}
+                                   target="_blank"
+                                   class="slds-button slds-button_neutral slds-button_small">
+                                    <lightning-icon icon-name="utility:service_report" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                                    Open Report
+                                </a>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Panel -->
+            <div class="slds-box slds-theme_shade slds-m-top_large">
+                <h3 class="slds-text-heading_small slds-m-bottom_small">About This Batch Job</h3>
+                <p class="slds-text-body_small slds-m-bottom_small">
+                    This batch job processes entities with statuses A, 1, 2, and B (Bounced Check) to update their delinquency status based on:
+                </p>
+                <ul class="slds-list_dotted slds-text-body_small">
+                    <li>Consecutive missed annual reports</li>
+                    <li>Active agent availability</li>
+                    <li>Manual action settings</li>
+                    <li>Bounced check due dates</li>
+                </ul>
+            </div>
+        </div>
+    </lightning-card>
+</template>

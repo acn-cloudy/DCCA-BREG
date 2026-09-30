@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>0 - NO CATEGORY SELECTED</fullName>
+        <default>false</default>
+        <label>0 - NO CATEGORY SELECTED</label>
+    </customValue>
+    <customValue>
+        <fullName>1 - Chemicals</fullName>
+        <default>false</default>
+        <label>1 - Chemicals</label>
+    </customValue>
+    <customValue>
+        <fullName>2 - Paints</fullName>
+        <default>false</default>
+        <label>2 - Paints</label>
+    </customValue>
+    <customValue>
+        <fullName>3 - Cosmetics and Cleaning Preparations</fullName>
+        <default>false</default>
+        <label>3 - Cosmetics and Cleaning Preparations</label>
+    </customValue>
+    <customValue>
+        <fullName>4 - Lubricants and Fuels</fullName>
+        <default>false</default>
+        <label>4 - Lubricants and Fuels</label>
+    </customValue>
+    <customValue>
+        <fullName>5 - Pharmaceuticals</fullName>
+        <default>false</default>
+        <label>5 - Pharmaceuticals</label>
+    </customValue>
+    <customValue>
+        <fullName>6 - Metal Goods</fullName>
+        <default>false</default>
+        <label>6 - Metal Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>7 - Machinery</fullName>
+        <default>false</default>
+        <label>7 - Machinery</label>
+    </customValue>
+    <customValue>
+        <fullName>8 - Hand Tools</fullName>
+        <default>false</default>
+        <label>8 - Hand Tools</label>
+    </customValue>
+    <customValue>
+        <fullName>9 - Electrical and Scientific Apparatus</fullName>
+        <default>false</default>
+        <label>9 - Electrical and Scientific Apparatus</label>
+    </customValue>
+    <customValue>
+        <fullName>10 - Medical Apparatus</fullName>
+        <default>false</default>
+        <label>10 - Medical Apparatus</label>
+    </customValue>
+    <customValue>
+        <fullName>11 - Environmental Control Apparatus</fullName>
+        <default>false</default>
+        <label>11 - Environmental Control Apparatus</label>
+    </customValue>
+    <customValue>
+        <fullName>12 - Vehicles</fullName>
+        <default>false</default>
+        <label>12 - Vehicles</label>
+    </customValue>
+    <customValue>
+        <fullName>13 - Firearms</fullName>
+        <default>false</default>
+        <label>13 - Firearms</label>
+    </customValue>
+    <customValue>
+        <fullName>14 - Jewelry</fullName>
+        <default>false</default>
+        <label>14 - Jewelry</label>
+    </customValue>
+    <customValue>
+        <fullName>15 - Musical Instruments</fullName>
+        <default>false</default>
+        <label>15 - Musical Instruments</label>
+    </customValue>
+    <customValue>
+        <fullName>16 - Paper Goods and Printed Matter</fullName>
+        <default>false</default>
+        <label>16 - Paper Goods and Printed Matter</label>
+    </customValue>
+    <customValue>
+        <fullName>17 - Rubber Goods</fullName>
+        <default>false</default>
+        <label>17 - Rubber Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>18 - Leather Goods</fullName>
+        <default>false</default>
+        <label>18 - Leather Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>19 - Nonmetallic Building Materials</fullName>
+        <default>false</default>
+        <label>19 - Nonmetallic Building Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>20 - Furniture and Articles Not Otherwise Classified</fullName>
+        <default>false</default>
+        <label>20 - Furniture and Articles Not Otherwise Classified</label>
+    </customValue>
+    <customValue>
+        <fullName>21 - Houseware and Glass</fullName>
+        <default>false</default>
+        <label>21 - Houseware and Glass</label>
+    </customValue>
+    <customValue>
+        <fullName>22 - Cordage and Fibers</fullName>
+        <default>false</default>
+        <label>22 - Cordage and Fibers</label>
+    </customValue>
+    <customValue>
+        <fullName>23 - Yarns and Threads</fullName>
+        <default>false</default>
+        <label>23 - Yarns and Threads</label>
+    </customValue>
+    <customValue>
+        <fullName>24 - Fabrics</fullName>
+        <default>false</default>
+        <label>24 - Fabrics</label>
+    </customValue>
+    <customValue>
+        <fullName>25 - Clothing</fullName>
+        <default>false</default>
+        <label>25 - Clothing</label>
+    </customValue>
+    <customValue>
+        <fullName>26 - Fancy Goods</fullName>
+        <default>false</default>
+        <label>26 - Fancy Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>27 - Floor Coverings</fullName>
+        <default>false</default>
+        <label>27 - Floor Coverings</label>
+    </customValue>
+    <customValue>
+        <fullName>28 - Toys and Sporting Goods</fullName>
+        <default>false</default>
+        <label>28 - Toys and Sporting Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>29 - Meats and Processed Foods</fullName>
+        <default>false</default>
+        <label>29 - Meats and Processed Foods</label>
+    </customValue>
+    <customValue>
+        <fullName>30 - Staple Foods</fullName>
+        <default>false</default>
+        <label>30 - Staple Foods</label>
+    </customValue>
+    <customValue>
+        <fullName>31 - Natural Agricultural Products</fullName>
+        <default>false</default>
+        <label>31 - Natural Agricultural Products</label>
+    </customValue>
+    <customValue>
+        <fullName>32 - Light Beverages</fullName>
+        <default>false</default>
+        <label>32 - Light Beverages</label>
+    </customValue>
+    <customValue>
+        <fullName>33 - Wine and Spirits</fullName>
+        <default>false</default>
+        <label>33 - Wine and Spirits</label>
+    </customValue>
+    <customValue>
+        <fullName>34 - Smokers Articles</fullName>
+        <default>false</default>
+        <label>34 - Smokers Articles</label>
+    </customValue>
+    <customValue>
+        <fullName>35 - Advertising and Business</fullName>
+        <default>false</default>
+        <label>35 - Advertising and Business</label>
+    </customValue>
+    <customValue>
+        <fullName>36 - Insurance and Financial</fullName>
+        <default>false</default>
+        <label>36 - Insurance and Financial</label>
+    </customValue>
+    <customValue>
+        <fullName>37 - Building Construction and Repair</fullName>
+        <default>false</default>
+        <label>37 - Building Construction and Repair</label>
+    </customValue>
+    <customValue>
+        <fullName>38 - Telecommunications</fullName>
+        <default>false</default>
+        <label>38 - Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>39 - Transportation and Storage</fullName>
+        <default>false</default>
+        <label>39 - Transportation and Storage</label>
+    </customValue>
+    <customValue>
+        <fullName>40 - Treatment of Materials</fullName>
+        <default>false</default>
+        <label>40 - Treatment of Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>41 - Education and Entertainment</fullName>
+        <default>false</default>
+        <label>41 - Education and Entertainment</label>
+    </customValue>
+    <customValue>
+        <fullName>42 - Computer, Scientific &amp; Legal</fullName>
+        <default>false</default>
+        <label>42 - Computer, Scientific &amp; Legal</label>
+    </customValue>
+    <customValue>
+        <fullName>43 - Hotels and Restaurants</fullName>
+        <default>false</default>
+        <label>43 - Hotels and Restaurants</label>
+    </customValue>
+    <customValue>
+        <fullName>44 - Medical, Beauty &amp; Agricultural</fullName>
+        <default>false</default>
+        <label>44 - Medical, Beauty &amp; Agricultural</label>
+    </customValue>
+    <customValue>
+        <fullName>45 - Personal</fullName>
+        <default>false</default>
+        <label>45 - Personal</label>
+    </customValue>
+    <masterLabel>TNTMSM Classifications</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

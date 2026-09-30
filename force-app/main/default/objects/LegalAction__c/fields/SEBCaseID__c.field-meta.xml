@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEBCaseID__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>SEB Case ID</label>
+    <referenceTo>SEBCase__c</referenceTo>
+    <relationshipLabel>Legal Actions</relationshipLabel>
+    <relationshipName>LegalActions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

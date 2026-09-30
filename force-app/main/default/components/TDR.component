@@ -1,0 +1,426 @@
+<apex:component >
+    <apex:attribute name="record" description="This is the value for the component." type="FiscalFormFeed"/>
+    <apex:attribute name="copyStr" description="used to capture the copy values" type="String"/>
+    <apex:attribute name="userName" description="Users full name" type="String"/>
+    <div>
+        <div style="font-size: 12pt; padding: 0; margin: 0 0 6px 0; text-align: center; line-height: .8;">STATE OF
+            HAWAII
+        </div>
+        <div style="font-size: 27px; padding: 0; margin: 0 0 14px 0; text-align: center; line-height: .8;" class="bold">
+            TREASURY DEPOSIT RECEIPT
+        </div>
+        <table>
+            <thead>
+            <tr style="border:0;">
+                <th style="width: 26px; border:0;"></th>
+                <th style="width: 32px; border:0;"></th>
+                <th style="width: 16px; border:0;"></th>
+                <th style="width: 11px; border:0;"></th>
+                <th style="width: 13px; border:0;"></th>
+                <th style="width: 12px; border:0;"></th>
+                <th style="width: 15px; border:0;"></th>
+                <th style="width: 13px; border:0;"></th>
+                <th style="width: 26px; border:0;"></th>
+                <th style="width: 45px; border:0;"></th>
+                <th style="width: 46px; border:0;"></th>
+                <th style="width: 74px; border:0;"></th>
+                <th style="width: 25px; border:0;"></th>
+                <th style="width: 35px; border:0;"></th>
+                <th style="width: 39px; border:0;"></th>
+                <th style="width: 62px; border:0;"></th>
+                <th style="width: 112px; border:0;"></th>
+                <th style="width: 26px; border:0;"></th>
+                <th style="width: 103px; border:0;"></th>
+                <th style="width: 25px; border:0;"></th>
+            </tr>
+            <tr style="height:2px;">
+                <th colspan="20"></th>
+            </tr>
+            <tr style="height: 15px;">
+                <th colspan="5" class="label">FUND</th>
+                <th colspan="13" class="label">DETAIL FUND OR APPROPRIATION</th>
+                <th colspan="2" class="label">DATE</th>
+            </tr>
+            <tr style="height: 31px;">
+                <td colspan="5" class="value-large_bold">{!record.fundName}</td>
+                <td colspan="13" class="value-large_bold">{!record.detailFund}</td>
+                <td colspan="2" class="value-large_bold">{!record.dateStr}</td>
+            </tr>
+            <tr style="height:2px;">
+                <th colspan="20"></th>
+            </tr>
+            <tr style="vertical-align: bottom;">
+                <th rowspan="2" style="height: 32px;" class="label">
+                    SFX
+                </th>
+                <th rowspan="2" class="label">
+                    TC
+                </th>
+                <th rowspan="2" class="label">
+                    F
+                </th>
+                <th rowspan="2" colspan="2"
+                    class="label">
+                    YR
+                </th>
+                <th rowspan="2" colspan="3"
+                    class="label">
+                    APP
+                </th>
+                <th rowspan="2" class="label">
+                    D
+                </th>
+                <th rowspan="2" class="label">
+                    SOURCE/<br/>OBJECT
+                </th>
+                <th rowspan="2" class="label">COST<br/>CENTER
+                </th>
+                <th colspan="2" class="label" style="height: 14px;">
+                    PROJECT
+                </th>
+                <th rowspan="2" class="label">
+                    DEPT<br/>ACT
+                </th>
+                <th rowspan="2" class="label">
+                    G/L<br/>ACCT.
+                </th>
+                <th rowspan="2" class="label">
+                    S/L<br/>ACCT.
+                </th>
+                <th colspan="2" class="label">
+                    VENDOR
+                </th>
+                <th rowspan="2" colspan="2" class="label">
+                    AMOUNT
+                </th>
+            </tr>
+            <tr style="height: 16px;">
+                <th colspan="1" class="label" style="height: 16px;">NUMBER</th>
+                <th colspan="1" class="label">PH</th>
+                <th colspan="1" class="label">NUMBER</th>
+                <th colspan="1" class="label">SFX</th>
+            </tr>
+            <tr style="height: 16px;">
+                <th class="label">xx</th>
+                <th class="label">xxx</th>
+                <th class="label">x</th>
+                <th class="label" colspan="2">xx</th>
+                <th class="label" colspan="3">xxx</th>
+                <th class="label">xx</th>
+                <th class="label">xxxx</th>
+                <th class="label">xxxx</th>
+                <th class="label">xxxxxx</th>
+                <th class="label">xx</th>
+                <th class="label">xxx</th>
+                <th class="label">xxx</th>
+                <th class="label">xxxxxx</th>
+                <th class="label">xxxxxxxxxx</th>
+                <th class="label">xx</th>
+                <th class="label">xxxxxxxxxxx</th>
+                <th class="label">xx</th>
+            </tr>
+            <tr style="height: 16px;">
+                <th class="label" colspan="6" style="vertical-align: middle; width: 110px;">
+                    REFERENCE DOC
+                </th>
+                <th class="label" rowspan="2" style="font-size: 6pt; line-height: 10px; width: 15px; height: 31px;">
+                    R<br/>E<br/>V
+                </th>
+                <th class="label" rowspan="2" colspan="8">VENDOR NUMBER</th>
+                <th class="label" rowspan="2" colspan="3">OPTIONAL DEPARTMENTAL DATA</th>
+                <th class="label" rowspan="3" colspan="2" style="background-image: url({!$Resource.TDR_BG_dot});"></th>
+            </tr>
+            <tr style="height: 15px;">
+                <th class="label" colspan="4"
+                    style="height: 15px; padding-bottom: 1px; padding-top: 1px; vertical-align: middle; width: 86px;">
+                    NUMBER
+                </th>
+                <th class="label" colspan="2" style="width: 23px;">SFX</th>
+            </tr>
+            <tr style="height: 16px;">
+                <th class="label" colspan="4" style="border-bottom-width: 2px;">
+                    xxxxxxx
+                </th>
+                <th class="label" colspan="2" style="border-bottom-width: 2px;">xx</th>
+                <th class="label" style="border-bottom-width: 2px;">x</th>
+                <th class="label" colspan="8" style="border-bottom-width: 2px;">x (30)</th>
+                <th class="label" colspan="3" style="border-bottom-width: 2px;">x (22)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:variable var="cnt" value="{!0}"/>
+            <apex:repeat var="fund" value="{!record.funds}">
+                <apex:variable var="even" value="t" rendered="{!MOD(cnt,2)==0}">
+                    <tr class="value-small_bold" style="height: 16px;">
+                        <td>{!fund.indexValue}</td>
+                        <td>{!fund.tcValue}</td>
+                        <td>{!fund.sValue}</td>
+                        <td colspan="2">{!fund.yrValue}</td>
+                        <td colspan="3">{!fund.appValue}</td>
+                        <td>{!fund.dValue}</td>
+                        <td>{!fund.sourceObjValue}</td>
+                        <td>{!fund.costCenterValue}</td>
+                        <td>{!fund.projectNumValue}</td>
+                        <td>{!fund.projectPhValue}</td>
+                        <td>{!fund.deptActValue}</td>
+                        <td>{!fund.gLActValue}</td>
+                        <td>{!fund.sLActValue}</td>
+                        <td>{!fund.venterNumValue}</td>
+                        <td>{!fund.venterSFXValue}</td>
+                        <td style="text-align:right;">
+                            <apex:variable value="isNega" var="nega" rendered="{!fund.amount != null && fund.amount<0}">
+                                <apex:outputText value="{0, number,###,###,##0}" style="color:red;">
+                                    <apex:param value="{!FLOOR(fund.amount)*-1}"/>
+                                </apex:outputText>
+                            </apex:variable>
+                            <apex:variable value="isNega" var="nega" rendered="{!fund.amount != null && fund.amount>=0}">
+                                <apex:outputText value="{0, number,###,###,##0}">
+                                    <apex:param value="{!FLOOR(fund.amount)}"/>
+                                </apex:outputText>
+                            </apex:variable>
+                        </td>
+                        <td style="text-align:left; border-style:solid solid solid dotted; padding-left: -2px;">
+                            <apex:variable value="isNega" var="nega" rendered="{!fund.amount != null && fund.amount<0}">
+                                <h4 style="padding: 0; margin-left: -1px; font-size: 8pt; color: red;">
+                                    .{!fund.decimalAmount}
+                                </h4>
+                            </apex:variable>
+                            <apex:variable value="isNega" var="nega" rendered="{!fund.amount != null && fund.amount>=0}">
+                                <h4 style="padding: 0; margin-left: -1px; font-size: 8pt;">
+                                    .{!fund.decimalAmount}
+                                </h4>
+                            </apex:variable>
+                        </td>
+                    </tr>
+                </apex:variable>
+                <apex:variable var="odd" value="y" rendered="{!MOD(cnt,2)<>0}">
+                    <tr style="height: 16px;" class="value-small_bold">
+                        <td colspan="4" style="border-bottom-width: 2px;"></td>
+                        <td colspan="2" style="border-bottom-width: 2px;"></td>
+                        <td colspan="1" style="border-bottom-width: 2px;">
+                            {!fund.revValue}
+                        </td>
+                        <td colspan="8" style="border-bottom-width: 2px;"></td>
+                        <td colspan="3" style="border-bottom-width: 2px;"></td>
+                        <td colspan="2" style="background-image: url({!$Resource.TDR_BG_dot});"></td>
+                    </tr>
+                </apex:variable>
+                <apex:variable var="cnt" value="{!cnt+1}"/>
+            </apex:repeat>
+            </tbody>
+        </table>
+        <table style="margin-top: 0.2cm;">
+            <tr>
+                <td rowspan="13"
+                    style="text-align: left; width: 7.8cm; max-width: 7.8cm; height: 8cm; max-height: 8cm; vertical-align: top;"
+                    class="label">
+                    <u style="padding-left: 6px;">REMARKS:</u><br/>
+                    <p style="margin: 0; padding: 0 0 0 3px; word-wrap: break-word; white-space: pre-wrap;">
+                        <apex:outputText escape="false"
+                                         value="{!record.remarks}"/>
+                    </p>
+                </td>
+                <td rowspan="13" style="width:1px;"></td>
+                <td style="width: 3.1cm; max-width: 3.1cm; height: 0.6cm;" class="value-large_bold">
+                    TOTAL DEPOSIT
+                </td>
+                <td style="text-align: right; width: 2.8cm; max-width: 2.8cm;" class="value-large_bold">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.totalDepositD != null}">
+                        <apex:param value="{!FLOOR(record.totalDepositD)}"/>
+                    </apex:outputText>
+                </td>
+                <td style="text-align:left; width: 0.6cm; max-width: 0.6cm; border-style: solid solid solid dotted;"
+                    class="value-large_bold">
+                    <span style="margin-left: -1.5px;">
+                        .{!record.totalDepositDeposit}
+                    </span>
+                </td>
+                <td style="width:1px; border-right: white;" rowspan="13"></td>
+                <td rowspan="2" class="label" style="vertical-align: top; width: 218px; max-width: 218px;">
+                    COMMERCE &amp; CONSUMER AFFAIRS <br/>
+                    {!userName} X6-2832
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="label" style="height: 0.3cm;">KINDS OF DEPOSIT</td>
+            </tr>
+            <tr>
+                <td class="label-small"
+                    style="text-align: left; padding-left: 2px; height: 0.4cm;">
+                    BANK DEPOSITS
+                </td>
+                <td class="value-large_bold" style="text-align: right;">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.bankDepositD != null}">
+                        <apex:param value="{!FLOOR(record.bankDepositD)}"/>
+                    </apex:outputText>
+                </td>
+                <td style="border-left-style: dotted; text-align: left;" class="value-large_bold">
+                    <apex:outputPanel rendered="{!record.bankDepositD != null}">
+                        <span style="margin-left: -1.5px;">
+                        .{!record.bankDepositDeposit}
+                        </span>
+                    </apex:outputPanel>
+                </td>
+                <td rowspan="3" class="label-small" style="vertical-align: top; width: 5.6cm; max-width: 5.6cm;">
+                    DEPARTMENT
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small"
+                    style="text-align: left; padding-left: 2px; height: 0.4cm;">
+                    ELECTRONIC FUNDS TRANSFER
+                </td>
+                <td class="value-large_bold" style="text-align: right;">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.electronicFundTransferD != null}">
+                        <apex:param value="{!FLOOR(record.electronicFundTransferD)}"/>
+                    </apex:outputText>
+                </td>
+                <td class="value-large_bold" style="border-left-style: dotted; text-align: left;">
+                    <apex:outputPanel rendered="{!record.electronicFundTransferD != null}">
+                        <span style="margin-left: -1.5px;">
+                        .{!record.electronicFundTransferDeposit}
+                        </span>
+                    </apex:outputPanel>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small"
+                    style="text-align: left; padding-left: 2px; height: 0.4cm;">
+                    CREDIT CARD PROCESSING
+                </td>
+                <td class="value-large_bold" style="text-align: right;">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.creditCardProcessingD != null}">
+                        <apex:param value="{!FLOOR(record.creditCardProcessingD)}"/>
+                    </apex:outputText>
+                </td>
+                <td class="value-large_bold" style="border-left-style: dotted; text-align: left;">
+                    <apex:outputPanel rendered="{!record.creditCardProcessingD != null}">
+                        <span style="margin-left: -1.5px;">
+                        .{!record.creditCardProcessingDeposit}
+                        </span>
+                    </apex:outputPanel>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small"
+                    style="text-align: left; padding-left: 2px; height: 0.4cm;">
+                    OTHERS
+                </td>
+                <td class="value-large_bold" style="width: 112px; max-width: 112px; text-align: right;">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.othersD != null}">
+                        <apex:param value="{!FLOOR(record.othersD)}"/>
+                    </apex:outputText>
+                </td>
+                <td class="value-large_bold" style="border-left-style: dotted; text-align: left;">
+                    <apex:outputPanel rendered="{!record.othersD != null}">
+                        <span style="margin-left: -1.5px;">
+                        .{!record.othersDeposit}
+                        </span>
+                    </apex:outputPanel>
+                </td>
+                <td class="label-small"
+                    style="vertical-align: top; height: 0.4cm; max-height: 0.4cm; border-left:0; border-bottom:0;">
+                    <table>
+                        <tr>
+                            <td style="vertical-align: top; height: 0.4cm; max-height: 0.4cm; border-top: 0; border-right: 0;">
+                                SIGNATURE OF AUTHORIZED PERSON
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small" style="height: 0.4cm;">&nbsp;</td>
+                <td class="label-small"></td>
+                <td class="label-small" style="border-left-style: dotted;"></td>
+                <td class="label-small" rowspan="4"
+                    style="height: 2.2cm; border-bottom: 0; border-left: 0; border-top: 0; padding-top: 1px;">
+                    <table>
+                        <tr>
+                            <td style="height: 2.2cm; padding-top: 12px; font-size: 6pt; vertical-align: top; margin-top: 1px; border-bottom:0; border-right:0;">
+                                RECEIPT OF DEPOSIT HEREBY <br/>
+                                ACKNOWLEDGED BY FINANCE DIVISION,<br/> DEPT. OF BUDGET &amp; FINANCE
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small" style="height: 0.4cm;">&nbsp;</td>
+                <td class="label-small"></td>
+                <td class="label-small" style="border-left-style: dotted;"></td>
+            </tr>
+            <tr>
+                <td class="value-large_bold" style="height: 1cm;">
+                    TOTAL DEPOSIT
+                </td>
+                <td class="value-large_bold" style="text-align: right;">
+                    <apex:outputText value="{0, number,###,###,##0}"
+                                     rendered="{!record.totalDeposit2 != null}">
+                        <apex:param value="{!FLOOR(record.totalDeposit2D)}"/>
+                    </apex:outputText>
+                </td>
+                <td class="value-large_bold" style="border-left-style: dotted; text-align: left;">
+                    <apex:outputPanel rendered="{!record.totalDeposit2 != null}">
+                        <span style="margin-left: -1.5px;">
+                        .{!record.totalDeposit2Deposit}
+                        </span>
+                    </apex:outputPanel>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" rowspan="4" class="label-small" style="height: 4.5cm;">
+                    <p>DISTRIBUTION COPIES <br/>
+                    </p>
+                    <p style="text-align: left; padding-left: 47px;">
+                    </p>
+                    <p style="text-align: left; padding-left: 47px;">
+                        COPY #1 - STATE TREASURY
+                    </p>
+                    <p style="text-align: left; padding-left: 47px;">
+                        COPY #2 - STATE COMPTROLLER
+                    </p>
+                    <p style="text-align: left; padding-left: 47px;">
+                        COPY #3 - DEPARTMENT FISCAL OFFICE
+                    </p>
+                    <p style="text-align: left; padding-left: 47px;padding-bottom: 0;">
+                        COPY #4 - DEPARTMENT FISCAL OFFICE<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(FOLLOW-UP
+                        COPY)
+                    </p>
+                    <p style="padding-top: 0;">
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small" style="height: 0.5cm; vertical-align: top;">
+                    SIGNED
+                </td>
+            </tr>
+            <tr>
+                <td class="label-small" style="font-size: 6pt; vertical-align: top;">
+                    DEPOSITORY'S NO.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE
+                </td>
+            </tr>
+        </table>
+        <apex:outputPanel rendered="{!CONTAINS(copyStr, '4')}">
+            <p style="float: left; padding-left: 155px;  padding-right: 0;" class="value-large_bold">
+                    {!copyStr}
+            </p>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!!CONTAINS(copyStr, '4')}">
+            <p style="float: left; padding-left: 260px;" class="value-large_bold">
+                    {!copyStr}
+            </p>
+        </apex:outputPanel>
+        <p style="float: right; width: 159px; text-align: left;" class="label-small">
+            STATE ACCOUNTING FORM B-13<br/>
+            APRIL 14, 2020 (REVISED)
+        </p>
+    </div>
+</apex:component>

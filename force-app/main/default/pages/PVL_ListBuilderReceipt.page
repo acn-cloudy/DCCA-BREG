@@ -1,0 +1,215 @@
+<apex:page readOnly="true"
+           controller="PVL_ListBuilderReceiptController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="pdf">
+<HTML>
+<HEAD>
+<TITLE>Payment Receipt</TITLE>
+<STYLE type="text/css">
+body {margin-top: 0px;margin-left: 0px;margin-right: 0px;}
+#page_1 {position:relative; overflow: hidden;margin: 18px 0px 12px 0px;padding: 0px;border: none;width: 781px;}
+#page_1 #id1_1 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 781px;overflow: hidden;}
+#page_1 #id1_2 {border:none;margin: 14px 0px 0px 23px;padding: 0px;border:none;width: 758px;overflow: hidden;}
+#page_1 #id1_2 #id1_2_1 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 373px;overflow: hidden;}
+#page_1 #id1_2 #id1_2_2 {float:left;border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 385px;overflow: hidden;}
+#page_1 #id1_3 {border:none;margin: 37px 0px 0px 0px;padding: 0px;border:none;width: 746px;overflow: hidden;}
+#page_1 #id1_4 {border:none;margin: 0px 0px 0px 237px;padding: 0px;border:none;width: 544px;overflow: hidden;}
+#page_1 #p1dimg1 {position:absolute;top:21px;left:4px;z-index:-1;width:740px;height:979px;}
+#page_1 #p1dimg1 #p1img1 {width:740px;height:979px;}
+#page_2 {position:relative; overflow: hidden;margin: 15px 0px 12px 35px;padding: 0px;border: none;width: 781px;}
+#page_2 #id2_1 {border:none;margin: 0px 0px 0px 0px;padding: 0px;border:none;width: 781px;overflow: hidden;}
+#page_2 #id2_2 {border:none;margin: 0px 0px 0px 237px;padding: 0px;border:none;width: 544px;overflow: hidden;}
+#page_2 #p2dimg1 {position:absolute;top:390px;left:598px;z-index:-1;width:141px;height:24px;}
+#page_2 #p2dimg1 #p2img1 {width:141px;height:24px;}
+.ft0{font: 11px 'Arial';line-height: 14px;}
+.ft1{border-left: #888888 1px solid; border-right: #888888 1px solid; border-top: #888888 1px solid;font: italic 29px 'Georgia';line-height: 34px;}
+.ft2{font: bold 11px 'Arial';line-height: 14px;}
+.ft3{font: 12px 'Arial';line-height: 15px;}
+.ft4{font: italic 17px 'Georgia';line-height: 20px;}
+.ft5{font: 16px 'Arial';color: #333333;line-height: 18px;}
+.ft6{font: 1px 'Arial';line-height: 13px;}
+.ft7{font: 12px 'Arial';line-height: 13px;}
+.ft8{font: 1px 'Arial';line-height: 1px;}
+.ft9{font: bold 12px 'Arial';text-decoration: underline;color: #0099cc;line-height: 15px;}
+.ft10{font: 11px 'Arial';line-height: 15px;}
+.ft11{font: bold 12px 'Arial';line-height: 15px;}
+.ft12{font: bold 12px 'Arial';color: #0099cc;line-height: 14px;}
+.ft13{font: bold 12px 'Arial';line-height: 14px;}
+.ft14{font: 8px 'Calibri';line-height: 10px;}
+.ft15{font: 1px 'Arial';line-height: 5px;}
+.ft16{font: 1px 'Arial';line-height: 12px;}
+.ft17{font: 1px 'Arial';line-height: 14px;}
+.ft18{font: bold 12px 'Arial';color: #0099cc;line-height: 15px;}
+.ft19{font: 10px 'Arial';color: #333333;line-height: 13px;}
+.p0{text-align: right;padding-right: 162px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p1{text-align: left;padding-left: 162px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p2{text-align: left;padding-left: 22px;margin-top: 32px;margin-bottom: 0px;}
+.p3{text-align: left;padding-left: 1px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p4{text-align: left;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p5{text-align: right;padding-right: 1px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p6{border-bottom: #cccccc 1px dashed;text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.p7{border-bottom: #cccccc 1px dashed;text-align: left;padding-left: 15px;margin-top: 61px;margin-bottom: 0px;}
+.p8{text-align: left;padding-left: 16px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p9{border-bottom: #cccccc 1px dashed;text-align: right;padding-right: 57px;margin-top: 0px;margin-bottom: 0px;}
+.p10{text-align: left;margin-top: 61px;margin-bottom: 0px;}
+.p11{text-align: left;padding-right: 117px;margin-top: 27px;margin-bottom: 0px;}
+.p12{text-align: left;padding-left: 21px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p13{text-align: left;padding-right: 69px;margin-top: 21px;margin-bottom: 0px;}
+.p14{text-align: left;padding-right: 78px;margin-top: 16px;margin-bottom: 0px;}
+.p15{text-align: left;padding-right: 71px;margin-top: 16px;margin-bottom: 0px;}
+.p16{text-align: left;margin-top: 13px;margin-bottom: 0px;}
+.p17{text-align: left;padding-right: 80px;margin-top: 0px;margin-bottom: 0px;}
+.p18{text-align: left;padding-right: 94px;margin-top: 16px;margin-bottom: 0px;}
+.p19{text-align: left;padding-right: 68px;margin-top: 13px;margin-bottom: 0px;}
+.p20{text-align: left;padding-right: 92px;margin-top: 15px;margin-bottom: 0px;}
+.p21{text-align: right;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p22{text-align: right;padding-right: 319px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p23{text-align: left;padding-left: 5px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p24{text-align: left;padding-left: 14px;margin-top: 0px;margin-bottom: 0px;white-space: nowrap;}
+.p25{text-align: center;}
+.td0{padding: 0px;margin: 0px;width: 210px;vertical-align: bottom;}
+.td1{padding: 0px;margin: 0px;width: 252px;vertical-align: bottom;}
+.td2{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 432px;vertical-align: bottom;}
+.td3{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 172px;vertical-align: bottom;}
+.td4{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 99px;vertical-align: bottom;}
+.td5{border-bottom: #cccccc 1px dashed;padding: 0px;margin: 0px;width: 432px;vertical-align: bottom;}
+.td6{border-bottom: #cccccc 1px dashed;padding: 0px;margin: 0px;width: 172px;vertical-align: bottom;}
+.td7{border-bottom: #cccccc 1px dashed;padding: 0px;margin: 0px;width: 99px;vertical-align: bottom;}
+.td8{padding: 0px;margin: 0px;width: 140px;vertical-align: bottom;}
+.td9{padding: 0px;margin: 0px;width: 150px;vertical-align: bottom;}
+.td10{padding: 0px;margin: 0px;width: 135px;vertical-align: bottom;}
+.td11{padding: 0px;margin: 0px;width: 146px;vertical-align: bottom;}
+.td12{padding: 0px;margin: 0px;width: 593px;vertical-align: bottom;}
+.td13{padding: 0px;margin: 0px;width: 153px;vertical-align: bottom;}
+.td14{padding: 0px;margin: 0px;width: 367px;vertical-align: bottom;}
+.td15{padding: 0px;margin: 0px;width: 357px;vertical-align: bottom;}
+.td16{padding: 0px;margin: 0px;width: 17px;vertical-align: bottom;}
+.td17{padding: 0px;margin: 0px;width: 8px;vertical-align: bottom;}
+.td18{padding: 0px;margin: 0px;width: 15px;vertical-align: bottom;}
+.td19{padding: 0px;margin: 0px;width: 344px;vertical-align: bottom;}
+.td20{padding: 0px;margin: 0px;width: 13px;vertical-align: bottom;}
+.td21{padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;}
+.td22{padding: 0px;margin: 0px;width: 342px;vertical-align: bottom;}
+.td23{border-right: #888888 1px solid;padding: 0px;margin: 0px;width: 7px;vertical-align: bottom;}
+.td24{border-right: #cccccc 1px solid;padding: 0px;margin: 0px;width: 14px;vertical-align: bottom;}
+.td25{border-right: #cccccc 1px solid;padding: 0px;margin: 0px;width: 343px;vertical-align: bottom;}
+.td26{padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;background: #cccccc;}
+.td27{border-left: #cccccc 1px solid;border-right: #888888 1px solid;padding: 0px;margin: 0px;width: 15px;vertical-align: bottom;}
+.td28{border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 343px;vertical-align: bottom;}
+.td29{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;background: #cccccc;}
+.td30{border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 342px;vertical-align: bottom;}
+.td31{border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 15px;vertical-align: bottom;}
+.td32{border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 344px;vertical-align: bottom;}
+.td33{border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 13px;vertical-align: bottom;}
+.td34{border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 2px;vertical-align: bottom;}
+.td35{border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 342px;vertical-align: bottom;}
+.td36{border-right: #888888 1px solid;border-bottom: #888888 1px solid;padding: 0px;margin: 0px;width: 16px;vertical-align: bottom;}
+.tr0{height: 16px;}
+.tr1{height: 21px;}
+.tr2{height: 23px;}
+.tr3{height: 33px;}
+.tr4{height: 18px;}
+.tr5{height: 19px;}
+.tr6{height: 20px;}
+.tr7{height: 13px;}
+.tr8{height: 15px;}
+.tr9{height: 5px;}
+.tr10{height: 17px;}
+.tr11{height: 12px;}
+.tr12{height: 28px;}
+.tr13{height: 29px;}
+.tr14{height: 14px;}
+.tr15{height: 49px;}
+.tr16{height: 48px;}
+.t0{width: 462px;font: 11px 'Arial';}
+.t1{margin-top:23px; border: #888888 1px solid; padding: 11px; width: 720px; font: 12px 'Arial';}
+.t2{margin-top:23px; border: #cccccc 1px solid; width: 695px; padding: 11px; font: 12px 'Arial';}
+.t3{width: 281px;margin-left: 1px;margin-top: 12px;font: bold 11px 'Arial';}
+.t4{width: 746px;font: 11px 'Arial';}
+.t5{width: 741px;font: 12px 'Arial';}
+.t6{width: 746px;margin-top: 597px;font: 11px 'Arial';}
+.t1tr0{padding-bottom: 10px; font: italic 29px 'Georgia';line-height: 34px;}
+.t1tr1{font: bold 11px 'Arial';line-height: 21px;border-top: #cccccc 1px solid;border-bottom: #cccccc 1px solid;padding: 0px;margin: 0px;width: 432px;vertical-align: bottom;text-align: left;padding-left: 1px;margin-top: 0px;margin-bottom: 0px;}
+.t1tr2{font: 12px 'Arial';line-height: 24px;border-bottom: #cccccc 1px dashed;padding: 0px;margin: 0px;vertical-align: bottom;text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.t1tr3{font: italic 17px 'Georgia';line-height: 30px;border-bottom: #cccccc 1px dashed;text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.t2tr0{font: 16px 'Arial';color: #333333;line-height: 18px;border-bottom: #cccccc 1px dashed;text-align: left;}
+.t2tr1{font: bold 11px 'Arial';line-height: 14px;padding: 0px;margin: 0px;width: 140px;vertical-align: bottom;text-align: left;margin-top: 0px;margin-bottom: 0px;}
+.t2tr2{font: 12px 'Arial';line-height: 15px;padding: 0px;margin: 0px;width: 150px;vertical-align: bottom;text-align: left;padding-left: 16px;margin-top: 0px;margin-bottom: 0px;}
+</STYLE>
+</HEAD>
+<BODY>
+<DIV>
+<DIV id="id1_1">
+<TABLE cellpadding="0" cellspacing="0" class="t0">
+<TR>
+    <TD class="tr0 td0">
+        <P class="p0 ft0"><apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!today()}" /> </apex:outputText></P>
+    </TD>
+    <TD class="tr0 td1"><P class="p1 ft0">Payment Complete</P></TD>
+</TR>
+</TABLE>
+<apex:image id="theImage1" value="{!$Resource.PVLPaymentHeader}" width="720" height="83"/>
+<TABLE cellpadding="0" cellspacing="0" class="t1">
+<TR>
+    <TD class="t1tr0" colspan="2">
+        Payment Receipt
+    </TD>
+    <TD class="t1tr0" style="text-align: right;">
+        <apex:image id="theImage2" value="{!$Resource.PVL_Lock}" height="41"/>
+    </TD>
+</TR>
+<TR>
+    <TD class="t1tr1" style="width: 351px">ITEM</TD>
+    <TD class="t1tr1" style="width: 252px">REFERENCE NUMBER</TD>
+    <TD class="t1tr1" style="width: 99px; text-align: right;">PRICE</TD>
+</TR>
+<TR>
+    <TD class="t1tr2">{!payment.Name}</TD>
+    <TD class="t1tr2">{!payment.Transaction__r.Name}</TD>
+    <TD class="t1tr2" style="text-align: right;">${!payment.pymt__Amount__c}</TD>
+</TR>
+<TR>
+    <TD class="t1tr3" colspan="2">Total Price</TD>
+    <TD class="t1tr3" style="text-align: right;">${!payment.pymt__Amount__c}</TD>
+</TR>
+<TR>
+    <TD colspan="3" style="vertical-align:top;">
+        <TABLE cellpadding="0" cellspacing="0" class="t2">
+            <TR>
+                <TD class="t2tr0" colspan="2">
+                    Final Steps
+                </TD>
+            </TR>
+            <TR>
+                <TD class="t2tr1" style="line-height: 54px; font: 12px 'Arial';" colspan="2">
+                    <P>Please print this receipt for your records.</P>
+                </TD>
+            </TR>
+            <TR>
+                <TD class="t2tr1">Reference Id</TD>
+                <TD class="t2tr2">{!payment.Transaction__r.Name}</TD>
+            </TR>
+            <TR>
+                <TD class="t2tr1">Transaction Id</TD>
+                <TD class="t2tr2">{!transactionId}</TD>
+            </TR>
+            <TR>
+                <TD class="t2tr1">Transaction Date</TD>
+                <TD class="t2tr2">{!transactionDate}</TD>
+            </TR>
+            <TR>
+                <TD class="t2tr1" style="font: 12px 'Arial';" colspan="2">
+                    <P>This payment is non-refundable.</P>
+                </TD>
+            </TR>
+        </TABLE>
+    </TD>
+</TR>
+</TABLE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>
+</apex:page>

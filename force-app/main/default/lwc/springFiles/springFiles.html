@@ -1,0 +1,11 @@
+<template>
+    <lightning-progress-bar value={progress} if:true={uploadInProgress}></lightning-progress-bar>
+    <div class="slds-m-around_medium">
+        <lightning-input type="file" if:false={uploadInProgress}
+        label={label} onchange={openfileUpload}></lightning-input>
+        <div if:false={hideloadresult}>
+            Uploaded File Name: {fileName}
+        </div>
+    </div>
+    
+</template>

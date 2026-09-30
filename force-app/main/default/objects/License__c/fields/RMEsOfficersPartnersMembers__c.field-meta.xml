@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RMEsOfficersPartnersMembers__c</fullName>
+    <description>PacPoint-KN05292020-Created for PVL Phase 1 Sprint 4</description>
+    <label>RMEs/Officers/Partners/Members</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

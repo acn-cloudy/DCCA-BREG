@@ -1,0 +1,29 @@
+<aura:component controller="InputLookupAuraController">
+  <ltng:require scripts="/resource/Lgt_InputLookup/js/jquery-2.2.4.min.js, /resource/Lgt_InputLookup/js/bootstrap.min.js, /resource/Lgt_InputLookup/js/typeahead.js" afterScriptsLoaded="{!c.initTypeahead}" />
+    
+    <aura:registerEvent name="inputLookupEvent" type="c:InputLookupEvt" />
+	<aura:handler name="inputLookupEvent" action="{!c.handleInputLookupEvt}"/>
+ 	
+    <aura:attribute name="type" type="String" description="Sobject Type" required="true"/>
+    <aura:attribute name="sObj" type="object" />
+    <aura:attribute name="field" type="string" />
+    <aura:attribute name="value" type="String" description="Source / Destination value" />
+    <aura:attribute name="className" type="String" description="class name of the input object" />
+    <aura:attribute name="additionalFields" type="String" default="" description="Additional fields info that will be queried and displayed in the result list" />
+    <aura:attribute name="additionalFilter" type="String" default="" description="Additional filters for selection" />
+
+    <!-- PRIVATE ATTRS -->
+    <aura:attribute name="nameValue" type="String" description="Name of the current lookup 'name' field: loaded by controller" access="PUBLIC"/>
+    <aura:attribute name="isLoading" type="Boolean" description="Loading component" default="true" access="PRIVATE"/>
+    
+    <div class="has-feedback">
+
+        <div class="slds-form-element">
+          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+            <lightning:icon iconName="utility:search" size="x-small" title="" class="position" />
+            <input id="{!globalId+'_typeahead'}" type="text" class="{!'slds-input ' + v.className}" readonly="{!v.isLoading}"/>
+          </div>
+        </div>
+        
+	</div>
+</aura:component>

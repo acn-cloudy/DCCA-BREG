@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FilingCompletedRequiredIssuerDealer</fullName>
+    <active>true</active>
+    <description>PacPoint: AC Case#8952 - BREG Support | Validation for Filings Completed Status</description>
+    <errorConditionFormula>AND(
+RecordType.Name = &quot;Issuer Dealer&quot;,
+ISPICKVAL(Status__c, &quot;Filing Completed&quot;),
+ISNULL(HIApprovalDate__c)
+)</errorConditionFormula>
+    <errorDisplayField>HIApprovalDate__c</errorDisplayField>
+    <errorMessage>Error: Please populate &quot;HI Approval Date&quot; before updating the status to Filing Completed.</errorMessage>
+</ValidationRule>

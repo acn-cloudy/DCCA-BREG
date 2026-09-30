@@ -1,0 +1,58 @@
+<apex:component access="global">
+    <apex:attribute name="record" description="" type="License__c" access="global"/>
+    <div style="text-align: center;">
+        <b>
+            Renew Your {!record.LicenseType__r.LicenseType__c} License <br/>
+            BEGINNING
+            <apex:outputText value="{0, date,  EEEE}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>,
+            <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.StartofRenewalPeriod__c}"/>
+            </apex:outputText>
+        </b>
+    </div>
+    <p>
+        Aloha: <br/>
+        Your license <b>{!record.Name}</b> will expire on
+        <apex:outputText value="{0, date,  MM/dd/yy}">
+            <apex:param value="{!record.LicenseType__r.EndofRenewalPeriod__c}"/>
+        </apex:outputText>.
+    </p>
+    <p>
+        You are receiving this notice because you obtained your Hawaii medical license through the
+        <b>Interstate Medical Licensure Compact (IMLC).</b> 
+    </p>
+    <p>
+        <b>Important:</b> You must renew <b>directly through the IMLC website.</b> Do <b>not</b> attempt 
+        to renew through the Hawaii Professional and Vocational Licensing (PVL) website.  
+    </p>
+    <p>
+        Please visit <u style="color:blue">www.imlcc.com</u> to renew your license.
+    </p>
+    <p>
+        <b>Important Reminders</b>
+    </p>
+    <ul>
+        <li>
+            A license not renewed by the expiration date or placed on inactive status shall not practice. Practicing without a valid license may result in disciplinary action.  
+        </li>
+        <li>
+            Licenses not renewed or restored by 
+            <apex:outputText value="{0, date,  MM/dd/yy}">
+                <apex:param value="{!record.LicenseType__r.RestorationDeadline__c}"/>
+            </apex:outputText> 
+            must reapply as new applicants and meet current requirements.  
+        </li>
+        <li>
+            If you have already renewed, please disregard this notice.  
+        </li>
+    </ul>
+    <p>
+        <b><i>This email serves as your official renewal notification.</i></b>
+    </p>
+    <p>
+        Mahalo,
+    </p>
+    <b>DCCA-PVL Division</b>
+</apex:component>

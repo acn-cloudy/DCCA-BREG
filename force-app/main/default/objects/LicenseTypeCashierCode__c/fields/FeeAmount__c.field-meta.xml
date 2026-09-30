@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FeeAmount__c</fullName>
+    <description>PacPoint-FT082919 - Created for PVL phase 1</description>
+    <formula>IF(RenewalFeePercentage__c &gt; 0, 
+( RenewalFeePercentage__c * CashierCodeAmount__c ) , 
+ CashierCodeAmount__c  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the Amount that will get charged to the Applicant or Licensee.  If the Renewal Fee % is populated, this will be the Renewal Fee % times the Cashier Code Amount.  Otherwise it will be set to the full Cashier Code Amount</inlineHelpText>
+    <label>Fee Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

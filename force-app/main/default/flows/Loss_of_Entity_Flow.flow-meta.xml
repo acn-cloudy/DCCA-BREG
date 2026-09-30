@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>JF 4/5/23: Term classification for Loss of Entity</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CurrentLicensePeriod</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseTypeEffectiveDate__c}))
++ &quot; - &quot; 
++ TEXT(MONTH({!Get_License.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!Get_License.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!Get_License.LicenseTypeExpireDate__c}))</expression>
+    </formulas>
+    <interviewLabel>Loss of Entity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Loss of Entity Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_License</name>
+        <label>Get License</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_License_Classifications</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>License__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_License_Classifications</name>
+        <label>Update License Classifications</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>C - Current, Valid &amp; In Good Standing</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>EndDate__c</field>
+            <operator>GreaterThan</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>License__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_License.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>T - CLASS NO LONGER ACTIVE (LICENSE TERMINATED)</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record.LicenseClassifications__r</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_License</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>(1 OR 2 OR 3 OR 4 OR 5) AND 6</filterLogic>
+        <filters>
+            <field>LicenseTypeName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CT - RME</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PCO - RME</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>CT - Sole Proprietor</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PCO - Sole Proprietor</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>LicenseTypeName__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PCFR</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>TF - Forfeited Due To Loss Of Principal Or Failure To Maintain Any Other License Requirements</stringValue>
+            </value>
+        </filters>
+        <object>License__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

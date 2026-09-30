@@ -1,0 +1,41 @@
+.mds-scoped-notification {
+    border: var(--border-width-thin) solid;
+    border-radius: var(--border-radius-medium);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-x-small);
+
+    .mds-alert{
+        &_heading{
+            font-size: var(--font-size-16);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-xxx-small);
+        }
+    }
+    // Information
+    &.mds-theme_info {
+        background: var(--primary-shades-4-p);
+        border-color: var(--primary-dark);
+    }
+    
+    // Error
+    &.mds-theme_error {
+        background: var(--error-shades-4-p);
+        border-color: var(--error-dark);
+    }
+
+    // Success
+    &.mds-theme_success {
+        background: var(--success-shades-4-p);
+        border-color: var(--success-dark);
+    }
+
+    // Warning
+    &.mds-theme_warning {
+        background: var(--warning-shades-4-p);
+        border-color: var(--warning-title-label);
+        
+        .mds-warning_title-color{
+            color: var(--warning-title-label);
+        }
+    }
+}

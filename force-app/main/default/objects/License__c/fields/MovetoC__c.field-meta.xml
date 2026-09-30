@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MovetoC__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN102319-Created for PVL Sprint 2 Phase 1</description>
+    <inlineHelpText>Check this box when all additional requirements have been added while the License was in CP status, when this is checked and the Original Date of Licensure hits, Salesforce will automatically move this license status to C.</inlineHelpText>
+    <label>Move to C</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

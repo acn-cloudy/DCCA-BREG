@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exclude_Entity_Types_From_Search_And_Buy__c</fullName>
+    <defaultValue>(&quot;ZZ,R7,CA&quot;)</defaultValue>
+    <externalId>false</externalId>
+    <label>Exclude Entity Types From Search And Buy</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

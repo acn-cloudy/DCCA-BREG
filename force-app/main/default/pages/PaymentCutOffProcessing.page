@@ -1,0 +1,59 @@
+<apex:page controller="PaymentCutOffProcessingController"
+           lightningStylesheets="true">
+
+    <apex:form >
+
+        <!-- POLL EVERY 5 SECONDS -->
+
+        <apex:actionPoller action="{!checkStatus}"
+            interval="5"
+            rerender="mainPanel"/>
+
+        <apex:outputPanel id="mainPanel">
+
+            <!-- LOADING -->
+
+            <apex:outputPanel rendered="{!!completed}">
+
+                <div style="
+                    padding:20px;
+                    font-size:18px;
+                    font-weight:bold;
+                    color:#16325c;
+                ">
+
+                    Processing close out...
+
+                </div>
+
+            </apex:outputPanel>
+
+            <!-- SUCCESS -->
+
+            <apex:outputPanel rendered="{!completed}">
+
+                <div style="
+                    padding:20px;
+                    font-size:18px;
+                    font-weight:bold;
+                    color:green;
+                ">
+
+                    You're close out for the day now,
+                    please navigate to
+
+                    <apex:outputLink value="/{!rb.Id}">
+                        {!rb.Name}
+                    </apex:outputLink>
+
+                    to review and submit to GL.
+
+                </div>
+
+            </apex:outputPanel>
+
+        </apex:outputPanel>
+
+    </apex:form>
+
+</apex:page>

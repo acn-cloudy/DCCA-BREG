@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CustodyClearingAgreement__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <inlineHelpText>Custoday and/or Clearing Agreement</inlineHelpText>
+    <label>Custody/Clearing Agreement?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

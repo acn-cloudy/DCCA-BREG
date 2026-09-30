@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fxLicenseTypeRequiresInsurance__c</fullName>
+    <description>PacPoint:RdG Case # 7666 - For PVL Phase 1
+Checks the License Type what Insurance / Bond type it requires.</description>
+    <externalId>false</externalId>
+    <formula>IF(INCLUDES( LicenseType__r.InsuranceBondTypesRequired__c , &quot;BD - Bond&quot;), &quot;BD;&quot;, NULL)  + 
+IF(INCLUDES( LicenseType__r.InsuranceBondTypesRequired__c , &quot;LI - Liability&quot;), &quot;LI;&quot;, NULL)  + 
+IF(INCLUDES( LicenseType__r.InsuranceBondTypesRequired__c , &quot;WC - Workers Compensation&quot;), &quot;WC;&quot;, NULL)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>License Type Requires Insurance</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

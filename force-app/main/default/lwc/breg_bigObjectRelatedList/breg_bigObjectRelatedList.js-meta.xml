@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Big Object Related List</masterLabel>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="bigObjectApiName" type="String" label="Big Object API Name" description="e.g., MyLog__b" />
+            <property name="keyFieldApiName" type="String" label="Key Field API Name" description="Field on the big object that equals the current record Id (or other identifier)" />
+            <property name="displayFields" type="String" label="Fields to Display (comma-separated)" description="e.g., Timestamp__c, Message__c, Status__c" />
+            <property name="heightPx" type="Integer" label="Height (px)" default="360" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

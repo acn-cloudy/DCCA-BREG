@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Collection_Allocations__c</fullName>
+    <description>PacPoint-CZ101919 - Created for 4GOV phase 1</description>
+    <externalId>false</externalId>
+    <label>Number of Collection Allocations</label>
+    <precision>16</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

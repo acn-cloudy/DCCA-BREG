@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BusinessIsland__c</fullName>
+    <label>Business Island</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hawaii Island</fullName>
+                <default>false</default>
+                <label>Hawaii Island</label>
+            </value>
+            <value>
+                <fullName>Kauai</fullName>
+                <default>false</default>
+                <label>Kauai</label>
+            </value>
+            <value>
+                <fullName>Lanai</fullName>
+                <default>false</default>
+                <label>Lanai</label>
+            </value>
+            <value>
+                <fullName>Maui</fullName>
+                <default>false</default>
+                <label>Maui</label>
+            </value>
+            <value>
+                <fullName>Molokai</fullName>
+                <default>false</default>
+                <label>Molokai</label>
+            </value>
+            <value>
+                <fullName>Oahu</fullName>
+                <default>false</default>
+                <label>Oahu</label>
+            </value>
+            <value>
+                <fullName>Mainland / Domestic / US Territories</fullName>
+                <default>false</default>
+                <label>Mainland / Domestic / US Territories</label>
+            </value>
+            <value>
+                <fullName>International</fullName>
+                <default>false</default>
+                <label>International</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

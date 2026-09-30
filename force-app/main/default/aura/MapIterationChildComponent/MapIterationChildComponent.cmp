@@ -1,0 +1,24 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Map Iteration Child Component -
+* Used on the Batch Transaction Component on selected accounts table
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* PacPoint-IC061219 - Created for phase 1
+* @author       Irene Cahilo - PacificPointCorp
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component>
+    <aura:handler  name="init" value="{!this}" action="{!c.doinit}"/>
+
+    <aura:attribute type="Object" name="currentAcc"/>
+    <aura:attribute type="String" name="fieldName"/>
+    <aura:attribute type="String" name="fieldValue"/>
+
+    <div class="slds-truncate" title="{!v.fieldValue}">{!v.fieldValue}</div>
+
+</aura:component>

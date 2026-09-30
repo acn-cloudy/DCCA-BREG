@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INS_Branch__c</fullName>
+    <description>The different branches within the INS division</description>
+    <label>INS Branch</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Office Services</fullName>
+                <default>false</default>
+                <label>Office Services</label>
+            </value>
+            <value>
+                <fullName>Licensing</fullName>
+                <default>false</default>
+                <label>Licensing</label>
+            </value>
+            <value>
+                <fullName>FS&amp;E</fullName>
+                <default>false</default>
+                <label>FS&amp;E</label>
+            </value>
+            <value>
+                <fullName>C&amp;E</fullName>
+                <default>false</default>
+                <label>C&amp;E</label>
+            </value>
+            <value>
+                <fullName>Captives</fullName>
+                <default>false</default>
+                <label>Captives</label>
+            </value>
+            <value>
+                <fullName>Legal</fullName>
+                <default>false</default>
+                <label>Legal</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Health</fullName>
+                <default>false</default>
+                <label>Health</label>
+            </value>
+            <value>
+                <fullName>P&amp;C</fullName>
+                <default>false</default>
+                <label>P&amp;C</label>
+            </value>
+            <value>
+                <fullName>LAH</fullName>
+                <default>false</default>
+                <label>LAH</label>
+            </value>
+            <value>
+                <fullName>Admin</fullName>
+                <default>false</default>
+                <label>Admin</label>
+            </value>
+            <value>
+                <fullName>Captive</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Captive</label>
+            </value>
+            <value>
+                <fullName>Licensing Branch</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Licensing Branch</label>
+            </value>
+            <value>
+                <fullName>RPA</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>RPA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Purchase_Type_Fee_type__c</fullName>
+    <description>Aalta BREG-933</description>
+    <label>Purchase Type/Fee type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Alert</fullName>
+                <default>false</default>
+                <label>Alert</label>
+            </value>
+            <value>
+                <fullName>Annual Filing Fee</fullName>
+                <default>false</default>
+                <label>Annual Filing Fee</label>
+            </value>
+            <value>
+                <fullName>Archive Fees</fullName>
+                <default>false</default>
+                <label>Archive Fees</label>
+            </value>
+            <value>
+                <fullName>Certificate</fullName>
+                <default>false</default>
+                <label>Certificate</label>
+            </value>
+            <value>
+                <fullName>Certify</fullName>
+                <default>false</default>
+                <label>Certify</label>
+            </value>
+            <value>
+                <fullName>Document</fullName>
+                <default>false</default>
+                <label>Document</label>
+            </value>
+            <value>
+                <fullName>Expedite Fees</fullName>
+                <default>false</default>
+                <label>Expedite Fees</label>
+            </value>
+            <value>
+                <fullName>Form Fees</fullName>
+                <default>false</default>
+                <label>Form Fees</label>
+            </value>
+            <value>
+                <fullName>Late Fees</fullName>
+                <default>false</default>
+                <label>Late Fees</label>
+            </value>
+            <value>
+                <fullName>Reminder</fullName>
+                <default>false</default>
+                <label>Reminder</label>
+            </value>
+            <value>
+                <fullName>Penalty Fees</fullName>
+                <default>false</default>
+                <label>Penalty Fees</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

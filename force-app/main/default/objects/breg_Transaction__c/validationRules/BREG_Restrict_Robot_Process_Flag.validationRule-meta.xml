@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BREG_Restrict_Robot_Process_Flag</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(breg_Is_Robot_Process__c),
+    $Profile.Name &lt;&gt; &quot;Integration&quot;,
+    ISNULL( breg_BRIM_TRANS_ID__c)
+)</errorConditionFormula>
+    <errorDisplayField>breg_Is_Robot_Process__c</errorDisplayField>
+    <errorMessage>Only the Integration User can set Robot Process flag on a Transaction.</errorMessage>
+</ValidationRule>

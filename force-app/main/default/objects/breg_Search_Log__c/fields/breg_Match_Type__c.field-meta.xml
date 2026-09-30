@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Match_Type__c</fullName>
+    <description>The type of match used in the search (exact, beginswith, contains, phonetic)</description>
+    <label>Match Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>exact</fullName>
+                <default>false</default>
+                <label>Exact Match</label>
+            </value>
+            <value>
+                <fullName>beginswith</fullName>
+                <default>false</default>
+                <label>Begins With</label>
+            </value>
+            <value>
+                <fullName>contains</fullName>
+                <default>true</default>
+                <label>Contains</label>
+            </value>
+            <value>
+                <fullName>phonetic</fullName>
+                <default>false</default>
+                <label>Phonetic Match</label>
+            </value>
+            <value>
+                <fullName>alphabetical</fullName>
+                <default>false</default>
+                <label>Alphabetical</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

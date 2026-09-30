@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alltntmsm</fullName>
+    <columns>NAME</columns>
+    <columns>breg_Type__c</columns>
+    <columns>breg_Status__c</columns>
+    <columns>breg_Expiration_Date__c</columns>
+    <columns>breg_Last_Renewal_Submission_Date__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>breg_Status__c</field>
+        <operation>equals</operation>
+        <value>A</value>
+    </filters>
+    <label>All TN/TM/SM</label>
+</ListView>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreferredAddress__c</fullName>
+    <description>PacPoint-KN081519 - Created for PVL Phase 1</description>
+    <inlineHelpText>This field will set the address that all mailed notifications will go too.</inlineHelpText>
+    <label>Preferred Address</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Renewal Mail To</fullName>
+                <default>false</default>
+                <label>Renewal Mail To</label>
+            </value>
+            <value>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+                <label>Mailing</label>
+            </value>
+            <value>
+                <fullName>Residence</fullName>
+                <default>false</default>
+                <label>Residence</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Employer</fullName>
+                <default>false</default>
+                <label>Employer</label>
+            </value>
+            <value>
+                <fullName>Dependent Mailing</fullName>
+                <default>false</default>
+                <label>Dependent Mailing</label>
+            </value>
+            <value>
+                <fullName>Dependent Business</fullName>
+                <default>false</default>
+                <label>Dependent Business</label>
+            </value>
+            <value>
+                <fullName>Dependent Employer</fullName>
+                <default>false</default>
+                <label>Dependent Employer</label>
+            </value>
+            <value>
+                <fullName>Dependent 2 Mailing</fullName>
+                <default>false</default>
+                <label>Dependent 2 Mailing</label>
+            </value>
+            <value>
+                <fullName>Dependent Entity Mailing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Dependent Entity Mailing</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

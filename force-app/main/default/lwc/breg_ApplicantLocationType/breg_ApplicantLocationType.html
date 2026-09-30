@@ -1,0 +1,31 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <lightning-layout-item lwc:if={showDescription} size="12" class="form-layout-item slds-m-bottom--small">
+            <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <!-- Location Type -->
+            <lightning-layout-item size="12" class="form-layout-item slds-grid slds-wrap">
+                <lightning-formatted-rich-text value={applicantLocationTypeValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <!-- Location Type -->
+            <c-breg_-radio-group-with-help
+                name="applicantLocationType"
+                label={applicantLocationTypeLabel}
+                options={applicantLocationTypeOptions}
+                value={applicantLocationTypeValue}
+                required={required}
+                disabled={readOnly}
+                onchange={handleInputChange}
+                onblur={handleInputBlur}
+            ></c-breg_-radio-group-with-help>
+        </template>
+    </lightning-layout>
+</template>

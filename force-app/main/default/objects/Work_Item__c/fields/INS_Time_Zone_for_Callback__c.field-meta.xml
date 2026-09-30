@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INS_Time_Zone_for_Callback__c</fullName>
+    <inlineHelpText>Caller&apos;s time zone for callback purposes.</inlineHelpText>
+    <label>INS Time Zone for Callback</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hawaii Standard Time</fullName>
+                <default>false</default>
+                <label>Hawaii Standard Time</label>
+            </value>
+            <value>
+                <fullName>Alaska Standard Time (+1)</fullName>
+                <default>false</default>
+                <label>Alaska Standard Time (+1)</label>
+            </value>
+            <value>
+                <fullName>Pacific Standard Time (+2)</fullName>
+                <default>false</default>
+                <label>Pacific Standard Time (+2)</label>
+            </value>
+            <value>
+                <fullName>Mountain Standard Time (+3)</fullName>
+                <default>false</default>
+                <label>Mountain Standard Time (+3)</label>
+            </value>
+            <value>
+                <fullName>Central Standard Time (+4)</fullName>
+                <default>false</default>
+                <label>Central Standard Time (+4)</label>
+            </value>
+            <value>
+                <fullName>Eastern Standard Time (+5)</fullName>
+                <default>false</default>
+                <label>Eastern Standard Time (+5)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

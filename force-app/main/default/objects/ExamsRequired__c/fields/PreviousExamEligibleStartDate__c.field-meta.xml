@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreviousExamEligibleStartDate__c</fullName>
+    <description>JF 5/20/24 - Created this field to capture the previous exam eligible start date</description>
+    <label>Previous Exam Eligible Start Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

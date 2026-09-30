@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>TNOX: Maps public groups to the ticket sharing system. Non-confidential tickets are automatically shared with members of active sharing groups for team visibility.</description>
+    <label>Ticket Sharing Group</label>
+    <pluralLabel>Ticket Sharing Groups</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

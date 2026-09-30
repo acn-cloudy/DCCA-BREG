@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>PacPoint-IC102318 - Created for BREG phase 1</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Confer with Enforcement Attorney</fullName>
+                <default>false</default>
+                <label>Confer with Enforcement Attorney</label>
+            </value>
+            <value>
+                <fullName>Send Acknowledgement Letter to Complainant</fullName>
+                <default>false</default>
+                <label>Send Acknowledgement Letter to Complainant</label>
+            </value>
+            <value>
+                <fullName>Conversation with Complainant</fullName>
+                <default>false</default>
+                <label>Conversation with Complainant</label>
+            </value>
+            <value>
+                <fullName>Write Information Request Letter to Complainant</fullName>
+                <default>false</default>
+                <label>Write Information Request Letter to Complainant</label>
+            </value>
+            <value>
+                <fullName>Write Case Closing Letters</fullName>
+                <default>false</default>
+                <label>Write Case Closing Letters</label>
+            </value>
+            <value>
+                <fullName>Conversation with Other Party</fullName>
+                <default>false</default>
+                <label>Conversation with Other Party</label>
+            </value>
+            <value>
+                <fullName>Conversation with Respondent</fullName>
+                <default>false</default>
+                <label>Conversation with Respondent</label>
+            </value>
+            <value>
+                <fullName>Case Evaluation</fullName>
+                <default>false</default>
+                <label>Case Evaluation</label>
+            </value>
+            <value>
+                <fullName>Perform Financial Analysis</fullName>
+                <default>false</default>
+                <label>Perform Financial Analysis</label>
+            </value>
+            <value>
+                <fullName>Perform Fieldwork</fullName>
+                <default>false</default>
+                <label>Perform Fieldwork</label>
+            </value>
+            <value>
+                <fullName>Hearing</fullName>
+                <default>false</default>
+                <label>Hearing</label>
+            </value>
+            <value>
+                <fullName>Interview Complainant</fullName>
+                <default>false</default>
+                <label>Interview Complainant</label>
+            </value>
+            <value>
+                <fullName>Interview Other Party</fullName>
+                <default>false</default>
+                <label>Interview Other Party</label>
+            </value>
+            <value>
+                <fullName>Interview Respondent</fullName>
+                <default>false</default>
+                <label>Interview Respondent</label>
+            </value>
+            <value>
+                <fullName>Write Memorandum of Interview/Investigation</fullName>
+                <default>false</default>
+                <label>Write Memorandum of Interview/Investigation</label>
+            </value>
+            <value>
+                <fullName>Prepare and Draft Investigation Report</fullName>
+                <default>false</default>
+                <label>Prepare and Draft Investigation Report</label>
+            </value>
+            <value>
+                <fullName>Write Information Request Letter to Other Party</fullName>
+                <default>false</default>
+                <label>Write Information Request Letter to Other Party</label>
+            </value>
+            <value>
+                <fullName>Prepare Subpoena</fullName>
+                <default>false</default>
+                <label>Prepare Subpoena</label>
+            </value>
+            <value>
+                <fullName>Perform Registration/Background Check</fullName>
+                <default>false</default>
+                <label>Perform Registration/Background Check</label>
+            </value>
+            <value>
+                <fullName>Review Evidence</fullName>
+                <default>false</default>
+                <label>Review Evidence</label>
+            </value>
+            <value>
+                <fullName>Write Information Request Letter to Respondent</fullName>
+                <default>false</default>
+                <label>Write Information Request Letter to Respondent</label>
+            </value>
+            <value>
+                <fullName>Status Conference</fullName>
+                <default>false</default>
+                <label>Status Conference</label>
+            </value>
+            <value>
+                <fullName>Serve Subpoena</fullName>
+                <default>false</default>
+                <label>Serve Subpoena</label>
+            </value>
+            <value>
+                <fullName>Confer with Supervisor</fullName>
+                <default>false</default>
+                <label>Confer with Supervisor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

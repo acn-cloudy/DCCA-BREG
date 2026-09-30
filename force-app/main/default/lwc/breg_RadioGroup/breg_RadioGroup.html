@@ -1,0 +1,41 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={radioGroupValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <template lwc:if={multiSelect}>
+                    <lightning-checkbox-group
+                        name="radioGroup"
+                        label={config.labelOverride2}
+                        options={radioGroupOptions}
+                        value={radioGroupValue}
+                        onchange={handleInputChange}
+                        required={required}
+                        disabled={readOnly}
+                        read-only={readOnly}
+                    ></lightning-checkbox-group>
+                </template>
+                <template lwc:else>
+                    <lightning-radio-group
+                        name="radioGroup"
+                        label={config.labelOverride2}
+                        options={radioGroupOptions}
+                        value={radioGroupValue}
+                        onchange={handleInputChange}
+                        required={required}
+                        disabled={readOnly}
+                        read-only={readOnly}
+                    ></lightning-radio-group>
+                </template>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

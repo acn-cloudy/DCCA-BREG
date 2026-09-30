@@ -1,0 +1,16 @@
+<design:component >
+    <design:attribute name="applicationName" label="Application Name" description="Name links to Application meta Data" />
+    <design:attribute name="applicationLabel" label="Application Label" description="Label that display on form" />
+    <design:attribute name="publicPage" label="Is used in public page"  />
+    <design:attribute name="enableload" label="Enable Application Loading?" description="Let the user enter a reference number to load an existing application" />
+    <design:attribute name="extrabuttons" label="Extra Buttons" description="Display Buttons on Top and Bottom"/>
+    <design:attribute name="extraprocess" label="Extra Process Bar" description="Display Process Bar on Top and Bottom"/>
+    <design:attribute name="headerclickable" label="Header Clickable" description="Should the Process Bar be clickable?"/>
+    <design:attribute name="progressline" label="Progress Line" description="Should the Progress Line be visible?"/>  
+    <design:attribute name="hideAppNo" label="Hide App No Display" description="Should the App No be visible?"/>      
+    <design:attribute name="verticalnav" label="Vertical Nav" description="Vertical Navigation"/>
+    <design:attribute name="horizontalnav" label="Horizontal Nav" description="Horizontal Navigation"/> 
+    <design:attribute name="debugmode" label="Debug Mode" description="Switch on for form development"/>
+    <design:attribute name="customSubmit" label="Custom Submit" description="Tick for custom submission method and specify method"/>
+    <design:attribute name="customSubmitMethod" label="Custom Submit Method" description="Specify name of the method"/>
+</design:component>

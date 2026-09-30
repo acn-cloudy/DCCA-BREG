@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_BRIM_PENDING_TRANS_ID__c</fullName>
+    <description>Aalta BREG-2269</description>
+    <externalId>false</externalId>
+    <label>BRIM PENDING TRANS ID</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

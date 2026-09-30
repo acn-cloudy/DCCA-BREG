@@ -1,0 +1,12 @@
+.THIS .codesList {
+    position: absolute;
+    border: solid 1px lightgray;
+    padding: 3px;
+    z-index: 1;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.THIS .codesList li {
+    padding: 2px;
+}

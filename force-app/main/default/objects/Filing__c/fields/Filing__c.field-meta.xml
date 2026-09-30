@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Filing__c</fullName>
+    <description>PacPoint-JB102418 - Created for BREG phase 1For display on page</description>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.DeveloperName, &apos;Brokerdealer&apos;, &apos;Broker Dealer&apos;, &apos;ByQualification&apos;, &apos;By Qualification&apos;, &apos;Franchise&apos;, &apos;Franchise&apos;, &apos;IssuerDealer&apos;, &apos;Issuer-Dealer&apos;, &apos;InvestmentAdvisor&apos;, &apos;Investment Advisor&apos;, &apos;ModelAccreditedInvestor&apos;, &apos;Model Accredited Investor&apos;, &apos;MutualFund&apos;, &apos;Mutual Fund&apos;, &apos;RegulationA&apos;, &apos;Regulation A&apos;, &apos;RegulationD&apos;, &apos;Regulation D&apos;, &apos;SmallCompanyOfferingRegistrationSCOR&apos;, &apos;Small Company Offering Registration (SCOR)&apos;, &apos;Unknown&apos;)</formula>
+    <label>Filing</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

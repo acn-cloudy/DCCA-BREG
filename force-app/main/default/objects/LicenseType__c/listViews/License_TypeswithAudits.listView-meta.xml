@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>License_TypeswithAudits</fullName>
+    <columns>NAME</columns>
+    <columns>LicenseType__c</columns>
+    <columns>BoardProgram__c</columns>
+    <columns>Status__c</columns>
+    <columns>LicenseTypeEffectiveDate__c</columns>
+    <columns>LicenseTypeExpireDate__c</columns>
+    <columns>StartofRenewalPeriod__c</columns>
+    <columns>StarttheRenewalCycle__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>LicenseType__c.PVL</value>
+    </filters>
+    <filters>
+        <field>AuditType__c</field>
+        <operation>equals</operation>
+        <value>Pre-Audit,Post-Audit</value>
+    </filters>
+    <label>License Types with Audits</label>
+</ListView>

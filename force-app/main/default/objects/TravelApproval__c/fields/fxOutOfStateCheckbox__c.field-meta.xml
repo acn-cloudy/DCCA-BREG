@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>fxOutOfStateCheckbox__c</fullName>
+    <description>PacPoint: JF - Case #7760 - Travel Phase 1 - Used for DocuSign Templates</description>
+    <formula>ISPICKVAL(TravelType__c, &quot;Out-of-State&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Out-Of-State Checkbox</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

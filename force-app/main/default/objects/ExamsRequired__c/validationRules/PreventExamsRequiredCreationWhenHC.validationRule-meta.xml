@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventExamsRequiredCreationWhenHC</fullName>
+    <active>true</active>
+    <description>Prevent users from creating new exams required record when the application is HC or Complete Application by date &lt; Today</description>
+    <errorConditionFormula>AND(
+ISNEW() ,
+OR(
+TEXT(Application__r.Type__c) = &quot;ADDC - Additional Class&quot;,
+TEXT(Application__r.Type__c) = &quot;LICF - New License after Forfeiture&quot;,
+TEXT(Application__r.Type__c) = &quot;LICN - New License&quot;),
+OR(
+ISPICKVAL(Application__r.Status__c, &quot;HC - Application Completed&quot;), Application__r.CompleteApplicationBy__c &lt; TODAY(),
+ISPICKVAL(Application__r.Status__c, &quot;AW - Application Withdrawal&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;BW - Board Phase Withdrawal&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;DW - Dependency Review Phase Withdrawal&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;EW - Application Withdrawn After&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;HD - Application Terminated&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;HW - Application Withdrawn&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;HX - Application Invalid, Delete&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;LW - Licensing Phase Withdrawal&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;XW - Withdrew From Exam&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;E6 - Denied, Awaiting Notice&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;B6 - Denied, Awaiting Notice&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;A4 - Rejected, Awaiting Notice&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;A5 - Rejected, Notice Sent&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;A9 - Past Time Limit To Respond To Deficiency&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;E7 - Denial Letter Sent&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;EY - Cease Processing&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;B7 - Denial Letter Sent&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;BH - Board Deferral&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;X3 - Must Take Remedial Course&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;L4 - Rejected Awaiting Notice&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;L5 - Rejected, Notice Sent&quot;),
+ISPICKVAL(Application__r.Status__c, &quot;L9 - Past Time Limit To Apply For License&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>You can&apos;t create this exam record because the application is completed, terminated or the application completed by date is passed.</errorMessage>
+</ValidationRule>

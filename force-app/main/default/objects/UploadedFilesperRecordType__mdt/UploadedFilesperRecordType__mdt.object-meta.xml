@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-MV122818 - Created for BREG phase 1.  Used to identify the files that need to be uploaded per record type and type</description>
+    <label>Uploaded Files per Record Type</label>
+    <pluralLabel>UploadedFilesperRecordType</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

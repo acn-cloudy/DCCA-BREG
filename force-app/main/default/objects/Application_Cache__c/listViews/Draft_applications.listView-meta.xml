@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Draft_applications</fullName>
+    <columns>App_No_View__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>OSR_Reference_Id__c</columns>
+    <columns>Status__c</columns>
+    <columns>Owner_Name__c</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Created_by_myself__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>All Draft applications</label>
+</ListView>

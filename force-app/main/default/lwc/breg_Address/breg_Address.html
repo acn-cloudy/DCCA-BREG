@@ -1,0 +1,207 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <!-- Margin at the top of the section -->
+        <lightning-layout-item lwc:if={addSectionMargin} size="12" class="form-layout-item address-section-margin"></lightning-layout-item>
+        <!-- Title -->
+        <lightning-layout-item lwc:if={displayTitle} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+            <lightning-input
+                lwc:if={showStreetCopyCheckbox}
+                type="checkbox"
+                label="The principal address is the same as the mailing address"
+                name="checkboxField"
+                checked={isStreetSameAsMailing}
+                onchange={handleMailingAddressClick}
+            ></lightning-input>
+        </lightning-layout-item>
+
+        <!-- Has changed checkbox -->
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                <lightning-input
+                    name="hasChanged"
+                    value={hasChangedValue}
+                    type="checkbox"
+                    label={hasChangedCheckboxLabel}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    disabled={hasChangedReadOnly}
+                    read-only={hasChangedReadOnly}
+                    checked={hasChangedValue}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Same as the mailing address checkbox -->
+        <lightning-layout-item lwc:if={showSameAsMailingCheckbox} size="12" class="form-layout-item">
+            <lightning-input
+                type="checkbox"
+                label="The principal address is the same as the mailing address"
+                name="addressSameAsMailingCheckbox"
+                checked={isAddressSameAsMailing}
+                onchange={handleAddressSameAsMailingCheckboxChange}
+            ></lightning-input>
+        </lightning-layout-item>
+
+        <template lwc:if={showFields}>
+            <!-- Description -->
+            <lightning-layout-item size="12" lwc:if={showDescription} class="form-layout-item slds-m-bottom--small">
+                <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+
+            <!-- Read-only mode -->
+            <template lwc:if={addressReadOnly}>
+                <lightning-layout-item lwc:if={showHasChangedCheckbox} size="12" class="form-layout-item">
+                    <p><lightning-formatted-text value={hasChangedCheckboxLabel}></lightning-formatted-text></p>
+                </lightning-layout-item>
+                <lightning-layout-item class="form-layout-item">
+                    <!-- <p lwc:if={showDescription}><lightning-formatted-rich-text value={description}></lightning-formatted-rich-text></p> -->
+                    <p><lightning-formatted-text value={streetValue}></lightning-formatted-text></p>
+                    <p><lightning-formatted-text value={street2Value}></lightning-formatted-text></p>
+                    <p><lightning-formatted-text value={readOnlyAddressString}></lightning-formatted-text></p>
+                    <template lwc:if={countryAndStateReadOnly}>
+                        <p><lightning-formatted-text value={countryFull}></lightning-formatted-text></p>
+                    </template>
+                </lightning-layout-item>
+                <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item">
+                    <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+                </lightning-layout-item>
+            </template>
+            <!-- Edit mode -->
+            <template lwc:else>
+                <!-- Buttons to copy addresses -->
+                <lightning-layout-item lwc:if={showCopyButtons} size="12" class="form-layout-item slds-m-bottom_x-small">
+                    <div class="slds-grid">
+                        <lightning-button
+                            lwc:if={showSameAsMailingButton}
+                            label="Same as Mailing Address"
+                            onclick={handleMailingAddressClick}
+                            class="slds-m-right_x-small"
+                        ></lightning-button>
+                        <lightning-button
+                            lwc:if={showSameAsBusinessButton}
+                            label="Same as Principal Address"
+                            onclick={handleBusinessAddressClick}
+                        ></lightning-button>
+                    </div>
+                </lightning-layout-item>
+                <!-- Address input fields -->
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-input
+                        data-name="street"
+                        name="street"
+                        value={streetValue}
+                        label="Number and Street"
+                        type="text"
+                        placeholder="1715 Maury Rd"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={addressReadOnly2}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <div class="slds-text-body_small slds-text-color_weak">
+                        Please abbreviate the following:
+                        <ul class="slds-list_dotted slds-m-left_medium">
+                            <li>directions ("N", "S", "E", "W")</li>
+                            <li>road types ("Hwy", "Rd", "St")</li>
+                            <li>apartments ("Apt")</li>
+                        </ul>
+                        For example: "123 E. Kamehameha Hwy, Apt 4"
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-input
+                        data-name="street2"
+                        name="street2"
+                        value={street2Value}
+                        label="Address Line 2 (Optional)"
+                        type="text"
+                        read-only={addressReadOnly2}
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="6" class="form-layout-item">
+                    <lightning-input
+                        data-name="city"
+                        name="city"
+                        value={cityValue}
+                        label="City"
+                        type="text"
+                        placeholder="City"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={addressReadOnly2}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="6" class="form-layout-item address-right-field">
+                    <template lwc:if={countryAndStateReadOnly}>
+                        <p><lightning-formatted-text value="Country: "></lightning-formatted-text></p>
+                        <br>
+                        <p><lightning-formatted-text value={countryReadOnlyText}></lightning-formatted-text></p>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox
+                            data-name="country"
+                            name="country"
+                            value={countryValue}
+                            label="Country"
+                            options={countryOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                        ></lightning-combobox>
+                    </template>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="6" class="form-layout-item">
+                    <lightning-input
+                        data-name="postalCode"
+                        name="postalCode"
+                        value={postalCodeValue}
+                        label="Postal Code"
+                        type="text"
+                        placeholder="21355"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        required={required}
+                        read-only={addressReadOnly2}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="6" class="form-layout-item address-right-field">
+                    <template lwc:if={countryAndStateReadOnly}>
+                        <p><lightning-formatted-text value="State: "></lightning-formatted-text></p>
+                        <br>
+                        <p><lightning-formatted-text value={stateReadOnlyText}></lightning-formatted-text></p>
+                    </template>
+                    <template lwc:else>
+                        <lightning-combobox
+                            lwc:if={showStatesPicklist}
+                            data-name="state"
+                            name="state"
+                            value={stateValue}
+                            label="State"
+                            options={stateOptions}
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                            required={required}
+                        ></lightning-combobox>
+                        <lightning-input
+                            lwc:else
+                            data-name="stateText"
+                            name="stateText"
+                            value={stateTextValue}
+                            label="State"
+                            type="text"
+                            placeholder="State"
+                            onchange={handleInputChange}
+                            onblur={handleInputBlur}
+                        ></lightning-input>
+                    </template>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

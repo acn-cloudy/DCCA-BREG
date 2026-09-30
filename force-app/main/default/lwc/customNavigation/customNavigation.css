@@ -1,0 +1,5 @@
+.cell {
+    white-space: normal;      /* allow wrapping */
+    word-break: break-word;
+    line-height: 1.4;
+}

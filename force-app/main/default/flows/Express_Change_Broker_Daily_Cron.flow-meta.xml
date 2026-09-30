@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>assign</name>
+        <label>Assign</label>
+        <locationX>528</locationX>
+        <locationY>768</locationY>
+        <assignmentItems>
+            <assignToReference>requests_to_update</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>loop</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>loop</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>set_nb_days</name>
+        <label>Set Days</label>
+        <locationX>528</locationX>
+        <locationY>576</locationY>
+        <assignmentItems>
+            <assignToReference>loop.Days_Waiting_on_Hiring_Broker__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>nb_wait</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>assign</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>set_rb_days</name>
+        <label>Set Days</label>
+        <locationX>264</locationX>
+        <locationY>576</locationY>
+        <assignmentItems>
+            <assignToReference>loop.Days_Waiting_On_Releasing_Broker__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>rb_wait</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>assign</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>choose</name>
+        <label>Choose</label>
+        <locationX>528</locationX>
+        <locationY>468</locationY>
+        <defaultConnector>
+            <targetReference>assign</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>waiting_on_rb</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>loop.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Releasing Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>set_rb_days</targetReference>
+            </connector>
+            <label>Waiting on RB</label>
+        </rules>
+        <rules>
+            <name>waiting_on_nb</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>loop.WP_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New Broker Verification Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>set_nb_days</targetReference>
+            </connector>
+            <label>Waiting on NB</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>nb_wait</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+IsPickVal({!loop.WP_Status__c}, &quot;New Broker Verification Sent&quot;),
+TODAY() - DATEVALUE({!loop.New_Broker_Verification_Sent_Date__c}),
+NULL)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>rb_wait</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+IsPickVal({!loop.WP_Status__c}, &quot;Releasing Broker Verification Sent&quot;),
+TODAY() - DATEVALUE({!loop.Releasing_Broker_Verification_Sent_Date__c}),
+NULL)</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Express Change Broker - Daily Cron {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Express Change Broker - Daily Cron</label>
+    <loops>
+        <name>loop</name>
+        <label>Loop</label>
+        <locationX>176</locationX>
+        <locationY>360</locationY>
+        <collectionReference>requests</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>choose</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>update</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>requests</name>
+        <label>Stalled Requests</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>loop</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>WP_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Releasing Broker Verification Sent</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>WP_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New Broker Verification Sent</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>PVL_Express_Change_Broker_Form__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>update</name>
+        <label>Update</label>
+        <locationX>176</locationX>
+        <locationY>960</locationY>
+        <inputReference>requests_to_update</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>requests</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2025-04-01</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>requests_to_update</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>PVL_Express_Change_Broker_Form__c</objectType>
+    </variables>
+</Flow>

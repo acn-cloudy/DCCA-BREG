@@ -1,0 +1,44 @@
+<apex:page sidebar="false" showHeader="false" controller="InvestigationNotesController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            page {
+                size: 8.5in 14in;
+                margin: 0.5in;
+            }
+
+
+            html,
+            body {
+                width: 100% !important;
+                padding: 0!important;                
+                margin: 0!important;
+            }
+        </style>
+    </head>
+    <body>                            
+        <div style="font-size: 11pt">
+            <table width="100%" style="width: 100% !important; overflow: auto !important">
+                <tr>
+                    <td><b>Notes from Investigation:</b>&nbsp;{!inv.Name}</td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <apex:repeat value="{!notes}" var="note" id="AttachedContentNotes">
+                    <tr>
+                        <td><b>Title:</b>&nbsp;{!note.title}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Date:</b>&nbsp;{!note.createdDate}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Subject:</b></td>
+                    </tr>
+                    <tr>
+                        <td><apex:outputText value="{!note.subject}" escape="true" /></td>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                </apex:repeat>
+            </table>
+        </div>
+    </body>
+</apex:page>

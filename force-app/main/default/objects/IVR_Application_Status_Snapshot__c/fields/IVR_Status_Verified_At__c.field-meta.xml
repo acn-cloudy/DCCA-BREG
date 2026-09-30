@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVR_Status_Verified_At__c</fullName>
+    <description>When the IVR status snapshot was last verified for caller playback.</description>
+    <label>IVR Status Verified At</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

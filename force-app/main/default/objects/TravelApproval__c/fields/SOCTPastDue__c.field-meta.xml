@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SOCTPastDue__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-CaBe02072024
+Gets updated via Travel Approval: Send SOCT Approaching Deadline Email flow. If &quot;today&apos;s&quot; date is greater than the SOCT Due Date, it will get checked.</description>
+    <label>SOCT Past Due</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

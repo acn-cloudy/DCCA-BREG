@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CreateParentJointVenture__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV091019 - Created for PVL phase 1 to be used as a trigger to create the Joint Venture Parent Record. This flag is set by the PB.</description>
+    <label>Create Parent Joint Venture</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

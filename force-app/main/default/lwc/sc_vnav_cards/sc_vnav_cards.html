@@ -1,0 +1,72 @@
+<template>
+  <div class="slds-grid clearfloat">
+    <div class="slds-col slds-medium-size--1-of-1">
+      <div class="slds-tabs--path" role="application">
+        <ul class="slds-tabs--path__nav" role="tablist">
+          <template for:each={displayCards} for:item="card">
+            <li
+              class="slds-tabs--path__item slds-is-current"
+              role="presentation"
+              key={card.Label__c}
+              if:true={card.isCurrent}
+            >
+              <a
+                class="slds-tabs--path__link"
+                id={card.Label__c}
+                aria-controls="content-path-1"
+                aria-selected="false"
+                tabindex={currentindex}
+                role="tab"
+                href="javascript:void(0);"
+                aria-live="assertive"
+                style="cursor: default"
+              >
+                <span class="slds-tabs--path__stage">
+                  <span class="slds-assistive-text">Stage Complete</span>
+                  <lightning-icon
+                    class="fa fa-check-square-o"
+                    size="xx-small"
+                  ></lightning-icon>
+                </span>
+                <span id={card.Label__c} class="slds-tabs--path__title"
+                  >{card.Label__c}</span
+                >
+              </a>
+            </li>
+            <li
+              class="slds-tabs--path__item slds-is-incomplete"
+              role="presentation"
+              key={card.Label__c}
+              onclick={handleClick}
+              data-id={card.Name}
+              if:false={card.isCurrent}
+            >
+              <a
+                class="slds-tabs--path__link"
+                aria-controls="content-path-1"
+                title={card.Label__c}
+                data-id={card.Name}
+                aria-selected="false"
+                tabindex={currentindex}
+                role="tab"
+                href="javascript:void(0);"
+                aria-live="assertive"
+              >
+                <span class="slds-tabs--path__stage">
+                  <span class="slds-assistive-text">Stage Complete</span>
+                  <lightning-icon
+                    class="fa fa-check-square-o"
+                    size="xx-small"
+                  ></lightning-icon>
+                </span>
+                <span id={card.Label__c} class="slds-tabs--path__title"
+                  >{card.Label__c}</span
+                >
+              </a>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

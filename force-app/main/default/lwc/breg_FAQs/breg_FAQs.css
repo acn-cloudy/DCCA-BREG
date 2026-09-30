@@ -1,0 +1,55 @@
+.breg-accordion-section, .slds-accordion__summary{
+    background-color: #F8F8F8!important;
+    --slds-c-accordion-summary-color-background: #F8F8F8;
+    --slds-c-accordion-section-white-space: normal;
+    white-space: normal!important;
+
+}
+.breg-large-header{
+    --dxp-s-text-heading-large-font-style: 3rem;
+}
+
+:host ::part(summary) {
+    white-space: normal;
+    text-overflow: unset;
+    overflow: visible;
+    display: block;
+  }
+
+@media (min-width: 64em) {
+    .slds-accordion__summary-content {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal!important;
+    }
+
+    .breg-faqs-main,
+    .breg-faqs-sidebar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (min-width: 64em) {
+    .slds-accordion__summary-content {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal!important;
+    }
+
+    .breg-faqs-main,
+    .breg-faqs-sidebar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .breg-faqs-main,
+    .breg-faqs-sidebar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

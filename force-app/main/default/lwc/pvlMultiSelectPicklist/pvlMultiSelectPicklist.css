@@ -1,0 +1,10 @@
+:host {
+    display: block;
+}
+
+/* Pill container: wrap pills nicely */
+.pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}

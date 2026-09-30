@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investigation_Recommended_to_Close_Legal__c</fullName>
+    <description>PacPoint-YH-05022025</description>
+    <formula>OR( Investigation_Recommend_Referral__c &gt;0 ,
+Investigation_Status_Recommend_to_Close__c &gt; 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Investigation Recommended to Close/Legal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

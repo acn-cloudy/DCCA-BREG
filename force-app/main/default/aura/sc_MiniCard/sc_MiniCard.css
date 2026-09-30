@@ -1,0 +1,7 @@
+.THIS {
+}
+.THIS .scrollable-booking-details-card {
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
+}

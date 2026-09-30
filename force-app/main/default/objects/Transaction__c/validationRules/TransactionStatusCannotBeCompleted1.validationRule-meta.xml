@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionStatusCannotBeCompleted1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ TotalAmount__c &gt; 0 &amp;&amp;  ISCHANGED( TotalAmount__c ) ,
+  ISPICKVAL(Status__c, &quot;Completed&quot;),
+ OR($Profile.Name = &quot;DCCA PVL Records Staff&quot;, $Profile.Name = &quot;DCCA PVL Applications Staff&quot;))</errorConditionFormula>
+    <errorMessage>You need to update the transaction status to be other than Complete if you want to add additional amount to the transaction.</errorMessage>
+</ValidationRule>

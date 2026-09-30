@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Travel_ApprovalNEW</fullName>
+    <availability>online</availability>
+    <description>MS 6/18; Created from new State Travel Changes</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>Send Travel Approval</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>{!URLFOR(&apos;/apex/dsfs__Docusign_CreateEnvelope&apos;, null, [
+SourceID =TravelApproval__c.Id,
+DST=&apos;0888a7d4-34bc-4eff-9704-87d306a0a1fb&apos;
+]
+)}</url>
+</WebLink>

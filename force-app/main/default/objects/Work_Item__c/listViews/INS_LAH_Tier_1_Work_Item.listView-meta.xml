@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INS_LAH_Tier_1_Work_Item</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Status__c</columns>
+    <columns>Case__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,In-Progress</value>
+    </filters>
+    <label>INS - LAH - Tier 1</label>
+    <queue>INS_LAH_Tier_1</queue>
+    <sharedTo>
+        <group>INS_LAH_Supervisors</group>
+        <group>INS_LAH_Tier_1</group>
+    </sharedTo>
+</ListView>

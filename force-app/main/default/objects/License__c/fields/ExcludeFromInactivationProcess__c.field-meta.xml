@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExcludeFromInactivationProcess__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to not fire the License PB for the Real Estate Batch Job - KN PacPoint 10/7/22</description>
+    <label>Exclude From Inactivation Process</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

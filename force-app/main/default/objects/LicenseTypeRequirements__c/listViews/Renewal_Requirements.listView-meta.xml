@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewal_Requirements</fullName>
+    <columns>NAME</columns>
+    <columns>Requirement__c</columns>
+    <columns>LicenseType__c</columns>
+    <columns>Classification__c</columns>
+    <columns>Phase__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <columns>TypeofEntity__c</columns>
+    <columns>MethodofLicensure__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Type__c</field>
+        <operation>equals</operation>
+        <value>RNEW - Renewal</value>
+    </filters>
+    <label>Renewal Requirements</label>
+</ListView>

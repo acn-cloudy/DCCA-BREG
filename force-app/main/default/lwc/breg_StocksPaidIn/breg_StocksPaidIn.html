@@ -1,0 +1,106 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large dxp-text-heading-medium-mobile slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <!-- Description text in edit mode -->
+        <template if:false={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item slds-var-m-bottom_medium">
+                <p class="slds-text-body_regular">{config.labelOverrideLong}</p>
+            </lightning-layout-item>
+        </template>
+
+        <!-- Paid-in Capital Table: Class, No. of Shares, Amount (editable) -->
+        <lightning-layout-item lwc:if={hasStocks} size="12" class="form-layout-item">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Class">Class</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="No. of Shares">No. of Shares</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Amount">Amount</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={stocks} for:item="stock">
+                        <tr key={stock.uniqueKey} class="slds-hint-parent">
+                            <!-- Class column -->
+                            <template if:true={readOnly}>
+                                <td data-label="Class">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.classSeries}</div>
+                                </td>
+                            </template>
+                            <template if:false={readOnly}>
+                                <td data-label="Class">
+                                    <lightning-input
+                                        type="text"
+                                        value={stock.classSeries}
+                                        data-key={stock.uniqueKey}
+                                        data-field="classSeries"
+                                        onblur={handleClassSeriesChange}
+                                        variant="label-hidden"
+                                        class="slds-input_inline"
+                                    ></lightning-input>
+                                </td>
+                            </template>
+                            <!-- No. of Shares column -->
+                            <template if:true={readOnly}>
+                                <td data-label="No. of Shares">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.sharesCountFormatted}</div>
+                                </td>
+                            </template>
+                            <template if:false={readOnly}>
+                                <td data-label="No. of Shares">
+                                    <lightning-input
+                                        type="number"
+                                        value={stock.sharesCount}
+                                        data-key={stock.uniqueKey}
+                                        data-field="sharesCount"
+                                        onblur={handleSharesCountChange}
+                                        variant="label-hidden"
+                                        class="slds-input_inline"
+                                        min="0"
+                                    ></lightning-input>
+                                </td>
+                            </template>
+                            <!-- Amount column -->
+                            <template if:true={readOnly}>
+                                <td data-label="Amount">
+                                    <div class="slds-truncate slds-text-body_regular">{stock.amountFormatted}</div>
+                                </td>
+                            </template>
+                            <template if:false={readOnly}>
+                                <td data-label="Amount">
+                                    <lightning-input
+                                        type="number"
+                                        value={stock.amount}
+                                        data-key={stock.uniqueKey}
+                                        data-field="amount"
+                                        onblur={handleAmountChange}
+                                        variant="label-hidden"
+                                        class="slds-input_inline"
+                                        min="0"
+                                        step="0.01"
+                                        formatter="currency"
+                                    ></lightning-input>
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </lightning-layout-item>
+
+        <template if:true={readOnly}>
+            <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item slds-var-m-top_medium">
+                <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

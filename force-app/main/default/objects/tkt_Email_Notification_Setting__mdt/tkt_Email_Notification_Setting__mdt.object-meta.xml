@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>TNOX: Configures automated email notifications for ticket lifecycle events (creation, status change, comments, closure). Each record controls one notification type with template, recipient, and sender options.</description>
+    <label>Ticket Email Notification Setting</label>
+    <pluralLabel>Ticket Email Notification Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

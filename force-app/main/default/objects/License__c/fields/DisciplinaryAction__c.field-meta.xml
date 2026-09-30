@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisciplinaryAction__c</fullName>
+    <description>PacPoint JF 2/24/25: Created for flag to indicate disciplinary action against the license</description>
+    <formula>IF(
+OR(
+TEXT(Status__c) = &quot;Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot;,
+TEXT(Status__c) = &quot;ZC - Voluntarily Surrender Or Forfeit License Due To Disciplinary Action&quot;,
+TEXT(Status__c) = &quot;ZF - Terminated Due To Recovery Fund Payout&quot;,
+TEXT(Status__c) = &quot;ZP - Voluntary Suspension&quot;,
+TEXT(Status__c) = &quot;ZR - Revoked&quot;,
+TEXT(Status__c) = &quot;ZS - Suspended&quot;,
+TEXT(Status__c) = &quot;ZV - Voluntary Revocation&quot;), true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Disciplinary Action</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

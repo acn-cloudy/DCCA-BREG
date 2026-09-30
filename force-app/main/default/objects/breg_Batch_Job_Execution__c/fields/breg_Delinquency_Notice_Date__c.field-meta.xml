@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Delinquency_Notice_Date__c</fullName>
+    <description>Date when the Intent to Dissolve notice was sent to the entity</description>
+    <label>Delinquency Notice Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

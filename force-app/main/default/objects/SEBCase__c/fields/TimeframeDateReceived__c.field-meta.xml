@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TimeframeDateReceived__c</fullName>
+    <description>PacPoint-AC102720 - Case# 11590 - Created for DCCA BREG SEC/SEB Support Year 2</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ TimeframeCountMonthsDateReceived__c  &lt;&gt; -1,
+
+IF(TimeframeCountMonthsDateReceived__c &lt; 6, &quot;0-6 months&quot;, &quot;&quot;)+
+IF(TimeframeCountMonthsDateReceived__c &gt;= 6 &amp;&amp; TimeframeCountMonthsDateReceived__c &lt; 12 , &quot;6-12 months&quot;, &quot;&quot;)+
+IF(TimeframeCountMonthsDateReceived__c &gt;= 12 &amp;&amp; TimeframeCountMonthsDateReceived__c &lt; 18 , &quot;12-18 months&quot;, &quot;&quot;)+
+IF(TimeframeCountMonthsDateReceived__c &gt;= 18 &amp;&amp; TimeframeCountMonthsDateReceived__c &lt; 24 , &quot;18-24 months&quot;, &quot;&quot;)+
+IF(TimeframeCountMonthsDateReceived__c &gt;= 24 , &quot;&gt; 24 months&quot;, &quot;&quot;),
+
+&quot;&quot;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Timeframe (Date Received)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,62 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={qualificationAmendmentValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showNewEntityNameField} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={newEntityNameValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showOtherAmendmentDetailsField} size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={otherAmendmentDetailsValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="qualificationAmendment"
+                    label={config.labelOverride2}
+                    options={qualificationAmendmentOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    value={qualificationAmendmentValue}
+                    required={required}
+                    read-only={readOnly}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showNewEntityNameField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="newEntityName"
+                    value={newEntityNameValue}
+                    label="New Name"
+                    type="text"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showOtherAmendmentDetailsField} size="12" class="form-layout-item">
+                <lightning-input
+                    name="otherAmendmentDetails"
+                    value={otherAmendmentDetailsValue}
+                    label="Details"
+                    class="slds-var-m-bottom_small"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    required={required}
+                    read-only={readOnly}
+                ></lightning-input>
+            </lightning-layout-item>
+        </template>
+
+        <lightning-layout-item lwc:if={showQualificationAmendmentLabel} class="slds-var-m-bottom_small form-layout-item">
+            <lightning-formatted-text value={getQualificationAmendmentLabel}></lightning-formatted-text>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

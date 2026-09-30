@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MethodofLicensure__c</fullName>
+    <label>Method of Licensure</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>By Reciprocity</fullName>
+                <default>false</default>
+                <label>By Reciprocity</label>
+            </value>
+            <value>
+                <fullName>By Exam</fullName>
+                <default>false</default>
+                <label>By Exam</label>
+            </value>
+            <value>
+                <fullName>Waiver</fullName>
+                <default>false</default>
+                <label>Waiver</label>
+            </value>
+            <value>
+                <fullName>NCLEX</fullName>
+                <default>false</default>
+                <label>NCLEX</label>
+            </value>
+            <value>
+                <fullName>SBTPE</fullName>
+                <default>false</default>
+                <label>SBTPE</label>
+            </value>
+            <value>
+                <fullName>State Exam</fullName>
+                <default>false</default>
+                <label>State Exam</label>
+            </value>
+            <value>
+                <fullName>Waiver of Exam</fullName>
+                <default>false</default>
+                <label>Waiver of Exam</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

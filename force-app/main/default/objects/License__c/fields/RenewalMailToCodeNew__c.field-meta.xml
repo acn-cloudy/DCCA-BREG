@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RenewalMailToCodeNew__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(
+
+TEXT(LicenseType__r.RenewalMailToCode__c) ,
+
+&quot;* - Special Program for unique situations&quot;,
+
+
+CASE( LicenseType__r.Name ,
+&quot;CT - RME&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+&quot;R - Residence Mailing/Residence&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Active&quot;,
+&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+null)),
+
+&quot;CT - Entity&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+&quot;B - Business Mailing/Business/Residence&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Active&quot;,
+&quot;B - Business Mailing/Business/Residence&quot;,
+null)),
+
+&quot;CT - Sole Proprietor&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+&quot;B - Business Mailing/Business/Residence&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Active&quot;,
+&quot;B - Business Mailing/Business/Residence&quot;,
+null)),
+
+&quot;PCO - RME&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+&quot;R - Residence Mailing/Residence&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Active&quot;,
+&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+null)),
+
+&quot;PCFR&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Inactive&quot;,
+&quot;R - Residence Mailing/Residence&quot;,
+IF(TEXT(ActiveInactive__c) = &quot;Active&quot;,
+&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+null)),
+
+&quot;PCO - Entity&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+
+&quot;PCO - Sole Proprietor&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+
+&quot;GD - Sole Proprietor&quot;,&quot;B - Business Mailing/Business/Residence&quot;,
+&quot;PD - Sole Proprietor&quot;,&quot;B - Business Mailing/Business/Residence&quot;,
+&quot;GD&quot;,&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+&quot;PD&quot;,&quot;E - Employer If licensee is inactive, licensee’s Mailing/Residence. Otherwise, c/o Employer’s Mailing/Business&quot;,
+&quot;GDA&quot;,&quot;B - Business Mailing/Business/Residence&quot;,
+&quot;PDA&quot;,&quot;B - Business Mailing/Business/Residence&quot;,
+&quot;RB - Sole Proprietor&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+&quot;RB - Broker&quot;, &quot;R - Residence Mailing/Residence&quot;,
+&quot;RB - Entity&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+&quot;PROJ&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+&quot;AOUO&quot;, &quot;B - Business Mailing/Business/Residence&quot;,
+&quot;N/A&quot;)
+,
+TEXT(LicenseType__r.RenewalMailToCode__c)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Renewal Mail To Code New</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TimeframeLastMonth__c</fullName>
+    <externalId>false</externalId>
+    <formula>If(TimeFrameCountLastMonth__c &lt;&gt; -1, Case(Floor(TimeFrameCountLastMonth__c/6), 0, &quot;0-6 months&quot;, 1, &quot;6-12 months&quot;, 2, &quot;12-18 months&quot;, 3, &quot;18-24 months&quot;, &quot;&gt; 24 months&quot;), &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Timeframe Last Month</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

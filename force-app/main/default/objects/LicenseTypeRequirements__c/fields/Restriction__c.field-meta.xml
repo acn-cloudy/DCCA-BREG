@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restriction__c</fullName>
+    <label>Restriction</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>D - RESTRICTED TO DENTAL CLASS SPECIALTY ONLY</fullName>
+                <default>false</default>
+                <label>D - RESTRICTED TO DENTAL CLASS SPECIALTY ONLY</label>
+            </value>
+            <value>
+                <fullName>G - MEDICAL GASES ONLY</fullName>
+                <default>false</default>
+                <label>G - MEDICAL GASES ONLY</label>
+            </value>
+            <value>
+                <fullName>M - MOBILE</fullName>
+                <default>false</default>
+                <label>M - MOBILE</label>
+            </value>
+            <value>
+                <fullName>R - RESTRICTED</fullName>
+                <default>false</default>
+                <label>R - RESTRICTED</label>
+            </value>
+            <value>
+                <fullName>T - NO PHYSIOTHERAPY</fullName>
+                <default>false</default>
+                <label>T - NO PHYSIOTHERAPY</label>
+            </value>
+            <value>
+                <fullName>V - VAULT FUMIGATION</fullName>
+                <default>false</default>
+                <label>V - VAULT FUMIGATION</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

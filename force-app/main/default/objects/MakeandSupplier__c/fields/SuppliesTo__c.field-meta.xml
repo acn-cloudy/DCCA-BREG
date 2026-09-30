@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SuppliesTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-KN01152019-Created for PVL Phase 1 Sprint 3</description>
+    <label>Supplies To</label>
+    <referenceTo>License__c</referenceTo>
+    <relationshipLabel>Makes and Suppliers</relationshipLabel>
+    <relationshipName>MakesandSuppliesTo</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

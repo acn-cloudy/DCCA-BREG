@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TransactionCounter__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>PacPoint-MV090419 - Created for PVL phase 1. Field used on PB logic to identify how many transactions have been created.</description>
+    <externalId>false</externalId>
+    <label>Transaction Counter</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

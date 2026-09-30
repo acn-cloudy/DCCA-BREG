@@ -1,0 +1,78 @@
+<template>
+    <div class="slds-p-around_medium">
+        <p class="slds-text-body_regular">
+            Below are the notifications for the name you selected. Select the notifications you would like to subscribe to and view the cost for each
+            before proceeding.
+        </p>
+        <template lwc:if={isLoadedData}>
+            <template if:true={tnData}>
+                <template for:each={tnData} for:item="tn" for:index="index">
+                    <div key={tn.recordId} class="slds-m-bottom_large">
+                        <h2 class="slds-text-heading_medium slds-m-top_large">{tn.type}: {tn.businessName}</h2>
+                        <c-breg-_-custom-data-table
+                            data={tn.notifications}
+                            columns={tradeColumns}
+                            key-field="description"
+                            hide-checkbox-column
+                            oncustomselectrowclicked={handleCustomSelectRowClicked}
+                        >
+                        </c-breg-_-custom-data-table>
+                    </div>
+                </template>
+            </template>
+
+            <template if:true={businessData}>
+                <template for:each={businessData} for:item="biz" for:index="index">
+                    <div key={biz.recordId} class="slds-m-bottom_large">
+                        <h2 class="slds-text-heading_medium slds-m-top_large">Business: {biz.businessName}</h2>
+                        <c-breg-_-custom-data-table
+                            data={biz.notifications}
+                            columns={businessColumns}
+                            key-field="description"
+                            hide-checkbox-column
+                            oncustomselectrowclicked={handleCustomSelectRowClicked}
+                        >
+                        </c-breg-_-custom-data-table>
+                    </div>
+                </template>
+            </template>
+        </template>
+
+        <lightning-spinner if:false={isLoadedData} alternative-text="Loading..."></lightning-spinner>
+    </div>
+    <div class="slds-size_1-of-1 ">
+        <div class="slds-m-vertical_large slds-grid slds-grid_align-spread">
+            <div class="btns-wrapper">
+                <lightning-button
+                    class="slds-m-right_small"
+                    label={labels.BREG_Cancel}
+                    variant="destructive-outline"
+                    onclick={handleCancel}
+                ></lightning-button>
+                <lightning-button
+                    label={labels.BREG_Prev}
+                    icon-name="utility:chevronleft"
+                    class="slds-m-right_small"
+                    onclick={handlePrev}
+                ></lightning-button>
+                <lightning-button
+                    label={labels.BREG_Next}
+                    icon-name="utility:chevronright"
+                    icon-position="right"
+                    variant="brand"
+                    onclick={handleNext}
+                    disabled={disableNext}
+                ></lightning-button>
+            </div>
+            <div class="slds-grid slds-grid_align-end">
+                <lightning-button
+                    icon-name="utility:search"
+                    variant="neutral"
+                    class="slds-m-right_small"
+                    label="Search Again"
+                    onclick={handleSearchAgain}
+                ></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

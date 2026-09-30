@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>FilingAssignedExaminer</fullName>
+        <description>Filing:AssignedExaminer</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>kumetsu@dcca.hawaii.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>mburns@dcca.hawaii.gov</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <field>Reviewer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/FilingAssignedExaminerEmail</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingDeficiencyLetterSentEmail</fullName>
+        <description>Filing: Deficiency Letter Sent Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>FilerContact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/Filing_Deficiency_Letter_Sent</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingDeficiencyNotification</fullName>
+        <description>Filing:Deficiency Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Reviewer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/FilingDeficiencylNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingFilingCompletedEmail</fullName>
+        <description>Filing:Filing Completed Email</description>
+        <protected>false</protected>
+        <recipients>
+            <field>FilerContact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/FilingStatusIsFilingCompleted</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingFilingReceivedNotification</fullName>
+        <description>Filing:Filing Received Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>FilerContact__c</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/FilingFilingReceivedNotification</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingStatusChangeSendClericalQueueEmail</fullName>
+        <ccEmails>kumetsu@dcca.hawaii.gov</ccEmails>
+        <description>Filing:Status Change Send Clerical Queue Email</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/FilingStatusChangedandRecordTypeIsMutualFund</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingStatusChangeSendSECQueueEmail</fullName>
+        <ccEmails>kumetsu@dcca.hawaii.gov</ccEmails>
+        <description>Filing:Status Change Send SEC Queue Email</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/FilingStatusChanged</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingStatusChangeSendtoExaminer</fullName>
+        <description>Filing:Status Change Send to Examiner</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Reviewer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/FilingStatusChangedWithRecordType</template>
+    </alerts>
+    <alerts>
+        <fullName>FilingWithdrawalNotification</fullName>
+        <description>Filing:Withdrawal Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>Reviewer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/FilingWithdrawalNotification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>FilingAssignmentClericalStaffQueue</fullName>
+        <description>PacPoint-MV052219 - Created for BREG phase 1 as a workaround to notify the Clerical Staff Queue when an assignment has been made due the process builder restriction</description>
+        <field>OwnerId</field>
+        <lookupValue>ClericalStaff</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Filing:AssignmentClericalStaffQueue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dead_Letter</fullName>
+    <columns>NAME</columns>
+    <columns>qual_Status__c</columns>
+    <columns>qual_Event_Type__c</columns>
+    <columns>qual_Status_Code__c</columns>
+    <columns>qual_Processed_Date__c</columns>
+    <columns>qual_Case__c</columns>
+    <columns>qual_Error_Message__c</columns>
+    <columns>qual_Retry_Count__c</columns>
+    <columns>qual_Workflow_Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>qual_Status__c</field>
+        <operation>equals</operation>
+        <value>Dead Letter</value>
+    </filters>
+    <label>Dead Letter</label>
+</ListView>

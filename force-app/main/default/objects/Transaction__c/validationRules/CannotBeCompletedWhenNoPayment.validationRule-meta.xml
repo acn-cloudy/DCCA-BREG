@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CannotBeCompletedWhenNoPayment</fullName>
+    <active>false</active>
+    <errorConditionFormula>AND(
+ISCHANGED(TotalAmount__c),
+TotalAmount__c = 0,
+ISNULL( PaymentAmount__c ) ,
+OR($Profile.Name = &quot;DCCA PVL Records Staff&quot;, $Profile.Name = &quot;DCCA PVL Applications Staff&quot;))</errorConditionFormula>
+    <errorMessage>You can&apos;t change the transaction to completed because there is no payment.</errorMessage>
+</ValidationRule>

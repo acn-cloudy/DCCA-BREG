@@ -1,0 +1,137 @@
+<template>
+    <template lwc:if={isNotGuest}>
+        <lightning-layout horizontal-align="spread" pull-to-boundary="small" vertical-align="start" multiple-rows="true">
+            <lightning-spinner if:true={isLoading} alternative-text="Loading..." size="large"></lightning-spinner>
+            <!-- Initial Information -->
+            <template lwc:if={initialInformationStep}>
+                <lightning-layout-item size="12" padding="around-small">
+                    <h2>First, let&apos;s get some initial information</h2>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <span class="text-italic color-grey">Which of these best applies to you?</span>
+                    <lightning-radio-group
+                        name="businessProcess"
+                        label="Business Process"
+                        options={businessProcessOptions}
+                        value={businessProcessValue}
+                        variant="label-hidden"
+                        onchange={handleInputChange}
+                    ></lightning-radio-group>
+                </lightning-layout-item>
+                <lightning-layout-item lwc:if={showTradeNameSelector} size="6" padding="around-small">
+                    <span class="">What is the registration type? (<a href="/">Learn More</a>)</span>
+                    <lightning-radio-group
+                        name="registrationType"
+                        label="Registration Type"
+                        options={registrationTypeOptions}
+                        value={registrationTypeValue}
+                        variant="label-hidden"
+                        onchange={handleInputChange}
+                    ></lightning-radio-group>
+                </lightning-layout-item>
+            </template>
+            <!-- Search -->
+            <template lwc:elseif={searchStep}>
+                <lightning-layout-item size="12" padding="around-small">
+                    <div class="slds-text-body_regular slds-m-bottom_medium">Search for your trade name, trademark, service mark or publicity rights</div>
+                    <div>
+                        <c-breg-_-search-input search-value={searchValue} placeholder="Enter text" onsearch={handleSearch}></c-breg-_-search-input>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <c-breg-_-account-search-results-table
+                        show-new-search={showNewSearch}
+                        search-by-number="true"
+                        onopendetails={handleOpenDetails}
+                        include-tn-tm-sm="true"
+                        include-record-type="true"
+                        onnewsearch={handleNewSearch}
+                        exclude-accounts="true"
+                    ></c-breg-_-account-search-results-table>
+                </lightning-layout-item>
+            </template>
+            <template lwc:elseif={stepsWithWhatIsITForm}>
+                <lightning-layout multiple-rows="true" horizontal-align="spread" vertical-align="start">
+                    <lightning-layout-item size="12" large-device-size="9" padding="around-small" class="slds-order_2 slds-large-order_1">
+                        <!-- Form Filling -->
+                        <template lwc:if={formDataStep}>
+                            <div class="slds-var-m-bottom_medium">
+                                <h1 class="dxp-text-heading-xlarge">{dynamicFormsHeaderTitle}</h1>
+                            </div>
+                            <p class="slds-var-p-bottom_large">
+                                <lightning-formatted-rich-text value={dynamicFormsHeaderDescription}></lightning-formatted-rich-text>
+                            </p>
+                            <span class="text-italic color-grey slds-var-p-bottom_large">All fields are required unless otherwise noted as &apos;Optional&apos;</span>
+
+                            <template lwc:if={formData}>
+                                <c-breg_-registration-dynamic-form
+                                    form-configuration={formConfiguration}
+                                    form-data={formData}
+                                    case-id={caseId}
+                                    onsave={handleSaveForm}
+                                    oninputchange={handleFormDataChange}
+                                    cmp-properties={componentProperties}
+                                ></c-breg_-registration-dynamic-form>
+                            </template>
+                            <template lwc:else>
+                                <lightning-spinner alternative-text="Loading form..." size="medium"></lightning-spinner>
+                            </template>
+                        </template>
+                        <!-- Fees -->
+                        <template lwc:elseif={formsAndFeesStep}>
+                            <c-breg_-forms-and-fees
+                                case-id={caseId}
+                                account-id={accountId}
+                                tntmsm-id={tntmsmId}
+                                company-name={companyName}
+                                entity-type={entityType}
+                                entity-type-for-fees={entityTypeForFees}
+                                registration-type={registrationType}
+                                is-gp-and-llp-registration={isGpAndLlpRegistration}
+                                form-action={formAction}
+                                form-configuration={formConfiguration}
+                                company-date-formed-on={companyDateFormedOn}
+                                onpaynow={handlePayNow}
+                                onback={handleBack}
+                            ></c-breg_-forms-and-fees>
+                        </template>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" large-device-size="3" padding="around-small" class="slds-order_1 slds-large-order_2">
+                        <c-breg_-what-is-this-form title="What is this form?" text-body={whatIsThisForm}></c-breg_-what-is-this-form>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+
+            <!-- Navigation Buttons -->
+            <lightning-layout-item size="12" class="btns-wrapper">
+                <!-- Initial business filling Buttons -->
+                <template lwc:if={initialInformationStep}>
+                    <lightning-button variant="brand" label="Continue" disabled={continueButtonDisabled} onclick={handleContinue}></lightning-button>
+                </template>
+                <!-- Dynamic Forms Buttons -->
+                <template lwc:elseif={formDataStep}>
+                    <template lwc:if={formFillingStep}>
+                        <lightning-button variant="brand" label="Review & Purchase" class="slds-var-m-right_small" onclick={handleReview}></lightning-button>
+                        <lightning-button
+                            variant="bare"
+                            label="Save Draft"
+                            class="btn-draft slds-var-m-right_small"
+                            onclick={handleSaveDraft}
+                        ></lightning-button>
+                    </template>
+                    <template lwc:else>
+                        <lightning-button variant="brand" label="Confirm" class="slds-var-m-right_small" onclick={handleConfirm}></lightning-button>
+                    </template>
+                </template>
+                <!-- General Control Buttons (Cancel, Back) -->
+                <template lwc:if={showGeneralControlButtons}>
+                    <lightning-button variant="neutral" label="Cancel" class="btn-cancel slds-var-m-right_small" onclick={handleCancel}></lightning-button>
+                    <lightning-button variant="neutral" label="Back" onclick={handleBack}></lightning-button>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <template lwc:else>
+        <c-breg_-login-redirection-page></c-breg_-login-redirection-page>
+    </template>
+</template>

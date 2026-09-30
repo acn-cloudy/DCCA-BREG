@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>A1</fullName>
+        <default>false</default>
+        <label>Agricultural Cooperative With Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>A2</fullName>
+        <default>false</default>
+        <label>Agricultural Cooperative Without Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>C1</fullName>
+        <default>false</default>
+        <label>Consumer Cooperative With Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>C2</fullName>
+        <default>false</default>
+        <label>Consumer Cooperative Without Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>D9</fullName>
+        <default>false</default>
+        <label>Domestic Corporation Sole</label>
+    </customValue>
+    <customValue>
+        <fullName>G5</fullName>
+        <default>false</default>
+        <label>Domestic General Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>C5</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Q5</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>K5</fullName>
+        <default>false</default>
+        <label>Domestic Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>L5</fullName>
+        <default>false</default>
+        <label>Domestic Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>D2</fullName>
+        <default>false</default>
+        <label>Domestic Nonprofit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>D1</fullName>
+        <default>false</default>
+        <label>Domestic Profit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>G6</fullName>
+        <default>false</default>
+        <label>Foreign General Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>C6</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Q6</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>K6</fullName>
+        <default>false</default>
+        <label>Foreign Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>L6</fullName>
+        <default>false</default>
+        <label>Foreign Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>F2</fullName>
+        <default>false</default>
+        <label>Foreign Nonprofit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>F1</fullName>
+        <default>false</default>
+        <label>Foreign Profit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>CA</fullName>
+        <default>false</default>
+        <label>Individual Commercial Registered Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>R7</fullName>
+        <default>false</default>
+        <label>Name Reservation</label>
+    </customValue>
+    <customValue>
+        <fullName>P1</fullName>
+        <default>false</default>
+        <label>Professional Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>PR1</fullName>
+        <default>false</default>
+        <label>Publicity Rights</label>
+    </customValue>
+    <customValue>
+        <fullName>S1</fullName>
+        <default>false</default>
+        <label>Sustainable Business Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>ZZ</fullName>
+        <default>false</default>
+        <label>Trade Names, Trademarks or Service Marks Registered by Individuals or Unregistered Entities</label>
+    </customValue>
+    <customValue>
+        <fullName>Corporation</fullName>
+        <default>false</default>
+        <label>Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Partnership</fullName>
+        <default>false</default>
+        <label>Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>LLC</fullName>
+        <default>false</default>
+        <label>LLC</label>
+    </customValue>
+    <customValue>
+        <fullName>LLP</fullName>
+        <default>false</default>
+        <label>LLP</label>
+    </customValue>
+    <customValue>
+        <fullName>Unincorporated Association</fullName>
+        <default>false</default>
+        <label>Unincorporated Association</label>
+    </customValue>
+    <customValue>
+        <fullName>Profit Corporation</fullName>
+        <default>false</default>
+        <label>Profit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>Nonprofit Corporation</fullName>
+        <default>false</default>
+        <label>Nonprofit Corporation</label>
+    </customValue>
+    <customValue>
+        <fullName>General Partnership</fullName>
+        <default>false</default>
+        <label>General Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited Partnership</fullName>
+        <default>false</default>
+        <label>Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited Liability Partnership</fullName>
+        <default>false</default>
+        <label>Limited Liability Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited Liability Limited Partnership</fullName>
+        <default>false</default>
+        <label>Limited Liability Limited Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>Limited Liability Company</fullName>
+        <default>false</default>
+        <label>Limited Liability Company</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Entity Type Codes</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

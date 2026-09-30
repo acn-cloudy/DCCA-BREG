@@ -1,0 +1,11 @@
+@media (max-width: 1024px) {
+    .disclaimer-wrapper {
+        margin-top: 160px;
+    }
+
+    .disclaimer-body {
+        max-height: calc(100vh - 350px);
+        display: block;
+        overflow: auto;
+    }
+}

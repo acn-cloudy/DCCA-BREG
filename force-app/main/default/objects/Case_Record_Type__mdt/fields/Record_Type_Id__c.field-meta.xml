@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Type_Id__c</fullName>
+    <description>Salesforce Record Type Id</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Record Type Id related to the Case Record Type. To identify in each Salesforce environment, go to the Case Object and copy the Record Type Id from the URL for this field.</inlineHelpText>
+    <label>Record Type Id</label>
+    <length>20</length>
+    <required>true</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

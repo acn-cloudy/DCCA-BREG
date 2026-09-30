@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RunAuditDate__c</fullName>
+    <description>PacPoint-FT080719- Created for PVL phase 1</description>
+    <formula>IF(ISPICKVAL( AuditType__c , &quot;Pre-Audit&quot;), ( StartofRenewalPeriod__c -( WeeksBeforeRenewaltoRunPreAudit__c *7 )),
+IF( ISPICKVAL( AuditType__c , &quot;Post-Audit&quot;), ( LicenseTypeExpireDate__c +( WeeksAfterRenewaltoRunPostAudit__c *7 )  ), NULL))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is the date on which the system will automatically run the Pre or Post Audit.</inlineHelpText>
+    <label>Run Audit Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

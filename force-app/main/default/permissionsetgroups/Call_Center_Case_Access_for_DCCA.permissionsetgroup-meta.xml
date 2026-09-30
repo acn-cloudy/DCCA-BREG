@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set to assign to DCCA staff who have Salesforce Platform licenses who need access to Call Center Cases and Voice Call Sessions.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Call Center Case Access for DCCA</label>
+    <permissionSets>Call_Center_Case_Access</permissionSets>
+    <permissionSets>Case_Access_for_Platform_Users</permissionSets>
+    <permissionSets>Permission_for_Lightning_Console_Access</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Type__c</fullName>
+    <description>Aalta BREG-61</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trade Name</fullName>
+                <default>false</default>
+                <label>Trade Name</label>
+            </value>
+            <value>
+                <fullName>Trademark</fullName>
+                <default>false</default>
+                <label>Trademark</label>
+            </value>
+            <value>
+                <fullName>Service Mark</fullName>
+                <default>false</default>
+                <label>Service Mark</label>
+            </value>
+            <value>
+                <fullName>Publicity Rights Name</fullName>
+                <default>false</default>
+                <label>Publicity Rights Name</label>
+            </value>
+            <value>
+                <fullName>TNTMSM Assignment</fullName>
+                <default>false</default>
+                <label>TNTMSM Assignment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

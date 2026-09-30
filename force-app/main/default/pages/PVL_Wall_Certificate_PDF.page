@@ -1,0 +1,140 @@
+<apex:page readOnly="true"
+           controller="PVL_Wall_Certificate_PDFController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="pdf">
+    <html>
+    <head>
+        <style type="text/css" media="print">
+            @page {
+                size: 11in 8.5in;
+                margin-bottom: 50px;
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+             div.footer {
+                display: block;
+                padding: 0;
+                width:10 in;
+                position: running(footer);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <div style="font-size: 50px; font-weight: lighter; width: 100%; text-align: center;">
+                <p style="text-transform: uppercase; padding: 0; margin: 0;">
+                    STATE OF HAWAII
+                </p>
+            </div>
+            <div style="width: 100%; text-align: center;">
+                <p style="text-transform: uppercase; padding: 0; margin: 0;">
+                    DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS
+                </p>
+                <p>
+                    <apex:image id="theImage1" value="{!$Resource.PocketIdSeal}" width="100" height="100"/>            
+                </p>
+            </div>
+            <div >        
+                <div style="font-size: 26px; font-weight: bold;width: 100%; text-align: center;">
+                    <p style="text-transform: uppercase; padding: 0; margin: 0;">
+                        {!lic.BoardProgramName__c}
+                    </p>
+                    <p></p>
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <p style="font-style: italic;padding: 0; margin: 0;">
+                        This is to Certify that
+                    </p>
+                    <p style="font-weight: bold; padding: 0; margin: 0;">
+                        {!lic.Licensee__r.Name}
+                    </p>  
+                    <apex:outputPanel rendered="{!lic.LicenseName__c != null}" >
+                       <p style="font-weight: bold; padding: 0; margin: 0;">
+                           {!'DBA ' +lic.LicenseName__c}
+                        </p> 
+                    </apex:outputPanel> 
+                    <p style="font-style: italic;padding:0; margin: 0;">
+                        {!lic.WallCertLicenseRegistrationText__c}
+                    </p>
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <p style="font-weight: bold; padding-top: 10px;padding-bottom: 10px; margin: 0;">
+                        {!lic.LicenseTypeDescriptionWallCert__c}
+                    </p> 
+                </div>
+                <div style="width: 100%; text-align: center;">
+                    <p style="font-style: italic;padding-bottom: 5px; margin: 0;">
+                        {!lic.WallCertStateofHawaiiText__c}
+                    </p>
+                    <apex:outputPanel rendered="{!lic.WallCertStateofHawaiiDate__c != null}" >
+                        <p style="font-weight: bold; padding-top: 5px;padding-bottom: 5px; margin: 0; ">
+                           {!lic.WallCertStateofHawaiiDate__c}
+                        </p> 
+                    </apex:outputPanel> 
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <apex:outputPanel rendered="{!lic.WallCertBusinessAddressLocatedAt__c != null}" >
+                    <p style="font-style: italic;padding-top:5px;padding-bottom: 10px; margin: 0; ">
+                        {!lic.WallCertBusinessAddressLocatedAt__c}
+                    </p> 
+                </apex:outputPanel> 
+
+                <p style="font-weight: bold; padding: 0; margin: 0;">
+                    <apex:outputText value="{!lic.WallCertBusinessAddress__c }" rendered="{!lic.WallCertBusinessAddress__c  != null}">
+                    </apex:outputText>
+                </p>  
+                <p>
+                    {!lic.LicenseType__r.WallCertMiddleVerbiage__c}
+                    <apex:outputPanel rendered="{!lic.WallCertMiddleDate__c != null}" >
+                        {!' ' +lic.WallCertMiddleDate__c}<br/>
+                    </apex:outputPanel> 
+
+                </p>
+            </div>
+            <div>
+                <table style="padding-left:110px">
+                    <tr>
+                        <td style="width:10px">
+                            <div style="font-style: italic;padding-top:20px;">
+                                No.
+                            </div>
+                            
+                        </td>
+                        <td style="width:70px">
+                            <div style="font-style: italic;padding-top:28px;">
+                                <apex:outputText value="{0, number, ######}">
+                                <apex:param value="{!lic.LicenseNumberFormula__c}" />
+                                </apex:outputText>
+                            </div>
+                        </td>
+                        <td style="width:510px" align="center">                            
+                            <apex:outputPanel rendered="{! lic.WallCertTypeofSeal__c == 'DCCA-PVL'}">
+                                <apex:image id="dccspvl" value="{!$Resource.DCCA_PVL}" width="130px"/>
+                            </apex:outputPanel> 
+                            <apex:outputPanel rendered="{! lic.WallCertTypeofSeal__c == 'HMB'}">
+                                <apex:image id="hmb" value="{!$Resource.HMB}" width="130px"/>
+                            </apex:outputPanel>
+                        </td>
+                        <td style="width:200px">
+                            <apex:outputPanel rendered="{!signatureImage != null}">
+                                <apex:image id="signature" value="{!signatureImage}" width="200px"/> <br/>         
+                            </apex:outputPanel>
+                            {!lic.WallCertSignatureType__c}
+                        </td>
+                    </tr>
+                </table>    
+            </div>
+        </div>
+        <div class="footer"  >
+            <div style="font-weight: bold; text-align: center; font-size:8pt;">
+                {!lic.WallCertBottomVerbiage__c}
+            </div>
+        </div>
+    </body>
+    </html>
+</apex:page>

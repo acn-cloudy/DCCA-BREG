@@ -1,0 +1,55 @@
+.THIS .hiddenIcon{
+    display: none;
+}
+
+.THIS .slds-table_bordered, .THIS  .slds-table--bordered  {
+	border: 1px solid #80D0EF;
+}
+
+.THIS  .slds-table_bordered:not(.slds-no-row-hover) tbody tr:hover>td:not(.slds-is-selected), 
+.THIS  .slds-table_bordered:not(.slds-no-row-hover) tbody tr:hover>th:not(.slds-is-selected), 
+.THIS  .slds-table_bordered:not(.slds-no-row-hover) tbody tr:focus>td:not(.slds-is-selected), 
+.THIS  .slds-table_bordered:not(.slds-no-row-hover) tbody tr:focus>th:not(.slds-is-selected), 
+.THIS  .slds-table--bordered:not(.slds-no-row-hover) tbody tr:hover>td:not(.slds-is-selected), 
+.THIS  .slds-table--bordered:not(.slds-no-row-hover) tbody tr:hover>th:not(.slds-is-selected), 
+.THIS  .slds-table--bordered:not(.slds-no-row-hover) tbody tr:focus>td:not(.slds-is-selected), 
+.THIS  .slds-table--bordered:not(.slds-no-row-hover) tbody tr:focus>th:not(.slds-is-selected) {
+	box-shadow: None;
+	text-transform: inherit;
+}
+.THIS .slds-th__action:hover, 
+.THIS .slds-th__action:hover:focus,
+.THIS .slds-th__action:focus:hover,
+.THIS .slds-th__action:focus{
+	box-shadow: none;
+	text-transform: inherit;
+    background-color:#4B5995;
+}
+.THIS .slds-text-title_caps, .THIS .slds-text-title--caps ,.THIS .slds-table thead th{
+	color: #fff;
+	text-transform: inherit;
+	background: #002664;
+}
+.THIS .slds-table_bordered tbody td, .THIS .slds-table_bordered tbody th, .THIS .slds-table--bordered tbody td, .THIS .slds-table--bordered tbody th {
+	border: 1px solid #80D0EF;
+}
+.THIS tr:nth-child(even) {
+	background: #e6f8ff;
+}
+.THIS tr:hover {
+	background: #f5fcff;
+}
+.THIS .slds-table_bordered tbody td, 
+.THIS .slds-table_bordered tbody th, 
+.THIS .slds-table--bordered tbody td, 
+.THIS .slds-table--bordered tbody th{
+	border-right: 1px solid #80D0EF;
+	border-bottom: 1px solid #80D0EF;
+}
+.THIS .slds-table_bordered, .THIS .slds-table--bordered {
+	border-collapse: collapse;
+}
+.THIS .slds-text-link--reset  {
+    color: inherit ;
+    height:auto;
+}

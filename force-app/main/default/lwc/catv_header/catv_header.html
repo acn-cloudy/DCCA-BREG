@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : Gaurav Agarwal
+  @group             : 
+  @last modified on  : 05-16-2025
+  @last modified by  : Gaurav Agarwal
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="mds-header">
+        <div class="mds-header_left">
+            <div class="mds-header-logo slds-grid slds-grid--vertical-align-center slds-large-size--1-of-12 slds-medium-size--2-of-12 slds-size--4-of-12">
+                <a href="javascript:void(0);" onclick={handleHome}>
+                    <img src={mdsLogo} alt="HI DCCA Logo">
+                </a>
+            </div>
+            <div class="mds-font-weight_semi-bold">
+                <p>Department Of Commerce and Consumer Affairs</p>
+                <p>Cable Television</p>
+            </div>
+        </div>
+        <div class="mds-header_right slds-size--2-of-12"> 
+            <div class="primary_nav-item hide-in-xs p-r-0">
+                <div class="profile-avatar">
+                    <div>
+                        <img src={profileImage} alt="Profile Picture" title="Profile Picture" class="header-profile-name"/>
+                    </div>
+                </div>
+                <lightning-button-menu class="profile-dropdown" menu-alignment="right"
+                    alternative-text={loggedInUserName} variant="border-filled" label={loggedInUserName}>
+                    <lightning-menu-item class="logout-icon" value="Logout" label="Logout" onclick={handleLogout}>
+                    </lightning-menu-item>
+                </lightning-button-menu>
+            </div>
+        </div>
+    </div>
+    <div if:true={showSubHeader} class="mds-header mds-sub_header">
+        <lightning-button variant="base" label="Back to dashboard" title="Back to dashboard"
+            onclick={handleHome} class="mds-button-icon_brand mds-button_link mds-button_size-regular mds-icon-left-keyboard_arrow_left mds-m-horizontal_x-small">
+        </lightning-button>
+    </div>
+
+    <c-catv_modal if:true={showLogoutConfirmationModal}
+        onclose={closeLogoutConfirmationModal}
+        header-title="Logout Confirmation">
+
+        <div slot="body">
+            <p>Are you sure, you want to logout from the portal?</p>
+        </div>
+        
+        <div slot="footer" class="slds-grid">
+            <lightning-button label="No" title="No" class="mds-button mds-button_outline-brand"
+                    onclick={closeLogoutConfirmationModal}>
+            </lightning-button>
+            <lightning-button label="Yes" variant="brand" title="Yes"
+                class="mds-button mds-button_brand mds-m-left_x-small"
+                onclick={handleConfirmLogout}>
+            </lightning-button>
+        </div>
+    </c-catv_modal>
+</template>

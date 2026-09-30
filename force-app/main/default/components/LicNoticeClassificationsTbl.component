@@ -1,0 +1,13 @@
+<apex:component controller="LicNoticeClassificationsTblController" access="global">
+    <apex:attribute name="license" assignTo="{!lic}" description="" type="License__c" access="global"/>
+    <apex:repeat value="{!classifications}" var="c">
+        <tr>
+            <td valign="top" colspan="1" rowspan="1" style="width: 16.8pt; font-family : Courier New;">
+                <u>x</u>
+            </td>
+            <td valign="top" colspan="1" rowspan="1" style="width: 450.7pt; font-family : Courier New;">
+                    {!c.ClassificationName__c}
+            </td>
+        </tr>
+    </apex:repeat>
+</apex:component>

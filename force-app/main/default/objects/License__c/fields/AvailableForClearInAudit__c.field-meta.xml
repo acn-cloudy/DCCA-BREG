@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AvailableForClearInAudit__c</fullName>
+    <description>Criteria when LicenseType.Name = CPA:
+(License.AuditDate__c within LicenseType.PreviousLicensePeriodEffectiveDate__c - LicenseType.PreviousLicensePeriodExpireDate__c) 
+Criteria when LicenseType.Name &lt;&gt; CPA:
+License.LicenseType__c = License type that triggered the job</description>
+    <formula>If((LicenseType__r.Name == &apos;CPA&apos; &amp;&amp;
+ AuditDate__c &gt;= LicenseType__r.PreviousLicensePeriodEffectiveDate__c 
+   &amp;&amp; AuditDate__c &lt;=  LicenseType__r.PreviousLicensePeriodExpireDate__c ) ||  LicenseType__r.Name != &apos;CPA&apos;, true, false)</formula>
+    <label>Available For Clear In Audit</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

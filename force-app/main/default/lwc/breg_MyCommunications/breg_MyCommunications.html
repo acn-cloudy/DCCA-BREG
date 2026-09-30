@@ -1,0 +1,17 @@
+<template>
+    <template lwc:if={isCommunicationsExists}>
+        <lightning-datatable key-field="recordId" onrowaction={handleAction} data={communications} columns={columns} hide-checkbox-column>
+        </lightning-datatable>
+        <template lwc:if={showCommunicationCard}>
+            <c-breg-_-my-communication
+                onupdate={handleUpdate}
+                chosen-communication={chosenCommunication}
+                onclose={handleCardClose}
+                ondownload={handleDownload}
+            ></c-breg-_-my-communication>
+        </template>
+    </template>
+    <template lwc:else>
+        <p class="slds-m-vertical_medium">{emptyCommunicationsLabel}</p>
+    </template>
+</template>

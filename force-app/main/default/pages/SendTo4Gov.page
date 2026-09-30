@@ -1,0 +1,23 @@
+<apex:page standardController="Reconciliation_Batch__c" extensions="SendTo4GovController">
+  <apex:form >
+  <apex:pageBlock title="Send to 4Gov">
+  <apex:pageBlockButtons >
+      <apex:commandButton value="Send to 4Gov" action="{!sendEmailAtt}" rendered="{!!isDisabled}"/>
+      <apex:commandButton action="{!doCancel}" value="Cancel" immediate="true" html-formnovalidate="formnovalidate"/>
+  </apex:pageBlockButtons>
+
+  <apex:pageBlockSection rendered="{!isDisabled}">
+    <apex:outputText value="The file has been submitted to 4Gov or no CSV file can be found." style="color:red"/> 
+  </apex:pageBlockSection>
+
+  <apex:pageBlockTable value="{!cdl}" var="Att" rendered="{!!isDisabled}">
+    <apex:column headerValue="Select">
+      <apex:inputCheckbox disabled="true" value="{!Att.fileChecked}"/>
+    </apex:column>
+    <apex:column value="{!Att.cdl.LinkedEntityId}"/>
+    <apex:column value="{!Att.cdl.ContentDocument.Title}"/>
+    <apex:column value="{!Att.cdl.ContentDocument.ContentModifiedDate}"/>
+  </apex:pageBlockTable>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

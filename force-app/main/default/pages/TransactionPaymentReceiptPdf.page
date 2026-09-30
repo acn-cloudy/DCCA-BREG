@@ -1,0 +1,209 @@
+<apex:page standardController="pymt__PaymentX__c"
+           extensions="TransactionPymtReceiptPdfExtController"
+           renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="false">
+    <html>
+    <head>
+        <style>
+            @page {
+                /*size: 107.95mm 139.70mm;*/
+                margin: 20px 50px 20px 50px ;
+                padding: 0px 0px 0px 0px ;
+
+            }
+
+            body {
+                font-size: 10pt;
+            }
+
+            * {
+                font-family: Arial Unicode MS, sans-serif; /* Arial Unicode MS for the special characters */
+            }
+
+            .paymentname {
+                font-size: 11pt;
+            }
+
+
+            b {
+                font-family: Helvetica, sans-serif; /* Different font for bold since the Arial Unicode doesn't work on BOLD */
+            }
+
+            .cashcode {
+                font-size: 6pt;
+            }
+
+            table {
+                border-collapse: collapse;
+                /*display:inline-table;*/
+            }
+
+            table.borderNone {border: none;}
+
+            table.widthFull {
+                width: 100%;
+                table-layout: fixed;
+                page-break-inside: auto;
+                -fs-table-paginate: paginate;
+            }
+
+            table tr.page-break {
+                page-break-after: auto;
+                page-break-inside: avoid;
+            }
+
+            table.widthFull tfoot {
+                display: table-footer-group;
+            }
+
+            table.widthFull thead {
+                display: table-header-group;
+            }
+
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <table style="width: 100%">
+        <tr>
+            <td width="15%" style="text-align: right">
+                <apex:image width="100px" url="{!$Resource.SealoftheStateofHawaii}"/>
+            </td>
+            <td width="3%"></td>
+            <td width="82%">
+                <b>STATE OF HAWAII</b><br/>
+                <b>DEPT OF COMMERCE &amp; CONSUMER AFFAIRS</b><br/><br/>
+                <b>OFFICIAL RECEIPT</b>
+            </td>
+        </tr>
+    </table>
+    <p style="width: 100%; text-align: right;"></p>
+    <p>
+        <b>Transaction Reference Number:</b> {!transtn.Name}
+    </p>
+    <p>
+        <b>DATE:</b>&nbsp;
+        <apex:outputText value="{0,date,M/dd/yyyy}">
+            <apex:param value="{!pymt__PaymentX__c.pymt__Date__c}"/>
+        </apex:outputText>
+    </p>
+    <p>
+        <b>ACCOUNT:</b>
+        <!--{!transtn.Account__r.Name}-->
+	<apex:repeat value="{!transtn.Payments__r}" var="py">
+    <apex:variable var="accountNames" value="" />
+    	<apex:repeat value="{!tranLineByPayment[py]}" var="ca">
+        	<apex:variable var="accName" value="{!ca.Transaction__r.Account__r.Name}" />
+        	<apex:outputText rendered="{!NOT(CONTAINS(accountNames, accName))}" value="{!IF(accountNames != '', ', ', '')}{!IF(accName != null, accName, transtn.Account__r.Name)}" escape="false" />
+        	<apex:variable var="accountNames" value="{!accountNames + ',' + accName}" />
+    	</apex:repeat>
+	</apex:repeat>
+             
+    </p>
+    
+    <apex:pageBlock >
+        <table class="bordered" cellspacing="0" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="width:25%"><b>Account</b></th>
+                    <th style="width:25%"><b>Cashier Code</b></th>
+                    <th style="width:25%"><b>Name</b></th>
+                    <th style="width:25%"><b>Amount</b></th>                
+                </tr>
+            </thead>
+            <tbody>
+            	<apex:repeat value="{!transtn.Payments__r}" var="py">
+                	<apex:repeat value="{!tranLineByPayment[py]}" var="ca" >  
+                    	<tr>
+                        	<td style="width:25%">
+                            	<apex:outputText value="{!ca.Transaction__r.Account__r.Name}" escape="false"/>
+                        	</td>
+                        	<td style="width:12%">                                            
+                            	<apex:outputText value="{!ca.CashierCodeCode__c}" escape="false"/>
+                        	</td>      
+                        	<td style="width:27%">                                            
+                            	<apex:outputText value="{!ca.CashierCode__r.Name}" escape="false"/>
+                        	</td>                                                
+                        	<td style="width:12%">
+                            	<apex:outputText value="{0, number, Currency}" escape="false">
+                                <apex:param value="{!ca.Amount__c}" />
+                            	</apex:outputText>
+                        	</td>
+                    	</tr>
+                	</apex:repeat>   
+            	</apex:repeat>
+        	</tbody>
+    	</table>
+	</apex:pageBlock>
+
+    <p> 
+        <apex:outputText value="<b>DESCRIPTION:</b> {!transtn.Description__c}" rendered="{!if(transtn.Description__c != null, true, false)}" escape="false" />
+    </p>
+    <p> 
+        <apex:outputText value="<b>Grand Total:</b> ${!transtn.TotalAmount__c}" escape="false" />
+    </p>
+
+    <apex:pageBlock >
+        <table class="borderNone" cellspacing="0" style="width:100%">            
+            <tbody>
+                <apex:variable value="'" var="apos" />
+                <apex:repeat value="{!transtn.Payments__r}" var="py">
+                    <tr class="page-break">
+                        <td> 
+                            <b>Payment Name:</b>
+                            <apex:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;{!py.name}&nbsp;&nbsp;&nbsp;&nbsp; "  escape="false"/>                            
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Cash', true, false)}" escape="false" />
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Credit Card', true, false)}" escape="false" />                                                        
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Check', true, false)}" escape="false" />
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Money Order', true, false)}" escape="false" />
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Cashier'+apos+'s Check', true, false)}" escape="false" />
+                            <apex:outputText value="<b>PAYMENT AMOUNT:</b> ${!py.pymt__Amount__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Electronic Funds Transfer', true, false)}" escape="false" />
+                        </td>                      
+                    </tr>
+                    <tr>
+                        <td>
+                            <apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;" rendered="{!if(py.pymt__Payment_Type__c == 'Cash', true, false)}" escape="false" />
+                            <apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;<b>CARD TYPE:</b> {!py.pymt__Card_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;" rendered="{!if(py.pymt__Payment_Type__c == 'Credit Card', true, false)}" escape="false" />                                                         
+                            <apex:outputText value="<b>LAST 4 DIGITS:</b> {!py.pymt__Last_4_Digits__c}&nbsp;&nbsp;&nbsp;&nbsp;" rendered="{!if(py.pymt__Payment_Type__c == 'Credit Card', true, false)}" escape="false" />
+                            <apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;<b>CHECK NUMBER:</b> {!py.pymt__Check_Number__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Check', true, false)}" escape="false" />
+							<apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;<b>CHECK NUMBER:</b> {!py.pymt__Check_Number__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Money Order', true, false)}" escape="false" />
+							<apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;<b>CHECK NUMBER:</b> {!py.pymt__Check_Number__c}" rendered="{!if(py.pymt__Payment_Type__c == 'Cashier'+apos+'s Check', true, false)}" escape="false" />
+                            <apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PAYMENT TYPE:</b> {!py.pymt__Payment_Type__c}&nbsp;&nbsp;&nbsp;&nbsp;" rendered="{!if(py.pymt__Payment_Type__c == 'Electronic Funds Transfer', true, false)}" escape="false" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><apex:outputText value="<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MEMO:</b> {!py.pymt__Memo__c}<br />" style="white-space: normal;" rendered="{!if(py.pymt__Memo__c != null, true, false)}" escape="false" /></td>
+                    </tr>
+                    <tr>
+                        <td></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+    </apex:pageBlock>
+
+    <br /><br />
+
+    <apex:outputPanel >
+        <apex:outputPanel >
+            <p>
+            </p>
+        </apex:outputPanel>
+    </apex:outputPanel>
+
+    </body>
+    </html>
+</apex:page>

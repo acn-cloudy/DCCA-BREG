@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Internal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>TNOX: When checked, this comment is only visible to support agents and admins. Hidden from the ticket submitter in the My Tickets view.</description>
+    <label>Is Internal</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

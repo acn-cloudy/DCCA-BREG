@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Meals_Incidentals_When_Lodging_i__c</fullName>
+    <externalId>false</externalId>
+    <formula>Breakfast_Total_When_Lodging_is_Provided__c +  Lunch_Total_When_Lodging_is_Provided__c   + Dinner_Total_When_Lodging_is_Provided__c  +  Total_Incidentals_to_be_provided_OCONUS__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total Meals &amp; Incidental Amount When Lodging is Provided</inlineHelpText>
+    <label>Total Meals &amp; Incidentals Lodging Provid</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

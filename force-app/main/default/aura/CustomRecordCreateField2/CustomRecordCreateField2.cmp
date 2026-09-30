@@ -1,0 +1,202 @@
+<!--
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Component that simulates an input field
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* PacPoint-LC012519 - Created for BREG Phase 1
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Initial implementation
+* @author       Lucian Ciobanu - PacificPointCorp 
+* @created      2019-01-25
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+* Changes
+*
+*
+* ─────────────────────────────────────────────────────────────────────────────────────────────────
+-->
+<aura:component controller="GenericCreatePaymentCtrl">
+    
+    <aura:attribute name="sObj" type="object" />
+    
+    <aura:attribute name="field" type="string" />
+    
+    <aura:attribute name="fieldStreet" type="string" />
+    <aura:attribute name="fieldCity" type="string" />
+    <aura:attribute name="fieldState" type="string" />
+    <aura:attribute name="fieldPostalCode" type="string" />
+    <aura:attribute name="fieldStateCode" type="string" />
+    
+    <aura:attribute name="fieldTitle" type="string" />
+    <aura:attribute name="fieldFirstName" type="string" />
+    <aura:attribute name="fieldMiddleName" type="string" />
+    <aura:attribute name="fieldLastName" type="string" />
+    
+    
+    <aura:attribute name="value" type="object" />
+    
+    <aura:attribute name="valueStreet" type="object" />
+    <aura:attribute name="valueCity" type="object" />
+    <aura:attribute name="valueState" type="object" />
+    <aura:attribute name="valuePostalCode" type="object" />
+    <aura:attribute name="valueStateCode" type="object" />
+    
+    <aura:attribute name="valueTitle" type="object" />
+    <aura:attribute name="valueFirstName" type="object" />
+    <aura:attribute name="valueMiddleName" type="object" />
+    <aura:attribute name="valueLastName" type="object" />
+    
+    
+    <aura:attribute name="ctrlType" type="string" default="READONLY" />
+    <aura:attribute name="getDefaultValue" type="boolean" default="true"/>
+    <aura:attribute name="hasMetadataInfo" type="Boolean" default="false"/>
+    <aura:attribute name="accountName" type="String" default=""/>
+    <aura:attribute name="streetName" type="String" default=""/>
+    
+    <aura:attribute name="forPersonAccount" type="string" default="false" />
+    
+    <!-- aura handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />   
+    
+    <aura:if isTrue="{!v.hasMetadataInfo == false || v.field.metadataEditable == true}">
+        <div class="slds-col slds-size_1-of-2" style="padding-right: 5px; padding-left: 5px; padding-bottom: 15px;">
+            <aura:if isTrue="{!v.field.fieldIsMandatory || v.field.metadataRequired}">*</aura:if>
+            
+            <aura:if isTrue="{!v.hasMetadataInfo == false}">
+                <label class="slds-form-element__label" for="input-01">{!v.field.fieldLabel}</label>
+            </aura:if>
+            <aura:if isTrue="{!v.hasMetadataInfo == true}">
+                <label class="slds-form-element__label" for="input-01">{!v.field.metadataLabel}</label>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.field.fieldHelpText}">
+                <button class="slds-button slds-button_icon slds-button slds-button_icon" aria-describedby="help" title="{!v.field.fieldHelpText}">
+                    <lightning:icon iconName="utility:info" size="xx-small" alternativeText="Help"/>
+                </button>
+            </aura:if>
+            
+            <div>
+                
+                <aura:if isTrue="{!v.ctrlType == 'MULTIPICKLIST'}">
+                    <c:CustomMultiselect options="{!v.field.piclistOptions}" selectChange="{!c.handleSelectChangeEvent}" width="100%" />
+                </aura:if>
+
+                <!-- reference -->
+                <aura:if isTrue="{!v.ctrlType == 'REFERENCE'}">
+                    <c:InputLookup type="{!v.field.fieldReferenceTo[0]}" field="{!v.field.fieldAPIName}" value="{!v.value}" sObj="{!v.sObj}" className="slds-input" />
+                </aura:if> 
+                
+                <aura:if isTrue="{!v.ctrlType == 'EMAIL'}">
+                    <ui:inputText class="slds-input" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'PHONE'}">
+                    <ui:inputText class="slds-input" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'READONLY'}">
+                    <ui:outputText value="{!v.value}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'BOOLEAN'}">
+                    <ui:inputCheckbox class="slds-input checkboxWidth" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'STRING'}">
+                    <ui:inputText class="slds-input" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'NUMBER'}">
+                    <ui:inputNumber class="slds-input" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'TEXTAREA'}">
+                    <ui:inputTextArea class="slds-input" value="{!v.value}" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'DATE'}">
+                    <ui:inputDate class="slds-input" value="{!v.value}" displayDatePicker="true" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'DATETIME'}">
+                    <ui:inputDateTime class="slds-input" value="{!v.value}" displayDatePicker="true" change="{!c.valueChanged}" />
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'PICKLIST'}">
+                    <ui:inputSelect value="{!v.value}" change="{!c.valueChanged}">
+                        <ui:inputSelectOption text="" label="-- Please select --" />
+                        <aura:iteration items="{!v.field.piclistOptions}" var="plE">
+                            <ui:inputSelectOption text="{!plE.value}" label="{!plE.label}" />
+                        </aura:iteration>
+                    </ui:inputSelect>
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'ADDRESS'}">
+                    
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <label class="slds-form-element__label">Street</label><br />
+                            <ui:inputTextArea class="slds-input" value="{!v.valueStreet}" change="{!c.valueChanged}" /><br />
+                        </div>
+                    </div>
+                    <div class="slds-form-element__row">
+                        
+                        <div class="slds-form-element slds-size_3-of-8">
+                            <label class="slds-form-element__label">City</label><br />
+                            <ui:inputText class="slds-input" value="{!v.valueCity}" change="{!c.valueChanged}" />
+                        </div>
+                        <div class="slds-form-element slds-size_2-of-8">
+                            <label class="slds-form-element__label">Postal Code</label><br />
+                            <ui:inputText class="slds-input" value="{!v.valuePostalCode}" change="{!c.valueChanged}" />
+                        </div>
+                        <div class="slds-form-element slds-size_3-of-8">
+                            <label class="slds-form-element__label">State</label><br />
+                            <ui:inputSelect value="{!v.valueStateCode}" change="{!c.valueChanged}">
+                                <ui:inputSelectOption text="" label="-- Please select --" />
+                                <aura:iteration items="{!v.field.statesOptions}" var="plE">
+                                    <ui:inputSelectOption text="{!plE.value}" label="{!plE.label}" />
+                                </aura:iteration>
+                            </ui:inputSelect> 
+                        </div>
+                        
+                    </div>
+                </aura:if>
+                
+                <aura:if isTrue="{!v.ctrlType == 'PERSONACCOUNTNAME'}">
+                    
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <label class="slds-form-element__label">Salutation</label><br />
+                            <ui:inputSelect value="{!v.valueTitle}" change="{!c.valueChanged}">
+                                <ui:inputSelectOption text="" label="-- Please select --" />
+                                <ui:inputSelectOption text="Mr." label="Mr." />
+                                <ui:inputSelectOption text="Ms." label="Ms." />
+                                <ui:inputSelectOption text="Mrs." label="Mrs." />
+                                <ui:inputSelectOption text="Dr." label="Dr." />
+                                <ui:inputSelectOption text="Prof." label="Prof." />
+                            </ui:inputSelect> 
+                        </div>
+                    </div>
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <label class="slds-form-element__label">First Name</label><br />
+                            <ui:inputText class="slds-input" value="{!v.valueFirstName}" change="{!c.valueChanged}" /><br />
+                        </div>
+                    </div>
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <label class="slds-form-element__label">Middle Name</label><br />
+                            <ui:inputText class="slds-input" value="{!v.valueMiddleName}" change="{!c.valueChanged}" /><br />
+                        </div>
+                    </div>
+                    <div class="slds-form-element__row">
+                        <div class="slds-form-element slds-size_1-of-1">
+                            <label class="slds-form-element__label">Last Name</label><br />
+                            <ui:inputText class="slds-input" value="{!v.valueLastName}" change="{!c.valueChanged}" /><br />
+                        </div>
+                    </div>
+                    
+                </aura:if>
+                
+            </div>
+        </div>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReviewAllegedViolations__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC101718 - Created for BREG phase 1</description>
+    <inlineHelpText>Review alleged violations and make determinations in consultation with investigator, Supervising Investigator and/or Supervising Attorney</inlineHelpText>
+    <label>Review Alleged Violations</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

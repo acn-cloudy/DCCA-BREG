@@ -1,0 +1,68 @@
+.header {
+  background-image: url(/sfsites/c/resource/ComplaintsThemeLayout/imgs/background.jpg);
+}
+
+.header a:hover {
+  text-decoration: #fff;
+}
+
+.header .title {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 36px;
+  color: #fff;
+}
+
+.header .nav {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  color: #fff;
+}
+
+.card {
+  background-color: #fdfdf4;
+}
+
+.card>div:not(:last-child) {
+  border-right: 1px solid #cbcac1;
+}
+
+.card .title {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color: #527700 !important;
+}
+
+.card .published-date {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  line-height: 24px;
+  color: #000000;
+}
+
+@media (min-width: 480px) {
+  .card>div {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 0px;
+  }
+
+  .card>div {
+    padding: 10px;
+  }
+
+  .card>div:not(:last-child) {
+    border-bottom: 1px solid #cbcac1;
+  }
+
+  .published-date {
+    margin-top: 5px;
+  }
+}

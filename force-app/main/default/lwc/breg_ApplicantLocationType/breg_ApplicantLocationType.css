@@ -1,0 +1,20 @@
+.item-tooltip {
+  display: inline-block;
+  position: relative;
+}
+
+.item-tooltip .slds-popover {
+  width: 250px;
+  max-width: 250px;
+  white-space: normal;
+}
+
+.item-tooltip_block {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-30%);
+  z-index: 1000;
+  margin-bottom: 0.5rem;
+  color: white;
+}

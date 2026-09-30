@@ -1,0 +1,116 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes"
+                controller="FileDetailCreatorController">
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="yesNoOptions" type="List"/>
+    <aura:attribute name="multipleRecordTypes" type="Boolean" default="false"/>
+    <aura:attribute name="availableRecordTypes" type="Object[]"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="uploadedFileWrapper" type="object" />
+    <aura:attribute name="fileUrl" type="String" />
+    <aura:attribute name="fileDetailId" type="String"/>
+    <aura:attribute name="recordTypeId" type="String"/>
+
+    <aura:attribute name="fileDetailCreated" type="Boolean" default="false"/>
+    <aura:attribute name="fileUploaded" type="Boolean" default="false"/>
+    <aura:attribute name="uploadMore" type="String" default="No"/>
+
+    <aura:attribute name="parentFieldName" type="String"/>
+    <aura:attribute name="title" type="String" default="Upload File"/>
+    <aura:attribute name="iconName" type="String" default="standard:relationship"/>
+    <aura:attribute name="continueButtonLabel" type="String" default="Continue"/>
+    <aura:attribute name="cancelButtonLabel" type="String" default="Close"/>
+    <aura:attribute name="visibilityField" type="String"/>
+    <aura:attribute name="isVisible" type="Boolean" default="true"/>
+    <aura:attribute name="openCard" type="Boolean" default="true"/>
+    <aura:attribute name="isDateReceivedVisible" type="Boolean" default="true"/>
+    <aura:attribute name="today" type="Date"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:if isTrue="{!v.isVisible}">
+        <lightning:card title="{!v.title}" iconName="{!v.iconName}">
+            <aura:set attribute="actions">
+                <aura:if isTrue="{!v.openCard}">
+                    <lightning:buttonIcon iconName="utility:up"
+                                          variant="border-filled"
+                                          alternativeText="Close"
+                                          onclick="{!c.handleCloseForm}"/>
+                    <aura:set attribute="else">
+                        <lightning:buttonIcon iconName="utility:down"
+                                              variant="border-filled"
+                                              alternativeText="Open"
+                                              onclick="{!c.handleShowForm}"/>
+                    </aura:set>
+                </aura:if>
+
+            </aura:set>
+            <aura:if isTrue="{!v.openCard}">
+                <div class="slds-card slds-card__body_inner slds-icon_x">
+                    <aura:if isTrue="{!not(v.fileDetailCreated)}">
+                        <aura:if isTrue="{!v.multipleRecordTypes}">
+                            <div class="slds-form-element">
+                                <lightning:radioGroup name="recordType"
+                                                      label="Select Record Type"
+                                                      options="{!v.availableRecordTypes}"
+                                                      value="{!v.recordTypeId}"
+                                                      required="true"
+                                                      onchange="{!c.handleRecordTypeChange}"/>
+                            </div>
+                        </aura:if>
+                        <lightning:recordEditForm
+                                onload="{!c.handleLoad}"
+                                onsubmit="{!c.handleSubmit}"
+                                onsuccess="{!c.handleSuccess}"
+                                onerror="{!c.handleError}"
+                                recordTypeId="{!v.recordTypeId}"
+                                objectApiName="FileDetails__c"
+                                aura:id="fileDetailCreatorForm">
+                            <!-- the messages component is for error messages -->
+                            <lightning:messages/>
+                            <div class="slds-hide">
+                                <lightning:inputField  aura:id="field" 
+                                    fieldName="{!v.parentFieldName}" value="{!v.recordId}"/>
+                            </div>
+                            <lightning:inputField aura:id="field" fieldName="Category__c"/>
+                            <lightning:inputField aura:id="field" fieldName="Type__c"/>
+                            <lightning:inputField aura:id="field" fieldName="Description__c"/>
+                            <aura:if isTrue="{!v.isDateReceivedVisible}">
+                                <lightning:inputField aura:id="field" fieldName="DateReceived__c"/>
+                                <aura:set attribute="else">
+                                    <div class="slds-hide">
+                                    <lightning:inputField aura:id="field" fieldName="DateReceived__c" value="{!v.today}"/>
+                                    </div>
+                                </aura:set>
+                            </aura:if>
+                        </lightning:recordEditForm>
+                    </aura:if>
+
+                    <aura:if isTrue="{!and(v.fileDetailCreated, not(v.fileUploaded))}">
+                        <c:springFiles recordId="{!v.recordId}" 
+                            label="Upload file" onuploadfinished="{!c.handleUploadFinished}" ></c:springFiles>
+                    </aura:if>
+
+                    <aura:if isTrue="{!and(v.fileDetailCreated, v.fileUploaded)}">
+                        <lightning:radioGroup name="uploadAnotherFile"
+                                              label="Do you want to upload another file?"
+                                              options="{!v.yesNoOptions}"
+                                              value="{!v.uploadMore}"/>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showSpinner}">
+                        <lightning:spinner size="medium" aura:id="spinner"/>
+                    </aura:if>
+                </div>
+            </aura:if>
+            <aura:set attribute="footer">
+                <aura:if isTrue="{!v.openCard}">
+                    <lightning:button label="{!v.cancelButtonLabel}" aura:id="cancelBtn" variant="neutral"
+                                      onclick="{!c.handleCloseForm}"/>
+                    <lightning:button label="{!v.continueButtonLabel}" aura:id="saveBtn" variant="brand"
+                                      onclick="{!c.handleSave}"/>
+                    <lightning:button label="Next" aura:id="nextBtn" variant="brand" class="slds-hide"
+                                      onclick="{!c.handleNext}"/>
+                </aura:if>
+            </aura:set>
+        </lightning:card>
+    </aura:if>
+</aura:component>

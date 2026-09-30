@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IAsDisclosureDocument__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Client must receive IA&apos;s disclosure document at least 48 hours prior to entering into the contract or allowed to terminate the contract without penalty within 5 business days of entering into the contract.</inlineHelpText>
+    <label>IA&apos;s Disclosure Document</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

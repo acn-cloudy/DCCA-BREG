@@ -1,0 +1,250 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+                controller="RelatedListTreeViewerController">
+    <aura:import library="lightning:confirm" property="LightningConfirm" />
+    <aura:attribute name="isParentLicenseAndChildLicense" type="Boolean" default="false"/>
+
+    <aura:attribute name="childRelationship1ApiName" type="String" default=""/>
+    <aura:attribute name="child1Columns" type="String" default=""/>
+    <aura:attribute name="child1EditableColumns" type="String" default=""/>
+    <aura:attribute name="child1SortFieldApiName" type="String"/>
+    <aura:attribute name="child1SortDirection" type="String" default="ASC"/>
+    <aura:attribute name="child1AdditionalOrderByStatement" type="String"/>
+    <aura:attribute name="child1RecordLimit" type="Integer" default="0"/>
+
+    <aura:attribute name="childRelationship2ApiName" type="String" default=""/>
+    <aura:attribute name="child2Columns" type="String"/>
+    <aura:attribute name="child2EditableColumns" type="String"/>
+    <aura:attribute name="child2SortFieldApiName" type="String"/>
+    <aura:attribute name="child2SortDirection" type="String"/>
+
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="useCard" type="Boolean" default="true"/>
+
+    <aura:attribute name="massUpdateEnabled" type="Boolean" default="false"/>
+    <aura:attribute name="massUpdateJSONString" type="String" default="{}"/>
+    <aura:attribute name="massUpdateDef" type="Object"/>
+    <aura:attribute name="massUpdateSelectedId" type="String" default=""/>
+    <aura:method name="handleMassAction" action="{!c.handleMassAction}" access="PUBLIC" >
+        <aura:attribute name="action" type="Object" /> 
+    </aura:method>
+    <aura:attribute name="filtersEnabled" type="Boolean" default="false"/>
+    <aura:attribute name="filtersJSONString" type="String" default="{}"/>
+    <aura:attribute name="filtersDef" type="Object"/>
+
+    <aura:attribute name="gridColumns" type="RelatedListTreeViewerController.GridColumn[]"/>
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="dataBeforeUpdate" type="Object"/>
+    <aura:attribute name="mode" type="String" default="read"/>
+
+    <aura:attribute name="updatedChild1Rows" type="Map"/>
+    <aura:attribute name="updatedChild2Rows" type="Map"/>
+
+    <aura:attribute name="skipAutoSave" type="Boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="isSaving" type="Boolean" default="false"/>
+    <aura:attribute name="hasActiveRowEdit" type="Boolean" default="false"/>
+
+    <aura:attribute name="title" type="String" default="Title"/>
+
+    <aura:attribute name="allowNew" type="Boolean" default="false"/>
+    <aura:attribute name="createNewDef" type="Object"/>
+    <aura:attribute name="createNewDefFields" type="String"/>
+    <aura:attribute name="createNewCmp" type="Object"/>
+    <aura:attribute name="createNewSpinner" type="Object"/>
+
+    <!--Special attribute for showing report link if parent object is License and child object is associated license-->
+    <aura:attribute name="showSubTitleForAllLicensesLink" type="Boolean" default="false"/>
+    <aura:attribute name="allLicenseReportRecordId" type="String"/>
+    <aura:attribute name="allLicenseReportFilter" type="String"/>`
+
+    <aura:attribute name="overlayLib" type="Object"/>
+
+    <aura:method name="reInit" action="{!c.init}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.updatedChild1Rows}" action="{!c.autoSaveChild1}"/>
+    <aura:handler name="change" value="{!v.updatedChild2Rows}" action="{!c.autoSaveChild2}"/>
+
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div onkeyup="{!c.handleEscape}">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner/>
+        </aura:if>
+        <div style="display:none;">
+            <lightning:recordForm recordId="{!v.recordId}"
+                                  objectApiName="License__c"
+                                  fields="Name"
+                                  onload="{!c.setSubtitleVisibility}"/>
+        </div>
+
+        <aura:if isTrue="{!v.useCard}">
+            <lightning:card iconName="standard:task">
+                <aura:set attribute="title">
+                    <p>
+                        <aura:if isTrue="{!v.isSaving}">
+                        {!v.title}
+                            <div class="slds-text-body_small" style="display: inline-block;">
+                                <i>&nbsp;saving</i>
+                            </div>
+                            <div class="spinnerContainer">
+                                <lightning:spinner size="small"/>
+                            </div>
+                            <aura:set attribute="else">
+                                    {!v.title}
+                            </aura:set>
+                        </aura:if>
+                    </p>
+                    <aura:if isTrue="{!v.showSubTitleForAllLicensesLink}">
+                        <p style="font-size: 9pt;">
+                            <i>
+                                <a href="{!'/lightning/r/report/'+v.allLicenseReportRecordId+'/view?fv0='+v.allLicenseReportFilter}"
+                                   target="_blank">
+                                    All Associated Licenses
+                                </a>
+                            </i>
+                        </p>
+                    </aura:if>
+                </aura:set>
+                <aura:set attribute="actions">
+                    <lightning:layout verticalAlign="start">
+                        <aura:if isTrue="{!v.childRelationship1ApiName == 'AssociatedEmployee__r'}">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button label="Replace Employee" onclick="{!c.handleReplaceEmployeeClicked}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!v.childRelationship1ApiName == 'AssociatedEntities__r'}">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button label="Replace Entity" onclick="{!c.handleReplaceEntityClicked}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!v.allowNew}">
+                            <lightning:layoutItem padding="horizontal-small">
+                                <lightning:button label="New" onclick="{!c.handleNewClicked}"/>
+                            </lightning:layoutItem>
+                        </aura:if>
+                        <aura:if isTrue="{!v.massUpdateEnabled}">
+                            <lightning:layoutItem  padding="horizontal-large">
+                                <lightning:formattedText value="Mass actions" class="slds-text-body_small"></lightning:formattedText>
+                                <div class="slds-border_top slds-p-vertical_x-small">
+                                    <lightning:layout verticalAlign="start">
+                                        <aura:iteration items="{!v.massUpdateDef.actions}" var="action">
+                                            <lightning:layoutItem padding="horizontal-small">
+                                                <span data-massactionid="{!action.id}">
+                                                    <lightning:button label="{!action.label}" onclick="{!c.openConfirm}" title="{!action.helpText}"/>
+                                                </span>
+                                            </lightning:layoutItem>
+                                        </aura:iteration>
+                                    </lightning:layout>
+                                </div>
+                            </lightning:layoutItem> 
+                        </aura:if>
+                        <aura:if isTrue="{!v.filtersEnabled}">
+                            <lightning:layoutItem  padding="horizontal-large">
+                                <lightning:formattedText value="{!'Filters (' + v.filtersDef.activeCount + ' active)'}" class="slds-text-body_small"></lightning:formattedText>
+                                <div class="slds-border_top slds-p-vertical_x-small">
+                                    <lightning:layout verticalAlign="start">
+                                        <aura:iteration items="{!v.filtersDef.filters}" var="filter">
+                                            <aura:if isTrue="{!filter.type == 'toggle'}">
+                                                <lightning:layoutItem padding="horizontal-small">
+                                                    <span data-filterid="{!filter.id}">
+                                                        <lightning:input 
+                                                            aura:id="filter" 
+                                                            type="toggle" 
+                                                            label="{!filter.label}" 
+                                                            name="{!filter.id}" 
+                                                            onchange="{!c.handleFilterChange}" 
+                                                            variant="label-stacked" 
+                                                            title="{!filter.helpText}"
+                                                            messageToggleActive="{!filter.activeLabel}"
+                                                            messageToggleInactive="{!filter.inactiveLabel}"/>
+                                                    </span>
+                                                </lightning:layoutItem>
+                                                
+                                            </aura:if>
+                                        </aura:iteration>
+                                    </lightning:layout>
+                                </div>
+                            </lightning:layoutItem> 
+                        </aura:if>
+                    </lightning:layout>
+                </aura:set>
+                <aura:set attribute="body">
+                    <table class="slds-table slds-table_bordered">
+                        <thead>
+                        <tr>
+                            <aura:if isTrue="{!not(empty(v.childRelationship2ApiName))}">
+                                <th class="col-action col-fit">
+                                    <lightning:buttonIcon variant="bare"
+                                                          size="small"
+                                                          alternativeText="Collapse rows"
+                                                          iconName="utility:contract_alt"
+                                                          onclick="{!c.handleCancelClick}"/>
+                                </th>
+                            </aura:if>
+                            <aura:iteration items="{!v.gridColumns}" var="col">
+                                <th class="col-fit">
+                                        {!col.fieldLabel}
+                                </th>
+                            </aura:iteration>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <aura:iteration items="{!v.data}" var="rowData">
+                            <!-- If onlyShowDeficient is false or is deficient -->
+                            <aura:if isTrue="{!not(rowData._isFilteredOut)}">
+                                <c:RelatedListTreeViewerRow
+                                    fields="{!v.gridColumns}" 
+                                    aura:id="row"
+                                    updatedRows="{!v.updatedChild1Rows}"
+                                    updatedChildRows="{!v.updatedChild2Rows}"
+                                    isInEditMode="{!v.hasActiveRowEdit}"
+                                    childRel="{!v.childRelationship1ApiName}"
+                                    rowData="{!rowData}"
+                                    noChild="{!empty(v.childRelationship2ApiName)}"
+                                    childRowData="{!rowData._children}"
+                                    childRelApiName="{!v.childRelationship2ApiName}"
+                                    childRelFields="{!v.child2Columns}"
+                                    childRelEditableFields="{!v.child2EditableColumns}"/>
+                                
+                            </aura:if> 
+                            
+                        </aura:iteration>
+                        </tbody>
+                    </table>
+                </aura:set>
+            </lightning:card>
+            <aura:set attribute="else">
+                
+                
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                    <tr>
+                        <th class="col-action"></th>
+                        <aura:iteration items="{!v.gridColumns}" var="col">
+                            <th class="col-fit">
+                                    {!col.fieldLabel}
+                            </th>
+                        </aura:iteration>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <aura:iteration items="{!v.data}" var="rowData">
+                        <aura:if isTrue="{!not(rowData._isFilteredOut)}">
+                            <c:RelatedListTreeViewerRow aura:id="row"
+                                                    fields="{!v.gridColumns}"
+                                                    updatedRows="{!v.updatedChild1Rows}"
+                                                    updatedChildRows="{!v.updatedChild2Rows}"
+                                                    isInEditMode="{!v.hasActiveRowEdit}"
+                                                    rowData="{!rowData}"
+                                                    childRowData="{!rowData._children}"
+                                                    childRelApiName="{!v.childRelationship2ApiName}"
+                                                    childRelFields="{!v.child2Columns}"
+                                                    childRelEditableFields="{!v.child2EditableColumns}"/>
+                        </aura:if>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

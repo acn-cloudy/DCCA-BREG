@@ -1,0 +1,3 @@
+<apex:page standardController="Investigation__c">
+	<SpringCMEos:SpringCM_EOSGrid objectType="Investigation__c" objectId="{!Id}" />
+</apex:page>

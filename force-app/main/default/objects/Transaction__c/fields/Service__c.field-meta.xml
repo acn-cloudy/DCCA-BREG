@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Service__c</fullName>
+    <description>PacPoint-CL051618 - Created for phase 1</description>
+    <label>Service</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hawaii Business Express</fullName>
+                <default>false</default>
+                <label>Hawaii Business Express</label>
+            </value>
+            <value>
+                <fullName>DCCA PVL Renewals</fullName>
+                <default>false</default>
+                <label>DCCA PVL Renewals</label>
+            </value>
+            <value>
+                <fullName>DCCA COGS and Other Documents</fullName>
+                <default>false</default>
+                <label>DCCA COGS and Other Documents</label>
+            </value>
+            <value>
+                <fullName>HILS Renewals</fullName>
+                <default>false</default>
+                <label>HILS Renewals</label>
+            </value>
+            <value>
+                <fullName>DCCA BREG Annual Filings</fullName>
+                <default>false</default>
+                <label>DCCA BREG Annual Filings</label>
+            </value>
+            <value>
+                <fullName>PVL List Builder</fullName>
+                <default>false</default>
+                <label>PVL List Builder</label>
+            </value>
+            <value>
+                <fullName>Entity List Builder</fullName>
+                <default>false</default>
+                <label>Entity List Builder</label>
+            </value>
+            <value>
+                <fullName>PVL Initial License</fullName>
+                <default>false</default>
+                <label>PVL Initial License</label>
+            </value>
+            <value>
+                <fullName>Mortgage Foreclosure Payments</fullName>
+                <default>false</default>
+                <label>Mortgage Foreclosure Payments</label>
+            </value>
+            <value>
+                <fullName>Heald College Transcript Request Payment</fullName>
+                <default>false</default>
+                <label>Heald College Transcript Request Payment</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

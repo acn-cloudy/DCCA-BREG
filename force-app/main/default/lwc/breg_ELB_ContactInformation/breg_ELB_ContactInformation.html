@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Step 3: Contact Information" icon-name="utility:search">
+        <p class="slds-var-m-bottom_medium">
+            Provide a contact name and valid email address. Instructions on how to retrieve your list will be sent to this email address.
+        </p>
+        <lightning-input
+            name="nameOrCompany"
+            label="Name/Company"
+            type="text"
+            class="slds-var-m-bottom_small slds-var-m-right_small"
+            required="true"
+            onchange={handleInput}
+            value={nameOrCompany}
+        ></lightning-input>
+
+        <lightning-input
+            name="email"
+            label="Email Address"
+            type="email"
+            class="slds-var-m-right_small"
+            required="true"
+            onchange={handleInput}
+            value={email}
+        ></lightning-input>
+        <lightning-input
+            name="confirmEmail"
+            label="Confirm Email Address"
+            type="email"
+            class="slds-var-m-right_small"
+            required="true"
+            onchange={handleInput}
+            value={confirmEmail}
+        ></lightning-input>
+        <template if:true={showConfirmEmailError}>
+            <div class="slds-text-color_error slds-m-top_x-small">⚠️ Email and Confirm Email must match.</div>
+        </template>
+    </lightning-card>
+</template>

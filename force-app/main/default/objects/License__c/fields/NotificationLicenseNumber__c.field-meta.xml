@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NotificationLicenseNumber__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ 
+
+
+AND(LicenseType__r.LicensePrefix__c = &quot;CT&quot;,  ClassPrefix__c &lt;&gt; &quot;&quot;),
+
+
+
+ClassPrefix__c  +&quot;-&quot;+ TEXT(LicenseNumberFormula__c) +&quot;-&quot;+ TEXT(BranchNumberFormula__c), 
+
+
+
+
+
+
+
+
+Name 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Notification License Number</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

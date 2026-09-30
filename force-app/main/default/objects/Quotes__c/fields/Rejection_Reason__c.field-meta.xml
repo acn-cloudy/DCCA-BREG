@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejection_Reason__c</fullName>
+    <description>Reason why the Quote was denied.</description>
+    <label>Rejection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pricing / Budget</fullName>
+                <default>false</default>
+                <label>Pricing / Budget</label>
+            </value>
+            <value>
+                <fullName>Expired Quote</fullName>
+                <default>false</default>
+                <label>Expired Quote</label>
+            </value>
+            <value>
+                <fullName>Terms &amp; Conditions</fullName>
+                <default>false</default>
+                <label>Terms &amp; Conditions</label>
+            </value>
+            <value>
+                <fullName>Project Cancelled</fullName>
+                <default>false</default>
+                <label>Project Cancelled</label>
+            </value>
+            <value>
+                <fullName>Competitor Chosen</fullName>
+                <default>false</default>
+                <label>Competitor Chosen</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

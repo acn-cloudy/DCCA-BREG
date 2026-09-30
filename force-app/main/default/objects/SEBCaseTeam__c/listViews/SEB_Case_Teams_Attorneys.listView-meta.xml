@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SEB_Case_Teams_Attorneys</fullName>
+    <columns>SEBCase__c</columns>
+    <columns>NAME</columns>
+    <columns>TeamMember__c</columns>
+    <columns>Role__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>UPDATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Role__c</field>
+        <operation>equals</operation>
+        <value>Attorney</value>
+    </filters>
+    <label>SEB Case Teams - Attorneys</label>
+    <sharedTo>
+        <group>SEB_Attorneys</group>
+        <group>SEB_Supervisors</group>
+    </sharedTo>
+</ListView>

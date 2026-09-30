@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Type__c</fullName>
+    <label>Application Sub Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exemption - Charitable ... bodies</fullName>
+                <default>false</default>
+                <label>Exemption - Charitable ... bodies</label>
+            </value>
+            <value>
+                <fullName>Correction of error</fullName>
+                <default>false</default>
+                <label>Correction of error</label>
+            </value>
+            <value>
+                <fullName>63(1) - $50 - fixed</fullName>
+                <default>false</default>
+                <label>63(1) - $50 - fixed</label>
+            </value>
+            <value>
+                <fullName>63(2) - variation to trust in will / intestacy</fullName>
+                <default>false</default>
+                <label>63(2) - variation to trust in will / intestacy</label>
+            </value>
+            <value>
+                <fullName>55(1)(a)</fullName>
+                <default>false</default>
+                <label>55(1)(a)</label>
+            </value>
+            <value>
+                <fullName>55(1)(b)</fullName>
+                <default>false</default>
+                <label>55(1)(b)</label>
+            </value>
+            <value>
+                <fullName>54(2)</fullName>
+                <default>false</default>
+                <label>54(2)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

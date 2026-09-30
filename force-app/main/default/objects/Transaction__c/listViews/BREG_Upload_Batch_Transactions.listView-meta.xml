@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BREG_Upload_Batch_Transactions</fullName>
+    <columns>Account__c</columns>
+    <columns>NAME</columns>
+    <columns>BatchNumberDigits__c</columns>
+    <columns>TransactionId__c</columns>
+    <columns>WorkitemID__c</columns>
+    <columns>Status__c</columns>
+    <columns>AmountOutstanding__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>BatchNumber__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>BREG Upload Batch Transactions</label>
+    <sharedTo>
+        <role>BREG_SEB_Manager</role>
+    </sharedTo>
+</ListView>

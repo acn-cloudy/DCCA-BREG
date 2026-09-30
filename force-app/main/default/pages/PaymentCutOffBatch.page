@@ -1,0 +1,42 @@
+<apex:page standardController="pymt__PaymentX__c"
+           extensions="PaymentCutOffBatchController"
+           recordSetVar="payments"
+           tabStyle="pymt__PaymentX__c"
+           showHeader="false"
+           applyHtmlTag="false"
+           applyBodyTag="false"
+           lightningStyleSheets="true"
+           docType="html-5.0">
+    <apex:includeLightning />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <head>
+        <apex:slds />
+    </head>
+    <body>
+    <div class="slds-scope">
+        <div class="slds-box" style="max-width: 450px;">
+            <apex:form >
+                <apex:pageMessages />
+                <apex:outputPanel rendered="{!NOT(success)}">
+                    <div>
+                        <p>
+                            You are about to close out your day. Any payments you create after this time will be
+                            recorded on the next business day. Do you want to proceed?
+                        </p>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <apex:commandButton action="{!yes}" value="Yes" styleClass="slds-button slds-button_brand"/>
+                        <apex:commandButton action="{!no}" value="No" styleClass="slds-button slds-button_neutral"/>
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!success}">
+                    <div class="slds-m-top_medium">
+                        <apex:commandButton action="{!no}" value="Done" styleClass="slds-button slds-button_neutral"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:form>
+        </div>
+    </div>
+    </body>
+    </html>
+</apex:page>

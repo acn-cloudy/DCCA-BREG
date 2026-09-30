@@ -1,0 +1,11 @@
+<apex:component >
+    <apex:attribute name="license" type="License__c" description="License"/>
+    <div style="font-size: 11pt;padding-left: 85px; padding-top: 180px">
+        <apex:outputText escape="false" value="{!license.LicenseeNameFormula__c}"/><br/>
+        <apex:outputText escape="false" rendered="{!license.DBAEntity__c != null}" 
+                value="{!license.DBAEntity__c + '<br/>' }"></apex:outputText>
+       <apex:outputText escape="false" value="{!license.RenewalMailToStreet__c}"></apex:outputText>
+       <br/>
+       {!license.RenewalMailToCity__c}, {!license.RenewalMailToState__c} {!license.RenewalMailToZipCode__c}<apex:outputText rendered="{!NOT(ISBLANK(license.RenewalMailToCountry__c))}" escape="false" value="{!'<br/>' + license.RenewalMailToCountry__c}"/>
+  </div>
+</apex:component>

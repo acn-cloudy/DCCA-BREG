@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseGenericLetter__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-DN10282020 - Created for PVL Sprint 7 Phase 1</description>
+    <label>License Generic Notification</label>
+    <referenceTo>DocGeneratorSettings__c</referenceTo>
+    <relationshipLabel>License Types (License Generic Letter)</relationshipLabel>
+    <relationshipName>License_TypesSuGy</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

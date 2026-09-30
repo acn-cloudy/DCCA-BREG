@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>PacPoint-IC071619- Created for PVL phase 1</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>C - Current, Valid &amp; In Good Standing</fullName>
+                <default>true</default>
+                <label>C - Current, Valid &amp; In Good Standing</label>
+            </value>
+            <value>
+                <fullName>I - Class No Longer Active (No RME/Firm, No EMPR)</fullName>
+                <default>false</default>
+                <label>I - Class No Longer Active (No RME/Firm, No EMPR)</label>
+            </value>
+            <value>
+                <fullName>F - Class No Longer Active (License Forfeited)</fullName>
+                <default>false</default>
+                <label>F - Class No Longer Active (License Forfeited)</label>
+            </value>
+            <value>
+                <fullName>D - Class No Longer Active (License Delinquent)</fullName>
+                <default>false</default>
+                <label>D - Class No Longer Active (License Delinquent)</label>
+            </value>
+            <value>
+                <fullName>RI - RESTRICTED INACTIVE</fullName>
+                <default>false</default>
+                <label>RI - RESTRICTED INACTIVE</label>
+            </value>
+            <value>
+                <fullName>Z - CLASS NO LONGER ACTIVE (DISCIPLINARY ACTION TAKEN)</fullName>
+                <default>false</default>
+                <label>Z - CLASS NO LONGER ACTIVE (DISCIPLINARY ACTION TAKEN)</label>
+            </value>
+            <value>
+                <fullName>E - PRACTICE SPECIALTY AMENDED BY BOARD OF NURSING</fullName>
+                <default>false</default>
+                <label>E - PRACTICE SPECIALTY AMENDED BY BOARD OF NURSING</label>
+            </value>
+            <value>
+                <fullName>LP - LICENSE REPEALED</fullName>
+                <default>false</default>
+                <label>LP - LICENSE REPEALED</label>
+            </value>
+            <value>
+                <fullName>B - CLASS DENIED BY BOARD</fullName>
+                <default>false</default>
+                <label>B - CLASS DENIED BY BOARD</label>
+            </value>
+            <value>
+                <fullName>CW - CLASS WITHDRAWN BY APPLICANT</fullName>
+                <default>false</default>
+                <label>CW - CLASS WITHDRAWN BY APPLICANT</label>
+            </value>
+            <value>
+                <fullName>H - CLASS DEFERRED BY BOARD</fullName>
+                <default>false</default>
+                <label>H - CLASS DEFERRED BY BOARD</label>
+            </value>
+            <value>
+                <fullName>NE - NO EXAM REQUIRED--CLASS TO BE LICENSED</fullName>
+                <default>false</default>
+                <label>NE - NO EXAM REQUIRED--CLASS TO BE LICENSED</label>
+            </value>
+            <value>
+                <fullName>O - CLASS CODE OBSOLETE OR REDESCRIBED.</fullName>
+                <default>false</default>
+                <label>O - CLASS CODE OBSOLETE OR REDESCRIBED.</label>
+            </value>
+            <value>
+                <fullName>P - PASSED EXAM--CLASS TO BE LICENSED</fullName>
+                <default>false</default>
+                <label>P - PASSED EXAM--CLASS TO BE LICENSED</label>
+            </value>
+            <value>
+                <fullName>T - CLASS NO LONGER ACTIVE (LICENSE TERMINATED)</fullName>
+                <default>false</default>
+                <label>T - CLASS NO LONGER ACTIVE (LICENSE TERMINATED)</label>
+            </value>
+            <value>
+                <fullName>TD - CLASS NO LONGER ACTIVE (LICENSEE DECEASED)</fullName>
+                <default>false</default>
+                <label>TD - CLASS NO LONGER ACTIVE (LICENSEE DECEASED)</label>
+            </value>
+            <value>
+                <fullName>U - CLASS NO LONGER NEEDED DUE TO UPGRADE TO HIGHER CLASS</fullName>
+                <default>false</default>
+                <label>U - CLASS NO LONGER NEEDED DUE TO UPGRADE TO HIGHER CLASS</label>
+            </value>
+            <value>
+                <fullName>W - AWAITING APPROVAL/EXAM</fullName>
+                <default>false</default>
+                <label>W - AWAITING APPROVAL/EXAM</label>
+            </value>
+            <value>
+                <fullName>X - INACTIVATION BY CHOICE</fullName>
+                <default>false</default>
+                <label>X - INACTIVATION BY CHOICE</label>
+            </value>
+            <value>
+                <fullName>Y - CLASS NO LONGER USED-BOARD APPROVED</fullName>
+                <default>false</default>
+                <label>Y - CLASS NO LONGER USED-BOARD APPROVED</label>
+            </value>
+            <value>
+                <fullName>NX - NO PRESCRIPTIVE AUTHORITY ON THIS CLASS</fullName>
+                <default>false</default>
+                <label>NX - NO PRESCRIPTIVE AUTHORITY ON THIS CLASS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

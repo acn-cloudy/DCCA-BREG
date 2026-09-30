@@ -1,0 +1,314 @@
+.slds-button {
+    &:focus {
+        @include focus-outline();
+    }
+
+    &.slds-button_outline-brand[disabled],
+    &.slds-button_outline-brand:disabled {
+        color: var(--text-disabled);
+        background-color: var(--action-selected-8-p);
+        border: var(--border-width-thin) solid var(--text-disabled);
+    }
+
+    &.slds-button_brand[disabled],
+    &.slds-button_brand:disabled,
+    &.slds-button--brand[disabled],
+    &.slds-button--brand:disabled {
+        color: var(--text-disabled);
+        background-color: var(--action-selected-8-p);
+        border: none !important;
+    }
+
+    // &.slds-button_outline-brand:active {
+    //     background-color: var(--primary-main);
+    //     color: var(--white);
+    // }
+
+    &_neutral {
+        color: var(--primary-main);
+        background-color: var(--white);
+        border: var(--border-width-thin) solid var(--action-focus-12-p);
+
+        &:hover {
+            background-color: var(--action-hover-4-p);
+        }
+    }
+
+    &_brand {
+        color: var(--white);
+        background-color: var(--primary-main);
+
+        &:hover,
+        &:focus,&:active  {
+            background-color: var(--primary-dark);
+        }
+
+        &:focus {
+            box-shadow: var(--box-shadow-8);
+        }
+    }
+
+    &_outline-brand {
+        color: var(--primary-main);
+        background-color: var(--white);
+        border: var(--border-width-thin) solid var(--primary-main);
+
+        &:hover,
+        &:focus,&:active {
+            color: var(--primary-dark);
+            background-color: var(--white);
+            border: var(--border-width-thin) solid var(--primary-dark);
+        }
+
+        &:focus {
+            box-shadow: var(--box-shadow-default);
+        }
+    }
+
+    &_destructive {
+        color: var(--white);
+        background-color: var(--error-main);
+
+        &:hover,
+        &:focus,&:active  {
+            background-color: var(--error-dark);
+        }
+
+        &:focus {
+            box-shadow: var(--box-shadow-8);
+        }
+    }
+
+    &_text-destructive {
+        color: var(--error-main);
+        background-color: var(--white);
+        border: var(--border-width-thin) solid var(--action-focus-12-p);
+
+        &:hover {
+            background-color: var(--action-hover-4-p);
+        }
+    }
+
+    &_success {
+        color: var(--white);
+        background-color: var(--success-main);
+        border: none;
+
+        &:hover,
+        &:focus,&:active  {
+            background-color: var(--success-dark);
+        }
+
+        &:focus {
+            box-shadow: var(--box-shadow-8);
+        }
+    }
+}
+
+[variant='base']{
+    .slds-button {
+        color: var(--primary-main);
+        padding: 0 !important;
+
+        &:hover,
+        &:focus,&:active  {
+            color: var(--primary-dark);
+        }
+    }
+}
+
+.mds-icon {
+    .slds-button {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        &:after,
+        &:before {
+            margin: 0 !important;
+        }
+
+        &:focus {
+            @include focus-outline();
+        }
+
+        .slds-button__icon {
+            display: none;
+        }
+    }
+}
+.mds-icon_no-margin{
+    .slds-button {
+        &:after,
+        &:before {
+            margin: 0 !important;
+        }
+    }
+} 
+
+// [class*='mds-icon'] {
+//     .slds-button  {
+//         border: none;
+//         border-radius: 0;
+//         padding: 0;
+//         width: auto;
+//         height: auto;
+//     }
+// }
+
+.mds-button {
+    .slds-button {
+        transition: all 0.3s;
+        padding: 0.25rem 1rem;
+        font-size: toRem(16);
+    }
+
+    &_size {
+        &-small {
+            .slds-button {
+                padding: 0 0.75rem;
+                font-size: toRem(14);
+            }
+        }
+
+        &-regular {
+            .slds-button {
+                padding: 0.25rem 1rem;
+                font-size: toRem(16);
+            }
+        }
+
+        &-large {
+            .slds-button {
+                padding: 0.5rem 1.5rem;
+                font-size: toRem(18);
+            }
+        }
+
+        &-x_large {
+            .slds-button {
+                padding: 1rem 2rem;
+                font-size: toRem(20);
+            }
+        }
+    }
+
+    &_link {
+        .slds-button {
+            padding: 0;
+            border: none;
+        }
+    }
+
+    &-icon {
+        &_only {
+            .slds-button {
+
+                &:before,
+                &:after {
+                    margin: 0 !important;
+                }
+            }
+        }
+
+        &_x-small {
+            .slds-button {
+                font-size: toRem(8);
+            }
+        }
+
+        &_small {
+            .slds-button {
+                font-size: toRem(12);
+            }
+        }
+
+        &_regular {
+            .slds-button {
+                font-size: toRem(16);
+            }
+        }
+
+        &_medium {
+            .slds-button {
+                font-size: toRem(20);
+            }
+        }
+
+        &_large {
+            .slds-button {
+                font-size: toRem(24);
+            }
+        }
+
+        &_x-large {
+            .slds-button {
+                font-size: toRem(28);
+            }
+        }
+
+        &_xx-large {
+            .slds-button {
+                font-size: toRem(32);
+            }
+        }
+
+        &_brand {
+            .slds-button {
+                color: var(--primary-main);
+
+                &:hover,
+                &:focus {
+                    color: var(--primary-dark);
+                }
+
+                @include hover-focus_primary-dark;
+            }
+        }
+
+        &_destructive {
+            .slds-button {
+                color: var(--error-main);
+
+                &:hover,
+                &:focus {
+                    color: var(--error-dark);
+                }
+
+                &:hover::before,
+                &:focus::before,
+                &:hover::after,
+                &:focus::after {
+                    color: var(--error-dark);
+                }
+            }
+        }
+    }
+    &_menu{
+        .slds-button, .slds-dropdown__item a {
+            &:focus {
+                @include focus-outline-minus();
+            }
+        }
+    }
+    &_full-width{
+        .slds-button{
+            width: 100%;
+        }
+    }
+}
+
+/* Custom Property */
+.btn-width-60{
+    button{
+        width: 60%;
+
+        @include responsive(tab-port){
+            width: 100%;
+        }
+    }
+}
+.communication-btn button {
+    background: rgba(0,0,0,4%);
+    border-color: rgba(0,0,0,4%);
+    font-weight: var(--font-weight-semi-bold);
+}

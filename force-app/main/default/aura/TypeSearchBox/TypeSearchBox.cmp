@@ -1,0 +1,43 @@
+<aura:component >
+    <aura:attribute name ="value" type="String" />
+    <aura:attribute name ="label" type="String" default ="" />
+    <aura:attribute name ="show" type="Boolean" default="false" />    
+    <aura:attribute name ="noClose" type="Boolean" default="false" />    
+    <aura:attribute name="defaultOptions" type="List" />
+    <aura:attribute name ="options" type="List"  />
+    <aura:attribute name="selectedType" type="Object" />
+    <aura:handler name="change" value="{!v.defaultOptions}" action="{!c.doInit}" />
+    
+    <div class="slds-form-element__control">
+        <div class="slds-combobox_container">
+            <div class="{!v.show ? 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open': 
+                        	'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click'}"  
+		                 aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                    <input  type="text" class="slds-input slds-combobox__input"  aria-controls="listbox-id-1" 
+                           onclick="{!c.showBox}" autocomplete="rutjfkde"  value="{!v.label}" onkeyup="{!c.handleBlur}"
+                           onblur="{!c.closeBox}"  />
+                    <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
+                        <lightning:icon icon-name="utility:down"  size="xx-small" />
+                    </span>
+                </div>
+                <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" 
+                    role="listbox" onmousedown="{!c.markNotForClose}" >
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <aura:iteration items="{!v.options}" var="item" >
+                            <li role="presentation" class="slds-listbox__item" data-option-value="{!item.value}" data-option-label="{!item.label}" onmousedown="{!c.handleChange}">
+                                <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option">
+                                    <span class="slds-media__body">
+                                        <span title="{!item.label}"> 
+                                            {!item.label}
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

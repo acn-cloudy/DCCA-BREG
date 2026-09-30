@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SendtoASPPB__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-FT070119 - Created for PVL phase 1</description>
+    <inlineHelpText>Indicates that the Applicant is ready to be created in ASPPB.  Applicable for Psychology Applications.</inlineHelpText>
+    <label>Send to ASPPB</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,5 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" 
+                controller="D1D2DependencyRefundController" >
+    <aura:attribute name="recordId" type="String" />    
+    <aura:handler name="init" value="this" action="{!c.handleClick}" />    
+</aura:component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Makedeterminationofactiontobetaken__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC101718 - Created for BREG phase 1</description>
+    <inlineHelpText>Make determination of action to be taken in consultation with investigator, Supervising Investigator and/or Supervising Attorney</inlineHelpText>
+    <label>Make determination of action to be taken</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,99 @@
+<template>
+    <lightning-layout horizontal-align="center" class="x-large">
+        <lightning-spinner alternative-text="Loading" class="slds-is-fixed" if:true={showLoading}></lightning-spinner>
+        <lightning-layout-item flexibility="auto" padding="around-small">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <lightning-combobox
+                            label="Division"
+                            value={division}
+                            options={divisionOptions}
+                            onchange={handleDivisions}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" data-role="paymentTypeOptions">
+                    <lightning-combobox
+                            label="Payment Type"
+                            value={paymentType}
+                            options={ptOptions}
+                            onchange={handlePT}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" data-role="dateOptions" if:false={isCreditCard}>
+                    <lightning-input type="date" name="input1" autocomplete="off" 
+                        label="Start Date" value={startDate} onchange={handleStartDate} ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" data-role="dateOptions" if:false={isCreditCard}>
+                    <lightning-input type="date" name="input1" autocomplete="off" 
+                        label="End Date" value={cutOffDate} onchange={handleCutOffDate} ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="8" flexibility="auto" padding="around-small" if:true={isCreditCard}>
+                    <lightning-dual-listbox name="languages"
+                                            label="Deposit(s)"
+                                            source-label="Deposits"
+                                            selected-label="Selected"
+                                            onchange={handleDepositsChange}
+                                            options={depositOptions}>
+                    </lightning-dual-listbox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" data-role="fundTypeOptions">
+                    <lightning-combobox
+                            data-role="fundType"
+                            name="fundType"
+                            label="Fund Type"
+                            value={fundType}
+                            options={fundTypeOptions}
+                            onchange={handleFundType}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" data-role="fundAccountOptionsSpecial" padding="around-small" if:true={isSpecial}>
+                    <lightning-combobox
+                            data-role="fundAccounts"
+                            label="Fund Account"
+                            value={fundAccounts}
+                            options={fundAccountOptions}
+                            onchange={handleFundAccountChange}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto" padding="around-small" if:true={isTrust}>
+                    <lightning-dual-listbox name="languages"
+                                            label="Select Fund Account(s)"
+                                            source-label="Fund Accounts"
+                                            selected-label="Selected"
+                                            onchange={handleFundAccountChange}
+                                            options={fundAccountOptions}>
+                    </lightning-dual-listbox>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout horizontal-align="end">
+                <lightning-layout-item padding="around-small" if:true={displayItems}>
+                    <lightning-button variant="brand" label="Create New Page" title="Run" onclick={handleNewPage}
+                                      class="slds-m-left_x-small">
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <lightning-button variant="brand" label="Run" title="Run" onclick={handleSearch}
+                                      class="slds-m-left_x-small">
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" if:true={displayItems}>
+                    <lightning-button variant="brand" label="Submit" title="Run" onclick={handleSubmit}
+                                      class="slds-m-left_x-small">
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <template for:each={tDRTableFundsList} for:item="tDRTableData" if:true={displayItems}>
+                <lightning-layout horizontal-align="center" key={tDRTableData.length}>
+                    <lightning-layout-item>
+                        <c-t-d-r-table funds-list={tDRTableData}
+                                       detail-fund={detailFund}
+                                       fund-type={fundTypeUpper}
+                                       payment-type={paymentType}
+                                       cut-off-date={cutOffDate}
+                                       user-name={userName}></c-t-d-r-table>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

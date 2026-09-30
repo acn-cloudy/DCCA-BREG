@@ -1,0 +1,768 @@
+import { LightningElement, api, track } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
+import getTranscriptContent from '@salesforce/apex/VoicecallSessionController.getTranscriptContent';
+import parseTranscript from '@salesforce/apex/VoicecallSessionController.parseTranscript';
+import getAudioContent from '@salesforce/apex/VoicecallSessionController.getAudioContent';
+import Logger from 'c/loggerService';
+
+// Initialize component logger
+const log = Logger.create('CallTranscriptPlayer');
+
+export default class CallTranscriptPlayer extends NavigationMixin(LightningElement) {
+    @api sessionId;
+    @api audioUrl;
+    @api agentName;
+    
+    _documents = [];
+    _documentsProcessed = false;
+
+    @api
+    get documents() {
+        return this._documents;
+    }
+    set documents(value) {
+        this._documents = value || [];
+        // Process documents whenever they're set/updated
+        if (!this._documentsProcessed) {
+            this._documentsProcessed = true;
+            this.processDocuments();
+        }
+    }
+
+    @track recordings = [];
+    @track selectedRecordingId = null;
+    componentVersion = 'v5'; // Version marker
+    @track transcriptEntries = [];
+    @track isLoadingTranscript = true;
+    @track isLoadingRecordings = true;
+    @track isLoadingAudio = false;
+    @track audioLoadError = null;
+    @track currentTime = 0;
+    @track duration = 0;
+    @track isPlaying = false;
+    @track playbackSpeed = 1;
+    @track autoScroll = true;
+    @track currentEntryIndex = -1;
+
+    audioElement;
+    recordingStartTime;
+
+    // Map to store blob URLs for cleanup
+    audioBlobUrls = new Map();
+
+    // Cache raw transcript content for download
+    cachedTranscriptContent = null;
+
+    renderedCallback() {
+        if (!this.audioElement) {
+            this.audioElement = this.template.querySelector('audio');
+        }
+    }
+
+    /**
+     * Cleanup blob URLs when component is destroyed to prevent memory leaks
+     */
+    disconnectedCallback() {
+        this.cleanupBlobUrls();
+    }
+
+    /**
+     * Revoke all blob URLs to free memory
+     */
+    cleanupBlobUrls() {
+        this.audioBlobUrls.forEach((url) => {
+            try {
+                URL.revokeObjectURL(url);
+            } catch (e) {
+                // Ignore errors during cleanup
+            }
+        });
+        this.audioBlobUrls.clear();
+    }
+
+    /**
+     * Process documents to identify recordings and pair with transcripts
+     */
+    processDocuments() {
+        log.group('Processing Documents');
+        log.time('documentProcessing');
+
+        if (!this._documents || this._documents.length === 0) {
+            log.info('No documents to process');
+            this.isLoadingRecordings = false;
+            this.isLoadingTranscript = false;
+            log.groupEnd();
+            return;
+        }
+
+        // Get all documents from the internal array
+        const allDocs = [...this._documents];
+        log.debug('Documents received', { count: allDocs.length, documents: allDocs });
+        
+        // Separate audio files
+        const audioFiles = allDocs.filter(doc => {
+            const ft = (doc.fileType || '').toUpperCase();
+            return ft === 'MP3' || ft === 'WAV' || ft === 'M4A';
+        });
+        
+        // Find specific transcripts by looking for va_ and rt_ prefixes
+        let vaTranscript = null;
+        let rtTranscript = null;
+
+        for (const doc of allDocs) {
+            const title = (doc.title || '').toLowerCase();
+            if (title.startsWith('va_') || title.includes('va_transcript')) {
+                vaTranscript = doc;
+            } else if (title.startsWith('rt_') || title.includes('rt_transcript')) {
+                rtTranscript = doc;
+            }
+        }
+
+        // Build recordings array with matched transcripts
+        this.recordings = audioFiles.map((audio) => {
+            const audioTitle = (audio.title || '').toLowerCase();
+            
+            // Determine recording type and matching transcript based on filename pattern
+            let type = 'call';
+            let label = 'Recording';
+            let icon = '🎙️';
+            let matchedTranscript = null;
+            
+            if (audioTitle.includes('_2')) {
+                // Agent/Real-time recording -> matches rt_transcript
+                type = 'agent';
+                label = 'Agent Call';
+                icon = '👤';
+                matchedTranscript = rtTranscript;
+            } else {
+                // Primary recording -> matches va_transcript
+                matchedTranscript = vaTranscript;
+                if (matchedTranscript) {
+                    type = 'virtual_agent';
+                    label = 'Virtual Agent';
+                    icon = '🤖';
+                }
+            }
+            
+            return {
+                id: audio.documentId,
+                audioUrl: audio.downloadUrl,
+                audioTitle: audio.title,
+                type: type,
+                label: label,
+                icon: icon,
+                transcriptDoc: matchedTranscript,
+                durationDisplay: '--:--',
+                isActive: false,
+                pillClass: 'recording-pill'
+            };
+        });
+
+        // Sort: Virtual Agent first, then Agent, then generic
+        this.recordings.sort((a, b) => {
+            const order = { 'virtual_agent': 0, 'agent': 1, 'call': 2 };
+            return order[a.type] - order[b.type];
+        });
+
+        // Update labels with recording numbers if multiple
+        if (this.recordings.length > 1) {
+            this.recordings = this.recordings.map((rec, idx) => ({
+                ...rec,
+                label: `${idx + 1}. ${rec.label}`
+            }));
+        }
+
+        // Mark recordings as loaded
+        this.isLoadingRecordings = false;
+
+        log.timeEnd('documentProcessing');
+        log.table('Recordings Found', this.recordings.map(r => ({
+            type: r.type,
+            label: r.label,
+            hasTranscript: !!r.transcriptDoc
+        })));
+
+        // Select first recording by default
+        if (this.recordings.length > 0) {
+            log.info('Auto-selecting first recording', { id: this.recordings[0].id });
+            this.selectRecording(this.recordings[0].id);
+        } else {
+            log.warn('No audio recordings found in documents');
+            this.isLoadingTranscript = false;
+        }
+        
+        log.groupEnd();
+    }
+
+    /**
+     * Select a recording to play
+     */
+    selectRecording(recordingId) {
+        // Stop current playback
+        if (this.audioElement && this.isPlaying) {
+            this.audioElement.pause();
+            this.isPlaying = false;
+        }
+
+        this.selectedRecordingId = recordingId;
+        this.currentTime = 0;
+        this.duration = 0;
+        this.currentEntryIndex = -1;
+        this.transcriptEntries = [];
+        this.audioLoadError = null;
+        
+        // Update pill classes
+        this.recordings = this.recordings.map(rec => ({
+            ...rec,
+            isActive: rec.id === recordingId,
+            pillClass: rec.id === recordingId ? 'recording-pill active' : 'recording-pill'
+        }));
+
+        // Load transcript for selected recording
+        const selectedRec = this.recordings.find(r => r.id === recordingId);
+        if (selectedRec && selectedRec.transcriptDoc) {
+            this.loadTranscript(selectedRec.transcriptDoc.documentId);
+        } else {
+            this.isLoadingTranscript = false;
+        }
+
+        // Load audio via Apex to ensure Platform license users can access it
+        if (selectedRec) {
+            this.loadAudioViaApex(selectedRec.id);
+        }
+    }
+
+    /**
+     * Load audio content via Apex and create a blob URL
+     * This method ensures Platform license users can access audio files
+     * by fetching content through Apex instead of direct servlet access.
+     */
+    async loadAudioViaApex(documentId) {
+        this.isLoadingAudio = true;
+        this.audioLoadError = null;
+        
+        log.group('Loading Audio via Apex');
+        log.time('audioLoad');
+        log.debug('Fetching audio content', { documentId });
+
+        try {
+            // Check if we already have a blob URL cached for this document
+            if (this.audioBlobUrls.has(documentId)) {
+                const cachedUrl = this.audioBlobUrls.get(documentId);
+                log.debug('Using cached blob URL', { documentId });
+                this.setAudioSource(cachedUrl);
+                this.isLoadingAudio = false;
+                log.timeEnd('audioLoad');
+                log.groupEnd();
+                return;
+            }
+
+            // Fetch audio content as base64 from Apex
+            const audioData = await getAudioContent({ documentId });
+            
+            if (audioData && audioData.base64Data) {
+                log.debug('Audio content received', { 
+                    contentType: audioData.contentType, 
+                    fileSize: audioData.fileSize,
+                    fileName: audioData.fileName
+                });
+
+                // Convert base64 to blob
+                const binaryString = atob(audioData.base64Data);
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                const blob = new Blob([bytes], { type: audioData.contentType });
+
+                // Create blob URL
+                const blobUrl = URL.createObjectURL(blob);
+                
+                // Cache the blob URL for reuse
+                this.audioBlobUrls.set(documentId, blobUrl);
+
+                // Set audio source
+                this.setAudioSource(blobUrl);
+                
+                log.success('Audio blob URL created', { 
+                    blobUrl: blobUrl.substring(0, 50) + '...',
+                    contentType: audioData.contentType
+                });
+            } else {
+                log.warn('Audio content is empty');
+                this.audioLoadError = 'Audio file is empty or unavailable';
+            }
+        } catch (err) {
+            log.error('Failed to load audio via Apex', err);
+            this.audioLoadError = 'Failed to load audio file. Please try again.';
+            
+            // Fallback: try direct URL as last resort (for users with direct access)
+            const selectedRec = this.recordings.find(r => r.id === documentId);
+            if (selectedRec && selectedRec.audioUrl) {
+                log.info('Attempting fallback to direct URL');
+                this.setAudioSource(selectedRec.audioUrl);
+            }
+        } finally {
+            this.isLoadingAudio = false;
+            log.timeEnd('audioLoad');
+            log.groupEnd();
+        }
+    }
+
+    /**
+     * Set the audio element source and load
+     */
+    setAudioSource(url) {
+        if (this.audioElement) {
+            this.audioElement.src = url;
+            this.audioElement.load();
+        }
+    }
+
+    /**
+     * Handle recording pill click
+     */
+    handleRecordingSelect(event) {
+        const recordingId = event.currentTarget.dataset.id;
+        this.selectRecording(recordingId);
+    }
+
+    /**
+     * Load and parse transcript from Salesforce
+     */
+    async loadTranscript(documentId) {
+        this.isLoadingTranscript = true;
+        log.group('Loading Transcript');
+        log.time('transcriptLoad');
+        log.debug('Fetching transcript', { documentId });
+        
+        try {
+            const content = await getTranscriptContent({ documentId });
+
+            if (content) {
+                log.debug('Transcript content received', { length: content.length });
+                // Cache raw content for download
+                this.cachedTranscriptContent = content;
+                this.recordingStartTime = this.extractStartTime(content);
+                log.debug('Extracted start time', { startTime: this.recordingStartTime });
+                
+                const entries = await parseTranscript({ 
+                    transcriptContent: content,
+                    recordingStartTime: this.recordingStartTime
+                });
+
+                this.transcriptEntries = entries.map(entry => ({
+                    ...entry,
+                    displayTime: this.formatTimeFromSeconds(entry.seconds),
+                    entryClass: this.getEntryClass(entry.entryIndex, false),
+                    speakerClass: this.getSpeakerClass(entry.speaker)
+                }));
+
+                log.success('Transcript parsed', { entryCount: this.transcriptEntries.length });
+            } else {
+                log.warn('Transcript content is empty');
+            }
+        } catch (err) {
+            log.error('Failed to load transcript', err);
+            this.transcriptEntries = [];
+        } finally {
+            log.timeEnd('transcriptLoad');
+            log.groupEnd();
+            this.isLoadingTranscript = false;
+        }
+    }
+
+    /**
+     * Extract start time from transcript content
+     */
+    extractStartTime(content) {
+        const match = content.match(/\[(\d{2}:\d{2}:\d{2})/);
+        return match ? match[1] : '00:00:00';
+    }
+
+    /**
+     * Format seconds to MM:SS display
+     */
+    formatTimeFromSeconds(totalSeconds) {
+        if (totalSeconds === null || totalSeconds === undefined || totalSeconds < 0) return '0:00';
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = Math.floor(totalSeconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    /**
+     * Get CSS class for transcript entry based on active state
+     */
+    getEntryClass(index, isActive) {
+        let baseClass = 'transcript-entry';
+        if (isActive) {
+            baseClass += ' active-entry';
+        }
+        return baseClass;
+    }
+
+    /**
+     * Get speaker-specific CSS class
+     */
+    getSpeakerClass(speaker) {
+        const speakerLower = (speaker || '').toLowerCase();
+        if (speakerLower.includes('virtual agent') || speakerLower.includes('bot')) {
+            return 'entry-speaker speaker-bot';
+        }
+        if (speakerLower.includes('customer') || speakerLower.includes('caller')) {
+            return 'entry-speaker speaker-customer';
+        }
+        return 'entry-speaker speaker-agent';
+    }
+
+    /**
+     * Update active transcript entry based on current audio time
+     */
+    updateActiveEntry() {
+        if (!this.transcriptEntries || this.transcriptEntries.length === 0) {
+            return;
+        }
+
+        let newActiveIndex = -1;
+        
+        for (let i = 0; i < this.transcriptEntries.length; i++) {
+            const entry = this.transcriptEntries[i];
+            const nextEntry = this.transcriptEntries[i + 1];
+            const entrySeconds = entry.seconds;
+            const nextSeconds = nextEntry ? nextEntry.seconds : Infinity;
+            
+            if (this.currentTime >= entrySeconds && this.currentTime < nextSeconds) {
+                newActiveIndex = i;
+                break;
+            }
+        }
+
+        if (newActiveIndex !== this.currentEntryIndex) {
+            this.currentEntryIndex = newActiveIndex;
+            
+            this.transcriptEntries = this.transcriptEntries.map((entry, index) => ({
+                ...entry,
+                entryClass: this.getEntryClass(entry.entryIndex, index === newActiveIndex)
+            }));
+
+            if (this.autoScroll && newActiveIndex >= 0) {
+                this.scrollToEntry(newActiveIndex);
+            }
+        }
+    }
+
+    /**
+     * Scroll transcript container to show the active entry
+     */
+    scrollToEntry(index) {
+        const container = this.template.querySelector('[data-id="transcriptContainer"]');
+        const entries = this.template.querySelectorAll('.transcript-entry');
+        
+        if (container && entries && entries[index]) {
+            const entry = entries[index];
+            const containerRect = container.getBoundingClientRect();
+            const entryRect = entry.getBoundingClientRect();
+            
+            if (entryRect.top < containerRect.top || entryRect.bottom > containerRect.bottom) {
+                entry.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }
+        }
+    }
+
+    // Audio event handlers
+    handleTimeUpdate() {
+        if (this.audioElement) {
+            this.currentTime = this.audioElement.currentTime;
+            this.updateActiveEntry();
+            
+            this.dispatchEvent(new CustomEvent('playbackupdate', {
+                detail: {
+                    sessionId: this.sessionId,
+                    currentTime: this.currentTime,
+                    isPlaying: this.isPlaying
+                }
+            }));
+        }
+    }
+
+    handleLoadedMetadata() {
+        if (this.audioElement) {
+            this.duration = this.audioElement.duration;
+            
+            // Update the recording's duration display
+            const durationDisplay = this.formatTimeFromSeconds(this.duration);
+            this.recordings = this.recordings.map(rec => {
+                if (rec.id === this.selectedRecordingId) {
+                    return { ...rec, durationDisplay };
+                }
+                return rec;
+            });
+        }
+    }
+
+    handleAudioEnded() {
+        this.isPlaying = false;
+        
+        // Auto-advance to next recording if available
+        const currentIndex = this.recordings.findIndex(r => r.id === this.selectedRecordingId);
+        if (currentIndex < this.recordings.length - 1) {
+            // Optionally auto-play next recording
+            // this.selectRecording(this.recordings[currentIndex + 1].id);
+        }
+    }
+
+    handleAudioError(event) {
+        log.error('Audio element error', {
+            error: event.target?.error?.code,
+            message: event.target?.error?.message
+        });
+        
+        // Only set error if we don't already have one (Apex load might have already handled it)
+        if (!this.audioLoadError) {
+            const errorCode = event.target?.error?.code;
+            switch (errorCode) {
+                case MediaError.MEDIA_ERR_ABORTED:
+                    this.audioLoadError = 'Audio playback was aborted.';
+                    break;
+                case MediaError.MEDIA_ERR_NETWORK:
+                    this.audioLoadError = 'A network error occurred while loading the audio.';
+                    break;
+                case MediaError.MEDIA_ERR_DECODE:
+                    this.audioLoadError = 'The audio file could not be decoded.';
+                    break;
+                case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                    this.audioLoadError = 'Unable to play this audio file. The format may not be supported or you may not have access.';
+                    break;
+                default:
+                    this.audioLoadError = 'An error occurred while loading the audio file.';
+            }
+        }
+    }
+
+    // Playback controls
+    handlePlayPause() {
+        if (!this.audioElement) return;
+
+        if (this.isPlaying) {
+            this.audioElement.pause();
+        } else {
+            this.audioElement.play();
+        }
+        this.isPlaying = !this.isPlaying;
+    }
+
+    handleSkipBack() {
+        if (this.audioElement) {
+            this.audioElement.currentTime = Math.max(0, this.audioElement.currentTime - 10);
+        }
+    }
+
+    handleSkipForward() {
+        if (this.audioElement) {
+            this.audioElement.currentTime = Math.min(this.duration, this.audioElement.currentTime + 10);
+        }
+    }
+
+    handleSpeedChange(event) {
+        const speed = parseFloat(event.target.dataset.speed);
+        this.playbackSpeed = speed;
+        
+        if (this.audioElement) {
+            this.audioElement.playbackRate = speed;
+        }
+    }
+
+    handleProgressClick(event) {
+        const progressWrapper = this.template.querySelector('.progress-bar-wrapper');
+        if (!progressWrapper || !this.audioElement) return;
+
+        const rect = progressWrapper.getBoundingClientRect();
+        const clickPosition = (event.clientX - rect.left) / rect.width;
+        const newTime = clickPosition * this.duration;
+        
+        this.audioElement.currentTime = Math.max(0, Math.min(this.duration, newTime));
+    }
+
+    handleTranscriptClick(event) {
+        const entryElement = event.currentTarget;
+        const seconds = parseFloat(entryElement.dataset.seconds);
+        
+        if (this.audioElement && !isNaN(seconds)) {
+            this.audioElement.currentTime = seconds;
+            
+            if (!this.isPlaying) {
+                this.audioElement.play();
+                this.isPlaying = true;
+            }
+        }
+    }
+
+    handleToggleAutoScroll() {
+        this.autoScroll = !this.autoScroll;
+    }
+
+    /**
+     * Download transcript using cached content.
+     * Uses data URL approach which may work better in restricted environments.
+     */
+    handleDownloadTranscript() {
+        const selectedRec = this.recordings.find(r => r.id === this.selectedRecordingId);
+        if (!selectedRec?.transcriptDoc || !this.cachedTranscriptContent) {
+            return;
+        }
+
+        // Determine filename
+        let fileName = selectedRec.transcriptDoc.title || 'transcript';
+        if (!fileName.toLowerCase().endsWith('.txt')) {
+            fileName += '.txt';
+        }
+
+        // Try data URL approach
+        const dataUrl = 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.cachedTranscriptContent);
+
+        const downloadLink = this.template.querySelector('[data-id="downloadLink"]');
+        if (downloadLink) {
+            downloadLink.href = dataUrl;
+            downloadLink.download = fileName;
+            downloadLink.click();
+        }
+    }
+
+    // Computed properties
+    get hasRecordings() {
+        return !this.isLoadingRecordings && this.recordings.length > 0;
+    }
+
+    get noRecordingsAvailable() {
+        return !this.isLoadingRecordings && this.recordings.length === 0;
+    }
+
+    get hasMultipleRecordings() {
+        return this.recordings.length > 1;
+    }
+
+    get recordingCountLabel() {
+        return `${this.recordings.length} Recordings`;
+    }
+
+    get currentRecordingTitle() {
+        const rec = this.recordings.find(r => r.id === this.selectedRecordingId);
+        return rec ? `${rec.icon} ${rec.label}` : 'Call Recording';
+    }
+
+    get currentRecordingTitleClean() {
+        const rec = this.recordings.find(r => r.id === this.selectedRecordingId);
+        return rec ? rec.label : 'Call Recording';
+    }
+
+    get showAgentName() {
+        const rec = this.recordings.find(r => r.id === this.selectedRecordingId);
+        return rec && rec.type === 'agent' && this.agentName;
+    }
+
+    get agentNameDisplay() {
+        return this.agentName || '';
+    }
+
+    get currentAudioUrl() {
+        const rec = this.recordings.find(r => r.id === this.selectedRecordingId);
+        return rec ? rec.audioUrl : this.audioUrl;
+    }
+
+    get playPauseIcon() {
+        return this.isPlaying ? 'utility:pause' : 'utility:play';
+    }
+
+    get playPauseLabel() {
+        return this.isPlaying ? 'Pause' : 'Play';
+    }
+
+    get currentTimeDisplay() {
+        return this.formatTimeFromSeconds(this.currentTime);
+    }
+
+    get durationDisplay() {
+        return this.formatTimeFromSeconds(this.duration);
+    }
+
+    get progressStyle() {
+        const progress = this.duration > 0 ? (this.currentTime / this.duration) * 100 : 0;
+        return `width: ${progress}%`;
+    }
+
+    get handleStyle() {
+        const progress = this.duration > 0 ? (this.currentTime / this.duration) * 100 : 0;
+        return `left: ${progress}%`;
+    }
+
+    get speed05Variant() {
+        return this.playbackSpeed === 0.5 ? 'brand' : 'neutral';
+    }
+
+    get speed1Variant() {
+        return this.playbackSpeed === 1 ? 'brand' : 'neutral';
+    }
+
+    get speed15Variant() {
+        return this.playbackSpeed === 1.5 ? 'brand' : 'neutral';
+    }
+
+    get speed2Variant() {
+        return this.playbackSpeed === 2 ? 'brand' : 'neutral';
+    }
+
+    get speed05Class() {
+        return this.playbackSpeed === 0.5 ? 'speed-button active' : 'speed-button';
+    }
+
+    get speed1Class() {
+        return this.playbackSpeed === 1 ? 'speed-button active' : 'speed-button';
+    }
+
+    get speed15Class() {
+        return this.playbackSpeed === 1.5 ? 'speed-button active' : 'speed-button';
+    }
+
+    get speed2Class() {
+        return this.playbackSpeed === 2 ? 'speed-button active' : 'speed-button';
+    }
+
+    get autoScrollIcon() {
+        return this.autoScroll ? 'utility:pin' : 'utility:pinned';
+    }
+
+    get autoScrollTitle() {
+        return this.autoScroll ? 'Following transcript (click to stop)' : 'Click to follow transcript';
+    }
+
+    get autoScrollVariant() {
+        return this.autoScroll ? 'brand' : 'neutral';
+    }
+
+    get hasTranscript() {
+        return !this.isLoadingTranscript && this.transcriptEntries && this.transcriptEntries.length > 0;
+    }
+
+    get noTranscriptAvailable() {
+        return !this.isLoadingTranscript && (!this.transcriptEntries || this.transcriptEntries.length === 0);
+    }
+
+    get showAudioLoading() {
+        return this.isLoadingAudio && !this.audioLoadError;
+    }
+
+    get showAudioError() {
+        return !this.isLoadingAudio && this.audioLoadError;
+    }
+
+    get audioErrorMessage() {
+        return this.audioLoadError || 'An error occurred while loading the audio file.';
+    }
+
+    get audioControlsDisabled() {
+        return this.isLoadingAudio || this.audioLoadError;
+    }
+}

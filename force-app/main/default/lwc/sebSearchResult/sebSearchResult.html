@@ -1,0 +1,17 @@
+<template>
+    <lightning-spinner lwc:if={isLoading} alternative-text="Loading..." variant="brand" size="small"></lightning-spinner>
+    <div class="slds-card">
+        <div class="slds-card__body slds-card__body_inner">
+            <div style="height: 500px;">
+                <lightning-datatable
+                    key-field="Id"
+                    data={data}
+                    columns={tableColumns}
+                    hide-checkbox-column
+                    show-row-number-column
+                    onrowaction={handleRowAction}
+                ></lightning-datatable>
+            </div> 
+        </div>
+    </div>
+</template>

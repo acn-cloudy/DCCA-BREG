@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:attribute name="parentId" type="String" />
+    <aura:attribute name="change" type="Object" />
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="files" type="List" /> 
+	<aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="msg" type="String" />
+    <aura:attribute name="errors" type="Object[]" access="global" />
+    <aura:attribute name="acceptType" type="String" />
+    <aura:handler name="change" value="{!v.files}" action="{!c.wrapValue}" />
+    <c:errorDisplay errors="{!v.errors}" />
+    <lightning:fileUpload 
+                label="{!v.label}"
+                name="fileUploader" 
+            	multiple="{!v.multiple}" 
+            	recordId="{!v.parentId}" 
+                onuploadfinished="{!c.uploadFinished}"
+            	accept="{!v.acceptType}" />
+    
+    <c:fileList files="{!v.files}" />
+    
+</aura:component>

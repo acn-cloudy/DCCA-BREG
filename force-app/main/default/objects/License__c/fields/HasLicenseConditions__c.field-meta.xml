@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HasLicenseConditions__c</fullName>
+    <description>PacPoint-MV121019 - Created for PVL phase 1. Created to be used in logic for the Doc Generator Settings.</description>
+    <label>Has License Conditions</label>
+    <summaryForeignKey>LicenseConditions__c.License__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

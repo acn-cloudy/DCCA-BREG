@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_What_is_this_form__c</fullName>
+    <inlineHelpText>This field is used to specify text message that is displayed in the &quot;What is this form&quot; component</inlineHelpText>
+    <label>What is this form?</label>
+    <length>32768</length>
+    <trackTrending>false</trackTrending>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

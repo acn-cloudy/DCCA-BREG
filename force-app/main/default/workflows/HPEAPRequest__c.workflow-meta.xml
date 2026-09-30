@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>HPEAPRequestMismatchNameNotificationtoSubmitter</fullName>
+        <description>HPEAP Request:Mismatch Name Notification to Submitter</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>hpeap@dcca.hawaii.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>HPEAP_Email_Templates/HPEAPRequestMismatchNameNotificationtoSubmitter</template>
+    </alerts>
+</Workflow>

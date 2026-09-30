@@ -1,0 +1,33 @@
+.THIS .floatright {
+    float: right;
+    width: 50%;
+   
+}
+
+.THIS .mandatoryColor{
+    color:red;
+}
+
+.THIS.showmodal{
+    display:block;
+}
+
+.THIS.hidemodal{
+    display:none;
+}
+
+.THIS .combobox {
+   top: -10px;
+}
+
+.THIS.customInline{
+    display:inline;
+}
+.THIS .slds-m-left_large, .THIS .slds-m-left--large {
+    margin-left: .5rem;
+}
+
+.THIS .cREVENUE_HelpIcon.radius {
+    background: #002664;
+    padding: 0px 2px 2px 3px;
+}

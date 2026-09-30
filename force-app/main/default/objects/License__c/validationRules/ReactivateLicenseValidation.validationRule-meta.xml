@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ReactivateLicenseValidation</fullName>
+    <active>true</active>
+    <description>PacPoint-MV082919 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+AND(
+
+ISCHANGED(ReactiveLicense__c),
+ReactiveLicense__c= true,
+NOT(ISPICKVAL(Status__c, &quot;C - Current, Valid &amp; In Good Standing&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;CM - Current, Valid &amp; In Good Standing/Maint. Requirement Due&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;CR - Current/Next Renewal Paid&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;R - Valid Thru Expiration Date, Subject To Renewal&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;RM - Valid Thru Exp Date, Subject To Renwl/Maint Reqmt Due&quot;)),
+NOT(ISPICKVAL(Status__c, &quot; Z - Current &amp; Valid, But Subject To Disciplinary Requirement&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;Z1 - Susp Due To 1)Loss Of Bond By Licensee And/Or Dependent Or&quot;)),
+NOT(ISPICKVAL(Status__c, &quot;ZI - Automatically Forfeited Due To Insurance Loss&quot;))
+
+),
+true,
+false
+)</errorConditionFormula>
+    <errorMessage>You cannot reactivate a license on the current status</errorMessage>
+</ValidationRule>

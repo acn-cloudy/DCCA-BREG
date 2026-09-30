@@ -1,0 +1,50 @@
+<aura:component>
+    <aura:attribute name="currentStep" type="Integer" default="0"/>
+    <aura:attribute name="currentTitle" type="String" access="private"/>
+    <aura:attribute name="stepHasError" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="progressSteps" type="Aura.Component[]" access="private"/>
+    <aura:attribute name="sections" type="Aura.Component[]" access="private"/>
+
+    <aura:attribute name="showNavButtons" type="Boolean" default="true"/>
+    <aura:attribute name="showStepLabelAsTitle" type="Boolean" default="true"/>
+
+    <aura:attribute name="goBackButtonDisabled" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="goNextButtonDisabled" type="Boolean" default="false" access="private"/>
+
+    <aura:method name="goNext" action="{!c.goNext}"/>
+    <aura:method name="goBack" action="{!c.goBack}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+
+    <div class="form-wizard slds-p-around_medium">
+        <aura:if isTrue="{!v.showStepLabelAsTitle}">
+            <div class="form-wizard-title slds-p-bottom_small slds-text-heading--medium">
+                <h2 class="slds-text-heading--medium slds-text-align_center">{!v.currentTitle}</h2>
+            </div>
+        </aura:if>
+
+        <div class="form-wizard-progress-indicator">
+            <lightning:progressIndicator
+                    currentStep="{!v.currentStep}"
+                    type="base"
+                    hasError="{!v.stepHasError}">
+                <aura:set attribute="body">
+                        {!v.progressSteps}
+                </aura:set>
+            </lightning:progressIndicator>
+        </div>
+        <div class="form-wizard-section-container slds-p-top_small">
+                {!v.body}
+        </div>
+        <aura:if isTrue="{!v.showNavButtons}">
+            <div class="form-wizard-button-container">
+                <lightning:buttonGroup>
+                    <lightning:button value="Back" label="Back" onclick="{!c.goBack}"
+                                      disabled="{!v.goBackButtonDisabled}"/>
+                    <lightning:button value="Next" label="Next" onclick="{!c.goNext}"
+                                      disabled="{!v.goNextButtonDisabled}"/>
+                </lightning:buttonGroup>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

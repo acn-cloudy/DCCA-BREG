@@ -1,0 +1,57 @@
+<template>
+    <!-- Forms content -->
+    <div class="forms-container">
+        <!-- Display forms if available -->
+        <template if:true={hasForms}>            
+            <template for:each={forms} for:item="form">
+                <div key={form.formConfigurationId} class="slds-card slds-m-bottom_large">
+                    <div class="slds-card__body slds-card__body_inner">
+                        <!-- Form Heading -->
+                        <h2 class="slds-text-heading_medium slds-text-font_monospace slds-m-bottom_small" style="font-weight: bold;">{form.heading}</h2>
+                        
+                        <!-- Form Available Message (if no error) -->
+                        <template if:true={form.formAvailableMessage}>
+                            <lightning-formatted-text 
+                                value={form.formAvailableMessage}
+                                class="slds-m-bottom_small">
+                            </lightning-formatted-text>
+                        </template>
+                        
+                        <!-- Error Message (if error) -->
+                        <template if:true={form.isError}>
+                            <p class="slds-m-bottom_small slds-text-color_error">
+                                <lightning-icon icon-name="utility:error" size="x-small" variant="error" class="slds-m-right_x-small"></lightning-icon>
+                                {form.errorMessage}
+                            </p>
+                        </template>
+                        
+                        <!-- Fill out Form Button (hidden if error) -->
+                        <template if:false={form.isError}>
+                            <div class="slds-m-top_small">
+                                <lightning-button
+                                    variant="neutral"
+                                    label={labels.fillOutForm}
+                                    onclick={handleFillOutForm}
+                                    data-form-id={form.formConfigurationId}
+                                    data-form-code={form.formCode}
+                                    data-is-renewal={form.isRenewal}
+                                ></lightning-button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </template>
+        
+        <div class="forms-info-box">
+            <div>
+                <p>{labels.formsInstruction}</p>
+                <ul class="forms-list slds-m-top_small">
+                    <li>{labels.visitWebsiteText} <a href={labels.websiteURL} target="_blank">{labels.websiteURL}</a></li>
+                    <li>{labels.emailText} <a href={emailHref}>{labels.emailAddress}</a></li>
+                    <li>{labels.callText}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

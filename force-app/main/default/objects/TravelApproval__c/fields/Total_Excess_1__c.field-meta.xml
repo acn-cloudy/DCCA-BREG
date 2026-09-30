@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Excess_1__c</fullName>
+    <formula>IF(
+    Total_Lodging_Rate_1__c - Total_Federal_Max_Lodging_1__c &lt; 0,
+    0,
+    Total_Lodging_Rate_1__c - Total_Federal_Max_Lodging_1__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Excess 1</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

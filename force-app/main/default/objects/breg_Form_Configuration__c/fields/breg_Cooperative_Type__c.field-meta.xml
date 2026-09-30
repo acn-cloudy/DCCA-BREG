@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Cooperative_Type__c</fullName>
+    <description>Specifies the specific classification of cooperative organization being established.</description>
+    <inlineHelpText>Select the type of cooperative that best describes your organization.</inlineHelpText>
+    <label>Cooperative Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Agricultural Cooperative</fullName>
+                <default>false</default>
+                <label>Agricultural Cooperative</label>
+            </value>
+            <value>
+                <fullName>Consumer Cooperative</fullName>
+                <default>false</default>
+                <label>Consumer Cooperative</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

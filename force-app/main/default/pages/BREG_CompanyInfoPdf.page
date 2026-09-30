@@ -1,0 +1,10 @@
+<apex:page controller="BREGBusinessDetailsPdfController"
+    renderAs="pdf"
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false"
+    applyHtmlTag="false"
+    applyBodyTag="false"
+    cache="false">
+    <apex:outputText value="{!pdfHtml}" escape="false"/>
+</apex:page>

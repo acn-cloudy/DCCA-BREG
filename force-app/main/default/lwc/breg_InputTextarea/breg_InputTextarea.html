@@ -1,0 +1,44 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item lwc:if={title} size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+        <template lwc:if={editMode}>
+            <lightning-layout-item lwc:if={config.labelOverrideLong} size="12" class="form-layout-item slds-m-bottom_medium">
+                <span class="slds-form-element__label"
+                    ><lightning-formatted-rich-text value={config.labelOverrideLong}></lightning-formatted-rich-text
+                ></span>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-textarea
+                    name="inputTextarea"
+                    value={inputTextareaValue}
+                    label={config.labelOverride2}
+                    class="slds-var-m-bottom_small"
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    variant={variant}
+                    required={required}
+                    disabled={readOnly}
+                    read-only={readOnly}
+                ></lightning-textarea>
+            </lightning-layout-item>
+
+            <lightning-layout-item size="12" class="form-layout-item">
+                <div lwc:if={config.labelOverrideLong2} class="slds-var-m-bottom_small">
+                    <span>{config.labelOverrideLong2}</span>
+                </div>
+            </lightning-layout-item>
+        </template>
+        <!-- Read-only mode -->
+        <template lwc:else>
+            <lightning-layout-item class="form-layout-item">
+                <p><lightning-formatted-text value={readOnlyTextAreaValue}></lightning-formatted-text></p>
+            </lightning-layout-item>
+            <lightning-layout-item lwc:if={showEditSectionButton} alignment-bump="left" class="form-layout-item">
+                <c-breg_-edit-button onclick={handleEditSectionClick}></c-breg_-edit-button>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

@@ -1,0 +1,33 @@
+<aura:component>
+  <aura:attribute type="String" name="cardName" required="true" />
+  <aura:attribute type="Object[]" name="sections" />
+  <aura:attribute type="Object[]" name="errors" />
+  <aura:attribute type="Aura.Component[]" name="cardBody" />
+  <aura:attribute type="Object" name="valueMap" default="{}" />
+  <aura:attribute type="Object" name="errorMap" default="{}" />
+  <aura:attribute type="Object" name="cacheData" />
+  <aura:attribute name="field" type="Object" access="global" />
+  <aura:registerEvent name="dataChanged" type="c:sc_Message" />
+
+  <aura:handler
+    name="fieldInfo"
+    event="c:sc_Message"
+    action="{!c.updateValueMap}"
+  />
+
+  <aura:method name="convertToRecord" action="{!c.convertToValueMap}">
+  </aura:method>
+
+  <aura:method name="validateFields" action="{!c.validate}"> </aura:method>
+
+  <aura:method
+    name="refresh"
+    action="{!c.refresh}"
+    description="used to refresh the card info"
+  >
+  </aura:method>
+  <aura:method name="updateFieldValue" action="{!c.updateValueMap}" />
+
+  <c:sc_ErrorDisplay errors="{!v.errorMap.generalError}" />
+  <c:sc_FormSection sections="{!v.sections}" aura:id="sections" />
+</aura:component>

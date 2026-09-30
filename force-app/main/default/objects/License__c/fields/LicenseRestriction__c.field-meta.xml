@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseRestriction__c</fullName>
+    <description>PacPoint-FT021420- Created for PVL phase 1</description>
+    <label>License Restriction</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>D - Restricted to Dental Class Specialty Only</fullName>
+                <default>false</default>
+                <label>D - Restricted to Dental Class Specialty Only</label>
+            </value>
+            <value>
+                <fullName>G - Medical Gases Only</fullName>
+                <default>false</default>
+                <label>G - Medical Gases Only</label>
+            </value>
+            <value>
+                <fullName>M - Mobile</fullName>
+                <default>false</default>
+                <label>M - Mobile</label>
+            </value>
+            <value>
+                <fullName>R - Restricted</fullName>
+                <default>false</default>
+                <label>R - Restricted</label>
+            </value>
+            <value>
+                <fullName>T - No Physiotherapy</fullName>
+                <default>false</default>
+                <label>T - No Physiotherapy</label>
+            </value>
+            <value>
+                <fullName>V - Vault Fumigation</fullName>
+                <default>false</default>
+                <label>V - Vault Fumigation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

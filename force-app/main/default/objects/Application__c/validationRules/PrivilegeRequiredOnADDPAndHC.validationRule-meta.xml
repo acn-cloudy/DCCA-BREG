@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PrivilegeRequiredOnADDPAndHC</fullName>
+    <active>true</active>
+    <description>Ensure that Privilege field is populated when setting the status to HC Application Field on Application objects with type ADDP</description>
+    <errorConditionFormula>OR( 
+			AND(
+				ISPICKVAL(Type__c, &apos;ADDP - Additional Special Privilege&apos;),
+    ISPICKVAL(Status__c, &apos;HC - Application Completed&apos;),
+    ISBLANK(TEXT(Privilege__c))
+			), 
+   AND(
+			 ISPICKVAL(Type__c, &apos;ADDP - Additional Special Privilege&apos;),
+	   ISPICKVAL(Phase__c, &apos;H - License Generation&apos;),
+	   ISBLANK(TEXT(Status__c)),
+	   ISBLANK(TEXT(Privilege__c))
+			)
+)</errorConditionFormula>
+    <errorDisplayField>Privilege__c</errorDisplayField>
+    <errorMessage>Privilege is a required field on Add a Privilege Applications.</errorMessage>
+</ValidationRule>

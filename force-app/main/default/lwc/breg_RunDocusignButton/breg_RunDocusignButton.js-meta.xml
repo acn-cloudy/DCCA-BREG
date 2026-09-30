@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="buttonLabel" type="String" label="DocumentGenerationButtonLabel" description="Used to display chosen button label" />
+            <property name="workflowName" type="String" label="DocumentGenerationWorkflowName" description="Used to run chosen Docusign Workflow" />
+            <property
+                name="docTemplateName"
+                type="String"
+                label="DocumentGenerationTemplateName"
+                description="Used to choose particular Docusign template"
+            />
+            <property
+                name="customParameters"
+                type="String"
+                label="DocumentGenerationCustomParameters"
+                description="Used to pass custom parameters to the Docusign workflow"
+            />
+            <property name="componentTitle" type="String" label="DocumentGenerationComponentTitle" description="Title for this component" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

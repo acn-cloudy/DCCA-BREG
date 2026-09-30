@@ -1,0 +1,16 @@
+.THIS {
+}
+.THIS.radius {
+    background: #002664;
+    border-color: #BAE5E3;
+    border: 1px;
+    border-radius: 50%;
+    padding: 0px 2px 2px 3px;
+    color:white;
+}
+.THIS.radius.slds-icon {
+    fill: #356D75;
+}
+.THIS .slds-m-left_large, .THIS .slds-m-left--large {
+    margin-left: .5rem;
+}

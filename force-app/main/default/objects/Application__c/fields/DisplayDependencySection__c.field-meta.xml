@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DisplayDependencySection__c</fullName>
+    <formula>IF(
+
+OR(
+
+ TEXT(Type__c) = &quot;LICN - New License&quot;,
+ TEXT(Type__c) = &quot;LICF - New License after Forfeiture&quot;,
+ TEXT(Type__c) = &quot;ADDC - Additional Class&quot;,
+ TEXT(Type__c) = &quot;REAC - Reactivation&quot;,
+ TEXT(Type__c) = &quot;DUAL - Dual (Sole/RME or RME/RME or RME/Sole)&quot;),
+
+true, 
+
+false
+
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Display Dependency Section</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>MasterLabel</columns>
+    <columns>Login_User_Name__c</columns>
+    <columns>Max_Record_Size__c</columns>
+    <columns>API_Limit__c</columns>
+    <columns>API_Consumed__c</columns>
+    <columns>Last_Login__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <language>en_US</language>
+</ListView>

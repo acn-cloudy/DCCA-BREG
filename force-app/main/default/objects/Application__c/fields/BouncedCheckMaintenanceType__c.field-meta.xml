@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BouncedCheckMaintenanceType__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE(TEXT(Type__c), &quot;RNEW - Renewal&quot;, &quot;BCRN - BOUNCED CHECK - RENEWAL&quot;, &quot;RSTR - Restore - No A/I Status&quot;, &quot;BCRS - BOUNCED CHECK - RESTORATION&quot;, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bounced Check Maintenance Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

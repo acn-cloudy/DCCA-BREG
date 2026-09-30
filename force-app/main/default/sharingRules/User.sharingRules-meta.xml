@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>CATV_Portal_User_Sharing_With_Portal_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CATV Portal User Sharing With Portal Users</label>
+        <sharedTo>
+            <group>CATV_Portal_User</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>CATV_Portal_User</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CATV_Staff_User_Sharing_With_Portal_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CATV Staff User Sharing With Portal Users</label>
+        <sharedTo>
+            <group>CATV_Portal_User</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>CATV_Internal_Staff</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

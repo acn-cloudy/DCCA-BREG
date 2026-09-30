@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reviewer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-RA0101218 - Created for BREG phase 1</description>
+    <label>Reviewer</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Filings1</relationshipName>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

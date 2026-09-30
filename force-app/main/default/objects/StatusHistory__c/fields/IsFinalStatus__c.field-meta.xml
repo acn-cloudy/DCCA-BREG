@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsFinalStatus__c</fullName>
+    <description>PacPoint-MV032719 - Created for BREG phase 1, Used to identify if the status is &quot;final&quot;.</description>
+    <formula>IF( 
+OR( 
+AND 
+( 
+NOT(ISBLANK(Filing__c)), 
+StatusValue__c = &quot;Filing Completed&quot; 
+), 
+AND 
+( 
+NOT(ISBLANK(SEBCase__c)), 
+StatusValue__c = &quot;Closed&quot; 
+), 
+AND( 
+NOT(ISBLANK(Exam__c)), 
+StatusValue__c = &quot;Exam Completed&quot; 
+), 
+AND( 
+NOT(ISBLANK(Investigation__c)), 
+OR( 
+StatusValue__c = &quot;Recommend to Close&quot;, 
+StatusValue__c = &quot;Recommend Referral to Legal&quot; 
+) 
+) 
+), 
+true, 
+false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Final Status?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

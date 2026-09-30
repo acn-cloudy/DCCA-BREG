@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TranscriptDate__c</fullName>
+    <description>PacPoint-FT070119 - Created for PVL phase 1</description>
+    <inlineHelpText>Indicate when you arranged to have your final transcripts sent directly to the Board</inlineHelpText>
+    <label>Transcript Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

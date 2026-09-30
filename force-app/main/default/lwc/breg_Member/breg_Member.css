@@ -1,0 +1,14 @@
+.member-label-layout {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-delete {
+  --slds-c-icon-color-foreground: #cb0707;
+}
+
+.checkbox-group-style {
+  columns: 2;
+}

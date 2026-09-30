@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClassStatusDuetoNonRenewal__c</fullName>
+    <description>PacPoint-KN02032020- Created for PVL Phase 1 Sprint 2</description>
+    <label>Class Status Due to Non Renewal</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>C - Current, Valid &amp; In Good Standing</fullName>
+                <default>false</default>
+                <label>C - Current, Valid &amp; In Good Standing</label>
+            </value>
+            <value>
+                <fullName>I - Class No Longer Active (No RME/Firm, No EMPR)</fullName>
+                <default>false</default>
+                <label>I - Class No Longer Active (No RME/Firm, No EMPR)</label>
+            </value>
+            <value>
+                <fullName>F - Class No Longer Active (License Forfeited)</fullName>
+                <default>false</default>
+                <label>F - Class No Longer Active (License Forfeited)</label>
+            </value>
+            <value>
+                <fullName>D - Class No Longer Active (License Delinquent)</fullName>
+                <default>false</default>
+                <label>D - Class No Longer Active (License Delinquent)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,72 @@
+<template>
+  <c-pvl_popup modal-title="Payment Details" onclose={handleClose}>
+    <div class="slds-panel__header_align-center">
+      <b
+        >Your application will not be submitted until you pay the fees listed
+        below</b
+      >
+    </div>
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+      <thead>
+        <tr class="slds-line-height_reset">
+          <th scope="col">
+            <div class="slds-truncate" title="Item">Item</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="Amount">Amount</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <template for:each={items} for:item="row">
+          <tr key={row.id}>
+            <td data-label="Column 1">
+              <div class="slds-truncate" title={row.CashierCode__r.Name}>
+                {row.CashierCode__r.Name}
+              </div>
+            </td>
+            <td data-label="Column 2">
+              <div class="slds-truncate" title={row.Amount__c}>
+                <lightning-formatted-number
+                  value={row.Amount__c}
+                  format-style="currency"
+                  currency-code="USD"
+                ></lightning-formatted-number>
+              </div>
+            </td>
+          </tr>
+        </template>
+        <tr>
+          <td><b>Total Amount Due to Submit Application: </b></td>
+          <td>
+            <lightning-formatted-number
+              value={totalAmount}
+              format-style="currency"
+              currency-code="USD"
+            ></lightning-formatted-number>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div slot="footer">
+      <lightning-button
+        variant="base"
+        label="Cancel"
+        title="Cancel"
+        onclick={cancel}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+      <a href={payURL}
+        ><lightning-button
+          variant="brand"
+          label="Pay"
+          title="Pay"
+          class="slds-m-left_x-small"
+        ></lightning-button
+      ></a>
+    </div>
+  </c-pvl_popup>
+  <template if:true={isPolling}>
+    <lightning-spinner class="spinWithText" alternative-text="Loading payment details" data-text={loadingText}></lightning-spinner>
+  </template>
+</template>

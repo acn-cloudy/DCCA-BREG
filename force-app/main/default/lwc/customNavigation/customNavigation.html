@@ -1,0 +1,6 @@
+<template>
+    <div class="cell">
+        <a href={url} title={label} target={target} lwc:if={url}>{label}</a>
+        <a href="javascript:void(0)" title={label} onclick={navigateToRecordViewPage} lwc:else>{label}</a>
+    </div>
+</template>

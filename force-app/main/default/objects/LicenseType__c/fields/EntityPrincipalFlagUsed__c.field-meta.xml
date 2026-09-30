@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EntityPrincipalFlagUsed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-KN01-25-2022 - Created for Case 19573</description>
+    <label>Entity/Principal Required?</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_CATV_Quotes</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Submitted_Date__c</columns>
+    <columns>Provider__c</columns>
+    <columns>Requestor__c</columns>
+    <columns>INET_Request__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All CATV Quotes</label>
+</ListView>

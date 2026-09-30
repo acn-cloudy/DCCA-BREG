@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Confidential__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>TNOX: When checked, this ticket is only visible to the submitter, assigned user, queue members, and admins. Team sharing will be disabled.</description>
+    <inlineHelpText>Mark as confidential to restrict visibility to only you, the assigned team, and administrators.</inlineHelpText>
+    <label>Confidential</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

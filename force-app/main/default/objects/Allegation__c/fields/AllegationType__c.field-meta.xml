@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllegationType__c</fullName>
+    <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+    <label>Allegation Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Affinity Fraud</fullName>
+                <default>false</default>
+                <label>Affinity Fraud</label>
+            </value>
+            <value>
+                <fullName>Charging Unreasonable Advisory Fees</fullName>
+                <default>false</default>
+                <label>Charging Unreasonable Advisory Fees</label>
+            </value>
+            <value>
+                <fullName>Charging unreasonable commissions/compensation</fullName>
+                <default>false</default>
+                <label>Charging unreasonable commissions/compensation</label>
+            </value>
+            <value>
+                <fullName>Commingling or Hypothecation of Clients&apos; Funds or Securities</fullName>
+                <default>false</default>
+                <label>Commingling or Hypothecation of Clients&apos; Funds or Securities</label>
+            </value>
+            <value>
+                <fullName>Conversion/Theft</fullName>
+                <default>false</default>
+                <label>Conversion/Theft</label>
+            </value>
+            <value>
+                <fullName>Convicted of any felony/misdemeanor</fullName>
+                <default>false</default>
+                <label>Convicted of any felony/misdemeanor</label>
+            </value>
+            <value>
+                <fullName>Dealing in Unregistered Securities</fullName>
+                <default>false</default>
+                <label>Dealing in Unregistered Securities</label>
+            </value>
+            <value>
+                <fullName>Dealing with Unregistered Persons</fullName>
+                <default>false</default>
+                <label>Dealing with Unregistered Persons</label>
+            </value>
+            <value>
+                <fullName>Deceptive or misleading advertising</fullName>
+                <default>false</default>
+                <label>Deceptive or misleading advertising</label>
+            </value>
+            <value>
+                <fullName>E2 Visa Fraud</fullName>
+                <default>false</default>
+                <label>E2 Visa Fraud</label>
+            </value>
+            <value>
+                <fullName>EB-5 Visa Fraud</fullName>
+                <default>false</default>
+                <label>EB-5 Visa Fraud</label>
+            </value>
+            <value>
+                <fullName>Enjoined by Court</fullName>
+                <default>false</default>
+                <label>Enjoined by Court</label>
+            </value>
+            <value>
+                <fullName>Entering Into Unwritten Investment Advisory Contracts</fullName>
+                <default>false</default>
+                <label>Entering Into Unwritten Investment Advisory Contracts</label>
+            </value>
+            <value>
+                <fullName>Failure/delay to file financial statements/reports</fullName>
+                <default>false</default>
+                <label>Failure/delay to file financial statements/reports</label>
+            </value>
+            <value>
+                <fullName>Failure/Refusal to Furnish a Customer with Information to Which They are Entitled</fullName>
+                <default>false</default>
+                <label>Failure/Refusal to Furnish a Customer with Information to Which They are Entitled</label>
+            </value>
+            <value>
+                <fullName>Failure to Comply with Statute and/or Rules</fullName>
+                <default>false</default>
+                <label>Failure to Comply with Statute and/or Rules</label>
+            </value>
+            <value>
+                <fullName>Failure to cooperate with investigation</fullName>
+                <default>false</default>
+                <label>Failure to cooperate with investigation</label>
+            </value>
+            <value>
+                <fullName>Failure to Disclose</fullName>
+                <default>false</default>
+                <label>Failure to Disclose</label>
+            </value>
+            <value>
+                <fullName>Failure to disclose commission/compensation</fullName>
+                <default>false</default>
+                <label>Failure to disclose commission/compensation</label>
+            </value>
+            <value>
+                <fullName>Failure to disclose dual agency</fullName>
+                <default>false</default>
+                <label>Failure to disclose dual agency</label>
+            </value>
+            <value>
+                <fullName>Failure to Maintain Book and Records</fullName>
+                <default>false</default>
+                <label>Failure to Maintain Book and Records</label>
+            </value>
+            <value>
+                <fullName>Failure to Meet Net Capital Requirements</fullName>
+                <default>false</default>
+                <label>Failure to Meet Net Capital Requirements</label>
+            </value>
+            <value>
+                <fullName>Failure to obtain insurance or bond</fullName>
+                <default>false</default>
+                <label>Failure to obtain insurance or bond</label>
+            </value>
+            <value>
+                <fullName>Failure to provide an FDD</fullName>
+                <default>false</default>
+                <label>Failure to provide an FDD</label>
+            </value>
+            <value>
+                <fullName>Failure to provide Disclosure Statement (IA)</fullName>
+                <default>false</default>
+                <label>Failure to provide Disclosure Statement (IA)</label>
+            </value>
+            <value>
+                <fullName>Failure to provide invoices</fullName>
+                <default>false</default>
+                <label>Failure to provide invoices</label>
+            </value>
+            <value>
+                <fullName>Failure to Provide Prospectus</fullName>
+                <default>false</default>
+                <label>Failure to Provide Prospectus</label>
+            </value>
+            <value>
+                <fullName>Failure to Supervise</fullName>
+                <default>false</default>
+                <label>Failure to Supervise</label>
+            </value>
+            <value>
+                <fullName>Fictitious Accounts</fullName>
+                <default>false</default>
+                <label>Fictitious Accounts</label>
+            </value>
+            <value>
+                <fullName>Forgery</fullName>
+                <default>false</default>
+                <label>Forgery</label>
+            </value>
+            <value>
+                <fullName>Fraud</fullName>
+                <default>false</default>
+                <label>Fraud</label>
+            </value>
+            <value>
+                <fullName>Fraudulent, Dishonest or Unethical Practices</fullName>
+                <default>false</default>
+                <label>Fraudulent, Dishonest or Unethical Practices</label>
+            </value>
+            <value>
+                <fullName>Free Riding</fullName>
+                <default>false</default>
+                <label>Free Riding</label>
+            </value>
+            <value>
+                <fullName>High Pressure Sales Tactics</fullName>
+                <default>false</default>
+                <label>High Pressure Sales Tactics</label>
+            </value>
+            <value>
+                <fullName>Incomplete/False Filing</fullName>
+                <default>false</default>
+                <label>Incomplete/False Filing</label>
+            </value>
+            <value>
+                <fullName>Insider Trading</fullName>
+                <default>false</default>
+                <label>Insider Trading</label>
+            </value>
+            <value>
+                <fullName>Insolvency</fullName>
+                <default>false</default>
+                <label>Insolvency</label>
+            </value>
+            <value>
+                <fullName>Internet or Social Media Fraud</fullName>
+                <default>false</default>
+                <label>Internet or Social Media Fraud</label>
+            </value>
+            <value>
+                <fullName>Loan to/from customers</fullName>
+                <default>false</default>
+                <label>Loan to/from customers</label>
+            </value>
+            <value>
+                <fullName>Maintaining Discretionary Accounts Without Written Authorization</fullName>
+                <default>false</default>
+                <label>Maintaining Discretionary Accounts Without Written Authorization</label>
+            </value>
+            <value>
+                <fullName>Making Guarantees</fullName>
+                <default>false</default>
+                <label>Making Guarantees</label>
+            </value>
+            <value>
+                <fullName>Making Oral or Written Statements Contrary to or Inconsistent with Prospectus Disclosures</fullName>
+                <default>false</default>
+                <label>Making Oral or Written Statements Contrary to or Inconsistent with Prospectus Disclosures</label>
+            </value>
+            <value>
+                <fullName>Margin Violations</fullName>
+                <default>false</default>
+                <label>Margin Violations</label>
+            </value>
+            <value>
+                <fullName>Market Manipulation</fullName>
+                <default>false</default>
+                <label>Market Manipulation</label>
+            </value>
+            <value>
+                <fullName>Misrepesentations/Omissions of Material Facts</fullName>
+                <default>false</default>
+                <label>Misrepesentations/Omissions of Material Facts</label>
+            </value>
+            <value>
+                <fullName>Not Qualified to Engage in Securities Business</fullName>
+                <default>false</default>
+                <label>Not Qualified to Engage in Securities Business</label>
+            </value>
+            <value>
+                <fullName>Operational Procedures</fullName>
+                <default>false</default>
+                <label>Operational Procedures</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Parking</fullName>
+                <default>false</default>
+                <label>Parking</label>
+            </value>
+            <value>
+                <fullName>Ponzi Scheme</fullName>
+                <default>false</default>
+                <label>Ponzi Scheme</label>
+            </value>
+            <value>
+                <fullName>Pyramid Scheme</fullName>
+                <default>false</default>
+                <label>Pyramid Scheme</label>
+            </value>
+            <value>
+                <fullName>Refusal/impedes audit or inspection</fullName>
+                <default>false</default>
+                <label>Refusal/impedes audit or inspection</label>
+            </value>
+            <value>
+                <fullName>Regulation Best Interest Violations</fullName>
+                <default>false</default>
+                <label>Regulation Best Interest Violations</label>
+            </value>
+            <value>
+                <fullName>Selling Away</fullName>
+                <default>false</default>
+                <label>Selling Away</label>
+            </value>
+            <value>
+                <fullName>Selling Securities at Unfair Prices in Relation to Market Value</fullName>
+                <default>false</default>
+                <label>Selling Securities at Unfair Prices in Relation to Market Value</label>
+            </value>
+            <value>
+                <fullName>Selling Securities with Unreasonable or Excessive Markups or Commissions</fullName>
+                <default>false</default>
+                <label>Selling Securities with Unreasonable or Excessive Markups or Commissions</label>
+            </value>
+            <value>
+                <fullName>Subject of Order</fullName>
+                <default>false</default>
+                <label>Subject of Order</label>
+            </value>
+            <value>
+                <fullName>Switching, Churning, Overtrading, Reloading</fullName>
+                <default>false</default>
+                <label>Switching, Churning, Overtrading, Reloading</label>
+            </value>
+            <value>
+                <fullName>Unauthorized third-party trade</fullName>
+                <default>false</default>
+                <label>Unauthorized third-party trade</label>
+            </value>
+            <value>
+                <fullName>Unauthorized Transactions</fullName>
+                <default>false</default>
+                <label>Unauthorized Transactions</label>
+            </value>
+            <value>
+                <fullName>Unreasonable Delay or Failure to Deliver Securities Purchased or Remittances or Credit for Securities Sold</fullName>
+                <default>false</default>
+                <label>Unreasonable Delay or Failure to Deliver Securities Purchased or Remittances or Credit for Securities Sold</label>
+            </value>
+            <value>
+                <fullName>Unreasonable Delay or Failure to Execute Orders</fullName>
+                <default>false</default>
+                <label>Unreasonable Delay or Failure to Execute Orders</label>
+            </value>
+            <value>
+                <fullName>Unreasonable Delay or Failure to Liquidate Accounts</fullName>
+                <default>false</default>
+                <label>Unreasonable Delay or Failure to Liquidate Accounts</label>
+            </value>
+            <value>
+                <fullName>Unregistered Agent</fullName>
+                <default>false</default>
+                <label>Unregistered Agent</label>
+            </value>
+            <value>
+                <fullName>Unregistered Broker-dealer</fullName>
+                <default>false</default>
+                <label>Unregistered Broker-dealer</label>
+            </value>
+            <value>
+                <fullName>Unregistered Franchise</fullName>
+                <default>false</default>
+                <label>Unregistered Franchise</label>
+            </value>
+            <value>
+                <fullName>Unregistered Investment Adviser</fullName>
+                <default>false</default>
+                <label>Unregistered Investment Adviser</label>
+            </value>
+            <value>
+                <fullName>Unregistered Investment Adviser Representative</fullName>
+                <default>false</default>
+                <label>Unregistered Investment Adviser Representative</label>
+            </value>
+            <value>
+                <fullName>Unregistered Securities</fullName>
+                <default>false</default>
+                <label>Unregistered Securities</label>
+            </value>
+            <value>
+                <fullName>Unsuitable Recommendations</fullName>
+                <default>false</default>
+                <label>Unsuitable Recommendations</label>
+            </value>
+            <value>
+                <fullName>Unworthiness</fullName>
+                <default>false</default>
+                <label>Unworthiness</label>
+            </value>
+            <value>
+                <fullName>Violations Against Elders</fullName>
+                <default>false</default>
+                <label>Violations Against Elders</label>
+            </value>
+            <value>
+                <fullName>Violations of Previous Orders</fullName>
+                <default>false</default>
+                <label>Violations of Previous Orders</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

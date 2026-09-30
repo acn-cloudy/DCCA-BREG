@@ -1,0 +1,22 @@
+
+
+.mds-toast{
+    &-success {
+        background-color: var(--success-main);
+    }
+    &-error {
+        background-color: var(--error-main);
+    }
+    &-warning {
+        background-color: var(--warning-title-label);
+    }
+    &_color{
+        color:var(--white);
+    }
+    
+    .slds-button {
+        &::before {
+            color: var(--white);
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Open_OCP_Work_Items3</fullName>
+    <columns>NAME</columns>
+    <columns>High_Priority__c</columns>
+    <columns>Case__c</columns>
+    <columns>Island_of_Residence__c</columns>
+    <columns>OCP_Work_Item_Type__c</columns>
+    <columns>Status__c</columns>
+    <columns>Owner_calc__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Work_Item_Closed_Date__c</columns>
+    <columns>Days_Open__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>New,In-Progress</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Work_Item__c.OCP</value>
+    </filters>
+    <label>All Open OCP Work Items</label>
+    <sharedTo>
+        <group>OCP_Supervisors</group>
+        <group>OCP_Tier_1_Agents</group>
+    </sharedTo>
+</ListView>

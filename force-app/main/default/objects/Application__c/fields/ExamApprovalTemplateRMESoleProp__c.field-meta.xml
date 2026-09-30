@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExamApprovalTemplateRMESoleProp__c</fullName>
+    <description>PacPoint-MV111419 - Created for PVL phase 1.Created to be used on PB to identify which Exam Approval Template to use.</description>
+    <formula>IF(
+ OR(
+   LicenseType__r.Name = &quot;CT - RME&quot;,
+   LicenseType__r.Name = &quot;CT - Sole Proprietor&quot;
+ ), 
+ true, 
+ false
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Exam Approval Template RME/SoleProp</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

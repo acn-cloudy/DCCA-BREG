@@ -1,0 +1,18 @@
+.mds-breadcrumb {
+  &_row {
+    .material-icon-keyboard_arrow_right {
+      color: var(--text-disabled);
+    }
+
+    &-item {
+      font-size: var(--font-size-14);
+      font-weight: var(--font-weight-regular);
+      color: var(--text-disabled);
+
+      &:last-child {
+        color: var(--primary-main);
+        font-weight: var(--font-weight-medium);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SendINSBondReminderNotice__c</fullName>
+    <description>PacPoint-KN07142020-Created for PVL Phase 1 Sprint 6</description>
+    <formula>If(BLANKVALUE(TermDate__c, CancelDate__c) &gt; BLANKVALUE(CancelDate__c, TermDate__c)
+, BLANKVALUE(CancelDate__c, TermDate__c), BLANKVALUE(TermDate__c, CancelDate__c))  -  License__r.LicenseType__r.NumberOfDaysPriorToInsExpNotice__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Send INS/Bond Reminder Notice</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,49 @@
+<template>
+  <div id="content" class="primary-content">
+    <h2 class="title">News Releases</h2>
+    <div for:each={pageData} for:item="item" key={item.contentKey} class="post">
+      <div class="title">
+        <img width="150" height="150" src={item.image} class="alignleft wp-post-image" alt="" decoding="async">
+        <h3>
+          <a href={item.link} title={item.title} data-content-key={item.id} onclick={handleNavDetail}>
+            {item.title}
+          </a>
+        </h3>
+        <p class="meta-info">Posted on <lightning-formatted-date-time
+            value={item.date1}></lightning-formatted-date-time>
+          <!-- 
+            in
+            <a href="https://cca.hawaii.gov/blog/category/divisions/breg/" rel="category tag">BREG</a>,
+            <a href="https://cca.hawaii.gov/blog/category/news-releases/" rel="category tag">News Releases</a> 
+          -->
+        </p>
+      </div>
+      <div class="entry">
+        <p>
+          {item.excerpt}
+          <br>
+          <a href="#" class="read-more" data-content-key={item.id} onclick={handleNavDetail}>
+            Read More
+            <span class="screen-reader">{item.title}</span>
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="reg-pagination">
+      <a class="prev page-numbers" href="#" onclick={hanldePrevious} lwc:if={hasPrevious}>« Previous</a>
+      <a for:each={previousQuickLinks} for:item="item" key={item} class="page-numbers" href="#"
+        data-page={item} onclick={handleQuickLink}>{item}</a>
+      <span aria-current="page" class="page-numbers current">{currentPage}</span>
+      <a for:each={nextQuickLinks} for:item="item" key={item} class="page-numbers" href="#" data-page={item} onclick={handleQuickLink}>{item}</a>
+      <!-- 
+        <span aria-current="page" class="page-numbers current">1</span>
+        <a class="page-numbers" href="https://cca.hawaii.gov/blog/category/news-releases/page/2/">2</a>
+        <a class="page-numbers" href="https://cca.hawaii.gov/blog/category/news-releases/page/3/">3</a>
+        <span class="page-numbers dots">…</span>
+        <a class="page-numbers" href="https://cca.hawaii.gov/blog/category/news-releases/page/52/">52</a> 
+      -->
+      <a class="next page-numbers" href="#" onclick={handleNext} lwc:if={hasNext}>Next »</a>
+    </div>
+  </div>
+</template>

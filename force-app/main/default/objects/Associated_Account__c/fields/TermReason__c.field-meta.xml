@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TermReason__c</fullName>
+    <label>Term Reason</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>DELQ</fullName>
+                <default>false</default>
+                <label>DELQ</label>
+            </value>
+            <value>
+                <fullName>N</fullName>
+                <default>false</default>
+                <label>N</label>
+            </value>
+            <value>
+                <fullName>NSF</fullName>
+                <default>false</default>
+                <label>NSF</label>
+            </value>
+            <value>
+                <fullName>REL</fullName>
+                <default>false</default>
+                <label>REL</label>
+            </value>
+            <value>
+                <fullName>TERM</fullName>
+                <default>false</default>
+                <label>TERM</label>
+            </value>
+            <value>
+                <fullName>UP</fullName>
+                <default>false</default>
+                <label>UP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

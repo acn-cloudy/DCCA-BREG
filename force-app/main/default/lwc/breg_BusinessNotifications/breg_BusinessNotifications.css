@@ -1,0 +1,49 @@
+.login-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+.main-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.login-box {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+.login-button {
+  margin: 1rem 0;
+}
+
+.why-change {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.full-height {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-guide {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+}
+
+.user-guide-modal {
+  max-width: 1000px;
+  width: 90%;
+}
+
+@media (max-width: 500px) {
+  .user-guide {
+    position: static;
+  }
+}

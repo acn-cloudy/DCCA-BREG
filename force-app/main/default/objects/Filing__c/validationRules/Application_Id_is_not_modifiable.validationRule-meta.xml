@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Application_Id_is_not_modifiable</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(Name),
+(Name != RecordTypeDeveloperName__c + Text(Year(Today())) + ApplicationAutoNumber__c),
+$Profile.Name == &quot;DCCA BREG - CustomerCommunityLogin&quot;
+)</errorConditionFormula>
+    <errorMessage>Application Id cannot be changed.</errorMessage>
+</ValidationRule>

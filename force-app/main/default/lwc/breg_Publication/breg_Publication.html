@@ -1,0 +1,108 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="12" class="form-layout-item">
+            <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+        </lightning-layout-item>
+
+        <template lwc:if={readOnly}>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-formatted-rich-text value={publicationTypeValueReadOnly}></lightning-formatted-rich-text>
+            </lightning-layout-item>
+            <template lwc:if={showPublishedSection}>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-formatted-rich-text value={publicationDate1ValueReadOnly}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-formatted-rich-text value={publicationDate2ValueReadOnly}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-formatted-rich-text value={publicationDate3ValueReadOnly}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-formatted-rich-text value={publicationDate4ValueReadOnly}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-formatted-rich-text value={publicationNameValueReadOnly}></lightning-formatted-rich-text>
+                </lightning-layout-item>
+            </template>
+        </template>
+        <template lwc:else>
+            <lightning-layout-item size="12" class="form-layout-item">
+                <lightning-radio-group
+                    name="publicationType"
+                    label="Select one of the following statements, as applicable."
+                    options={publicationTypeOptions}
+                    onchange={handleInputChange}
+                    onblur={handleInputBlur}
+                    value={publicationTypeValue}
+                    required={required}
+                    disabled={readOnly}
+                ></lightning-radio-group>
+            </lightning-layout-item>
+
+            <template lwc:if={showPublishedSection}>
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <div class="slds-var-m-bottom_small">
+                        <span>State the four publication dates</span>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-input
+                        name="publicationDate1"
+                        value={publicationDate1Value}
+                        label="Publication Date 1"
+                        type="date"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-input
+                        name="publicationDate2"
+                        value={publicationDate2Value}
+                        label="Publication Date 2"
+                        type="date"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-input
+                        name="publicationDate3"
+                        value={publicationDate3Value}
+                        label="Publication Date 3"
+                        type="date"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="form-layout-item">
+                    <lightning-input
+                        name="publicationDate4"
+                        value={publicationDate4Value}
+                        label="Publication Date 4"
+                        type="date"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12" class="form-layout-item">
+                    <lightning-input
+                        name="publicationName"
+                        value={publicationNameValue}
+                        label="Name of Publication/Newspaper"
+                        type="text"
+                        onchange={handleInputChange}
+                        onblur={handleInputBlur}
+                        read-only={readOnly}
+                    ></lightning-input>
+                </lightning-layout-item>
+            </template>
+        </template>
+    </lightning-layout>
+</template>

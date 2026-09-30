@@ -1,0 +1,164 @@
+<template>
+    <lightning-card title={labels.BREG_Annual_Step_4_Title}>
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-size_2-of-3">
+                <div class="button-group">
+                    <button data-key="online" class={onlineSelectedClass} onclick={changeOnline}>
+                        {labels.BREG_Annual_Pay_and_submit_online}
+                        <span data-key="online" onclick={changeOnline} class="save-note">{saveDiscount}</span>
+                    </button>
+                    <button data-key="mail" class={mailSelectedClass} onclick={changeOnline}>{labels.BREG_Annual_Print_and_file_by_mail}</button>
+                </div>
+
+                <h2 class="company-name">{accountName}</h2>
+
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_2-of-3">
+                        <table class="slds-table slds-table_bordered fixed-layout-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">{labels.BREG_Item}</th>
+                                    <th>{labels.BREG_Amount}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"><strong>{filingYear} {labels.BREG_Annual_Annual_Report}</strong><br /></td>
+                                    <td>{annualFilingFeeText}</td>
+                                </tr>
+                                <template lwc:if={showExpeditedFeeOption}>
+                                    <tr>
+                                        <td class="item-cell">{processedTime}</td>
+                                        <td class="amount-cell">
+                                            {labels.BREG_Annual_Expedite_fee}
+                                            <lightning-helptext onclick={showExpeditedPopup}></lightning-helptext>
+                                            <lightning-button
+                                                variant="base"
+                                                label={expeditedLabel}
+                                                title={expeditedLabel}
+                                                onclick={handleChangeProcessingSpeed}
+                                                class="slds-m-left_x-small"
+                                            ></lightning-button>
+                                        </td>
+                                        <td class="amount-cell">{expeditedFeeText}</td>
+                                    </tr>
+                                </template>
+                                <tr>
+                                    <td></td>
+                                    <td>{labels.BREG_Annual_Archive_fee} <lightning-helptext onclick={showArchivePopup}></lightning-helptext></td>
+                                    <td>{archiveFeeText}</td>
+                                </tr>
+                                <template lwc:if={showLate}>
+                                    <tr>
+                                        <td>
+                                            <div class="messages">
+                                                <p class="late-warning">{labels.BREG_Annual_Because_your_report_is_overdue}</p>
+                                            </div>
+                                        </td>
+                                        <td>{labels.BREG_Annual_Late_fee}</td>
+                                        <td>{lateFeeText}</td>
+                                    </tr>
+                                </template>
+
+                                <template if:true={isOnline}>
+                                    <tr>
+                                        <td>
+                                            <div class="messages">
+                                                <p class={discountClass}>{congratsDiscountText}</p>
+                                            </div>
+                                        </td>
+                                        <td class={discountClass}>{labels.BREG_Annual_Online_report_discount}</td>
+                                        <td class={discountClass}>-{discountText}</td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+
+                        <div class="subtotal">
+                            <strong>{labels.BREG_Annual_Subtotal}</strong>
+                            <span>{subtotal}</span>
+                        </div>
+                        <template if:false={isOnline}>
+                            <div class="next-steps slds-m-top_medium">
+                                <h3>{labels.BREG_Annual_What_do_I_do_next}</h3>
+                                <ol>
+                                    <li>
+                                        <lightning-button
+                                            label={labels.BREG_Annual_Pint_report}
+                                            onclick={handlePrintReport}
+                                            icon-name="utility:print"
+                                            variant="neutral"
+                                        ></lightning-button>
+                                    </li>
+                                    <li>{labels.BREG_Annual_Sign_the_report}</li>
+                                    <li>
+                                        {makeCheck}<br />
+                                        <strong>{labels.BREG_Annual_DEPARTMENT_OF_COMMERCE}</strong>
+                                    </li>
+                                    <li>
+                                        {labels.BREG_Annual_Mail_to}<br />
+                                        <strong>
+                                            {labels.BREG_Annual_ANNUAL_FILING_BREG}<br />
+                                            {labels.BREG_Annual_PO_Address_1}<br />
+                                            {labels.BREG_Annual_PO_Address_2}
+                                        </strong>
+                                    </li>
+                                </ol>
+                            </div>
+                        </template>
+                        <!-- Reminder Section -->
+                    </div>
+                </div>
+                <div class="slds-box slds-m-around_medium">
+                    <h2 class="dxp-text-heading-medium">{reminderSectionTitle}</h2>
+                    <br />
+                    <lightning-input
+                        type="checkbox"
+                        onchange={handleChangeFreeEmailsCheck}
+                        label={reminderSectionCheckboxLabel}
+                        checked={sendFreeReminder}
+                    ></lightning-input>
+                </div>
+                <template if:true={isOnline}>
+                    <div class="slds-grid slds-grid_align-end">
+                        <lightning-button
+                            onclick={handleCheckout}
+                            class="col"
+                            variant="brand"
+                            label={labels.BREG_Annual_Add_to_Cart_Checkout}
+                        ></lightning-button>
+                        <lightning-button
+                            onclick={handleAddtoCart}
+                            class="slds-m-left_x-small col"
+                            variant="neutral"
+                            label={labels.BREG_Annual_Add_To_Cart}
+                        ></lightning-button>
+                    </div>
+                    <hr />
+                    <div class="slds-grid slds-grid_align-spread">
+                        <lightning-button onclick={handleCancel} class="col" variant="destructive" label={labels.BREG_Cancel}></lightning-button>
+                        <lightning-button onclick={handlePrev} class="slds-m-left_x-small col" label={labels.BREG_Prev}></lightning-button>
+                    </div>
+                </template>
+            </div>
+            <div class="slds-size_1-of-3 slds-p-around_medium">
+                <c-breg-_-tile title={tileTitle}>
+                    <div class="slds-theme_alert-texture slds-theme_alert-error slds-p-around_medium slds-text-align_center">
+                        <div class="slds-text-body_regular slds-text-color_error">{yearReport}</div>
+                    </div>
+                </c-breg-_-tile>
+            </div>
+        </div>
+    </lightning-card>
+    <c-breg-_-popup
+        visible={showModal}
+        title={modalTitle}
+        message={modalText}
+        oncontinue={handleModalContinue}
+        oncancel={handleModalCancel}
+        next-button-label={modalContinueLabel}
+        cancel-button-label={modalCancelLabel}
+        hide-next-button={modalHideNextButton}
+    >
+    </c-breg-_-popup>
+</template>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ValidationOnLicenseNumber</fullName>
+    <active>false</active>
+    <errorConditionFormula>$Setup.OrgConfiguration__c.EnableValidations__c &amp;&amp; AND
+(
+LicenseTypeFormula__c &lt;&gt; &quot;R&quot;,
+LicenseTypeFormula__c &lt;&gt; &quot;T&quot;,
+
+OR
+(
+LEN( LicenseTypeFormula__c ) = 0,
+LEN( TEXT(LicenseNumberFormula__c) ) = 0,
+LEN( TEXT(BranchNumberFormula__c) ) = 0
+),
+
+
+LicenseType__r.Branch__c &lt;&gt; true
+
+)</errorConditionFormula>
+    <errorMessage>Except for Temp Licenses and Registrations, License Numbers must have the format License Type - License Number - Branch (Example CT-12345-0)</errorMessage>
+</ValidationRule>

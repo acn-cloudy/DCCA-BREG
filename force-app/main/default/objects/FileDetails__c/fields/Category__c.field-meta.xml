@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <description>PacPoint-MV010419 - Created for BREG phase 1</description>
+    <label>Category</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exam Documents</fullName>
+                <default>false</default>
+                <label>Exam Documents</label>
+            </value>
+            <value>
+                <fullName>Exam Deficiencies</fullName>
+                <default>false</default>
+                <label>Exam Deficiencies</label>
+            </value>
+            <value>
+                <fullName>SEB Clerical</fullName>
+                <default>false</default>
+                <label>SEB Clerical</label>
+            </value>
+            <value>
+                <fullName>SEB Investigation</fullName>
+                <default>false</default>
+                <label>SEB Investigation</label>
+            </value>
+            <value>
+                <fullName>SEB Legal</fullName>
+                <default>false</default>
+                <label>SEB Legal</label>
+            </value>
+            <value>
+                <fullName>SEC - Broker-Dealer</fullName>
+                <default>false</default>
+                <label>SEC - Broker-Dealer</label>
+            </value>
+            <value>
+                <fullName>SEC - Broker-Dealer Agent</fullName>
+                <default>false</default>
+                <label>SEC - Broker-Dealer Agent</label>
+            </value>
+            <value>
+                <fullName>SEC - By Qualification</fullName>
+                <default>false</default>
+                <label>SEC - By Qualification</label>
+            </value>
+            <value>
+                <fullName>SEC - Franchise</fullName>
+                <default>false</default>
+                <label>SEC - Franchise</label>
+            </value>
+            <value>
+                <fullName>SEC - Investment Adviser</fullName>
+                <default>false</default>
+                <label>SEC - Investment Adviser</label>
+            </value>
+            <value>
+                <fullName>SEC - Investment Adviser Representative</fullName>
+                <default>false</default>
+                <label>SEC - Investment Adviser Representative</label>
+            </value>
+            <value>
+                <fullName>SEC - Issuer Dealer</fullName>
+                <default>false</default>
+                <label>SEC - Issuer Dealer</label>
+            </value>
+            <value>
+                <fullName>SEC - Issuer Dealer Agent</fullName>
+                <default>false</default>
+                <label>SEC - Issuer Dealer Agent</label>
+            </value>
+            <value>
+                <fullName>SEC - Model Accredited Investor</fullName>
+                <default>false</default>
+                <label>SEC - Model Accredited Investor</label>
+            </value>
+            <value>
+                <fullName>SEC - Mutual Fund</fullName>
+                <default>false</default>
+                <label>SEC - Mutual Fund</label>
+            </value>
+            <value>
+                <fullName>SEC - Regulation A</fullName>
+                <default>false</default>
+                <label>SEC - Regulation A</label>
+            </value>
+            <value>
+                <fullName>SEC - Regulation D</fullName>
+                <default>false</default>
+                <label>SEC - Regulation D</label>
+            </value>
+            <value>
+                <fullName>SEC - SCOR</fullName>
+                <default>false</default>
+                <label>SEC - SCOR</label>
+            </value>
+            <value>
+                <fullName>SEB Complaint</fullName>
+                <default>false</default>
+                <label>SEB Complaint</label>
+            </value>
+            <value>
+                <fullName>SEC - Unit Investment Trust</fullName>
+                <default>false</default>
+                <label>SEC - Unit Investment Trust</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

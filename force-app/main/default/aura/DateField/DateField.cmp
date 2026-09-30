@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="value" type="Date" />
+    <aura:attribute name="change" type="Object" />
+    <aura:attribute name="errors" type="Object[]" access="global" />
+    <aura:handler name="change" value="{!v.value}" action="{!v.change}"/>    
+	<ui:inputDate value="{!v.value}" aura:id="dateField" 
+                  errors="{!v.errors}" displayDatePicker="true" />
+</aura:component>

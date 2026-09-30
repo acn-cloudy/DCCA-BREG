@@ -1,0 +1,44 @@
+lightning-datatable {
+    font-size: 14pt;
+}
+
+/* Override SLDS alert info background to use solid color */
+.slds-alert_info {
+    background-color: var(--breg-primary-color) !important;
+    background-image: none !important;
+    font-size: 11pt;
+}
+
+.filing-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f4f6f9;
+    border-radius: 4px;
+    border-left: 3px solid var(--breg-primary-color);
+}
+
+.filing-note span {
+    color: #3e3e3c;
+    font-size: 11pt;
+    line-height: 1.4;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+  h1.dxp-text-heading-large {
+    font-size: 24px;
+  }
+
+  .note-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media print and (orientation: portrait) {
+  .custom-datatable {
+    zoom: 0.6;
+  }
+}

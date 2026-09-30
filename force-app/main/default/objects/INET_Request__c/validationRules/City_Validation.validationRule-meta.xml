@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>City_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(REGEX( City__c, &quot;[a-zA-Z ]*$&quot;))</errorConditionFormula>
+    <errorMessage>Please add the city name. Digits and Special characters are not allowed</errorMessage>
+</ValidationRule>

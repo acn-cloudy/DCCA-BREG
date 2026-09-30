@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Status_for_Completion</fullName>
+    <active>true</active>
+    <description>You can only mark as complete when the status is &quot;Connected to INET&quot;.</description>
+    <errorConditionFormula>AND(
+   ISCHANGED(Status__c),
+   ISPICKVAL(Status__c, &quot;Completed&quot;),
+   NOT(ISPICKVAL(PRIORVALUE(Status__c), &quot;Connected to INET&quot;))
+)</errorConditionFormula>
+    <errorMessage>You can only mark this stage complete when Status is &quot;Connected to INET&quot;.</errorMessage>
+</ValidationRule>

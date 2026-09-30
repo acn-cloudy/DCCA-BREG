@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>PacPoint-MV121819 - Created for phase 1. Created as a result of the Winter&apos;20 critical update</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DCCA Conga Permission Set</label>
+</PermissionSet>

@@ -1,0 +1,252 @@
+.mds-tabs {
+    &_default {
+        display: block;
+        width: 100%;
+
+        &__nav {
+            display: flex;
+            align-items: flex-start;
+            border-bottom: toRem(2) solid var(--other-divider);
+            background-color: var(--white);
+        }
+
+        &__item {
+            position: relative;
+            color: var(--text-primary);
+            font-weight: var(--font-weight-medium);
+            font-size: toRem(16);
+            // height: toRem(48);
+            display: flex;
+            align-items: center;
+
+            &.mds-is-active,
+            &:hover {
+                .mds-tabs_default__link {
+                    color: var(--primary-main);
+                    border-bottom: toRem(2) solid var(--primary-main);
+                    margin-bottom: toRem(-4);
+                }
+            }
+
+            &.mds-is-disabled {
+                pointer-events: none;
+
+                .mds-tabs_default__link {
+                    color: var(--text-disabled);
+
+                    &:focus {
+                        outline: none !important;
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        &__link {
+            color: currentColor;
+            text-decoration: none;
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: toRem(8) toRem(24);
+            position: relative;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                box-shadow: none;
+            }
+
+            .mds-tabs__left-icon,
+            .mds-tabs__right-icon {
+                margin-right: toRem(8);
+                display: flex;
+                align-items: center;
+            }
+
+            .mds-tabs__left-icon {
+                &:before {
+                    content: '\ea91';
+                    font-family: "material-icon";
+                    font-size: toRem(16);
+                }
+            }
+
+            .mds-tabs__right-icon {
+                &:after {
+                    content: '\ea91';
+                    font-family: "material-icon";
+                    font-size: toRem(16);
+                }
+            }
+
+            .mds-tabs_item {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+            }
+
+            &.mds-is-active {
+                justify-content: space-between;
+
+                &:after {
+                    font-family: "material-icon";
+                    color: var(--primary-main);
+                    font-size: toRem(16);
+                    content: '\eaa9';
+                }
+            }
+        }
+
+        &__content {
+            position: relative;
+            padding: toRem(24) 0 !important;
+        }
+    }
+}
+
+.mds {
+    &-indicator_unread {
+        display: inline-block;
+        height: toRem(8);
+        width: toRem(8);
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translateY(-50%);
+        border-radius: var(--border-radius-circle);
+        background: var(--error-main);
+    }
+}
+
+// Custom tabset responsive
+@include responsive(phone-port-start) {
+    .mds-tabs {
+        &_default {
+            &.mds-tabs_responsive {
+                .mds-tabs_default {
+                    &__nav {
+                        flex-direction: column;
+                        border: none !important;
+                        background-color: var(--primary-shades-4-p);
+
+                        &.mds-tabs-mobile__expand {
+                            .mds-tabs_default__item {
+                                display: block;
+                                order: 0;
+
+                                &.mds-is-active {
+                                    order: -1;
+                                }
+                            }
+                        }
+                    }
+
+                    &__item {
+                        display: none;
+                        width: 100%;
+
+                        &.mds-is-active {
+                            display: block;
+                            order: -1;
+
+                            .mds-tabs_default__link {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                &:after {
+                                    font-family: "material-icon";
+                                    color: var(--primary-main);
+                                    font-size: toRem(16);
+                                    content: '\eaa9';
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+//Lightning TAB CSS
+.slds-tabs {
+    &_default {
+        &__nav {
+            border-bottom: toRem(2) solid var(--other-divider);
+        }
+
+        &__item {
+            padding: 0;
+            margin-bottom: unset;
+
+            &:after {
+                content: '';
+                bottom: toRem(-2);
+            }
+
+            &.slds-is-active,
+            &:hover {
+                color: var(--primary-main);
+
+                &:after {
+                    content: '';
+                    background-color: var(--primary-main);
+                    height: toRem(2);
+                }
+            }
+
+            &.slds-is-active {
+                .slds-tabs_default__link {
+                    color: var(--primary-main);
+                    font-weight: var(--font-weight-medium);
+                }
+            }
+
+            &.slds-tabs_default__overflow-button {
+                &:after {
+                    bottom: toRem(-2.5);
+                }
+            }
+        }
+
+        &__link {
+            font-weight: var(--font-weight-medium);
+            line-height: 160%;
+            height: unset;
+            font-size: toRem(16);
+            color: var(--text-primary);
+            padding: toRem(8) toRem(24);
+        }
+
+        &__overflow-button {
+            .slds-button {
+                color: var(--text-primary);
+            }
+        }
+    }
+}
+
+/* Custom Style */
+.mds-tabs_default__content .mds-card > .slds-grid > .slds-col:last-child {
+    @include responsive(tab-port){
+        margin-top: 0.5rem;
+    }
+}
+
+/* Builder Tab Changes */
+.slds-tabs_default.js-tabset.forceCommunityTabLayout {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-shadow: 0px 3px 5px 4px #f6f6f6;
+    border-radius: 4px;
+
+    lightning-tab-bar + .slds-tabs_default__content {
+        margin: 1rem 0  !important;
+    }
+}

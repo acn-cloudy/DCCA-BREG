@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OriginalDateofLicensure__c</fullName>
+    <description>PacPoint-FT070119 - Created for PVL phase 1</description>
+    <inlineHelpText>The date on which the license originally became active.</inlineHelpText>
+    <label>Original Date of Licensure</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

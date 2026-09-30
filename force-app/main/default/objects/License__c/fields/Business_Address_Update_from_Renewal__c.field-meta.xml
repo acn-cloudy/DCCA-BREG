@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Address_Update_from_Renewal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PP M/S 8/7; created to help distinguish updates to Business Address during application update</description>
+    <label>Business Address Update from Renewal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

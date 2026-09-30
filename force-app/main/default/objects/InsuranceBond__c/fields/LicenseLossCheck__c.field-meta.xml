@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseLossCheck__c</fullName>
+    <formula>License__r.LossofBond__c || License__r.LossOfLiability__c || License__r.LossofWorkersComp__c</formula>
+    <label>License Loss Check</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

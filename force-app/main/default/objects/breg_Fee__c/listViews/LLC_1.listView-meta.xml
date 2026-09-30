@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LLC_1</fullName>
+    <columns>NAME</columns>
+    <columns>breg_Record_Type__c</columns>
+    <columns>breg_Transaction_Description__c</columns>
+    <columns>breg_Purchase_Type_Fee_type__c</columns>
+    <columns>breg_Fee_Amount__c</columns>
+    <columns>breg_Form_Configuration__c</columns>
+    <columns>breg_Case_Code__c</columns>
+    <columns>breg_Cashier_Code__c</columns>
+    <columns>breg_Business_Structure__c</columns>
+    <columns>breg_Fee_Code__c</columns>
+    <columns>breg_Is_Able_to_Certify_Online__c</columns>
+    <columns>breg_Is_Purchaseable_Document__c</columns>
+    <columns>breg_Is_Request_Printed__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>breg_Form_Configuration__c</field>
+        <operation>equals</operation>
+        <value>LLC-1</value>
+    </filters>
+    <label>LLC-1</label>
+</ListView>

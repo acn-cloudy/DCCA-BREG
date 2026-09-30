@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExternalFileURL__c</fullName>
+    <description>PacPoint-JB110718 - Created for BREG phase 1</description>
+    <inlineHelpText>If this is warehoused, this url will point to the document externally.</inlineHelpText>
+    <label>External File URL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

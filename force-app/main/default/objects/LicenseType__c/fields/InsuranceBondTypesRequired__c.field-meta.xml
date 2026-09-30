@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InsuranceBondTypesRequired__c</fullName>
+    <description>PacPoint-DN02042020 - Created for PVL Sprint 3 Phase 1</description>
+    <label>Insurance/Bond Type(s) Required</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BD - Bond</fullName>
+                <default>false</default>
+                <label>BD - Bond</label>
+            </value>
+            <value>
+                <fullName>BX - Bond Exemption (All Boards)</fullName>
+                <default>false</default>
+                <label>BX - Bond Exemption (All Boards)</label>
+            </value>
+            <value>
+                <fullName>EX - Exemption</fullName>
+                <default>false</default>
+                <label>EX - Exemption</label>
+            </value>
+            <value>
+                <fullName>FS - Pre-Need Funeral Service Trust</fullName>
+                <default>false</default>
+                <label>FS - Pre-Need Funeral Service Trust</label>
+            </value>
+            <value>
+                <fullName>GM - Perpetual Care (Ground Maintenance) Trust</fullName>
+                <default>false</default>
+                <label>GM - Perpetual Care (Ground Maintenance) Trust</label>
+            </value>
+            <value>
+                <fullName>LC - Line of Credit</fullName>
+                <default>false</default>
+                <label>LC - Line of Credit</label>
+            </value>
+            <value>
+                <fullName>LI - Liability</fullName>
+                <default>false</default>
+                <label>LI - Liability</label>
+            </value>
+            <value>
+                <fullName>LP - Liability / Property Damage</fullName>
+                <default>false</default>
+                <label>LP - Liability / Property Damage</label>
+            </value>
+            <value>
+                <fullName>PI - Pre-Need Interment (Burial) Services Trust</fullName>
+                <default>false</default>
+                <label>PI - Pre-Need Interment (Burial) Services Trust</label>
+            </value>
+            <value>
+                <fullName>SI - Exclusion from Workers Comp.</fullName>
+                <default>false</default>
+                <label>SI - Exclusion from Workers Comp.</label>
+            </value>
+            <value>
+                <fullName>SL - Self-Insured for W/C (Entity OK&apos;d By Labor Dept)</fullName>
+                <default>false</default>
+                <label>SL - Self-Insured for W/C (Entity OK&apos;d By Labor Dept)</label>
+            </value>
+            <value>
+                <fullName>SM - No HI Employees - Submit Workers Comp Prior to Hiring</fullName>
+                <default>false</default>
+                <label>SM - No HI Employees - Submit Workers Comp Prior to Hiring</label>
+            </value>
+            <value>
+                <fullName>SW - Workers Comp Thru Leasing Co.</fullName>
+                <default>false</default>
+                <label>SW - Workers Comp Thru Leasing Co.</label>
+            </value>
+            <value>
+                <fullName>SX - Exemption No Longer Allowed</fullName>
+                <default>false</default>
+                <label>SX - Exemption No Longer Allowed</label>
+            </value>
+            <value>
+                <fullName>T1 - Client Trust Account #1</fullName>
+                <default>false</default>
+                <label>T1 - Client Trust Account #1</label>
+            </value>
+            <value>
+                <fullName>T2 - Client Trust Account #2</fullName>
+                <default>false</default>
+                <label>T2 - Client Trust Account #2</label>
+            </value>
+            <value>
+                <fullName>T3 - Client Trust Account #3</fullName>
+                <default>false</default>
+                <label>T3 - Client Trust Account #3</label>
+            </value>
+            <value>
+                <fullName>T4 - Client Trust Account #4</fullName>
+                <default>false</default>
+                <label>T4 - Client Trust Account #4</label>
+            </value>
+            <value>
+                <fullName>T5 - Client Trust Account #5</fullName>
+                <default>false</default>
+                <label>T5 - Client Trust Account #5</label>
+            </value>
+            <value>
+                <fullName>TC - Charter Tour</fullName>
+                <default>false</default>
+                <label>TC - Charter Tour</label>
+            </value>
+            <value>
+                <fullName>WC - Workers Compensation</fullName>
+                <default>false</default>
+                <label>WC - Workers Compensation</label>
+            </value>
+            <value>
+                <fullName>WP - Submit Prior to Hiring Hi Empl - Evidence of WC Not Submitted</fullName>
+                <default>false</default>
+                <label>WP - Submit Prior to Hiring Hi Empl - Evidence of WC Not Submitted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>7</visibleLines>
+</CustomField>

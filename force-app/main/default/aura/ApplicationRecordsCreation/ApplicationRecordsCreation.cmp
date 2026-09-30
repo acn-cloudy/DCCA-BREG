@@ -1,0 +1,67 @@
+<aura:component implements="lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" 
+                controller="ApplicationRecordsCreation" extends="c:Basic" >
+    <aura:attribute name="layoutName" type="string"  />
+    <aura:attribute name="saveButtonLabel" type="string" default="Save" />
+    <aura:attribute name="finishButtonLabel" type="string" default="Submit" />
+    <aura:attribute name="typeField" type="string" default="LICN - New License" />
+    <aura:attribute name="layout" type="object" />
+    <aura:attribute name="sObj" type="object" />
+    <aura:attribute name="recordTypeName" type="string" />
+    <aura:attribute name="recordId" type="string" />
+    <aura:attribute name="record" type="object" />
+    <aura:attribute name="contact" type="Object" />
+    <aura:attribute name="hideNameField" type="boolean" default="true" />
+    <aura:attribute name="displayMap" type="string" default="false" />
+    <aura:attribute name="licenseHeaderNames" type="List" />
+    <aura:attribute name="licenseFieldNames" type="List" />
+    <aura:attribute name="latitudeField" type="string" default="" />
+    <aura:attribute name="longitudeField" type="string" default="" />
+    <aura:attribute name="customMessage" type="string"  />
+    <aura:attribute name="displayUpload" type="string" default="false" />
+    <aura:attribute name="selectedClassifications" type="list" />
+    <aura:attribute name="selectedAccount" type="Object" />
+    <aura:attribute name="selectedLicenseType" type="Object" />
+    <aura:attribute name="executeOnce" type="Boolean" default="false" />
+    <aura:attribute name="selectedRecordType" type="Object" />
+    <aura:attribute name="existingLicenses" type="List" />
+    <aura:attribute name="cancel" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:method name="submit" action="{!c.submitToSave}" />
+    <aura:handler name="message" event="c:Message" action="{!c.saveRecord}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <aura:attribute name="Spinner" type="boolean" default="false"/>	
+    
+    <aura:if isTrue="{!v.sObj != null }" >   
+        <c:CustomRecordCreate aura:id="application"
+                              hideButton="true" updateOnFiledValueChange="{!c.updateOnFiledValueChange}"
+                              sObjectName="Application__c" layoutName="{!v.layoutName}" fireMessageEvent="true"
+                              saveButtonLabel="{!v.saveButtonLabel}" finishButtonLabel="{!v.finishButtonLabel}" 
+                              layout="{!v.layout}" sObj="{!v.sObj}" recordTypeName="{!v.recordTypeName}" recordId="{!v.recordId}" 
+                              hideNameField="{!v.hideNameField}" displayMap="{!v.displayMap}" latitudeField="{!v.latitudeField}" 
+                              longitudeField="{!v.longitudeField}" customMessage="{!v.customMessage}" 
+                              typeField = "{!v.typeField}"
+                              displayUpload="{!v.displayUpload}"
+                              />
+     
+    </aura:if>
+    <aura:if isTrue="{!v.existingLicenses.length > 0 }">
+        <c:Popup title="{!$Label.c.PVLExistingLicense }">
+            <div>
+                <c:SelectListView aura:id="classifications"
+                disableCheckbox="true"
+                records="{!v.existingLicenses}"
+                headNames="{!v.licenseHeaderNames}"
+                columnNames="{!v.licenseFieldNames}" />
+            </div>
+            <div  style="padding-top: 20px">
+                Are you sure you want to create an Application?
+            </div>  
+            <aura:set attribute="footer">
+                <lightning:button label="Cancel" onclick="{!v.cancel}" />
+                <lightning:button variant="brand" label="Create Application Anyway" onclick="{!c.proceedToCreate}" />
+            </aura:set>                
+        </c:Popup>
+    </aura:if>
+
+</aura:component>

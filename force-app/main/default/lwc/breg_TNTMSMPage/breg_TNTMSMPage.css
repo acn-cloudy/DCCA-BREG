@@ -1,0 +1,20 @@
+.btns-wrapper {
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    h1.dxp-text-heading-xlarge {
+        font-size: 24px;
+    }
+
+    c-breg_-registration-dynamic-form {
+        display: block;
+        padding: 12px;
+    }
+
+    .btns-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}

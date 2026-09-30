@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExamStatus__c</fullName>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <label>Exam Status</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Assigned for Examination</fullName>
+                <default>false</default>
+                <label>Assigned for Examination</label>
+            </value>
+            <value>
+                <fullName>Exam in Progress</fullName>
+                <default>false</default>
+                <label>Exam in Progress</label>
+            </value>
+            <value>
+                <fullName>Deficiency Letter Sent</fullName>
+                <default>false</default>
+                <label>Deficiency Letter Sent</label>
+            </value>
+            <value>
+                <fullName>Deficiency Response Received</fullName>
+                <default>false</default>
+                <label>Deficiency Response Received</label>
+            </value>
+            <value>
+                <fullName>Reviewing Deficiency Response</fullName>
+                <default>false</default>
+                <label>Reviewing Deficiency Response</label>
+            </value>
+            <value>
+                <fullName>Exam Report Pending</fullName>
+                <default>false</default>
+                <label>Exam Report Pending</label>
+            </value>
+            <value>
+                <fullName>Sent for Supervisor Review</fullName>
+                <default>false</default>
+                <label>Sent for Supervisor Review</label>
+            </value>
+            <value>
+                <fullName>Updates Required by Examiner</fullName>
+                <default>false</default>
+                <label>Updates Required by Examiner</label>
+            </value>
+            <value>
+                <fullName>Exam Report Approved</fullName>
+                <default>false</default>
+                <label>Exam Report Approved</label>
+            </value>
+            <value>
+                <fullName>Exam Completed</fullName>
+                <default>false</default>
+                <label>Exam Completed</label>
+            </value>
+            <value>
+                <fullName>Review in Progress</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Review in Progress</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

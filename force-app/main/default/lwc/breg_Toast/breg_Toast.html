@@ -1,0 +1,14 @@
+<template>
+    <div class="toast-container" lwc:if={displayToast}>
+        <div class={toastClass}>
+            <div class="toast-icon"><lightning-icon icon-name={iconName} class="notify-icon"></lightning-icon></div>
+            <div class="error-text">
+                <div class="toast-heading">{title}</div>
+                <div class="toast-message">{message}</div>
+            </div>
+            <div class="toast-close" onclick={closeToast} id="close">
+                <lightning-icon icon-name="utility:close" alternative-text="Close" class="notify-icon"></lightning-icon>
+            </div>
+        </div>
+    </div>
+</template>

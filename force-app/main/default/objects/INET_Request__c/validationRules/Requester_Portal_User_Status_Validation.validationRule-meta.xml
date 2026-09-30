@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Requester_Portal_User_Status_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>$Permission.CATV_Requester_Portal_User &amp;&amp; 
+ISCHANGED(Status__c) &amp;&amp;
+(ISPICKVAL(Status__c, &apos;CATV Review&apos;) ||
+ISPICKVAL(Status__c, &apos;Assigned Back&apos;) ||
+ISPICKVAL(Status__c, &apos;Quote&apos;) ||
+ISPICKVAL(Status__c, &apos;Invoice Paid&apos;) ||
+ISPICKVAL(Status__c, &apos;Cancelled&apos;) ||
+ISPICKVAL(Status__c, &apos;Completed&apos;))</errorConditionFormula>
+    <errorMessage>Invalid INET Request Status for Portal User</errorMessage>
+</ValidationRule>

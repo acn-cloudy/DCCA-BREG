@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalRefundReqAmount__c</fullName>
+    <description>PacPoint-CL090218 - Created for phase 1</description>
+    <inlineHelpText>The current requested refund amount on this Transaction.  This is a summary of all Transaction Lines where the Refund Request flag is checked.  After the Refund has been processed, this amount goes back to 0.</inlineHelpText>
+    <label>Total Refund Req Amount</label>
+    <summarizedField>TransactionLine__c.RefundAmount__c</summarizedField>
+    <summaryFilterItems>
+        <field>TransactionLine__c.RequestRefund__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>TransactionLine__c.Transaction__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

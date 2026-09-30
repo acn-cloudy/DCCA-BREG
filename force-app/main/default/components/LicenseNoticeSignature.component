@@ -1,0 +1,4 @@
+<apex:component controller="LicenseNoticeSignatureController" access="global">
+    <apex:attribute name="license" assignTo="{!lic}" description="" type="License__c" access="global"/>
+    <apex:image url="{!imageData}" width="250" style="padding: 5px; border-bottom: solid 1px;"/>
+</apex:component>

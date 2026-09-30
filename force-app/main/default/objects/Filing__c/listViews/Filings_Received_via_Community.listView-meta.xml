@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Filings_Received_via_Community</fullName>
+    <columns>ApplicationType__c</columns>
+    <columns>Status__c</columns>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>FilingDate__c</columns>
+    <columns>Reviewer__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>In Progress,Filing Received</value>
+    </filters>
+    <filters>
+        <field>CreatedInCommunity__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Filings Received via Community</label>
+    <sharedTo>
+        <role>BREG_SEC_Manager</role>
+        <role>BREG_SEC_Staff</role>
+    </sharedTo>
+</ListView>

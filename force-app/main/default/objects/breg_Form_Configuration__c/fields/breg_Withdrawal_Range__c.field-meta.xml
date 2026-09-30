@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Withdrawal_Range__c</fullName>
+    <description>Time range (in hours) to accept submitted filing withdrawal</description>
+    <externalId>false</externalId>
+    <inlineHelpText>In hours</inlineHelpText>
+    <label>Withdrawal Range</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

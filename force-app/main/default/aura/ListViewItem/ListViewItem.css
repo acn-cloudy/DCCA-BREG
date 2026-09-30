@@ -1,0 +1,13 @@
+.THIS .childTableShadow {
+    box-shadow: 0 0 10px gray;
+    background-color: #D3D3D3
+}
+
+.THIS .slds-rich-text-area__content {
+    
+    background-color: inherit;
+}
+.THIS .colHeight {
+    max-height: 100px;
+    overflow-y: auto;
+}

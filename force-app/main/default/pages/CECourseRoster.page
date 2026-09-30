@@ -1,0 +1,182 @@
+<apex:page readOnly="true"
+           controller="CECourseRosterController"
+           applyHtmlTag="false"
+           sidebar="false"
+           showHeader="false"
+           renderAs="PDF">
+    <html>
+    <head>
+        <style>
+            @page {
+                size: letter landscape;
+                margin-top: .25in;
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+
+            @page :first {
+                @top-center {
+                    content: element(header);
+                }
+            }
+
+            div.header {
+                height: 185px;
+            }
+
+            div.footer {
+                display: block;
+                padding: 5px;
+                width: 100%;
+                position: running(footer);
+            }
+
+            .pageNumber:before {
+                content: counter(page);
+            }
+
+            .pageCount:before {
+                content: counter(pages);
+            }
+
+            td.courseInfoVal.value,
+            .value {
+                font-family: Helvetica, Arial, sans-serif;
+            }
+
+            td.courseInfoLabel {
+                width: 150px;
+                text-align: right;
+                font-weight: bold;
+            }
+
+            td.courseInfoVal {
+                padding-left: 10px;
+                border-bottom: 1px solid;
+            }
+
+            table.bordered,
+            table.bordered td,
+            table.bordered th {
+                border-spacing: 0;
+                border-style: solid;
+                border-color: #000;
+                border-width: 0 1px 1px 0;
+                border-collapse: collapse;
+            }
+
+            table.bordered th {
+                border-top-width: 1px;
+            }
+
+            table.bordered th:first-child,
+            table.bordered tr td:first-child {
+                border-left-width: 1px;
+            }
+
+            .text-u-case {
+                text-transform: uppercase;
+            }
+
+            .align-center {
+                text-align: center;
+            }
+
+            table.courseInfoLocation td,
+            table.enrollmentData td {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            table.enrollmentData {
+                -fs-table-paginate: paginate;
+                border-collapse: collapse;
+            }
+
+            table.enrollmentData thead {
+                border-spacing: 0;
+                display: table-header-group;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="header">
+        <h2 style="text-align: center;">Hawaii Continuing Education Course Roster</h2>
+
+        <table style="border-collapse: collapse;">
+            <tr>
+                <td class="courseInfoLabel">Provider:</td>
+                <td style="width: 250px;" class="courseInfoVal value text-u-case">
+                        {!course.course.Account__r.Name}
+                </td>
+                <td class="courseInfoLabel">Course Title:</td>
+                <td class="courseInfoVal value text-u-case">
+                {!course.course.Subject__r.Name} - {!course.course.Medium__c}
+                </td>
+            </tr>
+            <tr>
+                <td class="courseInfoLabel">Provider Number:</td>
+                <td class="courseInfoVal value">{!course.course.Account__r.ProviderSchoolID__c}</td>
+                <td class="courseInfoLabel">Course Code:</td>
+                <td class="courseInfoVal value">{!course.course.CourseId__c}</td>
+            </tr>
+        </table>
+
+        <table class="bordered courseInfoLocation" style="width: 100%; margin-top: 20px; table-layout: fixed;">
+            <thead>
+            <tr>
+                <th class="align-center">Date</th>
+                <th class="align-center">Time</th>
+                <th class="align-center">Location</th>
+                <th class="align-center">Instructor</th>
+            </tr>
+            </thead>
+            <tr>
+                <td class="align-center value">
+                    <apex:outputText value="{0, date, MM/dd/YYYY}">
+                        <apex:param value="{!course.course.StartDate__c}"/>
+                    </apex:outputText>
+                </td>
+                <td class="align-center value">{!course.displayTime}</td>
+                <td class="text-u-case value">{!course.displayLocation}</td>
+                <td class="align-center value">{!course.course.InstructorName__c}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer">
+        <div style="text-align: center;">Page <span class="pageNumber"/> of <span class="pageCount"/></div>
+    </div>
+    <div class="content">
+        <table class="bordered enrollmentData" style="margin-top: 20px; width: 100%; border: 0;" cellspacing="0">
+            <thead>
+            <tr>
+                <th class="align-center">Name</th>
+                <th class="align-center">License Type/Number</th>
+                <th class="align-center">Make-up</th>
+                <th class="align-center">Time In</th>
+                <th class="align-center">Time Out</th>
+                <th class="align-center">Initial</th>
+            </tr>
+            </thead>
+            <tbody>
+            <apex:repeat value="{!course.course.PrelicenseCEEnrollment__r}" var="e">
+                <tr>
+                    <td class="value" style="width: 300px;">{!e.EnrolleeName__c}</td>
+                    <td class="value" style="width: 100px;">
+                    {!e.License__r.LicenseType__r.LicensePrefix__c} {!e.License__r.LicenseNumberFormula__c}
+                    </td>
+                    <td class="value align-center" style="width: 100px;">
+                            {!IF(e.MakeUpCredit__c, 'YES', 'NO')}
+                    </td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 100px;"></td>
+                    <td style="width: 100px;"></td>
+                </tr>
+            </apex:repeat>
+            </tbody>
+        </table>
+    </div>
+    </body>
+    </html>
+</apex:page>

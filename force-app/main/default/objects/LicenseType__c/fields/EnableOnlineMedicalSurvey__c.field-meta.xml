@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnableOnlineMedicalSurvey__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This feature is used for Medical licenses.  If this is checked, licenses for this license type will be presented with an online medical survey when they renew online.</description>
+    <label>Enable Online Medical Survey</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

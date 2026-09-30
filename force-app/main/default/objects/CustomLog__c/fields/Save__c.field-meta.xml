@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Save__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, this record will not be deleted in CustomLogDeletionJob scheduled batch job</description>
+    <inlineHelpText>When checked, this record will not be deleted in CustomLogDeletionJob scheduled batch job</inlineHelpText>
+    <label>Save</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

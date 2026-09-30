@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartialCEReqNExcludeLicIfAuditNotBlank</fullName>
+    <active>true</active>
+    <description>PacPoint-JK13042022- Case 21147</description>
+    <errorConditionFormula>AND(  NOT(ISBLANK(TEXT( AuditType__c ))),
+OR(
+  ISBLANK(TEXT(PartialCERequirement__c )),
+  ISBLANK(TEXT(ExcludeLicensesbyDateofLicensure__c ))  
+)
+)</errorConditionFormula>
+    <errorMessage>This License Type has an Audit Type specified. Please ensure that both the Partial CE Requirement and the Exclude Licenses by Date of Licensure fields are populated.</errorMessage>
+</ValidationRule>

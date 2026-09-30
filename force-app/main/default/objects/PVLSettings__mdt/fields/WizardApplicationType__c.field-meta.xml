@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WizardApplicationType__c</fullName>
+    <defaultValue>&quot;LICN - New License&quot;</defaultValue>
+    <description>PacPoint-MV090319 - Created for PVL phase 1</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>Use to  default the &quot;Type&quot; field on the application when using the wizard</inlineHelpText>
+    <label>Wizard Application Type</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

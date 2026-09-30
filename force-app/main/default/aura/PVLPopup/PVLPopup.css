@@ -1,0 +1,17 @@
+.THIS {
+}
+.THIS .slds-modal__container{
+    margin: 0 auto;
+    width: 50%;
+  
+}
+.THIS .rev-modal {
+    margin: 0 auto;    
+    max-width: 55rem;
+    min-width: 20rem;
+    width: 65%;
+}
+.THIS .slds-modal__footer{
+    background-color: rgb(243, 242, 242);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+}

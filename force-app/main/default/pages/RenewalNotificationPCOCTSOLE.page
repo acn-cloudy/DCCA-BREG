@@ -1,0 +1,140 @@
+<apex:page sidebar="false"
+           showHeader="false"
+           controller="RenewalNotificationPcoCtSoleController"
+           standardStylesheets="false"
+           renderAs="PDF"
+           applyHtmlTag="false"
+           applyBodyTag="false"> 
+    <head>
+        <style>
+            @page { margin: 0.5in; }
+
+            body {
+                font-size: 8.5pt;
+                font-family: Arial;
+            line-height: 1.1;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum"/>
+    <body>
+    <apex:repeat value="{!displayRecords}" var="record">
+        <c:RenewalNotificationPCOCTSOLE license="{!record.license}"
+                                        licenseType="{!record.license.LicenseType__r}"
+                                        licenseClassifications="{!record.license.LicenseClassifications__r}"
+                                        dToday="{!dToday}"/>
+        <div style="page-break-after:always;"></div>
+        <c:RenewalNotificationAddress license="{!record.license}"/>
+        <div style="margin-top: 300px; padding-left: 40px;">
+            <table>
+                <tr>
+                    <td valign="top">
+                        RESPONSIBLE MANAGING EMPLOYEES (RME):
+                    </td>
+                    <td>AT LEAST ONE RME MUST RENEW WITH FIRM. <br/> ONE RME MUST BE DESIGNATED "PRINCIPAL RME".</td>
+                </tr>
+            </table>
+            <table style="min-width: 400px;">
+                <tr>
+                    <td>RME'S NAME</td>
+                    <td>&nbsp;</td>
+                    <td>LICENSE NO.</td>
+                    <td>&nbsp;</td>
+                    <td>POSITION STATUS</td>
+                </tr>
+                <apex:repeat value="{!record.license.AssociatedEmployee__r}" var="ae">
+                    <tr>
+                        <td><apex:outputText escape="false" value="{!ae.EmployeeLicense__r.LicenseeNameFormula__c}"/></td>
+                        <td>&nbsp;</td>
+                        <td>{!ae.EmployeeLicense__r.Name}</td>
+                        <td>&nbsp;</td>
+                        <td>{!ae.PositionStatus__c}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+            <table style="margin-top: 40px;">
+                <tr>
+                    <td valign="top">INSURANCE OF RECORD:</td>
+                    <td>
+                        SHOULD ANY POLICY REFLECT AN EXPIRATION DATE BEFORE THE EXPIRATION DATE OF YOUR LICENSE,<br/>
+                        EVIDENCE OF CONTINUED COVERAGE OR NEW COVERAGE IS REQUIRED FOR RENEWAL.
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="105">&nbsp;</td>
+                    <td style="max-width: 20px;">&nbsp;</td>
+                    <td align="center" width="240">LIABILITY/PROPERTY DAMAGE</td>
+                    <td style="max-width: 20px;">&nbsp;</td>
+                    <td align="center" width="240">WORKERS COMPENSATION</td>
+                    <td style="max-width: 20px;">&nbsp;</td>
+                    <td align="center" width="240">BOND</td>
+                </tr>
+                <tr>
+                    <td>TYPE:</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.lpIns.Type__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.wcIns.Type__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.bond.Type__c}</td>
+                </tr>
+                <tr>
+                    <td>SURETY:</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.lpIns.Surety__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.wcIns.Surety__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.bond.Surety__c}</td>
+                </tr>
+                <tr>
+                    <td>POLICY NO:</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.lpIns.PolicyNumber__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.wcIns.PolicyNumber__c}</td>
+                    <td>&nbsp;</td>
+                    <td>{!record.bond.PolicyNumber__c}</td>
+                </tr>
+                <tr>
+                    <td>EXPIRATION DATE:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <apex:outputText value="{0, date, MM/dd/yy}">
+                            <apex:param value="{!record.lpIns.TermDate__c}"/>
+                        </apex:outputText>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <apex:outputText value="{0, date, MM/DD/yy}">
+                            <apex:param value="{!record.wcIns.TermDate__c}"/>
+                        </apex:outputText>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <apex:outputText value="{0, date, MM/dd/yy}">
+                            <apex:param value="{!record.bond.TermDate__c}"/>
+                        </apex:outputText>
+                    </td>
+                </tr>
+            </table>
+            <table style="margin-top: 40px;">
+                <tr>
+                    <td>TRADENAMES:</td>
+                </tr>
+                <apex:repeat value="{!record.license.LicenseNames__r}" var="name">
+                    <tr>
+                        <td>{!name.Name__c}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+        <apex:outputPanel rendered="{!rowNum != records.size}">
+            <div style="page-break-after:always;"></div>
+        </apex:outputPanel>
+        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+    </apex:repeat>
+    </body>
+</apex:page>

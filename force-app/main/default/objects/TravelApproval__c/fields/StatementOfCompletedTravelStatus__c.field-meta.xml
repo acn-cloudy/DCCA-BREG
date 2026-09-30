@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatementOfCompletedTravelStatus__c</fullName>
+    <description>PacPoint-AC121319 - Created for DCCA Travel Approval phase 1</description>
+    <label>Statement of Completed Travel Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Div sent to Fiscal – Division submitted to Fiscal for processing</fullName>
+                <default>false</default>
+                <label>Div sent to Fiscal – Division submitted to Fiscal for processing</label>
+            </value>
+            <value>
+                <fullName>Fiscal received – Fiscal’s acknowledgement of SOCT packet received/in review</fullName>
+                <default>false</default>
+                <label>Fiscal received – Fiscal’s acknowledgement of SOCT packet received/in review</label>
+            </value>
+            <value>
+                <fullName>Fiscal Accepted - Payment thru Petty Cash</fullName>
+                <default>false</default>
+                <label>Fiscal Accepted - Payment thru Petty Cash</label>
+            </value>
+            <value>
+                <fullName>Fiscal Accepted - No Payment Required (Zero)</fullName>
+                <default>false</default>
+                <label>Fiscal Accepted - No Payment Required (Zero)</label>
+            </value>
+            <value>
+                <fullName>Fiscal rejected – SOCT packet corrections required</fullName>
+                <default>false</default>
+                <label>Fiscal rejected – SOCT packet corrections required</label>
+            </value>
+            <value>
+                <fullName>Fiscal sent to DAGS – SOCT packet printed/ sent to DAGS</fullName>
+                <default>false</default>
+                <label>Fiscal sent to DAGS – SOCT packet printed/ sent to DAGS</label>
+            </value>
+            <value>
+                <fullName>Fiscal did not receive the required travel documents</fullName>
+                <default>false</default>
+                <label>Fiscal did not receive the required travel documents</label>
+            </value>
+            <value>
+                <fullName>DAGS approved – Reimbursement approved</fullName>
+                <default>false</default>
+                <label>DAGS approved – Reimbursement approved</label>
+            </value>
+            <value>
+                <fullName>DAGS rejected – SOCT packet corrections required</fullName>
+                <default>false</default>
+                <label>DAGS rejected – SOCT packet corrections required</label>
+            </value>
+            <value>
+                <fullName>SOCT Completed – entire SOCT completed, reimbursement check received, travel report uploaded</fullName>
+                <default>false</default>
+                <label>SOCT Completed – entire SOCT completed, reimbursement check received, travel report uploaded</label>
+            </value>
+            <value>
+                <fullName>Cancelled – trip cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled – trip cancelled</label>
+            </value>
+            <value>
+                <fullName>APD Sent to Fiscal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>APD Sent to Fiscal</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>SOCT Completed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>SOCT Completed</label>
+            </value>
+            <value>
+                <fullName>Sent to Dags</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sent to Dags</label>
+            </value>
+            <value>
+                <fullName>Sent to Fiscal</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Sent to Fiscal</label>
+            </value>
+            <value>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Submitted</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredExam__c</fullName>
+    <description>This field is to indicate if the exam record is a required exam type for this license type</description>
+    <formula>IF(
+AND(
+ ExamType__r.Classification__c = &quot;&quot;,
+ ExamType__r.LicenseType__c =  Application__r.LicenseType__c )
+,
+true,
+false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Required Exam?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

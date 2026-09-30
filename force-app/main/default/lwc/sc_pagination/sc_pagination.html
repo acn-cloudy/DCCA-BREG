@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-button-group" role="group">
+        <button onclick={firstPage} class="slds-button slds-button--neutral">First</button>
+        <button onclick={prevPage} class="slds-button slds-button--neutral">Prev</button>
+        <button class="slds-button slds-button--neutral">{pageNumber} / {maxPageNumber}</button>
+        <button onclick={nextPage} class="slds-button slds-button--neutral">Next</button>
+        <button onclick={lastPage} class="slds-button slds-button--neutral">Last</button>
+    </div>
+</template>

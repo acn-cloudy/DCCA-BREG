@@ -1,0 +1,16 @@
+.form-container .form-layout-item {
+    padding: 0 10px;
+}
+
+.form-container .form-cmp-layout-item h2.dxp-text-heading-large {
+    /* margin-top: 2rem; */
+}
+
+.form-container .form-cmp > lightning-layout {
+    margin-top: 2rem;
+}
+
+/* remove margin-top for nested components */
+.form-container .form-cmp .form-cmp > lightning-layout{
+    margin-top: 0;
+}

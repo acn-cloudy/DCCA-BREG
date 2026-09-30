@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Index xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transaction_Event_Index</fullName>
+    <fields>
+        <name>breg_Transaction__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <fields>
+        <name>breg_BRIM_DATE_CREATED__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <fields>
+        <name>breg_BRIM_EVENT_TYPE__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <fields>
+        <name>breg_BRIM_EVENT_ID__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <fields>
+        <name>breg_BRIM_TRANS_ID__c</name>
+        <sortDirection>ASC</sortDirection>
+    </fields>
+    <label>Transaction Event Index</label>
+</Index>

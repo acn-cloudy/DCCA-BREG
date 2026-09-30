@@ -1,0 +1,12 @@
+<template>
+    <h2 class="dxp-text-heading-large slds-var-m-bottom_small">{title}</h2>
+    <lightning-radio-group
+        name="applicantStatus"
+        label="What is the status of the applicant?"
+        options={applicantStatusOptions}
+        value={applicantStatusValue}
+        onchange={handleInputChange} onblur={handleInputBlur}
+        required={required}
+        disabled={readOnly}
+    ></lightning-radio-group>
+</template>

@@ -1,0 +1,16 @@
+.THIS .slds-required {
+    color: #d9534f;
+    margin: 0 0.125rem;
+    font-size: 2em;
+}
+.THIS.hideClass {
+    display: none;
+}
+.THIS .slds-m-left_large, .THIS .slds-m-left--large {
+    margin-left: .5rem;
+}
+
+.THIS .cREVENUE_HelpIcon.radius {
+    background: #002664;
+    padding: 0px 2px 2px 3px;
+}

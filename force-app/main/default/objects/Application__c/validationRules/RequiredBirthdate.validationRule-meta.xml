@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RequiredBirthdate</fullName>
+    <active>true</active>
+    <description>PacPoint-KN08142020-Created for PVL Phase 1</description>
+    <errorConditionFormula>IF(
+AND(
+ISCHANGED(Phase__c),
+NOT(ISPICKVAL(Phase__c, &apos;A - Application Recieved&apos;)),
+NOT($User.Division = &quot;Exam Branch&quot;),
+NOT(ISPICKVAL(Type__c, &quot;RNEW - Renewal&quot;)),
+NOT(ISPICKVAL(Type__c, &quot;RSTR - Restore - No A/I Status&quot;)),
+CompleteApplicationBy__c &gt;= TODAY(),
+LicenseType__r.DateofBirthRequiredonApplication__c = true,
+ISBLANK( Birthdate__c ),
+TEXT(MethodofLicensure__c) &lt;&gt; &quot;LC - Licensure Compact&quot;
+),
+true,
+false
+)</errorConditionFormula>
+    <errorMessage>This License Type requires the Birthdate field to be populated before it can be moved out of the A Phase.</errorMessage>
+</ValidationRule>

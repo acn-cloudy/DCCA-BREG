@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Gets the value for a specified attribute from a JSON object that has been serialized into a string.</description>
+        <name>GetUserDatafromJSONString</name>
+        <label>Get User Data from JSON String</label>
+        <locationX>656</locationX>
+        <locationY>182</locationY>
+        <actionName>getUserDataFromJsonString</actionName>
+        <actionType>getUserDataFromJsonString</actionType>
+        <connector>
+            <targetReference>IsThirdPartyAccountLinked</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>jsonObjectString</name>
+            <value>
+                <elementReference>authUserData.userInfoJSONString</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>jsonAttributeKey</name>
+            <value>
+                <inputConfiguratorMode>Custom</inputConfiguratorMode>
+                <stringValue>upn</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>getUserDataFromJsonString</nameSegment>
+        <offset>0</offset>
+        <outputParameters>
+            <assignToReference>federationIdentifier</assignToReference>
+            <name>attributeValue</name>
+        </outputParameters>
+    </actionCalls>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>(Optional) Assigns the user ID for the updated linked user to an output variable so that the Salesforce runtime can complete additional assignments, such as assigning permission sets.</description>
+        <name>AssignLinkedUserIdToOutput</name>
+        <label>Assign Linked User ID to Output</label>
+        <locationX>1024</locationX>
+        <locationY>506</locationY>
+        <assignmentItems>
+            <assignToReference>userIdOutput</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>existingUserIdFromTpal</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigns the user ID for the updated user to an output variable so that the Salesforce runtime can complete additional assignments, such as assigning permission sets.</description>
+        <name>AssignUpdatedUserIdToOutput</name>
+        <label>Assign Updated User ID to Output Variable</label>
+        <locationX>56</locationX>
+        <locationY>722</locationY>
+        <assignmentItems>
+            <assignToReference>userIdOutput</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FindExistingUser.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Determines whether the user has previously authenticated with this provider by looking up the remote identifier to see if there is a ThirdPartyAccountLink with a corresponding user ID.</description>
+        <name>IsThirdPartyAccountLinked</name>
+        <label>Is Third-Party Account Linked?</label>
+        <locationX>655</locationX>
+        <locationY>290</locationY>
+        <defaultConnector>
+            <targetReference>UpdateLinkedUser</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>ThirdPartyAccountNotLinked</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>existingUserIdFromTpal</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>FindExistingUser</targetReference>
+            </connector>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines whether to create a user or update an existing user by checking if there is a user record with attributes that match attributes in the Auth.UserData object.</description>
+        <name>WasExistingUserFound</name>
+        <label>Was Existing User Found?</label>
+        <locationX>288</locationX>
+        <locationY>506</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>ExistingUserFound</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FindExistingUser.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateExistingUser</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Finds a user during during the State of Hawaii Entra ID single sign-on process.</description>
+    <environments>Default</environments>
+    <interviewLabel>$Label.AuthProviderUserRgstrFlow.Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Entra ID OIDC SSO Registration Handler</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>IdentityUserRegistrationFlow</processType>
+    <recordLookups>
+        <description>Looks for a user record with attributes, such as email address, that match attributes from the Apex Auth.UserData record.</description>
+        <name>FindExistingUser</name>
+        <label>Find Existing User</label>
+        <locationX>288</locationX>
+        <locationY>398</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>WasExistingUserFound</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>FederationIdentifier</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>federationIdentifier.stringValue</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the existing user record with data supplied by the identity provider.</description>
+        <name>UpdateExistingUser</name>
+        <label>Update Existing User</label>
+        <locationX>56</locationX>
+        <locationY>614</locationY>
+        <connector>
+            <targetReference>AssignUpdatedUserIdToOutput</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>FindExistingUser.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FederationIdentifier</field>
+            <value>
+                <elementReference>federationIdentifier.stringValue</elementReference>
+            </value>
+        </inputAssignments>
+        <object>User</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the user record associated with the user ID from the ThirdPartyAccountLink with data supplied by the identity provider.</description>
+        <name>UpdateLinkedUser</name>
+        <label>Update Linked User</label>
+        <locationX>1025</locationX>
+        <locationY>398</locationY>
+        <connector>
+            <targetReference>AssignLinkedUserIdToOutput</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>existingUserIdFromTpal</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FederationIdentifier</field>
+            <value>
+                <elementReference>federationIdentifier.stringValue</elementReference>
+            </value>
+        </inputAssignments>
+        <object>User</object>
+    </recordUpdates>
+    <runInMode>DefaultMode</runInMode>
+    <sourceTemplate>identity_flows__AuthProviderUserRgstr</sourceTemplate>
+    <start>
+        <locationX>530</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>GetUserDatafromJSONString</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores an Apex Auth.UserData record that contains information about the user from the identity provider. This record is passed into the flow.</description>
+        <name>authUserData</name>
+        <apexClass>Auth__UserData</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the ID for the account that the new or updated user is added to by default, as defined in the authentication provider configuration.</description>
+        <name>defaultAccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>(Required) Stores the ID for the profile that the new or updated user is added to by default, as defined in the authentication provider configuration.</description>
+        <name>defaultProfileId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the user ID from the associated ThirdPartyAccountLink, if a link exists.</description>
+        <name>existingUserIdFromTpal</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores a federation identifier from the identity provider.</description>
+        <name>federationIdentifier</name>
+        <apexClass>Auth__JsonValueOutput</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Indicates whether the user is an external user logging in to an Experience Cloud site (true) or an internal user logging in to a Salesforce org (false).</description>
+        <name>isExternalUser</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>If the authentication provider is used for an Experience Cloud site, stores the Experience Cloud site ID.</description>
+        <name>networkId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Stores a collection of permission set API names to add to the created or updated user.</description>
+        <name>permissionSetsToAdd</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores a collection of permission set API names to remove from the updated user.</description>
+        <name>permissionSetsToRemove</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the user ID of the created or updated user in an output variable that can be used by the Salesforce runtime for additional assignments, such as permission set assignments.</description>
+        <name>userIdOutput</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

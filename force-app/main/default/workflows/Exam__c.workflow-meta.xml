@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ExamFinalReview</fullName>
+        <description>Exam:Final Review</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/ExamFinalReview</template>
+    </alerts>
+    <alerts>
+        <fullName>ExamFinalReviewApproved</fullName>
+        <description>Exam:Final Review Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/ExamFinalReviewApproved</template>
+    </alerts>
+    <alerts>
+        <fullName>ExamFinalReviewRejected</fullName>
+        <description>Exam:Final Review Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/ExamFinalReviewRejected</template>
+    </alerts>
+    <alerts>
+        <fullName>ExamLeadandAssistantExaminerChangedEmail</fullName>
+        <description>Exam:Lead and Assistant Examiner Changed Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>AssistantExaminer__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/ExamLeadandAssistantExaminerEmail</template>
+    </alerts>
+    <alerts>
+        <fullName>ExamStatusChangeSendSECQueueEmail</fullName>
+        <description>Exam:Status Change Send SEC Queue Email</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>BREG_Email_Templates/ExamStatusChangeSECQueue_Email</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>SetExamStatusToExamReportApproved</fullName>
+        <description>PacPoint-IC102318 - Created for BREG phase 1</description>
+        <field>ExamStatus__c</field>
+        <literalValue>Exam Report Approved</literalValue>
+        <name>SetExamStatus To ExamReportApproved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SetExamStatusToSentForSupervisorReview</fullName>
+        <description>PacPoint-IC102218 - Created for BREG phase 1</description>
+        <field>ExamStatus__c</field>
+        <literalValue>Sent for Supervisor Review</literalValue>
+        <name>SetExamStatus To SentForSupervisorReview</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>SetExamStatus_To_UpdatesRequired</fullName>
+        <field>ExamStatus__c</field>
+        <literalValue>Updates Required by Examiner</literalValue>
+        <name>SetExamStatus To UpdatesRequired</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

@@ -1,0 +1,16 @@
+<template>
+    <template lwc:if={showSpinner}>
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+    <template lwc:else>
+        <div class="slds-grid slds-p-around_medium">
+            <lightning-card title={componentTitle} class="slds-align_absolute-center slds-size_1-of-1">
+                <div class="slds-p-around_medium slds-align_absolute-center">
+                    <lightning-button label={buttonLabel} onclick={handleClick}></lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+</template>

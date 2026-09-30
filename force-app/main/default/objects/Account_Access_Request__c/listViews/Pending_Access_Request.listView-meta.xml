@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Access_Request</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Contact__c</columns>
+    <columns>Comments__c</columns>
+    <columns>Account_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <label>Pending Access Request</label>
+</ListView>

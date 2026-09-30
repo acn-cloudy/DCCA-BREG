@@ -1,0 +1,14 @@
+.btns-wrapper {
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .review-btn {
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+}

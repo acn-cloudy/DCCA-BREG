@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>qual_Case_Require_Contact__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When true, only Cases with a ContactId will be sent to Qualtrics</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Require Contact</label>
+    <type>Checkbox</type>
+</CustomField>

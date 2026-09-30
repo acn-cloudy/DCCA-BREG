@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BDScheduleA__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <inlineHelpText>Schedule A (Direct owners and executive officers)</inlineHelpText>
+    <label>BD Schedule A?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

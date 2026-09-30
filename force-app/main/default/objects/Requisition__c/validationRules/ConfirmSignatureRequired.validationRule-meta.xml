@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConfirmSignatureRequired</fullName>
+    <active>true</active>
+    <description>PacPoint-MV120519 - Created for PVL phase 1</description>
+    <errorConditionFormula>IF(
+ AND(
+  NOT(ISBLANK(DatetobeCompletedBy__c)),
+  ConfirmSignature__c = false
+ ), 
+ true, 
+ false
+)</errorConditionFormula>
+    <errorMessage>Please confirm your signature</errorMessage>
+</ValidationRule>

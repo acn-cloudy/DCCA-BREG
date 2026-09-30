@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CATV_Staff_Reviewers_INET_Request</fullName>
+    <filterScope>Queue</filterScope>
+    <label>CATV Staff Reviewers</label>
+    <queue>CATV_Staff_Reviewers</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

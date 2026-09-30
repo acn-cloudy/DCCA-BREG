@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BienniumMatch__c</fullName>
+    <description>Used to compare the Biennium with Current And Previous Biennium. 00014076</description>
+    <formula>( Biennium__c == License__r.CurrentBiennium__c ) || ( Biennium__c == License__r.PreviousBiennium__c )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Biennium Match</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

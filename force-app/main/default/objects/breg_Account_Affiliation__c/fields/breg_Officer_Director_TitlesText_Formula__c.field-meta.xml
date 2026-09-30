@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Officer_Director_TitlesText_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>/* Build human-readable list of Titles with labels */
+LEFT(
+
+/* Concatenated labels, each ends with &quot;, &quot; */
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AC&quot;), &quot;Assistant Controller, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AS&quot;), &quot;Assistant Secretary, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AT&quot;), &quot;Assistant Treasurer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;C&quot;), &quot;Chairperson of the Board, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CEO&quot;), &quot;Chief Executive Officer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CFO&quot;), &quot;Chief Financial Officer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CO&quot;), &quot;Controller, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;D&quot;), &quot;Director, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;EV&quot;), &quot;Executive Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;P&quot;), &quot;President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;R&quot;), &quot;Trustee, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;S&quot;), &quot;Secretary, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;SRV&quot;), &quot;Senior Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;T&quot;), &quot;Treasurer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;V&quot;), &quot;Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;VC&quot;), &quot;Vice Chairman, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;1V&quot;), &quot;1st Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;9V&quot;), &quot;9th Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;G&quot;), &quot;General Partner, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;L&quot;), &quot;Limited Partner, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;MGR&quot;), &quot;Manager, &quot;, &quot;&quot;) &amp;
+IF(
+    INCLUDES(breg_Officer_Director_Titles__c, &quot;Other&quot;) &amp;&amp;
+    NOT(ISBLANK(breg_Officer_Director_Other_Title__c)),
+    breg_Officer_Director_Other_Title__c &amp; &quot;, &quot;,
+    &quot;&quot;
+),
+
+/* Remove last &quot;, &quot; */
+LEN(
+
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AC&quot;), &quot;Assistant Controller, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AS&quot;), &quot;Assistant Secretary, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;AT&quot;), &quot;Assistant Treasurer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;C&quot;), &quot;Chairperson of the Board, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CEO&quot;), &quot;Chief Executive Officer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CFO&quot;), &quot;Chief Financial Officer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;CO&quot;), &quot;Controller, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;D&quot;), &quot;Director, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;EV&quot;), &quot;Executive Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;P&quot;), &quot;President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;R&quot;), &quot;Trustee, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;S&quot;), &quot;Secretary, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;SRV&quot;), &quot;Senior Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;T&quot;), &quot;Treasurer, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;V&quot;), &quot;Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;VC&quot;), &quot;Vice Chairman, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;1V&quot;), &quot;1st Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;9V&quot;), &quot;9th Vice President, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;G&quot;), &quot;General Partner, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;L&quot;), &quot;Limited Partner, &quot;, &quot;&quot;) &amp;
+IF(INCLUDES(breg_Officer_Director_Titles__c, &quot;MGR&quot;), &quot;Manager, &quot;, &quot;&quot;) &amp;
+IF(
+    INCLUDES(breg_Officer_Director_Titles__c, &quot;Other&quot;) &amp;&amp;
+    NOT(ISBLANK(breg_Officer_Director_Other_Title__c)),
+    breg_Officer_Director_Other_Title__c &amp; &quot;, &quot;,
+    &quot;&quot;
+)
+
+) - 2
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Officer/Director Titles Text Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

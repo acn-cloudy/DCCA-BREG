@@ -1,0 +1,26 @@
+<apex:page sidebar="false" showHeader="false" controller="RenewalNotificationController" standardStylesheets="false" renderAs="PDF"
+    applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+            @page {
+                margin-top: 0;
+            }
+            body {
+                margin-top: 5px;
+                font-size: 11pt; 
+                font-family: Arial Narrow, Arial;
+            }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum"/>
+    <body>
+        <apex:repeat value="{!records}" var="record" >
+            <c:RDRenewalRefundNotice license="{!record}" 
+            licenseType="{!record.LicenseType__r}" dToday="{!dToday}" />
+            <apex:outputPanel rendered="{!rowNum != records.size}">
+                <div style="page-break-after:always;"></div>
+            </apex:outputPanel>
+            <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+        </apex:repeat>
+    </body>
+</apex:page>

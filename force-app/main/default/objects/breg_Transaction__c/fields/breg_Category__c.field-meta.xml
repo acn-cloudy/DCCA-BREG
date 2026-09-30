@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Category__c</fullName>
+    <description>Aalta BREG-62</description>
+    <label>Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CHEMICALS</fullName>
+                <default>false</default>
+                <label>CHEMICALS</label>
+            </value>
+            <value>
+                <fullName>PAINTS</fullName>
+                <default>false</default>
+                <label>PAINTS</label>
+            </value>
+            <value>
+                <fullName>COSMETICS AND CLEANING PREPARATIONS</fullName>
+                <default>false</default>
+                <label>COSMETICS AND CLEANING PREPARATIONS</label>
+            </value>
+            <value>
+                <fullName>LUBRICANTS AND FUELS</fullName>
+                <default>false</default>
+                <label>LUBRICANTS AND FUELS</label>
+            </value>
+            <value>
+                <fullName>PHARMACEUTICALS</fullName>
+                <default>false</default>
+                <label>PHARMACEUTICALS</label>
+            </value>
+            <value>
+                <fullName>METAL GOODS</fullName>
+                <default>false</default>
+                <label>METAL GOODS</label>
+            </value>
+            <value>
+                <fullName>MACHINERY</fullName>
+                <default>false</default>
+                <label>MACHINERY</label>
+            </value>
+            <value>
+                <fullName>HAND TOOLS</fullName>
+                <default>false</default>
+                <label>HAND TOOLS</label>
+            </value>
+            <value>
+                <fullName>ELECTRICAL AND SCIENTIFIC APPARATUS</fullName>
+                <default>false</default>
+                <label>ELECTRICAL AND SCIENTIFIC APPARATUS</label>
+            </value>
+            <value>
+                <fullName>MEDICAL APPARATUS</fullName>
+                <default>false</default>
+                <label>MEDICAL APPARATUS</label>
+            </value>
+            <value>
+                <fullName>ENVIRONMENTAL CONTROL APPARATUS</fullName>
+                <default>false</default>
+                <label>ENVIRONMENTAL CONTROL APPARATUS</label>
+            </value>
+            <value>
+                <fullName>VEHICLES</fullName>
+                <default>false</default>
+                <label>VEHICLES</label>
+            </value>
+            <value>
+                <fullName>FIREARMS</fullName>
+                <default>false</default>
+                <label>FIREARMS</label>
+            </value>
+            <value>
+                <fullName>JEWELRY</fullName>
+                <default>false</default>
+                <label>JEWELRY</label>
+            </value>
+            <value>
+                <fullName>MUSICAL INSTRUMENTS</fullName>
+                <default>false</default>
+                <label>MUSICAL INSTRUMENTS</label>
+            </value>
+            <value>
+                <fullName>PAPER GOODS AND PRINTED MATTER</fullName>
+                <default>false</default>
+                <label>PAPER GOODS AND PRINTED MATTER</label>
+            </value>
+            <value>
+                <fullName>RUBBER GOODS</fullName>
+                <default>false</default>
+                <label>RUBBER GOODS</label>
+            </value>
+            <value>
+                <fullName>LEATHER GOODS</fullName>
+                <default>false</default>
+                <label>LEATHER GOODS</label>
+            </value>
+            <value>
+                <fullName>NONMETTALIC BUILDING MATERIALS</fullName>
+                <default>false</default>
+                <label>NONMETTALIC BUILDING MATERIALS</label>
+            </value>
+            <value>
+                <fullName>FURNITURE AND ARTICLES NOT OTHERWISE CLASSIFIED</fullName>
+                <default>false</default>
+                <label>FURNITURE AND ARTICLES NOT OTHERWISE CLASSIFIED</label>
+            </value>
+            <value>
+                <fullName>HOUSEWARES AND GLASS</fullName>
+                <default>false</default>
+                <label>HOUSEWARES AND GLASS</label>
+            </value>
+            <value>
+                <fullName>CORDAGE AND FIBERS</fullName>
+                <default>false</default>
+                <label>CORDAGE AND FIBERS</label>
+            </value>
+            <value>
+                <fullName>YARNS AND THREADS</fullName>
+                <default>false</default>
+                <label>YARNS AND THREADS</label>
+            </value>
+            <value>
+                <fullName>FABRICS</fullName>
+                <default>false</default>
+                <label>FABRICS</label>
+            </value>
+            <value>
+                <fullName>CLOTHING</fullName>
+                <default>false</default>
+                <label>CLOTHING</label>
+            </value>
+            <value>
+                <fullName>FANCY GOODS</fullName>
+                <default>false</default>
+                <label>FANCY GOODS</label>
+            </value>
+            <value>
+                <fullName>FLOOR COVERINGS</fullName>
+                <default>false</default>
+                <label>FLOOR COVERINGS</label>
+            </value>
+            <value>
+                <fullName>TOYS AND SPORTING GOODS</fullName>
+                <default>false</default>
+                <label>TOYS AND SPORTING GOODS</label>
+            </value>
+            <value>
+                <fullName>MEATS AND PROCESSED FOODS</fullName>
+                <default>false</default>
+                <label>MEATS AND PROCESSED FOODS</label>
+            </value>
+            <value>
+                <fullName>STAPLE FOODS</fullName>
+                <default>false</default>
+                <label>STAPLE FOODS</label>
+            </value>
+            <value>
+                <fullName>NATURAL AGRICULTURAL PRODUCTS</fullName>
+                <default>false</default>
+                <label>NATURAL AGRICULTURAL PRODUCTS</label>
+            </value>
+            <value>
+                <fullName>LIGHT BEVERAGES</fullName>
+                <default>false</default>
+                <label>LIGHT BEVERAGES</label>
+            </value>
+            <value>
+                <fullName>WINE AND SPIRITES</fullName>
+                <default>false</default>
+                <label>WINE AND SPIRITES</label>
+            </value>
+            <value>
+                <fullName>ADVERTISING AND BUSINESS</fullName>
+                <default>false</default>
+                <label>ADVERTISING AND BUSINESS</label>
+            </value>
+            <value>
+                <fullName>INSURANCE AND FINANCIAL</fullName>
+                <default>false</default>
+                <label>INSURANCE AND FINANCIAL</label>
+            </value>
+            <value>
+                <fullName>BUILDING CONSTRUCTION AND REPAIR</fullName>
+                <default>false</default>
+                <label>BUILDING CONSTRUCTION AND REPAIR</label>
+            </value>
+            <value>
+                <fullName>TELECOMMUNICATIONS</fullName>
+                <default>false</default>
+                <label>TELECOMMUNICATIONS</label>
+            </value>
+            <value>
+                <fullName>TRANSPORTATION AND STORAGE</fullName>
+                <default>false</default>
+                <label>TRANSPORTATION AND STORAGE</label>
+            </value>
+            <value>
+                <fullName>TREATMENT OF MATERIALS</fullName>
+                <default>false</default>
+                <label>TREATMENT OF MATERIALS</label>
+            </value>
+            <value>
+                <fullName>EDUCATION AND ENTERTAINMENT</fullName>
+                <default>false</default>
+                <label>EDUCATION AND ENTERTAINMENT</label>
+            </value>
+            <value>
+                <fullName>COMPUTER, SCIENTIFIC AND LEGAL</fullName>
+                <default>false</default>
+                <label>COMPUTER, SCIENTIFIC AND LEGAL</label>
+            </value>
+            <value>
+                <fullName>SMOKERS&apos; ARTICLES</fullName>
+                <default>false</default>
+                <label>SMOKERS&apos; ARTICLES</label>
+            </value>
+            <value>
+                <fullName>NO CATEGORY SELECTED</fullName>
+                <default>false</default>
+                <label>NO CATEGORY SELECTED</label>
+            </value>
+            <value>
+                <fullName>HOTELS AND RESTAURANTS</fullName>
+                <default>false</default>
+                <label>HOTELS AND RESTAURANTS</label>
+            </value>
+            <value>
+                <fullName>MEDICAL, BEAUTY AND AGRICULTURAL</fullName>
+                <default>false</default>
+                <label>MEDICAL, BEAUTY AND AGRICULTURAL</label>
+            </value>
+            <value>
+                <fullName>PERSONAL</fullName>
+                <default>false</default>
+                <label>PERSONAL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllDocumentsUploaded__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-MV011519 - Created for BREG phase 1</description>
+    <label>All Documents Uploaded</label>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

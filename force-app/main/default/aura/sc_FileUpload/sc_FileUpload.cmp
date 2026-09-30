@@ -1,0 +1,19 @@
+<aura:component >
+    <aura:attribute name="parentId" type="String" />
+    <aura:attribute name="change" type="Object" />
+    <aura:attribute name="value" type="String" />
+    <aura:attribute name="successMessage" type="String" />
+    <aura:attribute name="msg" type="String" />
+    <aura:attribute name="errors" type="Object[]" access="global" />
+    <!-- <aura:attribute name="acceptType" type="String" 
+                    default="{!$Label.c.Allowed_File_Extensions}" /> -->
+	<lightning:fileUpload name="fileUploader" 
+            	multiple="false" 
+            	recordId="{!v.parentId}" 
+                onuploadfinished="{!c.uploadFinished}"
+            	 />
+    <aura:if isTrue="{!v.value}">
+        <ui:message severity="confirm">{!v.msg}</ui:message>
+    </aura:if>
+    <c:sc_ErrorDisplay errors="{!v.errors}" />
+</aura:component>

@@ -1,0 +1,130 @@
+<!--
+  @description       : 
+  @author            : Deepanshu Jain
+  @group             : MTX
+  @last modified on  : 04-22-2025
+  @last modified by  : Deepanshu Jain
+-->
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="backdrop" if:true={showSpinner}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters slds-align_absolute-center mds_banner-background">
+        <div class="slds-col slds-medium-size_6-of-12 slds-large-size_5-of-12">
+            <div class="slds-box slds-theme_shade">
+                <div class="login-container-content slds-theme_shade slds-p-around_medium">
+                    <h1 class="m-b-xs register-heading mds-font_size-24 mds-m-bottom_small sr-only">Registration</h1>
+                    <template if:false={showMessage}>
+                        <div class="mds-m-bottom_medium"> Asterisk (<span class="slds-required">*</span>) indicates required
+                            field </div>
+                        <div class="slds-grid slds-wrap slds-gutters">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                                <lightning-input type="text" data-id="firstName" label="First Name" name="firstName" 
+                                    aria-live="assertive" class="reqInpField" max-length="40" required aria-label="First Name"
+                                    placeholder="Enter First Name" pattern="^[A-Za-z\s\-.]+$"
+                                    message-when-pattern-mismatch="First Name should be in correct format without any leading spaces."
+                                    onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+                            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-input type="text" data-id="middleName" label="Middle Name" name="middleName" aria-label="Middle Name"
+                                    aria-live="assertive" class="reqInpField" max-length="40" pattern="^[A-Za-z\s\-.]+$"
+                                    message-when-pattern-mismatch="Middle Name should be in correct format without any leading spaces."
+                                    placeholder="Enter Middle Name"
+                                    onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-input type="text" data-id="lastName" label="Last Name" name="lastName" aria-label="Last Name"
+                                    aria-live="assertive" class="reqInpField" max-length="40" required pattern="^[A-Za-z\s\-.]+$"
+                                    message-when-pattern-mismatch="Last Name should be in correct format without any leading spaces."
+                                    placeholder="Enter Last Name"
+                                    onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-input type="text" data-id="suffix" label="Suffix" name="suffix" aria-label="Suffix" pattern="^[A-Za-z\s\-.]+$"
+                                message-when-pattern-mismatch="Suffix should be in correct format without any leading spaces."
+                                    aria-live="assertive" max-length="40" placeholder="Enter Suffix" 
+                                    onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-input type="email" data-id="email" label="Email" name="email" aria-label="Email"
+                                    placeholder="Enter Email" class="reqInpField" 
+                                    pattern="^([a-zA-Z0-9_\-\.\+]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,10})$" 
+                                    message-when-pattern-mismatch="Please enter a valid email (e.g: abc@xyz.com)" 
+                                    value={decryptedEmail} disabled maxlength="70" onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-input type="tel" label="Phone" name="phoneNo" max-length="14" aria-label="Phone" required 
+                                    aria-live="assertive"
+                                    placeholder="Enter Phone Number" class="reqInpField" 
+                                    pattern="^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$" 
+                                    message-when-pattern-mismatch="Please enter a valid 10 digit phone number" 
+                                    onchange={handleInput}>
+                                </lightning-input>
+                            </div>
+                            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <lightning-radio-group name="provideOrRequestor" label="Provider or Requestor" aria-label="Provider or Requestor" aria-live="assertive" required
+                                    options={providerOptions} type="radio" class="reqInpField radio-group_default" onchange={handleInput}>
+                                </lightning-radio-group>
+                            </div>
+            
+                            <div if:true={showAccountOptions} class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 slds-m-top--x-small">
+                                <c-catv_custom_lookup label="Organization Name" class="city-no-margin-btm mds-custom_lookup" 
+                                    placeholder="Search Organization Name" selected-icon-name="standard:account" 
+                                    object-label="Account" required object-api-name="Account" field-api-name="Name" 
+                                    selected-org={selectedOrganization} other-field-api-name="Type"
+                                    onvalueselected={handleAccountSelect} onvalueremoved={handleAccountRemove}>
+                                </c-catv_custom_lookup>                    
+                            </div>
+            
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12 primary-button slds-m-top--x-large">
+                                <lightning-button data-id="resigterButton" name="Submit" label="Register" class="fullWid-button" aria-label="Register Button"
+                                    variant="Brand" onclick={handleRegister}>
+                                </lightning-button>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={showMessage}>
+                        <div class="alert" role="alert" tabindex="0"  aria-live="assertive" aria-label="Your Registration request has been successfully submitted for CATV review. Please expect a notification email once approved.">
+                                <div class="slds-scoped-notification slds-media slds-media_center slds-theme_success m-b-medium"
+                                    role="status">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-icon_container slds-icon-utility-success" title="success">
+                                            <i class="material-icon material-icon-check_circle_outline"></i>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="alert-heading">Registration Request Sent!</h2>
+                                        <span aria-live="assertive" role="status" aria-label="Your Registration request has been successfully submitted for CATV review. Please expect a notification email once approved.">Your Registration request has been successfully submitted for CATV review. Please expect a notification email once approved.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-clearfix">
+                                <div class="slds-m-top_medium slds-float_right">
+                                    <lightning-button variant="brand" label="Back to Login" title="Back to Login" aria-label="Back to Login"  onclick={handleRefresh} class="mds-button btn-width-40"></lightning-button>
+                                </div>
+                            </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sr-only" aria-live="polite">
+        {liveMessage}
+    </div>
+    
+    <c-catv_custom_toast auto-close-time="10000"></c-catv_custom_toast>
+ </template>

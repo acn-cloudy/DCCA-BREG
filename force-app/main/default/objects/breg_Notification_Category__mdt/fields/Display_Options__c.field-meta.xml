@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Options__c</fullName>
+    <description>Aalta BREG-516</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Display Options</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Always Show Category for Related Object</fullName>
+                <default>true</default>
+                <label>Always Show Category for Related Object</label>
+            </value>
+            <value>
+                <fullName>Depends on Related Object Field</fullName>
+                <default>false</default>
+                <label>Depends on Related Object Field</label>
+            </value>
+            <value>
+                <fullName>Always Hide</fullName>
+                <default>false</default>
+                <label>Always Hide</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

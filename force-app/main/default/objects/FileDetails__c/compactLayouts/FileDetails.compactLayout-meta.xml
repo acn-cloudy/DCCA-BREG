@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FileDetails</fullName>
+    <fields>Category__c</fields>
+    <fields>Type__c</fields>
+    <fields>Final_Version__c</fields>
+    <fields>DateReceived__c</fields>
+    <fields>LastModifiedById</fields>
+    <label>FileDetails</label>
+</CompactLayout>

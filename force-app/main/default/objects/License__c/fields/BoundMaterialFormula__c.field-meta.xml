@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BoundMaterialFormula__c</fullName>
+    <description>PacPoint KN12172020</description>
+    <externalId>false</externalId>
+    <formula>If( BoundMaterial__c  , &apos;&lt;span style=&quot;font-size: 10pt;&quot;&gt;&lt;u&gt;x&lt;/u&gt;&lt;/span&gt;&apos;, &apos;&lt;span style=&quot;font-size: 10pt;&quot;&gt;&amp;nbsp;&lt;/span&gt;&apos; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Bound Material Formula</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExamType__c</fullName>
+    <description>PacPoint-MV120219 - Created for PVL phase 1</description>
+    <label>Exam Type</label>
+    <referenceTo>ExamTypes__c</referenceTo>
+    <relationshipLabel>Exam Type Requirements</relationshipLabel>
+    <relationshipName>Exam_Type_Requirements</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

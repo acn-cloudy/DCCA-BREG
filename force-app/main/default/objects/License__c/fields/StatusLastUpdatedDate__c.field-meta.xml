@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatusLastUpdatedDate__c</fullName>
+    <description>PacPoint FT080819 - Created for PVL</description>
+    <inlineHelpText>Indicates the last date the Status was updated</inlineHelpText>
+    <label>Status Last Updated Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

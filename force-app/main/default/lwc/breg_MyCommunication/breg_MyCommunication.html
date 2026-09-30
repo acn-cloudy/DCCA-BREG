@@ -1,0 +1,50 @@
+<template>
+    <div class="slds-modal slds-fade-in-open" tabindex="-1" role="dialog">
+        <div class="slds-modal__container">
+            <!-- HEADER -->
+            <header class="slds-modal__header">
+                <div class="slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                    <h2 class="slds-modal__title slds-hyphenate">{chosenCommunication.subject}</h2>
+                </div>
+                <h3>{labels.BREG_for} {chosenCommunication.associatedEntity}</h3>
+                <button class="slds-button slds-button_icon slds-modal__close" title={labels.BREG_Close} onclick={handleClose}>
+                    <lightning-icon icon-name="utility:close" size="small" alternative-text={labels.BREG_Close}></lightning-icon>
+                    <span class="slds-assistive-text">{labels.BREG_Close}</span>
+                </button>
+            </header>
+
+            <!-- BODY -->
+            <div class="slds-modal__content slds-p-around_medium">
+                <div>
+                    <strong>{labels.BREG_Content}</strong>
+                    <div class="preserve-newlines">{chosenCommunication.body}</div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="slds-modal__footer slds-text-align_center">
+                <div class="slds-flex">
+                    <template lwc:if={attachmentsExists}>
+                        <p class="slds-m-bottom_small">{labels.BREG_Attachments}</p>
+                        <template for:each={chosenCommunication.attachments} for:item="attach">
+                            <lightning-badge
+                                class="link-view"
+                                key={attach.recordId}
+                                data-name={attach.name}
+                                data-id={attach.docusignId}
+                                label={attach.name}
+                                onclick={downloadAttach}
+                                title={labels.BREG_PaymentConfirmation_Download}
+                            ></lightning-badge>
+                        </template>
+                    </template>
+                </div>
+                <div class="slds-m-top_small">
+                    <lightning-button label={labels.BREG_Close} variant="base" onclick={handleClose}> </lightning-button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

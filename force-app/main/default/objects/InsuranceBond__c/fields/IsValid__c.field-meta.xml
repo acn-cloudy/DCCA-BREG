@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsValid__c</fullName>
+    <description>Used to identify if the Insurance bond is valid:
+(InsuranceBond__c.TermDate__c OR CancelDate__c &gt; License__c.Effective Expire Date
+
+ OR InsuranceBond__c.TermDate__c OR CancelDate__c is NULL)</description>
+    <formula>false</formula>
+    <label>Is Valid</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

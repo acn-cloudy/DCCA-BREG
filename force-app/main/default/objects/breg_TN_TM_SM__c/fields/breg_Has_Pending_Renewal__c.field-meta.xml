@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Has_Pending_Renewal__c</fullName>
+    <formula>AND(
+  breg_Last_Renewal_Case__r.breg_Is_Renewal__c= TRUE,
+  ISPICKVAL(
+    breg_Last_Renewal_Case__r.Status,
+    &quot;Pending Submission&quot;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Has Pending Renewal</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

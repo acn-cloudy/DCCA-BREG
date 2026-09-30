@@ -1,0 +1,8 @@
+div.notifications-container {
+    min-height: 100px;
+}
+
+.hide-row-num table tr td:first-child,
+.hide-row-num table tr th:first-child {
+    display: none;
+}

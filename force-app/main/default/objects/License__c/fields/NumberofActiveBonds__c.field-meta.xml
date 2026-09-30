@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NumberofActiveBonds__c</fullName>
+    <description>PacPoint-KN03272020 (Case7663) Created for PVL Phase 1 Sprint 3</description>
+    <inlineHelpText>Used to limit 1 Active Bond as a time.</inlineHelpText>
+    <label>Number of Active Bonds</label>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Type__c</field>
+        <operation>equals</operation>
+        <value>BD - Bond</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>InsuranceBond__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </summaryFilterItems>
+    <summaryForeignKey>InsuranceBond__c.License__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

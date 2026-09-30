@@ -1,0 +1,153 @@
+<template>
+    <!-- Loading Spinner -->
+    <template if:true={showSpinner}>
+        <div class="slds-align_absolute-center slds-p-around_large">
+            <lightning-spinner alternative-text="Searching for accounts" size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <template lwc:if={showSearchResults}>
+        <div>
+            <template lwc:if={showNewSearch}>
+                <div class="slds-grid slds-m-bottom_medium slds-align_absolute-center slds-align-middle">
+                    <div class="slds-col slds-grid slds-align-middle">
+                        <h1 class="dxp-text-heading-xlarge title slds-m-bottom_none">{labels.searchResults}</h1>
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <button onclick={handleNewSearch} class="new-search-btn">
+                                <lightning-icon
+                                    icon-name="utility:search"
+                                    alternative-text={labels.newSearch}
+                                    size="x-small"
+                                    class="new-search-icon"
+                                ></lightning-icon>
+                                <p>{labels.newSearch}</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Limit Warning Message -->
+            <template lwc:if={showLimitWarning}>
+                <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-m-bottom_medium" role="alert">
+                    <span class="slds-assistive-text">Warning</span>
+                    <h2 class="slds-text-heading_small">
+                        <lightning-icon
+                            icon-name="utility:warning"
+                            alternative-text="Warning"
+                            variant="inverse"
+                            size="small"
+                            class="slds-m-right_x-small"
+                        ></lightning-icon>
+                        {limitWarningMessage}
+                    </h2>
+                </div>
+            </template>
+
+            <template lwc:if={includeFilters}>
+                <div class="filter-container slds-grid slds-gutters slds-m-bottom_medium">
+                    <template lwc:if={includeRecordType}>
+                        <div class="slds-col">
+                            <label class="slds-form-element__label" for="recordTypeFilter">{labels.recordType}</label>
+                            <div class="slds-form-element">
+                                <div class="slds-select_container">
+                                    <select id="recordTypeFilter" class="slds-select" onchange={handleFilterRecordTypeChange}>
+                                        <template for:each={recordTypeOptions} for:item="option">
+                                            <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                                        </template>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <div class="slds-col">
+                        <label class="slds-form-element__label" for="statusFilter">{labels.status}</label>
+                        <div class="slds-form-element">
+                            <div class="slds-select_container">
+                                <select id="statusFilter" class="slds-select" onchange={handleFilterStatusChange}>
+                                    <template for:each={statusOptions} for:item="option">
+                                        <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <label class="slds-form-element__label" for="entityTypeFilter">{labels.entityType}</label>
+                        <div class="slds-form-element">
+                            <div class="slds-select_container">
+                                <select id="entityTypeFilter" class="slds-select" onchange={handleFilterEntityTypeChange}>
+                                    <template for:each={entityTypeOptions} for:item="option">
+                                        <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                                    </template>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-btn slds-col slds-size_1-of-3 slds-align-middle">
+                        <lightning-button variant="brand" label={labels.applyFilters} onclick={handleApplyFilters}> </lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <div class="account-results-table-wrapper">
+                <c-breg-_-custom-data-table
+                    key-field="id"
+                    data={pagedData}
+                    columns={columns}
+                    hide-checkbox-column
+                    onrowaction={handleRowAction}
+                    onnamecellopened={handleNameCellOpened}
+                ></c-breg-_-custom-data-table>
+            </div>
+
+            <div
+                if:true={pagedData.length}
+                class="slds-grid slds-wrap slds-p-top_medium slds-p-bottom_medium slds-align_absolute-center slds-grid_align-spread pagination-row"
+            >
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 mobile-align_absolute-center">
+                    <span>{displayRange}</span>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-align_absolute-center">
+                    <button class="pagination-btn" onclick={goToFirstPage} title="First Page" disabled={isFirstPage}>&laquo;</button>
+                    <button class="pagination-btn" onclick={handlePrevPage} title="Previous Page" disabled={isFirstPage}>&lsaquo;</button>
+                    <span class="slds-m-horizontal_medium">Page {currentPage} of {totalPages}</span>
+                    <button class="pagination-btn" onclick={handleNextPage} title="Next Page" disabled={isLastPage}>&rsaquo;</button>
+                    <button class="pagination-btn" onclick={goToLastPage} title="Last Page" disabled={isLastPage}>&raquo;</button>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-grid slds-grid_align-end mobile-align_absolute-center">
+                    <div class="items-per-page-selector">
+                        <select class="slds-select" onchange={handlePageSizeChange}>
+                            <template for:each={pageSizeOptions} for:item="option">
+                                <option key={option.value} value={option.value} selected={option.selected}>{option.label}</option>
+                            </template>
+                        </select>
+                        <span class="slds-m-left_x-small items-per-page-label">{labels.itemsPerPage}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div if:false={pagedData.length} class="slds-p-around_large slds-align_absolute-center slds-text-color_weak" style="font-size: 1.2rem">
+                {labels.noRecords}
+            </div>
+        </div>
+    </template>
+    <!-- Error Alert -->
+    <template if:true={hasError}>
+        <div class="slds-p-around_medium">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                <span class="slds-assistive-text">{labels.error}</span>
+                <h2>
+                    <lightning-icon
+                        icon-name="utility:error"
+                        alternative-text="Error"
+                        variant="inverse"
+                        size="small"
+                        class="slds-m-right_x-small"
+                    ></lightning-icon>
+                    {errorMessage}
+                </h2>
+            </div>
+        </div>
+    </template>
+</template>

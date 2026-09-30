@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Previous License Period</fullName>
+                <default>false</default>
+                <label>Previous License Period</label>
+            </value>
+            <value>
+                <fullName>Current License Period</fullName>
+                <default>false</default>
+                <label>Current License Period</label>
+            </value>
+            <value>
+                <fullName>Next License Period</fullName>
+                <default>false</default>
+                <label>Next License Period</label>
+            </value>
+            <value>
+                <fullName>Future License Period</fullName>
+                <default>false</default>
+                <label>Future License Period</label>
+            </value>
+            <value>
+                <fullName>Historical License Periods</fullName>
+                <default>false</default>
+                <label>Historical License Periods</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

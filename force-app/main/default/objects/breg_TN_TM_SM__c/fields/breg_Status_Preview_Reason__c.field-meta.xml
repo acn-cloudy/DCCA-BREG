@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Status_Preview_Reason__c</fullName>
+    <description>Reason for the predicted status change</description>
+    <label>Status Preview Reason</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Expiration date passed</fullName>
+                <default>false</default>
+                <label>Expiration date passed</label>
+            </value>
+            <value>
+                <fullName>Has pending renewal</fullName>
+                <default>false</default>
+                <label>Has pending renewal</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

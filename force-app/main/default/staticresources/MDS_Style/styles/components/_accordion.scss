@@ -1,0 +1,157 @@
+/*************** Accordion ***************/
+.mds-accordion {
+    position: relative;
+
+    &__list-item {
+        margin-bottom: toRem(32);
+    }
+
+    &__section {
+        padding: 0;
+        border: toRem(1) solid var(--intake-accordian-bg-border);
+        border-radius: toRem(4);
+
+        &.mds-is-open {
+            &>.mds-accordion__content {
+                display: block;
+                overflow: visible;
+                visibility: visible;
+                opacity: 1;
+                height: auto;
+                padding: toRem(24);
+                border-top: toRem(1) solid var(--other-divider);
+                background: var(--white);
+            }
+        }
+    }
+
+    &__summary {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--white);
+        padding: toRem(16) toRem(24);
+        border-radius: toRem(4);
+        row-gap: toRem(16);
+
+        @include responsive(phone-port-start) {
+            flex-wrap: wrap;
+        }
+
+    }
+
+
+    &__summary-action {
+        display: flex;
+        align-items: center;
+        gap: toRem(16);
+    }
+
+    &__summary-heading {
+        white-space: break-spaces;
+        color: var(--text-primary);
+        font-size: var(--font-size-24);
+        line-height: 160%;
+    }
+
+    &__content {
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        display: none;
+    }
+
+    .mds-accordion_btn {
+        lightning-primitive-icon {
+            display: none;
+        }
+
+        .slds-button {
+            gap: toRem(8);
+
+            &:before,
+            &:after {
+                font-family: "material-icon";
+                color: var(--primary-main);
+                font-size: toRem(16);
+            }
+
+            @include hover-focus_primary-dark;
+        }
+
+        &-show {
+            .slds-button {
+                &:before {
+                    content: '\eabb';
+                }
+
+                &:after {
+                    content: '\eaa9';
+                }
+            }
+        }
+
+        &-hide {
+            .slds-button {
+                &:before {
+                    content: '\eaba';
+                }
+
+                &:after {
+                    content: '\eaa9';
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &-icon-show,
+        &-icon-hide {
+            .slds-button {
+                border: 0;
+                padding: 0;
+
+                &:after {
+                    content: '\eaa9';
+                }
+            }
+        }
+
+        &-icon-hide {
+            .slds-button {
+                &:after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    &.mds-accordion_basic{
+        .mds-accordion__summary{
+            flex-wrap: nowrap;
+            gap: toRem(16);
+        }
+    }
+    &_full-header{
+        .mds-accordion__summary {
+            border: none;
+            width: 100%;
+
+            &-action{
+                svg{
+                    width: 1rem;
+                }
+            }
+        }
+        .mds-is-open{
+            .mds-accordion__summary {
+                &-action{
+                    svg{
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+/*************** Badges ***************/
+.mds-badge{
+    padding: (var(--spacing-xxx-small) var(--spacing-small));
+    border-radius: var(--spacing-xxx-small);
+    color: var(--text-primary);
+    background-color: var(--text-secondary);
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-medium);
+    display: inline-flex;
+    @extend .mds-align-items_center;
+    white-space: nowrap;
+    &_large{
+        padding: (var(--spacing-xxx-small) var(--spacing-large));
+        font-size: var(--font-size-14);
+    }
+    &_small{
+        padding: (var(--spacing-xxx-small) var(--spacing-xx-small));
+        font-size: var(--font-size-12);
+    }
+    
+    &_info{
+        color: var(--info-dark);
+        background-color: var(--info-shades-12-p);
+    }
+
+    &_inverse{
+        color: var(--white);
+        background-color: var(--text-disabled);
+    }
+
+    &_lightest{
+        color: var(--text-primary);
+        background-color: var(--text-secondary);
+    }
+    &.mds-theme_brand{
+        color: var(--primary-dark);
+        background-color: var(--primary-shades-12-p);
+    }
+    &.mds-theme_info{
+        color: var(--info-dark);
+        background-color: var(--info-shades-12-p);
+    }
+    &.mds-theme_disabled{
+        color: var(--text-disabled);
+        background-color: var(--disabled-background);
+    }
+    &.mds-theme_success{
+        color: var(--success-dark);
+        background-color: var(--success-shades-12-p);
+    }
+    &.mds-theme_warning{
+        color: var(--warning-title-label);
+        background-color: var(--warning-shades-12-p);
+    }
+    &.mds-theme_error{
+        color: var(--error-dark);
+        background-color: var(--error-shades-12-p);
+    }
+}

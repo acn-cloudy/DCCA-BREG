@@ -1,0 +1,272 @@
+<apex:page controller="BREGPaymentReceiptPdfController"
+           renderAs="pdf"
+           showHeader="false"
+           sidebar="false"
+           applyHtmlTag="false">
+    <html>
+    <head>
+        <style>
+            @page {
+                margin: 20px 80px 20px 80px;
+                padding: 0px 0px 0px 0px;
+            }
+
+            body {
+                font-size: 10pt;
+                font-family: Arial, sans-serif;
+            }
+
+            * {
+                font-family: Arial Unicode MS, sans-serif;
+            }
+
+            b {
+                font-family: Helvetica, sans-serif;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            table.widthFull {
+                width: 100%;
+                table-layout: fixed;
+                page-break-inside: auto;
+                -fs-table-paginate: paginate;
+            }
+
+            table tr.page-break {
+                page-break-after: auto;
+                page-break-inside: avoid;
+            }
+
+            table.widthFull tfoot {
+                display: table-footer-group;
+            }
+
+            table.widthFull thead {
+                display: table-header-group;
+            }
+
+            table.bordered td,
+            table.bordered th {
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            .header-section {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .header-text {
+                font-weight: bold;
+                line-height: 1.2;
+            }
+
+            .department-name {
+                font-size: 11pt;
+                margin: 5px 0;
+            }
+
+            .division-name {
+                font-size: 11pt;
+                margin: 5px 0;
+            }
+
+            .address-section {
+                font-size: 9pt;
+                margin: 10px 0;
+                line-height: 1.3;
+            }
+
+            .greeting-section {
+                margin: 70px 0 0 0;
+                text-align: left;
+                font-size: 11pt;
+                line-height: 1;
+            }
+
+            .payment-info-section {
+                margin: 45px 0 30px 0;
+            }
+
+            .payment-info-title {
+                font-size: 12pt;
+                font-weight: bold;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            .payment-info-table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 2px solid #000;
+                font-size: 10pt;
+            }
+
+            .payment-info-table td {
+                border: 1px solid #000;
+                padding: 8px;
+                vertical-align: top;
+            }
+
+            .payment-info-table .label-column {
+                background-color: #f5f5f5;
+                font-weight: bold;
+                width: 40%;
+            }
+
+            .payment-info-table .value-column {
+                width: 60%;
+            }
+
+            .transaction-line-items-section {
+                margin: 30px 0 30px 0;
+            }
+
+            .transaction-line-items-title {
+                font-size: 12pt;
+                font-weight: bold;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            .transaction-line-items-table {
+                width: 100%;
+                border-collapse: collapse;
+                border: 2px solid #000;
+                font-size: 10pt;
+            }
+
+            .transaction-line-items-table td {
+                border: 1px solid #000;
+                padding: 8px;
+                vertical-align: top;
+            }
+
+            .transaction-line-items-table tr:first-child td {
+                background-color: #f5f5f5;
+                font-weight: bold;
+            }
+
+            .tli-quantity-column {
+                text-align: center;
+            }
+
+            .tli-amount-column {
+                text-align: center;
+            }
+
+            .footer-section {
+                margin: 0 0 0 0;
+                text-align: left;
+                font-size: 11pt;
+                line-height: 1;
+            }
+
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Section with Logo and Department Information -->
+        <div class="header-section">
+            <apex:image width="100px" url="{!$Resource.SealoftheStateofHawaii}"/>
+            <div class="header-text">
+                <div class="department-name">STATE OF HAWAII</div>
+                <div class="department-name">DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS</div>
+                <div class="division-name">BUSINESS REGISTRATION DIVISION</div>
+            </div>
+            <div class="address-section">
+                335 Merchant Street, Honolulu, Hawaii 96813<br/>
+                Mailing Address: Post Office Box 40, Honolulu, Hawaii 96810<br/>
+                Telephone: 1-844-808-3222<br/>
+                Email: <a href="mailto:breg@dcca.hawaii.gov">breg@dcca.hawaii.gov</a><br/>
+                Website: <a href="https://hbe.dcca.hawaii.gov/">https://hbe.dcca.hawaii.gov/</a>
+            </div>
+        </div>
+
+        <!-- Greeting Section -->
+        <div class="greeting-section">
+            <p>Dear {!payment.pymt__Billing_First_Name__c} {!payment.pymt__Billing_Last_Name__c},</p>
+            <p>Thank you for your payment. Here is your receipt.</p>
+            <p>Please keep a copy of this payment receipt for your records. This payment is non-refundable.</p>
+        </div>
+
+        <!-- Payment Information Section -->
+        <div class="payment-info-section">
+            <div class="payment-info-title">Payment Information</div>
+            <table class="payment-info-table">
+                <tr>
+                    <td class="label-column">Reference ID</td>
+                    <td class="value-column">{!payment.Transaction__r.Name}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Authorization Code</td>
+                    <td class="value-column">{!payment.pymt__Authorization_Id__c}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Transaction ID</td>
+                    <td class="value-column">{!payment.pymt__Transaction_Id__c}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Transaction Date</td>
+                    <td class="value-column">{!transactionDate}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Transaction Amount</td>
+                    <td class="value-column">{!transactionAmount}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Payment Type</td>
+                    <td class="value-column">{!payment.pymt__Payment_Type__c}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Card Type</td>
+                    <td class="value-column">{!payment.pymt__Card_Type__c}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Card/Account Number (last 4)</td>
+                    <td class="value-column">{!payment.pymt__Last_4_Digits__c}</td>
+                </tr>
+                <tr>
+                    <td class="label-column">Name on Card/Account</td>
+                    <td class="value-column">{!payment.pymt__Billing_First_Name__c} {!payment.pymt__Billing_Last_Name__c}</td>
+                </tr>                                
+            </table>
+        </div>
+
+        <!-- Transaction Line Items Section -->
+        <div class="transaction-line-items-section">
+            <div class="transaction-line-items-title">Transaction Details</div>
+            <table class="transaction-line-items-table">
+                <tr>
+                    <td class="label-column">Work Item ID</td>
+                    <td class="value-column">Item</td>
+                    <td class="value-column tli-quantity-column">Quantity</td>
+                    <td class="value-column tli-amount-column">Amount</td>
+                </tr>
+                <apex:repeat value="{!transactionLineItemWrappers}" var="tliWrapper">
+                    <tr>
+                        <td class="value-column">{!tliWrapper.workItemNumber}</td>
+                        <td class="value-column">{!tliWrapper.item}</td>
+                        <td class="value-column tli-quantity-column">{!tliWrapper.quantity}</td>
+                        <td class="value-column tli-amount-column">{!tliWrapper.amount}</td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <p>Thank you,</p>
+            <p>BUSINESS REGISTRATION DIVISION, Hawaii</p>
+        </div>
+
+    </body>
+    </html>
+</apex:page>

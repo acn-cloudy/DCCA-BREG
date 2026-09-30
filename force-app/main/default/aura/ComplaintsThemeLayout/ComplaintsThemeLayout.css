@@ -1,0 +1,102 @@
+@media (max-width: 767px) {
+  .THIS #navigation {
+    display: block !important;
+  }
+}
+
+.THIS #bodyCustom {
+  background-color: rgb(244, 245, 226);
+  background-position: bottom -200px left 0;
+  background-repeat: repeat-x;
+  background-image: url(/sfsites/c/resource/ComplaintsThemeLayout/imgs/background-transparent.jpg);
+  padding: 0 2rem;
+}
+
+.THIS .selfServiceUserProfileMenu .login .linkLabel {
+  color: #2574a9;
+}
+
+.THIS .nine-col.logo {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.THIS #header .logo img {
+  padding-top: 0;
+  margin: 0;
+}
+
+.THIS #additional-info {
+  margin: 0;
+}
+
+.THIS #additional-info input {
+  /*width: 100%;*/
+  border: 8px solid #ac5704;
+  border-radius: 10px;
+  background: #ac5704;
+  color: #fff;
+}
+
+.THIS #additional-info input::placeholder {
+  color: #fff;
+}
+
+.THIS #additional-info input~i {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+
+
+.THIS .title_tagline {
+  padding-top: 0;
+}
+
+.THIS #et-social-icons i {
+  color: rgb(64, 135, 46);
+}
+
+.THIS #footer {
+  background-color: rgb(11, 31, 62);
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.THIS #footer ul li {
+  padding: 0;
+  border: unset;
+  font-weight: bold;
+}
+
+.THIS .two-col {
+  width: 33.333%;
+}
+
+.THIS #footer ul li a,
+.THIS #footer #copyright_info span {
+  color: #fff !important;
+}
+
+@media (max-width: 480px) {
+  .THIS #et-social-icons>div:first-child {
+    position: absolute;
+    top: 30px;
+    right: 3px;
+  }
+
+  .THIS #bodyCustom {
+    padding: 0;
+  }
+
+  .THIS #footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .THIS #additional-info input {
+    width:100%
+  }
+}

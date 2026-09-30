@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-var-p-bottom_small">
+        <lightning-button label="Create Apps" variant="brand"
+            action={createApps} if:true={selectedApps.length}></lightning-button>
+    </div>
+    <lightning-datatable
+        key-field="name"
+        data={appList}
+        columns={columns}
+        onrowselection={getSelectedName}
+    ></lightning-datatable>
+</template>

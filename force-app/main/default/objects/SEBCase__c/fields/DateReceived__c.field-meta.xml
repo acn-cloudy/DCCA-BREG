@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateReceived__c</fullName>
+    <defaultValue>Today()</defaultValue>
+    <description>PacPoint - RA011019 - BREG Phase 1</description>
+    <inlineHelpText>Date that the complaint was received.</inlineHelpText>
+    <label>Date Received</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

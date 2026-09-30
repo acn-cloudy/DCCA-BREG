@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DirectorSignedDate__c</fullName>
+    <description>PacPoint-KN 04132020 # 7747 - Created for Travel Approval</description>
+    <inlineHelpText>MM/DD/YYYY</inlineHelpText>
+    <label>Director Signed Date</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

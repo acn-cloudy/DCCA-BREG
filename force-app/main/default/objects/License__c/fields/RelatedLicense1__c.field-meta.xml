@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RelatedLicense1__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>PacPoint-IC071619- Created for PVL phase 1.
+PacPoint-MV100319- Created for PVL phase 1.To be used for Join Venture Licenses.</description>
+    <inlineHelpText>Select the License number of the other Entity</inlineHelpText>
+    <label>Related License 1</label>
+    <referenceTo>License__c</referenceTo>
+    <relationshipLabel>Licenses (Releated License)</relationshipLabel>
+    <relationshipName>ReleatedLicenses</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

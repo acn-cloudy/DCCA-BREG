@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LastTaxClearanceStatus__c</fullName>
+    <inlineHelpText>The most recent tax clearance status obtained from the Hawaii Department of Taxation API.</inlineHelpText>
+    <label>Last Tax Clearance Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approved / Compliant</fullName>
+                <default>false</default>
+                <label>Approved / Compliant</label>
+            </value>
+            <value>
+                <fullName>Approved / Compliant. Entity name does not match DOTAX</fullName>
+                <default>false</default>
+                <label>Approved / Compliant. Entity name does not match DOTAX</label>
+            </value>
+            <value>
+                <fullName>Denied / Not Compliant</fullName>
+                <default>false</default>
+                <label>Denied / Not Compliant</label>
+            </value>
+            <value>
+                <fullName>Tax Id was not found on record with DOTAX</fullName>
+                <default>false</default>
+                <label>Tax Id was not found on record with DOTAX</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

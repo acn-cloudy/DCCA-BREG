@@ -1,0 +1,430 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+  access="global"
+  extends="c:sc_execute"
+  controller="sc_ApplicationController"
+>
+  <aura:attribute name="cIndex" type="Integer" access="global" />
+  <aura:attribute name="uploadUrl" type="string" access="global" />
+  <aura:attribute name="publicPage" type="Boolean" default="false" />
+  <aura:attribute name="hideSubmit" type="Boolean" default="false" />
+  <aura:attribute
+    name="disableUserPreload"
+    type="Boolean"
+    default="false"
+    Description="used to disable the pre popup functions"
+  />
+  <aura:attribute name="preValueMap" type="Object" access="global" />
+  <aura:attribute name="verticalnav" type="boolean" access="global" />
+  <aura:attribute name="horizontalnav" type="boolean" access="global" />
+  <aura:attribute name="isLoadingComplete" type="boolean" default="false" />
+  <aura:attribute
+    name="submissionmessage"
+    type="String"
+    access="global"
+    default="Please contact VCS."
+  />
+  <aura:attribute name="hiddencards" type="String[]" access="global" />
+  <aura:attribute name="message" type="String" access="global" />
+  <aura:attribute
+    name="enableload"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="subTitleName"
+    type="String"
+    access="global"
+    default="Application"
+  />
+  <aura:attribute name="formData" type="string" access="global" />
+
+  <aura:attribute
+    name="submitted"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="isnew" type="boolean" access="global" default="true" />
+  <aura:attribute
+    name="paymentAuth"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="applicationName" type="string" access="global" />
+  <aura:attribute name="applicationLabel" type="string" access="global" />
+  <aura:attribute name="reassessmentAppId" type="string" access="global" />
+  <aura:attribute name="application" type="Object" access="global" />
+
+  <aura:attribute
+    name="applicationid"
+    type="string"
+    access="global"
+    description="used for the application meta data Id"
+  />
+  <aura:attribute name="appId" type="string" access="global" />
+  <aura:attribute
+    name="applicationcacheid"
+    type="string"
+    access="global"
+    description="used for the application cache id"
+  />
+  <aura:attribute name="extraActions" type="Aura.Component[]" />
+
+  <aura:attribute name="currentcardcacheid" type="string" access="global" />
+  <aura:attribute name="numcards" type="string" access="global" />
+  <aura:attribute name="fieldFilters" type="Object" access="global" />
+  <aura:attribute
+    name="stopButtonPressed"
+    type="Boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="extrabuttons"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="extraprocess"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="currentcard" type="string" access="global" />
+  <aura:attribute
+    name="currentindex"
+    type="Integer"
+    access="global"
+    default="0"
+  />
+  <aura:attribute name="cardCaches" type="object" access="global" />
+  <aura:attribute
+    name="oldcurrentindex"
+    type="Integer"
+    access="global"
+    default="0"
+  />
+  <aura:attribute name="finalcard" type="boolean" access="global" default="0" />
+  <aura:attribute
+    name="isLoading"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="cards" type="String[]" access="global" />
+  <aura:attribute
+    name="headerclickable"
+    type="boolean"
+    access="global"
+    default="true"
+  />
+  <aura:attribute
+    name="progressline"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="hideAppNo"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute name="files" type="Map" access="global" />
+  <aura:attribute name="valueMap" type="Map" access="global" />
+  <aura:attribute
+    name="showsummary"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+  <aura:attribute
+    name="debugmode"
+    type="boolean"
+    access="global"
+    default="true"
+  />
+  <aura:attribute name="progress" type="String" access="global" />
+  <aura:attribute
+    name="hideprintmodal"
+    type="boolean"
+    access="global"
+    default="true"
+  />
+  <aura:attribute
+    name="hidesummarymodal"
+    type="boolean"
+    access="global"
+    default="true"
+  />
+  <aura:attribute name="userRecord" type="Object" access="global" />
+  <aura:attribute
+    name="isDoneDataRetrieve"
+    type="boolean"
+    access="global"
+    default="false"
+  />
+
+  <aura:attribute name="customSubmitMethod" type="string" access="global" />
+  <aura:attribute name="customSubmit" type="boolean" access="global" />
+  <aura:method name="previous" action="{!c.prevBtnPress}" />
+  <aura:method name="getIndex" action="{!c.getIndexNumber}" />
+  <aura:method name="refreshCard" action="{!c.loadApplication}" />
+  <aura:registerEvent name="app_message" type="c:APP_MESSAGE" />
+  <aura:handler
+    name="change"
+    value="{!v.currentindex}"
+    action="{!c.handleNavChange}"
+  />
+  <aura:handler
+    name="dependentValueChange"
+    event="c:sc_Message"
+    action="{!c.recalculateDependency}"
+  />
+  <aura:handler name="init" value="{!this}" action="{!c.loadApplication}" />
+  <aura:handler
+    event="c:sc_ApplicationDependFieldEvent"
+    name="sc_ApplicationDependFieldEvent"
+    action="{!c.handleDependField}"
+  />
+  <aura:handler
+    event="c:sc_Message"
+    name="cmpMessage"
+    action="{!c.handleMessage}"
+  />
+
+  <div class="slds-grid bg-image">
+    <div class="{!v.publicPage ? 'slds-col slds-size_2-of-12' : ''}"></div>
+    <aura:if isTrue="{!!v.hideAppNo}">
+      <div class="slds-col slds-size_9-of-12 slds-p-horizontal_medium">
+        <div aura:id="application" class="slds-grid">
+          <h1 class="appname">{!v.applicationLabel}</h1>
+        </div>
+
+        <div class="appnumber">
+          <strong
+            >{!v.subTitleName != null ? v.subTitleName: 'App'} No:
+            {!v.applicationcacheid}</strong
+          >
+        </div>
+      </div>
+    </aura:if>
+  </div>
+  <div class="slds-grid slds-p-top_x-small bg-white slds-p-bottom_large">
+    <lightning:spinner
+      aura:id="mySpinner"
+      alternativeText="Loading.."
+      size="medium"
+      title="Loading.."
+      variant="base"
+      class="{!v.isLoadingComplete ? 'slds-hide': 'coverAll'}"
+    />
+    <aura:if isTrue="{!v.verticalnav}">
+      <div
+        class="slds-col slds-size_2-of-12 slds-p-around_small slds-card hidenav"
+      >
+        <c:sc_nav_cards
+          cards="{!v.cards}"
+          aura:id="navCards"
+          index="{!v.currentindex}"
+          oncardclick="{!c.checkCardClick}"
+        />
+      </div>
+    </aura:if>
+    <div class="slds-col slds-size_9-of-12">
+      <aura:if isTrue="{!v.horizontalnav}">
+        <c:sc_vnav_cards
+          cards="{!v.cards}"
+          index="{!v.currentindex}"
+          aura:id="vnavCards"
+          oncardclick="{!c.checkCardClick}"
+        />
+      </aura:if>
+      <!-- Tab Header -->
+      <c:sc_Card
+        aura:id="card"
+        userRecord="{!v.userRecord}"
+        cardCaches="{!v.cardCaches}"
+        uploadUrl="{!v.uploadUrl}"
+        appId="{!v.appId}"
+        fieldFilters="{!v.fieldFilters}"
+        applicationcacheid="{!v.applicationcacheid}"
+        isDoneDataRetrieve="{!v.isDoneDataRetrieve}"
+      />
+      <div class="extra-actions">{!v.extraActions}</div>
+      <div class="slds-grid slds-grid_align-center">
+        <!--lightning:button aura:id="buttonSaveDraft" variant="brand" label="Cancel" onclick="{!c.clickcancel}" class="buttonFloat"/-->
+        <aura:if isTrue="{!v.currentindex != 0}">
+          <lightning:button
+            name="Previous"
+            aura:id="buttonprev"
+            variant="brand"
+            label="Previous"
+            onclick="{!c.prevBtnPress}"
+          />
+          <lightning:button
+            name="Save as draft"
+            aura:id="buttonSaveDraft"
+            variant="brand"
+            label="Save as draft"
+            onclick="{!c.saveasDraftBtnPress}"
+          />
+        </aura:if>
+        <aura:if isTrue="{!!v.finalcard}">
+          <lightning:button
+            aura:id="buttonnext"
+            variant="brand"
+            label="Next"
+            disabled="{!v.isLoading}"
+            onclick="{!c.nextBtnPress}"
+          />
+        </aura:if>
+        <aura:if
+          isTrue="{!and(v.finalcard,not(v.submitted),not(v.customSubmit))}"
+        >
+          <lightning:button
+            aura:id="buttonprev"
+            variant="brand"
+            label="Review"
+            onclick="{!c.reviewApp}"
+          />
+        </aura:if>
+      </div>
+    </div>
+    <!-- Process Header -->
+    <aura:if isTrue="{!v.horizontalnav}">
+      <aura:if isTrue="{!v.extraprocess}">
+        <c:sc_vnav_cards cards="{!v.cards}" aura:id="vnavCards" />
+      </aura:if>
+    </aura:if>
+    <!-- end Process Header -->
+  </div>
+
+  <!-- Print page -->
+
+  <div
+    class="{!v.hideprintmodal ? 'hidemodal' : 'showmodal'}"
+    aura:id="printpage"
+  >
+    <c:sc_popup title="{!v.subTitleName + ' Summary'}" hide="{!c.cancelprint}">
+      <aura:if isTrue="{!!v.hideprintmodal}">
+        <iframe
+          aura:id="vfFrame"
+          src="?prints=Yes&amp;applicationref="
+          width="894px"
+          height="520px"
+          class="vfFrame"
+        />
+      </aura:if>
+      <aura:set attribute="footers">
+        <div class="slds-grid">
+          <lightning:button
+            variant="brand"
+            label="Cancel"
+            onclick="{!c.cancelprint}"
+          />
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </div>
+
+  <!-- End Print Page -->
+
+  <!-- summary page modal -->
+
+  <div
+    class="{!v.hidesummarymodal ? 'hidemodal' : 'showmodal'}"
+    aura:id="summarypage"
+    style="height: 640px"
+  >
+    <c:sc_SummaryReview
+      aura:id="summaryModal"
+      subTitleName="{!v.subTitleName}"
+      hideSubmit="{!v.hideSubmit}"
+    />
+  </div>
+
+  <div class="slds-hide" aura:id="messagepage">
+    <c:sc_popup
+      title="{!v.subTitleName + ' Summary'}"
+      hide="{!c.cancelmessage}"
+    >
+      <h3>{!v.message}</h3>
+      <aura:set attribute="footers">
+        <div class="slds-grid slds-grid_align-center">
+          <div>
+            <lightning:button
+              aura:id="Ok"
+              variant="brand"
+              label="Ok"
+              onclick="{!c.redirectpage}"
+            />
+          </div>
+        </div>
+      </aura:set>
+    </c:sc_popup>
+  </div>
+
+  <!-- end Message page modal -->
+
+  <!-- Cancel Message page modal -->
+
+  <div class="hidemodal" aura:id="cancelMessagepage" style="height: 640px">
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <div class="tborder" style="overflow: auto">
+          <header class="slds-modal__header">
+            <button
+              class="slds-button slds-button_icon slds-modal__close"
+              title="Close"
+              onclick="{!c.cancelsummary}"
+            >
+              <lightning:icon iconName="action:close" size="x-small" />
+              <span class="slds-assistive-text">Close</span>
+            </button>
+            <h3
+              id="modal-heading-01"
+              class="slds-text-heading_medium slds-hyphenate"
+            >
+              Message
+            </h3>
+          </header>
+          <div
+            class="slds-modal__content slds-p-around_medium"
+            id="modal-content-id-1"
+          >
+            <h3>{!v.message}</h3>
+          </div>
+          <footer class="slds-modal__footer">
+            <div class="slds-grid slds-grid_align-center">
+              <div>
+                <lightning:button
+                  variant="brand"
+                  label="Yes"
+                  onclick="{!c.cancelApplications}"
+                />
+                <lightning:button
+                  aura:id="Ok"
+                  variant="brand"
+                  label="No"
+                  onclick="{!c.revertAction}"
+                />
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </div>
+</aura:component>

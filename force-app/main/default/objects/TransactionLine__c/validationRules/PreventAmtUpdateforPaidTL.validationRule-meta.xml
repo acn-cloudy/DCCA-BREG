@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PreventAmtUpdateforPaidTL</fullName>
+    <active>true</active>
+    <description>Prevent users from updating transaction line amount when the status is already at paid</description>
+    <errorConditionFormula>ISPICKVAL( PaidStatus__c ,&quot;Paid&quot;) &amp;&amp;  ISCHANGED( Amount__c )</errorConditionFormula>
+    <errorMessage>You can not edit the amount for this transaction line because it is already paid.</errorMessage>
+</ValidationRule>

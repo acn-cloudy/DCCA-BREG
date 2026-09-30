@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsEmployerAddressPopulated__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(
+EmployerStreet__c &lt;&gt; &quot;&quot;,
+EmployerCity__c &lt;&gt; &quot;&quot;,
+
+OR(
+EmployerZipCode__c &lt;&gt; &quot;&quot;,
+TEXT(EmployerCountry__c) &lt;&gt; &quot;United States&quot;
+)
+),
+&quot;Y&quot;,
+&quot;N&quot; )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Employer Address Populated</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

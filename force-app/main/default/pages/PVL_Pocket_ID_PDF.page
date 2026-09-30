@@ -1,0 +1,217 @@
+<apex:page readOnly="true"
+    controller="PVL_Pocket_ID_PDFController"
+    applyHtmlTag="false"
+    sidebar="false"
+    showHeader="false"
+    renderAs="PDF" 
+>
+    <html>
+        <head>
+            <style type="text/css" media="print">
+                @page {
+                    size: a4;
+                    margin-bottom: 600px;
+                    @bottom-left {
+                        content: element(footer);
+                    }
+                }
+
+                * {
+                    font-family: Helvetica, sans-serif; /* Arial Unicode MS for the special characters */
+                }
+
+                div.footer {
+                    display: block;
+                    padding: 0;
+                    width: 100%;
+                    position: running(footer);
+                }
+            </style>
+        </head>
+        <body>
+            <div style="float: left; width: 100%; height: 300px">
+                <div style="float: left; text-transform: uppercase; padding-top: 152px;">
+                    <apex:outputText escape="false" value="{!lic.LicenseeNameFormula__c}" style="white-space: nowrap;"/><br/>
+                    <apex:outputText escape="false" value="{!street}" /><br />
+                    {!city}, {!state} {!postcode}
+                </div>
+                <div style="float: right">
+                    {!if(RIGHT(lic.Name,3)=='-00', LEFT(lic.Name, LEN(lic.Name)-3),
+                    IF(RIGHT(lic.Name, 2)=='-0', LEFT(lic.Name, LEN(lic.Name)-2),lic.Name))}
+                </div>
+            </div>
+            <div class="footer">
+                <div style="width: 696px; padding-bottom: 20px">
+                    <p style="text-transform: uppercase; padding: 0; margin: 0">
+                        {!lic.LicenseType__r.LicenseType__c}
+                    </p>
+                    <p style="text-transform: uppercase; padding: 0; margin: 0">
+                        <i style="color: red; font-weight: bold"> Notice</i> This pocket ID card
+                        identifies you to the public as being currently licensed and should be kept
+                        in your possession at all times.
+                    </p>
+                </div>
+                <div
+                    style="width: 696px; height: 227px; border: 1px dashed gray; margin-bottom: 5px"
+                >
+                    <div
+                        style="
+                            float: left;
+                            width: 50%;
+                            height: 227px;
+                            border-right: 1px dotted gray;
+                            background-image: url({!$Resource.PocketIdSeal});
+                            background-size: 100px 100px;
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                        "
+                    >
+                        <div style="float: left; width: 60%; padding: 15px">
+                            <div style="float: left; width: 100%">
+                                <div
+                                    style="
+                                        float: left;
+                                        border: 1px solid;
+                                        text-align: center;
+                                        font-size: 7pt;
+                                        padding: 8px;
+                                    "
+                                >
+                                    License Number<br />
+                                    {!lic.PocketIDLicenseNumber__c}
+                                </div>
+                                <div
+                                    style="
+                                        float: right;
+                                        border: 1px solid;
+                                        text-align: center;
+                                        padding: 8px;
+                                        font-size: 7pt;
+                                    "
+                                >
+                                    <apex:outputText value="{0,date,M/dd/yyyy}">
+                                        Expiration date<br />
+                                        <apex:param value="{!lic.EffectiveExpireDate__c}" />
+                                    </apex:outputText>
+                                </div>
+                                <div
+                                    style="
+                                        float: left;
+                                        width: 100%;
+                                        text-align: center;
+                                        text-transform: uppercase;
+                                        font-size: 4.2pt;
+                                        margin-top: 1px;
+                                    "
+                                >
+                                    STATE OF HAWAII DEPARTMENT OF COMMERCE AND CONSUMER AFFAIRS
+                                </div>
+                                <div
+                                    style="
+                                        float: left;
+                                        width: 100%;
+                                        text-transform: uppercase;
+                                        font-size: 7pt;
+                                        margin-top: 3px;
+                                    "
+                                >
+                                    {!licenseType}
+                                </div>
+                                <div
+                                    style="
+                                        float: left;
+                                        width: 100%;
+                                        text-transform: uppercase;
+                                        font-size: 7pt;
+                                        margin-top: 3px;
+                                    "
+                                >
+                                    {!priviledge}
+                                </div>
+
+                                <div style="float: left;width: 100%;text-transform: uppercase;font-size: 7pt;margin-top: 3px;">
+                                    <apex:variable value="0" var="num" />
+                                    <apex:outputPanel rendered="{!lic.LicenseType__r.EligibleforClassifications__c &&
+                                            (lic.LicenseType__r.LicensePrefix__c== 'PE' ||
+                                            lic.LicenseType__r.LicensePrefix__c== 'BEO'||
+                                            lic.LicenseType__r.LicensePrefix__c== 'I') }">
+                                        CLASS(ES):
+                                        <apex:repeat value="{!lic.LicenseClassifications__r}" var="cl">
+                                            {!IF(VALUE(num) > 3, "", IF(FIND('
+                                            ',cl.Classification__r.Name) <= 0,
+                                            cl.Classification__r.Name
+                                            ,LEFT(cl.Classification__r.Name,FIND('
+                                            ',cl.Classification__r.Name)-1)))}
+                                            <apex:variable var="num" value="{!VALUE(num) + 1}" />
+                                        </apex:repeat>
+                                    </apex:outputPanel>
+                                </div>
+                                <div style="float: left;text-transform: uppercase;font-size: 7pt;padding: 5px;margin-top: 5px;">
+                                    <apex:outputText escape="false" value="{!lic.LicenseeNameFormula__c}" style="white-space:nowrap;"/><br />
+                                    <apex:outputPanel rendered="{!lic.LicenseName__c != null}">
+                                        {!'DBA ' +lic.LicenseName__c}<br />
+                                    </apex:outputPanel>
+                                    <apex:outputText escape="false"
+                                        value="{!street}"
+                                    /><br />
+                                    {!city}, {!state}
+                                    {!postcode}
+                                </div>
+                                <img
+                                    src="{!$Resource.PocketIdSeal}"
+                                    height="100"
+                                    width="100"
+                                    style="visibility: hidden"
+                                />
+                                <div
+                                    style="
+                                        float: left;
+                                        width: 100%;
+                                        text-transform: uppercase;
+                                        position: absolute;
+                                        top: 415px;
+                                        font-size: 7pt;
+                                        left: 15px;
+                                    "
+                                >
+                                    _____________________________________________<br />
+                                    SIGNATURE OF LICENSEE
+                                </div>
+                            </div>
+                        </div>
+                        <div style="float: right; width: 30%; text-align: center">
+                            <img
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data={!$Label.PublicLicenseSearchURL}{!IF(CONTAINS(lic.Name, '-0'), SUBSTITUTE(lic.Name, '-0', '-0'), lic.Name)}"
+                                style="margin-top: 2px"
+                            />
+                            <div style="padding-right: 10px">{!lic.ActiveInactiveFormula__c}</div>
+                        </div>
+                    </div>
+                    <div
+                        style="
+                            float: left;
+                            width: 40%;
+                            height: 227px;
+                            padding: 15px;
+                            font-size: 7pt;
+                        "
+                    >
+                        <apex:outputPanel rendered="{!lic.LicenseClassifications__r != null}"
+                        >
+                            <div style="padding-bottom: 40px">
+                                CLASSES (ACTIVE):
+                                <apex:repeat value="{!lic.LicenseClassifications__r}" var="cl">
+                                    {!cl.Classification__r.Name}
+                                    <!-- {!IF(FIND(' ',cl.Classification__r.Name) <= 0,
+                                    cl.Classification__r.Name ,LEFT(cl.Classification__r.Name,FIND(' ',cl.Classification__r.Name)-1))} -->
+                                </apex:repeat>
+                            </div>
+                        </apex:outputPanel>
+
+                        <div>{!lic.PocketIDClassVerbiage__c}</div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

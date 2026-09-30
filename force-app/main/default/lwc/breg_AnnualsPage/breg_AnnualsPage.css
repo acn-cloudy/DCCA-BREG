@@ -1,0 +1,26 @@
+/* Enables horizontal scroll for the table */
+.table-scroll {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Red text styles for overdue and delinquent statuses */
+.overdue,
+.delinquent {
+    color: red;
+    font-weight: bold;
+}
+
+.datatable-scroll-container {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+}
+
+lightning-datatable {
+    min-width: 790px; 
+}
+.scrollable_x {
+    overflow-x: auto !important;
+    overflow: visible !important;
+}

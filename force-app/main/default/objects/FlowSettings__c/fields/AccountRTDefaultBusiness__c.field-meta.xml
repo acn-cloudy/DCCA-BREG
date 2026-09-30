@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountRTDefaultBusiness__c</fullName>
+    <description>PacPoint-JB111418 - Created for BREG phase 1</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the Default Business Account RecordType Id here for use in flows.</inlineHelpText>
+    <label>AccountRTDefaultBusiness</label>
+    <length>18</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

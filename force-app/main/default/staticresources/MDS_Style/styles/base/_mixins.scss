@@ -1,0 +1,67 @@
+//toREM Function
+@function toRem($value) {
+    $remValue: calc($value / 16) + rem;	
+   @return $remValue;
+}
+
+//Focus Function
+@mixin focus-outline {
+    outline: toRem(2) dotted var(--black) !important;
+    outline-offset: toRem(3) !important;  
+}
+
+//Focus Function with White Border
+@mixin focus-outline-white {
+    outline: toRem(2) dotted var(--white) !important;
+    outline-offset: 0.188rem;
+}
+//Focus Function with White Border minus
+@mixin focus-outline-minus-white {
+    outline: toRem(2) dotted var(--white) !important;
+    outline-offset: toRem(-2) !important;
+}
+//Focus Function with minus
+@mixin focus-outline-minus {
+    outline: toRem(2) dotted var(--black) !important;
+    outline-offset: toRem(-2) !important;
+}
+
+//Responsive Functions
+@mixin responsive($breakpoint){
+    @if $breakpoint == phone {
+        @media screen and (max-width: $mobile-end){
+            @content
+        };
+    }
+
+    @if $breakpoint == phone-port-start {
+        @media screen and (max-width: $mobile-portrait-start){
+            @content
+        };
+    }
+
+    @if $breakpoint == tab-port {
+        @media screen and (max-width: $tablet-portrait-end){
+            @content
+        };
+    }
+    @if $breakpoint == tab-land {
+        @media screen and (max-width: $tablet-landscape-end){ 
+            @content
+        };
+    }
+    @if $breakpoint == tab-port-start {
+        @media screen and (max-width: $tablet-portrait-start){
+            @content
+        };
+    }
+}
+// Buttons with icon - hover and foucs for icons
+@mixin hover-focus_primary-dark{
+    &:hover::before,
+    &:focus::before,
+    &:hover::after,
+    &:focus::after {
+        color: var(--primary-dark);
+    }
+}

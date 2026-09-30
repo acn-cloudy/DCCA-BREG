@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission for users with Salesforce Platform license to access Cases</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>DCCA Case Access</label>
+    <permissionSets>Case_Access_for_Platform_Users</permissionSets>
+    <permissionSets>DCCA_Email_Support</permissionSets>
+    <permissionSets>Permission_for_Lightning_Console_Access</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

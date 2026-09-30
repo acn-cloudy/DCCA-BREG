@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AuthEndpoint__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Auth Endpoint</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>https://authuat.springcm.com/api/v201606/</fullName>
+                <default>false</default>
+                <label>https://authuat.springcm.com/api/v201606/</label>
+            </value>
+            <value>
+                <fullName>https://auth.springcm.com/api/v201606/</fullName>
+                <default>false</default>
+                <label>https://auth.springcm.com/api/v201606/</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

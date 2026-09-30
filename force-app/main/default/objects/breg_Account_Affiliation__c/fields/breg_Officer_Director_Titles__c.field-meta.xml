@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Officer_Director_Titles__c</fullName>
+    <label>Officer/Director Titles</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>P</fullName>
+                <default>false</default>
+                <label>President</label>
+            </value>
+            <value>
+                <fullName>V</fullName>
+                <default>false</default>
+                <label>Vice President</label>
+            </value>
+            <value>
+                <fullName>S</fullName>
+                <default>false</default>
+                <label>Secretary</label>
+            </value>
+            <value>
+                <fullName>T</fullName>
+                <default>false</default>
+                <label>Treasurer</label>
+            </value>
+            <value>
+                <fullName>CEO</fullName>
+                <default>false</default>
+                <label>Chief Executive Officer</label>
+            </value>
+            <value>
+                <fullName>CFO</fullName>
+                <default>false</default>
+                <label>Chief Financial Officer</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <label>Chairperson of the Board</label>
+            </value>
+            <value>
+                <fullName>SRV</fullName>
+                <default>false</default>
+                <label>Senior Vice President</label>
+            </value>
+            <value>
+                <fullName>EV</fullName>
+                <default>false</default>
+                <label>Executive Vice President</label>
+            </value>
+            <value>
+                <fullName>VC</fullName>
+                <default>false</default>
+                <label>Vice Chairman</label>
+            </value>
+            <value>
+                <fullName>CO</fullName>
+                <default>false</default>
+                <label>Controller</label>
+            </value>
+            <value>
+                <fullName>AC</fullName>
+                <default>false</default>
+                <label>Assistant Controller</label>
+            </value>
+            <value>
+                <fullName>AS</fullName>
+                <default>false</default>
+                <label>Assistant Secretary</label>
+            </value>
+            <value>
+                <fullName>AT</fullName>
+                <default>false</default>
+                <label>Assistant Treasurer</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <label>Director</label>
+            </value>
+            <value>
+                <fullName>R</fullName>
+                <default>false</default>
+                <label>Trustee</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>1V</fullName>
+                <default>false</default>
+                <label>1st Vice President</label>
+            </value>
+            <value>
+                <fullName>G</fullName>
+                <default>false</default>
+                <label>General Partner</label>
+            </value>
+            <value>
+                <fullName>L</fullName>
+                <default>false</default>
+                <label>Limited Partner</label>
+            </value>
+            <value>
+                <fullName>MGR</fullName>
+                <default>false</default>
+                <label>Manager</label>
+            </value>
+            <value>
+                <fullName>MEM</fullName>
+                <default>false</default>
+                <label>Member</label>
+            </value>
+            <value>
+                <fullName>Clerk</fullName>
+                <default>false</default>
+                <label>CL</label>
+            </value>
+            <value>
+                <fullName>SCRIBE</fullName>
+                <default>false</default>
+                <label>SCRIBE</label>
+            </value>
+            <value>
+                <fullName>9V</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>9V</label>
+            </value>
+            <value>
+                <fullName>R/ AT LARGE</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>R/ AT LARGE</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Share_Status_Histories_with_SEB_Managers</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Share Status Histories with SEB Managers</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREGManagers</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>startsWith</operation>
+            <value>SH</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>SEB_Status_history</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV101519 - Created for PVL phase 1</description>
+        <label>SEB Status history</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEB_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>BREG_SEB_SEC</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>SEC_Status_history</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>PacPoint-MV101519 - Created for PVL phase 1</description>
+        <label>SEC Status history</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>BREG_SEC_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

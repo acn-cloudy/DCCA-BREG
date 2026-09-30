@@ -1,0 +1,42 @@
+.mds-page{
+    height: 100vh;
+    &_success{
+        padding: var(--spacing-xm-large) var(--spacing-xxxx-large); 
+        border-bottom: var(--spacing-xxx-small) solid var(--primary-main);
+        border-radius: unset;
+        
+
+     @include responsive(tab-land){
+            margin: var(--spacing-xx-large);
+            padding: var(--spacing-xm-large) var(--spacing-x-large);
+            > div:first-child{
+                display: flex;
+                flex-direction: column;
+            }
+            .mds-grid_vertical{
+               padding-bottom: var(--spacing-x-large);
+               width: 100%;
+            }
+        }
+
+        @include responsive(phone){
+                .mds-grid_vertical{
+                    div:first-child{
+                        align-items:unset;
+                    }
+                    .mds-icon_success{
+                        margin-top: toRem(5);
+        
+                    }
+                }
+        
+            }
+        }
+        
+        
+        }
+    
+
+
+
+

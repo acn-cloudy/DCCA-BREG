@@ -1,0 +1,85 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-p-around_small slds-align-middle">
+            <div class="slds-text-heading_large slds-p-around_small">Entity List Builder</div>
+            <template if:false={isStep0}>
+                <div class="slds-align-middle small-button-wrapper">
+                    <lightning-button
+                        label="Reset Form"
+                        variant="brand-outline"
+                        icon-name="utility:refresh"
+                        alternative-text="Reset Form"
+                        class="slds-m-left_x-small"
+                        onclick={handleReset}
+                    >
+                    </lightning-button>
+                </div>
+            </template>
+        </div>
+        <template lwc:if={isStep0}>
+            <div class="slds-p-around_medium">
+                Build a customized list of businesses registered in the State of Hawaii. You can refine your list by entity type, zip code, date, and
+                status.
+                <p>
+                    Lists include all addresses, officers, trade names, trademarks, and service marks associated with the businesses found in your search.
+                </p>
+            </div>
+        </template>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-3">
+                <lightning-card>
+                    <div class="slds-p-around_medium">
+                        <template if:false={isStep0}>
+                            <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+                                <lightning-progress-step label="Select Entity Types" value="1"></lightning-progress-step>
+                                <lightning-progress-step label="Refine Your Search" value="2"></lightning-progress-step>
+                                <lightning-progress-step label="Your Contact Information" value="3"></lightning-progress-step>
+                                <lightning-progress-step label="Search Summary" value="4"></lightning-progress-step>
+                            </lightning-progress-indicator>
+                        </template>
+                        <div class="slds-m-top_medium">
+                            <template lwc:if={isStep0}>
+                                <c-breg_-e-l-b_-start lwc:ref="stepComponent0"></c-breg_-e-l-b_-start>
+                            </template>
+                            <template lwc:if={isStep1}>
+                                <c-breg_-e-l-b_-select-record-types
+                                    search-input={collectedData}
+                                    onstepdata={handleStepData}
+                                lwc:ref="stepComponent1"></c-breg_-e-l-b_-select-record-types>
+                            </template>
+                            <template lwc:if={isStep2}>
+                                <c-breg_-e-l-b_-refine-your-search
+                                    search-input={collectedData}
+                                    onstepdata={handleStepData}
+                                lwc:ref="stepComponent2"></c-breg_-e-l-b_-refine-your-search>
+                            </template>
+                            <template lwc:if={isStep3}>
+                                <c-breg_-e-l-b_-contact-information
+                                    search-input={collectedData}
+                                    onstepdata={handleStepData}
+                                lwc:ref="stepComponent3"></c-breg_-e-l-b_-contact-information>
+                            </template>
+                            <template lwc:if={isStep4}>
+                                <c-breg_-e-l-b_-search-summary search-input={collectedData} onreturntostep={handleReturnToStep} lwc:ref="stepComponent4"></c-breg_-e-l-b_-search-summary>
+                            </template>
+                        </div>
+
+                        <div class="slds-m-top_large slds-align_absolute-center">
+                            <template if:false={isStep0}>
+                                <lightning-button label={previousLabel} onclick={handlePrevious} class="slds-m-right_small" disabled={isFirstStep}>
+                                </lightning-button>
+                            </template>
+
+                            <lightning-button label={nextLabel} variant="brand" onclick={handleNext}> </lightning-button>
+                        </div>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3">
+                <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                    <c-breg_-e-l-b_-additional-services></c-breg_-e-l-b_-additional-services>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

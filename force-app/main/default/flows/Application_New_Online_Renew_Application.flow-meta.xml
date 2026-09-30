@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>JF - 4/15/24 -Update for SOQL Queries 101 Error</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Used to select the Complete Application by Date based on Type of Application.</description>
+        <name>CompleteApplicationByDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+TEXT({!$Record.Type__c}) = &quot;RNEW - Renewal&quot;,
+{!$Record.CurrentLicense__r.EffectiveExpireDate__c} , 
+{!$Record.CurrentLicense__r.RestorationDeadline__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Used to calculate what the license period should be set to on the Application.</description>
+        <name>LicensePeriodFormula</name>
+        <dataType>String</dataType>
+        <expression>IF(
+TEXT({!$Record.Type__c}) = &quot;RNEW - Renewal&quot;, 
+TEXT(MONTH({!$Record.LicenseType__r.NextLicensePeriodEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!$Record.LicenseType__r.NextLicensePeriodEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!$Record.LicenseType__r.NextLicensePeriodEffectiveDate__c}))
++ &quot; - &quot; 
++ TEXT(MONTH({!$Record.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!$Record.LicenseType__r.NextLicensePeriodExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!$Record.LicenseType__r.NextLicensePeriodExpireDate__c})),
+
+TEXT(MONTH({!$Record.LicenseType__r.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!$Record.LicenseType__r.LicenseTypeEffectiveDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!$Record.LicenseType__r.LicenseTypeEffectiveDate__c}))
++ &quot; - &quot; 
++ TEXT(MONTH({!$Record.LicenseType__r.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(DAY({!$Record.LicenseType__r.LicenseTypeExpireDate__c}))
++ &quot;/&quot; 
++ TEXT(YEAR({!$Record.LicenseType__r.LicenseTypeExpireDate__c}))
+
+)</expression>
+    </formulas>
+    <formulas>
+        <name>OnlineRenewalBusinessAddressFormula</name>
+        <dataType>String</dataType>
+        <expression>If({!Get_Application.CurrentLicense__r.BusinessStreet__c} = &quot;&quot;,
+&quot; &quot;,
+{!Get_Application.CurrentLicense__r.BusinessStreet__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.BusinessCity__c} + &quot;, &quot; + TEXT({!Get_Application.CurrentLicense__r.BusinessState__c}) + &quot;, &quot; + TEXT({!Get_Application.CurrentLicense__r.BusinessCountry__c}) + &quot;, &quot; + {!Get_Application.CurrentLicense__r.BusinessZipCode__c})</expression>
+    </formulas>
+    <formulas>
+        <name>OnlineRenewalMailingAddressFormula</name>
+        <dataType>String</dataType>
+        <expression>If({!Get_Application.CurrentLicense__r.MailingStreet__c} = &quot;&quot;,
+&quot; &quot;,
+{!Get_Application.CurrentLicense__r.MailingStreet__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.MailingCity__c} + &quot;, &quot; + TEXT({!Get_Application.CurrentLicense__r.MailingState__c}) + &quot;, &quot; + TEXT({!Get_Application.CurrentLicense__r.MailingCountry__c}) + &quot;, &quot; + {!Get_Application.CurrentLicense__r.MailingZipCode__c})</expression>
+    </formulas>
+    <formulas>
+        <name>OnlineRenewalResidenceAddressFormula</name>
+        <dataType>String</dataType>
+        <expression>If({!Get_Application.CurrentLicense__r.ResidenceStreet__c} = &quot;&quot;,
+&quot; &quot;,
+{!Get_Application.CurrentLicense__r.ResidenceStreet__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.ResidenceCity__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.ResidenceState__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.ResidenceCountry__c} + &quot;, &quot; + {!Get_Application.CurrentLicense__r.ResidenceZipCode__c})</expression>
+    </formulas>
+    <interviewLabel>Application: New Online Renewal {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Application: New Online Renew Application</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Application</name>
+        <label>Get Application</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Application</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Application__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Capture Mailing, Business, and Residence addresses at the time of renewal.</description>
+        <name>Capture_Renewal_Address_Snapshot_Fields</name>
+        <label>Capture Renewal Address Snapshot Fields</label>
+        <locationX>176</locationX>
+        <locationY>647</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Application.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>OnlineRenewalBusinessAddress__c</field>
+            <value>
+                <elementReference>OnlineRenewalBusinessAddressFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OnlineRenewalMailingAddress__c</field>
+            <value>
+                <elementReference>OnlineRenewalMailingAddressFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OnlineRenewalResidenceAddress__c</field>
+            <value>
+                <elementReference>OnlineRenewalResidenceAddressFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Application__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Capture_Renewal_Mail_To_Fields</name>
+        <label>Capture Renewal Mail To Fields</label>
+        <locationX>176</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Capture_Renewal_Address_Snapshot_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Application.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>RenewalMailToCity__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.RenewalMailToCity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RenewalMailToCountry__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.RenewalMailToCountry__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RenewalMailToStateHist__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.RenewalMailToState__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RenewalMailToStreet__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.RenewalMailToStreet__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RenewalMailToZipCode__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.RenewalMailToZipCode__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Application__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Application with new field values for Submitted Applications.</description>
+        <name>Update_Application</name>
+        <label>Update Application</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Capture_Renewal_Mail_To_Fields</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ActiveInactive__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.ActiveInactive__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CompleteApplicationBy__c</field>
+            <value>
+                <elementReference>CompleteApplicationByDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>DependentLicense__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.DependentLicense__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LicensePeriodRNEW__c</field>
+            <value>
+                <elementReference>LicensePeriodFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MethodofLicensure__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.MethodofLicensure__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OnlineSubmitStatus__c</field>
+            <value>
+                <stringValue>Draft</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>$Label.Application_PVL_RNEW</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>AP - Application Pending Submittal by Applicant/Licensee</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TypeofEntity__c</field>
+            <value>
+                <elementReference>Get_Application.CurrentLicense__r.TypeofEntity__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Application</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3 AND 4</filterLogic>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>RNEW - Renewal</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>RSTR - Restore - No A/I Status</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>OnlineApplicationType__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Online Renewal/Restore</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>A1 - Application Submitted, Awaiting Review</stringValue>
+            </value>
+        </filters>
+        <object>Application__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1</triggerOrder>
+    <variables>
+        <name>CurrentLicense</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>License__c</objectType>
+    </variables>
+</Flow>

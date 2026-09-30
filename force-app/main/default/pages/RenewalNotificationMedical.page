@@ -1,0 +1,27 @@
+<apex:page sidebar="false"
+           showHeader="false"
+           controller="RenewalNotificationController"
+           standardStylesheets="false"
+           renderAs="PDF"
+           applyHtmlTag="false"
+           applyBodyTag="false">
+    <head>
+        <style>
+            @page { margin: 0.5in; }
+        </style>
+    </head>
+    <apex:variable value="{!1}" var="rowNum"/>
+    <body>
+    <apex:repeat value="{!records}" var="record">
+        <c:RenewalNotificationMedical license="{!record}"
+                                      licenseType="{!record.LicenseType__r}"
+                                      dToday="{!dToday}"/>
+        <div style="page-break-after:always;"></div>
+        <c:RenewalNotificationMedicalInfo license="{!record}"/>
+        <apex:outputPanel rendered="{!rowNum != records.size}">
+            <div style="page-break-after:always;"></div>
+        </apex:outputPanel>
+        <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+    </apex:repeat>
+    </body>
+</apex:page>

@@ -1,0 +1,119 @@
+/*************** Table ***************/
+.mds-table {
+    background-color: var(--white);
+    font-size: inherit;
+
+    @include responsive(phone) {
+        &.slds-max-medium-table_stacked-horizontal td {
+            overflow: unset;
+        }
+    }
+
+
+    &_bordered {
+        border-collapse: separate;
+        border-top: var(--border-width-thin) solid var(--table-header-border);
+        border-bottom: var(--border-width-thin) solid var(--table-row-border);
+    }
+
+
+    &_header-row {
+        th {
+            background-color: var(--table-header-background);
+            padding: var(--spacing-x-small) var(--spacing-medium);
+            font-weight: var(--font-weight-medium);
+            color: var(--card-body-text);
+
+            @include responsive(phone) {
+                padding: var(--spacing-small);
+            }
+        }
+    }
+
+    &_body-row {
+        @include responsive(phone) {
+            box-shadow: var(--box-shadow-2);
+            margin-bottom: var(--spacing-small);
+            border-radius: var(--border-radius-medium);
+            border-top: none;
+
+            >td:first-child {
+                border-top: 0;
+            }
+        }
+
+        td {
+            border-top: var(--border-width-thin) solid var(--table-header-border);
+            padding: var(--spacing-x-small) var(--spacing-medium);
+            font-weight: var(--font-weight-regular);
+            color: var(--text-primary);
+
+            @include responsive(phone) {
+                padding: var(--spacing-x-small);
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                font-weight: 0.125rem;
+                text-align: left;
+
+                &:before {
+                    float: unset !important;
+                    text-align: left;
+                    text-transform: capitalize;
+                    font-weight: var(--font-weight-medium);
+                    color: var(--text-secondary);
+
+                }
+            }
+        }
+    }
+
+    //Layout Properties
+    &-table-layout {
+        &_fixed {
+            table-layout: fixed;
+        }
+    }
+}
+
+
+
+//SLDS DATA Table Override
+.mds-data-table {
+    .slds-table_header-fixed_container {
+        padding: 0;
+    }
+
+    .slds-resizable__divider {
+        display: none;
+    }
+
+    .slds-is-resizable {
+        .slds-has-button-menu {
+            .slds-th__action {
+                background: var(--table-header-background);
+                font-weight: var(--font-weight-medium);
+                color: var(--card-body-text);
+                padding: 1.125rem !important;
+                height: auto;
+            }
+        }
+
+        .slds-cell-fixed {
+            position: relative;
+
+            .slds-button{
+                padding: 0;
+            }
+        }
+    }
+
+    tbody {
+        th,
+        td {
+            border-top: var(--border-width-thin) solid var(--table-header-border) !important;
+            padding: 1.125rem;
+            font-weight: var(--font-weight-regular);
+            color: var(--text-primary);
+        }
+    }
+}

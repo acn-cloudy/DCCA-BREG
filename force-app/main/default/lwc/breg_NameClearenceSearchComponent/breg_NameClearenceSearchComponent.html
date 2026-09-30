@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Name Clearance" variant="base">
+        <div>
+            <!-- Card Body  -->
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- Search Panel -->
+                <div class="slds-col slds-size_1-of-1">
+                    <c-breg_-name-clearence-search-panel
+                        search-term={searchTerm}
+                        search-status={searchStatus}
+                        ontermsearch={handleTermSearch}
+                        onsearch={handleSearch}
+                    >
+                    </c-breg_-name-clearence-search-panel>
+                </div>
+
+                <!-- Filters Panel -->
+                <div class="slds-col slds-size_1-of-1">
+                    <c-breg_-name-clearence-search-filters
+                        selected-match-type={selectedMatchType}
+                        selected-data-sources={selectedDataSources}
+                        onfilterchange={handleFilterChange}
+                    >
+                    </c-breg_-name-clearence-search-filters>
+                </div>
+
+                <!-- Results Section -->
+                <div class="slds-col slds-size_1-of-1 slds-m-top_medium">
+                    <c-breg_-name-clearence-search-results-table
+                        search-results={searchResults}
+                        is-loading={isLoading}
+                        error-message={errorMessage}
+                        search-status={searchStatus}
+                        total-count={totalCount}
+                    >
+                    </c-breg_-name-clearence-search-results-table>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

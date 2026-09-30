@@ -1,0 +1,17 @@
+<template>
+    <div  class="slds-m-top_medium">
+        <lightning-card>
+            <h3 class="slds-p-left_medium slds-p-bottom_small slds-border_bottom">Enforcement Action Documents</h3>
+            <div class="slds-m-around_medium">
+                <c-extended-data-table
+                    key-field="Id"
+                    data={data}
+                    columns={tableColumns}
+                    class="center-header-table"
+                    hide-checkbox-column
+                    show-row-number-column
+                ></c-extended-data-table>
+            </div>
+        </lightning-card>
+    </div>
+</template>

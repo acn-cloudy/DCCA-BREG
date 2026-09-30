@@ -1,0 +1,29 @@
+/* Minimal custom styles - using standard SLDS components */
+.slds-modal__content {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.slds-box pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.job-card {
+    border: 1px solid #d8dde6;
+}
+
+.job-result-formatted {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+}
+
+.preview-mode-hidden {
+    visibility: hidden;
+}

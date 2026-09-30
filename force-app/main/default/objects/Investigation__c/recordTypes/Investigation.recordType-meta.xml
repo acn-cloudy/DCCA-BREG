@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Investigation</fullName>
+    <active>true</active>
+    <label>Investigation</label>
+    <picklistValues>
+        <picklist>ChecklistStatus__c</picklist>
+        <values>
+            <fullName>Additional Interviews Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Background Check Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bank Records Investigation Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bank Records Subpoena Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Initial Interviews Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DraftActiontobeTaken__c</picklist>
+        <values>
+            <fullName>Cease and Desist</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Injunction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Petition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspension</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Corrections Required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Investigation in Progress</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Supervising Attorney Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Supervisor Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recommend Referral to Legal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recommend to Close</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Report Approved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

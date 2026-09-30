@@ -1,0 +1,9 @@
+<apex:page standardController="Reconciliation_Batch__c" extensions="RunReconciliationBatchController">
+<apex:form >
+    <apex:outputText rendered="{!!isDisabled}" value="Warning! Click below button will re-generate export .csv version in Files." style="color:red"/> 
+    <apex:outputText rendered="{!isDisabled}" value="You cannot re-run the batch as file has already been submitted to 4GOV!" style="color:red"/> 
+    <br></br>
+    <apex:commandButton rendered="{!!isDisabled}" value="Re-run Batch Process" action="{!reRunBatchProcess}"/> &nbsp;&nbsp; 
+    <apex:commandButton action="{!doCancel}" value="Cancel" immediate="true" html-formnovalidate="formnovalidate"/>
+</apex:form>
+</apex:page>

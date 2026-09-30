@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FSAccordancewithUSGAAP__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC111318 - Created for BREG phase 1</description>
+    <inlineHelpText>Audted FS have an unqualified audit opinion to ensure preparation in accordance with US GAAP.</inlineHelpText>
+    <label>FS Accordance with US GAAP</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

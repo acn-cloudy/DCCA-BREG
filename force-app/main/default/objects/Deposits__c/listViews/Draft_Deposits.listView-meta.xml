@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Draft_Deposits</fullName>
+    <columns>NAME</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>DepositDate__c</columns>
+    <columns>Notes__c</columns>
+    <columns>Status__c</columns>
+    <columns>DepositAmount__c</columns>
+    <columns>CollectionAllocationNetAmount__c</columns>
+    <columns>CollectionAllocationPaymentAmount__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Draft</value>
+    </filters>
+    <label>Draft Deposits</label>
+</ListView>

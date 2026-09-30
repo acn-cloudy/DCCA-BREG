@@ -1,0 +1,129 @@
+<aura:component implements="lightning:availableForFlowScreens,lightning:isUrlAddressable,lightning:actionOverride,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global" 
+                controller="ApplicationRecordsCreation" extends="c:Basic" >
+    <aura:attribute name="originAccount" type="Object" 
+        description="Used to collect account record if it is started from account page" />    
+    <aura:attribute name="accountId" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="licenseTypes" type="List" />
+    <aura:attribute name="licenseTypeOptions" type="List" />
+    <aura:attribute name="fromAccount" type="Boolean" default="false" />
+    <aura:attribute name="classifications" type="List" />
+    <aura:attribute name="licenseTypeId" type="String" />
+    <aura:attribute name="accountType" type="String" />
+    <aura:attribute name="typeValue" type="String" default="LICN - New License"/>
+    <aura:attribute name="selectedLicenseType" type="Object" />
+    <aura:attribute name="selectedClassifications" type="List" />
+    <aura:attribute name="chosenClassifications" type="Object" />
+    <aura:attribute name="accountBPID" type="String" />
+    <aura:attribute name="searchAccount" type="Boolean" default="false" />
+    <aura:attribute name="accounts" type="List" />
+    <aura:attribute name="accountHeadNames" type="List" />
+    <aura:attribute name="accountColumnNames" type="List" />
+    <aura:attribute name="selectedAccountPageLayout" type="String" /> 
+    <aura:attribute name="accountValueMap" type="Object" /> 
+    <aura:attribute name="selectedAccount" type="Object" />
+	<aura:handler name="message" event="c:Message" action="{!c.notifySaveComplete}"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:attribute name="step" type="Integer" default ="0"/>
+    <aura:handler name="change" value="{!v.licenseTypeId}" action="{!c.findLicenseType}" />
+    <aura:registerEvent name="Screen" type="c:ChangeScreen"/>  <!--psy-->
+    <aura:handler name="Screen" event="c:ChangeScreen" value="{!this}" action="{!c.next}" includeFacets="true"  />  <!--psy-->
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/> <!--psy-->
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/> <!--psy-->
+    <aura:attribute name="Spinner" type="boolean" default="false"/>  <!--psy-->
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <div id="layot" aura:id="div1" style="height:100%">  
+        <c:WizardModal title="{!(v.step == 0) ? $Label.c.PVLLicenseTypeSearchLabel
+                              : (v.step == 1 ? $Label.c.PVLClassificationTypeLabel:  
+                              (v.step == 3 ? 'Create Application' :$Label.c.PVLAccountSearchCustomLabel)) }">
+            <div style="text-align:right;">
+                <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{! c.cancel }" />
+                <aura:if isTrue="{!v.step != 0}">
+                    <lightning:button variant="brand" label="Previous" title="Previous" onclick="{! c.previous }" />
+                </aura:if>
+                <aura:if isTrue="{!v.step != 3}">
+                   
+                    <lightning:button  aura:id="next" variant="brand" label="Next" name="myButton" title="Next" onclick="{! c.next }"/>
+                </aura:if>
+                <aura:if isTrue="{!v.step == 3}">
+                    <lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.submit }" />
+                </aura:if> 
+            </div>
+            <div> 
+                <aura:if isTrue="{!v.step == 0}">
+               <!-- add the lightning components to display liscense types for display --> 
+        	       <div class="slds-grid slds-wrap" style = "height: 280px;">
+                    <div class="slds-col slds-size_1-of-4" >
+                            <b>License Type</b>
+                            <c:TypeSearchBox defaultOptions="{!v.licenseTypeOptions}" 
+                                             value="{!v.licenseTypeId}"
+                                             label="{!v.selectedLicenseType.Name}"/>
+                       
+                            <aura:if isTrue="{!v.selectedLicenseType}">
+                                <div class="slds-p-top_small" >
+                                    <div><b>License Type Description:</b>  </div>
+                                    {!v.selectedLicenseType? v.selectedLicenseType.LicenseType__c  : ''}
+                                
+                                </div>
+                            </aura:if>
+                            <div>
+                                <lightning:select name="type" label="Type" value="{!v.typeValue}">
+                                    <option value="LICN - New License">LICN - New License</option>
+                                    <option value="ADDC - Additional Class">ADDC - Additional Class</option>
+                                    <option value="ADDP - Additional Special Privilege">ADDP - Additional Special Privilege</option>
+                                </lightning:select>
+                            </div>
+                    </div>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.step == 1}">
+                    <!-- add the lightning components to display classifications types for display -->
+                    <c:SelectListView aura:id="classifications"
+                                      records="{!v.classifications}"
+                                      headNames="['Name', 'Description']"
+                                      columnNames="['Name', 'Description__c']"
+                                      valueMap="{!v.chosenClassifications}" />
+                       
+                </aura:if>
+                <div class="{!v.step == 2 ? '' : 'slds-hide'}">
+                    <c:AccountRecordUpsert aura:id="accountSearch"
+                                           recordTypeName="{!v.accountType}" 
+                                           layoutName="{!v.selectedAccountPageLayout}"
+                                           recordId="{!v.accountId}" />
+                    <!--<c:AccountRecordSearchCreate selectedAccount="{!v.selectedAccount}"
+                                                 aura:id="accountSearch" 
+                                                 accountType="{!v.accountType}"
+                                                 accountBPID="{!v.accountBPID}"
+                                                 searchAccount="{!v.searchAccount}"
+                                                 accounts="{!v.accounts}"
+                                                 headNames="{!v.accountHeadNames}"
+                                                 columnNames="{!v.accountColumnNames}"
+                                                 next="{!c.next}"
+                                                 accountValueMap="{!v.accountValueMap}" />-->
+                        
+				</div>    
+                <aura:if isTrue="{!v.step == 3}">
+                    <c:ApplicationRecordsCreation aura:id="applicationRecordCreation"
+                                                  cancel="{!c.cancel}"
+                                                  typeField="{!v.typeValue}"
+                                                  selectedLicenseType="{!v.selectedLicenseType}"
+                                                  selectedClassifications="{!v.selectedClassifications}"
+                                                  selectedAccount="{!v.selectedAccount}" />  
+                </aura:if>
+            </div>
+         
+       	<aura:set attribute="footer">
+                <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{!c.cancel }"/>
+                <aura:if isTrue="{!v.step != 0}">
+                    <lightning:button variant="brand" label="Previous" title="Previous" onclick="{!c.previous }"/>
+                </aura:if>
+                <aura:if isTrue="{!v.step != 3}">
+                    <lightning:button  variant="brand" label="Next" title="Next" onclick="{!c.next }"/>
+                </aura:if>
+                <aura:if isTrue="{!v.step == 3}">
+                        <lightning:button variant="brand" label="Submit" title="Submit" onclick="{!c.submit }"/>
+                </aura:if>
+            </aura:set> 
+        </c:WizardModal> 
+    </div>
+</aura:component>

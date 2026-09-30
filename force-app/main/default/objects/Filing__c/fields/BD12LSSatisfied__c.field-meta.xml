@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BD12LSSatisfied__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>PacPoint-IC0100518 - Created for BREG phase 1</description>
+    <inlineHelpText>Not engaged in businesses listed in #12L or #12S. If yes, must be licensed and/or registered with State. VLA or IA</inlineHelpText>
+    <label>BD 12L/S Satisfied?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

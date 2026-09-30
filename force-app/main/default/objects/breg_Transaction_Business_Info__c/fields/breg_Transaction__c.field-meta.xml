@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>breg_Transaction__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>BREG Transaction</label>
+    <referenceTo>breg_Transaction__c</referenceTo>
+    <relationshipLabel>Transaction Business Info</relationshipLabel>
+    <relationshipName>Transaction_Business_Info</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
