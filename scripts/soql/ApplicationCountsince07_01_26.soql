@@ -1,0 +1,3 @@
+SELECT Phase__c, Id
+  FROM Application__c
+  WHERE CreatedDate > 2026-07-05T00:00:00Z
