@@ -1,20 +1,18 @@
 {
   "mcpServers": {
-    "salesforce-dx": {
-      "command": "npx",
+    "sf-dx": {
+      "command": "/Users/sayeed.faruqi/.nvm/versions/node/v22.23.3/bin/node",
       "args": [
-        "-y",
-        "@salesforce/mcp",
-        "--orgs", "iscodfull",
+        "/Users/sayeed.faruqi/.nvm/versions/node/v20.20.2/lib/node_modules/@salesforce/mcp/bin/run.js",
+        "--orgs", "DCCA",
         "--toolsets", "metadata,data,code-analysis,lwc-experts,testing,scale-products",
         "--allow-non-ga-tools"
       ]
     },
     "salesforce-hosted": {
-      "command": "npx",
+      "command": "/Users/sayeed.faruqi/.nvm/versions/node/v22.23.3/bin/node",
       "args": [
-        "-y",
-        "mcp-remote",
+        "/Users/sayeed.faruqi/.nvm/versions/node/v22.23.3/lib/node_modules/mcp-remote/dist/proxy.js",
         "https://api.salesforce.com/platform/mcp/v1/sandbox/sobject-all",
         "8080",
         "--static-oauth-client-info",

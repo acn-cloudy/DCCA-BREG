@@ -90,7 +90,7 @@ The pre-commit Husky hook runs Prettier, ESLint, and LWC Jest automatically on c
 ## MCP Servers
 
 Configured in [.mcp.json](.mcp.json):
-- **`salesforce-dx`** — Local Salesforce CLI MCP, targeting org alias `iscodfull`. Toolsets: `metadata, data, code-analysis, lwc-experts, testing, scale-products`
+- **`sf-dx`** — Local Salesforce CLI MCP, targeting org alias `iscodfull`. Toolsets: `metadata, data, code-analysis, lwc-experts, testing, scale-products`
 - **`salesforce-hosted`** — Remote Salesforce platform MCP at `https://api.salesforce.com/platform/mcp/v1/sandbox/sobject-all` for the iscodfull sandbox
 
 ## Domain Map (16 Bounded Contexts)
